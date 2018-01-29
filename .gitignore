@@ -2,3 +2,10 @@
 *.mesh
 *.dds
 *.bmp
+*.psd
+*.tga
+*.fnt
+*.otf
+*.ttf
+*.ani
+*.png
