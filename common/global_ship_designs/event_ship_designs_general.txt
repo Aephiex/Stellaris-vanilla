@@ -6,14 +6,38 @@ ship_design = {
 	section = {
 		template = "passenger_liner_section"
 		slot = "mid"
-		
-		component = {
-			slot = "LARGE_UTILITY_1"
-			template = "LARGE_ANTIMATTER_REACTOR"
-		}
 	}
-	required_component = "WARP_DRIVE_1"
+	required_component = "HYPER_DRIVE_1"
 	required_component = "SHIP_THRUSTER_1"
+	required_component = "CORVETTE_FISSION_REACTOR"
+}
+
+# Civilian Freighter
+ship_design = {
+	name = "NAME_C1"
+	ship_size = civilian_freighter
+	
+	section = {
+		template = "civilian_freighter_section"
+		slot = "mid"
+	}
+	required_component = "HYPER_DRIVE_1"
+	required_component = "SHIP_THRUSTER_1"
+	required_component = "CORVETTE_FISSION_REACTOR"
+}
+
+# Civilian Tanker
+ship_design = {
+	name = "NAME_C2"
+	ship_size = civilian_tanker
+	
+	section = {
+		template = "civilian_tanker_section"
+		slot = "mid"
+	}
+	required_component = "HYPER_DRIVE_1"
+	required_component = "SHIP_THRUSTER_1"
+	required_component = "CORVETTE_FISSION_REACTOR"
 }
 
 # Primitive Space Station
@@ -24,12 +48,8 @@ ship_design = {
 	section = {
 		template = "primitive_space_station_section"
 		slot = "mid"
-		
-		component = {
-			slot = "SMALL_UTILITY_1"
-			template = "SMALL_FISSION_REACTOR"
-		}
 	}
+	required_component = "CORVETTE_FISSION_REACTOR"
 }
 
 # Generic Starbase
@@ -62,7 +82,7 @@ ship_design = {
 		}
 		component = {
 			slot = "LARGE_GUN_01"
-			template = "LARGE_ENERGY_LANCE_1"
+			template = "ENERGY_LANCE_1"
 		}
 	}
 }
@@ -77,21 +97,30 @@ ship_design = {
 		
 		component = {
 			slot = "SMALL_GUN_01"
-			template = "POINT_DEFENCE_1"
+			template = "POINT_DEFENCE_3"
 		}
 		component = {
 			slot = "SMALL_GUN_02"
-			template = "SMALL_RED_LASER"
+			template = "SMALL_GAMMA_LASER"
 		}
 		component = {
 			slot = "MEDIUM_UTILITY_1"
-			template = "MEDIUM_ANTIMATTER_REACTOR"
+			template = "MEDIUM_SHIELD_4"
 		}
 		component = {
 			slot = "MEDIUM_UTILITY_2"
-			template = "MEDIUM_SHIELD_2"
+			template = "MEDIUM_SHIELD_4"
+		}
+		component = {
+			slot = "MEDIUM_UTILITY_3"
+			template = "MEDIUM_ARMOR_4"
+		}
+		component = {
+			slot = "MEDIUM_UTILITY_4"
+			template = "MEDIUM_ARMOR_4"
 		}
 	}
+	required_component = "DESTROYER_ANTIMATTER_REACTOR"
 }
 
 
@@ -114,31 +143,24 @@ ship_design = {
 		component = {
 			slot = "SMALL_GUN_03"
 			template = "SMALL_RED_LASER"
-		}		
-		component = {
-			slot = "MEDIUM_UTILITY_1"
-			template = "MEDIUM_FUSION_REACTOR"
-		}
-		component = {
-			slot = "MEDIUM_UTILITY_2"
-			template = "MEDIUM_FUSION_REACTOR"
 		}
 		component = {
 			slot = "SMALL_UTILITY_1"
-			template = "SMALL_SHIELD_1"
+			template = "SMALL_ARMOR_1"
 		}
 		component = {
 			slot = "SMALL_UTILITY_2"
-			template = "SMALL_SHIELD_1"
-		}	
+			template = "SMALL_ARMOR_1"
+		}
 		component = {
 			slot = "SMALL_UTILITY_3"
-			template = "SMALL_ARMOR_1"
-		}			
+			template = "SMALL_SHIELD_1"
+		}		
 	}
-	required_component="WARP_DRIVE_1"
+	required_component="HYPER_DRIVE_1"
 	required_component="SHIP_THRUSTER_1"
-	required_component="SHIP_SENSOR_1"
+	required_component="SENSOR_1"
+	required_component = "CORVETTE_FISSION_REACTOR"
 }
 
 # Generic Destroyer
@@ -162,17 +184,29 @@ ship_design = {
 			template = "SMALL_RED_LASER"
 		}
 		component = {
-			slot = "MEDIUM_UTILITY_1"
-			template = "MEDIUM_FUSION_REACTOR"
+			slot = "SMALL_UTILITY_1"
+			template = "SMALL_ARMOR_1"
 		}
 		component = {
-			slot = "MEDIUM_UTILITY_2"
-			template = "MEDIUM_FUSION_REACTOR"
+			slot = "SMALL_UTILITY_2"
+			template = "SMALL_ARMOR_1"
 		}
 		component = {
-			slot = "MEDIUM_UTILITY_3"
-			template = "MEDIUM_FUSION_REACTOR"
+			slot = "SMALL_UTILITY_3"
+			template = "SMALL_ARMOR_1"
 		}
+		component = {
+			slot = "SMALL_UTILITY_4"
+			template = "SMALL_ARMOR_1"
+		}
+		component = {
+			slot = "SMALL_UTILITY_5"
+			template = "SMALL_SHIELD_1"
+		}
+		component = {
+			slot = "SMALL_UTILITY_6"
+			template = "SMALL_SHIELD_1"
+		}	
 	}
 	section = {
 		template = "DESTROYER_STERN_S2"
@@ -186,26 +220,11 @@ ship_design = {
 			slot = "SMALL_GUN_02"
 			template = "SMALL_RED_LASER"
 		}
-		component = {
-			slot = "SMALL_UTILITY_1"
-			template = "SMALL_FUSION_REACTOR"
-		}
-		component = {
-			slot = "SMALL_UTILITY_2"
-			template = "SMALL_FUSION_REACTOR"
-		}
-		component = {
-			slot = "SMALL_UTILITY_3"
-			template = "SMALL_FUSION_REACTOR"
-		}
-		component = {
-			slot = "SMALL_UTILITY_4"
-			template = "SMALL_FUSION_REACTOR"
-		}
 	}
-	required_component="WARP_DRIVE_1"
+	required_component="HYPER_DRIVE_1"
 	required_component="SHIP_THRUSTER_1"
-	required_component="SHIP_SENSOR_1"
+	required_component="SENSOR_1"
+	required_component = "DESTROYER_FUSION_REACTOR"
 }
 
 # Incoming Asteroid
@@ -247,11 +266,11 @@ ship_design = {
 		
 		component = {
 			slot = "LARGE_GUN_01"
-			template = "LARGE_MISSILE_2"
+			template = "LARGE_BLUE_LASER"
 		}
 		component = {
 			slot = "LARGE_GUN_02"
-			template = "LARGE_MISSILE_2"
+			template = "LARGE_BLUE_LASER"
 		}
 		component = {
 			slot = "MEDIUM_GUN_01"
@@ -267,14 +286,14 @@ ship_design = {
 		}		
 		component = {
 			slot = "MEDIUM_UTILITY_1"
-			template = "MEDIUM_FUSION_REACTOR"
+			template = "MEDIUM_SHIELD_2"
 		}
 		component = {
-			slot = "MEDIUM_UTILITY_1"
-			template = "MEDIUM_FUSION_REACTOR"
+			slot = "MEDIUM_UTILITY_2"
+			template = "MEDIUM_SHIELD_2"
 		}			
 		component = {
-			slot = "MEDIUM_UTILITY_2"
+			slot = "MEDIUM_UTILITY_3"
 			template = "MEDIUM_SHIELD_2"
 		}		
 		component = {
@@ -282,9 +301,10 @@ ship_design = {
 			template = "LARGE_ARMOR_2"
 		}		
 	}
-	required_component="WARP_DRIVE_2"
+	required_component="HYPER_DRIVE_2"
 	required_component="SHIP_THRUSTER_2"
-	required_component="SHIP_SENSOR_2"
+	required_component="SENSOR_2"
+	required_component="CRUISER_FUSION_REACTOR"
 }
 
 # Cultist Ship II
@@ -298,11 +318,11 @@ ship_design = {
 		
 		component = {
 			slot = "LARGE_GUN_01"
-			template = "LARGE_MISSILE_1"
+			template = "LARGE_RED_LASER"
 		}
 		component = {
 			slot = "LARGE_GUN_02"
-			template = "LARGE_MISSILE_1"
+			template = "LARGE_RED_LASER"
 		}
 		component = {
 			slot = "MEDIUM_GUN_01"
@@ -318,14 +338,14 @@ ship_design = {
 		}		
 		component = {
 			slot = "MEDIUM_UTILITY_1"
-			template = "MEDIUM_FISSION_REACTOR"
+			template = "MEDIUM_SHIELD_1"
 		}
 		component = {
-			slot = "MEDIUM_UTILITY_1"
-			template = "MEDIUM_FISSION_REACTOR"
+			slot = "MEDIUM_UTILITY_2"
+			template = "MEDIUM_SHIELD_1"
 		}			
 		component = {
-			slot = "MEDIUM_UTILITY_2"
+			slot = "MEDIUM_UTILITY_3"
 			template = "MEDIUM_SHIELD_1"
 		}			
 		component = {
@@ -333,7 +353,8 @@ ship_design = {
 			template = "LARGE_ARMOR_1"
 		}			
 	}
-	required_component="WARP_DRIVE_1"
+	required_component="HYPER_DRIVE_1"
 	required_component="SHIP_THRUSTER_1"
-	required_component="SHIP_SENSOR_1"
+	required_component="SENSOR_1"
+	required_component="CRUISER_FISSION_REACTOR"
 }

@@ -195,7 +195,10 @@ country_event = {
 		text = advisor.1.desc_19
 		show_sound = materialist_chairman_intro
 		trigger = {
-			has_government = gov_executive_committee
+			OR = {
+				has_government = gov_executive_committee
+				has_government = gov_trade_league
+			}
 			NOT = { leader = { gender = female } }
 		}
 	}
@@ -205,7 +208,10 @@ country_event = {
 		text = advisor.1.desc_20
 		show_sound = materialist_chairwoman_intro
 		trigger = {
-			has_government = gov_executive_committee
+			OR = {
+				has_government = gov_executive_committee
+				has_government = gov_trade_league
+			}
 			leader = { gender = female }
 		}
 	}
@@ -304,6 +310,7 @@ country_event = {
 				has_government = gov_theocratic_oligarchy
 				has_government = gov_theocratic_republic
 				has_government = gov_holy_tribunal
+				has_government = gov_megachurch
 			}
 		}
 	}
@@ -319,7 +326,7 @@ country_event = {
 	
 	immediate = {
 		set_advisor_active = yes
-		country_event = { id = advisor.26 days = 120 }
+		country_event = { id = advisor.26 days = 220 }
 		capital_scope = {
 			solar_system = {
 				every_system_planet = {
@@ -490,7 +497,13 @@ ship_event = {
 			NOT = { has_country_flag = advisor_potential_colony }
 			num_owned_planets = 1
 		}
-		FROM = { has_planet_flag = freebie_colony }
+		FROM = { 
+			is_ideal_planet_class = {
+				who = root.owner
+				status = yes
+			}
+			is_colony = no
+		}
 	}
 		
 	immediate = {
@@ -606,7 +619,7 @@ country_event = {
 	# Xenophobe
 	desc = {
 		text = advisor.27.desc_01
-		show_sound = event_first_contact_xenophile_advisor
+		show_sound = event_first_contact_xenophobe_advisor
 		trigger = {
 			OR = {
 				has_ethic = "ethic_xenophobe"

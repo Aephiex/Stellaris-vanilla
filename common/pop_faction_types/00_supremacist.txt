@@ -79,10 +79,12 @@ supremacist = {
 		
 		modifier = {
 			factor = 0
-			OR = {
-				has_trait = "trait_robotic_1"
-				has_trait = "trait_robotic_2"
-				has_trait = "trait_robotic_3"
+			species = {
+				OR = {
+					has_trait = "trait_robotic_1"
+					has_trait = "trait_robotic_2"
+					has_trait = "trait_robotic_3"
+				}			
 			}			
 		}
 		
@@ -108,6 +110,27 @@ supremacist = {
 			owner = {
 				exists = ruler
 				ruler = { is_same_species = owner_species }
+			}
+		}
+	}
+	
+	demand = {
+		title = "SUPREMACIST_ISOLATIONIST_NO_FEDERATION"
+		unfulfilled_title = "SUPREMACIST_ISOLATIONIST_FEDERATION"
+		desc = "SUPREMACIST_ISOLATIONIST_NO_FEDERATION_DESC"
+		
+		unfulfilled_effect = -25
+		
+		potential = {
+			exists = owner
+			owner = {
+				num_communications > 0
+			}
+		}
+		
+		trigger = {
+			owner = {
+				has_federation = no
 			}
 		}
 	}

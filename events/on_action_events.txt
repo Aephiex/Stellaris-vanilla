@@ -3976,11 +3976,6 @@ country_event = {
 	immediate = {
 		establish_communications = from
 		fromfrom = {
-			add_threat = {
-				who = root
-				amount = 4 # scales to pops
-			}		
-		
 			conquer = root
 			set_controller = root
 		}
@@ -4008,6 +4003,7 @@ country_event = {
 				#is_country_type = nomad
 			}
 		}
+		NOT = { has_country_flag = has_communications@from }
 	}
 
 	immediate = {
@@ -4598,6 +4594,7 @@ country_event = {
 			limit = {
 				has_communications = root
 				is_country_type = default
+				NOT = { is_same_value = root }
 			}
 			add_opinion_modifier = {
 				who = root
@@ -5032,6 +5029,79 @@ country_event = {
 	}
 }
 
+# First Contact Marauders
+country_event = {
+	id = action.26
+	title = "action.10.name"
+	desc = "action.15.desc"
+	picture = GFX_evt_star_chart
+	location = FROMFROMFROM
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		FROM = { is_country_type = dormant_marauders }
+		is_country_type = default
+		NOT = { 
+			AND = {
+				has_country_flag = marauder_encountered_1
+				from = { has_country_flag = marauder_1 }
+			}
+			AND = {
+				has_country_flag = marauder_encountered_2
+				from = { has_country_flag = marauder_2 }
+			}
+			AND = {
+				has_country_flag = marauder_encountered_3
+				from = { has_country_flag = marauder_3 }
+			}
+		}
+	}
+	
+	immediate = {
+		from = { save_event_target_as = encountered_marauder }
+		capital_scope = { save_event_target_as = pc_home }
+		from = {
+			enable_special_project = {
+				name = "INVESTIGATE_MARAUDERS"
+				location = event_target:pc_home
+				owner = ROOT
+			}
+		}
+		if = {
+			limit = {
+				from = { has_country_flag = marauder_1 }
+			}
+			set_country_flag = marauder_encountered_1
+			break = yes
+		}
+		if = {
+			limit = {
+				from = { has_country_flag = marauder_2 }
+			}
+			set_country_flag = marauder_encountered_2
+			break = yes
+		}
+		if = {
+			limit = {
+				from = { has_country_flag = marauder_3 }
+			}
+			set_country_flag = marauder_encountered_3
+		}
+	}
+	
+	option = {
+		name = "action.10.a"
+		tooltip = {
+			enable_special_project = {
+				name = "INVESTIGATE_MARAUDERS"
+				location = event_target:pc_home
+				owner = ROOT
+			}
+		}
+	}
+}
+
 # First Contact Pirate Critters
 country_event = {
 	id = action.50
@@ -5116,7 +5186,10 @@ planet_event = {
 			is_robot_pop = no
 			is_sapient = yes
 			NOT = { has_trait = "trait_hive_mind" }
-			NOT = { has_purge_type = { country = from type = purge_neutering } }
+			OR = {
+				NOT = { has_citizenship_type = { country = from type = citizenship_purge } }
+				NOT = { has_purge_type = { country = from type = purge_neutering } }
+			}
 		}
 		is_controlled_by = FROM
 	}
@@ -5143,36 +5216,6 @@ planet_event = {
 			}
 			add_opinion_modifier = { who = FROM modifier = opinion_genocidal_our_species }
 		}		
-	}
-}
-
-# Pops and Other Empires react to full orbital bombardment
-country_event = {
-	id = action.23
-	
-	hide_window = yes
-	
-	is_triggered_only = yes
-	
-	immediate = {
-		every_country = {
-			limit = {
-				has_communications = ROOT
-				NOT = { is_country = ROOT }
-				NOT = { has_policy_flag = allow_orbital_bombardment_full }
-				NOT = {
-					OR = {
-						has_ethic = "ethic_militarist"
-						has_ethic = "ethic_fanatic_militarist"
-					}
-				}
-				OR = {
-					is_country_type = default
-					has_ai_personality = awakened_fallen_empire_xenophile				
-				}
-			}
-			add_opinion_modifier = { who = ROOT modifier = opinion_nuker }
-		}
 	}
 }
 
@@ -5465,6 +5508,9 @@ country_event = {
 						is_ship_class = shipclass_military_station
 						#owner = { is_same_value = prevprevprev.owner }
 					}
+					set_owner = root
+				}
+				starbase = {
 					set_owner = root
 				}
 			}
@@ -5838,10 +5884,6 @@ country_event = {
 					who = prev
 					value > 0
 				}
-				war_begun_num_wormhole_stations_destroyed = {
-					who = prev
-					value > 0
-				}
 			}
 		}
 	}
@@ -5861,21 +5903,6 @@ country_event = {
 				success_text = {
 					text = "action.41.desc.b"
 					war_begun_num_fleets_gone_mia = {
-						who = prev
-						value > 1
-					}
-				}
-				text = "newline"
-				success_text = {
-					text = "action.41.desc.c.1"
-					war_begun_num_wormhole_stations_destroyed = {
-						who = prev
-						value = 1
-					}
-				}
-				success_text = {
-					text = "action.41.desc.c"
-					war_begun_num_wormhole_stations_destroyed = {
 						who = prev
 						value > 1
 					}
@@ -5978,8 +6005,8 @@ planet_event = {
 						}	
 					}							
 					random_list = {
-						33 = { pop_event = { id = refugees.4 } }
-						66 = { kill_pop = yes }
+						66 = { pop_event = { id = refugees.4 } }
+						33 = { kill_pop = yes }
 					}	
 					set_global_flag = land_appropriated
 				}				
@@ -6029,8 +6056,8 @@ planet_event = {
 						}	
 					}							
 					random_list = {
-						33 = { pop_event = { id = refugees.4 } }
-						66 = { kill_pop = yes }
+						66 = { pop_event = { id = refugees.4 } }
+						33 = { kill_pop = yes }
 					}	
 					set_global_flag = land_appropriated
 				}				
@@ -6080,9 +6107,9 @@ planet_event = {
 						}	
 					}							
 					random_list = {
-						33 = { pop_event = { id = refugees.4 } }
-						66 = { kill_pop = yes }
-					}
+						66 = { pop_event = { id = refugees.4 } }
+						33 = { kill_pop = yes }
+					}	
 					set_global_flag = land_appropriated
 				}				
 			}
@@ -6131,9 +6158,9 @@ planet_event = {
 						}	
 					}							
 					random_list = {
-						33 = { pop_event = { id = refugees.4 } }
-						66 = { kill_pop = yes }
-					}
+						66 = { pop_event = { id = refugees.4 } }
+						33 = { kill_pop = yes }
+					}	
 					set_global_flag = land_appropriated
 				}				
 			}	
@@ -6182,8 +6209,8 @@ planet_event = {
 						}	
 					}							
 					random_list = {
-						33 = { pop_event = { id = refugees.4 } }
-						66 = { kill_pop = yes }
+						66 = { pop_event = { id = refugees.4 } }
+						33 = { kill_pop = yes }
 					}	
 					set_global_flag = land_appropriated
 				}				
@@ -6914,6 +6941,43 @@ planet_event = {
 															change_scoped_species = yes
 															# change only this pop's species
 														}
+														else = { #### Psionic Assimilation
+															if = {
+																limit = {
+																	root.owner = {
+																		has_ascension_perk = ap_transcendence
+																	}
+																	NOR = {
+																		has_trait = trait_psionic
+																		has_trait = trait_latent_psionic
+																	}
+																	#has_living_standard = {
+																	#	country = root
+																	#	type = psionic_assimilation
+																	#}
+																}
+																modify_species = {
+																	species = this
+																	add_trait = trait_psionic
+																	add_traits_at_start_of_list = yes
+																	change_scoped_species = yes
+																}
+																else = {
+																	if = {
+																		limit = {
+																			NOT = { has_trait = trait_psionic}
+																			has_trait = trait_latent_psionic
+																		}
+																		modify_species = {
+																			species = this
+																			remove_trait = trait_latent_psionic
+																			add_traits_at_start_of_list = yes
+																			change_scoped_species = yes
+																		}
+																	}
+																}
+															}
+														}
 													}
 												}
 											}
@@ -7051,9 +7115,46 @@ planet_event = {
 																change_scoped_species = yes
 																# change only this pop's species
 															}
+															else = { #### Psionic Assimilation ADD OTHER RANDOM OPTIONS TOO
+																if = {
+																	limit = {
+																		root.owner = {
+																			has_ascension_perk = ap_transcendence
+																		}
+																		NOR = {
+																			has_trait = trait_psionic
+																			has_trait = trait_latent_psionic
+																		}
+																		#has_living_standard = {
+																		#	country = root
+																		#	type = psionic_assimilation
+																		#}
+																	}
+																	modify_species = {
+																		species = this
+																		add_trait = trait_psionic
+																		add_traits_at_start_of_list = yes
+																		change_scoped_species = yes
+																	}
+																	else = {
+																		if = {
+																			limit = {
+																				NOT = { has_trait = trait_psionic}
+																				has_trait = trait_latent_psionic
+																			}
+																			modify_species = {
+																				species = this
+																				remove_trait = trait_latent_psionic
+																				add_traits_at_start_of_list = yes
+																				change_scoped_species = yes
+																			}
+																		}
+																	}
+																}
+															}
 														}
 													}
-												}
+												}	
 											}
 										}
 									}
@@ -7188,6 +7289,43 @@ planet_event = {
 																remove_trait = trait_hive_mind
 																change_scoped_species = yes
 																# change only this pop's species
+															}
+															else = { #### Psionic Assimilation ADD OTHER RANDOM OPTIONS TOO
+																if = {
+																	limit = {
+																		root.owner = {
+																			has_ascension_perk = ap_transcendence
+																		}
+																		NOR = {
+																			has_trait = trait_psionic
+																			has_trait = trait_latent_psionic
+																		}
+																		#has_living_standard = {
+																		#	country = root
+																		#	type = psionic_assimilation
+																		#}
+																	}
+																	modify_species = {
+																		species = this
+																		add_trait = trait_psionic
+																		add_traits_at_start_of_list = yes
+																		change_scoped_species = yes
+																	}
+																	else = {
+																		if = {
+																			limit = {
+																				NOT = { has_trait = trait_psionic}
+																				has_trait = trait_latent_psionic
+																			}
+																			modify_species = {
+																				species = this
+																				remove_trait = trait_latent_psionic
+																				add_traits_at_start_of_list = yes
+																				change_scoped_species = yes
+																			}
+																		}
+																	}
+																}
 															}
 														}
 													}
@@ -7443,5 +7581,384 @@ country_event = {
 
 	option = {
 		name = UNFORTUNATE
+	}
+}
+
+
+# Removes existing Android Armies when AI is Outlawed, and Robotic Armies when Robot Workers are Outlawed
+country_event = {
+	id = action.80
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				last_changed_policy = artificial_intelligence_policy
+				has_policy_flag = ai_outlawed
+				any_owned_army = {
+					OR = {
+						army_type = android_army
+						army_type = android_defense_army
+					}
+				}
+			}
+			AND = {
+				last_changed_policy = robot_pop_policy
+				has_policy_flag = robots_outlawed
+				any_owned_army = {
+					OR = {
+						army_type = robotic_army
+						army_type = robotic_defense_army
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = { last_changed_policy = artificial_intelligence_policy has_policy_flag = ai_outlawed }
+			every_owned_army = {
+				limit = {
+					OR = {
+						army_type = android_army
+						army_type = android_defense_army
+					}
+				}
+				remove_army = yes
+			}
+			else = {
+				if = {
+					limit = { last_changed_policy = robot_pop_policy has_policy_flag = robots_outlawed }
+					every_owned_army = {
+						limit = {
+							OR = {
+								army_type = robotic_army
+								army_type = robotic_defense_army
+							}
+						}
+						remove_army = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+# Planet is turned into tomb world by Armageddon bombing stance
+planet_event = {
+	id = action.81
+	hide_window = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_orbital_bombardment_stance = armageddon
+		from = {
+			OR = {
+				is_country_type = default
+				is_country_type = fallen_empire
+				is_country_type = awakened_fallen_empire
+			}
+		}
+		habitable_planet = yes
+	}
+	
+	immediate = {
+		owner = { 
+			add_static_war_exhaustion = {
+				attacker = from
+				location = root
+				value_for_planet_destruction = 0.5
+			}
+			country_event = { id = action.82 } 
+		}
+		from = { country_event = { id = action.83 } }
+		change_pc = pc_nuked
+		clear_buildings = yes
+		reroll_deposits = yes
+		reroll_blockers = yes
+		remove_modifier = "natural_beauty"
+		remove_modifier = "atmospheric_aphrodisiac"
+		remove_modifier = "atmospheric_hallucinogen"
+		remove_modifier = "lush_planet"		
+		remove_modifier = "dangerous_wildlife"
+		set_planet_flag = armageddon_nuked
+	}
+}
+
+# Planet is turned into tomb world by Armageddon bombing stance (former owner)
+country_event = {
+	id = action.82
+	title = "action.82.name"
+	picture = GFX_evt_nuclear_explosion
+	desc = action.82.desc
+	show_sound = event_super_explosion
+	location = from
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = action.82.a
+		custom_tooltip = bombed_to_tomb_world
+	}
+}
+
+# Planet is turned into tomb world by Armageddon bombing stance (bombarder)
+country_event = {
+	id = action.83
+	title = "action.82.name"
+	picture = GFX_evt_nuclear_explosion
+	desc = action.83.desc
+	show_sound = event_super_explosion
+	location = from
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EXCELLENT
+		custom_tooltip = bombed_to_tomb_world
+	}
+}
+
+# Planet conquered
+planet_event = {
+	id = action.84
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		owner = {
+			set_timed_country_flag = { flag = imperialist_conquest_timed_flag days = 3600 }
+		}
+	}
+}
+
+# Planets in mixed-ownership systems fall to starbase owner
+event = {
+	id = action.85
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		any_country = {
+			NOT = { is_country_type = primitive }
+			any_owned_planet = {
+				exists = starbase
+				starbase = {
+					owner = {
+						NOR = {
+							is_same_value = prevprevprev
+							is_at_war_with = prevprevprev
+						}
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		every_planet = {
+			limit = {
+				exists = owner
+				owner = {
+					OR = {
+						is_country_type = default
+						is_country_type = fallen_empire
+						is_country_type = awakened_fallen_empire
+					}
+				}
+				exists = starbase
+				starbase = {
+					exists = owner
+					owner = {
+						NOR = {
+							is_same_value = prevprev.owner
+							is_at_war_with = prevprev.owner
+						}
+					}
+				}
+			}
+			planet_event = { id = action.86 } # planet flips to starbase owner
+		}
+	}
+}
+
+planet_event = {
+	id = action.86
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		owner = { save_event_target_as = former_planet_owner }
+		starbase.owner = { save_event_target_as = new_planet_owner }
+
+		set_owner = event_target:new_planet_owner # flip planet
+
+		event_target:former_planet_owner = {
+			country_event = { id = action.87 } # notification to former owner
+		}
+
+		#owner = {
+		#	country_event = { id = action.87 } # notification to former owner
+		#}
+
+		event_target:new_planet_owner = {
+			country_event = { id = action.88 } # notification to new owner
+		}
+
+		#starbase.owner = {
+		#	country_event = { id = action.88 } # notification to new owner
+		#}
+
+		#set_owner = event_target:new_planet_owner # flip planet
+	}
+}
+
+country_event = {
+	id = action.87
+	title = action.87.name
+	desc = action.87.desc
+	picture = GFX_evt_star_chart
+	show_sound = event_default
+	location = from
+
+	is_triggered_only = yes
+
+	option = {
+		name = UNFORTUNATE
+		tooltip = {
+			from = {
+				set_owner = event_target:new_planet_owner
+			}
+		}
+	}
+}
+
+country_event = {
+	id = action.88
+	title = action.88.name
+	desc = action.88.desc
+	picture = GFX_evt_star_chart
+	show_sound = event_default
+	location = from
+
+	is_triggered_only = yes
+
+	option = {
+		name = OK
+		tooltip = {
+			from = {
+				set_owner = event_target:new_planet_owner
+			}
+		}
+	}
+}
+
+# Jump Drive cooldown modifier
+ship_event = {
+	id = action.89
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		add_modifier = {
+			modifier = jump_drive_cooldown
+			days = 120
+		}
+	}
+}
+
+event = {
+	id = action.90
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		any_playable_country = {
+			any_owned_planet = {
+				solar_system = {
+					NOT = {
+						exists = starbase
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		every_system = {
+			limit = {
+				any_planet = {
+					is_colony = yes
+					exists = owner
+					owner = {
+						OR = {
+							is_country_type = default
+							is_country_type = fallen_empire
+							is_country_type = awakened_fallen_empire
+						}
+					}
+					solar_system = {
+						NOT = {
+							any_ship_in_system = {
+								exists = owner
+								owner = { NOT = { is_same_value = prevprevprev.owner } }
+							}
+						}
+					}
+				}
+				NOT = { exists = starbase }
+			}
+			random_system_planet = {
+				limit = {
+					is_colony = yes
+					exists = owner
+					owner = {
+						OR = {
+							is_country_type = default
+							is_country_type = fallen_empire
+							is_country_type = awakened_fallen_empire
+						}
+					}
+				}
+				planet_event = { id = action.91 }
+			}
+		}
+	}
+}
+
+planet_event = {
+	id = action.91
+	title = action.91.name
+	desc = action.91.desc
+	picture = GFX_evt_star_chart
+	show_sound = event_default
+	location = root
+
+	is_triggered_only = yes
+
+	immediate = {
+		solar_system = {
+			create_starbase = {
+				size = starbase_outpost
+				owner = root.owner
+			}
+		}
+	}
+
+	option = {
+		name = OK
+		tooltip = {
+			solar_system = {
+				create_starbase = {
+					size = starbase_outpost
+					owner = root.owner
+				}
+			}
+		}
 	}
 }

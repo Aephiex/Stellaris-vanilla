@@ -255,30 +255,14 @@ opinion_policy_orbital_bombardment = {
 	opinion = {
 		base = 0
 		modifier = {
-			add = -5
-			has_ethic = "ethic_pacifist"
-
-			FROM = {
-				has_policy_flag = allow_orbital_bombardment_limited
-			}
-		}
-
-		modifier = {
-			add = -10
-
-			has_ethic = "ethic_fanatic_pacifist"
-
-			FROM = {
-				has_policy_flag = allow_orbital_bombardment_limited
-			}
-		}
-
-		modifier = {
 			add = -10
 			has_ethic = "ethic_pacifist"
 
-			FROM = {
-				has_policy_flag = allow_orbital_bombardment_full
+			from = {
+				OR = {	
+					has_policy_flag = orbital_bombardment_indiscriminate
+					has_policy_flag = orbital_bombardment_armageddon
+				}			
 			}
 		}
 
@@ -287,26 +271,11 @@ opinion_policy_orbital_bombardment = {
 
 			has_ethic = "ethic_fanatic_pacifist"
 
-			FROM = {
-				has_policy_flag = allow_orbital_bombardment_full
-			}
-		}
-
-		modifier = {
-			add = -15
-			has_ethic = "ethic_pacifist"
-
-			FROM = {
-				has_policy_flag = allow_orbital_bombardment_armageddon
-			}
-		}
-
-		modifier = {
-			add = -30
-			has_ethic = "ethic_fanatic_pacifist"
-
-			FROM = {
-				has_policy_flag = allow_orbital_bombardment_armageddon
+			from = {
+				OR = {	
+					has_policy_flag = orbital_bombardment_indiscriminate
+					has_policy_flag = orbital_bombardment_armageddon
+				}			
 			}
 		}
 	}
@@ -445,6 +414,30 @@ opinion_xenophiles = {
 			NOT = { is_same_species_class = FROM }
 		}
 		
+		modifier = {
+			add = 5
+			NOT = {
+				has_ethic = "ethic_xenophile"
+				has_ethic = "ethic_fanatic_xenophile"
+				has_ethic = "ethic_xenophobe"
+				has_ethic = "ethic_fanatic_xenophobe"
+			}
+			FROM = { has_ethic = "ethic_xenophile" }
+			is_same_species_class = FROM
+		}
+		
+		modifier = {
+			add = 10
+			NOT = {
+				has_ethic = "ethic_xenophile"
+				has_ethic = "ethic_fanatic_xenophile"
+				has_ethic = "ethic_xenophobe"
+				has_ethic = "ethic_fanatic_xenophobe"
+			}
+			FROM = { has_ethic = "ethic_fanatic_xenophile" }
+			is_same_species_class = FROM
+		}		
+	
 		modifier = {
 			add = 10
 			has_ethic = "ethic_xenophile"
@@ -870,15 +863,22 @@ opinion_xenophage = {
 			factor = 0
 			NOT = {
 				from = {
-					any_owned_pop_species = {
+					any_owned_pop_species = {	
+						is_sapient = yes
 						OR = {
 							AND = {
 								has_citizenship_type = { country = from type = citizenship_purge }
-								has_purge_type = { country = from type = purge_processing }					
+								OR = {
+									has_purge_type = { country = from type = purge_processing }		
+									has_purge_type = { country = from type = purge_matrix }	
+								}									
 							}
 							AND = {
 								has_citizenship_type = { country = from type = citizenship_slavery }
-								has_slavery_type = { country = from type = slavery_livestock }					
+								OR = {
+									has_slavery_type = { country = from type = slavery_livestock }
+									has_slavery_type = { country = from type = slavery_matrix }
+								}
 							}						
 						}				
 					}
@@ -1051,7 +1051,7 @@ opinion_nuker = {
 # They left our Federation for another Federation
 opinion_changed_federation = {
 	opinion = {
-		base = -75
+		base = -200
 	}
 
 	accumulative = yes
@@ -1064,7 +1064,7 @@ opinion_changed_federation = {
 # They left our Federation
 opinion_broke_federation = {
 	opinion = {
-		base = -75
+		base = -200
 	}
 
 	accumulative = yes
@@ -1090,7 +1090,7 @@ opinion_broke_association_status = {
 # They kicked us from the alliance
 opinion_kicked_from_alliance = {
 	opinion = {
-		base = -100
+		base = -200
 	}
 
 	accumulative = yes
@@ -1103,7 +1103,7 @@ opinion_kicked_from_alliance = {
 # They tried to kick us from the alliance
 opinion_tried_to_kick = {
 	opinion = {
-		base = -75
+		base = -100
 	}
 
 	accumulative = yes
@@ -1116,7 +1116,7 @@ opinion_tried_to_kick = {
 # They voted down our proposal
 opinion_voted_down_proposal = {
 	opinion = {
-		base = -25
+		base = -50
 	}
 
 	accumulative = yes
@@ -1129,7 +1129,7 @@ opinion_voted_down_proposal = {
 # They left our alliance for another alliance
 opinion_changed_alliance = {
 	opinion = {
-		base = -50
+		base = -200
 	}
 
 	accumulative = yes
@@ -1142,7 +1142,7 @@ opinion_changed_alliance = {
 # They left our alliance
 opinion_broke_alliance = {
 	opinion = {
-		base = -50
+		base = -200
 	}
 
 	accumulative = yes
@@ -1155,7 +1155,7 @@ opinion_broke_alliance = {
 # They left our defensive pact
 opinion_broke_defensive_pact = {
 	opinion = {
-		base = -40
+		base = -100
 	}
 
 	accumulative = yes
@@ -1168,7 +1168,7 @@ opinion_broke_defensive_pact = {
 # They left our NAP
 opinion_broke_non_aggression_pact = {
 	opinion = {
-		base = -25
+		base = -50
 	}
 
 	accumulative = yes
@@ -1252,8 +1252,8 @@ opinion_subject_released = {
 	unique = yes
 }
 
-# They refused our offer of White Peace
-opinion_white_peace_not_accepted = {
+# They refused our offer of Status Quo
+opinion_status_quo_not_accepted = {
 	opinion = {
 		base = -20
 	}
@@ -1371,6 +1371,24 @@ opinion_friction = {
 	unique = yes
 }
 
+# Claims opinion modifiers
+opinion_claims_on_us = {
+	opinion = {
+		base = -5
+	}
+	
+	unique = yes
+}
+
+# Claims opinion modifier
+opinion_their_claims = {
+	opinion = {
+		base = -5
+	}
+	
+	unique = yes
+}
+
 # Rivalry opinion modifier
 opinion_rivalry = {
 	opinion = {
@@ -1434,7 +1452,7 @@ opinion_mutual_threat = {
 # Allied to rival opinion modifier
 opinion_allied_to_rival = {
 	opinion = {
-		base = -25
+		base = -50
 	}
 	
 	unique = yes
@@ -1443,7 +1461,7 @@ opinion_allied_to_rival = {
 # Rivaling ally
 opinion_rivals_with_ally = {
 	opinion = {
-		base = -25
+		base = -50
 	}
 	
 	unique = yes
@@ -1482,7 +1500,7 @@ opinion_demanded_subjectization = {
 # Ally voted against our proposed war
 opinion_decline_war = {
 	opinion = {
-		base = -20
+		base = -50
 	}
 	
 	decay = {
@@ -1531,7 +1549,7 @@ opinion_broke_away_from = {
 
 opinion_we_liberated = {
 	opinion = {
-		base = 100
+		base = 200
 	}
 
 	accumulative = yes
@@ -1543,7 +1561,7 @@ opinion_we_liberated = {
 
 opinion_liberated_us = {
 	opinion = {
-		base = 100
+		base = 200
 	}
 
 	accumulative = yes
@@ -2331,6 +2349,16 @@ opinion_doomed_us_all = {
 	}
 }
 
+opinion_threatened_artifact = {
+	opinion = {
+		base = -50
+	}
+	
+	decay = {
+		base = 2
+	}
+}
+
 # Machine Uprising's opinion of former masters
 opinion_machine_uprising_originator = {
 	opinion = {
@@ -2383,6 +2411,188 @@ opinion_machine_uprising_machine_comrades_victorious = {
 	}
 	decay = {
 		base = 1
+	}
+}
+
+opinion_stole_our_glands = {
+	opinion = {
+		base = -200
+	}
+	decay = {
+		base = 1
+	}
+}
+
+# Returned Marauder-conquered planet
+opinion_returned_marauder_planet = {
+	opinion = {
+		base = 40
+	}
+
+	max = 100
+
+	decay = {
+		base = 1
+	}
+}
+
+# Kept Marauder-conquered planet
+opinion_kept_marauder_planet = {
+	opinion = {
+		base = -20
+	}
+
+	min = -100
+
+	decay = {
+		base = 1
+	}
+}
+
+opinion_ceded_starbase = {
+	opinion = {
+		base = 100
+	}
+
+	decay = {
+		base = 1
+	}
+}
+
+opinion_not_ceded_starbase = {
+	opinion = {
+		base = -100
+	}
+
+	decay = {
+		base = 1
+	}
+}
+
+# War of the Diadochi
+opinion_war_diadochi = {
+	opinion = {
+		base = -150
+	}
+
+	decay = {
+		base = 1
+	}
+}
+
+# Cracked a Planet Like an Egg (regular Empires' opinion of world cracker)
+opinion_cracked_a_world = {
+	opinion = {
+		base = -100
+	}
+}
+
+opinion_cracked_an_uninhabited_world = {
+	opinion = {
+		base = -30
+	}
+}
+
+# Cracked My Planet Like an Egg (victim Empire's opinion of world cracker)
+opinion_cracked_my_world = {
+	opinion = {
+		base = -1000
+	}
+}
+
+opinion_cracked_my_uninhabited_world = {
+	opinion = {
+		base = -300
+	}
+}
+
+opinion_cracked_a_primitive_world = {
+	opinion = {
+		base = -40
+	}
+}
+
+opinion_cracked_a_primitive_world_phile = {
+	opinion = {
+		base = -60
+	}
+}
+
+
+# Swept My Planet Clean (victim Empire's opinion of neutron sweep)
+opinion_swept_a_world = {
+	opinion = {
+		base = -80
+	}
+}
+
+opinion_swept_my_world = {
+	opinion = {
+		base = -800
+	}
+}
+
+opinion_swept_a_primitive_world = {
+	opinion = {
+		base = -40
+	}
+}
+
+opinion_swept_a_primitive_world_phile = {
+	opinion = {
+		base = -60
+	}
+}
+
+opinion_assimilated_a_world = {
+	opinion = {
+		base = -60
+	}
+}
+
+opinion_assimilated_my_world = {
+	opinion = {
+		base = -600
+	}
+}
+
+opinion_assimilated_a_primitive_world = {
+	opinion = {
+		base = -40
+	}
+}
+
+opinion_assimilated_a_primitive_world_phile = {
+	opinion = {
+		base = -60
+	}
+}
+
+opinion_converted_a_world = {
+	opinion = {
+		base = -40
+	}
+}
+
+opinion_converted_my_world = {
+	opinion = -400
+}
+
+opinion_shielded_a_world = {
+	opinion = {
+		base = -20
+	}
+}
+
+opinion_shielded_my_world = {
+	opinion = {
+		base = -200
+	}
+}
+
+opinion_worships_our_holy_world = {
+	opinion = {
+		base = 50
 	}
 }
 
@@ -2443,8 +2653,10 @@ triggered_opinion_ap_defender_of_the_galaxy = {
 
 triggered_opinion_democratic_authority = {
 	trigger = {
+		is_country_type = default
 		has_authority = auth_democratic	
 		FROM = {
+			is_country_type = default
 			has_authority = auth_democratic
 		}
 	}
@@ -2456,8 +2668,10 @@ triggered_opinion_democratic_authority = {
 
 triggered_opinion_oligarchic_authority = {
 	trigger = {
+		is_country_type = default
 		has_authority = auth_oligarchic
 		FROM = {
+			is_country_type = default
 			has_authority = auth_oligarchic
 		}
 	}
@@ -2469,8 +2683,10 @@ triggered_opinion_oligarchic_authority = {
 
 triggered_opinion_dictatorial_authority = {
 	trigger = {
+		is_country_type = default
 		has_authority = auth_dictatorial
 		FROM = {
+			is_country_type = default
 			has_authority = auth_dictatorial
 		}
 	}
@@ -2482,8 +2698,10 @@ triggered_opinion_dictatorial_authority = {
 
 triggered_opinion_imperial_authority = {
 	trigger = {
+		is_country_type = default
 		has_authority = auth_imperial
 		FROM = {
+			is_country_type = default
 			has_authority = auth_imperial
 		}
 	}
@@ -2575,19 +2793,6 @@ triggered_opinion_synthetics_fanatic = {
 
 	opinion = {
 		base = -60
-	}
-}
-
-triggered_opinion_synthetics_normal = {
-	trigger = {
-		has_ethic = ethic_spiritualist
-		is_cyborg_empire = no
-		is_mechanical_empire = no
-		from = { is_mechanical_empire = yes }
-	}
-
-	opinion = {
-		base = -40
 	}
 }
 
@@ -2962,7 +3167,7 @@ triggered_exterminators_opinion_of_machines = {
 		has_civic = civic_machine_terminator
 		FROM = {
 			OR = {
-			has_authority = auth_machine_intelligence
+				has_authority = auth_machine_intelligence
 				is_species_class = ROBOT
 				is_species_class = MACHINE
 				has_country_flag = synthetic_empire
@@ -3070,5 +3275,77 @@ triggered_opinion_robot_a_little_uncanny = {
 	}
 	opinion = {
 		base = -10
+	}
+}
+
+triggered_opinion_barbaric_despoilers = {
+	trigger = {
+		is_country_type = default
+		NOR = {
+			is_militarist = yes
+			is_pacifist = yes	
+			is_authoritarian = yes
+			has_ethic = ethic_gestalt_consciousness
+			has_valid_civic = civic_fanatic_purifiers
+		}
+		NOT = { has_civic = civic_barbaric_despoilers }
+		FROM = { has_civic = civic_barbaric_despoilers }
+	}
+	opinion = {
+		base = -50
+	}
+}
+
+triggered_authoritarian_opinion_barbaric_despoilers = {
+	trigger = {
+		is_country_type = default
+		is_authoritarian = yes
+		is_militarist = no
+		is_pacifist = no
+		NOT = { has_civic = civic_barbaric_despoilers }
+		FROM = { has_civic = civic_barbaric_despoilers }
+	}
+	opinion = {
+		base = -40
+	}
+}
+
+triggered_militarist_opinion_barbaric_despoilers = {
+	trigger = {
+		is_country_type = default
+		is_militarist = yes
+		NOT = { has_civic = civic_barbaric_despoilers }
+		FROM = { has_civic = civic_barbaric_despoilers }
+	}
+	opinion = {
+		base = -20
+	}
+}
+
+triggered_pacifist_opinion_barbaric_despoilers = {
+	trigger = {
+		is_country_type = default
+		is_pacifist = yes
+		NOT = { has_civic = civic_barbaric_despoilers }
+		FROM = { has_civic = civic_barbaric_despoilers }
+	}
+	opinion = {
+		base = -80
+	}
+}
+
+triggered_fe_opinion_barbaric_despoilers = {
+	trigger = {
+		OR = {
+			is_country_type = awakened_fallen_empire
+			is_country_type = fallen_empire
+		}
+		has_ethic = ethic_fanatic_xenophile
+		is_mechanical_empire = no
+		is_cyborg_empire = no
+		FROM = { has_civic = civic_barbaric_despoilers }
+	}
+	opinion = {
+		base = -40
 	}
 }

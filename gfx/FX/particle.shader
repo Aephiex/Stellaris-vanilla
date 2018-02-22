@@ -69,23 +69,30 @@ ConstantBuffer( Projection, 1, 32 )
 	float4x4 ProjectionMatrix;
 };
 
-ConstantBuffer( Scale, 2, 36 )
+ConstantBuffer( Instancing, 2, 36 )
 {
-	float2 Scale;
+	float2		HalfPixelWH;
+	float2		RowsCols;
+	float2 		Scale;
 };
 
-ConstantBuffer( Instancing, 3, 40 )
+ConstantBuffer( InstancingTrail, 2, 36 )
 {
-	float4x4 InstanceWorldMatrix;
-	float4	HalfPixelWH_RowsCols;
-	float	vLocalTime;
+	float4x4 	InstanceWorldMatrix;
+	float2		TrailHalfPixelWH;
+	float2		TrailRowsCols;
+};
+
+ConstantBuffer( WorldMatrices, 3, 42 )
+{
+	float4x4 	WorldMatrices[50];
 };
 
 
 VertexShader =
 {
 	MainCode VertexParticle
-		ConstantBuffers = { Common, Projection, Scale, Instancing }
+		ConstantBuffers = { Common, Projection, Instancing, WorldMatrices }
 	[[
 		VS_OUTPUT_PARTICLE main( const VS_INPUT_PARTICLE v )
 		{
@@ -126,7 +133,7 @@ VertexShader =
 
 				float3 vScaledPos = v.vPosSize.xyz * Scale.y;
 				float3 vNewPos = float3( vScaledPos.x + vOffset.x, vScaledPos.y + vOffset.y, vScaledPos.z + vOffset.z );
-				float3 WorldPosition = mul( InstanceWorldMatrix, float4( vNewPos, 1.0 ) ).xyz;
+				float3 WorldPosition = mul( WorldMatrices[int(v.vTile.z)], float4( vNewPos, 1.0 ) ).xyz;
 			#else
 				float2 vSinCos;
 				sincos( v.vRotation.z * ( 3.14159265359f / 180.0f ), vSinCos.x, vSinCos.y );
@@ -135,7 +142,7 @@ VertexShader =
 				offset.x * vSinCos.x + offset.y * vSinCos.y );
 
 				float3 vScaledPos = v.vPosSize.xyz * Scale.y;
-				float3 WorldPosition = mul( InstanceWorldMatrix, float4( vScaledPos, 1.0 ) ).xyz;
+				float3 WorldPosition = mul( WorldMatrices[int(v.vTile.z)], float4( vScaledPos, 1.0 ) ).xyz;
 			#endif
 
 			Out.vPos = WorldPosition;
@@ -148,13 +155,13 @@ VertexShader =
 			Out.vColor = ToLinear(v.vColor);
 			
 			float2 tmpUV = float2( v.vUV0.x, 1.0f - v.vUV0.y );
-			Out.vUV0 = HalfPixelWH_RowsCols.xy + ( v.vTile.xy + tmpUV ) / HalfPixelWH_RowsCols.zw - HalfPixelWH_RowsCols.xy * 2.0f * tmpUV;
+			Out.vUV0 = HalfPixelWH + ( v.vTile.xy + tmpUV ) / RowsCols - HalfPixelWH * 2.0f * tmpUV;
 			return Out;
 		}
 	]]
 
 	MainCode VertexParticleTrail
-		ConstantBuffers = { Common, Instancing }
+		ConstantBuffers = { Common, InstancingTrail }
 	[[
 		VS_OUTPUT_PARTICLE main( const VS_INPUT_PARTICLETRAIL v )
 		{
@@ -166,7 +173,7 @@ VertexShader =
 			
 			Out.vColor = ToLinear(v.vColor);
 
-			Out.vUV0 = HalfPixelWH_RowsCols.xy + ( v.vTile.xy + v.vUV0 ) / HalfPixelWH_RowsCols.zw - HalfPixelWH_RowsCols.xy * 2.0f * v.vUV0;
+			Out.vUV0 = TrailHalfPixelWH + ( v.vTile.xy + v.vUV0 ) / TrailRowsCols - TrailHalfPixelWH * 2.0f * v.vUV0;
 			return Out;
 		}
 	]]

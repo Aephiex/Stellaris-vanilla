@@ -38,7 +38,7 @@ country_event = {
 		is_country_type = default
 		free_leader_slots > 0
 		any_owned_leader = {
-			count < 3
+			#count < 3 # doesn't actually work
 			leader_class = admiral
 		}
 	}
@@ -59,7 +59,7 @@ country_event = {
 					type = admiral
 					species = owner_main_species
 					name = random
-					skill = 201
+					skill = 2
 					traits = {
 						trait = leader_trait_gale_speed
 						trait = leader_trait_aggressive
@@ -72,7 +72,7 @@ country_event = {
 					type = admiral
 					species = owner_main_species
 					name = random
-					skill = 301
+					skill = 2
 					traits = {
 						trait = leader_trait_aggressive
 						trait = leader_trait_engineer
@@ -85,7 +85,7 @@ country_event = {
 					type = admiral
 					species = owner_main_species
 					name = random
-					skill = 401
+					skill = 2
 					traits = {
 						trait = leader_trait_fleet_logistician
 						trait = leader_trait_cautious
@@ -98,7 +98,7 @@ country_event = {
 					type = admiral
 					species = owner_main_species
 					name = random
-					skill = 250
+					skill = 2
 					traits = {
 						trait = leader_trait_scout
 						trait = leader_trait_trickster
@@ -476,6 +476,7 @@ fleet_event = {
 		owner = { has_technology = tech_doctrine_fleet_size_2 }
 		leader = {
 			num_traits < 3
+			leader_class = admiral
 			NOT = { 
 				has_trait = leader_trait_fleet_organizer
 				has_trait = leader_trait_unyielding
@@ -573,9 +574,11 @@ fleet_event = {
 	}
 	desc = {
 		trigger = {
-			NOR = {
-				has_authority = auth_hive_mind
-				has_authority = auth_machine_intelligence
+			owner = {
+				NOR = {
+					has_authority = auth_hive_mind
+					has_authority = auth_machine_intelligence
+				}
 			}
 		}
 		text = "leader.13.desc"
@@ -623,9 +626,11 @@ fleet_event = {
 	}
 	desc = {
 		trigger = {
-			NOR = {
-				has_authority = auth_hive_mind
-				has_authority = auth_machine_intelligence
+			owner = {
+				NOR = {
+					has_authority = auth_hive_mind
+					has_authority = auth_machine_intelligence
+				}
 			}
 		}
 		text = "leader.14.desc"
@@ -673,9 +678,11 @@ fleet_event = {
 	}
 	desc = {
 		trigger = {
-			NOR = {
-				has_authority = auth_hive_mind
-				has_authority = auth_machine_intelligence
+			owner = {
+				NOR = {
+					has_authority = auth_hive_mind
+					has_authority = auth_machine_intelligence
+				}
 			}
 		}
 		text = "leader.15.desc"
@@ -896,9 +903,11 @@ ship_event = {
 	}
 	desc = {
 		trigger = {
-			NOR = {
-				has_authority = auth_hive_mind
-				has_authority = auth_machine_intelligence
+			owner = {
+				NOR = {
+					has_authority = auth_hive_mind
+					has_authority = auth_machine_intelligence
+				}
 			}
 		}
 		text = "leader.19.desc"
@@ -1114,7 +1123,7 @@ country_event = {
 					gained_leader_trait_maniacal = { text = leader.newtrait }
 					gained_leader_trait_custom_AI_assistant = { text = leader.newtrait }
 					gained_leader_trait_expertise_materials = { text = leader.newtrait }
-					gained_leader_trait_expertise_rocketry = { text = leader.newtrait }
+					gained_leader_trait_expertise_propulsion = { text = leader.newtrait }
 					gained_leader_trait_expertise_voidcraft = { text = leader.newtrait }
 					gained_leader_trait_expertise_industry = { text = leader.newtrait }
 					gained_leader_trait_expertise_field_manipulation = { text = leader.newtrait }
@@ -1221,8 +1230,8 @@ country_event = {
 					add_trait = leader_trait_expertise_materials
 				}
 				if = { 
-					limit = { has_leader_flag = gained_leader_trait_expertise_rocketry }
-					add_trait = leader_trait_expertise_rocketry
+					limit = { has_leader_flag = gained_leader_trait_expertise_propulsion }
+					add_trait = leader_trait_expertise_propulsion
 				}
 				if = { 
 					limit = { has_leader_flag = gained_leader_trait_expertise_voidcraft }
@@ -1499,8 +1508,7 @@ country_event = {
 					gained_leader_trait_stubborn = { text = leader.stubborn }
 					gained_leader_trait_substance_abuser = { text = leader.substanceabuser }
 					gained_leader_trait_arrested_development = { text = leader.arresteddevelopment }
-					gained_leader_trait_defender = { text = leader.newtrait }
-					gained_leader_trait_attacker = { text = leader.newtrait }
+					gained_leader_trait_restrained = { text = leader.newtrait }
 					gained_leader_trait_charismatic = { text = leader.newtrait }
 					gained_leader_trait_butcher = { text = leader.newtrait }
 					gained_leader_trait_glory_seeker = { text = leader.newtrait }
@@ -1543,12 +1551,8 @@ country_event = {
 					add_trait = leader_trait_arrested_development
 				}
 				if = { 
-					limit = { has_leader_flag = gained_leader_trait_defender }
-					add_trait = leader_trait_defender
-				}
-				if = { 
-					limit = { has_leader_flag = gained_leader_trait_attacker }
-					add_trait = leader_trait_attacker
+					limit = { has_leader_flag = gained_leader_trait_restrained }
+					add_trait = leader_trait_restrained
 				}
 				if = { 
 					limit = { has_leader_flag = gained_leader_trait_charismatic }
@@ -1763,6 +1767,34 @@ country_event = {
 					limit = { has_leader_flag = gained_leader_trait_fleet_organizer }
 					add_trait = leader_trait_fleet_organizer
 				}
+			}
+		}
+	}
+}
+
+# banning AI removes AI-dependent traits from leaders
+country_event = {
+	id = leader.30
+	title = leader.30.name
+	desc = leader.30.desc
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	trigger = {
+		last_changed_policy = artificial_intelligence_policy
+		has_policy_flag = ai_outlawed
+		any_owned_leader = {
+			has_trait = leader_trait_sapient_AI_assistant
+		}
+	}
+
+	option = {
+		name = GOOD
+		every_owned_leader = {
+			if = {
+				limit = { has_trait = leader_trait_sapient_AI_assistant }
+				remove_trait = leader_trait_sapient_AI_assistant
 			}
 		}
 	}

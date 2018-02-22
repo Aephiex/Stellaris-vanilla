@@ -30,7 +30,7 @@
 
 entity = {
 	name = "plantoid_01_turret_energy_torpedo_entity"
-	pdxmesh = "plantoid_01_turret_projectile_medium_mesh"
+	pdxmesh = "plantoid_01_turret_projectile_large_mesh"
 	
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"
@@ -1640,6 +1640,8 @@ entity = {
 entity = {
 	name = "plantoid_01_orbital_station_assemblyyard_section_entity"
 	pdxmesh = "plantoid_01_orbital_station_assemblyyard_section_mesh"
+	
+	locator = { name = "root" position = { 0 0 0 } }
 	
 	default_state = "idle"
 	state = { name = "idle" state_time = 5

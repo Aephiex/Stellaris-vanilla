@@ -27,6 +27,21 @@
 #	research_station = yes
 #	mining_station = yes
 #	observation_station = yes
+#	
+#
+#	SCOPES
+#	abort_trigger
+#	this = country (project owner)
+#	from = event scope (planet or ship, MIGHT NOT EXIST)
+#	fromfrom = project creation scope (usually equals location)
+#	
+#	on_success
+#	this = event scope (ship or planet)
+#	from = project creation scope (usually equals location)
+#	
+#	on_fail
+#	this = country (project owner)
+#	from = project creation scope (usually equals location)
 #
 
 special_project = {
@@ -60,7 +75,7 @@ special_project = {
 	event_scope = planet_event
 	
 	on_success = {
-				planet_event = { id = colony_mod.13 }
+		planet_event = { id = colony_mod.13 }
 	}
 }
 
@@ -173,6 +188,61 @@ special_project = {
 	on_success = {
 		owner = {
 			country_event = { id = diplomatic.20 }
+		}
+	}
+}
+
+special_project = {
+	key = "disappearing_pops_project"
+	timelimit = 360
+	cost = 100
+	tech_department = society_technology
+	picture = GFX_evt_alien_planet
+	icon = "gfx/interface/icons/situation_log/situation_log_society.dds"
+	
+	event_scope = ship_event
+
+	requirements = {
+		shipclass_military = 1
+	}
+	
+	on_success = {
+		owner = {
+			country_event = { id = utopia.101 }
+		}
+	}
+}
+# Ageless
+special_project = {
+	key = "mystery_cream_project"
+	timelimit = 360
+	cost = 100
+	tech_department = society_technology
+	picture = GFX_evt_alien_planet
+	icon = "gfx/interface/icons/situation_log/situation_log_society.dds"
+	
+	event_scope = planet_event
+	
+	on_success = {
+		owner = {
+			country_event = { id = utopia.103 }
+		}
+	}
+}
+# Cream Origin
+special_project = {
+	key = "cream_origin_project"
+	timelimit = 360
+	cost = 200
+	tech_department = society_technology
+	picture = GFX_evt_alien_planet
+	icon = "gfx/interface/icons/situation_log/situation_log_society.dds"
+	
+	event_scope = planet_event
+	
+	on_success = {
+		owner = {
+			country_event = { id = utopia.104 }
 		}
 	}
 }

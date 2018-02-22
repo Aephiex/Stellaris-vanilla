@@ -2,7 +2,7 @@ particle={
 	name="torpedo_muzzle_file"
 	subsystem={
 		name="smoke"
-		max_amount=200
+		max_amount=27
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"
@@ -84,7 +84,7 @@ particle={
 	}
 	subsystem={
 		name="fire"
-		max_amount=500
+		max_amount=50
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"
@@ -225,19 +225,6 @@ particle={
 		maxValue=1.000
 		curve={
 			0.000 1.000 1.000 0.141 
-		}
-		op="MUL"
-		time="life"
-	}
-	animation={
-		name="grow1"
-		start=0.000
-		duration=1.000
-		repeat=no
-		minValue=0.000
-		maxValue=1.000
-		curve={
-			0.000 0.000 1.000 1.000 
 		}
 		op="MUL"
 		time="life"

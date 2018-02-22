@@ -35,7 +35,7 @@ leader_trait_army_veteran = {
 	modifier = {
 		planet_army_build_speed_mult = 0.2
 		planet_army_build_cost_mult = -0.2
-		garrison_health = 0.5
+		army_defense_damage_mult = 0.2
 	}
 	leader_potential_add = {
 		NOT = { from = { has_authority = "auth_machine_intelligence" } }
@@ -51,9 +51,8 @@ leader_trait_retired_fleet_officer = {
 	modification = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_retired_fleet_officer.dds"
 	modifier = {
-		spaceport_ship_build_speed_mult = 0.20
-		spaceport_ship_build_cost_mult = -0.10
-		spaceport_module_cost_mult = -0.10
+		starbase_shipyard_build_speed_mult = 0.20
+		starbase_shipyard_build_cost_mult = -0.10
 	}
 	leader_potential_add = {
 		NOT = { from = { has_authority = "auth_machine_intelligence" } }

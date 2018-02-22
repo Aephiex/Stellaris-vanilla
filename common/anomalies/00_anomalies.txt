@@ -213,9 +213,9 @@ anomaly = {
 	category = "moon_gasgiant_category"
 	
 	potential = {
-		orbit = {
-			has_any_strategic_resource = no
-		}
+		#orbit = {
+		#	has_any_strategic_resource = no
+		#}
 	}
 }
 

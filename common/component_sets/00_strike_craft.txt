@@ -6,44 +6,22 @@ component_set = {
 	icon = "GFX_ship_part_strike_craft_scout_1"
 	icon_frame = 1	
 }
-
 component_set = {
-	key = "FIGHTERS_HANGAR_1"
-	
-	icon = "GFX_ship_part_strike_craft_fighter_1"
-	icon_frame = 1	
-}
-
-component_set = {
-	key = "FIGHTERS_HANGAR_2"
-	
-	icon = "GFX_ship_part_strike_craft_fighter_2"
-	icon_frame = 1	
-}
-
-component_set = {
-	key = "FIGHTERS_HANGAR_3"
-	
-	icon = "GFX_ship_part_strike_craft_fighter_3"
-	icon_frame = 1	
-}
-
-component_set = {
-	key = "BOMBERS_HANGAR_1"
+	key = "STRIKE_CRAFT_HANGAR_1"
 	
 	icon = "GFX_ship_part_strike_craft_bomber_1"
 	icon_frame = 1	
 }
 
 component_set = {
-	key = "BOMBERS_HANGAR_2"
+	key = "STRIKE_CRAFT_HANGAR_2"
 	
 	icon = "GFX_ship_part_strike_craft_bomber_2"
 	icon_frame = 1	
 }
 
 component_set = {
-	key = "BOMBERS_HANGAR_3"
+	key = "STRIKE_CRAFT_HANGAR_3"
 	
 	icon = "GFX_ship_part_strike_craft_bomber_3"
 	icon_frame = 1	

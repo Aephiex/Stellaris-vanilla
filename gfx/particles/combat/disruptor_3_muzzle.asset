@@ -2,7 +2,7 @@ particle={
 	name="disruptor_3_muzzle_file"
 	subsystem={
 		name="smoke_base"
-		max_amount=50
+		max_amount=28
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"
@@ -43,7 +43,7 @@ particle={
 	}
 	subsystem={
 		name="flare"
-		max_amount=50
+		max_amount=28
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"

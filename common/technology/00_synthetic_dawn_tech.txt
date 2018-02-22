@@ -3,22 +3,25 @@
 ##################
 #If you change any of these, use replace in files so the values are the same across all files
 
-@tier1cost1 = 360
-@tier1cost2 = 480
-@tier1cost3 = 600
-@tier1cost4 = 720
+@tier1cost1 = 500
+@tier1cost2 = 640
+@tier1cost3 = 780
 
 @tier2cost1 = 1000
-@tier2cost2 = 1400
-@tier2cost3 = 1800
-@tier2cost4 = 2200
+@tier2cost2 = 1500
+@tier2cost3 = 2000
 
 @tier3cost1 = 3000
 @tier3cost2 = 4000
 @tier3cost3 = 5000
-@tier3cost4 = 6000
 
-@tier4cost1 = 10000
+@tier4cost1 = 6000
+@tier4cost2 = 8000
+@tier4cost3 = 10000
+
+@tier5cost1 = 14000
+@tier5cost2 = 17000
+@tier5cost3 = 20000
 
 ####################
 ### TECH WEIGHTS ###
@@ -27,29 +30,32 @@
 @tier1weight1 = 100
 @tier1weight2 = 95
 @tier1weight3 = 90
-@tier1weight4 = 85
 
-@tier2weight1 = 75
-@tier2weight2 = 70
-@tier2weight3 = 65
-@tier2weight4 = 60
+@tier2weight1 = 85
+@tier2weight2 = 75
+@tier2weight3 = 70
 
-@tier3weight1 = 50
-@tier3weight2 = 45
-@tier3weight3 = 40
-@tier3weight4 = 35
+@tier3weight1 = 65
+@tier3weight2 = 60
+@tier3weight3 = 50
 
-@tier4weight1 = 30
+@tier4weight1 = 45
+@tier4weight2 = 40
+@tier4weight3 = 35
+
+@tier5weight1 = 30
+@tier5weight2 = 25
+@tier5weight3 = 20
 
 ##################
 
 tech_robomodding_m = {
-	cost = @tier2cost2
+	cost = @tier2cost1
 	area = engineering
 	tier = 1
 	category = { industry }
 	prerequisites = { "tech_powered_exoskeletons" }
-	weight = @tier1weight4
+	weight = @tier2weight1
 	
 	feature_flags = {
 		modify_robots
@@ -58,12 +64,12 @@ tech_robomodding_m = {
 	modifier = {
 		MACHINE_species_trait_points_add = 1
 	}
+	
+	potential = {
+		has_authority = auth_machine_intelligence
+	}
 
-	weight_modifier = {
-		modifier = {
-			factor = 0
-			NOT = { has_authority = auth_machine_intelligence }
-		}			
+	weight_modifier = {			
 		modifier = {
 			factor = 1.25
 			research_leader = {
@@ -79,12 +85,12 @@ tech_robomodding_m = {
 }
 
 tech_robomodding = {
-	cost = @tier1cost4
+	cost = @tier2cost1
 	area = engineering
 	tier = 1
 	category = { industry }
 	prerequisites = { "tech_robotic_workers" }
-	weight = @tier1weight4
+	weight = @tier2weight1
 	
 	feature_flags = {
 		modify_robots
@@ -93,12 +99,12 @@ tech_robomodding = {
 	modifier = {
 		ROBOT_species_trait_points_add = 1
 	}
+	
+	potential = {
+		NOT = { has_ethic = "ethic_gestalt_consciousness" }
+	}
 
-	weight_modifier = {
-		modifier = {
-			factor = 0
-			has_ethic = "ethic_gestalt_consciousness"
-		}			
+	weight_modifier = {			
 		modifier = {
 			factor = 1.25
 			research_leader = {
@@ -134,26 +140,22 @@ tech_robomodding = {
 }
 
 tech_robomodding_points_1 = {
-	cost = @tier2cost3
+	cost = @tier3cost1
 	area = engineering
 	tier = 2
 	category = { industry }
 	prerequisites = { "tech_robomodding" "tech_droid_workers" }
-	weight = @tier2weight3
+	weight = @tier3weight1
 	
 	modifier = {
 		ROBOT_species_trait_points_add = 1
 	}
 
+	potential = {
+		NOT = { has_ethic = "ethic_gestalt_consciousness" }
+	}	
+	
 	weight_modifier = {
-		modifier = {
-			factor = 0
-			OR = {
-				has_ethic = "ethic_spiritualist"
-				has_ethic = "ethic_fanatic_spiritualist"
-				has_ethic = "ethic_gestalt_consciousness"
-			}	
-		}
 		modifier = {
 			factor = 2
 			has_valid_civic = civic_mechanists
@@ -194,28 +196,24 @@ tech_robomodding_points_1 = {
 }
 
 tech_robomodding_points_2 = {
-	cost = @tier3cost2
+	cost = @tier4cost1
 	area = engineering
-	tier = 3
+	tier = 4
 	category = { industry }
 	is_rare = yes
 	prerequisites = { "tech_robomodding_points_1" "tech_synthetic_workers" }
-	weight = @tier3weight3
+	weight = @tier4weight1
 	
 	modifier = {
 		ROBOT_species_trait_points_add = 1
 	}
+	
+	potential = {
+		NOT = { has_ethic = "ethic_gestalt_consciousness" }
+	}
 
 	weight_modifier = {
 		factor = 0.5
-		modifier = {
-			factor = 0
-			OR = {
-				has_ethic = "ethic_spiritualist"
-				has_ethic = "ethic_fanatic_spiritualist"
-				has_ethic = "ethic_gestalt_consciousness"
-			}	
-		}
 		modifier = {
 			factor = 2
 			has_valid_civic = civic_mechanists
@@ -276,28 +274,28 @@ tech_robomodding_points_2 = {
 
 # Probability Theory
 tech_probability_theory = {
-	cost = @tier3cost2
+	cost = @tier4cost3
 	area = society
-	tier = 3
-	category = { statecraft }
+	tier = 4
+	category = { biology }	
 	prerequisites = { "tech_galactic_administration" }
-	weight = @tier3weight2
+	weight = @tier4weight3
 	is_rare = yes
 	
 	# unlocks Probability Engine empire wonder
 	
+	potential = {
+		has_authority = auth_machine_intelligence
+	}	
+
 	weight_modifier = {
 		factor = 0.5
-		modifier = {
-			factor = 0
-			NOT = { has_authority = auth_machine_intelligence }
-		}
 		modifier = {
 			factor = 0.25
 			NOR = {
 				research_leader = {
 					area = society
-					has_trait = "leader_trait_expertise_statecraft"
+					has_trait = "leader_trait_expertise_biology"
 				}
 				research_leader = {
 					area = society
@@ -309,7 +307,7 @@ tech_probability_theory = {
 			factor = 1.25
 			research_leader = {
 				area = society
-				has_trait = "leader_trait_expertise_statecraft"
+				has_trait = "leader_trait_expertise_biology"
 			}
 		}
 	}
@@ -319,7 +317,7 @@ tech_probability_theory = {
 			factor = 1.25
 			research_leader = {
 				area = society
-				has_trait = "leader_trait_expertise_statecraft"
+				has_trait = "leader_trait_expertise_biology"
 			}
 		}
 	}
@@ -327,24 +325,24 @@ tech_probability_theory = {
 
 # Binary Motivators
 tech_binary_motivators = {
-	cost = @tier2cost2
+	cost = @tier3cost1
 	area = engineering
-	tier = 2
+	tier = 3
 	category = { industry }
 	prerequisites = { "tech_colonial_centralization" "tech_robomodding_m" }
-	weight = @tier2weight2
+	weight = @tier3weight1
 	
 	gateway = robotics
 
 	modifier = {
 		MACHINE_species_trait_points_add = 1
 	}
+	
+	potential = {
+		has_authority = auth_machine_intelligence
+	}
 
 	weight_modifier = {
-		modifier = {
-			factor = 0
-			NOT = { has_authority = auth_machine_intelligence }
-		}
 		modifier = {
 			factor = 1.25
 			research_leader = {
@@ -369,24 +367,24 @@ tech_binary_motivators = {
 
 # Nanite Assemblers
 tech_nanite_assemblers = {
-	cost = @tier3cost2
+	cost = @tier4cost1
 	area = engineering
-	tier = 3
+	tier = 4
 	category = { industry }
 	prerequisites = { "tech_binary_motivators" "tech_galactic_administration" }
 	is_rare = yes
-	weight = @tier3weight2
+	weight = @tier4weight1
 
 	modifier = {
 		MACHINE_species_trait_points_add = 1
 	}
 	
+	potential = {
+		has_authority = auth_machine_intelligence
+	}	
+	
 	weight_modifier = {
 		factor = 0.5
-		modifier = {
-			factor = 0
-			NOT = { has_authority = auth_machine_intelligence }
-		}
 		modifier = {
 			factor = 0.20
 			NOR = {
@@ -424,19 +422,19 @@ tech_nanite_assemblers = {
 
 # Adaptive Combat Algorithms
 tech_adaptive_combat_algorithms = {
-	cost = @tier2cost1
+	cost = @tier2cost2
 	area = society
 	tier = 2
 	category = { biology }	
 	prerequisites = { "tech_colonial_bureaucracy" }
-	weight = @tier2weight1
+	weight = @tier2weight2
+	
+	potential = {
+		has_authority = auth_machine_intelligence
+	}	
 	
 	weight_modifier = {
 		factor = 1.5
-		modifier = {
-			factor = 0
-			NOT = { has_authority = auth_machine_intelligence }
-		}
 		modifier = {
 			factor = 1.25
 			research_leader = {
@@ -459,19 +457,19 @@ tech_adaptive_combat_algorithms = {
 
 # Biomechanics
 tech_biomechanics = {
-	cost = @tier3cost2
+	cost = @tier4cost2
 	area = society
 	category = { biology }
-	tier = 3
+	tier = 4
 	is_rare = yes
 	prerequisites = { "tech_adaptive_combat_algorithms" }
-	weight = @tier3weight2
+	weight = @tier4weight2
+
+	potential = {
+		has_authority = auth_machine_intelligence
+	}
 	
 	weight_modifier = {
-		modifier = {
-			factor = 0
-			NOT = { has_authority = auth_machine_intelligence }
-		}
 		modifier = {
 			factor = 0.10
 			NOR = {
@@ -524,25 +522,25 @@ tech_biomechanics = {
 
 tech_singularity_core = {
 	area = physics
-	tier = 2
-	cost = @tier3cost2
-	category = { statecraft }
+	tier = 4
+	cost = @tier4cost3
+	category = { field_manipulation }
 	prerequisites = { "tech_physics_lab_1" "tech_galactic_administration" }
-	weight = @tier3weight2
+	weight = @tier4weight3
 	is_rare = yes
+	
+	potential = {
+		has_authority = auth_machine_intelligence
+	}	
 	
 	weight_modifier = {
 		factor = 0.5
-		modifier = {
-			factor = 0
-			NOT = { has_authority = auth_machine_intelligence }
-		}
 		modifier = {
 			factor = 0.25
 			NOR = {
 				research_leader = {
 					area = physics
-					has_trait = "leader_trait_expertise_statecraft"
+					has_trait = "leader_trait_expertise_field_manipulation"
 				}
 				research_leader = {
 					area = physics
@@ -554,7 +552,7 @@ tech_singularity_core = {
 			factor = 1.25
 			research_leader = {
 				area = physics
-				has_trait = "leader_trait_expertise_statecraft"
+				has_trait = "leader_trait_expertise_field_manipulation"
 			}
 		}
 	}
@@ -564,7 +562,7 @@ tech_singularity_core = {
 			factor = 1.25
 			research_leader = {
 				area = physics
-				has_trait = "leader_trait_expertise_statecraft"
+				has_trait = "leader_trait_expertise_field_manipulation"
 			}
 		}
 	}
@@ -575,9 +573,13 @@ tech_modular_components = {
 	cost = @tier1cost2
 	area = society
 	tier = 1
-	category = { biology }
+	category = { statecraft }
 	prerequisites = { "tech_colonization_1" }
-	weight = @tier1weight4
+	weight = @tier2weight1
+	
+	potential = {
+		has_authority = auth_machine_intelligence
+	}	
 	
 	weight_modifier = {
 		factor = 2
@@ -585,7 +587,7 @@ tech_modular_components = {
 			factor = 1.25
 			research_leader = {
 				area = society
-				has_trait = "leader_trait_expertise_biology"
+				has_trait = "leader_trait_expertise_statecraft"
 			}
 		}
 		modifier = {
@@ -597,12 +599,16 @@ tech_modular_components = {
 
 #Replacing Frontier Hospital
 tech_intelligent_factories = {
-	cost = @tier2cost2
+	cost = @tier2cost3
 	area = society
 	tier = 2
-	category = { biology }
+	category = { statecraft }
 	prerequisites = { "tech_modular_components" "tech_colonial_centralization" }
-	weight = @tier2weight2
+	weight = @tier2weight3
+	
+	potential = {
+		has_authority = auth_machine_intelligence
+	}
 	
 	weight_modifier = {
 		factor = 2
@@ -610,7 +616,7 @@ tech_intelligent_factories = {
 			factor = 1.25
 			research_leader = {
 				area = society
-				has_trait = "leader_trait_expertise_biology"
+				has_trait = "leader_trait_expertise_statecraft"
 			}
 		}
 		modifier = {

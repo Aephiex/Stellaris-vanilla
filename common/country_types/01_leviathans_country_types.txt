@@ -3,7 +3,8 @@
 #################
 
 guardian = {
-	has_leaders = no
+	is_space_critter = yes
+	destroys_starbases = yes
 	ai = {
 		enabled = no
 	}
@@ -21,7 +22,8 @@ guardian = {
 }
 
 guardian_dragon = {
-	has_leaders = no
+	is_space_critter = yes
+	destroys_starbases = yes
 	ai = {
 		enabled = no
 	}
@@ -39,7 +41,8 @@ guardian_dragon = {
 }
 
 guardian_stellarite = {
-	has_leaders = no
+	is_space_critter = yes
+	destroys_starbases = yes
 	ai = {
 		enabled = no
 	}
@@ -57,7 +60,8 @@ guardian_stellarite = {
 }
 
 guardian_wraith = {
-	has_leaders = no
+	is_space_critter = yes
+	destroys_starbases = yes
 	ai = {
 		enabled = no
 	}
@@ -75,7 +79,9 @@ guardian_wraith = {
 }
 
 guardian_hiver = {
-	has_leaders = no
+	attack_unarmed_orbital_stations = yes
+	is_space_critter = yes
+	destroys_starbases = yes
 	ai = {
 		enabled = no
 	}
@@ -93,7 +99,8 @@ guardian_hiver = {
 }
 
 guardian_horror = {
-	has_leaders = no
+	is_space_critter = yes
+	destroys_starbases = yes
 	ai = {
 		enabled = no
 	}
@@ -111,7 +118,8 @@ guardian_horror = {
 }
 
 guardian_fortress = {
-	has_leaders = no
+	is_space_critter = yes
+	destroys_starbases = yes
 	ai = {
 		enabled = no
 	}
@@ -129,7 +137,8 @@ guardian_fortress = {
 }
 
 guardian_dreadnought = {
-	has_leaders = no
+	is_space_critter = yes
+	destroys_starbases = yes
 	ai = {
 		enabled = no
 	}
@@ -147,7 +156,8 @@ guardian_dreadnought = {
 }
 
 guardian_sphere = {
-	has_leaders = no
+	is_space_critter = yes
+	destroys_starbases = yes
 	ai = {
 		enabled = no
 	}

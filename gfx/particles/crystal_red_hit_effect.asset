@@ -2,7 +2,7 @@ particle={
 	name="red_crystal_hit_effect"
 	subsystem={
 		name="dust_grains"
-		max_amount=100
+		max_amount=25
 		slave_particles=0
 		emitter_type="sphere"
 		sphere_emitter_radius={ 3.000 1.000 }
@@ -38,7 +38,7 @@ particle={
 	}
 	subsystem={
 		name="mist"
-		max_amount=200
+		max_amount=100
 		slave_particles=0
 		emitter_type="point"
 		invert=no
@@ -74,7 +74,7 @@ particle={
 	}
 	subsystem={
 		name="mist_dark"
-		max_amount=200
+		max_amount=25
 		slave_particles=0
 		emitter_type="point"
 		invert=no
@@ -110,7 +110,7 @@ particle={
 	}
 	subsystem={
 		name="smoke_in"
-		max_amount=100
+		max_amount=55
 		slave_particles=0
 		emitter_type="sphere"
 		sphere_emitter_radius={ 2.000 0.200 }
@@ -148,7 +148,7 @@ particle={
 	}
 	subsystem={
 		name="shards"
-		max_amount=200
+		max_amount=25
 		slave_particles=0
 		emitter_type="point"
 		invert=no

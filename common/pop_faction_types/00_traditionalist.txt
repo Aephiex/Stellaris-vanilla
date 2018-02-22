@@ -62,10 +62,12 @@ traditionalist = {
 		base = 100
 		modifier = {
 			factor = 0
-			OR = {
-				has_trait = "trait_robotic_1"
-				has_trait = "trait_robotic_2"
-				has_trait = "trait_robotic_3"
+			species = {
+				OR = {
+					has_trait = "trait_robotic_1"
+					has_trait = "trait_robotic_2"
+					has_trait = "trait_robotic_3"
+				}			
 			}			
 		}
 
@@ -85,23 +87,13 @@ traditionalist = {
 		potential = {
 			exists = owner
 			owner = {
-				OR = {
-					has_technology = tech_robotic_workers
-					any_owned_pop = {
-						is_robot_pop = yes
-					}					
-				}				
-				NOT = { has_technology = tech_synthetic_workers }
+				can_set_robot_policy = yes			
 			}
 		}
 		
 		trigger = {
 			owner = {
-				NOT = {
-					any_owned_pop = {
-						is_robot_pop = yes
-					}
-				}
+				has_policy_flag = robots_outlawed
 			}
 		}
 	}
@@ -116,8 +108,7 @@ traditionalist = {
 		potential = {
 			exists = owner
 			owner = {
-				has_technology = tech_synthetic_workers
-				NOT = { has_policy_flag = ai_full_rights }
+				can_set_ai_policy = yes
 			}
 		}
 
@@ -138,8 +129,7 @@ traditionalist = {
 		potential = {
 			exists = owner
 			owner = {
-				has_technology = tech_synthetic_workers
-				has_policy_flag = ai_full_rights
+				can_set_ai_policy = yes
 			}
 		}
 
@@ -177,20 +167,25 @@ traditionalist = {
 		unfulfilled_title = "TRADITIONALIST_TOMB_WORLDS"
 		desc = "TRADITIONALIST_NO_TOMB_WORLDS_DESC"
 
-		unfulfilled_effect = -10
+		unfulfilled_effect = -5
 
 		potential = {
 			exists = owner
 			owner = {
 				has_surveyed_class = pc_nuked
+				NOT = { has_civic = civic_post_apocalyptic }
 			}
 		}
 
 		trigger = {
 			owner = {
-				NOT = {
+				NOR = {
 					any_owned_planet = {
 						is_planet_class = pc_nuked
+					}
+					any_planet_within_border = { 
+						is_planet_class = pc_nuked
+						is_terraforming = yes
 					}
 				}
 			}
@@ -213,9 +208,7 @@ traditionalist = {
 
 		trigger = {
 			owner = {
-				any_owned_planet = {
-					is_planet_class = pc_gaia
-				}
+				has_modifier = has_holy_player_planet
 			}
 		}
 	}
@@ -305,6 +298,13 @@ traditionalist = {
 
 		potential = {
 			exists = owner
+			exists = owner
+			owner = {
+				pop_percentage = {
+					percentage > 0.09
+					limit = { pop_has_ethic = ethic_spiritualist }
+				}
+			}			
 		}
 
 		trigger = {
@@ -326,12 +326,12 @@ traditionalist = {
 
 		potential = {
 			exists = owner
-			#owner = {
-			#	pop_percentage = {
-			#		percentage < 0.10
-			#		limit = { pop_has_ethic = ethic_spiritualist }
-			#	}
-			#}
+			owner = {
+				pop_percentage = {
+					percentage < 0.25
+					limit = { pop_has_ethic = ethic_spiritualist }
+				}
+			}
 		}
 
 		trigger = {
@@ -355,7 +355,6 @@ traditionalist = {
 			exists = owner
 			owner = {
 				has_country_flag = positive_shroud_outcome
-				#has_country_flag = breached_shroud
 			}
 		}
 
@@ -377,7 +376,6 @@ traditionalist = {
 			exists = owner
 			owner = {
 				has_country_flag = negative_shroud_outcome
-				#has_country_flag = breached_shroud
 			}
 		}
 

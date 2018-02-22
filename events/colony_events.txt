@@ -666,6 +666,7 @@ planet_event = {
 	is_triggered_only = yes
 	
 	immediate = {
+		owner = { save_event_target_as = subterranean_planet_owner }
 		set_planet_flag = seismic_disturbance_friendly
 		create_species = {
 			name = random
@@ -699,7 +700,7 @@ planet_event = {
 		}
 		last_created_country = {
 			set_relation_flag = {
-				who = subterranean_planet_owner
+				who = root.owner
 				flag = subterror
 			}
 			set_country_flag = subterranean_nation
@@ -801,7 +802,7 @@ planet_event = {
 				type = general
 				species = owner_main_species
 				name = random
-				skill = 400
+				skill = 3
 			}
 		}
 		if = {
@@ -1001,7 +1002,7 @@ country_event = {
 			}
 			last_created_country = {
 				set_relation_flag = {
-					who = subterranean_planet_former_owner
+					who = event_target:subterranean_former_planet_owner
 					flag = subwar
 				}
 				set_country_flag = subterranean_empire
@@ -1047,9 +1048,12 @@ country_event = {
 				species = event_target:subterranean_species
 				type = "defense_army"
 			}
-			if = {
-				limit = { has_spaceport = yes }
-				destroy_fleet = spaceport
+			# flip starbase
+			solar_system = {
+				if = {
+					limit = { exists = starbase }
+					starbase = { set_owner = event_target:subterranean_empire }
+				}
 			}
 		}
 	}
@@ -1139,7 +1143,7 @@ planet_event = {
 				type = general
 				species = event_target:subterranean_species
 				name = random
-				skill = 500
+				skill = 3
 			}
 		}
 		if = {
@@ -1517,7 +1521,7 @@ planet_event = {
 			modifier = "subterranean_expansion"
 			days = -1
 		}
-		change_planet_size > 1
+		change_planet_size = +1
 	}
 }
 
@@ -2293,10 +2297,46 @@ planet_event = {
 	option = {
 		name = colony.103.b
 		trigger = {
-			owner = { energy > 49 }
+			count_pops = {
+				limit = { is_robot_pop = no }
+				count < 9
+			}
+			owner = { energy > 149.9 }
 		}
 		owner = {
-			add_energy = -50
+			add_energy = -150
+		}
+	}
+	option = {
+		name = colony.103.b
+		trigger = {
+			AND = {
+				count_pops = {
+					limit = { is_robot_pop = no }
+					count > 8
+				}
+				count_pops = {
+					limit = { is_robot_pop = no }
+					count < 17
+				}
+			}
+			owner = { energy > 374.9 }
+		}
+		owner = {
+			add_energy = -375
+		}
+	}
+	option = {
+		name = colony.103.b
+		trigger = {
+			count_pops = {
+				limit = { is_robot_pop = no }
+				count > 16
+			}
+			owner = { energy > 649.9 }
+		}
+		owner = {
+			add_energy = -600
 		}
 	}
 }
@@ -2625,7 +2665,7 @@ planet_event = {
 	option = {
 		name = colony.107.a
 		change_pc = pc_toxic
-		destroy_colony = { keep_buildings = no }
+		destroy_colony = yes
 		add_modifier = {
 			modifier = "ammonia_biosphere"
 			days = -1
@@ -2878,8 +2918,16 @@ planet_event = {
 	
 	trigger = {
 		NOT = { has_global_flag = underground_vault_global }
+		NOT = { has_planet_flag = armageddon_nuked }
 		is_planet_class = pc_nuked
-		NOT = { has_planet_flag = primitives_nuked_themselves }
+		NOR = {
+			has_planet_flag = primitives_nuked_themselves
+			solar_system = {
+				any_planet = {
+					is_capital = yes
+				}
+			}
+		}
 		has_owner = yes
 		original_owner = yes
 		is_homeworld = no
@@ -3179,8 +3227,16 @@ planet_event = {
 	location = ROOT
 	
 	trigger = {
+		NOT = { has_planet_flag = armageddon_nuked }
 		is_planet_class = pc_nuked
-		NOT = { has_planet_flag = wasteland_nuclear_bomb }
+		NOR = {
+			has_planet_flag = wasteland_nuclear_bomb
+			solar_system = {
+				any_planet = {
+					is_capital = yes
+				}
+			}
+		}
 		has_owner = yes
 		original_owner = yes
 		is_homeworld = no
@@ -3259,8 +3315,16 @@ planet_event = {
 	location = ROOT
 	
 	trigger = {
+		NOT = { has_planet_flag = armageddon_nuked }
 		is_planet_class = pc_nuked
-		NOT = { has_planet_flag = wasteland_particle_accelerator }
+		NOR = {
+			has_planet_flag = wasteland_particle_accelerator
+			solar_system = {
+				any_planet = {
+					is_capital = yes
+				}
+			}
+		}
 		has_owner = yes
 		original_owner = yes
 		is_homeworld = no
@@ -3309,8 +3373,16 @@ planet_event = {
 	location = ROOT
 	
 	trigger = {
+		NOT = { has_planet_flag = armageddon_nuked }
 		is_planet_class = pc_nuked
-		NOT = { has_planet_flag = wasteland_infrastructure }
+		NOR = {
+			has_planet_flag = wasteland_infrastructure
+			solar_system = {
+				any_planet = {
+					is_capital = yes
+				}
+			}
+		}
 		has_owner = yes
 		original_owner = yes
 		is_homeworld = no
@@ -3348,9 +3420,17 @@ planet_event = {
 	location = ROOT
 	
 	trigger = {
+		NOT = { has_planet_flag = armageddon_nuked }
 		is_planet_class = pc_nuked
-		NOT = { has_planet_flag = wasteland_space_station }
-		NOT = { has_planet_flag = primitives_nuked_themselves }
+		NOR = {
+			has_planet_flag = wasteland_space_station
+			has_planet_flag = primitives_nuked_themselves
+			solar_system = {
+				any_planet = {
+					is_capital = yes
+				}
+			}
+		}
 		has_owner = yes
 		original_owner = yes
 		is_homeworld = no
@@ -3392,8 +3472,16 @@ planet_event = {
 	location = ROOT
 	
 	trigger = {
+		NOT = { has_planet_flag = armageddon_nuked }
 		is_planet_class = pc_nuked
-		NOT = { has_planet_flag = wasteland_radiation }
+		NOR = {
+			has_planet_flag = wasteland_radiation
+			solar_system = {
+				any_planet = {
+					is_capital = yes
+				}
+			}
+		}
 		has_owner = yes
 		original_owner = yes
 		is_homeworld = no
@@ -3432,8 +3520,16 @@ planet_event = {
 	location = ROOT
 	
 	trigger = {
+		NOT = { has_planet_flag = armageddon_nuked }
 		is_planet_class = pc_nuked
-		NOT = { has_planet_flag = wasteland_pacifist_movement }
+		NOR = {
+			has_planet_flag = wasteland_pacifist_movement
+			solar_system = {
+				any_planet = {
+					is_capital = yes
+				}
+			}
+		}
 		has_owner = yes
 		original_owner = yes
 		is_homeworld = no
@@ -3606,9 +3702,17 @@ planet_event = {
 	location = ROOT
 	
 	trigger = {
+		NOT = { has_planet_flag = armageddon_nuked }
 		is_planet_class = pc_nuked
-		NOT = { has_planet_flag = wasteland_orbital_debris }
-		NOT = { has_planet_flag = primitives_nuked_themselves }
+		NOR = {
+			has_planet_flag = wasteland_orbital_debris
+			has_planet_flag = primitives_nuked_themselves
+			solar_system = {
+				any_planet = {
+					is_capital = yes
+				}
+			}
+		}
 		has_owner = yes
 		original_owner = yes
 		is_homeworld = no

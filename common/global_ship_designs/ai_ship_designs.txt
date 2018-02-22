@@ -12,7 +12,7 @@ ship_design = {
 		}
 		component = {
 			slot = "EXTRA_LARGE_01"
-			template = "LARGE_ENERGY_LANCE_1"
+			template = "ENERGY_LANCE_1"
 		}
 		component = {
 			slot = "LARGE_GUN_01"
@@ -36,15 +36,15 @@ ship_design = {
 		}		
 		component = {
 			slot = "LARGE_UTILITY_1"
-			template = "LARGE_ZERO_POINT_REACTOR"
+			template = "LARGE_SHIELD_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_2"
-			template = "LARGE_ZERO_POINT_REACTOR"
+			template = "LARGE_SHIELD_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_3"
-			template = "LARGE_ZERO_POINT_REACTOR"
+			template = "LARGE_SHIELD_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_4"
@@ -52,29 +52,29 @@ ship_design = {
 		}
 		component = {
 			slot = "LARGE_UTILITY_5"
-			template = "LARGE_SHIELD_5"
+			template = "LARGE_ARMOR_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_6"
-			template = "LARGE_SHIELD_5"
+			template = "LARGE_ARMOR_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_7"
-			template = "LARGE_SHIELD_5"
+			template = "LARGE_ARMOR_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_8"
-			template = "LARGE_SHIELD_5"
+			template = "LARGE_ARMOR_5"
 		}
 		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
 	}
-	required_component="WARP_DRIVE_3"
-	required_component="BATTLESHIP_COMBAT_COMPUTER_4"
+	required_component="HYPER_DRIVE_3"
+	required_component="COMBAT_COMPUTER_LINE_SAPIENT"
 	required_component="SHIP_THRUSTER_4"
-	required_component="SHIP_SENSOR_4"
+	required_component="SENSOR_4"
 }
 
 # AI Small Ship
@@ -103,15 +103,15 @@ ship_design = {
 		}		
 		component = {
 			slot = "MEDIUM_UTILITY_1"
-			template = "MEDIUM_ZERO_POINT_REACTOR"
+			template = "MEDIUM_SHIELD_5"
 		}
 		component = {
 			slot = "MEDIUM_UTILITY_2"
-			template = "MEDIUM_ZERO_POINT_REACTOR"
+			template = "MEDIUM_SHIELD_5"
 		}
 		component = {
 			slot = "MEDIUM_UTILITY_3"
-			template = "MEDIUM_ZERO_POINT_REACTOR"
+			template = "MEDIUM_SHIELD_5"
 		}
 		component = {
 			slot = "MEDIUM_UTILITY_4"
@@ -119,29 +119,78 @@ ship_design = {
 		}
 		component = {
 			slot = "MEDIUM_UTILITY_5"
-			template = "MEDIUM_SHIELD_5"
+			template = "MEDIUM_ARMOR_5"
 		}
 		component = {
 			slot = "MEDIUM_UTILITY_6"
-			template = "MEDIUM_SHIELD_5"
+			template = "MEDIUM_ARMOR_5"
 		}
 		component = {
 			slot = "MEDIUM_UTILITY_7"
-			template = "MEDIUM_SHIELD_5"
+			template = "MEDIUM_ARMOR_5"
 		}
 		component = {
 			slot = "MEDIUM_UTILITY_8"
-			template = "MEDIUM_SHIELD_5"
+			template = "MEDIUM_ARMOR_5"
 		}
 		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
 	}
-	required_component="WARP_DRIVE_3"
-	required_component="DESTROYER_COMBAT_COMPUTER_4"
+	required_component="HYPER_DRIVE_3"
+	required_component="COMBAT_COMPUTER_PICKET_SAPIENT"
 	required_component="SHIP_THRUSTER_4"
-	required_component="SHIP_SENSOR_4"
+	required_component="SENSOR_4"
+}
+
+# AI Starbase
+ship_design = {
+	name = "NAME_AI_STARBASE"
+	ship_size = starbase_ai
+	country_type = ai_empire	
+	section = {
+		template = "ai_starbase_key"
+		slot = "core"
+		
+		component = {
+			slot = "PD_01"
+			template = "POINT_DEFENCE_3"
+		}
+		component = {
+			slot = "PD_02"
+			template = "POINT_DEFENCE_3"
+		}
+		component = {
+			slot = "MEDIUM_GUN_01"
+			template = "MEDIUM_PLASMA_3"
+		}
+		component = {
+			slot = "MEDIUM_GUN_01"
+			template = "MEDIUM_PLASMA_3"
+		}		
+		component = {
+			slot = "MEDIUM_GUN_01"
+			template = "MEDIUM_PLASMA_3"
+		}
+		component = {
+			slot = "MEDIUM_GUN_02"
+			template = "MEDIUM_PLASMA_3"
+		}
+		component = {
+			slot = "LARGE_GUN_02"
+			template = "LARGE_GAMMA_LASER"
+		}
+		component = {
+			slot = "LARGE_GUN_02"
+			template = "LARGE_GAMMA_LASER"
+		}		
+		component = {
+			slot = "XL_01"
+			template = "ENERGY_LANCE_1"
+		}
+	}
+	required_component="SENSOR_4"
 }
 
 # AI Large Station
@@ -171,38 +220,38 @@ ship_design = {
 		}
 		component = {
 			slot = "LARGE_GUN_01"
-			template = "LARGE_ENERGY_LANCE_1"
+			template = "ENERGY_LANCE_1"
 		}
 		component = {
 			slot = "LARGE_GUN_02"
-			template = "LARGE_ENERGY_LANCE_1"
+			template = "ENERGY_LANCE_1"
 		}
 		component = {
 			slot = "LARGE_UTILITY_1"
-			template = "LARGE_ZERO_POINT_REACTOR"
+			template = "LARGE_SHIELD_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_2"
-			template = "LARGE_ZERO_POINT_REACTOR"
+			template = "LARGE_SHIELD_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_3"
-			template = "LARGE_ZERO_POINT_REACTOR"
+			template = "LARGE_SHIELD_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_4"
-			template = "LARGE_ZERO_POINT_REACTOR"
+			template = "LARGE_ARMOR_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_5"
-			template = "LARGE_SHIELD_5"
+			template = "LARGE_ARMOR_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_6"
 			template = "LARGE_ARMOR_5"
 		}
 	}
-	required_component="SHIP_SENSOR_4"
+	required_component="SENSOR_4"
 }
 
 # AI Small Station
@@ -236,22 +285,22 @@ ship_design = {
 		}
 		component = {
 			slot = "MEDIUM_UTILITY_1"
-			template = "MEDIUM_ZERO_POINT_REACTOR"
+			template = "MEDIUM_SHIELD_5"
 		}
 		component = {
 			slot = "MEDIUM_UTILITY_2"
-			template = "MEDIUM_ZERO_POINT_REACTOR"
+			template = "MEDIUM_SHIELD_5"
 		}
 		component = {
 			slot = "MEDIUM_UTILITY_3"
-			template = "MEDIUM_ZERO_POINT_REACTOR"
+			template = "MEDIUM_ARMOR_5"
 		}
 		component = {
 			slot = "MEDIUM_UTILITY_4"
-			template = "MEDIUM_SHIELD_5"
+			template = "MEDIUM_ARMOR_5"
 		}
 	}
-	required_component="SHIP_SENSOR_4"
+	required_component="SENSOR_4"
 }
 
 # AI Core
@@ -305,19 +354,19 @@ ship_design = {
 		}
 		component = {
 			slot = "LARGE_GUN_01"
-			template = "LARGE_ENERGY_LANCE_1"
+			template = "ENERGY_LANCE_1"
 		}
 		component = {
 			slot = "LARGE_GUN_02"
-			template = "LARGE_ENERGY_LANCE_1"
+			template = "ENERGY_LANCE_1"
 		}
 		component = {
 			slot = "LARGE_GUN_03"
-			template = "LARGE_ENERGY_LANCE_1"
+			template = "ENERGY_LANCE_1"
 		}
 		component = {
 			slot = "LARGE_GUN_04"
-			template = "LARGE_ENERGY_LANCE_1"
+			template = "ENERGY_LANCE_1"
 		}
 		component = {
 			slot = "LARGE_GUN_05"
@@ -365,27 +414,27 @@ ship_design = {
 		}
 		component = {
 			slot = "LARGE_UTILITY_1"
-			template = "LARGE_ZERO_POINT_REACTOR"
+			template = "LARGE_SHIELD_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_2"
-			template = "LARGE_ZERO_POINT_REACTOR"
+			template = "LARGE_SHIELD_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_3"
-			template = "LARGE_ZERO_POINT_REACTOR"
+			template = "LARGE_SHIELD_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_4"
-			template = "LARGE_ZERO_POINT_REACTOR"
+			template = "LARGE_SHIELD_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_5"
-			template = "LARGE_ZERO_POINT_REACTOR"
+			template = "LARGE_SHIELD_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_6"
-			template = "LARGE_ZERO_POINT_REACTOR"
+			template = "LARGE_SHIELD_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_7"
@@ -405,27 +454,27 @@ ship_design = {
 		}
 		component = {
 			slot = "LARGE_UTILITY_11"
-			template = "LARGE_SHIELD_5"
+			template = "LARGE_ARMOR_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_12"
-			template = "LARGE_SHIELD_5"
+			template = "LARGE_ARMOR_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_13"
-			template = "LARGE_SHIELD_5"
+			template = "LARGE_ARMOR_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_14"
-			template = "LARGE_SHIELD_5"
+			template = "LARGE_ARMOR_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_15"
-			template = "LARGE_SHIELD_5"
+			template = "LARGE_ARMOR_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_16"
-			template = "LARGE_SHIELD_5"
+			template = "LARGE_ARMOR_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_17"
@@ -440,11 +489,15 @@ ship_design = {
 			template = "LARGE_ARMOR_5"
 		}
 		component = {
+			slot = "LARGE_UTILITY_20"
+			template = "LARGE_ARMOR_5"
+		}		
+		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
 	}
-	required_component="SHIP_SENSOR_4"
+	required_component="SENSOR_4"
 }
 
 # Final AI Core
@@ -498,19 +551,19 @@ ship_design = {
 		}
 		component = {
 			slot = "LARGE_GUN_01"
-			template = "LARGE_ENERGY_LANCE_1"
+			template = "ENERGY_LANCE_1"
 		}
 		component = {
 			slot = "LARGE_GUN_02"
-			template = "LARGE_ENERGY_LANCE_1"
+			template = "ENERGY_LANCE_1"
 		}
 		component = {
 			slot = "LARGE_GUN_03"
-			template = "LARGE_ENERGY_LANCE_1"
+			template = "ENERGY_LANCE_1"
 		}
 		component = {
 			slot = "LARGE_GUN_04"
-			template = "LARGE_ENERGY_LANCE_1"
+			template = "ENERGY_LANCE_1"
 		}
 		component = {
 			slot = "LARGE_GUN_05"
@@ -602,27 +655,27 @@ ship_design = {
 		}
 		component = {
 			slot = "LARGE_UTILITY_1"
-			template = "LARGE_ZERO_POINT_REACTOR"
+			template = "LARGE_SHIELD_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_2"
-			template = "LARGE_ZERO_POINT_REACTOR"
+			template = "LARGE_SHIELD_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_3"
-			template = "LARGE_ZERO_POINT_REACTOR"
+			template = "LARGE_SHIELD_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_4"
-			template = "LARGE_ZERO_POINT_REACTOR"
+			template = "LARGE_SHIELD_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_5"
-			template = "LARGE_ZERO_POINT_REACTOR"
+			template = "LARGE_SHIELD_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_6"
-			template = "LARGE_ZERO_POINT_REACTOR"
+			template = "LARGE_SHIELD_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_7"
@@ -642,27 +695,27 @@ ship_design = {
 		}
 		component = {
 			slot = "LARGE_UTILITY_11"
-			template = "LARGE_SHIELD_5"
+			template = "LARGE_ARMOR_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_12"
-			template = "LARGE_SHIELD_5"
+			template = "LARGE_ARMOR_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_13"
-			template = "LARGE_SHIELD_5"
+			template = "LARGE_ARMOR_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_14"
-			template = "LARGE_SHIELD_5"
+			template = "LARGE_ARMOR_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_15"
-			template = "LARGE_SHIELD_5"
+			template = "LARGE_ARMOR_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_16"
-			template = "LARGE_SHIELD_5"
+			template = "LARGE_ARMOR_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_17"
@@ -677,11 +730,15 @@ ship_design = {
 			template = "LARGE_ARMOR_5"
 		}
 		component = {
+			slot = "LARGE_UTILITY_20"
+			template = "LARGE_ARMOR_5"
+		}	
+		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
 	}
-	required_component="SHIP_SENSOR_4"
+	required_component="SENSOR_4"
 }
 
 # AI Transport
@@ -700,9 +757,9 @@ ship_design = {
 		}
 	}
 	
-	required_component="WARP_DRIVE_3"
+	required_component="HYPER_DRIVE_3"
 	required_component="SHIP_THRUSTER_4"
-	required_component="SHIP_SENSOR_4"
+	required_component="SENSOR_4"
 }
 
 # AI Colonizer
@@ -721,9 +778,9 @@ ship_design = {
 		}
 	}
 	
-	required_component="WARP_DRIVE_3"
+	required_component="HYPER_DRIVE_3"
 	required_component="SHIP_THRUSTER_4"
-	required_component="SHIP_SENSOR_4"
+	required_component="SENSOR_4"
 }
 
 # AI Constructor
@@ -742,9 +799,9 @@ ship_design = {
 		}
 	}
 	
-	required_component="WARP_DRIVE_3"
+	required_component="HYPER_DRIVE_3"
 	required_component="SHIP_THRUSTER_4"
-	required_component="SHIP_SENSOR_4"
+	required_component="SENSOR_4"
 }
 
 ### Cybrex
@@ -763,7 +820,7 @@ ship_design = {
 		}
 		component = {
 			slot = "EXTRA_LARGE_01"
-			template = "LARGE_ENERGY_LANCE_2"
+			template = "ENERGY_LANCE_2"
 		}
 		component = {
 			slot = "LARGE_GUN_01"
@@ -787,15 +844,15 @@ ship_design = {
 		}		
 		component = {
 			slot = "LARGE_UTILITY_1"
-			template = "LARGE_ZERO_POINT_REACTOR"
+			template = "LARGE_SHIELD_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_2"
-			template = "LARGE_ZERO_POINT_REACTOR"
+			template = "LARGE_SHIELD_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_3"
-			template = "LARGE_ZERO_POINT_REACTOR"
+			template = "LARGE_SHIELD_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_4"
@@ -803,29 +860,29 @@ ship_design = {
 		}
 		component = {
 			slot = "LARGE_UTILITY_5"
-			template = "LARGE_SHIELD_5"
+			template = "LARGE_ARMOR_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_6"
-			template = "LARGE_SHIELD_5"
+			template = "LARGE_ARMOR_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_7"
-			template = "LARGE_SHIELD_5"
+			template = "LARGE_ARMOR_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_8"
-			template = "LARGE_SHIELD_5"
+			template = "LARGE_ARMOR_5"
 		}
 		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
 	}
-	required_component="WARP_DRIVE_3"
-	required_component="BATTLESHIP_COMBAT_COMPUTER_4"
+	required_component="HYPER_DRIVE_3"
+	required_component="COMBAT_COMPUTER_LINE_SAPIENT"
 	required_component="SHIP_THRUSTER_4"
-	required_component="SHIP_SENSOR_4"
+	required_component="SENSOR_4"
 }
 
 # Cybrex Small Ship
@@ -854,15 +911,15 @@ ship_design = {
 		}		
 		component = {
 			slot = "MEDIUM_UTILITY_1"
-			template = "MEDIUM_ZERO_POINT_REACTOR"
+			template = "MEDIUM_SHIELD_5"
 		}
 		component = {
 			slot = "MEDIUM_UTILITY_2"
-			template = "MEDIUM_ZERO_POINT_REACTOR"
+			template = "MEDIUM_SHIELD_5"
 		}
 		component = {
 			slot = "MEDIUM_UTILITY_3"
-			template = "MEDIUM_ZERO_POINT_REACTOR"
+			template = "MEDIUM_SHIELD_5"
 		}
 		component = {
 			slot = "MEDIUM_UTILITY_4"
@@ -870,29 +927,29 @@ ship_design = {
 		}
 		component = {
 			slot = "MEDIUM_UTILITY_5"
-			template = "MEDIUM_SHIELD_5"
+			template = "MEDIUM_ARMOR_5"
 		}
 		component = {
 			slot = "MEDIUM_UTILITY_6"
-			template = "MEDIUM_SHIELD_5"
+			template = "MEDIUM_ARMOR_5"
 		}
 		component = {
 			slot = "MEDIUM_UTILITY_7"
-			template = "MEDIUM_SHIELD_5"
+			template = "MEDIUM_ARMOR_5"
 		}
 		component = {
 			slot = "MEDIUM_UTILITY_8"
-			template = "MEDIUM_SHIELD_5"
+			template = "MEDIUM_ARMOR_5"
 		}
 		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
 	}
-	required_component="WARP_DRIVE_3"
-	required_component="DESTROYER_COMBAT_COMPUTER_4"
+	required_component="HYPER_DRIVE_3"
+	required_component="COMBAT_COMPUTER_PICKET_SAPIENT"
 	required_component="SHIP_THRUSTER_4"
-	required_component="SHIP_SENSOR_4"
+	required_component="SENSOR_4"
 }
 
 # Cybrex Core
@@ -946,19 +1003,19 @@ ship_design = {
 		}
 		component = {
 			slot = "LARGE_GUN_01"
-			template = "LARGE_ENERGY_LANCE_2"
+			template = "ENERGY_LANCE_2"
 		}
 		component = {
 			slot = "LARGE_GUN_02"
-			template = "LARGE_ENERGY_LANCE_2"
+			template = "ENERGY_LANCE_2"
 		}
 		component = {
 			slot = "LARGE_GUN_03"
-			template = "LARGE_ENERGY_LANCE_2"
+			template = "ENERGY_LANCE_2"
 		}
 		component = {
 			slot = "LARGE_GUN_04"
-			template = "LARGE_ENERGY_LANCE_2"
+			template = "ENERGY_LANCE_2"
 		}
 		component = {
 			slot = "LARGE_GUN_05"
@@ -974,27 +1031,27 @@ ship_design = {
 		}
 		component = {
 			slot = "LARGE_UTILITY_1"
-			template = "LARGE_ZERO_POINT_REACTOR"
+			template = "LARGE_SHIELD_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_2"
-			template = "LARGE_ZERO_POINT_REACTOR"
+			template = "LARGE_SHIELD_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_3"
-			template = "LARGE_ZERO_POINT_REACTOR"
+			template = "LARGE_SHIELD_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_4"
-			template = "LARGE_ZERO_POINT_REACTOR"
+			template = "LARGE_SHIELD_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_5"
-			template = "LARGE_ZERO_POINT_REACTOR"
+			template = "LARGE_SHIELD_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_6"
-			template = "LARGE_ZERO_POINT_REACTOR"
+			template = "LARGE_SHIELD_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_7"
@@ -1014,27 +1071,27 @@ ship_design = {
 		}
 		component = {
 			slot = "LARGE_UTILITY_11"
-			template = "LARGE_SHIELD_5"
+			template = "LARGE_ARMOR_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_12"
-			template = "LARGE_SHIELD_5"
+			template = "LARGE_ARMOR_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_13"
-			template = "LARGE_SHIELD_5"
+			template = "LARGE_ARMOR_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_14"
-			template = "LARGE_SHIELD_5"
+			template = "LARGE_ARMOR_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_15"
-			template = "LARGE_SHIELD_5"
+			template = "LARGE_ARMOR_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_16"
-			template = "LARGE_SHIELD_5"
+			template = "LARGE_ARMOR_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_17"
@@ -1049,11 +1106,15 @@ ship_design = {
 			template = "LARGE_ARMOR_5"
 		}
 		component = {
+			slot = "LARGE_UTILITY_20"
+			template = "LARGE_ARMOR_5"
+		}		
+		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
 	}
-	required_component="SHIP_SENSOR_4"
+	required_component="SENSOR_4"
 }
 
 # Cybrex Large Station
@@ -1083,38 +1144,38 @@ ship_design = {
 		}
 		component = {
 			slot = "LARGE_GUN_01"
-			template = "LARGE_ENERGY_LANCE_2"
+			template = "ENERGY_LANCE_2"
 		}
 		component = {
 			slot = "LARGE_GUN_02"
-			template = "LARGE_ENERGY_LANCE_2"
+			template = "ENERGY_LANCE_2"
 		}
 		component = {
 			slot = "LARGE_UTILITY_1"
-			template = "LARGE_ZERO_POINT_REACTOR"
+			template = "LARGE_SHIELD_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_2"
-			template = "LARGE_ZERO_POINT_REACTOR"
+			template = "LARGE_SHIELD_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_3"
-			template = "LARGE_ZERO_POINT_REACTOR"
+			template = "LARGE_SHIELD_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_4"
-			template = "LARGE_ZERO_POINT_REACTOR"
+			template = "LARGE_ARMOR_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_5"
-			template = "LARGE_SHIELD_5"
+			template = "LARGE_ARMOR_5"
 		}
 		component = {
 			slot = "LARGE_UTILITY_6"
 			template = "LARGE_ARMOR_5"
 		}
 	}
-	required_component="SHIP_SENSOR_4"
+	required_component="SENSOR_4"
 }
 
 # Cybrex Small Station
@@ -1148,22 +1209,22 @@ ship_design = {
 		}
 		component = {
 			slot = "MEDIUM_UTILITY_1"
-			template = "MEDIUM_ZERO_POINT_REACTOR"
+			template = "MEDIUM_SHIELD_5"
 		}
 		component = {
 			slot = "MEDIUM_UTILITY_2"
-			template = "MEDIUM_ZERO_POINT_REACTOR"
+			template = "MEDIUM_SHIELD_5"
 		}
 		component = {
 			slot = "MEDIUM_UTILITY_3"
-			template = "MEDIUM_ZERO_POINT_REACTOR"
+			template = "MEDIUM_ARMOR_5"
 		}
 		component = {
 			slot = "MEDIUM_UTILITY_4"
-			template = "MEDIUM_SHIELD_5"
+			template = "MEDIUM_ARMOR_5"
 		}
 	}
-	required_component="SHIP_SENSOR_4"
+	required_component="SENSOR_4"
 }
 
 # Cybrex Transport
@@ -1182,7 +1243,7 @@ ship_design = {
 		}
 	}
 	
-	required_component="WARP_DRIVE_3"
+	required_component="HYPER_DRIVE_3"
 	required_component="SHIP_THRUSTER_4"
-	required_component="SHIP_SENSOR_4"
+	required_component="SENSOR_4"
 }

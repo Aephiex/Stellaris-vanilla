@@ -18,6 +18,12 @@ FUN3 = {
 		
 		battleship = {
 		}
+
+		titan = {
+		}
+
+		colossus = {
+		}
 		
 		science = {
 		}
@@ -28,20 +34,13 @@ FUN3 = {
 		constructor = {
 		}
 		
-		
-		orbital_station = { }
-		mining_station = { }
-		research_station = { }
-		wormhole_station = { }
-		#terraform_station = { }
-		observation_station = { }
+		transport = {
+		}
+	
+		military_station_small = {
+		}
 
-		military_station_small = {}
-		military_station_medium = {}
-		military_station_large = {}
-		outpost_station = {
-			#random_names = { }
-			#sequential_name = "%O% Frontier Outpost"
+		ion_cannon = {
 		}
 	}
 
@@ -97,9 +96,6 @@ FUN3 = {
 			sequential_name = "%O% Death Caps"
 		}
 	}
-		
-
-	### PLANETS
 
 	planet_names = {
 
@@ -111,25 +107,21 @@ FUN3 = {
 		
 		pc_desert = {
 			names = {
-				
 			}
 		}
 		
 		pc_tropical = {
 			names = {
-				
 			}
 		}
 		
 		pc_arid = {
 			names = {
-				
 			}
 		}
 		
 		pc_continental = {
 			names = {
-				
 			}
 		}
 		
@@ -159,8 +151,6 @@ FUN3 = {
 		}
 		
 	}
-
-	### CHARACTERS
 
 	character_names = {
 		default = {

@@ -48,7 +48,7 @@ entity = {
 
 entity = {
 	name = "fungoid_01_turret_energy_torpedo_entity"
-	pdxmesh = "fungoid_01_turret_projectile_medium_mesh"
+	pdxmesh = "fungoid_01_turret_projectile_large_mesh"
 	
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"
@@ -1619,6 +1619,9 @@ entity = {
 	name = "fungoid_01_colony_ship_entity"
 	pdxmesh = "fungoid_01_colony_mesh"
 	
+	#locator = { name = "root" }
+	#attach = { root = "cataclysm_planet_destroyer_laser_entity" }
+	
 	default_state = "idle"
 	state = { name = "idle"		state_time = 5
 		event = { time = 0 node = "engine_large_01" particle = "fungoid_01_2_5_exhaust_oblong_particle" trigger_once = yes keep_particle = yes }
@@ -2015,6 +2018,8 @@ entity = {
 			name = "fungoid_01_orbital_station_assemblyyard_section_entity"
 			pdxmesh = "fungoid_01_orbital_station_assemblyyard_section_mesh"
 			scale = 1.0
+			
+			locator = { name = "root" position = { 0 0 0 } }
 			
 			default_state = "idle"
 			state = { name = "idle" animation = "idle"

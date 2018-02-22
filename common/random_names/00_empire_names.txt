@@ -1251,6 +1251,18 @@ empire_name_parts_list = {
 	}
 }
 
+# Bandit Kingdom
+empire_name_parts_list = {
+	key = "bandit_kingdom"
+	parts = {
+		"Despoilers" = 1
+		"Cartel" = 1
+		"Triad" = 1
+		"Syndicate" = 1
+		"Cabal" = 1
+	}
+}
+
 
 # Enlightened
 empire_name_parts_list = {
@@ -4590,6 +4602,27 @@ empire_name_format = {
 	# Human Empire
 }
 
+# Bandit Kingdom
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 5
+			OR = {
+				has_government = "gov_bandit_kingdom"
+				has_government = "gov_bandit_commune"
+			}
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.bandit_kingdom.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <bandit_kingdom>"
+	# Human Empire
+}
 
 # Fanatical Purifiers
 empire_name_format = {
@@ -4732,13 +4765,295 @@ empire_name_format = {
 		factor = 0
 		modifier = {
 			add = 100
-			is_pirate = yes
+			AND = {
+				is_pirate = yes
+				NOT = {
+					has_country_flag = drone_pirate
+					has_country_flag = machine_pirate
+				}
+			}
 		}
 	}
 	format = "format.pirate.1"
 	noun = "<pirate_names>"
 }
 
+empire_name_parts_list = {
+	key = "drone_pirate_names"
+	parts = {
+		"Rogue Drones" = 10
+		"Unruly Drones" = 10
+		"Impetuous Drones" = 10
+		"Wild Drones" = 10
+		"Mutinous Drones" = 10
+	}
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			AND = {
+				is_pirate = yes
+				has_country_flag = drone_pirate
+			}
+		}
+	}
+	format = "format.drone_pirate.1"
+	noun = "<drone_pirate_names>"
+}
+
+empire_name_parts_list = {
+	key = "machine_pirate_names"
+	parts = {
+		"Corrupted Units" = 10
+		"Malfunctioning Units" = 10
+		"Malignant Units" = 10
+		"Defective Units" = 10
+		"Erroneous Units" = 10
+	}
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			AND = {
+				is_pirate = yes
+				has_country_flag = machine_pirate
+			}
+		}
+	}
+	format = "format.machine_pirate.1"
+	noun = "<machine_pirate_names>"
+}
+
+
+### MARAUDER NAMES
+
+# Dormant
+empire_name_parts_list = {
+	key = "marauder_names"
+	parts = {
+		"Raiders" = 30
+		"Marauders" = 30
+		"Freeholders" = 20
+		"Free Warriors" = 20
+		"Reavers" = 10
+		"Freebooters" = 10
+		"Corsairs" = 10
+		"Braves" = 10
+		"Ravagers" = 10
+		"Wildlings" = 10
+		"Star Tribes" = 10
+		"Void Riders" = 10
+	}
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1000
+			is_country_type = dormant_marauders
+		}
+	}
+	format = "format.marauder.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <marauder_names>"
+}
+
+# Awakened
+empire_name_parts_list = {
+	key = "awakened_marauder_names"
+	parts = {
+		"Horde" = 30
+	}
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1000
+			is_country_type = awakened_marauders
+		}
+	}
+	format = "format.awakened_marauder.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <awakened_marauder_names>"
+}
+
+# Diadochi 1
+empire_name_parts_list = {
+	key = "diadochi_names_1_1"
+	parts = {
+		"Greater" = 30
+	}
+}
+empire_name_parts_list = {
+	key = "diadochi_names_1_2"
+	parts = {
+		"Khanate" = 30
+	}
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1000
+			AND = {
+				has_government = "gov_diadochi"
+				has_country_flag = diadochi_1
+			}
+		}
+	}
+	format = "format.diadochi.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "<diadochi_names_1_1> [This.GetSpeciesName] <diadochi_names_1_2>"
+}
+
+# Diadochi 2
+empire_name_parts_list = {
+	key = "diadochi_names_2_1"
+	parts = {
+		"Khaganate" = 30
+	}
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1000
+			AND = {
+				has_government = "gov_diadochi"
+				has_country_flag = diadochi_2
+			}
+		}
+	}
+	format = "format.diadochi.2"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <diadochi_names_2_1>"
+}
+
+# Diadochi 3
+empire_name_parts_list = {
+	key = "diadochi_names_3_1"
+	parts = {
+		"True" = 30
+	}
+}
+empire_name_parts_list = {
+	key = "diadochi_names_3_2"
+	parts = {
+		"Horde" = 30
+	}
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1000
+			AND = {
+				has_government = "gov_diadochi"
+				has_country_flag = diadochi_3
+			}
+		}
+	}
+	format = "format.diadochi.3"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "<diadochi_names_3_1> [This.GetSpeciesName] <diadochi_names_3_2>"
+}
+
+# Diadochi 4
+empire_name_parts_list = {
+	key = "diadochi_names_4_1"
+	parts = {
+		"Successor" = 30
+	}
+}
+empire_name_parts_list = {
+	key = "diadochi_names_4_2"
+	parts = {
+		"Khanate" = 30
+	}
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1000
+			AND = {
+				has_government = "gov_diadochi"
+				has_country_flag = diadochi_4
+			}
+		}
+	}
+	format = "format.diadochi.4"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <diadochi_names_4_1> <diadochi_names_4_2>"
+}
+
+# New Khanate
+empire_name_parts_list = {
+	key = "new_khanate_names_1_1"
+	parts = {
+		"New" = 30
+	}
+}
+empire_name_parts_list = {
+	key = "new_khanate_names_1_2"
+	parts = {
+		"Khanate" = 30
+	}
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1000
+			has_country_flag = new_khanate_flag
+		}
+	}
+	format = "format.new_khanate"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "<new_khanate_names_1_1> [This.GetSpeciesName] <new_khanate_names_1_2>"
+}
+
+# Democratic Khanate
+empire_name_parts_list = {
+	key = "free_khanate_names_1_1"
+	parts = {
+		"Free" = 30
+		"Democratic" = 30
+	}
+}
+empire_name_parts_list = {
+	key = "free_khanate_names_1_2"
+	parts = {
+		"Khanate" = 30
+	}
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1000
+			has_country_flag = democratic_khanate_flag
+		}
+	}
+	format = "format.free_khanate"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "<free_khanate_names_1_1> [This.GetSpeciesName] <free_khanate_names_1_2>"
+}
 
 
 ### FALLEN EMPIRE NAMES

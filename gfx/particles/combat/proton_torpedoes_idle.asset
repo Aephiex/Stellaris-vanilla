@@ -81,7 +81,7 @@ particle={
 	}
 	subsystem={
 		name="flare_spikes"
-		max_amount=50
+		max_amount=30
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"

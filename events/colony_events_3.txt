@@ -622,7 +622,7 @@ planet_event = {
 		trigger = { NOT = { owner = { has_ethic = ethic_gestalt_consciousness } } }
 	}
 	desc = {
-		text = "colony_mod.12.desc_gesta"
+		text = colony_mod.12.desc_gestalt
 		trigger = { owner = { has_ethic = ethic_gestalt_consciousness } }
 	}
 	picture = GFX_evt_asteroid_approaching_planet

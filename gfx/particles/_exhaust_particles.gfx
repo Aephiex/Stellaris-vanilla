@@ -213,6 +213,12 @@ objectTypes = {
 		type = "molluscoid_01_ship_exhaust_idle_file"
 		scale = 3.0
 	}
+	
+	pdxparticle = {
+		name = "molluscoid_01_10_0_exhaust_idle_particle"
+		type = "molluscoid_01_ship_exhaust_idle_file"
+		scale = 10.0
+	}
 
 	# OBLONG
 	
@@ -255,6 +261,12 @@ objectTypes = {
 		scale = 3.35
 	}
 	
+	pdxparticle = {
+		name = "mammalian_01_8_0_exhaust_idle_particle"
+		type = "mammalian_01_ship_exhaust_idle_file"
+		scale = 8.0
+	}
+	
 	# OBLONG
 	
 	pdxparticle = {
@@ -289,6 +301,12 @@ objectTypes = {
 	
 	pdxparticle = {
 		name = "mammalian_01_5_0_exhaust_oblong_idle_particle"
+		type = "mammalian_01_ship_exhaust_idle_large_file"
+		scale = 5.0
+	}
+
+	pdxparticle = {
+		name = "mammalian_01_5_exhaust_oblong_idle_particle"
 		type = "mammalian_01_ship_exhaust_idle_large_file"
 		scale = 5.0
 	}
@@ -633,6 +651,12 @@ objectTypes = {
 		scale = 3.0
 	}
 	
+	pdxparticle = {
+		name = "molluscoid_01_6_0_ship_exhaust_moving_particle"
+		type = "molluscoid_01_ship_exhaust_file"
+		scale = 6.0
+	}
+	
 	
 	# OBLONG
 	
@@ -682,6 +706,18 @@ objectTypes = {
 		scale = 4.35
 	}
 	
+	pdxparticle = {
+		name = "mammalian_01_8_0_ship_exhaust_moving_particle"
+		type = "mammalian_01_ship_exhaust_file"
+		scale = 8.0
+	}
+	
+	pdxparticle = {
+		name = "mammalian_01_12_0_ship_exhaust_moving_particle"
+		type = "mammalian_01_ship_exhaust_file"
+		scale = 12.0
+	}
+	
 	# OBLONG
 	
 	pdxparticle = {
@@ -710,6 +746,12 @@ objectTypes = {
 	
 	pdxparticle = {
 		name = "mammalian_01_5_0_ship_exhaust_oblong_moving_particle"
+		type = "mammalian_01_ship_exhaust_oblong_file"
+		scale = 5.0
+	}
+
+	pdxparticle = {
+		name = "mammalian_01_5_ship_exhaust_oblong_moving_particle"
 		type = "mammalian_01_ship_exhaust_oblong_file"
 		scale = 5.0
 	}

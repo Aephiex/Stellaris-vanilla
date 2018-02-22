@@ -33,7 +33,9 @@ ship_design = {
 			template = "AUTO_REPAIR"
 		}
 	}
-	required_component="WARP_DRIVE_2"
+	required_component="BIO_DRIVE"
+	required_component="BIO_PROPULSION"
+	required_component="BIO_SENSORS"
 }
 
 # Medium Space Whale
@@ -71,7 +73,9 @@ ship_design = {
 			template = "AUTO_REPAIR"
 		}
 	}
-	required_component="WARP_DRIVE_2"
+	required_component="BIO_DRIVE"
+	required_component="BIO_PROPULSION"
+	required_component="BIO_SENSORS"
 }
 
 # Small Space Whale
@@ -101,7 +105,9 @@ ship_design = {
 			template = "AUTO_REPAIR"
 		}
 	}
-	required_component="WARP_DRIVE_2"
+	required_component="BIO_DRIVE"
+	required_component="BIO_PROPULSION"
+	required_component="BIO_SENSORS"
 }
 
 # Matriarch (Unused)
@@ -143,5 +149,7 @@ ship_design = {
 			template = "AUTO_REPAIR"
 		}
 	}
-	required_component="WARP_DRIVE_2"
+	required_component="BIO_DRIVE"
+	required_component="BIO_PROPULSION"
+	required_component="BIO_SENSORS"
 }

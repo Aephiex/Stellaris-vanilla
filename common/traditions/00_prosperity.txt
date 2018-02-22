@@ -1,9 +1,6 @@
-@cost = 56
-
 tr_prosperity_adopt = {
-	cost = { unity = @cost }
 	modifier = {
-		spaceport_ship_build_cost_mult = -0.15
+		starbase_shipyard_build_cost_mult = -0.15
 		planet_building_cost_mult = -0.15
 	}
 
@@ -17,7 +14,7 @@ tr_prosperity_adopt = {
 		}
 
 		modifier = {
-			spaceport_ship_build_cost_mult = -0.15
+			starbase_shipyard_build_cost_mult = -0.15
 			planet_building_cost_mult = -0.15
 		}
 
@@ -36,7 +33,7 @@ tr_prosperity_adopt = {
 		}
 
 		modifier = {
-			spaceport_ship_build_cost_mult = -0.15
+			starbase_shipyard_build_cost_mult = -0.15
 			planet_building_cost_mult = -0.15
 		}
 
@@ -108,9 +105,8 @@ tr_prosperity_finish = {
 }
 
 tr_prosperity_sct = {
-	cost = { unity = @cost }
 	modifier = {
-		spaceport_ship_build_speed_mult = 0.15
+		starbase_shipyard_build_speed_mult = 0.15
 		planet_building_build_speed_mult = 0.15
 	}
 
@@ -133,12 +129,12 @@ tr_prosperity_sct = {
 }
 
 tr_prosperity_administrative_operations = {
-	cost = { unity = @cost }
 	possible = {
 		has_tradition = tr_prosperity_sct
 	}
 	modifier = {
 		planet_building_upkeep_mult = -0.10
+		country_starbase_upkeep_mult = -0.10
 	}
 
 	tradition_swap = {
@@ -160,7 +156,6 @@ tr_prosperity_administrative_operations = {
 }
 
 tr_prosperity_fleet_logistical_corps = {
-	cost = { unity = @cost }
 	possible = {
 		has_tradition = tr_prosperity_sct
 	}
@@ -188,9 +183,12 @@ tr_prosperity_fleet_logistical_corps = {
 }
 
 tr_prosperity_trans_stellar_corporations = {
-	cost = { unity = @cost }
 	
 	# Bonus implemented in 00_rules.txt (colony_ship_rushed)
+		
+	modifier = {
+		country_resource_energy_mult = 0.05
+	}
 	
 	tradition_swap = {
 		name = tr_prosperity_hive_warrior_forms
@@ -230,7 +228,6 @@ tr_prosperity_trans_stellar_corporations = {
 }
 
 tr_prosperity_pursuit_of_profit = {
-	cost = { unity = @cost }
 	possible = {
 		has_tradition = tr_prosperity_trans_stellar_corporations
 	}

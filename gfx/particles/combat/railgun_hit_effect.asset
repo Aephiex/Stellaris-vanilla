@@ -1,8 +1,80 @@
 particle={
 	name="railgun_hit_effect"
 	subsystem={
+		name="smoke_dark"
+		max_amount=20
+		slave_particles=0
+		emitter_type="sphere"
+		sphere_emitter_radius=1.500
+		sphere_emitter_yaw={ 0.000 180.000 }
+		sphere_emitter_pitch={ 0.000 180.000 }
+		invert=no
+		trail=no
+		local_space=no
+		billboard=yes
+		hide=no
+		texture={
+			file="gfx/particles/cloud.dds"
+			x=1
+			y=1
+			shader="ParticleAlphaBlend"
+		}
+		color={
+			x=30.000
+			y=50.000
+			z=90.000
+			alpha=150.000,fade_alpha
+		}
+		position={
+		}
+		duration=0.100
+		velocity_pitch={ 0.000 90.000 }
+		velocity_yaw={ 180.000 90.000 }
+		velocity={ 1.000 1.000 }
+		life={ 1.000 0.300 }
+		emission=200.000
+		size={ 6.000,grow 3.000 }
+		rotation={ 0.000 180.000 }
+	}
+	subsystem={
+		name="smoke"
+		max_amount=20
+		slave_particles=0
+		emitter_type="sphere"
+		sphere_emitter_radius=1.500
+		sphere_emitter_yaw={ 0.000 180.000 }
+		sphere_emitter_pitch={ 0.000 180.000 }
+		invert=no
+		trail=no
+		local_space=no
+		billboard=yes
+		hide=no
+		texture={
+			file="gfx/particles/cloud.dds"
+			x=1
+			y=1
+			shader="ParticleAlphaBlend"
+		}
+		color={
+			x=120.000
+			y=100.000
+			z=180.000
+			alpha=50.000,fade_alpha
+		}
+		position={
+		}
+		duration=0.100
+		velocity_pitch={ 0.000 90.000 }
+		velocity_yaw={ 180.000 90.000 }
+		velocity={ 1.000 1.000 }
+		life={ 1.000 0.300 }
+		emission=200.000
+		size={ 6.000,grow 3.000 }
+		rotation={ 0.000 180.000 }
+	}
+	subsystem={
 		name="glow"
-		max_amount=50
+		max_amount=10
 		slave_particles=0
 		emitter_type="point"
 		invert=no
@@ -25,16 +97,17 @@ particle={
 		position={
 		}
 		duration=0.100
-		velocity_pitch={ 0.000 90.000 }
-		velocity_yaw={ 180.000 90.000 }
-		life={ 0.500 0.300 }
+		velocity_pitch={ 0.000 180.000 }
+		velocity_yaw={ 180.000 180.000 }
+		velocity=1.000
+		life={ 1.000 0.300 }
 		emission=200.000
 		size={ 3.000 2.000 }
 		rotation={ 0.000 180.000 }
 	}
 	subsystem={
 		name="hull_splinter"
-		max_amount=200
+		max_amount=20
 		slave_particles=0
 		emitter_type="point"
 		invert=no
@@ -60,19 +133,16 @@ particle={
 		velocity_pitch={ 0.000 90.000 }
 		velocity_yaw={ 180.000 90.000 }
 		velocity={ 6.000 2.000 }
-		life={ 0.300 0.100 }
+		life={ 0.800 0.400 }
 		emission=200.000
 		size={ 0.500,grow 0.300 }
 		rotation={ 0.000 180.000 }
 	}
 	subsystem={
-		name="smoke"
-		max_amount=200
+		name="fire"
+		max_amount=20
 		slave_particles=0
-		emitter_type="sphere"
-		sphere_emitter_radius=3.000
-		sphere_emitter_yaw={ 0.000 180.000 }
-		sphere_emitter_pitch={ 0.000 180.000 }
+		emitter_type="point"
 		invert=no
 		trail=no
 		local_space=no
@@ -82,57 +152,23 @@ particle={
 			file="gfx/particles/fire04.dds"
 			x=1
 			y=1
-			shader="ParticleAlphaBlend"
-		}
-		color={
-			x=120.000
-			y=100.000
-			z=180.000
-			alpha=50.000,fade_alpha
-		}
-		position={
-		}
-		duration=0.100
-		velocity_pitch={ 0.000 90.000 }
-		velocity_yaw={ 180.000 90.000 }
-		velocity={ 1.000 1.000 }
-		life={ 0.700 0.300 }
-		emission=200.000
-		size={ 10.000,grow 5.000 }
-		rotation={ 0.000 180.000 }
-		rotation_speed=10.000
-	}
-	subsystem={
-		name="fire"
-		max_amount=400
-		slave_particles=0
-		emitter_type="point"
-		invert=no
-		trail=no
-		local_space=no
-		billboard=yes
-		hide=no
-		texture={
-			file="gfx/particles/fire_07.dds"
-			x=1
-			y=1
 			shader="ParticleAdditive"
 		}
 		color={
 			x=150.000
 			y=120.000
 			z=255.000
-			alpha=50.000,fade_alpha
+			alpha=200.000,fade_alpha
 		}
 		position={
 		}
 		duration=0.100
-		velocity_pitch={ 0.000 90.000 }
-		velocity_yaw={ 180.000 90.000 }
-		velocity={ 3.000 1.000 }
-		life={ 0.300 0.100 }
+		velocity_pitch={ 0.000 45.000 }
+		velocity_yaw={ 180.000 45.000 }
+		velocity={ 2.000 1.000 }
+		life={ 0.500 0.300 }
 		emission=500.000
-		size={ 3.000,grow 1.000 }
+		size={ 5.000,grow 1.000 }
 		rotation={ 0.000 180.000 }
 	}
 	subsystem={
@@ -146,7 +182,7 @@ particle={
 		billboard=yes
 		hide=no
 		texture={
-			file="gfx/particles/flare.dds"
+			file="gfx/particles/blast.dds"
 			x=1
 			y=1
 			shader="ParticleAdditive"
@@ -155,7 +191,7 @@ particle={
 			x=150.000
 			y=120.000
 			z=255.000
-			alpha=100.000,fade_alpha
+			alpha=50.000,fade_alpha
 		}
 		position={
 		}
@@ -164,46 +200,8 @@ particle={
 		velocity_yaw=180.000
 		life=0.300
 		emission=200.000
-		size=50.000,grow
+		size=20.000,grow
 		rotation={ 0.000 180.000 }
-		rotation_speed=25.000
-	}
-	subsystem={
-		name="smoke_dark"
-		max_amount=200
-		slave_particles=0
-		emitter_type="sphere"
-		sphere_emitter_radius=3.000
-		sphere_emitter_yaw={ 0.000 180.000 }
-		sphere_emitter_pitch={ 0.000 180.000 }
-		invert=no
-		trail=no
-		local_space=no
-		billboard=yes
-		hide=no
-		texture={
-			file="gfx/particles/fire04.dds"
-			x=1
-			y=1
-			shader="ParticleAlphaBlend"
-		}
-		color={
-			x=30.000
-			y=50.000
-			z=90.000
-			alpha=150.000,fade_alpha
-		}
-		position={
-		}
-		duration=0.100
-		velocity_pitch={ 0.000 90.000 }
-		velocity_yaw={ 180.000 90.000 }
-		velocity={ 1.000 1.000 }
-		life={ 0.700 0.300 }
-		emission=200.000
-		size={ 10.000,grow 5.000 }
-		rotation={ 0.000 180.000 }
-		rotation_speed=10.000
 	}
 	animation={
 		name="fade_alpha"

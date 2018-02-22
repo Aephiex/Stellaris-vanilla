@@ -16,7 +16,7 @@ weapon_component_template = {
 	icon_frame = 1
 	projectile_gfx = "space_whale_weapon"
 	tags = { weapon_type_energy }
-	ai_tags = { weapon_role_anti_armor }
+	ai_tags = { weapon_role_anti_hull }
 	
 	component_set = "EXTRADIMENSIONAL_1"
 	prerequisites = { "tech_extradimensional_weapon_1" }
@@ -33,7 +33,7 @@ weapon_component_template = {
 	icon_frame = 1
 	projectile_gfx = "space_whale_weapon"
 	tags = { weapon_type_energy }
-	ai_tags = { weapon_role_anti_armor }
+	ai_tags = { weapon_role_anti_hull }
 	
 	component_set = "EXTRADIMENSIONAL_1"
 	prerequisites = { "tech_extradimensional_weapon_1" }
@@ -50,7 +50,7 @@ weapon_component_template = {
 	icon_frame = 1
 	projectile_gfx = "space_whale_weapon"
 	tags = { weapon_type_energy }
-	ai_tags = { weapon_role_anti_armor }
+	ai_tags = { weapon_role_anti_hull }
 	
 	component_set = "EXTRADIMENSIONAL_1"
 	prerequisites = { "tech_extradimensional_weapon_1" }
@@ -68,7 +68,7 @@ weapon_component_template = {
 	icon_frame = 1
 	projectile_gfx = "arc_emitter"
 	tags = { weapon_type_energy }
-	ai_tags = { weapon_role_anti_armor }
+	ai_tags = { weapon_role_anti_hull }
 	
 	cost = @critter_cost_value
 }

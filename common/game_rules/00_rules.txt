@@ -3,6 +3,130 @@
 #If rules here evaluate to true, there might still be other rules that make the action unavailable.
 #If a rule here evaluates to false the action will become unavailable
 
+#Root = target country
+#This = country
+is_valid_rival = {
+	custom_tooltip = {
+		fail_text = INVALID_RIVAL_DESC
+		root = {
+			OR = {
+				prev = { NOT = { is_country_type = default } }
+				AND = {
+					is_neighbor_of = prev
+					relative_power = { who = prev value >= inferior }
+					relative_power = { who = prev value <= superior }				
+				}
+			}
+		}
+	}
+}
+
+# Root = claimer
+# This = system
+can_add_claim = {	
+	hidden_trigger = {
+		if = {
+			limit = {
+				root = { NOT = { is_country_type = default } }
+			}
+			always = yes
+		}
+	}
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_POLICY
+		OR = {
+			root = { has_policy_flag = unrestricted_wars }		
+			AND = {
+				exists = owner
+				owner = {
+					any_war = {
+						any_attacker = { is_same_value = prevprev }
+						any_defender = { is_same_value = root }
+					}			
+				}				
+			}			
+		}
+	}
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_NOT_VALID_EMPIRE 
+		NAND = {
+			exists = owner		
+			owner = {
+				NOR = {
+					is_country_type = default
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+		}
+	}	
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_DEVOURING_SWARM
+		NOT = { root = { has_valid_civic = civic_hive_devouring_swarm }	}
+	}	
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_PURIFIERS		 
+		NAND = {
+			exists = owner
+			root = { has_valid_civic = civic_fanatic_purifiers }		
+			NOT = {	owner = { is_same_species = root } }
+		}
+	}
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_EXTERMINATOR
+		NAND = {
+			exists = owner
+			root = { has_valid_civic = civic_machine_terminator }
+			owner = {
+				NOR = {
+					is_same_species = root
+					has_country_flag = synthetic_empire
+					has_authority = auth_machine_intelligence
+				}
+			}
+		}
+	}
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_THEY_COLOSSUS
+		NAND = {
+			exists = owner
+			NOT = { root = { has_ascension_perk = ap_colossus } }
+			owner = { has_ascension_perk = ap_colossus }
+			root = { is_rival = prev.owner }		
+		}
+	}	
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_COLOSSUS
+		OR = {
+			AND = {
+				exists = owner
+				NOT = { root = { is_rival = prev.owner } }
+			}		
+			NOT = { root = { has_ascension_perk = ap_colossus } }
+		}	
+	}
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_THEY_THREAT
+		NAND = {
+			exists = owner
+			owner = {
+				OR = {
+					has_valid_civic = civic_hive_devouring_swarm
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_machine_terminator
+				}
+			}
+			root = {
+				NOR = {
+					has_valid_civic = civic_hive_devouring_swarm
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_machine_terminator			
+				}
+			}			
+		}
+	}
+}
+
 #Root = country
 #This = species
 species_has_citizenship = {
@@ -10,6 +134,19 @@ species_has_citizenship = {
 		has_citizenship_type = { type = citizenship_full country = root }
 		has_citizenship_type = { type = citizenship_caste_system country = root }
 	}
+}
+
+#Root = country
+#This = pop
+should_abduct_pop = {
+	NAND = {
+		has_citizenship_type = { type = citizenship_purge country = root }
+		NOR = { 
+			has_purge_type = { type = purge_matrix country = root } 
+			has_purge_type = { type = purge_processing country = root } 
+			has_purge_type = { type = purge_labor_camps country = root } 
+		}
+	}	
 }
 
 #Root = country
@@ -22,7 +159,10 @@ can_auto_migrate_pop = {
 	is_being_purged = no
 	has_migration_control = no
 	is_robot_pop = no
-	NOT = { has_trait = trait_self_modified }
+	OR = {
+		NOT = { has_trait = trait_self_modified }
+		is_same_species = root
+	}
 	NOT = { has_modifier = recently_migrated }
 	NOT = { has_modifier = recent_refugee }
 }
@@ -30,63 +170,69 @@ can_auto_migrate_pop = {
 #Root = planet
 #This = pop
 pop_can_live_on_planet = {
-	OR = {
-		root = { NOT = { habitability = { who = prev value < 0.2 } } }
-		AND = {
-			has_citizenship_type = { type = citizenship_purge }
-			NOT = { has_purge_type = { type = purge_displacement } }
-		}		
+	custom_tooltip = {
+		fail_text = POP_HABITABILITY_TOO_LOW
+		OR = {
+			root = { NOT = { habitability = { who = prev value < 0.2 } } }
+			AND = {
+				has_citizenship_type = { type = citizenship_purge }
+				NOT = { has_purge_type = { type = purge_displacement } }
+			}		
+		}	
 	}
-	OR = {
-		is_robot_pop = yes
-		AND = {
-			exists = owner
-			owner = { NOT = { is_country_type = default } }
-		}
-		AND = {
-			has_citizenship_type = { type = citizenship_purge }
-			NOT = { has_purge_type = { type = purge_displacement } }
-		}
-		AND = {
-			OR = {
-				NOT = { has_citizenship_type = { type = citizenship_purge } }
+	custom_tooltip = {
+		fail_text = POP_MAY_NOT_LIVE_ON_PLANET
+		OR = {
+			is_robot_pop = yes
+			AND = {
+				exists = owner
+				owner = { NOT = { is_country_type = default } }
+			}
+			AND = {
+				has_citizenship_type = { type = citizenship_purge }
 				NOT = { has_purge_type = { type = purge_displacement } }
 			}
-			OR = {
-				# everyone may live in sectors
-				planet = { sector_controlled = yes }
-
-				# citizens may always live in core worlds
+			AND = {
 				OR = {
-					has_citizenship_type = { type = citizenship_full }
-					has_citizenship_type = { type = citizenship_caste_system }
-					has_citizenship_type = { type = citizenship_full_machine }
-					has_citizenship_type = { type = citizenship_organic_trophy }
+					NOT = { has_citizenship_type = { type = citizenship_purge } }
+					NOT = { has_purge_type = { type = purge_displacement } }
 				}
+				OR = {
+					# everyone may live in sectors
+					planet = { sector_controlled = yes }
 
-				# core_worlds_all / hive minds let everyone live in core worlds
-				AND = {
-					exists = owner
+					# citizens may always live in core worlds
 					OR = {
-						owner = { has_policy_flag = core_worlds_all }
-						owner = { has_ethic = ethic_gestalt_consciousness }
-					}		
-					# stop non-citizens from moving to planets with recent land appropriation
-					NAND = {
-						root = { has_modifier = land_appropriation }
-						planet = { NOT = { is_same_value = root } }
+						has_citizenship_type = { type = citizenship_full }
+						has_citizenship_type = { type = citizenship_caste_system }
+						has_citizenship_type = { type = citizenship_full_machine }
+						has_citizenship_type = { type = citizenship_organic_trophy }
 					}
-				}				
 
-				# core_worlds_citizens_and_slaves lets slaves live in core worlds
-				AND = {
-					exists = owner
-					has_citizenship_type = { type = citizenship_slavery }
-					owner = { has_policy_flag = core_worlds_citizens_and_slaves }
+					# core_worlds_all / hive minds let everyone live in core worlds
+					AND = {
+						exists = owner
+						OR = {
+							owner = { has_policy_flag = core_worlds_all }
+							owner = { has_ethic = ethic_gestalt_consciousness }
+						}		
+						# stop non-citizens from moving to planets with recent land appropriation
+						NAND = {
+							root = { has_modifier = land_appropriation }
+							planet = { NOT = { is_same_value = root } }
+						}
+					}				
+
+					# core_worlds_citizens_and_slaves lets slaves live in core worlds
+					AND = {
+						exists = owner
+						has_citizenship_type = { type = citizenship_slavery }
+						owner = { has_policy_flag = core_worlds_citizens_and_slaves }
+					}
 				}
 			}
-		}
-	}	
+		}			
+	}
 }
 
 #Root = country
@@ -115,7 +261,6 @@ can_vote_in_democratic_election = {
 	is_being_purged = no
 }
 
-
 #Root = country
 #This = pop
 can_generate_leader_from_pop = {
@@ -132,17 +277,15 @@ can_generate_leader_from_pop = {
 #This = species
 can_generate_leader_from_species = {
 	is_sapient = yes
+	NOT = { has_trait = "trait_robotic_1" }
+	NOT = { has_trait = "trait_robotic_2" }
 	OR = {
-		root = { has_technology = tech_synthetic_leaders }
-		NOR = {
-			has_trait = "trait_robotic_1"
-			has_trait = "trait_robotic_2"
-			has_trait = "trait_robotic_3"
-		}		
-	}
-	OR = {	
+		NAND = {
+			NOT = { root = { has_technology = tech_synthetic_leaders } }
+			has_trait = "trait_robotic_3"	
+		}
 		has_citizenship_type = { type = citizenship_full country = root }
-		has_citizenship_type = { type = citizenship_caste_system country = root }
+		has_citizenship_type = { type = citizenship_caste_system country = root }	
 	}
 }
 
@@ -167,12 +310,39 @@ can_generate_army_from_planet = {
 	}
 }
 
+#Root = planet
 #This = country
 can_release_vassal = {
-	NOT = { has_valid_civic = civic_fanatic_purifiers }
-	NOT = { has_valid_civic = civic_machine_terminator }
-	NOT = { has_valid_civic = civic_machine_assimilator }
-	NOT = { has_valid_civic = civic_hive_devouring_swarm }
+	custom_tooltip = {
+		fail_text = default
+		NOT = { has_valid_civic = civic_fanatic_purifiers }
+	}
+	custom_tooltip = {
+		fail_text = default
+		NOT = { has_valid_civic = civic_machine_terminator }
+	}
+	custom_tooltip = {
+		fail_text = default
+		NOT = { has_valid_civic = civic_machine_assimilator }
+	}
+	custom_tooltip = {
+		fail_text = default
+		NOT = { has_valid_civic = civic_hive_devouring_swarm }
+	}
+	custom_tooltip = {
+		fail_text = requires_domination_adopted
+		has_tradition = tr_domination_adopt
+	}
+	custom_tooltip = {
+		fail_text = CANNOT_RELEASE_CULTURE_SHOCK
+		root = {
+			NOT = {
+				any_owned_pop = {
+					has_culture_shock = yes
+				}
+			}
+		}		
+	}
 }
 
 #Root = species
@@ -203,20 +373,19 @@ can_generate_army_from_species = {
 # Root = species
 # This = country
 can_modify_species = {
-	NOT = { has_trait = trait_self_modified }
+	OR = {
+		NOT = { has_trait = trait_self_modified }
+		is_same_species = root
+	}
 }
 
 #This = country, suject
 #Root = country, overlord
 #From = target solar system
 #This rule is a condition for when subjects that normally cannot colonize outside their borders are allowed to
-subject_can_colonize = {
-	OR = {
-		from = { is_within_borders_of = prev }
-		root = { has_valid_civic = civic_feudal_realm }
-	}
+subject_can_expand = {
+	root = { has_valid_civic = civic_feudal_realm }
 }
-
 
 #Root = country, attacker
 #This = country, target
@@ -273,20 +442,32 @@ can_take_hostile_actions = {
 									is_primitive = yes
 									ROOT = { is_country_type = default }
 									capital_scope = {
-										any_country = {
-											NOT = { is_same_value = root }
-											any_planet_within_border = {
-												is_same_value = prevprev
+										root = {
+											NOT = {
+												any_planet_within_border = {
+													is_same_value = prevprev
+												}
 											}
 										}
 									}
 								}
 								custom_tooltip = {
-									text = "CAN_TAKE_HOSTILE_ACTION_NATIVE_OTHER_BORDERS"
+									text = ""
 									always = no
 								}
 								else = {
-									always = yes
+									if = {
+										limit = {
+											ROOT = { is_subject_type = satrapy }
+										}
+										custom_tooltip = {
+											text = "CAN_TAKE_HOSTILE_ACTION_SATRAPY"
+											always = no
+										}
+										else = {
+											always = yes
+										}
+									}
 								}
 							}
 						}
@@ -344,6 +525,12 @@ can_colonize_planet = {
 
 #Root = country
 #This = planet
+can_colonize_outside_borders = {
+	always = no
+}
+
+#Root = country
+#This = planet
 can_terraform_planet = {
 	NAND = {
 		root = { has_policy_flag = pre_sapients_protect }
@@ -355,7 +542,10 @@ can_terraform_planet = {
 #This = pop
 can_colonize_with_pop = {
 	has_colonization_control = no
-	NOT = { has_trait = trait_self_modified }
+	OR = {
+		NOT = { has_trait = trait_self_modified }
+		is_same_species = root
+	}
 	if = {
 		limit = { 
 			OR = {
@@ -467,7 +657,10 @@ can_resettle_pop = {
 	custom_tooltip = {
 		fail_text = "RESETTLE_POP_IS_REFUSING"
 		exists = this
-		NOT = { has_trait = trait_self_modified }
+		OR = {
+			NOT = { has_trait = trait_self_modified }
+			is_same_species = from
+		}
 	}
 	custom_tooltip = {
 		fail_text = "RESETTLEMENT_POLICY_DISABLED"
@@ -493,6 +686,8 @@ can_resettle_pop = {
 # This = Planet
 can_resettle_pop_planet = {
 	is_controlled_by = owner
+	has_ground_combat = no
+	has_orbital_bombardment = no
 	custom_tooltip = {
 		text = "RESETTLE_PLANET_UNDER_COLONIZATION"
 		exists = this
@@ -530,6 +725,11 @@ should_kill_growing_pop = {
 #From = planet, potential target
 can_orbital_bombard = {
 	exists = FROM.OWNER
+	NOT = {
+		any_owned_ship = {
+			is_ship_size = colossus
+		}
+	}
 	OR = {
 		AND = {
 			ROOT.OWNER = {
@@ -565,6 +765,9 @@ can_orbital_bombard = {
 				is_country_type = swarm
 				is_country_type = ai_empire
 				is_country_type = cybrex_empire
+				is_country_type = dormant_marauders
+				is_country_type = ruined_marauders
+				is_country_type = awakened_marauders
 			}
 		}
 	}
@@ -573,7 +776,7 @@ can_orbital_bombard = {
 # Check if private colony ships are available
 # root: country
 colony_ship_rushed = {
-	has_non_swapped_tradition = tr_prosperity_trans_stellar_corporations
+	has_civic = civic_corporate_dominion
 }
 
 #Check if it is possible to build orbital stations on this planet
@@ -628,14 +831,6 @@ should_colony_be_destroyed_on_pc_change = {
 	is_planet_class = pc_infested
 }
 
-#Root: country
-has_policies_for_support_stance = {
-	NOT = {
-		is_country_type = swarm
-		is_country_type = ai_empire
-	}
-}
-
 # Is the given fleet the portal for given extradimensional country
 # root: country (ED)
 # this: fleet
@@ -664,7 +859,14 @@ is_extradimensional_portal = { # is this portal mine
 # root: country (ED)
 # this: fleet
 is_extradimensional_anchor = {
-	is_ship_size = anchor_station
+	root = {
+		OR = {
+			is_country_type = extradimensional
+			is_country_type = extradimensional_2
+			is_country_type = extradimensional_3
+		}
+	}
+	is_ship_size = starbase_citadel
 	owner = { is_same_value = root }
 }
 
@@ -675,7 +877,6 @@ will_anger_fallen_empire = {
 	OR = {
 		AND = {
 			root = { has_ai_personality_behaviour = demands_clear_borders }
-			is_capital = no
 			is_neighbor_of = root		
 		}
 		AND = {
@@ -786,6 +987,64 @@ is_owned_pop = {
 				has_slavery_type = { type = slavery_normal }
 				has_slavery_type = { type = slavery_domestic }
 			}
+		}
+	}
+}
+
+# THIS = Fleet
+fleet_uses_templates = {
+	is_ship_class = shipclass_military
+	is_designable = yes
+}
+
+# this = starbase
+can_starbase_repair_ships = {
+	has_starbase_size >= starbase_starport
+}
+
+# this = ship
+# root = country that kills ship
+can_spawn_debris = {	
+	root = { is_country_type = default }
+	exists = owner
+	owner = { NOT = { has_ascension_perk = ap_enigmatic_engineering } }
+}
+
+# this = system
+# root = country
+# Determines if Marauder Horde should restrict (and thus avoid) a system
+horde_should_restrict_system = {
+	OR = {
+		AND = {
+			exists = owner
+			owner = { is_country_type = fallen_empire }
+		}
+		any_ship_in_system = {
+			exists = owner
+			owner = {
+				OR = {
+					is_country_type = guardian_dragon
+					is_country_type = guardian_stellarite
+					is_country_type = guardian_wraith
+					is_country_type = guardian_horror
+					is_country_type = guardian_fortress
+					is_country_type = guardian_dreadnought
+				}
+			}
+		}
+	}
+}
+
+# this = country
+can_subjugate_empires = {
+	has_tradition = tr_domination_adopt
+}
+
+# THIS = Fleet
+can_jump_drive = {
+	custom_tooltip = {
+		any_owned_ship = {
+			NOT = { has_modifier = jump_drive_cooldown }
 		}
 	}
 }

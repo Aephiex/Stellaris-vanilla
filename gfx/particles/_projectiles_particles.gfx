@@ -633,14 +633,14 @@ pdxparticle = {
 		name = "coilgun_large_hit_effect"
 		type = "coilgun_hit_effect"
 		
-		scale = 1.15
+		scale = 1.0
 	}
 	
 	pdxparticle = {
 		name = "coilgun_medium_hit_effect"
 		type = "coilgun_hit_effect"
 		
-		scale = 1.0
+		scale = 0.85
 	}
 	
 	pdxparticle = {
@@ -654,56 +654,56 @@ pdxparticle = {
 		name = "railgun_large_hit_effect"
 		type = "railgun_hit_effect"
 		
-		scale = 1.15
+		scale = 1.0
 	}
 	
 	pdxparticle = {
 		name = "railgun_medium_hit_effect"
 		type = "railgun_hit_effect"
 		
-		scale = 1.0
+		scale = 0.85
 	}
 	
 	pdxparticle = {
 		name = "railgun_small_hit_effect"
 		type = "railgun_hit_effect"
 		
-		scale = 0.5
+		scale = 0.65
 	}
 	
 	pdxparticle = {
 		name = "advanced_railgun_large_hit_effect"
 		type = "advanced_railgun_hit_effect"
 		
-		scale = 1.15
+		scale = 1.0
 	}
 	
 	pdxparticle = {
 		name = "advanced_railgun_medium_hit_effect"
 		type = "advanced_railgun_hit_effect"
 		
-		scale = 1.0
+		scale = 0.85
 	}
 	
 	pdxparticle = {
 		name = "advanced_railgun_small_hit_effect"
 		type = "advanced_railgun_hit_effect"
 		
-		scale = 0.5
+		scale = 0.65
 	}
 	
 	pdxparticle = {
 		name = "gauss_cannon_large_hit_effect"
 		type = "gauss_cannon_hit_effect"
 		
-		scale = 1.15
+		scale = 1.0
 	}
 	
 	pdxparticle = {
 		name = "gauss_cannon_medium_hit_effect"
 		type = "gauss_cannon_hit_effect"
 		
-		scale = 1.0
+		scale = 0.75
 	}
 	
 	pdxparticle = {

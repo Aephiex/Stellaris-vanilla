@@ -18,6 +18,12 @@ FUN2 = {
 		
 		battleship = {
 		}
+
+		titan = {
+		}
+
+		colossus = {
+		}
 		
 		science = {
 		}
@@ -28,20 +34,14 @@ FUN2 = {
 		constructor = {
 		}
 		
-		
-		orbital_station = { }
-		mining_station = { }
-		research_station = { }
-		wormhole_station = { }
-		#terraform_station = { }
-		observation_station = { }
 
-		military_station_small = {}
-		military_station_medium = {}
-		military_station_large = {}
-		outpost_station = {
-			#random_names = { }
-			#sequential_name = "%O% Frontier Outpost"
+		transport = {
+		}
+	
+		military_station_small = {
+		}
+
+		ion_cannon = {
 		}
 	}
 
@@ -97,9 +97,6 @@ FUN2 = {
 			sequential_name = "%O% Slime Molds"
 		}
 	}
-		
-
-	### PLANETS
 
 	planet_names = {
 
@@ -157,10 +154,7 @@ FUN2 = {
 			names = {
 			}
 		}
-		
 	}
-
-	### CHARACTERS
 
 	character_names = {
 		default = {

@@ -570,22 +570,7 @@ entity = {
 }
 
 entity = {
-	name = "extra_dimensional_01_anchor_station_entity"
-	locator = { name = "part1" 	position = { 0 0 0 } }
-	
-	game_data = {
-  		raytrace_projectiles = no
-  		dissolve_on_death = 3.0
-		ship_color = hsv { 0.75 1.0 0.75 1.0 }
- 	}
-	
-	default_state = "idle"
-	state = { name = "idle" state_time = 7 }
-	state = { name = "death" state_time = 7 looping = no }
-}
-
-entity = {
-	name = "extra_dimensional_01_anchor_station_core_entity"
+	name = "extra_dimensional_01_starbase_exd_entity"
 	pdxmesh = "extra_dimensional_01_anchor_station_mesh"	
 	#scale = @exd_large_station
 	locator = { name = "death_locator" 	position = { 0 -10 0 } rotation = { 0 90 0 } }
@@ -873,7 +858,7 @@ entity = {
 ##################         	 CONSTRUCTION ENTITIES           ########################
 
 entity = {
-	name = "extra_dimensional_01_anchor_station_construction_entity"
+	name = "extra_dimensional_01_starbase_exd_construction_entity"
 	#pdxmesh = "extra_dimensional_01_anchor_station_mesh"	
 	#scale = @exd_large_station
 	locator = { name = "death_locator" 	position = { 0 -10 0 } rotation = { 0 90 0 } }
@@ -896,7 +881,7 @@ entity = {
 }
 
 entity = {
-	name = "extra_dimensional_02_anchor_station_construction_entity"
+	name = "extra_dimensional_02_starbase_exd_construction_entity"
 	#pdxmesh = "extra_dimensional_01_anchor_station_mesh"	
 	#scale = @exd_large_station
 	locator = { name = "death_locator" 	position = { 0 -10 0 } rotation = { 0 90 0 } }
@@ -918,7 +903,7 @@ entity = {
 }
 
 entity = {
-	name = "extra_dimensional_03_anchor_station_construction_entity"
+	name = "extra_dimensional_03_starbase_exd_construction_entity"
 	#pdxmesh = "extra_dimensional_01_anchor_station_mesh"	
 	#scale = @exd_large_station
 	locator = { name = "death_locator" 	position = { 0 -10 0 } rotation = { 0 90 0 } }

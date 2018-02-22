@@ -24,18 +24,7 @@ objectTypes = {
 		animation = { id = "working_looping"			type = "ai_01_civilian_01_working_loop_animation" }
 		
 		scale = 0.55
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	}	
 	
 	pdxmesh = {
 		name = "ai_01_station_large_mesh"

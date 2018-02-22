@@ -330,7 +330,7 @@ planet_event = {
 		sector_controlled = no
 		owner = {
 			is_ai = no
-			has_technology = tech_spaceport_3
+			has_technology = tech_destroyers
 			NOT = { has_country_flag = colony_submerged_cruiser }
 		}
 		has_ground_combat = no
@@ -396,22 +396,22 @@ planet_event = {
 					has_ethic = ethic_fanatic_spiritualist
 					has_ethic = ethic_spiritualist
 				}
-				NOT = { has_technology = tech_spaceport_4 }
+				NOT = { has_technology = tech_destroyers }
 			}
 		}
 		owner = {
 			if = {
 				limit = {
-					has_tech_option = tech_spaceport_4
+					has_tech_option = tech_destroyers
 				}
 				add_tech_progress = {
-					tech = tech_spaceport_4
+					tech = tech_destroyers
 					progress = 0.60
 				}
 				else = {
-					add_research_option = tech_spaceport_4
+					add_research_option = tech_destroyers
 					add_tech_progress = {
-						tech = tech_spaceport_4
+						tech = tech_destroyers
 						progress = 0.20
 					}
 				}
@@ -426,23 +426,23 @@ planet_event = {
 					has_ethic = ethic_fanatic_spiritualist
 					has_ethic = ethic_spiritualist
 				}
-				has_technology = tech_spaceport_4
-				NOT = { has_technology = tech_spaceport_5 }
+				has_technology = tech_destroyers
+				NOT = { has_technology = tech_cruisers }
 			}
 		}
 		owner = {
 			if = {
 				limit = {
-					has_tech_option = tech_spaceport_5
+					has_tech_option = tech_cruisers
 				}
 				add_tech_progress = {
-					tech = tech_spaceport_5
+					tech = tech_cruisers
 					progress = 0.60
 				}
 				else = {
-					add_research_option = tech_spaceport_5
+					add_research_option = tech_cruisers
 					add_tech_progress = {
-						tech = tech_spaceport_5
+						tech = tech_cruisers
 						progress = 0.20
 					}
 				}
@@ -457,22 +457,22 @@ planet_event = {
 					has_ethic = ethic_fanatic_spiritualist
 					has_ethic = ethic_spiritualist
 				}
-				NOT = { has_technology = tech_spaceport_4 }
+				NOT = { has_technology = tech_destroyers }
 			}
 		}
 		owner = {
 			if = {
 				limit = {
-					has_tech_option = tech_spaceport_4
+					has_tech_option = tech_destroyers
 				}
 				add_tech_progress = {
-					tech = tech_spaceport_4
+					tech = tech_destroyers
 					progress = 0.60
 				}
 				else = {
-					add_research_option = tech_spaceport_4
+					add_research_option = tech_destroyers
 					add_tech_progress = {
-						tech = tech_spaceport_4
+						tech = tech_destroyers
 						progress = 0.20
 					}
 				}
@@ -487,23 +487,23 @@ planet_event = {
 					has_ethic = ethic_fanatic_spiritualist
 					has_ethic = ethic_spiritualist
 				}
-				has_technology = tech_spaceport_4
-				NOT = { has_technology = tech_spaceport_5 }
+				has_technology = tech_destroyers
+				NOT = { has_technology = tech_cruisers }
 			}
 		}
 		owner = {
 			if = {
 				limit = {
-					has_tech_option = tech_spaceport_5
+					has_tech_option = tech_cruisers
 				}
 				add_tech_progress = {
-					tech = tech_spaceport_5
+					tech = tech_cruisers
 					progress = 0.60
 				}
 				else = {
-					add_research_option = tech_spaceport_5
+					add_research_option = tech_cruisers
 					add_tech_progress = {
-						tech = tech_spaceport_5
+						tech = tech_cruisers
 						progress = 0.20
 					}
 				}
@@ -542,11 +542,13 @@ planet_event = {
 		hidden_effect = {
 			create_fleet = {
 				name = "NAME_Seaborn_Flotilla"
+				settings = {
+					spawn_debris = no
+				}				
 				effect = {
 					set_owner = event_target:me
 					create_ship_design = {
 						design = "NAME_Sword"
-						ftl = event_target:me
 					}
 					create_ship = {
 						name = "NAME_Seafallen_Cruiser"
@@ -585,11 +587,13 @@ planet_event = {
 			}
 			create_fleet = {
 				name = "NAME_Seafallen_Cruiser"
+				settings = {
+					spawn_debris = no
+				}					
 				effect = {
 					set_owner = event_target:me
 					create_ship_design = {
 						design = "NAME_Sword"
-						ftl = event_target:me
 					}
 					create_ship = {
 						name = "NAME_Seafallen_Cruiser"
@@ -630,11 +634,13 @@ planet_event = {
 			}
 			create_fleet = {
 				name = "NAME_Seaborn"
+				settings = {
+					spawn_debris = no
+				}					
 				effect = {
 					set_owner = event_target:me
 					create_ship_design = {
 						design = "NAME_Sword"
-						ftl = event_target:me
 					}
 					create_ship = {
 						name = "NAME_Seafallen_Cruiser"

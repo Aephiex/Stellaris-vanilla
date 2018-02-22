@@ -1,5 +1,5 @@
 #
-# can_colonize = allowed to colonize planets
+# can_expand = allowed to build outposts to expand borders
 # potential = if possible to select in diplomatic interactions
 # become_vassal = trigger when it converts into a vassal
 # tech_cost_mult = tech cost multiplier if overlord has a tech
@@ -19,7 +19,7 @@
 @protectorate_tech_switch = 0.5
 
 vassal = {
-	can_colonize = no
+	can_expand = no
 	can_be_integrated = yes
 	
 	research_agreement = no
@@ -48,22 +48,35 @@ vassal = {
 	effect = {
 		if = {
 			limit = {
+				from = { 	
+					is_country_type_with_subjects = no
+				}
+			}
+			set_subject_of = {
+				who = none
+			}
+			break = yes
+		}		
+		if = {
+			limit = {
 				from = { has_valid_civic = civic_inwards_perfection }
 			}
 			set_subject_of = {
 				who = from
 				subject_type = tributary
 			}
+			break = yes
 		}
 		if = {
 			limit = {
-				from = { 
+				from = { 	
 					has_valid_civic = civic_hive_devouring_swarm
 				}
 			}
 			set_subject_of = {
 				who = none
 			}
+			break = yes
 		}			
 		if = {
 			limit = {
@@ -75,6 +88,7 @@ vassal = {
 			set_subject_of = {
 				who = none
 			}
+			break = yes
 		}		
 		if = {
 			limit = {
@@ -87,6 +101,7 @@ vassal = {
 				who = from
 				subject_type = satellite
 			}
+			break = yes
 		}	
 		if = {
 			limit = {
@@ -99,6 +114,7 @@ vassal = {
 				who = from
 				subject_type = dominion
 			}
+			break = yes
 		}
 		if = {
 			limit = {
@@ -111,6 +127,7 @@ vassal = {
 				who = from
 				subject_type = signatory
 			}
+			break = yes
 		}
 		if = {
 			limit = {
@@ -123,12 +140,13 @@ vassal = {
 				who = from
 				subject_type = thrall
 			}
+			break = yes
 		}
 	}	
 }
 
 protectorate = {
-	can_colonize = no
+	can_expand = no
 	can_be_integrated = yes
 	
 	research_agreement = no
@@ -153,12 +171,24 @@ protectorate = {
 	effect = {
 		if = {
 			limit = {
+				from = { 	
+					is_country_type_with_subjects = no
+				}
+			}
+			set_subject_of = {
+				who = none
+			}
+			break = yes
+		}		
+		if = {
+			limit = {
 				from = { has_valid_civic = civic_inwards_perfection }
 			}
 			set_subject_of = {
 				who = from
 				subject_type = tributary
 			}
+			break = yes
 		}
 		if = {
 			limit = {
@@ -169,6 +199,7 @@ protectorate = {
 			set_subject_of = {
 				who = none
 			}
+			break = yes
 		}			
 		if = {
 			limit = {
@@ -180,6 +211,7 @@ protectorate = {
 			set_subject_of = {
 				who = none
 			}
+			break = yes
 		}		
 		if = {
 			limit = {
@@ -192,6 +224,7 @@ protectorate = {
 				who = from
 				subject_type = satellite
 			}
+			break = yes
 		}	
 		if = {
 			limit = {
@@ -204,6 +237,7 @@ protectorate = {
 				who = from
 				subject_type = dominion
 			}
+			break = yes
 		}
 		if = {
 			limit = {
@@ -216,6 +250,7 @@ protectorate = {
 				who = from
 				subject_type = signatory
 			}
+			break = yes
 		}
 		if = {
 			limit = {
@@ -228,6 +263,7 @@ protectorate = {
 				who = from
 				subject_type = thrall
 			}
+			break = yes
 		}
 
 	}		

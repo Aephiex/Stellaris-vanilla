@@ -418,34 +418,52 @@ entity = {
 	
 	default_state = "idle"
 	state = { name = "idle"
-		start_event = { particle = "ship_orbit_effect" }
+	#	start_event = { particle = "ship_orbit_effect" }
 	}
 	
 	scale = 1
 }
 
 entity = { 
-	name = "wormhole_incoming_entity"
+	name = "natural_wormhole_entity"
 	pdxmesh = "wormhole_rings_mesh"
 	
+	#locator = { name = "root" position = { 0 0 0 } }
+	
 	default_state = "start"
-	state = { name = "start" animation = "open" looping = no next_state = "looping"
-		event = { time = 0.0 particle = "wormhole_open_particle"  keep_particle = no trigger_once = yes }
-		event = { time = 0.7 particle = "wormhole_idle_particle"  keep_particle = yes trigger_once = yes }
+	state = { name = "start" state_time = 5 looping = no next_state = start2
+		event = { time = 0.0 node = "effect_locator" particle = "wormhole_idle_particle"  keep_particle = yes trigger_once = yes }
 		event = { trigger_once = yes sound = { soundeffect = "ftl_wormhole_incoming_ship" } }
 	}
-	state = { name = "looping" animation = "idle" 
-		event = { time = 0.0 node = "rings_center" particle = "wormhole_idle_particle"  keep_particle = yes trigger_once = yes sound = { soundeffect = "incoming_wormhole" } }
-	}
 	
-	state = { name = "stop" animation = "close" looping = no animation_speed = 1}
-	
-	scale = 6.0
+	scale = 12.0
 	
 	game_data = {
 		uv_animation_speed   = -0.05
 		uv_animation_direction  = { 0.4 0.4 }
-	}	
+		bloom_factor = 0.8
+	}
+	
+	attach = { root = "natural_wormhole_stretched_ring_entity" }
+	
+
+}
+
+entity = { 
+	name = "natural_wormhole_stretched_ring_entity"
+	pdxmesh = "wormhole_stretched_ring_mesh"
+	
+	default_state = "start"
+	state = { name = "start" state_time = 5 }
+	
+	scale = 1.0
+	
+	game_data = {
+		uv_animation_speed   = -0.05
+		uv_animation_direction  = { 0.2 0.2 }
+	}
+	
+
 }
 
 
@@ -490,4 +508,60 @@ entity = {
 	}
 	
 	scale = 1
+}
+
+entity = {
+	name = "gateway_ftl_ship_effect_entity"
+	
+	state = { name = "jump_in" state_time = 1.0 looping = no
+		start_event = { particle = "ftl_in_ship_particle" }
+		event = { trigger_once = yes sound = { soundeffect = "ftl_warp_jump_in_ship" } }
+	}
+	state = { name = "jump_out" state_time = 1.0 looping = no
+		start_event = { particle = "ftl_out_ship_particle" }
+		event = { trigger_once = yes sound = { soundeffect = "ftl_warp_jump_out_ship" } }
+	}
+	scale = 1
+}
+
+entity = {
+	name = "wormhole_ftl_ship_effect_entity"
+	
+	state = { name = "jump_in" state_time = 1.0 looping = no
+		start_event = { particle = "ftl_in_ship_particle" }
+		event = { trigger_once = yes sound = { soundeffect = "ftl_hyperlane_in_coming_ship" } }
+	}
+	state = { name = "jump_out" state_time = 1.0 looping = no
+		start_event = { particle = "ftl_out_ship_particle" }
+		event = { trigger_once = yes sound = { soundeffect = "ftl_hyperlane_out_coming_ship" } }
+	}
+	
+	scale = 1
+}
+
+
+entity = {
+	name = "gateway_ftl_bypass_effect_entity"
+	
+	state = { name = "jump_in" state_time = 3.0 looping = no
+		start_event = { particle = "gateway_active_effect" }
+	}
+	state = { name = "jump_out" state_time = 3.0 looping = no
+		start_event = { particle = "gateway_active_effect" }
+	}
+	scale = 1.0
+}
+
+entity = {
+	name = "wormhole_ftl_bypass_effect_entity"
+	#locator = { name = "loc1" position = { 0 -2 0 } }
+	
+	state = { name = "jump_in" state_time = 3.0 looping = no
+		event = { time = 0 particle = "wormhole_active_effect" }
+	}
+	state = { name = "jump_out" state_time = 3.0 looping = no
+		event = { time = 0 particle = "wormhole_active_effect" }
+	}
+	
+	scale = 1.0
 }

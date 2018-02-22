@@ -397,6 +397,13 @@ guiTypes = {
 				position = { x = 892 y = 0 }
 				quadTextureSprite = "gfx_transparency_button"
 			}
+			
+			# ※
+			checkboxType = {
+				name = "filter_checkbox_awakened_fallen_empire"
+				position = { x = 1072 y = 0 }
+				quadTextureSprite = "gfx_transparency_button"
+			}
 
 			# Sort buttons
 

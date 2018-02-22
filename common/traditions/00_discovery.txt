@@ -1,8 +1,5 @@
 
-@cost = 56
-
 tr_discovery_adopt = {
-	cost = { unity = @cost }
 	modifier = {
 		ship_anomaly_fail_risk = -0.10
 		ship_anomaly_generation_chance_mult = 0.15
@@ -109,7 +106,6 @@ tr_discovery_finish = {
 }
 
 tr_discovery_to_boldly_go = {
-	cost = { unity = @cost }
 	modifier = {
 		science_ship_survey_speed = 0.35
 		shipclass_science_ship_evasion_add = 30
@@ -149,7 +145,6 @@ tr_discovery_to_boldly_go = {
 }
 
 tr_discovery_planetary_survey_corps = {
-	cost = { unity = @cost }
 	possible = {
 		has_tradition = tr_discovery_to_boldly_go
 	}
@@ -189,7 +184,6 @@ tr_discovery_planetary_survey_corps = {
 }
 
 tr_discovery_science_division = {
-	cost = { unity = @cost }
 	modifier = {
 		num_tech_alternatives_add = 1
 	}
@@ -228,7 +222,6 @@ tr_discovery_science_division = {
 }
 
 tr_discovery_polytechnic_education = {
-	cost = { unity = @cost }
 	possible = {
 		has_tradition = tr_discovery_science_division
 	}
@@ -271,7 +264,6 @@ tr_discovery_polytechnic_education = {
 }
 
 tr_discovery_faith_in_science = {
-	cost = { unity = @cost }
 	possible = {
 		has_tradition = tr_discovery_polytechnic_education
 	}

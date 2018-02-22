@@ -1,6 +1,6 @@
 animation = {
-	name = "humanoid_01_science_ship_idle_animation"
-	file = "humanoid_01_science_ship_idle.anim"
+	name = "humanoid_01_science_ship_sphere_idle_animation"
+	file = "humanoid_01_science_ship_sphere_idle.anim"
 }
 animation = {
 	name = "humanoid_01_construction_ship_idle_animation"

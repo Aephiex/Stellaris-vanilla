@@ -37,7 +37,6 @@ ship_section_template = {
 		locatorname = "gun_01"
 	}
 	
-	small_utility_slots = 1
 	aux_utility_slots = 1
 }
 
@@ -80,7 +79,6 @@ ship_section_template = {
 		locatorname = "gun_01"
 	}
 	
-	small_utility_slots = 1
 	aux_utility_slots = 1
 }
 
@@ -111,7 +109,6 @@ ship_section_template = {
 		locatorname = "gun_01"
 	}
 	
-	small_utility_slots = 1
 	aux_utility_slots = 1
 }
 
@@ -161,6 +158,5 @@ ship_section_template = {
 		locatorname = "gun_01"
 	}
 	
-	large_utility_slots = 1
 	aux_utility_slots = 1
 }

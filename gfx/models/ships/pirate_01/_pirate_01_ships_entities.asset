@@ -4,7 +4,7 @@
 
 entity = {
 	name = "pirate_01_turret_energy_torpedo_entity"
-	pdxmesh = "pirate_01_turret_missile_medium_mesh"
+	pdxmesh = "pirate_01_turret_missile_large_mesh"
 	
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"

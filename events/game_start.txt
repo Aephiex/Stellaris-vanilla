@@ -98,6 +98,47 @@ event = {
 				}					
 			}
 		}
+		
+		every_country = {
+			limit = {
+				is_country_type = tiyanki
+			}
+			every_country = {
+				limit = {
+					OR = {
+						is_country_type = amoeba
+						is_country_type = crystal
+						is_country_type = cloud
+					}				
+				}
+				set_faction_hostility = {
+					target = prev
+					set_hostile = no
+					set_neutral = yes
+					set_friendly = no
+				}					
+			}
+		}	
+
+		### MARAUDER FLAGS
+		every_country = {
+			limit = { is_country_type = dormant_marauders }
+			randomize_flag_symbol = "pirate"
+		}
+
+		### MARAUDERS SHOULD NOT ATTACK ENCLAVES
+		every_country = {
+			limit = { is_country_type = enclave }
+			every_country = {
+				limit = { is_country_type = dormant_marauders }
+				set_faction_hostility = {
+					target = prev
+					set_hostile = no
+					set_neutral = no
+					set_friendly = yes
+				}
+			}
+		}		
 	}
 }
 
@@ -264,9 +305,6 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		give_technology = { tech = "tech_ship_armor_1" message = no }
-		give_technology = { tech = "tech_shields_1" message = no }
-		give_technology = { tech = "tech_solar_panel_network" message = no }
 		give_technology = { tech = "tech_biolab_1" message = no }
 		give_technology = { tech = "tech_engineering_lab_1" message = no }
 		give_technology = { tech = "tech_physics_lab_1" message = no }
@@ -287,6 +325,12 @@ country_event = {
 			} 
 			give_technology = { message = no tech = tech_powered_exoskeletons }
 			give_technology = { message = no tech = tech_robotic_workers }
+		}
+		if = { 
+			limit = { 
+				has_civic = civic_corporate_dominion 
+			}
+			give_technology = { message = no tech = tech_space_trading }
 		}
 		if = {
 			limit = { 
@@ -315,8 +359,7 @@ country_event = {
 	hide_window = yes
 	is_triggered_only = yes
 
-	immediate = {
-		
+	immediate = {	
 		#science
 		create_fleet = {
 			effect = {
@@ -328,7 +371,8 @@ country_event = {
 				}
 
 				set_fleet_stance = evasive				
-				set_location = prev.capital_scope
+				#set_location = prev.capital_star
+				set_location = prev.capital_scope.star
 				
 				owner = {
 					create_leader = {
@@ -353,7 +397,7 @@ country_event = {
 				}
 				
 				set_fleet_stance = evasive
-				set_location = prev.capital_scope
+				set_location = prev.capital_star
 			}
 		}
 
@@ -371,13 +415,13 @@ country_event = {
 					}
 				}
 				
-				set_location = prev.capital_scope
+				set_location = prev.capital_star
 			}
 		}
 	}
 }
 
-# Game start - Fallen Empiress
+# Game start - Fallen Empires
 country_event = {
 	id = game_start.10
 	hide_window = yes
@@ -388,6 +432,20 @@ country_event = {
 	}
 
 	immediate = {
+		if = {
+			limit = { is_materialist = yes }
+			modify_species = {
+				species = this
+				add_trait = trait_cybernetic
+			}	
+		}
+		if = {
+			limit = { is_spiritualist = yes }
+			modify_species = {
+				species = this
+				add_trait = trait_psionic
+			}	
+		}		
 		if = {
 			limit = {
 				has_authority = auth_machine_intelligence
@@ -405,10 +463,14 @@ country_event = {
 				set_pop_flag = organic_fallen_empire_pop
 			}
 		}
-		# contact other fallen empires
+		# contact other fallen empires & marauders
 		every_country = {
 			limit = { 
-				is_country_type = fallen_empire 
+				OR = {
+					is_country_type = dormant_marauders
+					is_country_type = fallen_empire 
+					is_country_type = enclave
+				}			
 				NOT = { has_communications = root }
 			}
 			establish_communications_no_message = root
@@ -432,36 +494,6 @@ country_event = {
 			create_research_station = {
 				owner = ROOT
 			}
-		}
-		while = {
-			count = 10
-			random_planet_within_border = {
-				limit = {
-					OR = {
-						has_research_station = yes
-						has_mining_station = yes
-					}
-					solar_system = { 
-						NOT = {
-							any_ship_in_system = {
-								is_ship_class = shipclass_military_station
-							}
-						}
-					}
-				}
-			
-				create_fleet = {
-					effect = {
-						set_owner = ROOT
-						create_fallen_empire_small_station = yes
-						set_location = {
-							target = PREV
-							distance = 20
-							angle = random
-						}
-					}
-				}
-			}			
 		}
 	}
 }
@@ -947,5 +979,147 @@ planet_event = {
 				create_pop = { species = owner_main_species }
 			}
 		}
+	}
+}
+
+### Create wormhole pairs
+event = {
+	id = game_start.31
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		get_galaxy_setup_value = { 
+			setting = num_wormhole_pairs
+			which = local_wormholes_num
+			scale_by = 5
+		}
+		while = {
+			count = local_wormholes_num
+			random_system = {
+				limit = {
+					NOR = {
+						has_natural_wormhole = yes
+						starting_system = yes
+						has_star_flag = empire_cluster
+					}
+				}
+				random_system = {
+					limit = {
+						NOR = {
+							has_natural_wormhole = yes
+							starting_system = yes
+							has_star_flag = empire_cluster
+						}
+						distance = {
+							source = prev
+							min_distance = 500
+						}
+					}
+					prev = { # done this way to ensure we don't spawn "orphan" wormholes (wormholes that aren't linked to anything)
+							spawn_natural_wormhole = {
+							random_pos = yes
+							orbit_angle = 360
+						}
+					}
+					spawn_natural_wormhole = {
+						random_pos = yes
+						orbit_angle = 360
+					}
+					link_wormholes = prev
+				}
+			}
+		}
+	}
+}
+
+### Change homeworld to Tombworld if have Post-Apocalyptic civic on Game Start
+country_event = {
+	id = game_start.32
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = { 
+		OR = { 
+			has_civic = civic_post_apocalyptic 
+			has_civic = civic_machine_terminator
+		}
+	}
+
+	immediate = {
+		random_owned_planet ={
+			limit = { is_capital = yes }
+			change_pc = pc_nuked
+			reset_start_buildings_and_blockers_post_apoc = yes
+		}
+	}
+}
+
+### Empire init - populate home system
+country_event = {
+	id = game_start.33
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		is_country_type = default
+	}
+
+	immediate = {
+		every_planet_within_border = {
+			limit = { 
+				has_deposit_for = shipclass_mining_station
+				has_planet_flag = starting_mining_target
+				has_mining_station = no
+			}
+			create_mining_station = {
+				owner = ROOT
+			}
+		}
+		every_planet_within_border = {
+			limit = { 
+				has_deposit_for = shipclass_research_station 
+				has_planet_flag = starting_research_target
+				has_research_station = no
+			}
+			create_research_station = {
+				owner = ROOT
+			}
+		}
+	}
+}
+
+### Change homeworld to Gaia World if have Life-Seeded civic on Game Start
+country_event = {
+	id = game_start.34
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = { has_civic = civic_life_seeded }
+
+	immediate = {
+		every_owned_pop = {
+			modify_species = {
+				species = this
+				ideal_planet_class = pc_gaia
+				base = none # makes this replace parent species
+			}
+		}
+		random_owned_planet = {
+			limit = { is_capital = yes }
+			change_pc = pc_gaia
+			set_planet_size = 25
+			reroll_deposits = yes
+			reset_start_buildings_and_blockers_life_seeded = yes
+		}
+		# Nuke other colonies gained from advanced empire, etc
+		every_owned_planet = {
+			limit = { is_capital = no }
+			every_tile = { 
+				kill_pop = yes 
+				remove_building = yes
+			}
+		}
+		change_dominant_species = { species = last_created change_all = yes }
 	}
 }

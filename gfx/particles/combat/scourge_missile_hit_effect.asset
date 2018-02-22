@@ -207,7 +207,7 @@ particle={
 	}
 	subsystem={
 		name="sparks"
-		max_amount=500
+		max_amount=30
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"
@@ -247,7 +247,7 @@ particle={
 	}
 	subsystem={
 		name="flame_2"
-		max_amount=100
+		max_amount=15
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"
@@ -287,7 +287,7 @@ particle={
 	}
 	subsystem={
 		name="smoke"
-		max_amount=200
+		max_amount=15
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"
@@ -329,7 +329,7 @@ particle={
 	}
 	subsystem={
 		name="outer_explosion"
-		max_amount=500
+		max_amount=120
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"
@@ -369,7 +369,7 @@ particle={
 	}
 	subsystem={
 		name="smoke_bright_long"
-		max_amount=100
+		max_amount=15
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"

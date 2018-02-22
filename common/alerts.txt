@@ -95,9 +95,9 @@ alerts = {
 		category = MEDIUM
 		sound = "resources_capped"
 	}
-	alert_set_war_demands = {
-		category = MEDIUM
-		sound = "set_war_demands"
+	alert_set_war_goal = {
+		category = HIGH
+		sound = "set_war_goal"
 	}
 	alert_resource_shortage = {
 		category = HIGH
@@ -130,6 +130,10 @@ alerts = {
 	alert_hopeless_war = {
 		category = HIGH
 		sound  = "alert_negative"
+	}	
+	alert_high_war_exhaustion = {
+		category = HIGH
+		sound  = "high_war_exhaustion"
 	}	
 	alert_deprecated = { category = disabled }
 }

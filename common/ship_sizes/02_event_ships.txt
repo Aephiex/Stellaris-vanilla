@@ -1,31 +1,24 @@
 #reloadable with 'reload stats'
 # This file is where you start when you want to configure something new, then go to sections
 
-@civilian_ships_combat_speed = 0.5
-@corvette_combat_speed = 1.75 	# assault ships
-@corvette_combat_rotation = 0.08
 @corvette_collision_radius = 2.0
-@corvette_formation_priority = 3
 
-@destroyer_combat_speed = 1.50	 # picket ships
-@destroyer_combat_rotation = 0.05
 @destroyer_collision_radius = 2.5
-@destroyer_formation_priority = 2
 
-@cruiser_combat_speed = 1.25	 # ships of the line
-@cruiser_combat_rotation = 0.035
 @cruiser_collision_radius = 3
-@cruiser_formation_priority = 1
 
-@battleship_combat_speed = 0.75	
-@battleship_combat_rotation = 0.025
 @battleship_collision_radius = 3
-@battleship_formation_priority = 4
+
+@titan_collision_radius = 15
 
 @build_block_radius_none = 0
 @build_block_radius_civilian = 20
 @build_block_radius_military = 200
 
+@speed_slow = 80
+@speed_default = 100
+@speed_fast = 120
+@speed_very_fast = 170
 
 ##################
 # EVENT SPECIFIC #
@@ -33,12 +26,9 @@
 
 # Asteroid
 asteroid = {
-	is_space_object = yes
-	ftl = hyperdrive	
-	max_speed = 0.21
+	is_space_object = yes	
+	max_speed = 1
 	rotation_speed = 10
-	combat_max_speed = 0.07
-	combat_rotation_speed = 0.2
 	acceleration = 10
 	modifier = {
 		ship_evasion_mult = -1
@@ -56,20 +46,16 @@ asteroid = {
 
 # Repaired Abandoned Ship
 abandoned_ship = {
-	formation_priority = @cruiser_formation_priority
-	max_speed = 3.75
-	acceleration = 0.25
-	rotation_speed = 0.175
-	combat_max_speed = @cruiser_combat_speed
-	combat_rotation_speed = @cruiser_combat_rotation
-	collision_radius = @cruiser_collision_radius
+	max_speed = @speed_slow
+	rotation_speed = 0.15
+	acceleration = 0.3
+	fleet_slot_size = 4
 	modifier = {
-		ship_armor_add = 40
 		ship_evasion_add = 20
+		ship_armor_add = 40
 	}
 	max_hitpoints = 1200
 	size_multiplier = 4
-	fleet_slot_size = 3
 	section_slots = { "mid" = { locator = "root" } }
 	num_target_locators = 0
 	icon_frame = 4
@@ -80,11 +66,8 @@ abandoned_ship = {
 
 # Space Ark
 ark_ship = {
-	ftl = hyperdrive
-	max_speed = 4 #1.5
+	max_speed = @speed_fast
 	rotation_speed = 0.15
-	combat_max_speed = 0.35
-	combat_rotation_speed = 0.02
 	acceleration = 0.3
 	modifier = {
 		ship_evasion_add = 15
@@ -102,11 +85,8 @@ ark_ship = {
 
 # Small Probe
 probe = {
-	ftl = warp
-	max_speed = 6
+	max_speed = @speed_very_fast
 	rotation_speed = 0.15
-	combat_max_speed = 1.5
-	combat_rotation_speed = 0.08
 	acceleration = 0.35
 	modifier = {
 		ship_armor_add = 10
@@ -131,6 +111,7 @@ station_generic_01 = {
 	modifier = {
 		ship_evasion_mult = -1
 		ship_armor_add = 11
+		ship_upkeep_mult = -0.25
 	}
 	max_hitpoints = 4000
 	size_multiplier = 8
@@ -153,6 +134,7 @@ sensor_station_01 = {
 	modifier = {
 		ship_evasion_mult = -1
 		ship_armor_add = 5
+		ship_upkeep_mult = -0.25
 	}
 	max_hitpoints = 1000
 	size_multiplier = 8
@@ -169,11 +151,9 @@ sensor_station_01 = {
 # Alien Racing Ship (uses eventship_06)
 alien_racing_ship = {
 	graphical_culture = no
-	max_speed = 6.75
+	max_speed = 200
 	acceleration = 0.4
 	rotation_speed = 0.35
-	combat_max_speed = 3
-	combat_rotation_speed = 0.35
 	modifier = {
 		ship_evasion_add = 25
 		ship_armor_add = 3
@@ -189,19 +169,18 @@ alien_racing_ship = {
 	is_designable = no
 	is_civilian = yes
 	class = shipclass_science_ship
+	required_component_set = "power_core"
 	required_component_set = "ftl_components"
-	required_component_set = "science_labs"
 	required_component_set = "thruster_components"
+	required_component_set = "sensor_components"
 }
 
 # Event Ship 1 (Cruiser)
 eventship_01 = {
 	graphical_culture = no
-	max_speed = 3.75
+	max_speed = @speed_fast
 	acceleration = 0.25
 	rotation_speed = 0.175
-	combat_max_speed = 0.7
-	combat_rotation_speed = 0.025
 	collision_radius = 4
 	modifier = {
 		ship_evasion_add = 12
@@ -226,11 +205,9 @@ eventship_01 = {
 # Event Ship 2 (Corvette)
 eventship_02 = {
 	graphical_culture = no
-	max_speed = 5.25
+	max_speed = @speed_very_fast
 	acceleration = 0.35
 	rotation_speed = 0.1
-	combat_max_speed = 1.5
-	combat_rotation_speed = 0.08
 	collision_radius = 2.0
 	modifier = {
 		ship_evasion_add = 71
@@ -255,11 +232,9 @@ eventship_02 = {
 # Event Ship 3 (Battleship)
 eventship_03 = {
 	graphical_culture = no
-	max_speed = 3
+	max_speed = @speed_default
 	acceleration = 0.2
 	rotation_speed = 0.15
-	combat_max_speed = 0.35
-	combat_rotation_speed = 0.02
 	collision_radius = 5
 	modifier = {
 		ship_evasion_add = 15
@@ -285,11 +260,9 @@ eventship_03 = {
 eventship_04 = {
 	graphical_culture = no
 	entity = eventship_04_blue_entity
-	max_speed = 3
+	max_speed = @speed_default
 	acceleration = 0.2
 	rotation_speed = 0.15
-	combat_max_speed = 0.35
-	combat_rotation_speed = 0.02
 	collision_radius = 5
 	modifier = {
 		ship_evasion_add = 8
@@ -311,43 +284,38 @@ eventship_04 = {
 	required_component_set = "thruster_components"
 }
 
-# Event Ship 5 (Cruiser)
-#eventship_05 = {
-#	graphical_culture = no
-#	max_speed = 3.75
-#	acceleration = 0.25
-#	rotation_speed = 0.175
-#	combat_max_speed = 0.7
-#	combat_rotation_speed = 0.025
-#	collision_radius = 4
-#	modifier = {
-#		ship_evasion_mult = -0.25
-#		ship_armor_add = 20
-#	}
-#	max_hitpoints = 960
-#	size_multiplier = 1
-#	fleet_slot_size = 3
-#	section_slots = { "mid" = { locator = "root" } }
-#	num_target_locators = 0
-#	is_space_station = no
-#	icon_frame = 4
-#	class = shipclass_military
-#	
-#	is_designable = no
-#	
-#	required_component_set = "ftl_components"
-#	required_component_set = "combat_computers"
-#	required_component_set = "thruster_components"
-#}
+# Nomad Destroyer
+nomad_destroyer = {
+	graphical_culture = no
+	max_speed = @speed_fast
+	acceleration = 0.3
+	rotation_speed = 0.2
+	collision_radius = @destroyer_collision_radius
+	modifier = {
+		ship_evasion_add = 35
+	}
+	max_hitpoints = 1000
+	size_multiplier = 2
+	fleet_slot_size = 2
+	section_slots = { "mid" = { locator = "part1" } }
+	num_target_locators = 0
+	icon_frame = 3
+	is_space_station = no
+	
+	class = shipclass_military
+	is_designable = no
+	
+	required_component_set = "ftl_components"
+	required_component_set = "combat_computers"
+	required_component_set = "thruster_components"
+}
 
 # Nomad Cruiser
 eventship_05 = {
 	graphical_culture = no
-	max_speed = 5
+	max_speed = @speed_fast
 	acceleration = 0.5
 	rotation_speed = 0.2
-	combat_max_speed = 0.9
-	combat_rotation_speed = 0.030
 	collision_radius = 4
 	modifier = {
 		ship_evasion_add = 15
@@ -369,14 +337,13 @@ eventship_05 = {
 	required_component_set = "thruster_components"
 }
 
+
 # Event Ship 6 (Destroyer)
 eventship_06 = {
 	graphical_culture = no
-	max_speed = 4.5
+	max_speed = @speed_fast
 	acceleration = 0.3
 	rotation_speed = 0.2
-	combat_max_speed = 1.0
-	combat_rotation_speed = 0.05
 	collision_radius = 3
 	modifier = {
 		ship_evasion_add = 25
@@ -401,11 +368,9 @@ eventship_06 = {
 # Event Ship 7 (Destroyer)
 eventship_07 = {
 	graphical_culture = no
-	max_speed = 4.5
+	max_speed = @speed_fast
 	acceleration = 0.3
 	rotation_speed = 0.2
-	combat_max_speed = 1.0
-	combat_rotation_speed = 0.05
 	collision_radius = 3
 	modifier = {
 		ship_evasion_add = 25
@@ -431,11 +396,9 @@ eventship_07 = {
 civilian_freighter = {
 	graphical_culture = no
 	entity = cargo_transport_containers_entity
-	max_speed = 3.75
+	max_speed = @speed_slow
 	acceleration = 0.3
 	rotation_speed = 0.2
-	combat_max_speed = 0.5
-	combat_rotation_speed = 0.2
 	
 	modifier = {
 		ship_evasion_add = 5
@@ -462,11 +425,9 @@ civilian_freighter = {
 civilian_tanker = {
 	graphical_culture = no
 	entity = cargo_transport_tanker_entity
-	max_speed = 3.75
+	max_speed = @speed_slow
 	acceleration = 0.3
 	rotation_speed = 0.2
-	combat_max_speed = 0.5
-	combat_rotation_speed = 0.2
 	
 	modifier = {
 		ship_evasion_add = 5
@@ -493,11 +454,9 @@ civilian_tanker = {
 passenger_liner = {
 	graphical_culture = no
 	entity = abandoned_ship_section_entity
-	max_speed = 3.75
+	max_speed = @speed_slow
 	acceleration = 0.3
 	rotation_speed = 0.2
-	combat_max_speed = 0.5
-	combat_rotation_speed = 0.2
 	
 	modifier = {
 		ship_evasion_add = 5
@@ -527,6 +486,7 @@ primitive_space_station = {
 	rotation_speed = 0.0
 	modifier = {
 		ship_evasion_mult = -1
+		ship_upkeep_mult = -0.25
 	}
 	max_hitpoints = 100
 	size_multiplier = 8
@@ -543,10 +503,8 @@ primitive_space_station = {
 # Ancient Manufactory object
 ancient_drone_station = {
 	is_space_object = yes
-	max_speed = 4
+	max_speed = @speed_default
 	rotation_speed = 10
-	combat_max_speed = 0.07
-	combat_rotation_speed = 0.2
 	acceleration = 10
 	modifier = {
 		ship_evasion_mult = 100

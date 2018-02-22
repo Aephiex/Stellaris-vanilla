@@ -2,7 +2,7 @@ particle={
 	name="neutron_torpedoes_file"
 	subsystem={
 		name="flare"
-		max_amount=50
+		max_amount=25
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"
@@ -45,7 +45,7 @@ particle={
 	}
 	subsystem={
 		name="muzzle_flash"
-		max_amount=50
+		max_amount=25
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"
@@ -87,7 +87,7 @@ particle={
 	}
 	subsystem={
 		name="flames_forward_big"
-		max_amount=50
+		max_amount=25
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"
@@ -129,7 +129,7 @@ particle={
 	}
 	subsystem={
 		name="sparks"
-		max_amount=50
+		max_amount=25
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"

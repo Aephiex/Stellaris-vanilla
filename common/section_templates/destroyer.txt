@@ -40,10 +40,10 @@ ship_section_template = {
 		slot_type = weapon
 		locatorname = "small_gun_02"
 	}
+
+	small_utility_slots = 6
 	
-	medium_utility_slots = 3
-	
-	cost = 80
+	cost = 60
 }
 
 ship_section_template = {
@@ -53,7 +53,7 @@ ship_section_template = {
 	entity = "destroyer_bow_S3_entity"
 	icon = "GFX_ship_part_core_bow"
 	
-	prerequisites = { tech_pd_tracking_1 tech_pd_tracking_2 tech_pd_tracking_3 tech_flak_batteries_1 tech_flak_batteries_2 }
+	prerequisites = { tech_pd_tracking_1 tech_pd_tracking_2 tech_pd_tracking_3 tech_flak_batteries_1 tech_flak_batteries_2 tech_flak_batteries_3 }
 	
 	ai_weight = {
 		modifier = {
@@ -89,9 +89,9 @@ ship_section_template = {
 		locatorname = "small_gun_03"
 	}
 	
-	medium_utility_slots = 4
+	small_utility_slots = 6
 	
-	cost = 80
+	cost = 60
 }
 
 ship_section_template = {
@@ -114,9 +114,9 @@ ship_section_template = {
 		locatorname = "large_gun_01"
 	}
 	
-	medium_utility_slots = 3
+	small_utility_slots = 6
 	
-	cost = 80
+	cost = 60
 }
 
 #STERN
@@ -128,7 +128,7 @@ ship_section_template = {
 	entity = "destroyer_stern_S2_entity"
 	icon = "GFX_ship_part_core_stern"
 	
-	prerequisites = { tech_pd_tracking_1 tech_pd_tracking_2 tech_pd_tracking_3 tech_flak_batteries_1 tech_flak_batteries_2 }
+	prerequisites = { tech_pd_tracking_1 tech_pd_tracking_2 tech_pd_tracking_3 tech_flak_batteries_1 tech_flak_batteries_2 tech_flak_batteries_3 }
 	
 	ai_weight = {
 		factor = 100
@@ -148,10 +148,9 @@ ship_section_template = {
 		locatorname = "small_gun_02"
 	}
 	
-	small_utility_slots = 4
 	aux_utility_slots = 1
 	
-	cost = 80
+	cost = 60
 }
 
 ship_section_template = {
@@ -179,10 +178,9 @@ ship_section_template = {
 		locatorname = "small_gun_02"
 	}
 	
-	small_utility_slots = 4
 	aux_utility_slots = 1
 	
-	cost = 80
+	cost = 60
 }
 
 ship_section_template = {
@@ -199,8 +197,7 @@ ship_section_template = {
 		locatorname = "medium_gun_01"
 	}
 	
-	small_utility_slots = 4
 	aux_utility_slots = 1
 	
-	cost = 80
+	cost = 60
 }

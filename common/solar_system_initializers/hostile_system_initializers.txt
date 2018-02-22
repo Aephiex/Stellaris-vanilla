@@ -38,8 +38,7 @@ hostile_init_01 = {
 		orbit_angle = { min = 90 max = 270 }
 		size = { min = 12 max = 16 }
 		has_ring = no
-		class = "pc_barren"		
-		entity = "barren_planet_01_destroyed_entity"
+		class = "pc_broken"
 
 		init_effect = { 
 			prevent_anomaly = yes
@@ -72,149 +71,26 @@ hostile_init_01 = {
 					name = "NAME_Sapphire_Lurkers"
 					effect = {
 						set_owner = event_target:crystal_country
-						create_ship = {
-							name = ""
-							design = "NAME_Large_Crystal_Entity_Blue"
+						while = {
+							count = 7
+							create_ship = {
+								name = ""
+								design = "NAME_Large_Crystal_Entity_Blue"
+							}
 						}
-						create_ship = {
-							name = ""
-							design = "NAME_Large_Crystal_Entity_Blue"
+						while = {
+							count = 9
+							create_ship = {
+								name = ""
+								design = "NAME_Medium_Crystal_Entity_Blue"
+							}
 						}
-						create_ship = {
-							name = ""
-							design = "NAME_Large_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Large_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Large_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Large_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Large_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Medium_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Medium_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Medium_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Medium_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Medium_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Medium_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Medium_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Medium_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Medium_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
+						while = {
+							count = 20
+							create_ship = {
+								name = ""
+								design = "NAME_Small_Crystal_Entity_Blue"
+							}
 						}
 						set_location = PREVPREV
 						set_fleet_stance = aggressive
@@ -305,61 +181,12 @@ hostile_init_02 = {
 					name = "NAME_Sapphire_Lurkers"
 					effect = {
 						set_owner = event_target:crystal_country
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}						
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
+						while = {
+							count = 14
+							create_ship = {
+								name = ""
+								design = "NAME_Small_Crystal_Entity_Blue"
+							}						
 						}
 						set_location = event_target:blue2_trigger_3
 						set_fleet_stance = aggressive
@@ -374,41 +201,19 @@ hostile_init_02 = {
 					name = "NAME_Sapphire_Lurkers"
 					effect = {
 						set_owner = event_target:crystal_country
-						create_ship = {
-							name = ""
-							design = "NAME_Medium_Crystal_Entity_Blue"
+						while = {
+							count = 3
+							create_ship = {
+								name = ""
+								design = "NAME_Medium_Crystal_Entity_Blue"
+							}
 						}
-						create_ship = {
-							name = ""
-							design = "NAME_Medium_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Medium_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}						
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
+						while = {
+							count = 6
+							create_ship = {
+								name = ""
+								design = "NAME_Small_Crystal_Entity_Blue"
+							}						
 						}
 						set_location = event_target:blue2_trigger_2
 						set_fleet_stance = aggressive
@@ -423,41 +228,19 @@ hostile_init_02 = {
 					name = "NAME_Sapphire_Lurkers"
 					effect = {
 						set_owner = event_target:crystal_country
-						create_ship = {
-							name = ""
-							design = "NAME_Medium_Crystal_Entity_Blue"
+						while = {
+							count = 3
+							create_ship = {
+								name = ""
+								design = "NAME_Medium_Crystal_Entity_Blue"
+							}
 						}
-						create_ship = {
-							name = ""
-							design = "NAME_Medium_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Medium_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Small_Crystal_Entity_Blue"
+						while = {
+							count = 6
+							create_ship = {
+								name = ""
+								design = "NAME_Small_Crystal_Entity_Blue"
+							}
 						}
 						set_location = event_target:blue2_trigger_1
 						set_fleet_stance = aggressive
@@ -555,45 +338,19 @@ hostile_init_03 = {
 						name = ""
 						design = "NAME_Large_Crystal_Entity_Green"
 					}
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Green"
+					while = {
+						count = 2
+						create_ship = {
+							name = ""
+							design = "NAME_Medium_Crystal_Entity_Green"
+						}
 					}
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Green"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Green"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Green"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Green"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Green"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Green"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Green"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Green"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Green"
+					while = {
+						count = 8
+						create_ship = {
+							name = ""
+							design = "NAME_Small_Crystal_Entity_Green"
+						}
 					}
 					set_location = event_target:green_trigger_3
 					set_fleet_stance = aggressive
@@ -716,25 +473,12 @@ hostile_init_04 = {
 				name = "NAME_Emerald_Roamers"
 				effect = {
 					set_owner = event_target:crystal_country
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Green"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Green"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Green"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Green"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Green"
+					while = {
+						count = 5
+						create_ship = {
+							name = ""
+							design = "NAME_Small_Crystal_Entity_Green"
+						}
 					}
 					set_location = event_target:green2_trigger_3
 					set_fleet_stance = aggressive
@@ -780,25 +524,26 @@ hostile_init_04 = {
 				name = "NAME_Emerald_Roamers"
 				effect = {
 					set_owner = event_target:crystal_country
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Green"
+					while = {
+						count = 3
+						create_ship = {
+							name = ""
+							design = "NAME_Medium_Crystal_Entity_Green"
+						}
 					}
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Green"
+					while = {
+						count = 2
+						create_ship = {
+							name = ""
+							design = "NAME_Medium_Crystal_Entity_Green"
+						}
 					}
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Green"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Green"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Green"
+					while = {
+						count = 3
+						create_ship = {
+							name = ""
+							design = "NAME_Medium_Crystal_Entity_Green"
+						}
 					}
 					set_location = event_target:green2_trigger_1
 					set_fleet_stance = aggressive
@@ -848,29 +593,12 @@ hostile_init_04 = {
 						name = ""
 						design = "NAME_Medium_Crystal_Entity_Green"
 					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Green"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Green"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Green"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Green"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Green"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Green"
+					while = {
+						count = 6
+						create_ship = {
+							name = ""
+							design = "NAME_Small_Crystal_Entity_Green"
+						}
 					}
 					set_location = event_target:green2_trigger_2
 					set_fleet_stance = aggressive
@@ -1008,17 +736,12 @@ hostile_init_05 = {
 				name = "NAME_Ruby_Stack"
 				effect = {
 					set_owner = event_target:crystal_country
-					create_ship = {
-						name = ""
-						design = "NAME_Large_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Large_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Large_Crystal_Entity_Red"
+					while = {
+						count = 3
+						create_ship = {
+							name = ""
+							design = "NAME_Large_Crystal_Entity_Red"
+						}
 					}
 					set_location = event_target:red_trigger_1
 					set_fleet_stance = aggressive
@@ -1037,21 +760,12 @@ hostile_init_05 = {
 				name = "NAME_Ruby_Stack"
 				effect = {
 					set_owner = event_target:crystal_country
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Red"
+					while = {
+						count = 4
+						create_ship = {
+							name = ""
+							design = "NAME_Medium_Crystal_Entity_Red"
+						}
 					}
 					set_location = event_target:red_trigger_2
 					set_fleet_stance = aggressive
@@ -1070,49 +784,12 @@ hostile_init_05 = {
 				name = "NAME_Ruby_Stack"
 				effect = {
 					set_owner = event_target:crystal_country
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
+					while = {
+						count = 11
+						create_ship = {
+							name = ""
+							design = "NAME_Small_Crystal_Entity_Red"
+						}
 					}
 					set_location = event_target:red_trigger_3
 					set_fleet_stance = aggressive
@@ -1131,41 +808,19 @@ hostile_init_05 = {
 				name = "NAME_Ruby_Stack"
 				effect = {
 					set_owner = event_target:crystal_country
-					create_ship = {
-						name = ""
-						design = "NAME_Large_Crystal_Entity_Red"
+					while = {
+						count = 3
+						create_ship = {
+							name = ""
+							design = "NAME_Large_Crystal_Entity_Red"
+						}
 					}
-					create_ship = {
-						name = ""
-						design = "NAME_Large_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Large_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
+					while = {
+						count = 6
+						create_ship = {
+							name = ""
+							design = "NAME_Small_Crystal_Entity_Red"
+						}
 					}
 					set_location = event_target:red_trigger_4
 					set_fleet_stance = aggressive
@@ -1293,105 +948,19 @@ hostile_init_06 = {
 						name = ""
 						design = "NAME_Large_Crystal_Entity_Red"
 					}
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Red"
+					while = {
+						count = 6
+						create_ship = {
+							name = ""
+							design = "NAME_Medium_Crystal_Entity_Red"
+						}
 					}
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
+					while = {
+						count = 19
+						create_ship = {
+							name = ""
+							design = "NAME_Small_Crystal_Entity_Red"
+						}
 					}
 					set_location = event_target:red2_trigger_1
 					set_fleet_stance = aggressive
@@ -1410,65 +979,19 @@ hostile_init_06 = {
 				name = "NAME_Ruby_Swarm"
 				effect = {
 					set_owner = event_target:crystal_country
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Red"
+					while = {
+						count = 9
+						create_ship = {
+							name = ""
+							design = "NAME_Medium_Crystal_Entity_Red"
+						}
 					}
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
+					while = {
+						count = 6
+						create_ship = {
+							name = ""
+							design = "NAME_Small_Crystal_Entity_Red"
+						}
 					}
 					set_location = event_target:red2_trigger_2
 					set_fleet_stance = aggressive
@@ -1487,101 +1010,12 @@ hostile_init_06 = {
 				name = "NAME_Ruby_Swarm"
 				effect = {
 					set_owner = event_target:crystal_country
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Red"
+					while = {
+						count = 24
+						create_ship = {
+							name = ""
+							design = "NAME_Small_Crystal_Entity_Red"
+						}
 					}
 					set_location = event_target:red2_trigger_3
 					set_fleet_stance = aggressive
@@ -1600,85 +1034,26 @@ hostile_init_06 = {
 				name = "NAME_Ruby_Swarm"
 				effect = {
 					set_owner = event_target:crystal_country
-					create_ship = {
-						name = ""
-						design = "NAME_Large_Crystal_Entity_Red"
+					while = {
+						count = 11
+						create_ship = {
+							name = ""
+							design = "NAME_Large_Crystal_Entity_Red"
+						}
 					}
-					create_ship = {
-						name = ""
-						design = "NAME_Large_Crystal_Entity_Red"
+					while = {
+						count = 2
+						create_ship = {
+							name = ""
+							design = "NAME_Medium_Crystal_Entity_Red"
+						}
 					}
-					create_ship = {
-						name = ""
-						design = "NAME_Large_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Large_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Large_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Large_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Large_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Large_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Large_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Large_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Large_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Medium_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
-					}
-					create_ship = {
-						name = ""
-						design = "NAME_Small_Crystal_Entity_Red"
+					while = {
+						count = 7
+						create_ship = {
+							name = ""
+							design = "NAME_Small_Crystal_Entity_Red"
+						}
 					}
 					set_location = event_target:red2_trigger_4
 					set_fleet_stance = aggressive
@@ -2053,8 +1428,7 @@ hostile_init_09 = {
 	
 	planet = {
 		count = { min = 0 max = 1 }
-		class = "pc_barren"
-		entity = "barren_planet_01_destroyed_entity"
+		class = "pc_broken"
 		size = { min = 10 max = 15 }
 		
 		init_effect = { prevent_anomaly = yes }
@@ -2083,21 +1457,12 @@ hostile_init_09 = {
 					name = "NAME_Abyssal_Host"
 					effect = {
 						set_owner = event_target:cloud_country
-						create_ship = {
-							name = ""
-							design = "NAME_Cloud_Entity"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Cloud_Entity"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Cloud_Entity"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Cloud_Entity"
+						while = {
+							count = 4
+							create_ship = {
+								name = ""
+								design = "NAME_Cloud_Entity"
+							}
 						}
 						set_location = event_target:voidhome_star
 						set_fleet_stance = aggressive
@@ -2109,21 +1474,12 @@ hostile_init_09 = {
 					name = "NAME_Chasmal_Horde"
 					effect = {
 						set_owner = event_target:cloud_country
-						create_ship = {
-							name = ""
-							design = "NAME_Cloud_Entity"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Cloud_Entity"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Cloud_Entity"
-						}
-						create_ship = {
-							name = ""
-							design = "NAME_Cloud_Entity"
+						while = {
+							count = 4
+							create_ship = {
+								name = ""
+								design = "NAME_Cloud_Entity"
+							}
 						}
 						set_location = event_target:voidhome_star
 						set_fleet_stance = aggressive
@@ -2187,10 +1543,13 @@ hostile_init_10 = {
 			event_target:amoeba_country = {
 				create_fleet = {
 					name = "NAME_Space_Amoeba"
+					settings = {
+						garrison = yes
+					}					
 					effect = {
 						set_owner = event_target:amoeba_country
 						while = {
-							count = 7
+							count = 6
 							create_ship = {
 								name = ""
 								design = "NAME_Small_Space_Organism_Zebra"
@@ -2266,17 +1625,20 @@ hostile_init_10_small_amoeba_pack = {
 			event_target:amoeba_country = {
 				create_fleet = {
 					name = "NAME_Space_Amoeba"
+					settings = {
+						garrison = yes
+					}
 					effect = {
 						set_owner = event_target:amoeba_country
 						while = {
-							count = 8
+							count = 4
 							create_ship = {
 								name = ""
 								design = "NAME_Small_Space_Organism_Teal"
 							}
 						}
 						while = {
-							count = 2
+							count = 1
 							create_ship = {
 								name = ""
 								design = "NAME_Large_Space_Organism_Teal"
@@ -2356,14 +1718,14 @@ hostile_init_11 = {
 							}
 						}
 						while = {
-							count = 7
+							count = 4
 							create_ship = {
 								name = ""
 								design = "NAME_Small_Space_Organism_Orange"
 							}
 						}
 						while = {
-							count = 3
+							count = 1
 							create_ship = {
 								name = ""
 								design = "NAME_Large_Space_Organism_Orange"
@@ -2382,131 +1744,12 @@ hostile_init_11 = {
 									duration = 5000
 									random = 1000
 								}
-								repeat = {
-									find_random_system = {
-										trigger = {
-											id = amoeba.2.trigger.1
-											any_ship_in_system = {
-												is_ship_size = space_whale_3
-												# hunt calves
-											}
-										}
-										found_system = {
-											move_to = this
-										}
-									}
-									find_closest_planet = {
-										trigger = {
-											id = amoeba.2.trigger.2
-											is_star = yes
-										}
-										found_planet = {
-											effect = { 
-												id = amoeba.2.effect.1
-												event_target:hunting_amoeba = { set_aggro_range = 500 }
-											}
-											move_to = this
-											orbit_planet = this
-											wait = {
-												duration = 50
-												random = 10
-											}
-										}
-									}
-									find_random_system = {
-										trigger = {
-											id = amoeba.2.trigger.3
-											any_planet = {
-												is_planet = event_target:grazing_grounds
-											}
-										}
-										found_system = {
-											move_to = this
-										}
-									}
-									find_closest_planet = {
-										trigger = {
-											id = amoeba.2.trigger.4
-											is_planet = event_target:grazing_grounds
-										}
-										found_planet = {
-											effect = { 
-												id = amoeba.2.effect.2
-												event_target:hunting_amoeba = { set_aggro_range = 40 }
-											}
-											move_to = this
-											orbit_planet = this
-											wait = {
-												duration = 200
-												random = 40
-											}
-										}
-									}
-								}
 							}
 							else = {
 								queue_actions = {
 									wait = { # Cooldown until they start moving
 										duration = 5000
 										random = 1000
-									}
-									repeat = {
-										find_random_system = {
-											trigger = {
-												id = amoeba.1.trigger.1
-												NOT = {
-													has_star_flag = sanctuary_system
-													has_star_flag = hostile_system
-													any_planet = { is_capital = yes }
-													any_neighbor_system = { any_planet = { is_capital = yes } }
-												}
-											}
-											found_system = {
-												move_to = this
-											}
-										}
-										find_closest_planet = {
-											trigger = {
-												id = amoeba.1.trigger.2
-												is_star = yes
-											}
-											found_planet = {
-												move_to = this
-												orbit_planet = this
-												wait = {
-													duration = 100
-													random = 50
-												}
-											}
-										}
-										find_random_system = {
-											trigger = {
-												id = amoeba.1.trigger.3
-												NOT = {
-													has_star_flag = sanctuary_system
-													has_star_flag = hostile_system
-													any_planet = { is_capital = yes }
-													any_neighbor_system = { any_planet = { is_capital = yes } }
-												}
-											}
-											found_system = {
-												move_to = this
-											}
-										}
-										find_closest_planet = {
-											trigger = {
-												id = amoeba.1.trigger.4
-												is_star = yes
-											}
-											found_planet = {
-												move_to = this
-												orbit_planet = this
-												wait = {
-													duration = 100
-													random = 50
-												}
-											}
-										}
 									}
 								}
 							}
@@ -3330,37 +2573,6 @@ hostile_init_15 = {
 								duration = 320
 								random = 80
 							}
-							repeat = {
-								find_random_system = {
-									trigger = {
-										id = tiyanki.1.trigger.1
-										NOT = {
-											has_star_flag = hostile_system
-											has_star_flag = sanctuary_system
-										}
-										any_planet = {
-											is_planet_class = pc_gas_giant
-										}
-									}
-									found_system = {
-										move_to = this
-									}
-								}
-								find_closest_planet = {
-									trigger = {
-										id = tiyanki.1.trigger.2
-										is_planet_class = pc_gas_giant
-									}
-									found_planet = {
-										move_to = this
-										orbit_planet = this
-										wait = {
-											duration = 20
-											random = 10
-										}
-									}
-								}
-							}
 						}
 					}
 				}
@@ -3368,230 +2580,6 @@ hostile_init_15 = {
 		}
 	}
 }
-
-### Pirate System
-hostile_init_16 = {
-	usage = misc_system_init
-	usage_odds = {
-		base = 4
-		modifier = {
-			factor = 0
-			NOT = { is_in_cluster = resource_cluster_0 }
-		}
-		modifier = {
-            factor = 0
-            has_star_flag = empire_cluster
-        }
-	}
-
-	flags = { pirate_system pirate_1 }
-	
-	planet = {
-		count = 1
-		class = star
-		orbit_distance = 0
-		orbit_angle = 1
-		size = { min = 20 max = 30 }
-		has_ring = no
-	}
-	
-	change_orbit = 30
-	
-	planet = {
-		count = 2
-		orbit_distance = 20
-		orbit_angle = { min = 90 max = 270 }
-	}
-	
-	change_orbit = 25
-	
-	planet = {
-		count = { min = 1 max = 2 }
-		class = random_asteroid
-		orbit_distance = 0
-		orbit_angle = { min = 90 max = 270 }
-
-		init_effect = {
-			create_pirate_country = yes
-			
-			create_fleet = {
-				name = "NAME_Pirate_Hideout"
-				effect = {
-					set_owner = event_target:pirate_country
-					create_ship = {
-						name = random
-						design = "NAME_Pirate_Hideout"
-						graphical_culture = "pirate_01"
-					}
-					set_location = prev
-				}
-			}
-			create_fleet = {
-				name = "NAME_Lookouts"
-				effect = {
-					set_owner = event_target:pirate_country
-					while = {
-						count = 12
-						create_ship = {
-							name = random
-							design = "NAME_Brigand"
-							graphical_culture = "pirate_01"
-						}
-					}
-					while = {
-						count = 20
-						create_ship = {
-							name = random
-							design = "NAME_Skull"
-							graphical_culture = "pirate_01"
-						}
-					}
-					set_location = prev
-				}
-			}
-		}		
-	}
-	
-	planet = {
-		count = { min = 2 max = 5 }
-		orbit_distance = 25
-		orbit_angle = { min = 90 max = 270 }
-		
-		change_orbit = @base_moon_distance
-		
-		moon = {
-			count = { min = 0 max = 1 }
-			orbit_angle = { min = 90 max = 270 }
-			orbit_distance = 5
-		}
-	}
-}
-
-hostile_init_17 = {
-	class = "rl_standard_stars"
-	
-	usage = misc_system_init
-	usage_odds = {
-		base = 4
-		modifier = {
-			factor = 0.1
-			NOT = { is_in_cluster = resource_cluster_0 }
-		}
-		modifier = {
-            factor = 0
-            has_star_flag = empire_cluster
-        }
-	}
-
-	flags = { pirate_system pirate_2 }
-	
-	planet = {
-		count = 1
-		class = star
-		orbit_distance = 0
-		orbit_angle = 1
-		size = { min = 20 max = 30 }
-		has_ring = no
-	}
-	
-	change_orbit = 45
-	
-	planet = {
-		count = { min = 0 max = 1 }
-		orbit_distance = 10
-		orbit_angle = { min = 90 max = 270 }
-	}
-	
-	planet = {
-		count = { min = 1 max = 2 }
-		orbit_distance = 60
-		class = pc_gas_giant
-		orbit_angle = { min = 90 max = 270 }
-		size = 25
-		
-		change_orbit = @base_moon_distance
-		
-		moon = {
-			count = { min = 1 max = 4 }
-			size = { min = 8 max = 20 }
-			orbit_angle = { min = 90 max = 270 }
-			orbit_distance = 6
-		}
-	}
-	
-	change_orbit = 20
-	
-	planet = {
-		count = 1
-		orbit_distance = 20
-		orbit_angle = { min = 90 max = 270 }
-		init_effect = {
-			create_pirate_country = yes
-			event_target:pirate_country = {
-				create_fleet = {
-					name = "NAME_Pirate_Fleet"
-					effect = {
-						set_owner = event_target:pirate_country
-						while = {
-							count = 3
-							create_ship = {
-								name = random
-								design = NAME_Reaver
-								graphical_culture = "pirate_01"
-							}
-						}
-						while = {
-							count = 3
-							create_ship = {
-								name = random
-								design = NAME_Hunter
-								graphical_culture = "pirate_01"
-							}
-						}
-						while = {
-							count = 3
-							create_ship = {
-								name = random
-								design = NAME_Vagabond
-								graphical_culture = "pirate_01"
-							}
-						}
-						while = {
-							count = 3
-							create_ship = {
-								name = random
-								design = "NAME_Corsair"
-								graphical_culture = "pirate_01"
-							}
-						}
-						while = {
-							count = 3
-							create_ship = {
-								name = random
-								design = "NAME_Marauder"
-								graphical_culture = "pirate_01"
-							}
-						}
-						while = {
-							count = 2
-							create_ship = {
-								name = random
-								design = "NAME_Black_Earl"
-								graphical_culture = "pirate_01"
-							}
-						}
-						set_location = prevprev
-						set_fleet_stance = aggressive
-						set_aggro_range_measure_from = self
-						set_aggro_range = 150
-					}
-				}
-			}
-		}
-	}
-}
-	
-
 
 ### Privateer Conglomerate
 hostile_init_18 = {
@@ -3625,6 +2613,11 @@ hostile_init_18 = {
 		has_ring = no
 
 		init_effect = {
+			prevent_anomaly = yes
+			orbital_deposit_tile = {
+				clear_deposits = yes
+				add_deposit = d_immense_energy_deposit
+			}
 			create_pirate_country = yes
 			event_target:pirate_country = {
 				if = {
@@ -3639,41 +2632,9 @@ hostile_init_18 = {
 					}
 				}
 			}
-			#create_fleet = {
-			#	name = "Pirate Refuge"
-			#	effect = {
-			#		set_owner = event_target:pirate_country
-			#		while = {
-			#			count = 12
-			#			create_ship = {
-			#				name = "Ingrate's Inferno"
-			#				design = "Pirate Lair"
-			#				graphical_culture = "pirate_01"
-			#			}
-			#		}
-			#		set_fleet_formation = {
-			#			position = { x = 0.0	y = 50.0 	}
-			#			position = { x = 28.0	y = 40.0	}
-			#			position = { x = 43.0	y = 23.0	}
-			#			position = { x = 50.0	y = 0.00	}
-			#			position = { x = 43.0	y = -23.0	}
-			#			position = { x = 28.0	y = -40.0	}
-			#			position = { x = 0.0	y = -50.0	}
-			#			position = { x = -28.0	y = -40.0	}
-			#			position = { x = -43.0	y = -23.0	}
-			#			position = { x = -50.0	y = 0.00	}
-			#			position = { x = -43.0	y = 23.0	}
-			#			position = { x = -28.0	y = 40.0	}
-			#		}
-			#		set_formation_scale = 1.0
-			#		set_location = {
-			#			target = prev
-			#			distance = 0
-			#			#angle = 330
-			#		}
-			#		set_fleet_flag = pirate_home_system_fleet
-			#	}
-			#}
+			every_country = {
+				establish_communications_no_message = event_target:pirate_country
+			}
 
 			create_fleet = {
 				name = "NAME_Old_Guard"
@@ -3688,31 +2649,6 @@ hostile_init_18 = {
 							graphical_culture = "pirate_01"
 						}
 					}
-					#while = {
-					#	count = 4
-					#	create_ship = {
-					#		name = random
-					#		design = "NAME_Black_Earl"
-					#		graphical_culture = "pirate_01"
-					#	}
-					#}
-					#while = {
-					#	count = 4
-					#	create_ship = {
-					#		name = random
-					#		design = "NAME_Corsair"
-					#		graphical_culture = "pirate_01"
-					#	}
-					#}
-					#while = {
-					#	count = 2
-					#	create_ship = {
-					#		name = random
-					#		design = "NAME_Marauder"
-					#		graphical_culture = "pirate_01"
-					#	}
-					#}
-					#set_formation_scale = 3.0
 					set_fleet_stance = aggressive
 					set_aggro_range_measure_from = self
 					set_aggro_range = 250
@@ -3781,34 +2717,9 @@ hostile_init_18 = {
 					set_owner = event_target:pirate_country
 					create_ship_design = {
 						design = "NAME_Reaver"
-						ftl = warp
 					}
 					while = {
-						count = 4
-						create_ship = {
-							name = random
-							design = last_created_design
-							graphical_culture = "pirate_01"
-						}
-					}
-					create_ship_design = {
-						design = "NAME_Hunter"
-						ftl = warp
-					}
-					while = {
-						count = 4
-						create_ship = {
-							name = random
-							design = last_created_design
-							graphical_culture = "pirate_01"
-						}
-					}
-					create_ship_design = {
-						design = "NAME_Vagabond"
-						ftl = warp
-					}
-					while = {
-						count = 4
+						count = 12
 						create_ship = {
 							name = random
 							design = last_created_design
@@ -3826,6 +2737,35 @@ hostile_init_18 = {
 					set_fleet_flag = pirate_home_system_fleet
 					save_global_event_target_as = young_blood
 				}
+			}
+		}
+	}
+
+	change_orbit = 95
+	
+	planet = {
+		class = random_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 0 max 150 }
+
+		init_effect = {
+			prevent_anomaly = yes
+			orbital_deposit_tile = {
+				clear_deposits = yes
+				add_deposit = d_enormous3_mineral_deposit
+			}
+		}
+	}
+	planet = {
+		class = random_asteroid
+		orbit_distance = 0
+		orbit_angle = { min = 160 max 330 }
+
+		init_effect = {
+			prevent_anomaly = yes
+			orbital_deposit_tile = {
+				clear_deposits = yes
+				add_deposit = d_enormous2_mineral_deposit
 			}
 		}
 	}

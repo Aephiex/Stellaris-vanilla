@@ -4,12 +4,12 @@
 #name_of_country_type = {
 #	can_own_empty_planets					#no by default, decides if empty planets belonging to country are automatically removed from the country.
 #	playable = yes							#if this type is available for players. used when listing countries for hot-joining players
-#	has_fortifications = no					#does this type use planetary fortifications?
 # 	randomize_ethos = no					#does this empire have a randomly generated ethos?
 #	shuffle_pop_ethos = no					#if pops belonging to this country type should mutate their ethos every now and then
 #	sub_title = "EXAMPLE_COUNTRY"			#sub title that will be shown for this empire. Like "Example Federation - Fallen Empire"
 #	sub_title_desc = "EXAMPLE_COUNTRY_DESC" #description for the sub title. used in tooltips
-#	needs_survey = yes						#default yes, if yes then planets must be surveyed before they can be colonized
+#	needs_survey = no						#default no, if yes then planets must be surveyed before they can be colonized, also if yes a science ship is needed for exploration.
+# 	has_complete_sensor = no				#default no, if yes then empire has complete sensor of the galaxy
 #	has_capital = yes						#default is yes, capital always exists but toggling this no hides any mention of the capital planet being a capital.
 #	enforces_borders = yes					#default is yes, if the country doesn't enforce it's borders people are always free to enter.
 #	can_planets_be_attacked = yes			#default yes, if no then planets owned by this country type can not be attacked
@@ -17,18 +17,22 @@
 #	colonizing_desc = "PLANET_VIEW_UNDER_COLONIZATION_DEFAULT_DESC"	#localization key for colonization view desc
 #	orbital_bombardment = yes				#default yes, does orbital bombardment
 #	diplomatic_wars = no					#default no, decides if the country needs to declare war to be hostile, only works against countries who also have diplomatic wars toggled on
+#	attack_unarmed_orbital_stations = no	#default no, decides if the country should attack unarmed orbital (mining, research & observation stations) without explicit orders to do so
+#	ship_disengagement = no					#default no, decides if the country's ships can flee from battle instead of fighting to the death
+#	army_disengagement = no					#default no, decides if the country's armies can flee from battle instead of fighting to the death
 #	min_navy_for_wars = 0					#default 0, decides how large a navy this country wants (out of desired size) before declaring any wars
 # 	min_assault_armies_for_wars = 1			#default 1, deciades how many assault armies the country wants before declaring any wars
 # 	share_communications = no				#default yes, decides if they share communciations with anyone you have contact with
 #	relations = no							#default no, this controls whether the country makes us of opinion
 #	fallen_empire = no						#default no, this controls whether the empire uses the special Fallen Empire AI
 #	awakened_fallen_empire = no				#default no, this controls whether the empire uses the special Awakened Fallen Empire AI
-# 	can_use_special_buildables = no			#default no, this controls whether this empire can build shipsizes that are defined as special buildables
-#	distant_ftl_cost_mult = x 				#default 0.0, modifiers how much FTL winddown/windup a country gets from FTL to territories distant from borders
+# 	uses_special_buildables = no			#default no, this controls whether this empire builds global ship designs that are defined as special buildables instead of normal designable ships
 #	show_in_contacts_list = yes				#default yes, whether to show an entry in the contacts list
 #	minimalist_contacts_list_profile = no	#default no, whether to show only empire name and flag in diplomacy panel in the contacts list
 #	government = no							#default yes, if yes then the country has a government
-#	debris = no								#default no, if yes then country gets debris spawned from ships
+# 	custom_starbase = x						#if this is set, country will defined ship size for constructed starbases instead of building outposts
+#	destroys_starbases = no					#if this is set to yes, country will destroy starbases instead of disabling them
+#	can_have_their_comms_shared				#if this is set to yes, other countries in contact with this one will be able to share that contact (for countries that use custom_diplomacy)
 #
 #	faction = {							#these values are copied to the country and can be changed during the game
 #		neutral = no						#if yes, fleets will never attack anything and will never be attacked
@@ -75,18 +79,17 @@
 #}
 
 default = {
-	has_fortifications = yes
-	can_have_orbital_stations = yes
 	has_difficulty_bonuses = yes
 	counts_for_victory = yes
 	pop_growth = yes
 	playable = yes
 	randomize_ethos = yes
 	shuffle_pop_ethos = yes
+	needs_survey = yes
 	diplomatic_wars = yes
+	ship_disengagement = yes
+	army_disengagement = yes
 	relations = yes
-	debris = yes
-	distant_ftl_cost_mult = 1.0
 	
 	ai = {
 		enabled = yes
@@ -108,15 +111,15 @@ default = {
 		
 		ship_data = {
 			constructor = {
-				min = 1
+				min = 2
 				max = 3
-				planet_mult = 0.25
+				system_mult = 0.10
 			}
 			
 			science	= {
 				min = 2
 				max = 3
-				planet_mult = 0.25
+				system_mult = 0.15
 			}
 			
 			colonizer = {
@@ -124,11 +127,22 @@ default = {
 				max = 1
 			}
 			
+			
+			colossus = {
+				min = 1
+				max = 1
+			}	
+			
+			titan = {
+				min = 1
+				max = 2
+			}			
+			
 			battleship = {
 				fraction = {
 					modifier = {
 						add = 25
-						has_technology = tech_spaceport_6
+						has_technology = tech_battleships
 					}					
 				}
 			}
@@ -137,11 +151,11 @@ default = {
 				fraction = {
 					modifier = {
 						add = 35
-						has_technology = tech_spaceport_5
+						has_technology = tech_cruisers
 					}
 					modifier = {
 						add = -10
-						has_technology = tech_spaceport_6
+						has_technology = tech_battleships
 					}
 				}
 			}
@@ -150,15 +164,15 @@ default = {
 				fraction = {
 					modifier = {
 						add = 50
-						has_technology = tech_spaceport_3
+						has_technology = tech_destroyers
 					}	
 					modifier = {
 						add = -15
-						has_technology = tech_spaceport_5
+						has_technology = tech_cruisers
 					}
 					modifier = {
 						add = -10
-						has_technology = tech_spaceport_6
+						has_technology = tech_battleships
 					}
 				}
 			}
@@ -168,82 +182,45 @@ default = {
 					base = 100
 					modifier = {
 						add = -25
-						has_technology = tech_spaceport_3
+						has_technology = tech_destroyers
 					}	
 					modifier = {
 						add = -45
-						has_technology = tech_spaceport_5
+						has_technology = tech_cruisers
 					}
 					modifier = {
 						add = -5
-						has_technology = tech_spaceport_6
+						has_technology = tech_battleships
 					}						
 				}
 			}
 		}
 		
 		army_data = {
-			defense_army = {
-				fraction = {
-					factor = 50
-					modifier = {
-						factor = 0
-						has_authority = auth_machine_intelligence
-					}					
-					modifier = {
-						add = 10
-						OR = {
-							has_ethic = ethic_pacifist
-							has_ethic = ethic_fanatic_pacifist
-						}
-					}
-				}
-			}
-			
 			assault_army = {
 				fraction = {
-					factor = 50
+					factor = 100					
 					modifier = {
 						factor = 0
-						has_authority = auth_machine_intelligence
-					}					
-					modifier = {
-						add = -20
 						OR = {
+							has_authority = auth_machine_intelligence
+							has_technology = tech_telepathy
+							has_technology = tech_gene_seed_purification
+							AND = {
+								OR = {
+									has_ethic = ethic_militarist
+									has_ethic = ethic_fanatic_militarist
+								}
+								has_technology = tech_gene_banks
+							}
 							AND = {
 								has_ai_personality_behaviour = slaver
 								has_technology = tech_neural_implants
-							}
+							}		
 							AND = {
-								has_ai_personality_behaviour = robot_exploiter
+								has_ai_personality_behaviour = robot_liberator
 								has_technology = tech_droid_workers
-							}
-						}
-					}
-					modifier = {
-						add = -10
-						OR = {
-							has_ethic = ethic_pacifist
-							has_ethic = ethic_fanatic_pacifist
-						}
-					}
-					modifier = {
-						factor = 0
-						OR = {
-							has_technology = tech_cloning
-							has_technology = tech_telepathy
-							has_technology = tech_synthetic_workers
-							has_technology = tech_gene_seed_purification
-							AND = {
-								exists = ruler
-								ruler = { 
-									has_leader_flag = has_elite_guard 
-								}
-								OR = {
-									has_government = gov_despotic_hegemony
-									has_government = gov_illuminated_autocracy
-								}
-							}
+							}							
 						}
 					}
 				}
@@ -251,29 +228,28 @@ default = {
 			
 			slave_army = {
 				fraction = {
-					factor = 20
-					modifier = {
-						factor = 0
-						has_authority = auth_machine_intelligence
-					}
+					factor = 100
 					modifier = {
 						factor = 0
 						OR = {
-							NOT = {
-								AND = {
-									has_ai_personality_behaviour = slaver
-									has_technology = tech_neural_implants
-								}
-							}
+							has_authority = auth_machine_intelligence
+							has_technology = tech_telepathy
+							has_technology = tech_gene_seed_purification
 							AND = {
-								has_ai_personality_behaviour = robot_exploiter
-								has_technology = tech_droid_workers
-							}
-							NOT = {
-								any_owned_planet = {
-									has_building = building_slave_processing
+								OR = {
+									has_ethic = ethic_militarist
+									has_ethic = ethic_fanatic_militarist
 								}
+								has_technology = tech_gene_banks
 							}
+							NAND = {
+								has_ai_personality_behaviour = slaver
+								has_technology = tech_neural_implants
+							}		
+							AND = {
+								has_ai_personality_behaviour = robot_liberator
+								has_technology = tech_droid_workers
+							}							
 						}
 					}
 				}
@@ -281,119 +257,17 @@ default = {
 			
 			robotic_army = {
 				fraction = {
-					factor = 20
-					modifier = {
-						factor = 0
-						has_authority = auth_machine_intelligence
-					}					
-					modifier = {
-						factor = 0
-						NOT = {
-							AND = {
-								has_ai_personality_behaviour = robot_exploiter
-								has_technology = tech_droid_workers
-							}
-						}
-					}
-				}
-			}
-			
-			clone_army = {
-				fraction = {
-					factor = 50
-					modifier = {
-						factor = 0
-						has_authority = auth_machine_intelligence
-					}					
-					modifier = {
-						add = -20
-						OR = {
-							AND = {
-								has_ai_personality_behaviour = slaver
-								has_technology = tech_neural_implants
-							}
-							AND = {
-								has_ai_personality_behaviour = robot_exploiter
-								has_technology = tech_droid_workers
-							}
-						}
-					}
-					modifier = {
-						add = -10
-						OR = {
-							has_ethic = ethic_pacifist
-							has_ethic = ethic_fanatic_pacifist
-						}
-					}
+					factor = 100
 					modifier = {
 						factor = 0
 						OR = {
-							NOT = {
-								has_technology = tech_cloning
-							}
+							has_authority = auth_machine_intelligence
 							has_technology = tech_telepathy
-							has_technology = tech_synthetic_workers
-							has_technology = tech_gene_seed_purification
-							AND = {
-								exists = ruler
-								ruler = { 
-									has_leader_flag = has_elite_guard
-								}
-								OR = {
-									has_government = gov_despotic_hegemony
-									has_government = gov_illuminated_autocracy
-								}
-							}
-						}
-					}
-				}
-			}
-			
-			psionic_army = {			
-				fraction = {
-					factor = 50
-					modifier = {
-						factor = 0
-						has_authority = auth_machine_intelligence
-					}					
-					modifier = {
-						add = -20
-						OR = {
-							AND = {
-								has_ai_personality_behaviour = slaver
-								has_technology = tech_neural_implants
-							}
-							AND = {
-								has_ai_personality_behaviour = robot_exploiter
+							has_technology = tech_gene_seed_purification	
+							NAND = {
+								has_ai_personality_behaviour = robot_liberator
 								has_technology = tech_droid_workers
-							}
-						}
-					}
-					modifier = {
-						add = -10
-						OR = {
-							has_ethic = ethic_pacifist
-							has_ethic = ethic_fanatic_pacifist
-						}
-					}
-					modifier = {
-						factor = 0
-						OR = {
-							NOT = {
-								has_technology = tech_telepathy
-							}
-							has_technology = tech_synthetic_workers
-							has_technology = tech_gene_seed_purification
-							AND = {
-								exists = ruler
-								ruler = { 
-									has_leader_flag = has_elite_guard
-								}
-								OR = {
-									has_government = gov_despotic_hegemony
-									has_government = gov_illuminated_autocracy
-								}
-							}
+							}							
 						}
 					}
 				}
@@ -401,48 +275,52 @@ default = {
 			
 			android_army = {
 				fraction = {
-					factor = 50
-					modifier = {
-						factor = 0
-						has_authority = auth_machine_intelligence
-					}					
-					modifier = {
-						add = -20
-						OR = {
-							AND = {
-								has_ai_personality_behaviour = slaver
-								has_technology = tech_neural_implants
-							}
-							AND = {
-								has_ai_personality_behaviour = robot_exploiter
-								has_technology = tech_droid_workers
-							}
-						}
-					}
-					modifier = {
-						add = -10
-						OR = {
-							has_ethic = ethic_pacifist
-							has_ethic = ethic_fanatic_pacifist
-						}
-					}
+					factor = 100
 					modifier = {
 						factor = 0
 						OR = {
-							NOT = {
+							has_authority = auth_machine_intelligence
+							has_technology = tech_telepathy
+							has_technology = tech_gene_seed_purification	
+							NAND = {
+								has_ai_personality_behaviour = robot_liberator
 								has_technology = tech_synthetic_workers
-							}
+							}							
+						}
+					}
+				}
+			}
+			
+			clone_army = {
+				fraction = {
+					factor = 100
+					modifier = {
+						factor = 0
+						OR = {
+							has_authority = auth_machine_intelligence
+							has_technology = tech_telepathy
 							has_technology = tech_gene_seed_purification
-							AND = {
-								exists = ruler
-								ruler = {
-									has_leader_flag = has_elite_guard
-								}
+							NAND = {
 								OR = {
-									has_government = gov_despotic_hegemony
-									has_government = gov_illuminated_autocracy
+									has_ethic = ethic_militarist
+									has_ethic = ethic_fanatic_militarist
 								}
-							}
+								has_technology = tech_gene_banks
+							}								
+						}
+					}
+				}
+			}
+			
+			psionic_army = {			
+				fraction = {
+					factor = 100
+					modifier = {
+						factor = 0
+						OR = {
+							has_authority = auth_machine_intelligence
+							NOT = { has_technology = tech_telepathy }
+							has_technology = tech_gene_seed_purification								
 						}
 					}
 				}
@@ -450,90 +328,12 @@ default = {
 			
 			gene_warrior_army = {
 				fraction = {
-					factor = 50
-					modifier = {
-						factor = 0
-						has_authority = auth_machine_intelligence
-					}					
-					modifier = {
-						add = -20
-						OR = {
-							AND = {
-								has_ai_personality_behaviour = slaver
-								has_technology = tech_neural_implants
-							}
-							AND = {
-								has_ai_personality_behaviour = robot_exploiter
-								has_technology = tech_droid_workers
-							}
-						}
-					}
-					modifier = {
-						add = -10
-						OR = {
-							has_ethic = ethic_pacifist
-							has_ethic = ethic_fanatic_pacifist
-						}
-					}
+					factor = 100
 					modifier = {
 						factor = 0
 						OR = {
-							NOT = {
-								has_technology = tech_gene_seed_purification
-							}
-							AND = {
-								exists = ruler
-								ruler = { 
-									has_leader_flag = has_elite_guard
-								}
-								OR = {
-									has_government = gov_despotic_hegemony
-									has_government = gov_illuminated_autocracy
-								}
-							}
-						}
-					}
-				}
-			}
-			
-			elite_guard_army = {
-				fraction = {
-					factor = 50
-					modifier = {
-						factor = 0
-						has_authority = auth_machine_intelligence
-					}					
-					modifier = {
-						add = -20
-						OR = {
-							AND = {
-								has_ai_personality_behaviour = slaver
-								has_technology = tech_neural_implants
-							}
-							AND = {
-								has_ai_personality_behaviour = robot_exploiter
-								has_technology = tech_droid_workers
-							}
-						}
-					}
-					modifier = {
-						add = -10
-						OR = {
-							has_ethic = ethic_pacifist
-							has_ethic = ethic_fanatic_pacifist
-						}
-					}
-					modifier = {
-						factor = 0
-						exists = ruler
-						NOT = {
-							ruler = { 
-								has_leader_flag = has_elite_guard
-							} 
-							OR = {
-								has_government = gov_despotic_hegemony
-								has_government = gov_illuminated_autocracy
-							}
+							has_authority = auth_machine_intelligence
+							NOT = { has_technology = tech_gene_seed_purification }			
 						}
 					}
 				}
@@ -541,20 +341,7 @@ default = {
 
 			machine_assault_1 = {
 				fraction = {
-					factor = 50
-					modifier = {
-						factor = 0
-						OR = {
-							NOT = { has_authority = auth_machine_intelligence }
-							has_technology = tech_adaptive_combat_algorithms
-						}
-					}
-				}
-			}
-	
-			machine_defense_1 = {
-				fraction = {
-					factor = 50
+					factor = 100
 					modifier = {
 						factor = 0
 						OR = {
@@ -567,24 +354,11 @@ default = {
 	
 			machine_assault_2 = {
 				fraction = {
-					factor = 50
+					factor = 100
 					modifier = {
-						factor = -20
+						factor = -25
 						has_technology = tech_biomechanics
 					}
-					modifier = {
-						factor = 0
-						OR = {
-							NOT = { has_authority = auth_machine_intelligence }
-							NOT = { has_technology = tech_adaptive_combat_algorithms }
-						}
-					}
-				}
-			}
-	
-			machine_defense_2 = {
-				fraction = {
-					factor = 50
 					modifier = {
 						factor = 0
 						OR = {
@@ -688,7 +462,7 @@ adversary = {
 }
 
 neutral_faction = {
-	has_leaders = no
+	is_space_critter = yes
 	government = no
 	ai = {
 		enabled = no
@@ -727,6 +501,7 @@ nomad = {
 }
 
 pirate = {
+	attack_unarmed_orbital_stations = yes
 	government = no
 	ai = {
 		enabled = no
@@ -746,18 +521,114 @@ pirate = {
 	}
 }
 
+dormant_marauders = {
+	attack_unarmed_orbital_stations = yes
+	scaled_difficulty_bonuses = 0.5	# scales to setting
+	show_in_contacts_list = yes
+	custom_diplomacy = yes
+	share_survey_data = no
+	enforces_borders = no
+	needs_survey = no
+	has_complete_sensor = yes
+	can_have_their_comms_shared = yes
+	custom_starbase = starbase_marauder
+	ai = {
+		enabled = no
+	}
+	
+	faction = {
+		hostile = yes
+		pirate = yes
+		needs_border_access = no
+		generate_borders = yes
+		needs_colony = no
+	}
+	modules = {
+		exclusive_diplomacy_module = {} # Nothing is allowed, but we need this for relationships.
+		tiered_technology_module = {
+			tier = 3
+			rare = no
+		}
+		standard_event_module = {}
+	}
+}
+
+ruined_marauders = { # Diplomacy no longer possible
+	government = no
+
+	ai = {
+		enabled = no
+	}
+	
+	faction = {
+		hostile = yes
+		pirate = yes
+		needs_border_access = no
+		generate_borders = no
+		needs_colony = no
+	}
+	modules = {
+		exclusive_diplomacy_module = {} # Nothing is allowed, but we need this for relationships.
+		tiered_technology_module = {
+			tier = 3
+			rare = no
+		}
+		standard_event_module = {}
+	}
+}
+
+awakened_marauders = {
+	attack_unarmed_orbital_stations = yes
+	scaled_difficulty_bonuses = 1.0	# scales to setting
+	destroys_starbases = yes
+	show_in_contacts_list = yes
+	share_survey_data = no
+	custom_diplomacy = yes
+	enforces_borders = no
+	needs_survey = no
+	has_complete_sensor = yes
+	can_have_their_comms_shared = yes
+	custom_starbase = starbase_marauder
+	ai = {
+		enabled = yes
+		modules = {
+			horde_interior_minister_module
+			horde_military_minister_module
+		}
+	}
+	
+	faction = {
+		hostile = yes
+		needs_border_access = no
+		generate_borders = yes
+		needs_colony = no
+	}
+	modules = {
+		exclusive_diplomacy_module = {
+			#contact_rule = script_only
+		} # Nothing is allowed, but we need this for relationships.
+		tiered_technology_module = {
+			tier = 3
+			rare = no
+		}
+		standard_event_module = {}
+	}
+}
+
 fallen_empire = {
-	scaled_difficulty_bonuses = 0.5	# scales to galaxy size
+	scaled_difficulty_bonuses = 0.5	# scales to setting
 	counts_for_victory = yes
 	sub_title = "COUNTRY_FALLEN_EMPIRE"
 	sub_title_desc = "COUNTRY_FALLEN_EMPIRE_DESC"
 	
+	share_survey_data = no
 	relations = yes
-	has_fortifications = yes
-	can_have_orbital_stations = yes
 	fallen_empire = yes
+	needs_survey = no
 	diplomatic_wars = yes
-	distant_ftl_cost_mult = 0.33
+	ship_disengagement = yes
+	army_disengagement = yes
+	uses_special_buildables = yes
 	
 	faction = {
 		needs_border_access = no
@@ -772,6 +643,7 @@ fallen_empire = {
 		internal_policies = no
 		modification = no
 		construction = no
+		starbase_upgrade = no
 		limited_construction = yes
 		tech = no
 		modules = {
@@ -781,35 +653,12 @@ fallen_empire = {
 		}
 		
 		army_data = {
-			defense_army = {
-				fraction = {
-					factor = 25
-					modifier = {
-						factor = 0
-						OR = { 
-							has_ethic = ethic_fanatic_materialist
-							has_authority = auth_machine_intelligence
-						}
-					}					
-				}
-			}
-			
-			android_defense_army = {
-				fraction = {
-					factor = 25
-					modifier = {
-						factor = 0
-						NOT = { has_ethic = ethic_fanatic_materialist }
-					}					
-				}
-			}			
-			
 			gene_warrior_army = {
 				fraction = {
 					factor = 75
 					modifier = {
 						factor = 0
-						NOT = { has_ethic = ethic_fanatic_xenophobe }
+						NOT = { has_ethic = ethic_fanatic_xenophile }
 					}
 				}
 			}
@@ -829,7 +678,7 @@ fallen_empire = {
 					factor = 75
 					modifier = {
 						factor = 0
-						NOT = { has_ethic = ethic_fanatic_xenophile }
+						NOT = { has_ethic = ethic_fanatic_xenophobe }
 					}
 				}
 			}
@@ -844,16 +693,6 @@ fallen_empire = {
 				}
 			}
 			
-			machine_defense_2 = {
-				fraction = {
-					factor = 25
-					modifier = {
-						factor = 0
-						NOT = { has_authority = auth_machine_intelligence }
-					}					
-				}
-			}		
-
 			machine_assault_2 = {
 				fraction = {
 					factor = 50
@@ -906,20 +745,21 @@ fallen_empire = {
 }
 
 awakened_fallen_empire = {
-	scaled_difficulty_bonuses = 1.0	# scales to galaxy size
+	scaled_difficulty_bonuses = 1.0	# scales to setting
 	counts_for_victory = yes
 	sub_title = "COUNTRY_AWAKENED_FALLEN_EMPIRE"
 	sub_title_desc = "COUNTRY_AWAKENED_FALLEN_EMPIRE_DESC"
 	
+	share_survey_data = no
 	relations = yes
-	has_fortifications = yes
 	fallen_empire = yes
-	can_have_orbital_stations = yes
 	awakened_fallen_empire = yes
+	needs_survey = no
 	diplomatic_wars = yes
+	ship_disengagement = yes
+	army_disengagement = yes
 	pop_growth = yes
-	can_use_special_buildables = yes
-	distant_ftl_cost_mult = 0.33
+	uses_special_buildables = yes
 	
 	faction = {
 		needs_border_access = no
@@ -932,6 +772,7 @@ awakened_fallen_empire = {
 		min_assault_armies_for_wars = 6
 		colonizer = yes
 		internal_policies = yes
+		starbase_upgrade = no
 		modification = no
 		government = no
 		construction = yes
@@ -943,35 +784,12 @@ awakened_fallen_empire = {
 		}
 		
 		army_data = {
-			defense_army = {
-				fraction = {
-					factor = 25
-					modifier = {
-						factor = 0
-						OR = { 
-							has_ethic = ethic_fanatic_materialist
-							has_authority = auth_machine_intelligence
-						}
-					}					
-				}
-			}
-			
-			android_defense_army = {
-				fraction = {
-					factor = 25
-					modifier = {
-						factor = 0
-						NOT = { has_ethic = ethic_fanatic_materialist }
-					}					
-				}
-			}			
-			
 			gene_warrior_army = {
 				fraction = {
 					factor = 75
 					modifier = {
 						factor = 0
-						NOT = { has_ethic = ethic_fanatic_xenophobe }
+						NOT = { has_ethic = ethic_fanatic_xenophile }
 					}
 				}
 			}
@@ -991,7 +809,7 @@ awakened_fallen_empire = {
 					factor = 75
 					modifier = {
 						factor = 0
-						NOT = { has_ethic = ethic_fanatic_xenophile }
+						NOT = { has_ethic = ethic_fanatic_xenophobe }
 					}
 				}
 			}
@@ -1005,16 +823,6 @@ awakened_fallen_empire = {
 					}
 				}
 			}
-			
-			machine_defense_2 = {
-				fraction = {
-					factor = 25
-					modifier = {
-						factor = 0
-						NOT = { has_authority = auth_machine_intelligence }
-					}					
-				}
-			}		
 
 			machine_assault_2 = {
 				fraction = {
@@ -1041,7 +849,7 @@ awakened_fallen_empire = {
 			constructor = {
 				min = 1
 				max = 3
-				planet_mult = 0.25
+				system_mult = 0.25
 			}
 		
 			colonizer = {
@@ -1049,20 +857,25 @@ awakened_fallen_empire = {
 				max = 1
 			}
 			
+			colossus = {
+				min = 1
+				max = 1
+			}	
+			
 			massive_ship_fallen_empire = {
 				min = 1
-				max = 3
+				max = 2
 				planet_mult = 0.05
 			}			
 		
 			large_ship_fallen_empire = {
 				fraction = {
-					base = 35					
+					base = 25					
 				}
 			}
 			small_ship_fallen_empire = {
 				fraction = {
-					base = 65					
+					base = 75					
 				}
 			}			
 
@@ -1116,7 +929,6 @@ awakened_fallen_empire = {
 }
 
 primitive = {
-	can_have_orbital_stations = yes
 	randomize_ethos = yes
 	shuffle_pop_ethos = yes
 
@@ -1144,9 +956,6 @@ primitive = {
 }
 
 rebel = {
-	can_have_orbital_stations = yes
-	has_fortifications = yes
-
 	ai = {
 		#enabled = no
 		enabled = yes
@@ -1196,6 +1005,8 @@ ambient = {
 
 enclave = {
 	show_in_contacts_list = yes
+	can_have_their_comms_shared = yes
+	is_enclave = yes
 	ai = {
 		enabled = no
 	}
@@ -1218,6 +1029,7 @@ enclave = {
 }
 
 shroud = {
+	is_the_shroud = yes
 	show_in_contacts_list = yes
 	minimalist_contacts_list_profile = yes
 	share_communications = no
@@ -1243,7 +1055,7 @@ shroud = {
 }
 
 shroud_spirits = {
-	has_leaders = no
+	is_space_critter = yes
 	government = no
 	ai = {
 		enabled = no
@@ -1268,11 +1080,13 @@ shroud_spirits = {
 #################
 
 swarm = {	
-	scaled_difficulty_bonuses = 3.0	# scales to galaxy size
+	attack_unarmed_orbital_stations = yes
+	scaled_difficulty_bonuses = 3.0	# scales to setting
 	crisis_faction = yes
-	has_fortifications = yes
+	destroys_starbases = yes
 	can_own_empty_planets = yes
 	needs_survey = no
+	has_complete_sensor = yes
 	can_planets_be_attacked = no
 	has_capital = no
 	enforces_borders = no
@@ -1280,6 +1094,7 @@ swarm = {
 	colonizing_title = "COLONIZING_PLANET_SWARM"
 	colonizing_desc = "PLANET_VIEW_UNDER_COLONIZATION_SWARM_DESC"
 	home_system = swarm_invasion_target_1
+	custom_starbase = starbase_swarm
 	
 	ai = {
 		enabled = yes
@@ -1288,16 +1103,6 @@ swarm = {
 		modules = {
 			swarm_interior_minister_module
 			swarm_military_minister_module
-		}
-		
-		ship_data = {
-			military_station_large_swarm = {
-				min = 2
-			}
-			
-			military_station_small_swarm = {
-				min = 1
-			}
 		}
 	}
 	faction = {
@@ -1319,13 +1124,17 @@ swarm = {
 }
 
 extradimensional = {
-	scaled_difficulty_bonuses = 3.0	# scales to galaxy size
+	attack_unarmed_orbital_stations = yes
+	scaled_difficulty_bonuses = 3.0	# scales to setting
 	crisis_faction = yes
+	destroys_starbases = yes
 	needs_survey = no
+	has_complete_sensor = yes
 	can_planets_be_attacked = no
 	has_capital = no
 	enforces_borders = no
 	home_system = extradimensional_origin_system
+	custom_starbase = starbase_exd
 	targets = { 
 		extradimensional_2
 		extradimensional_3
@@ -1337,16 +1146,7 @@ extradimensional = {
 		construction = yes
 		modules = {
 			invaders_military_minister_module
-		}
-		
-		ship_data = {
-			military_station_large_ed = {
-				min = 1
-			}
-			
-			military_station_small_ed = {
-				min = 2
-			}
+			invaders_interior_minister_module
 		}
 	}
 	faction = {
@@ -1368,13 +1168,17 @@ extradimensional = {
 }
 
 extradimensional_2 = {
-	scaled_difficulty_bonuses = 3.0	# scales to galaxy size
+	attack_unarmed_orbital_stations = yes
+	scaled_difficulty_bonuses = 3.0	# scales to setting
 	crisis_faction = yes
+	destroys_starbases = yes
 	needs_survey = no
+	has_complete_sensor = yes
 	can_planets_be_attacked = no
 	has_capital = no
 	enforces_borders = no
 	home_system = extradimensional_second_portal_system
+	custom_starbase = starbase_exd
 	targets = { 
 		extradimensional
 		extradimensional_3
@@ -1386,20 +1190,6 @@ extradimensional_2 = {
 		construction = yes
 		modules = {
 			invaders_military_minister_module
-		}
-		
-		ship_data = {
-			military_station_large_ed = {
-				min = 1
-			}
-			
-			military_station_small_ed = {
-				min = 2
-			}
-			
-			anchor_station = {
-				min = 1
-			}
 		}
 	}
 	faction = {
@@ -1421,13 +1211,17 @@ extradimensional_2 = {
 }
 
 extradimensional_3 = {
-	scaled_difficulty_bonuses = 3.0	# scales to galaxy size
+	attack_unarmed_orbital_stations = yes
+	scaled_difficulty_bonuses = 3.0	# scales to setting
 	crisis_faction = yes
+	destroys_starbases = yes
 	needs_survey = no
+	has_complete_sensor = yes
 	can_planets_be_attacked = no
 	has_capital = no
 	enforces_borders = no
 	home_system = extradimensional_third_portal_system
+	custom_starbase = starbase_exd
 	targets = { 
 		extradimensional
 		extradimensional_2
@@ -1439,16 +1233,6 @@ extradimensional_3 = {
 		construction = yes
 		modules = {
 			invaders_military_minister_module
-		}
-		
-		ship_data = {
-			military_station_large_ed = {
-				min = 1
-			}
-			
-			military_station_small_ed = {
-				min = 2
-			}
 		}
 	}
 	faction = {
@@ -1470,11 +1254,13 @@ extradimensional_3 = {
 }
 
 ai_empire = {
-	scaled_difficulty_bonuses = 3.0	# scales to galaxy size
+	attack_unarmed_orbital_stations = yes
+	scaled_difficulty_bonuses = 3.0	# scales to setting
 	crisis_faction = yes
-	has_fortifications = yes
+	destroys_starbases = yes
 	can_own_empty_planets = yes
 	needs_survey = no
+	has_complete_sensor = yes
 	can_planets_be_attacked = yes
 	has_capital = no
 	playable = no
@@ -1483,23 +1269,15 @@ ai_empire = {
 	minimalist_contacts_list_profile = yes
 	home_system = AI_lair
 	hub_system = AI_hub
+	custom_starbase = starbase_ai
 	ai = {
 		enabled = yes
 		colonizer = yes
 		government = no
 		construction = yes
 		modules = {
+			machine_interior_minister_module
 			machine_military_minister_module
-		}
-		
-		ship_data = {
-			military_station_large_ai = {
-				min = 1
-			}
-			
-			military_station_small_ai = {
-				min = 2
-			}
 		}
 	}
 	
@@ -1524,21 +1302,25 @@ ai_empire = {
 cybrex_empire = {
 	scaled_difficulty_bonuses = 3.0
 	can_own_empty_planets = yes
-	has_fortifications = yes
 	can_planets_be_attacked = no
 	needs_survey = no
+	has_complete_sensor = yes
 	government = no
 	playable = no
 	enforces_borders = no
 	minimalist_contacts_list_profile = yes
+	home_system = cybrex_beta
 	ai = {
-		enabled = no
+		enabled = yes
+		modules = {
+			anti_crisis_military_minister_module
+		}
 	}
 	faction = {
 		hostile = no
 		needs_border_access = no
 		needs_colony = no
-		generate_borders = no
+		generate_borders = yes
 	}
 	
 	custom_diplomacy = yes
@@ -1553,13 +1335,24 @@ cybrex_empire = {
 }
 
 sentinels = {
+	scaled_difficulty_bonuses = 3.0
+	home_system = sentinel_system
+	custom_diplomacy = yes
+	share_survey_data = no
+	enforces_borders = no
+	needs_survey = no
+	has_complete_sensor = yes
 	ai = {
-		enabled = no
+		enabled = yes
+		modules = {
+			anti_crisis_military_minister_module
+		}
 	}
 	faction = {
 		hostile = no
 		needs_border_access = no
 		needs_colony = no
+		generate_borders = yes
 	}
 	
 	custom_diplomacy = yes
@@ -1578,16 +1371,21 @@ sentinels = {
 #################
 
 tiyanki = {
-	has_leaders = no
+	is_space_critter = yes
 	government = no
 	ai = {
-		enabled = no
+		enabled = yes
+		modules = {
+			space_monsters_module
+		}
+		avoid_enemies = yes
 	}
 	faction = {
 		hostile = no
 		needs_border_access = no
 		generate_borders = no
 		needs_colony = no
+		space_creatures = yes
 	}
 	modules = {
 		exclusive_diplomacy_module = {} # Nothing is allowed, but we need this for relationships.
@@ -1596,16 +1394,21 @@ tiyanki = {
 }
 
 amoeba = {
-	has_leaders = no
+	is_space_critter = yes
 	government = no
 	ai = {
-		enabled = no
+		enabled = yes
+		modules = {
+			space_monsters_module
+		}
+		avoid_enemies = yes	
 	}
 	faction = {
 		hostile = yes
 		needs_border_access = no
 		generate_borders = no
 		needs_colony = no
+		space_creatures = yes
 	}
 	modules = {
 		exclusive_diplomacy_module = {} # Nothing is allowed, but we need this for relationships.
@@ -1615,7 +1418,7 @@ amoeba = {
 }
 
 crystal = {
-	has_leaders = no
+	is_space_critter = yes
 	government = no
 	ai = {
 		enabled = no
@@ -1625,6 +1428,7 @@ crystal = {
 		needs_border_access = no
 		generate_borders = no
 		needs_colony = no
+		space_creatures = yes
 	}
 	modules = {
 		exclusive_diplomacy_module = {} # Nothing is allowed, but we need this for relationships.
@@ -1633,7 +1437,7 @@ crystal = {
 }
 
 drone = {
-	has_leaders = no
+	is_space_critter = yes
 	government = no
 	ai = {
 		enabled = no
@@ -1643,6 +1447,7 @@ drone = {
 		needs_border_access = no
 		generate_borders = no
 		needs_colony = no
+		space_creatures = yes
 	}
 	modules = {
 		exclusive_diplomacy_module = {} # Nothing is allowed, but we need this for relationships.
@@ -1651,7 +1456,7 @@ drone = {
 }
 
 cloud = {
-	has_leaders = no
+	is_space_critter = yes
 	government = no
 	ai = {
 		enabled = no
@@ -1661,6 +1466,7 @@ cloud = {
 		needs_border_access = no
 		generate_borders = no
 		needs_colony = no
+		space_creatures = yes
 	}
 	modules = {
 		exclusive_diplomacy_module = {} # Nothing is allowed, but we need this for relationships.
@@ -1670,7 +1476,7 @@ cloud = {
 
 portal_holder = {
 	show_in_contacts_list = no
-	has_leaders = no
+	is_space_critter = yes
 	government = no
 	ai = {
 		enabled = no
@@ -1684,6 +1490,50 @@ portal_holder = {
 	}
 	modules = {
 		exclusive_diplomacy_module = {} # Nothing is allowed, but we need this for relationships.
+		basic_technology_module = {}
+	}
+}
+
+feral_prethoryn = {
+	is_space_critter = yes
+	government = no
+	ai = {
+		enabled = yes
+		modules = {
+			space_monsters_module
+		}
+		avoid_enemies = yes	
+	}
+	faction = {
+		hostile = yes
+		needs_border_access = no
+		generate_borders = yes
+		needs_colony = no
+		space_creatures = yes
+	}
+	modules = {
+		standard_event_module = {}
+		exclusive_diplomacy_module = {}
+		basic_technology_module = {}
+	}
+}
+
+feral_prethoryn_infighting = {
+	is_space_critter = yes
+	government = no
+	ai = {
+		enabled = no
+	}
+	faction = {
+		hostile = yes
+		needs_border_access = no
+		generate_borders = no
+		needs_colony = no
+		space_creatures = yes
+	}
+	modules = {
+		standard_event_module = {}
+		exclusive_diplomacy_module = {}
 		basic_technology_module = {}
 	}
 }

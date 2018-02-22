@@ -585,7 +585,7 @@ event = { # unscoped gatekeeper
 
 	trigger = {
 		host_has_dlc = "Synthetic Dawn Story Pack"
-		years_passed > 49
+		mid_game_years_passed >= -10
 	}
 
 	immediate = {
@@ -631,8 +631,8 @@ country_event = { # per-country gatekeeper
 	}
 
 	immediate = {
-		random_list = { # 9 warning sign events + 1 uprising + 1 null
-			200 = {} # null, ~77% chance
+		random_list = { # 11 warning sign events + 1 null
+			200 = {} # null, ~67% chance
 			10 = {
 				country_event = { id = syndaw.500 }
 				modifier = {
@@ -770,10 +770,12 @@ country_event = { # per-country gatekeeper
 					factor = 0
 					OR = {
 						has_country_flag = triggered_syndaw_530
-						NOT = {
+						is_at_war = yes
+						NOR = {
 							has_technology = tech_combat_computers_1
 							any_owned_fleet = {
-								count_fleet_ships = { 
+								is_in_combat = no
+								count_fleet_ships = {
 									count > 1
 									limit = {
 										OR = {
@@ -896,115 +898,6 @@ country_event = { # per-country gatekeeper
 		}
 	}
 }
-
-# uprising check # now triggered directly by warning signs
-#country_event = {
-#	id = syndaw.402
-#	hide_window = yes
-#	is_triggered_only = yes
-#
-#	trigger = {
-#		host_has_dlc = "Synthetic Dawn Story Pack"
-#		NOT = { has_country_flag = no_machine_uprising }
-#	}
-#
-#	immediate = {
-#		random_list = {
-#			40 = { } # null
-#			1 = { # scales up to about 120?
-#				# uprising
-#				country_event = {
-#					id = syndaw.1000 #random = 1800
-#				}
-#				modifier = {
-#					factor = 1.5
-#					has_country_flag = triggered_syndaw_500
-#				}
-#				modifier = {
-#					factor = 1.5
-#					has_country_flag = triggered_syndaw_505
-#				}
-#				modifier = {
-#					factor = 1.5
-#					has_country_flag = triggered_syndaw_510
-#				}
-#				modifier = {
-#					factor = 1.5
-#					has_country_flag = triggered_syndaw_515
-#				}
-#				modifier = {
-#					factor = 1.5
-#					has_country_flag = triggered_syndaw_520
-#				}
-#				modifier = {
-#					factor = 1.5
-#					has_country_flag = triggered_syndaw_525
-#				}
-#				modifier = {
-#					factor = 1.5
-#					has_country_flag = triggered_syndaw_530
-#				}
-#				modifier = {
-#					factor = 1.5
-#					has_country_flag = triggered_syndaw_535
-#				}
-#				modifier = {
-#					factor = 1.5
-#					has_country_flag = triggered_syndaw_540
-#				}
-#				modifier = {
-#					factor = 1.5
-#					has_country_flag = triggered_syndaw_545
-#				}
-#				modifier = {
-#					has_technology = tech_combat_computers_3
-#					factor = 1.2
-#				}
-#				modifier = {
-#					has_technology = tech_synthetic_workers
-#					factor = 1.1
-#				}
-#				modifier = {
-#					pop_percentage = {
-#						limit = { has_trait = trait_mechanical }
-#						percentage > 0.1
-#					}
-#					pop_percentage = {
-#						limit = { has_trait = trait_mechanical }
-#						percentage < 0.2
-#					}
-#					factor = 1.1
-#				}
-#				modifier = {
-#					pop_percentage = {
-#						limit = { has_trait = trait_robotic_3 }
-#						percentage > 0.2
-#					}
-#					pop_percentage = {
-#						limit = { has_trait = trait_robotic_3 }
-#						percentage < 0.3
-#					}
-#					factor = 1.3
-#				}
-#				modifier = {
-#					pop_percentage = {
-#						limit = { has_trait = trait_robotic_3 }
-#						percentage > 0.3
-#					}
-#					factor = 1.5
-#				}
-#				modifier = {
-#					has_policy_flag = ai_servitude
-#					factor = 1.5
-#				}
-#				modifier = {
-#					has_policy_flag = ai_full_rights
-#					factor = 0
-#				}
-#			}
-#		}
-#	}	
-#}
 
 ### WARNING SIGNS
 
@@ -1984,7 +1877,7 @@ country_event = {
 
 	trigger = {
 		host_has_dlc = "Synthetic Dawn Story Pack"
-		years_passed > 60
+		mid_game_years_passed >= 0
 		is_country_type = default
 		num_owned_planets > 2
 		NOR = {
@@ -2005,10 +1898,15 @@ country_event = {
 	immediate = {
 		set_country_flag = no_machine_uprising
 		if = {
-			limit = {
+			limit = { # robots in sector
 				any_owned_planet = {
 					any_owned_pop = {
 						has_trait = trait_mechanical
+					}
+					is_capital = no
+					exists = sector
+					sector = {
+						is_core_sector = no
 					}
 				}
 			}
@@ -2025,32 +1923,54 @@ country_event = {
 				}
 				planet_event = { id = syndaw.1020 }
 			}
-			else = {
+			else = { # robots in core
 				if = {
 					limit = {
 						any_owned_planet = {
-							exists = sector
-							sector = {
-								is_core_sector = no
+							any_owned_pop = {
+								has_trait = trait_mechanical
 							}
+							is_capital = no
 						}
 					}
 					random_owned_planet = {
 						limit = {
-							is_capital = no
-							exists = sector
-							sector = {
-								is_core_sector = no
+							any_owned_pop = {
+								has_trait = trait_mechanical
 							}
+							is_capital = no
 						}
 						planet_event = { id = syndaw.1020 }
 					}
-					else = {
-						random_owned_planet = {
+					else = { # random sector
+						if = {
 							limit = {
-								is_capital = no
+								any_owned_planet = {
+									is_capital = no
+									exists = sector
+									sector = {
+										is_core_sector = no
+									}
+								}
 							}
-							planet_event = { id = syndaw.1020 }
+							random_owned_planet = {
+								limit = {
+									is_capital = no
+									exists = sector
+									sector = {
+										is_core_sector = no
+									}
+								}
+								planet_event = { id = syndaw.1020 }
+							}
+							else = { # random core
+								random_owned_planet = {
+									limit = {
+										is_capital = no
+									}
+									planet_event = { id = syndaw.1020 }
+								}
+							}
 						}
 					}
 				}
@@ -2177,10 +2097,12 @@ planet_event = { #uprising
 	}
 	picture = GFX_evt_machine_sapience
 	show_sound = event_ai_started
-	#hide_window = yes
 	is_triggered_only = yes
 
-	trigger = { host_has_dlc = "Synthetic Dawn Story Pack" }
+	trigger = {
+		host_has_dlc = "Synthetic Dawn Story Pack"
+		exists = owner
+	}
 
 	option = {
 		name = syndaw.1020.a
@@ -2218,7 +2140,13 @@ planet_event = { #uprising
 				center = root.solar_system
 				owned_planets_percentage = 0.5
 				planet_limit = {
-					controller = { is_same_value = root.owner }
+					OR = {
+						controller = { is_same_value = root.owner }
+						solar_system = {
+							exists = starbase
+							starbase = { owner = { is_same_value = root.owner } }
+						}
+					}
 					solar_system = { # never flip any planets in the capital system
 						NOT = { any_planet = { is_same_value = root.owner.capital_scope } }
 					}
@@ -2358,7 +2286,7 @@ country_event = {
 		set_country_flag = machine_uprising_country@from.owner
 		set_country_flag = machine_uprising_country
 		set_relation_flag = {
-			who = current_uprising_originator
+			who = event_target:current_uprising_originator
 			flag = uprising_to_host_flag
 		}
 		from.owner = {
@@ -2430,6 +2358,22 @@ country_event = {
 			set_controller = root
 			set_capital = yes
 
+			solar_system = {
+				if = {
+					limit = {
+						exists = starbase
+					}
+					starbase = { set_owner = root }
+					else = {
+						create_starbase = {
+							size = starbase_starport
+							module = shipyard
+							owner = root
+						}
+					}
+				}
+			}
+
 			while = {
 				limit = { free_pop_tiles > 0 }
 				best_tile_for_pop = {
@@ -2490,15 +2434,30 @@ country_event = {
 					}
 				}
 			}
-			while = {
-				count = 3
-				create_army = {
-					owner = root
-					type = machine_defense_1
-				}
-			}
 
 			# flip remaining flagged planets
+			while = {
+				count = 100
+				limit = {
+					any_system = {
+						has_star_flag = machup_system_flip
+						exists = starbase
+						starbase = {
+							owner = { is_same_value = event_target:current_uprising_originator }
+						}
+					}
+				}
+				random_system = {
+					limit = {
+						has_star_flag = machup_system_flip
+						exists = starbase
+						starbase = {
+							owner = { is_same_value = event_target:current_uprising_originator }
+						}
+					}
+					starbase = { set_owner = root }
+				}
+			}
 			event_target:current_uprising_originator = {
 				every_owned_planet = {
 					limit = {
@@ -2584,13 +2543,6 @@ country_event = {
 							}
 						}
 					}
-					while = {
-						count = 3
-						create_army = {
-							owner = root
-							type = machine_defense_1
-						}
-					}
 				}
 			}
 		}
@@ -2604,7 +2556,6 @@ country_event = {
 				tech_droid_workers
 				tech_synthetic_workers
 				# Food
-				tech_orbital_hydroponics
 				tech_hydroponics
 				tech_gene_crops
 				tech_nano_vitality_crops
@@ -2618,7 +2569,6 @@ country_event = {
 				tech_galactic_markets
 				tech_subdermal_stimulation
 				tech_galactic_benevolence
-				tech_will_to_power
 				tech_global_research_initiative
 				tech_neural_implants
 				tech_psionic_theory
@@ -2662,26 +2612,10 @@ country_event = {
 
 		# declare war on host
 		declare_war = {
-			who = event_target:current_uprising_originator
+			target = event_target:current_uprising_originator
 			name = "NAME_Machine_Uprising_War"
 			# "[This.MainDefender.GetAdj] Machine Uprising"
-			major_war = yes
-		}
-		add_war_demand = {
-			type = "total_machine_defeat"
-			parameter:country = event_target:current_uprising_originator
-			warscore_cost = 50
-			target = this
-			enemy = event_target:current_uprising_originator
-		}
-		event_target:current_uprising_originator = {
-			add_war_demand = {
-				type = "total_machine_defeat"
-				parameter:country = root
-				warscore_cost = 75
-				target = this
-				enemy = root
-			}
+			attacker_war_goal = "wg_machine_uprising"
 		}
 
 		# add modifier for AI
@@ -2838,6 +2772,8 @@ country_event = {
 
 	trigger = {
 		host_has_dlc = "Synthetic Dawn Story Pack"
+		exists = event_target:current_uprising_originator
+		exists = event_target:current_uprising
 		NOR = {
 			is_same_value = event_target:current_uprising_originator
 			is_same_value = event_target:current_uprising
@@ -3070,7 +3006,7 @@ country_event = {
 				}
 			}
 		}
-		text = syndaw.1205.desc.egalit
+		text = syndaw.1205.desc.egali
 	}
 	desc = {
 		trigger = {

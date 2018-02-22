@@ -828,6 +828,7 @@ anomaly_category = {
 			NOT = { from.owner = { has_country_flag = found_grimace } }
 			is_planet_class = pc_barren
 			planet_size < 26
+			planet_size > 9
 		}
 	}
 
@@ -1311,11 +1312,13 @@ anomaly_category = {
 	spawn_chance = {
 		modifier = {
 			add = 3
-			is_planet_class = pc_toxic
-			is_planet_class = pc_barren_cold
-			is_planet_class = pc_barren
-			is_planet_class = pc_frozen
-			is_planet_class = pc_nuked
+			OR = {
+				is_planet_class = pc_toxic
+				is_planet_class = pc_barren_cold
+				is_planet_class = pc_barren
+				is_planet_class = pc_frozen
+				is_planet_class = pc_nuked
+			}
 			from = {
 				owner = {
 					has_country_flag = birth_of_piracy
@@ -1354,8 +1357,10 @@ anomaly_category = {
 	spawn_chance = {
 		modifier = {
 			add = 3
-			is_planet_class = pc_gaia
-			is_planet_class = pc_continental
+			OR = {
+				is_planet_class = pc_gaia
+				is_planet_class = pc_continental
+			}
 			from = {
 				owner = {
 					NOT = { has_country_flag = ancient_alliance_event }

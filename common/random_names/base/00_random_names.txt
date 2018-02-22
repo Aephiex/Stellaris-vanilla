@@ -299,6 +299,8 @@ star_names = {
 	Aldebaran
 	Spica
 	Antares
+	Pell
+	Cyteen
 	Pollux
 	Fomalhaut
 	Regulus
@@ -500,7 +502,7 @@ star_names = {
 	Talandra
 	Bivham
 	Covfefe
-	Kerbal
+	Kerbol
 	Intham
 	Nordak
 	Vorsham
@@ -589,6 +591,9 @@ star_names = {
 	Volmaur
 	Orthama
 	Pildram
+	Keso
+	Asgard
+	Delcor
 	Dathaana
 	Thaaram
 	Wildore
@@ -985,6 +990,7 @@ star_names = {
 	Borrbo
 	Galurum
 	Borbagon
+	Tybby
 	Gothra
 	Bardegan
 	Ditrim
@@ -993,6 +999,7 @@ star_names = {
 	Ginigan
 	Xandebaan
 	Bintu
+	Frary
 	Durascadon
 	Pytham
 	Daarasta
@@ -1216,6 +1223,7 @@ star_names = {
 	Unif
 	Xolton
 	Rovannic
+	Dahlberg
 	Sosta
 	Siplim
 	Savassic
@@ -1337,7 +1345,7 @@ star_names = {
 	Porabim
 	Simtinasca
 	Sidor
-	Alderaan
+	Aulderaan
 	Drisk
 	Wemoll
 	Wanambis
@@ -1354,7 +1362,12 @@ star_names = {
 	Moregard
 	Jamor
 	Strom
+	Moah
+	Carenvall
+	Wendel
+	Ylva
 	Grekil
+	Tammpere
 	Dorellion
 	Mili
 	Ladellikon
@@ -1454,6 +1467,7 @@ star_names = {
 	Iruistilia
 	Efrov
 	Icheon
+	Blondie
 	Astinda
 	Ojlars
 	Fatis
@@ -1530,6 +1544,7 @@ star_names = {
 	Oweprinda
 	Ucrichi
 	Asmore
+	Hlilje
 	Wouu
 	Iieystara
 	Siuhiri
@@ -1648,6 +1663,8 @@ star_names = {
 	Katz
 	Brink
 	Majek
+	"Boro_Baba"
+	Kuiper
 }
 
 nebula_names = {

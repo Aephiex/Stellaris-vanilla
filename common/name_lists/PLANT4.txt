@@ -1,25 +1,35 @@
 ﻿### Plantoid 4
 ### Created by Miranda van den Brink
 ### Latin plant names theme
-PLANT4 = {	
-	### SHIPS
 
+PLANT4 = {	
 	ship_names = {
 	
 		generic = { 
-			
 		}
 	
-		corvette = { "Thisto Jaahne" "Thisto Merok" "Thisto Vornak" "Thisto Vea" "Thisto Varex" "Thisto Raxx" "Thisto Verek" "Thisto Milo" "Thisto Kaado" "Thisto Morek" "Thisto Trylek" "Thisto Peo" "Thisto Maach" "Thisto Keto" "Thisto Vol" "Thisto Luma" "Thisto Rekiel" "Thisto Dramus" "Thisto Licus" "Thisto Marex" "Thisto Ilio" "Thisto Zenet" "Thisto Domes" "Thisto Vivea" "Thisto Ferna" "Thisto Magnoli" "Thisto Gneto" "Thisto Bryo" "Thisto Rophyte" "Thisto Stirpis" "Thisto Vitanixx" "Thisto Aarboro" "Thisto Radixx" "Thisto Zarbor" "Thisto Rotexx" "Thisto Anoma" "Thisto Sallor" "Thisto Mexus" 
+		corvette = { 
+			"Thisto Jaahne" "Thisto Merok" "Thisto Vornak" "Thisto Vea" "Thisto Varex" "Thisto Raxx" "Thisto Verek" "Thisto Milo" "Thisto Kaado" "Thisto Morek" "Thisto Trylek" "Thisto Peo" "Thisto Maach" "Thisto Keto" "Thisto Vol" "Thisto Luma" "Thisto Rekiel" "Thisto Dramus" "Thisto Licus" "Thisto Marex" "Thisto Ilio" "Thisto Zenet" "Thisto Domes" "Thisto Vivea" "Thisto Ferna" "Thisto Magnoli" "Thisto Gneto" "Thisto Bryo" "Thisto Rophyte" "Thisto Stirpis" "Thisto Vitanixx" "Thisto Aarboro" "Thisto Radixx" "Thisto Zarbor" "Thisto Rotexx" "Thisto Anoma" "Thisto Sallor" "Thisto Mexus" 
 		}
 		
-		destroyer = { "Dak'uur" "Dak'rool" "Dak'ilius" "Dak'loor" "Dak'saamek" "Dak'pretek" "Dak'pato" "Dak'stilo"  "Dak'Rotite"  "Lapis Dendri" "Lapis Folio" "Lapis Alata" "Lapis Troccea" "Lapis Moro"
+		destroyer = { 
+			"Dak'uur" "Dak'rool" "Dak'ilius" "Dak'loor" "Dak'saamek" "Dak'pretek" "Dak'pato" "Dak'stilo"  "Dak'Rotite"  "Lapis Dendri" "Lapis Folio" "Lapis Alata" "Lapis Troccea" "Lapis Moro"
 		}
 		
-		cruiser = { "Spakate Jaane" "Spakate Merok" "Spakate Vornak" "Spakate Raxx" "Spakate Verek" "Spakate Milo" "Spakate Caado" "Spakate Morek" "Spakate Trylek" "Spakate Peo" "Spakate Maach" "Spakate Keto" 
+		cruiser = { 
+			"Spakate Jaane" "Spakate Merok" "Spakate Vornak" "Spakate Raxx" "Spakate Verek" "Spakate Milo" "Spakate Caado" "Spakate Morek" "Spakate Trylek" "Spakate Peo" "Spakate Maach" "Spakate Keto" 
 		}
 		
-		battleship = { "Lanci Ulus" "Lanci Incanon" "Lanci Ovus" "Lanci Vector" "Lanci Eovoles" "Lanci Yacto" "Lanci Volea" "Zemore ka Lorensis"
+		battleship = { 
+			"Lanci Ulus" "Lanci Incanon" "Lanci Ovus" "Lanci Vector" "Lanci Eovoles" "Lanci Yacto" "Lanci Volea"
+		}
+		
+		titan = {
+			"Lanci Ulus" "Lanci Incanon" "Lanci Ovus" "Lanci Vector" "Lanci Eovoles" "Lanci Yacto" "Lanci Volea"
+		}
+		
+		colossus = {
+			"Zemore ka Lorensis"
 		}
 		
 		science = {
@@ -33,34 +43,29 @@ PLANT4 = {
 		constructor = {
 			"Cresco Staxx" "Cresco Vora" "Cresco Andens" "Cresco Paanon" "Cresco Draeus" "Cresco Phyte" "Cresco Treenor" "Cresco Callox"
 		}
-
+		
 		transport = {
-			"Vector"
+			Lio'radix Vio'radix Mi'radix Elli'radix Mino'radix
+		}
+	
+		military_station_small = {
+			"Mino Adamas" "Adelite Adamas" "Aluntite Adamas" "Tinite Adamas" "Lucite Adamas" "Kalite Adamas" "Vermonik Adamas" "Perite Adamas" "Verope Adamas" "Ren-vio Adamas" "Florite Adamas"
 		}
 		
-		orbital_station = {
-			
+		ion_cannon = {
+			Betorhiza Macrorhiza Sehriza Peo'radix Nea'radix
 		}
-		mining_station = {
-			"Mino Adamas" "Adelite Adamas" "Aluntite Adamas" "Tinite Adamas" "Lucite Adamas" "Kalite Adamas" 	"Vermonik Adamas" "Perite Adamas" "Verope Adamas" "Ren-vio Adamas" "Florite Adamas" Betorhiza Macrorhiza Sehriza Peo'radix Nea'radix Lio'radix Vio'radix Mi'radix Elli'radix Mino'radix
-			}
-		research_station = {
-			
+
+		### For Fallen Empires
+		small_ship_fallen_empire = {
+			"Thisto Jaahne" "Thisto Merok" "Thisto Vornak" "Thisto Vea" "Thisto Varex" "Thisto Raxx" "Thisto Verek" "Thisto Milo" "Thisto Kaado" "Thisto Morek" "Thisto Trylek" "Thisto Peo" "Thisto Maach" "Thisto Keto" "Thisto Vol" "Thisto Luma" "Thisto Rekiel" "Thisto Dramus" "Thisto Licus" "Thisto Marex" "Thisto Ilio" "Thisto Zenet" "Thisto Domes" "Thisto Vivea" "Thisto Ferna" "Thisto Magnoli" "Thisto Gneto" "Thisto Bryo" "Thisto Rophyte" "Thisto Stirpis" "Thisto Vitanixx" "Thisto Aarboro" "Thisto Radixx" "Thisto Zarbor" "Thisto Rotexx" "Thisto Anoma" "Thisto Sallor" "Thisto Mexus" 
 		}
-		wormhole_station = { }
-		#terraform_station = {
-		#	"Vivea Nevo" "Vivea Kalamas" "Vivea Domas" "Visto Ergonex" "Vora Ergonex" "Azigonea" "Laazo Ergonex" "Vivea Yactis" "Vivea Trixus"
-		#	
-		#}
-		observation_station = {
-			
+		large_ship_fallen_empire = {
+			"Spakate Jaane" "Spakate Merok" "Spakate Vornak" "Spakate Raxx" "Spakate Verek" "Spakate Milo" "Spakate Caado" "Spakate Morek" "Spakate Trylek" "Spakate Peo" "Spakate Maach" "Spakate Keto"
 		}
-	
-		military_station_small = { "Miya Tremata" }
-	
-		military_station_medium = { "Meo Tremata" }
-	
-		military_station_large = { "Mayo Tremata" }	
+		massive_ship_fallen_empire = {
+			"Lanci Ulus" "Lanci Incanon" "Lanci Ovus" "Lanci Vector" "Lanci Eovoles" "Lanci Yacto" "Lanci Volea"
+		}
 	}
 	
 	fleet_names = {
@@ -70,7 +75,6 @@ PLANT4 = {
 		sequential_name = "%O% Naa'Magnoli"
 	}
 
-	### ARMIES
 	army_names = {
 		defense_army = {
 			sequential_name = "%O% Stirpes ka Matea"
@@ -116,10 +120,6 @@ PLANT4 = {
 			sequential_name = "%O% Stirpes ka Genea"
 		}
 	}
-
-		
-	
-	### PLANETS
 	
 	planet_names = {
 	
@@ -131,57 +131,46 @@ PLANT4 = {
 		
 		pc_desert = {
 			names = {
-				
 			}
 		}
 
 		pc_savannah = {
 			names = {
-				
 			}
 		}
 		
 		pc_tropical = {
 			names = {
-				
 			}
 		}
 		
 		pc_arid = {
 			names = {
-				
 			}
 		}
 		
 		pc_continental = {
 			names = {
-
 			}
-						
 		}
 		
 		pc_ocean = {
 			names = {
-				 
 			}
 		}
 		
 		pc_tundra = {
 			names = {
-
 			}
-				 	
 		}
 
 		pc_alpine = {
 			names = {
-				
 			}
 		}
 		
 		pc_arctic = {
 			names = {
-				
 			}
 		}
 
@@ -197,8 +186,6 @@ PLANT4 = {
 		
 	}
 	
-	### CHARACTERS
-	
 	character_names = {
 		default = {
 			# A complete name
@@ -207,12 +194,12 @@ PLANT4 = {
 			
 			# Always combined with a second name
 			first_names = {
-				Verix Ribe Stirpes Monval Rizta Euphyte Xanova Cytophane "X'folio" Glabu Lephyte Phyllix Feron Azuli Vistophane Noxi Milus Xzempus Idrix
+				Verix Ribe Stirpes Monval Rizta Euphyte Xanova Cytophane X'folio Glabu Lephyte Phyllix Feron Azuli Vistophane Noxi Milus Xzempus Idrix
 			}
 			
 			# Always combined with a first name
 			second_names = {
-				"ka Rupe" "ka Flumen"  "ka Pruina" "ka Pretek" "ka Viven" "ka Pinnate" "ka Lumex" "ka Verim" "ka Nive" "ka Hiel" "ka Lizem" "ka Jatek" "ka Belima" "ka Evola" "ka Yusto" 
+				"ka Rupe" "ka Flumen" "ka Pruina" "ka Pretek" "ka Viven" "ka Pinnate" "ka Lumex" "ka Verim" "ka Nive" "ka Hiel" "ka Lizem" "ka Jatek" "ka Belima" "ka Evola" "ka Yusto" 
 			}
 
 			regnal_first_names = {

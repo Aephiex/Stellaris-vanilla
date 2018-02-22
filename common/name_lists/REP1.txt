@@ -1,17 +1,11 @@
 ﻿### Reptilian 1
-REP1 = {
-	### SHIPS
+### Created by Henrik Eklund
 
+REP1 = {
 	ship_names = {
 
 		generic = {
-			Trum'Pakh Trum'Dolon Trum'Sarim Trum'Doloss Trum'Rokh Trum'Vakhna Trum'Kariss Trum'Poffon Trum'Hariss Trum'Soyob Trum'Dakhan
-			Trum'Voim Trum'Dukh Trum'Vassk Trum'Esam Trum'Cassthar Trum'Barkan Trum'Lampan Trum'Rokba Trum'Histan Trum'Oloman Trum'Okran
-			Trum'Fokin Trum'Farass Trum'Iomath Trum'Mothon Trum'Dialom Trum'Bodnok Trum'Bathnor Trum'Zoyom Trum'Abnar Trum'Reeken
-			Alam'Bissna Alam'Turom Alam'Taratha Alam'Tisska Alam'Purim Alam'Shuss Alam'Parathnak Alam'Gioshum Alam'Korob Alam'Hinthab
-			Alam'Kulom Alam'Avintok Alam'Tannek Alam'Sior Alam'Rossul Alam'Bebinna Alam'Fethon Alam'Polluner Alam'Rastram Alam'Treesk
-			Alam'Enerpul Alam'Buskat Pob'Tirin Pob'Kassh Pob'Onor Pob'Greefad Pob'Minisk Pob'Sumath Pob'Ereesim Pob'Kreedak Pob'Duthur
-			Pob'Hialash Pob'Vermeb Pob'Badram Pob'Buvdar Pob'Tharat Pob'Illith Pob'Vikham Pob'Thorok Pob'Rumber Pob'Ikath
+			Trum'Pakh Trum'Dolon Trum'Sarim Trum'Doloss Trum'Rokh Trum'Vakhna Trum'Kariss Trum'Poffon Trum'Hariss Trum'Soyob Trum'Dakhan Trum'Voim Trum'Dukh Trum'Vassk Trum'Esam Trum'Cassthar Trum'Barkan Trum'Lampan Trum'Rokba Trum'Histan Trum'Oloman Trum'Okran Trum'Fokin Trum'Farass Trum'Iomath Trum'Mothon Trum'Dialom Trum'Bodnok Trum'Bathnor Trum'Zoyom Trum'Abnar Trum'Reeken Alam'Bissna Alam'Turom Alam'Taratha Alam'Tisska Alam'Purim Alam'Shuss Alam'Parathnak Alam'Gioshum Alam'Korob Alam'Hinthab Alam'Kulom Alam'Avintok Alam'Tannek Alam'Sior Alam'Rossul Alam'Bebinna Alam'Fethon Alam'Polluner Alam'Rastram Alam'Treesk Alam'Enerpul Alam'Buskat Pob'Tirin Pob'Kassh Pob'Onor Pob'Greefad Pob'Minisk Pob'Sumath Pob'Ereesim Pob'Kreedak Pob'Duthur Pob'Hialash Pob'Vermeb Pob'Badram Pob'Buvdar Pob'Tharat Pob'Illith Pob'Vikham Pob'Thorok Pob'Rumber Pob'Ikath
 		}
 
 		corvette = {
@@ -26,6 +20,12 @@ REP1 = {
 		battleship = {
 		}
 		
+		titan = {
+		}
+		
+		colossus = {
+		}
+		
 		science = {
 		}
 		
@@ -35,20 +35,14 @@ REP1 = {
 		constructor = {
 		}
 		
-		
-		mining_station = { }
-		research_station = { }
-		wormhole_station = { }
-		#terraform_station = { }
-		observation_station = { }
-		outpost_station = {
-			#random_names = { }
-			#sequential_name = "%O% Frontier Outpost"
+		transport = {
 		}
 		
-		military_station_small = {}
-		military_station_medium = {}
-		military_station_large = {}	
+		military_station_small = {
+		}
+		
+		ion_cannon = {
+		}
 	}
 
 	fleet_names = {
@@ -104,15 +98,12 @@ REP1 = {
 			sequential_name = "%O% Warrior Order"
 		}
 	}
-		
-
-	### PLANETS
 
 	planet_names = {
 
 		generic = {
 			names = {
-				Na'Tirgir Na'Dall Bid'Jossk Bid'Rissim Ata'Virisch Ata'Podossa Pan'Dassak Pan'Kischa Fal'Taram Fal'Kaboss Mil'Susska Mil'Feldrak Ra'Targass Ra'Bothnor Gal'Suposk Gal'Karaska Shi'Tanask Shi'Poltan Ro'Doman Ro'Eseek Ka'Tanab Ka'Salosch Ira'Monosk Ira'Obass
+				Na'Tirgir Na'Dall Bid'Jossk Bid'Rissim Ata'Virisch Ata'Podossa Pan'Dassak Pan'Kischa Fal'Taram Fal'Kaboss Mil'Susska Mil'Feldrak Ra'Targass Ra'Bothnor Gal'Suposk Gal'Karaska Shi'Tanask Shi'Poltan Ro'Doman Ro'Eseek Ka'Tanab Ka'Salosch Ira'Monosk Ira'Obass Na'Garu Na'Simir Na'Valus Bid'Schukon Bid'Taraki Gal'Mukosa Gal'Vako Gal'Bothar Gal'Emun Shi'Suma Shi'Pator Ro'Denek Ro'Kabur
 			}
 		}
 		
@@ -163,13 +154,15 @@ REP1 = {
 		
 	}
 
-	### CHARACTERS
-
 	character_names = {
 		default = {
 			# A complete name
-			full_names = {
-				Hask'Valgam Hask'Zumon Hask'Teragg Hask'Sornas Hask'Pagram Hask'Jonnot Hask'Gentar Hask'Birim Hask'Endek Hask'Kalass Torba'Inrab Torba'Keldi Torba'Varass Torba'Namta Torba'Gandar Torba'Daggasch Torba'Finnrak Torba'Hassadra Torba'Malas Torba'Patar
+			full_names_male = {
+				Hask'Valgam Hask'Zumon Hask'Teragg Hask'Sornas Hask'Pagram Hask'Jonnot Hask'Gentar Hask'Birim Hask'Endek Hask'Kalass Hask'Schumak Hask'Virik Hask'Timak Hask'Guron Hask'Tibak Hask'Jugir Hask'Emik Hask'Porok Hask'Zamik Hask'Vugir Hask'Ekalim Hask'Kurnir 
+			}
+
+			full_names_female = {
+				Torba'Inrab Torba'Keldi Torba'Varass Torba'Namta Torba'Gandar Torba'Daggasch Torba'Finnrak Torba'Hassadra Torba'Malas Torba'Patar Torba'Murok Torba'Vilin Torba'Magon Torba'Kari Torba'Jirg Torba'Inak Torba'Vasku Torba'Tulus Torba'Inarim Torba'Tagga Torba'Vuk
 			}
 			
 			# Always combined with a second name

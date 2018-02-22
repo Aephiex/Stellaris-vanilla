@@ -20,6 +20,8 @@ sol_system_initializer = {
 				set_star_flag = empire_cluster
 			}
 		}
+		
+		generate_home_system_resources = yes
 	}
 	
 	planet = {
@@ -89,7 +91,13 @@ sol_system_initializer = {
 		size = 13
 		has_ring = no
 		entity = "barren_planet_mars_entity"
-		anomaly = "terraforming_candidate_category"
+		
+		init_effect = {
+			add_modifier = {
+				modifier = "terraforming_candidate"
+				days = -1
+			}
+		}		
 	}
 	
 	planet = {
@@ -480,6 +488,8 @@ deneb_system = {
 				set_star_flag = empire_cluster
 			}
 		}
+		
+		generate_home_system_resources = yes
 	}
 	
 	flags = { empire_home_system deneb_system }
@@ -491,7 +501,7 @@ deneb_system = {
 		class = "pc_a_star"
 		orbit_distance = 0
 		orbit_angle = 1
-		size = 60
+		size = 40
 		has_ring = no
 	}
 	
@@ -637,7 +647,7 @@ vultaumar_system = {
 	name = "NAME_Vultaumar"
 	class = "sc_b"
 	asteroids_distance = 0
-	flags = { vultaumar }
+	flags = { vultaumar precursor_system }
 	
 	planet = {
 		name = "NAME_Vultaumar"
@@ -650,12 +660,11 @@ vultaumar_system = {
 	
 	planet = {
 		name = "NAME_Vultaumar_Prime"
-		class = "pc_barren"
+		class = "pc_broken"
 		orbit_distance = 80
 		orbit_angle = 76
 		size = 25
 		has_ring = no
-		entity = "barren_planet_01_destroyed_entity"
 		#anomaly = "VULTAUMAR"
 		flags = { vultaum_homeworld }
 		
@@ -735,7 +744,7 @@ vultaumar_system = {
 		class = "pc_gas_giant"
 		orbit_distance = 45
 		orbit_angle = 185
-		size = 50
+		size = 40
 		has_ring = yes
 	}
 }
@@ -745,7 +754,7 @@ yuhtaan_system = {
 	name = "NAME_Yuhtaan"
 	class = "sc_m"
 	asteroids_distance = 125
-	flags = { yuhtaan }
+	flags = { yuhtaan precursor_system }
 	
 	planet = {
 		name = "NAME_Yuthaan"
@@ -758,12 +767,11 @@ yuhtaan_system = {
 	
 	planet = {
 		name = "NAME_Yuthaan_Majoris"
-		class = "pc_barren"
+		class = "pc_broken"
 		orbit_distance = 50
 		orbit_angle = 76
 		size = 25
 		has_ring = no
-		entity = "barren_planet_01_destroyed_entity"
 		#anomaly = "YUHTAAN"
 		flags = { yuht_homeworld }
 		
@@ -896,7 +904,7 @@ fen_habbanis_system = {
 	name = "NAME_Fen_Habbanis"
 	class = "sc_g"
 	asteroids_distance = 85
-	flags = { fen_habbanis }
+	flags = { fen_habbanis precursor_system }
 	
 	planet = {
 		name = "NAME_Fen_Habbanis"
@@ -993,7 +1001,7 @@ irass_system = {
 	name = "NAME_Irass"
 	class = "sc_f"
 	asteroids_distance = 125
-	flags = { irass }
+	flags = { irass precursor_system }
 	
 	planet = {
 		class = star
@@ -1131,7 +1139,7 @@ irass_system = {
 cybrex_system = {
 	name = "NAME_Cybrex_Alpha"
 	class = "sc_g"
-	flags = { cybrex }
+	flags = { cybrex precursor_system }
 	
 	planet = {
 		class = star

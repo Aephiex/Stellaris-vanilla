@@ -2,7 +2,7 @@ particle={
 	name="missile_file"
 	subsystem={
 		name="smoke"
-		max_amount=200
+		max_amount=27
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"
@@ -83,7 +83,7 @@ particle={
 	}
 	subsystem={
 		name="fire"
-		max_amount=500
+		max_amount=70
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"

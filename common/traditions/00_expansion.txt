@@ -1,7 +1,4 @@
-@cost = 56
-
 tr_expansion_adopt = {
-	cost = { unity = @cost }
 	
 	modifier = {
 		planet_colony_development_speed_mult = 1.00
@@ -98,7 +95,6 @@ tr_expansion_finish = {
 }
 
 tr_expansion_colonization_fever = {
-	cost = { unity = @cost }
 	
 	#implementation done in buildings.txt
 
@@ -136,7 +132,6 @@ tr_expansion_colonization_fever = {
 }
 
 tr_expansion_a_new_life = {
-	cost = { unity = @cost }
 	possible = {
 		has_tradition = tr_expansion_colonization_fever
 	}
@@ -178,7 +173,6 @@ tr_expansion_a_new_life = {
 }
 
 tr_expansion_courier_network = {
-	cost = { unity = @cost }
 	possible = {
 		has_tradition = tr_expansion_colonization_fever
 	}
@@ -221,10 +215,8 @@ tr_expansion_courier_network = {
 }
 
 tr_expansion_reach_for_the_stars = {
-	cost = { unity = @cost }
-	
 	modifier = {
-		country_expansion_distance_mult = -0.50
+		country_starbase_influence_cost_mult = -0.10
 	}
 
 	tradition_swap = {
@@ -261,13 +253,12 @@ tr_expansion_reach_for_the_stars = {
 }
 
 tr_expansion_galactic_ambition = {
-	cost = { unity = @cost }
 	possible = {
 		has_tradition = tr_expansion_reach_for_the_stars
 	}
 	
 	modifier = {
-		shipsize_outpost_station_upkeep_mult = -0.50
+		country_starbase_capacity_add = 2
 	}
 
 	tradition_swap = {

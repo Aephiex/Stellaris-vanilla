@@ -171,6 +171,7 @@ country_event = {
 		NOT = { has_global_flag = war_in_heaven_started }
 		any_country = {
 			is_country_type = awakened_fallen_empire
+			NOT = { is_same_value = root }
 			has_country_flag = sleepers_awake_first_sleeper	
 			is_at_war = no
 			fleet_power > 40000
@@ -222,25 +223,9 @@ country_event = {
 		set_global_flag = war_in_heaven_started
 		set_global_flag = war_in_heaven_ongoing
 		declare_war = {
-			who = event_target:FirstSleeper
-			major_war = yes
+			target = event_target:FirstSleeper
 			name = "NAME_The_War_in_Heaven"
-		}
-		add_war_demand = {
-			type = "total_defeat"
-			parameter:country = event_target:FirstSleeper
-			warscore_cost = 75
-			target = this
-			enemy = event_target:FirstSleeper
-		}
-		event_target:FirstSleeper = {
-			add_war_demand = {
-				type = "total_defeat"
-				parameter:country = root
-				warscore_cost = 75
-				target = this
-				enemy = root
-			}
+			attacker_war_goal = "wg_war_in_heaven"
 		}
 		every_country = {
 			limit = {
@@ -273,8 +258,9 @@ country_event = {
 			modifier = {
 				factor = 0
 				OR = {
-					has_ai_personality = fanatic_purifiers
-					has_ai_personality = metalhead
+					has_valid_civic = civic_hive_devouring_swarm
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_machine_terminator
 				}
 			}
 			modifier = {
@@ -422,8 +408,9 @@ country_event = {
 			modifier = {
 				factor = 0
 				OR = {
-					has_ai_personality = fanatic_purifiers
-					has_ai_personality = metalhead
+					has_valid_civic = civic_hive_devouring_swarm
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_machine_terminator
 				}
 			}			
 			modifier = {
@@ -622,110 +609,115 @@ country_event = {
 	}		
 }
 
+# TODO [HL] [AUG-14707]: Rework for new war system
 # Victory for one side, neutral observer
-country_event = {
-	id = war_in_heaven.5
-	title = war_in_heaven.5.name
-	desc = war_in_heaven.5.desc
-	picture = GFX_evt_fallen_empire_awakes
-	show_sound = event_alien_signal
-	location = from
-	
-	is_triggered_only = yes
-	
-	trigger = {
-		NOT = { has_country_flag = war_in_heaven_winner }
-		NOT = { has_country_flag = war_in_heaven_loser }
-	}
+#country_event = {
+#	id = war_in_heaven.5
+#	title = war_in_heaven.5.name
+#	desc = war_in_heaven.5.desc
+#	picture = GFX_evt_fallen_empire_awakes
+#	show_sound = event_alien_signal
+#	location = from
+#	
+#	is_triggered_only = yes
+#	
+#	trigger = {
+#		NOT = { has_country_flag = war_in_heaven_winner }
+#		NOT = { has_country_flag = war_in_heaven_loser }
+#	}
+#
+#	option = {
+#		name = war_in_heaven.5.a	
+#	}
+#}
 
-	option = {
-		name = war_in_heaven.5.a	
-	}
-}
-
+# TODO [HL] [AUG-14707]: Rework for new war system
 # Victory for your side, no planets awarded
-country_event = {
-	id = war_in_heaven.6
-	title = war_in_heaven.6.name
-	desc = war_in_heaven.6.desc
-	picture = GFX_evt_fallen_empire_awakes
-	show_sound = event_alien_signal
-	location = from
-	
-	is_triggered_only = yes
-	
-	trigger = {
-		has_country_flag = war_in_heaven_winner
-		NOT = { has_country_flag = war_in_heaven_planet_was_given }
-	}
+#country_event = {
+#	id = war_in_heaven.6
+#	title = war_in_heaven.6.name
+#	desc = war_in_heaven.6.desc
+#	picture = GFX_evt_fallen_empire_awakes
+#	show_sound = event_alien_signal
+#	location = from
+#	
+#	is_triggered_only = yes
+#	
+#	trigger = {
+#		has_country_flag = war_in_heaven_winner
+#		NOT = { has_country_flag = war_in_heaven_planet_was_given }
+#	}
+#
+#	option = {
+#		name = war_in_heaven.6.a	
+#	}
+#}
 
-	option = {
-		name = war_in_heaven.6.a	
-	}
-}
-
+# TODO [HL] [AUG-14707]: Rework for new war system
 # Victory for your side, planets awarded
-country_event = {
-	id = war_in_heaven.7
-	title = war_in_heaven.7.name
-	desc = war_in_heaven.7.desc
-	picture = GFX_evt_fallen_empire_awakes
-	show_sound = event_alien_signal
-	location = from
-	
-	is_triggered_only = yes
-	
-	trigger = {
-		has_country_flag = war_in_heaven_winner
-		has_country_flag = war_in_heaven_planet_was_given
-	}
+#country_event = {
+#	id = war_in_heaven.7
+#	title = war_in_heaven.7.name
+#	desc = war_in_heaven.7.desc
+#	picture = GFX_evt_fallen_empire_awakes
+#	show_sound = event_alien_signal
+#	location = from
+#	
+#	is_triggered_only = yes
+#	
+#	trigger = {
+#		has_country_flag = war_in_heaven_winner
+#		has_country_flag = war_in_heaven_planet_was_given
+#	}
+#
+#	option = {
+#		name = war_in_heaven.7.a		
+#	}
+#}
 
-	option = {
-		name = war_in_heaven.7.a		
-	}
-}
-
+# TODO [HL] [AUG-14707]: Rework for new war system
 # Victory for your side, no planets awarded
-country_event = {
-	id = war_in_heaven.8
-	title = war_in_heaven.8.name
-	desc = war_in_heaven.8.desc
-	picture = GFX_evt_fallen_empire_awakes
-	show_sound = event_alien_signal
-	location = from
-	
-	is_triggered_only = yes
-	
-	trigger = {
-		has_country_flag = war_in_heaven_loser
-		NOT = { has_country_flag = war_in_heaven_planet_was_lost }
-	}
+#country_event = {
+#	id = war_in_heaven.8
+#	title = war_in_heaven.8.name
+#	desc = war_in_heaven.8.desc
+#	picture = GFX_evt_fallen_empire_awakes
+#	show_sound = event_alien_signal
+#	location = from
+#	
+#	is_triggered_only = yes
+#	
+#	trigger = {
+#		has_country_flag = war_in_heaven_loser
+#		NOT = { has_country_flag = war_in_heaven_planet_was_lost }
+#	}
+#
+#	option = {
+#		name = war_in_heaven.8.a		
+#	}
+#}
 
-	option = {
-		name = war_in_heaven.8.a		
-	}
-}
-
+# TODO [HL] [AUG-14707]: Rework for new war system
 # Defeat for your side, planets lost
-country_event = {
-	id = war_in_heaven.9
-	title = war_in_heaven.9.name
-	desc = war_in_heaven.9.desc
-	picture = GFX_evt_fallen_empire_awakes
-	show_sound = event_alien_signal
-	location = from
-	
-	is_triggered_only = yes
-	
-	trigger = {
-		has_country_flag = war_in_heaven_loser
-		has_country_flag = war_in_heaven_planet_was_lost
-	}
-
-	option = {
-		name = war_in_heaven.9.a	
-	}
-}
+#country_event = {
+#	id = war_in_heaven.9
+#	title = war_in_heaven.9.name
+#	desc = war_in_heaven.9.desc
+#	picture = GFX_evt_fallen_empire_awakes
+#	show_sound = event_alien_signal
+#	location = from
+#	
+#	is_triggered_only = yes
+#	
+#	trigger = {
+#		has_country_flag = war_in_heaven_loser
+#		has_country_flag = war_in_heaven_planet_was_lost
+#	}
+#
+#	option = {
+#		name = war_in_heaven.9.a	
+#	}
+#}
 
 # War in Heaven combatant defeated by nonaligned league
 country_event = {
@@ -810,6 +802,7 @@ country_event = {
 				NOR = {
 					has_valid_civic = civic_hive_devouring_swarm
 					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_machine_terminator
 				}
 				NOT = { has_country_flag = war_in_heaven_league_leader_declined }	
 				NOT = { is_same_value = prev }
@@ -831,6 +824,7 @@ country_event = {
 				NOR = {
 					has_valid_civic = civic_hive_devouring_swarm
 					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_machine_terminator
 				}				
 				NOT = { has_global_flag = war_in_heaven_seeking_league_leader }
 				NOT = { has_global_flag = stop_further_leader_seek }
@@ -851,6 +845,7 @@ country_event = {
 				NOR = {
 					has_valid_civic = civic_hive_devouring_swarm
 					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_machine_terminator
 				}				
 				NOT = { has_global_flag = war_in_heaven_seeking_league_leader }
 				NOT = { has_global_flag = stop_further_leader_seek }
@@ -871,6 +866,7 @@ country_event = {
 				NOR = {
 					has_valid_civic = civic_hive_devouring_swarm
 					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_machine_terminator
 				}				
 				NOT = { has_global_flag = war_in_heaven_seeking_league_leader }
 				NOT = { has_global_flag = stop_further_leader_seek }
@@ -891,6 +887,7 @@ country_event = {
 				NOR = {
 					has_valid_civic = civic_hive_devouring_swarm
 					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_machine_terminator
 				}				
 				NOT = { has_global_flag = war_in_heaven_seeking_league_leader }
 				NOT = { has_global_flag = stop_further_leader_seek }
@@ -911,6 +908,7 @@ country_event = {
 				NOR = {
 					has_valid_civic = civic_hive_devouring_swarm
 					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_machine_terminator
 				}				
 				NOT = { has_global_flag = war_in_heaven_seeking_league_leader }
 				NOT = { has_global_flag = stop_further_leader_seek }
@@ -931,6 +929,7 @@ country_event = {
 				NOR = {
 					has_valid_civic = civic_hive_devouring_swarm
 					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_machine_terminator
 				}				
 				NOT = { has_global_flag = war_in_heaven_seeking_league_leader }
 				NOT = { has_global_flag = stop_further_leader_seek }
@@ -951,6 +950,7 @@ country_event = {
 				NOR = {
 					has_valid_civic = civic_hive_devouring_swarm
 					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_machine_terminator
 				}				
 				NOT = { has_global_flag = war_in_heaven_seeking_league_leader }
 				NOT = { has_global_flag = stop_further_leader_seek }
@@ -971,6 +971,7 @@ country_event = {
 				NOR = {
 					has_valid_civic = civic_hive_devouring_swarm
 					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_machine_terminator
 				}				
 				NOT = { has_global_flag = war_in_heaven_seeking_league_leader }
 				NOT = { has_global_flag = stop_further_leader_seek }
@@ -991,6 +992,7 @@ country_event = {
 				NOR = {
 					has_valid_civic = civic_hive_devouring_swarm
 					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_machine_terminator
 				}				
 				NOT = { has_global_flag = war_in_heaven_seeking_league_leader }
 				NOT = { has_global_flag = stop_further_leader_seek }
@@ -1011,6 +1013,7 @@ country_event = {
 				NOR = {
 					has_valid_civic = civic_hive_devouring_swarm
 					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_machine_terminator
 				}				
 				NOT = { has_global_flag = war_in_heaven_seeking_league_leader }
 				NOT = { has_global_flag = stop_further_leader_seek }
@@ -1031,6 +1034,7 @@ country_event = {
 				NOR = {
 					has_valid_civic = civic_hive_devouring_swarm
 					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_machine_terminator
 				}				
 				NOT = { has_global_flag = war_in_heaven_seeking_league_leader }
 				NOT = { has_global_flag = stop_further_leader_seek }
@@ -1066,7 +1070,11 @@ country_event = {
 			factor = 100
 			modifier = {
 				factor = 0
-				has_ai_personality = fanatic_purifiers
+				OR = {
+					has_valid_civic = civic_hive_devouring_swarm
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_machine_terminator
+				}	
 			}
 		}
 		hidden_effect = { 
@@ -1114,13 +1122,11 @@ country_event = {
 	}
 }
 
+# AI evaluates joining the League
 country_event = {
 	id = war_in_heaven.14
-	title = war_in_heaven.14.name
-	desc = war_in_heaven.14.desc
-	picture = GFX_evt_fallen_empire_awakes
-	show_sound = event_alien_signal
-	location = root
+
+	hide_window = yes
 	
 	trigger = {
 		has_global_flag = war_in_heaven_nonaligned_league
@@ -1130,11 +1136,17 @@ country_event = {
 		NOR = {
 			has_valid_civic = civic_hive_devouring_swarm
 			has_valid_civic = civic_fanatic_purifiers
-		}		
+			has_valid_civic = civic_machine_terminator
+		}	
 		NOT = { has_country_flag = war_in_heaven_nonaligned_league_check }	
 		is_ai = yes
 		any_country = {
 			has_country_flag = war_in_heaven_league_leader
+			has_country_flag = war_in_heaven_nonaligned_league_timer
+			OR = {
+				has_federation = yes
+				NOT = { has_country_flag = formed_nonaligned_league }
+			}	
 			is_subject = no
 			is_country_type = default
 			NOT = { is_in_federation_with = root }
@@ -1147,33 +1159,29 @@ country_event = {
 	
 	immediate = {
 		set_country_flag = war_in_heaven_nonaligned_league_check
-	}
-
-	option = {
-		name = war_in_heaven.14.a
-		ai_chance = { 
-			factor = 100
-			modifier = {
-				factor = 0
-				has_ai_personality = fanatic_purifiers
-			}
-		}		
-		hidden_effect = {
-			random_country = {
-				limit = {
-					has_country_flag = war_in_heaven_league_leader
-					is_subject = no
-					is_country_type = default
+		random_list = {
+			100 = {
+				modifier = {
+					factor = 0
+					OR = {
+						has_valid_civic = civic_hive_devouring_swarm
+						has_valid_civic = civic_fanatic_purifiers
+						has_valid_civic = civic_machine_terminator
+					}
+				}
+				random_country = {
+					limit = {
+						has_country_flag = war_in_heaven_league_leader
+						is_subject = no
+						is_country_type = default
+					}		
+					country_event = { id = war_in_heaven.15 }
 				}		
-				country_event = { id = war_in_heaven.15 }
-			}		
+			}
+			1 = {
+				# nothing
+			}
 		}
-	}
-	option = {
-		name = war_in_heaven.14.b
-		ai_chance = { 
-			factor = 1
-		}		
 	}
 }
 
@@ -1186,12 +1194,25 @@ country_event = {
 	location = from
 	
 	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			has_federation = yes
+			NOT = { has_country_flag = formed_nonaligned_league }
+		}		
+	}
 
 	option = {
 		name = war_in_heaven.15.a
 		ai_chance = { 
 			factor = 100
-		}		
+		}	
+		if = {
+			limit = {
+				NOT = { has_country_flag = formed_nonaligned_league }
+			}
+			set_country_flag = formed_nonaligned_league	
+		}	
 		hidden_effect = {
 			add_opinion_modifier = { who = from modifier = opinion_non_aligned_league } 
 			from = { add_opinion_modifier = { who = root modifier = opinion_non_aligned_league } }
@@ -1221,7 +1242,7 @@ country_event = {
 				set_timed_country_flag = { flag = ai_no_leave_fed days = 7200 }
 				join_alliance = {
 					who = root
-					name = "NAME_League_of_Non-Aligned_Powers"
+					name = NAME_League_of_Non-Aligned_Powers
 					override_requirements = yes
 				}
 			}
@@ -1311,17 +1332,9 @@ country_event = {
 			limit = { is_country_type = awakened_fallen_empire }
 			root = {
 				declare_war = {
-					who = prev
+					target = prev
+					attacker_war_goal = "wg_war_in_heaven"
 				}
-				hidden_effect = {
-					add_war_demand = {
-						type = "total_defeat"
-						parameter:country = prev
-						warscore_cost = 75
-						target = this
-						enemy = prev
-					}	
-				}	
 			}	
 			hidden_effect = {
 				every_subject = {

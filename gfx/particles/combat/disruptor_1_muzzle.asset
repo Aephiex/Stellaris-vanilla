@@ -2,7 +2,7 @@ particle={
 	name="disruptor_1_muzzle_file"
 	subsystem={
 		name="smoke_base"
-		max_amount=50
+		max_amount=28
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"
@@ -43,7 +43,7 @@ particle={
 	}
 	subsystem={
 		name="flare"
-		max_amount=50
+		max_amount=28
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"
@@ -91,19 +91,6 @@ particle={
 		maxValue=1.000
 		curve={
 			0.000 0.000 0.200 1.000 0.700 1.000 1.000 0.000 
-		}
-		op="MUL"
-		time="life"
-	}
-	animation={
-		name="decrease"
-		start=0.000
-		duration=1.000
-		repeat=no
-		minValue=0.000
-		maxValue=1.000
-		curve={
-			0.000 1.000 1.000 0.141 
 		}
 		op="MUL"
 		time="life"

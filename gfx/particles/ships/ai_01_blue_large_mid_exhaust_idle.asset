@@ -86,7 +86,7 @@ particle={
 	}
 	subsystem={
 		name="fire_inner"
-		max_amount=55
+		max_amount=30
 		slave_particles=0
 		sort="depth"
 		emitter_type="sphere"

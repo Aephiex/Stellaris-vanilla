@@ -72,7 +72,7 @@ influence = {
 	AI_category = influence
 	max = 1000
 	sector_ignore_cost = yes
-	base_income = 2
+	base_income = 3
 	tooltip_decimals = 1
 }
 
@@ -128,7 +128,7 @@ sr_garanthium = {
 	is_global = yes
 	
 	modifier = {
-		ship_hitpoints_mult = 0.10
+		ship_hull_mult = 0.10
 	}
 }
 
@@ -141,7 +141,7 @@ sr_lythuric = {
 	is_global = yes
 	
 	modifier = {
-		ship_shield_hp_mult = 0.20
+		ship_shield_mult = 0.20
 	}
 }
 
@@ -236,8 +236,9 @@ sr_living_metal = {
 	is_global = yes
 	
 	modifier = {
-		megastructure_build_speed_mult = 0.3
-		ship_auto_repair_add = 0.02
+		mod_megastructure_build_cost_mult = -0.2
+		ship_hull_regen_add_perc = 0.5
+		ship_armor_regen_add_perc = 0.5
 	}
 }
 
@@ -251,7 +252,7 @@ sr_zro = {
 	
 	modifier = {
 		ship_interstellar_speed_mult = 0.50
-		ship_sensor_range_mult = 1.00
+		ship_sensor_range_add = 1
 	}
 }
 

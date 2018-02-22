@@ -202,34 +202,34 @@ anomaly_category = {
 }
 
 #Distant Survey Data
-anomaly_category = {
-	key = "GEN_SURVEY_CAT"
-	desc = "GEN_SURVEY_DESC"
-	picture = "GFX_evt_ship_in_orbit"
-	level = 1
-	#risk = 30
-
-	spawn_chance = {
-		modifier = {
-			add = 3
-			OR = {
-				is_planet_class = pc_nuked
-				is_planet_class = pc_frozen
-				is_planet_class = pc_barren_cold
-			}
-		}
-	}
-	
-	on_spawn = {
-	}
-
-	on_success = {
-	}
-
-	on_fail = {
-		ship_event = { id = anomaly_failure.4025 }
-	}
-}
+#anomaly_category = {
+#	key = "GEN_SURVEY_CAT"
+#	desc = "GEN_SURVEY_DESC"
+#	picture = "GFX_evt_ship_in_orbit"
+#	level = 1
+#	#risk = 30
+#
+#	spawn_chance = {
+#		modifier = {
+#			add = 3
+#			OR = {
+#				is_planet_class = pc_nuked
+#				is_planet_class = pc_frozen
+#				is_planet_class = pc_barren_cold
+#			}
+#		}
+#	}
+#	
+#	on_spawn = {
+#	}
+#
+#	on_success = {
+#	}
+#
+#	on_fail = {
+#		ship_event = { id = anomaly_failure.4025 }
+#	}
+#}
 
 # AI Admiral
 anomaly_category = {

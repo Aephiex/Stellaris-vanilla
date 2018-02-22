@@ -238,8 +238,7 @@ planet_event = {
 			limit = {
 				habitable_planet = no
 			}
-			random_tile = {
-				limit = { has_blocker = no has_deposit = no }
+			orbital_deposit_tile = {
 				add_deposit = d_vast_mineral_deposit
 				add_deposit = d_vast_mineral_deposit
 			}
@@ -1147,7 +1146,7 @@ planet_event = {
 				country_event = { id = colony.1533 days = 730 }
 			}
 			change_pc = pc_toxic
-			destroy_colony = { keep_buildings = no }
+			destroy_colony = yes
 		}
 
 		tooltip = {

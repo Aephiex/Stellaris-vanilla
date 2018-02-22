@@ -502,9 +502,7 @@ special_project = {
 	event_scope = ship_event
 	
 	requirements = {
-		shipclass_science_ship = 1
-		leader = scientist
-		skill = 3
+		shipclass_constructor = 1
 	}
 	
 	on_success = {
@@ -2478,6 +2476,7 @@ special_project = {
 	cost = 0
 	days_to_research = 60
 	tech_department = engineering_technology
+	picture = GFX_evt_sabotaged_ship
 	
 	event_scope = ship_event
 	
@@ -2500,6 +2499,7 @@ special_project = {
 	cost = 0
 	days_to_research = 60
 	tech_department = society_technology
+	picture = GFX_evt_sabotaged_ship
 	
 	event_scope = ship_event
 	
@@ -2522,6 +2522,7 @@ special_project = {
 	cost = 0
 	days_to_research = 60
 	tech_department = society_technology
+	picture = GFX_evt_space_debris
 	
 	event_scope = ship_event
 	
@@ -2644,31 +2645,31 @@ special_project = {
 }
 
 # Test Project
-special_project = {
-	key = "TEST_PROJECT"
-	cost = 0
-	days_to_research = 10
-	tech_department = society_technology
-	picture = GFX_evt_smugglers_in_bar
-	timelimit = 10
-	
-	event_scope = ship_event
-	
-	requirements = {
-		shipclass_science_ship = 1
-		leader = scientist
-		is_founder_species = yes
-		has_trait = leader_trait_expertise_voidcraft
-	}
-	
-	on_success = {
-		ship_event = { id = henrik.252 }
-	}
-	
-	on_fail = {
-		country_event = { id = henrik.253 }
-	}
-}
+#special_project = {
+#	key = "TEST_PROJECT"
+#	cost = 0
+#	days_to_research = 10
+#	tech_department = society_technology
+#	picture = GFX_evt_smugglers_in_bar
+#	timelimit = 10
+#	
+#	event_scope = ship_event
+#	
+#	requirements = {
+#		shipclass_science_ship = 1
+#		leader = scientist
+#		is_founder_species = yes
+#		has_trait = leader_trait_expertise_voidcraft
+#	}
+#	
+#	on_success = {
+#		ship_event = { id = henrik.252 }
+#	}
+#	
+#	on_fail = {
+#		country_event = { id = henrik.253 }
+#	}
+#}
 
 # First Contact
 special_project = {
@@ -2765,6 +2766,9 @@ special_project = {
 
 	on_success = {
 		owner = { establish_communications = FROM }
+		FROM = {
+			set_country_flag = has_communications@root.owner
+		}
 	}
 
 	on_fail = {
@@ -2944,6 +2948,39 @@ special_project = {
 			country_event = { id = story.500 }
 			country_event = { id = tutorial.61 }
 			#set_country_flag = tiyanki_comms
+		}
+	}
+
+	on_fail = {
+	}
+}
+
+# Investigate Marauders
+special_project = {
+	key = "INVESTIGATE_MARAUDERS"
+	picture = GFX_evt_star_chart
+	icon = "gfx/interface/icons/situation_log/situation_log_radar.dds"
+	cost = 60
+	tech_department = society_technology
+	days_to_research = 0
+	location = no
+	timelimit = -1
+
+	event_scope = planet_event
+
+	requirements = {
+	}
+
+	abort_trigger = {
+		#OR = {
+		#	NOT = { exists = FROMFROM }
+		#	has_communications = FROMFROM
+		#}
+	}
+
+	on_success = {
+		owner = {
+			country_event = { id = marauder.1 }
 		}
 	}
 
@@ -3187,7 +3224,7 @@ special_project = {
 	event_scope = ship_event
 	
 	requirements = {
-		fleet_power = 8000
+		fleet_power = 1600
 		leader = admiral
 	}
 	
@@ -3227,7 +3264,7 @@ special_project = {
 	event_scope = ship_event
 	
 	requirements = {
-		fleet_power = 20000
+		fleet_power = 4000
 		leader = admiral
 	}
 	
@@ -3267,7 +3304,7 @@ special_project = {
 	event_scope = ship_event
 	
 	requirements = {
-		fleet_power = 50000
+		fleet_power = 10000
 		leader = admiral
 	}
 	
@@ -3324,23 +3361,130 @@ special_project = {
 	}
 }
 
-# Test Project (To be removed)
+# Vultaum Artifact Found
 special_project = {
-	key = "FLEET_POWER_PROJECT"
+	key = "VULTAUM_ARTIFACT_FOUND"
+	event_chain = "vultaum_chain"
 	cost = 0
-	days_to_research = 5
+	days_to_research = 180
 	tech_department = society_technology
-	picture = GFX_evt_unknown_ships
-	icon = "gfx/interface/icons/situation_log/situation_log_ship.dds"
+	picture = GFX_evt_archaeological_dig
+	icon = "gfx/interface/icons/situation_log/situation_log_precursor.dds"
 	
 	event_scope = ship_event
 	
 	requirements = {
-		#fleet_power = 8000
-		shipclass_colonizer = 1
+		shipclass_science_ship = 1
+		leader = scientist
+		skill = 3
 	}
 	
 	on_success = {
+		ship_event = { id = precursor.302 }
+	}
+	
+	on_fail = {
+	}
+}
+
+# Yuht Artifact Found
+special_project = {
+	key = "YUHT_ARTIFACT_FOUND"
+	event_chain = "yuht_chain"
+	cost = 0
+	days_to_research = 180
+	tech_department = society_technology
+	picture = GFX_evt_archaeological_dig
+	icon = "gfx/interface/icons/situation_log/situation_log_precursor.dds"
+	
+	event_scope = ship_event
+	
+	requirements = {
+		shipclass_science_ship = 1
+		leader = scientist
+		skill = 3
+	}
+	
+	on_success = {
+		ship_event = { id = precursor.303 }
+	}
+	
+	on_fail = {
+	}
+}
+
+# First League Artifact Found
+special_project = {
+	key = "LEAGUE_ARTIFACT_FOUND"
+	event_chain = "first_league_chain"
+	cost = 0
+	days_to_research = 180
+	tech_department = society_technology
+	picture = GFX_evt_archaeological_dig
+	icon = "gfx/interface/icons/situation_log/situation_log_precursor.dds"
+	
+	event_scope = ship_event
+	
+	requirements = {
+		shipclass_science_ship = 1
+		leader = scientist
+		skill = 3
+	}
+	
+	on_success = {
+		ship_event = { id = precursor.304 }
+	}
+	
+	on_fail = {
+	}
+}
+
+# Irassian Artifact Found
+special_project = {
+	key = "IRASSIAN_ARTIFACT_FOUND"
+	event_chain = "irassian_chain"
+	cost = 0
+	days_to_research = 180
+	tech_department = society_technology
+	picture = GFX_evt_archaeological_dig
+	icon = "gfx/interface/icons/situation_log/situation_log_precursor.dds"
+	
+	event_scope = ship_event
+	
+	requirements = {
+		shipclass_science_ship = 1
+		leader = scientist
+		skill = 3
+	}
+	
+	on_success = {
+		ship_event = { id = precursor.305 }
+	}
+	
+	on_fail = {
+	}
+}
+
+# Cybrex Artifact Found
+special_project = {
+	key = "CYBREX_ARTIFACT_FOUND"
+	event_chain = "cybrex_chain"
+	cost = 0
+	days_to_research = 180
+	tech_department = society_technology
+	picture = GFX_evt_archaeological_dig
+	icon = "gfx/interface/icons/situation_log/situation_log_precursor.dds"
+	
+	event_scope = ship_event
+	
+	requirements = {
+		shipclass_science_ship = 1
+		leader = scientist
+		skill = 3
+	}
+	
+	on_success = {
+		ship_event = { id = precursor.306 }
 	}
 	
 	on_fail = {

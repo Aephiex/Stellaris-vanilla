@@ -172,7 +172,7 @@ country_event = {
 		}		
 	
 		every_owned_planet = {
-			destroy_colony = { keep_buildings = yes }
+			destroy_colony = yes
 		}
 		
 		# Notify players
@@ -1394,6 +1394,11 @@ country_event = {
 		NOT = { has_global_flag = fe_task_no_wars_active }	
 		is_at_war = no
 		
+		NOR = {
+			has_country_flag = fe_task_no_wars
+			has_country_flag = fe_task_no_colonies
+		}
+		
 		NOT = { has_policy_flag = no_wars }
 
 		any_country = {
@@ -1669,7 +1674,12 @@ country_event = {
 			}		
 		}
 		
-		years_passed < 100
+		end_game_years_passed < 0
+		
+		NOR = {
+			has_country_flag = fe_task_no_wars
+			has_country_flag = fe_task_no_colonies
+		}
 
 		any_country = {
 			is_valid_fallen_empire_for_task = yes

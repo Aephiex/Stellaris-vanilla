@@ -87,7 +87,10 @@ technologist = {
 		potential = {
 			exists = owner
 			owner = {
-				has_technology = tech_robotic_workers
+				OR = {
+					can_set_robot_policy = yes
+					can_set_ai_policy = yes
+				}			
 			}
 		}
 
@@ -160,7 +163,7 @@ technologist = {
 					count > 2
 					limit = {
 						exists = this
-						has_research_agreement = root.owner
+						root.owner = { has_research_agreement = prev }
 					}
 				}
 			}

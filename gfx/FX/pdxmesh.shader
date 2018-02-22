@@ -286,6 +286,8 @@ ConstantBuffer( ThirdKind, 1, 28 )
 	float AtmosphereWidth;
 	float Sensor;
 	float Colonized;
+	float vPlanetDissolveTime;
+	float3 vPlanetDissolveColorMult;
 };
 
 ConstantBuffer( FourthKind, 1, 28 )
@@ -349,6 +351,18 @@ ConstantBuffer( NinthKind, 1, 28 )
 	float	vTimePerLoop;
 	float3	ObjectScale;
 	float	vObjectTime;
+};
+
+ConstantBuffer( CommonWithAlphaOverrideMult, 1, 28 )
+{
+	float4x4 WorldMatrix;
+	#SEntityCustomDataInstance
+	float2 vUVAnimationDir;
+	float  vUVAnimationTime;
+	float  vBloomFactor;
+
+	# SEntityCustomDataWithAlphaOverrideMultInstance
+	float vAlphaOverrideMult;
 };
 
 ConstantBuffer( ConstructionConstants, 1, 28 )	#construction
@@ -807,6 +821,51 @@ PixelShader =
 	MainCode PixelPdxMeshStandard
 		ConstantBuffers = { Common, ThirdKind, Shadow, TiledPointLight }
 	[[
+		float3 ApplyPlanetDissolve( float3 vPrimaryColor, float3 vColor, float3 vNormal, float2 vUV, float vDissolve )
+		{
+			// Arbitrary value for signaling that the effect shouldn't be applied
+			if ( vDissolve < -9.0f )
+			{
+				return vColor;
+			}
+
+			const float TIME_OFFSET = 0.71f;
+
+			float vTex = texCUBE( LavaNoise, vNormal ).r;
+			float vDot = 0.25f + ( 0.25f * dot( vNormal, float3( 0.0f, 1.0f, 0.0f ) ) );
+			float vNoise = ( vTex * 0.25f ) + vDot;
+			float vDissolveAbs = abs( vDissolve );
+
+			// Move the "clipping edge" down the planet
+			float vD = TIME_OFFSET - vNoise - ( saturate( vDissolveAbs ) * TIME_OFFSET );
+			if ( vDissolve < 0 )
+			{
+				clip( -vD );
+			}
+			else
+			{
+				clip( vD );
+			}
+
+			const float EDGE_SHARPNESS = 2.0f;
+			const float EDGE_POW = 10.0f;
+			const float COLOR_INTENSITY = 20.0f;
+			const float FADE_OUT_POINT = 0.9f;
+
+			float NdotU = ( dot( UnpackRRxGNormal( tex2D( NormalMap, vUV ) ).rgb, float3( 0.f, 1.f, 0.f ) ) * 0.5f ) + 0.5f;
+
+			float3 vAddColor = vPrimaryColor * vPlanetDissolveColorMult * COLOR_INTENSITY;
+			vAddColor *= NdotU * pow( saturate( 1.0f - ( abs( vD ) * EDGE_SHARPNESS ) ), EDGE_POW );
+
+			// Fade out the edge glow effect at the end
+			if ( vDissolveAbs > FADE_OUT_POINT )
+			{
+				vAddColor -= vAddColor * ( ( vDissolveAbs - FADE_OUT_POINT ) / ( 1.0f - FADE_OUT_POINT ) );
+			}
+
+			return vColor + vAddColor;
+		}
+
 		float4 main( VS_OUTPUT_PDXMESHSTANDARD In ) : PDX_COLOR
 		{
 			const float MAX_BUILDINGS_FOR_NIGHT_LIGHTS = 14;
@@ -1038,6 +1097,12 @@ PixelShader =
 
 		#ifdef DISSOLVE
 			vColor.rgb = ApplyDissolve( AtmosphereColor.rgb, 0.0f, vColor.rgb, AtmosphereColor.rgb, In.vUV0 );
+		#endif
+
+		#ifndef IS_RING
+		#ifdef IS_PLANET
+			vColor.rgb = ApplyPlanetDissolve( AtmosphereColor.rgb, vColor.rgb, In.vNormal, In.vUV0, vPlanetDissolveTime );
+		#endif
 		#endif
 
 			return float4(vColor, alpha);
@@ -1459,6 +1524,11 @@ PixelShader =
 			#ifdef ADD_COLOR
 				vDiffuse.rgb *= PrimaryColor.rgb;
 			#endif
+
+			#ifdef ALPHA_OVERRIDE
+				vDiffuse *= vAlphaOverrideMult;
+			#endif
+
 			vDiffuse.rgb *= vDiffuse.a;
 			vDiffuse.a *= vBloomFactor;
 			#ifdef GUI_ICON
@@ -1474,6 +1544,27 @@ PixelShader =
 			#ifdef DISSOLVE
 			vDiffuse.rgb = ApplyDissolve( PrimaryColor.rgb, vDamage, vDiffuse.rgb, vDiffuse.rgb, In.vUV0 );
 			#endif
+
+			return vDiffuse;
+		}
+
+	]]
+
+	MainCode PixelPdxMeshAdditiveAlphaOverride
+		ConstantBuffers = { Common, CommonWithAlphaOverrideMult }
+	[[
+		float4 main( VS_OUTPUT_PDXMESHSTANDARD In ) : PDX_COLOR
+		{
+			float2 vUV = In.vUV0;
+			vUV += vUVAnimationDir * vUVAnimationTime;
+
+			float4 vDiffuse = tex2D( DiffuseMap, vUV );
+			vDiffuse.a = tex2D( DiffuseMap, In.vUV0 ).a;
+
+			vDiffuse *= vAlphaOverrideMult;
+
+			vDiffuse.rgb *= vDiffuse.a;
+			vDiffuse.a *= vBloomFactor;
 
 			return vDiffuse;
 		}
@@ -2038,6 +2129,23 @@ Effect PdxMeshAlphaAdditiveAnimateUV
 	Defines = { "ANIMATE_UV" "DISSOLVE" }
 }
 
+Effect PdxMeshColorAlphaAdditiveAnimateUV
+{
+    VertexShader = "VertexPdxMeshStandard"
+    PixelShader = "PixelPdxMeshAdditive"
+    BlendState = "BlendStateAdditiveBlend"
+    DepthStencilState = "DepthStencilNoZWrite"
+    Defines = { "ADD_COLOR" "ANIMATE_UV" "DISSOLVE" }
+}
+
+Effect PdxMeshAlphaAdditiveAnimateUVAlphaOverride
+{
+	VertexShader = "VertexPdxMeshStandard"
+	PixelShader = "PixelPdxMeshAdditiveAlphaOverride"
+	BlendState = "BlendStateAdditiveBlend"
+	DepthStencilState = "DepthStencilNoZWrite"
+}
+
 Effect PdxMeshAlphaAdditiveAnimateUVSkinned
 {
 	VertexShader = "VertexPdxMeshStandardSkinned"
@@ -2104,6 +2212,13 @@ Effect PdxMeshAlphaAdditiveAnimateUVShadow
 	Defines = { "IS_SHADOW" }
 }
 
+Effect PdxMeshAlphaAdditiveAnimateUVAlphaOverrideShadow
+{
+	VertexShader = "VertexPdxMeshStandardShadow"
+	PixelShader = "PixelPdxMeshNoShadow"
+	Defines = { "IS_SHADOW" }
+}
+
 Effect PdxMeshAlphaAdditiveAnimateUVSkinnedShadow
 {
 	VertexShader = "VertexPdxMeshStandardSkinnedShadow"
@@ -2136,6 +2251,13 @@ Effect PdxMeshAlphaAdditiveAnimateUVAlphaSkinnedShadow
 	VertexShader = "VertexPdxMeshStandardSkinnedShadow"
 	PixelShader = "PixelPdxMeshNoShadow"
 	Defines = { "IS_SHADOW" }
+}
+
+Effect PdxMeshColorAlphaAdditiveAnimateUVShadow
+{
+    VertexShader = "VertexPdxMeshStandardShadow"
+    PixelShader = "PixelPdxMeshNoShadow"
+    Defines = { "IS_SHADOW" }
 }
 
 Effect PdxMeshAlphaAdditiveNoZ
@@ -3519,4 +3641,35 @@ Effect PdxMeshDimensionalPortalSkinnedShadow
 {
 	VertexShader = "VertexPdxMeshStandardSkinnedShadow"
 	PixelShader = "PixelPdxMeshStandardShadow"
+}
+
+Effect AlphaBlendNoDepth
+{
+	VertexShader = "VertexPdxMeshStandard"
+	PixelShader = "PixelPdxMeshShip"
+	BlendState = "BlendStateAlphaBlend";
+	DepthStencilState = DepthStencilNoZWrite
+	Defines = { "NO_ALPHA_MULTIPLIED_EMISSIVE" }
+}
+
+Effect AlphaBlendNoDepthSkinned
+{
+	VertexShader = "VertexPdxMeshStandardSkinned"
+	PixelShader = "PixelPdxMeshShip"
+	BlendState = "BlendStateAlphaBlend";
+	DepthStencilState = DepthStencilNoZWrite
+	Defines = { "NO_ALPHA_MULTIPLIED_EMISSIVE" }
+}
+Effect AlphaBlendNoDepthShadow
+{
+	VertexShader = "VertexPdxMeshStandardShadow"
+	PixelShader = "PixelPdxMeshStandardShadow"
+	Defines = { "IS_SHADOW" }
+}
+
+Effect AlphaBlendNoDepthSkinnedShadow
+{
+	VertexShader = "VertexPdxMeshStandardSkinnedShadow"
+	PixelShader = "PixelPdxMeshStandardShadow"
+	Defines = { "IS_SHADOW" }
 }

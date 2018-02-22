@@ -387,7 +387,7 @@ special_project = {
 	on_success = {
 		owner = {
 			random_list = {
-				5 = {
+				50 = {
 					modifier = {
 						factor = 10
 						OR ={
@@ -405,7 +405,7 @@ special_project = {
 					}
 					country_event = { id = guardian.1052 } #succeeds
 				}
-				100 = { country_event = { id = guardian.1053 } } #fails
+				50 = { country_event = { id = guardian.1053 } } #fails
 			}
 		}
 	}

@@ -1,5 +1,5 @@
 tributary = {
-	can_colonize = yes
+	can_expand = yes
 	joins_overlord_wars = no
 	calls_overlord_to_war = yes
 	can_do_diplomacy = yes
@@ -20,6 +20,17 @@ tributary = {
 	effect = {
 		if = {
 			limit = {
+				from = { 	
+					is_country_type_with_subjects = no
+				}
+			}
+			set_subject_of = {
+				who = none
+			}
+			break = yes
+		}		
+		if = {
+			limit = {
 				from = { 
 					has_valid_civic = civic_hive_devouring_swarm
 				}
@@ -27,6 +38,7 @@ tributary = {
 			set_subject_of = {
 				who = none
 			}
+			break = yes
 		}			
 		if = {
 			limit = {
@@ -38,6 +50,7 @@ tributary = {
 			set_subject_of = {
 				who = none
 			}
+			break = yes
 		}	
 		if = {
 			limit = {
@@ -50,6 +63,7 @@ tributary = {
 				who = from
 				subject_type = satellite
 			}
+			break = yes
 		}	
 		if = {
 			limit = {
@@ -62,6 +76,7 @@ tributary = {
 				who = from
 				subject_type = dominion
 			}
+			break = yes
 		}
 		if = {
 			limit = {
@@ -74,6 +89,7 @@ tributary = {
 				who = from
 				subject_type = signatory
 			}
+			break = yes
 		}
 		if = {
 			limit = {
@@ -86,6 +102,7 @@ tributary = {
 				who = from
 				subject_type = thrall
 			}
+			break = yes
 		}
 	}	
 }

@@ -58,6 +58,26 @@ entity = {
 }
 
 entity = {
+	name = "test_example_entity"
+	pdxmesh = "test_object_mesh"
+	scale = 300
+	
+	locator = { name = loc01 position = { -0.4 -0.45 1.0 } }
+	
+	locator = { name = loc02 position = {  0.4 -0.35 1.2 } }
+	
+	default_state = "idle"
+	state = { 
+		name = "idle"
+		looping = yes
+		state_time = 10.0
+		
+		start_event = { node = "loc01" light = "debug_light" }
+		 event = { time = 0.5 node = "loc02" particle = "plasma_cannon_medium_hit_effect" }
+	}
+}
+
+entity = {
 	name = "test_locator_entity"
 	pdxmesh = "test_object_mesh"
 	scale = 1

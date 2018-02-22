@@ -42,7 +42,7 @@ particle={
 	}
 	subsystem={
 		name="fire_sparks"
-		max_amount=100
+		max_amount=30
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"
@@ -82,7 +82,7 @@ particle={
 	}
 	subsystem={
 		name="smoke"
-		max_amount=100
+		max_amount=30
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"

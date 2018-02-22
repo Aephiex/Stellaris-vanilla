@@ -1,9 +1,11 @@
 ﻿### Reptilian 3
 ### Created by Maximilian Olbers
+
 REP3 = {
 	ship_names = {
+	
 		generic = {
-			Lorod-Kalen Lorod-Kluven Lorod-Drexom Lorod-Kuxel Lorod-Durgal Lorod-Cadrom Lorod-Kendril Lorod-Ferad Lorod-Defer Lorod-Doxerga Lorod-Kundex Lorod-Cladet Lorod-Klonol Lorod-Rekad Lorod-Gexad Lorod-Falder Lorod-Gaclen Lorod-Celdaren Lorod-Deklor Lorod-Droxag Lorod-Nergal Lorod-Fikren Lorod-Nadlig
+			Lorod-Kalen Lorod-Kluven Lorod-Drexom Lorod-Kuxel Lorod-Durgal Lorod-Cadrom Lorod-Kendril Lorod-Ferad Lorod-Defer Lorod-Doxerga Lorod-Kundex Lorod-Cladet Lorod-Klonol Lorod-Rekad Lorod-Gexad Lorod-Falder Lorod-Gaclen Lorod-Celdaren Lorod-Deklor Lorod-Droxag Lorod-Nergal Lorod-Fikren Lorod-Nadlig Lorod-Enas Lorod-Gumgal Lorod-Cibad Lorod-Korbok Lorod-Sulam Lorod-Kirax Lorod-Emgus Erid-Gaz Erid-Buk Erid-Dox Erid-Vax Erid-Sur Erid-Kol Erid-Nad Erid-Gex Erid-Vuk Erid-Kar Erid-Ril Erid-Der Erid-Kol Erid-Gra Erid-Gur Erid-Xor Erid-Kuv Erid-Rok Erid-Fer Erid-Fik Erid-Ruv Erid-Sak Erid-Gul Erid-Nas Erid-Ber Erid-Bir Erid-Kux Erid-Efi Erid-Dat Erid-Van Erid-Has
 		}
 
 		corvette = {
@@ -18,6 +20,12 @@ REP3 = {
 		battleship = {
 		}
 		
+		titan = {
+		}
+		
+		colossus = {
+		}
+		
 		science = {
 		}
 		
@@ -27,19 +35,14 @@ REP3 = {
 		constructor = {
 		}
 		
-		mining_station = { }
-		research_station = { }
-		wormhole_station = { }
-		#terraform_station = { }
-		observation_station = { }
-		outpost_station = {
-			#random_names = { }
-			#sequential_name = "%O% Frontier Outpost"
+		transport = {
 		}
-
-		military_station_small = {}
-		military_station_medium = {}
-		military_station_large = {}	
+		
+		military_station_small = {
+		}
+		
+		ion_cannon = {
+		}
 	}
 
 	fleet_names = {
@@ -49,7 +52,6 @@ REP3 = {
 		sequential_name = "%O% Void Skulkers"
 	}
 	
-	### ARMIES
 	army_names = {	
 		defense_army = {
 			sequential_name = "%O% Defense Legion"
@@ -96,13 +98,11 @@ REP3 = {
 		}
 	}
 
-	### PLANETS
-
 	planet_names = {
 
 		generic = {
 			names = {
-				Galan Nadex Gefarak Kutel Gulec Faradex Ralefek Gelard Derokem Dexalon Kitadul Dukalex Kluxared Dolok Gekoler Forexod Futexom Darakun Traglec Kregux
+				Galan Nadex Gefarak Kutel Gulec Faradex Ralefek Gelard Derokem Dexalon Kitadul Dukalex Kluxared Dolok Gekoler Forexod Futexom Darakun Traglec Kregux Mitakul Vagec Farix Sumlec Forex Gikal Kurec Magan Darkic Seradul Dukorex Cekonex Garbex Torix Dablox
 			}
 		}
 		
@@ -153,13 +153,11 @@ REP3 = {
 		
 	}
 
-	### CHARACTERS
-
 	character_names = {
 		default = {
 			# A complete name
 			full_names = {
-				Faragulek Klandrax Kulegaf Ludremex Maxerdok Tredagik Rukagikex Trokaxeg Tolodem Loxodal Ropadef Frelaxod Axemekat Frolaxen Dakalenex Dronafeg Mixrodem Tidarulek Raxuked Koxurem Guferal
+				Faragulek Klandrax Kulegaf Ludremex Maxerdok Tredagik Rukagikex Trokaxeg Tolodem Loxodal Ropadef Frelaxod Axemekat Frolaxen Dakalenex Dronafeg Mixrodem Tidarulek Raxuked Koxurem Guferal Samux Terinex Koldrax Moregaf Ludramok Ropodom Farglek Duxanek Dorbax Tolaxir Kirax Mikirax Toldox Forulek Toxodal Rimarik Kaxurin Gasmarux Trolix Vobodem Imixidal Durbaxa Kiriox Vamax
 			}
 			
 			# Always combined with a second name

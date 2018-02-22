@@ -40,18 +40,7 @@ objectTypes = {
 		meshsettings = {
 			texture_diffuse = "ai_01_blue_civilian_diffuse.dds"
 		}
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	}	
 	
 	pdxmesh = {
 		name = "ai_01_blue_station_large_mesh"

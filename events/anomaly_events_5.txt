@@ -552,7 +552,7 @@ ship_event = {
 		trigger = {
 			NOT = { owner = { has_ethic = ethic_gestalt_consciousness } }
 			leader = {
-				has_trait = leader_trait_expertise_rocketry
+				has_trait = leader_trait_expertise_propulsion
 			}
 		}
 	}
@@ -561,7 +561,7 @@ ship_event = {
 		trigger = {
 			owner = { has_ethic = ethic_gestalt_consciousness }
 			leader = {
-				has_trait = leader_trait_expertise_rocketry
+				has_trait = leader_trait_expertise_propulsion
 			}
 		}
 	}
@@ -569,7 +569,7 @@ ship_event = {
 		text = "anomaly.4020.desc"
 		trigger = {
 			leader = {
-				NOT = { has_trait = leader_trait_expertise_rocketry }
+				NOT = { has_trait = leader_trait_expertise_propulsion }
 			}
 		}
 	}
@@ -580,7 +580,7 @@ ship_event = {
 
 	option = {
 		trigger = {
-			leader = { has_trait = leader_trait_expertise_rocketry }
+			leader = { has_trait = leader_trait_expertise_propulsion }
 		}	
 		name = anomaly.4020.b
 		custom_tooltip = "anomaly.4020.a.tooltip"
@@ -599,7 +599,7 @@ ship_event = {
 	option = {
 		trigger = {
 			leader = {
-					NOT = { has_trait = leader_trait_expertise_rocketry }
+					NOT = { has_trait = leader_trait_expertise_propulsion }
 			}
 		}
 		name = anomaly.4020.a
@@ -620,58 +620,57 @@ ship_event = {
 
 ### Distant Survey Data ####################################################################################
 #story5
-ship_event = {
-	id = anomaly.4025
-	title = "anomaly.4025.name"
-	desc = "anomaly.4025.desc"
-	picture = GFX_evt_ship_in_orbit
-	show_sound = event_airlock
-	location = event_target:target_location
-
-	is_triggered_only = yes
-	immediate = {
-		hidden_effect = { owner = { country_event = { id = story.5 days = 30 } } }
-		random_system = {
-			limit = {
-				NOT = {
-					has_star_flag = anomaly_system
-				}
-				distance = {
-					source = root.solar_system
-					max_distance = 120
-					min_distance = 1
-				}
-				any_planet = {
-					is_surveyed = { who = root.owner status = no }
-					has_owner = no
-				}
-			}
-			save_event_target_as = us_target_system
-			root.owner = {
-				clear_uncharted_space = {
-					from = event_target:us_target_system
-					radius = 5
-				}
-			}
-			random_system_planet = {
-				limit = {
-					is_star = yes
-				}
-				save_event_target_as = target_location
-			}
-			every_system_planet = {
-				surveyed = {
-					set_surveyed = yes
-					surveyor = root.owner
-				}
-			}
-		}
-	}
-	option = {
-		name = INTERESTING
-		custom_tooltip = "anomaly.4025.a.tooltip"
-	}
-}
+#ship_event = {
+#	id = anomaly.4025
+#	title = "anomaly.4025.name"
+#	desc = "anomaly.4025.desc"
+#	picture = GFX_evt_ship_in_orbit
+#	show_sound = event_airlock
+#	location = event_target:target_location
+#
+#	is_triggered_only = yes
+#	immediate = {
+#		hidden_effect = { owner = { country_event = { id = story.5 days = 30 } } }
+#		random_system = {
+#			limit = {
+#				NOT = {
+#					has_star_flag = anomaly_system
+#				}
+#				distance = {
+#					source = root.solar_system
+#					max_distance = 120
+#					min_distance = 1
+#				}
+#				any_planet = {
+#					is_surveyed = { who = root.owner status = no }
+#					has_owner = no
+#				}
+#			}
+#			save_event_target_as = us_target_system
+#			root = {
+#				owner = {
+#					clear_uncharted_space = prevprev
+#				}
+#			}
+#			random_system_planet = {
+#				limit = {
+#					is_star = yes
+#				}
+#				save_event_target_as = target_location
+#			}
+#			every_system_planet = {
+#				surveyed = {
+#					set_surveyed = yes
+#					surveyor = root.owner
+#				}
+#			}
+#		}
+#	}
+#	option = {
+#		name = INTERESTING
+#		custom_tooltip = "anomaly.4025.a.tooltip"
+#	}
+#}
 
 ### AI Admiral ###########################################################################################
 #story5
@@ -744,7 +743,7 @@ ship_event = {
 		owner = {
 			create_species = {
 				name = "NAME_AI"
-				class = AI
+				class = ROBOT
 				portrait = random
 				traits = random
 			}
@@ -752,7 +751,7 @@ ship_event = {
 				type = admiral
 				species = last_created
 				name = "NAME_0101010111"
-				skill = 400
+				skill = 3
 				traits = {
 					trait = leader_trait_aggressive
 					trait = leader_trait_fleet_logistician
@@ -772,7 +771,7 @@ ship_event = {
 ship_event = {
 	id = anomaly.4035
 	title = "anomaly.4035.name"
-	desc = "anomaly.4035.desc"
+	desc = anomaly.4035.desc
 	picture = GFX_evt_star_yellow
 	show_sound = event_mystic_reveal
 	location = FROM
@@ -2525,29 +2524,6 @@ ship_event = {
 		}
 	}
 	option = {
-		name = anomaly.4080.b
-		trigger = {
-			owner = { NOT = { has_technology = tech_orbital_sensor_array } }
-		}
-		owner = {
-			if = {
-				limit = {
-					has_tech_option = tech_orbital_sensor_array
-				}
-				add_tech_progress = {
-					tech = tech_orbital_sensor_array
-					progress = 0.50
-				}
-				else = {
-					add_research_option = tech_orbital_sensor_array
-				}
-			}
-		}
-	}
-	option = {
-		trigger = {
-			owner = { has_technology = tech_orbital_sensor_array }
-		}
 		name = SCRAPIT
 		owner = {
 			add_monthly_resource_mult = {
@@ -2698,7 +2674,6 @@ ship_event = {
 					set_owner = event_target:me
 					create_ship_design = {
 						design = "NAME_Alien_Ship"
-						ftl = event_target:me
 					}
 					create_ship = {
 						name = "NAME_Gallant_Dawn"
@@ -3161,6 +3136,18 @@ country_event = {
 						random_neighboring_tile = {
 							limit = { has_blocker = no has_building = no }
 							set_building = "building_hydroponics_farm_1"
+						}
+					}
+					solar_system = {
+						if = {
+							limit = { exists = starbase }
+							# nothin'
+							else = {
+								create_starbase = {
+									size = starbase_outpost
+									owner = event_target:RefugeeAliens
+								}
+							}
 						}
 					}
 				}
@@ -3929,7 +3916,7 @@ ship_event = {
 
 	immediate = {
 		leader = {
-			add_trait = leader_trait_expertise_rocketry
+			add_trait = leader_trait_expertise_propulsion
 		}
 		hidden_effect = {
 			owner = { country_event = { id = story.5 days = 30 } }
@@ -4012,7 +3999,7 @@ ship_event = {
 	#	trigger = {
 	#		leader = {
 	#			OR = {
-	#				has_trait = leader_trait_expertise_rocketry
+	#				has_trait = leader_trait_expertise_propulsion
 	#				has_trait = leader_trait_roamer
 	#				has_trait = leader_trait_carefree
 	#			}
@@ -4790,6 +4777,7 @@ ship_event = {
 		owner = {
 			NOT = {
 				has_country_flag = masters_writings_philosophy_found
+				has_country_flag = anomaly_140_triggered
 			}
 		}
 	}
@@ -4798,6 +4786,7 @@ ship_event = {
 		hidden_effect = { owner = { country_event = { id = story.5 days = 30 } } }
 		owner = {
 			set_country_flag = masters_writings_philosophy_found
+			set_country_flag = anomaly_140_triggered
 			random_owned_planet ={
 				limit = {
 					is_capital = yes
@@ -5530,9 +5519,9 @@ country_event = {
 			type = general
 			species = event_target:AlienWarriorSpecies
 			name = "NAME_Majula_the_Bearer"
-			skill = 1000
+			skill = 5
 			traits = {
-				trait = leader_trait_defender
+				trait = leader_trait_glory_seeker
 				trait = leader_trait_charismatic
 			}
 			event_leader = yes

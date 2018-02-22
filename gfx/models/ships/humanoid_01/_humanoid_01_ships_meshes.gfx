@@ -330,7 +330,17 @@ objectTypes = {
 		file = "gfx/models/ships/humanoid_01/humanoid_01_science_ship.mesh"
 		scale = 1.0
 
-		animation = { id = "idle"			type = "humanoid_01_science_ship_idle_animation" }
+		meshsettings = {
+			shader = "PdxMeshShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "humanoid_01_science_ship_sphere_mesh"
+		file = "gfx/models/ships/humanoid_01/humanoid_01_science_ship_sphere.mesh"
+		scale = 1.0
+
+		animation = { id = "idle"			type = "humanoid_01_science_ship_sphere_idle_animation" }
 
 		meshsettings = {
 			shader = "PdxMeshShip"
@@ -403,12 +413,6 @@ objectTypes = {
 		file = "gfx/models/ships/humanoid_01/humanoid_01_orbital_station_science_section.mesh"
 		scale = 1.0
 	}
-	
-	pdxmesh = {
-		name = "humanoid_01_orbital_station_turret_section_mesh"
-		file = "gfx/models/ships/humanoid_01/humanoid_01_orbital_station_turret_section.mesh"
-		scale = 1.0
-	}	
 	
 	pdxmesh = {
 		name = "humanoid_01_orbital_station_refinery_section_mesh"

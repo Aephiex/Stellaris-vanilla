@@ -335,8 +335,10 @@ xenoist = {
 		potential = {
 			exists = owner
 			owner = {
-				any_owned_ship = {
-					is_ship_size = observation_station
+				OR = {
+					any_owned_ship = { is_ship_size = observation_station }
+					has_country_flag = recent_enlightenment_timed
+					# fixes demand disappearing when fulfilled (station dismantles)
 				}
 			}
 		}

@@ -14,7 +14,7 @@ event = {
 
 	trigger = {
 		is_crises_allowed = yes
-		years_passed > 200
+		end_game_years_passed >= 50
 		NOT = { has_global_flag = galactic_crisis_happened }
 	}
 
@@ -28,15 +28,15 @@ event = {
 				10 = { 
 					modifier = {
 						factor = 2
-						years_passed > 240
+						end_game_years_passed >= 60
 					}
 					modifier = {
 						factor = 3
-						years_passed > 260
+						end_game_years_passed >= 80
 					}
 					modifier = {
 						factor = 4
-						years_passed > 280
+						end_game_years_passed >= 100
 					}
 					country_event = { id = crisis.10 days = 200 random = 800 }
 					set_global_flag = galactic_crisis_happened

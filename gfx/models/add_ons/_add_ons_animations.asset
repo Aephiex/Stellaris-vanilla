@@ -39,17 +39,17 @@ animation = {
 	file = "station_construction_test_01_progress_80.anim"
 }
 
-animation = {
-	name = "wormhole_rings_open_animation"
-	file = "wormhole_rings_open.anim"
-}
-
-animation = {
-	name = "wormhole_rings_idle_animation"
-	file = "wormhole_rings_idle.anim"
-}
-
-animation = {
-	name = "wormhole_rings_close_animation"
-	file = "wormhole_rings_close.anim"
-}
+#animation = {
+#	name = "wormhole_rings_open_animation"
+#	file = "wormhole_rings_open.anim"
+#}
+#
+#animation = {
+#	name = "wormhole_rings_idle_animation"
+#	file = "wormhole_rings_idle.anim"
+#}
+#
+#animation = {
+#	name = "wormhole_rings_close_animation"
+#	file = "wormhole_rings_close.anim"
+#}

@@ -1,55 +1,70 @@
 ﻿### Plantoid 2
-### Created by Maximilian Olbers, Miranda van den Brink
-PLANT2 = {	
-	### SHIPS
+### Created by Maximilian Olbers and Miranda van den Brink
 
+PLANT2 = {	
 	ship_names = {
 	
 		generic = {
-			   
 		}
 	
-		corvette = { Aurora "Fierce Crenator"  Resinous Tuberous "Green Sentinel" "Red Sentinel" "Golden Sentinel" "Green Sentry" "Red Sentry" "Golden Sentry" Skysentry "Green Assault" Starforce Starleaf "Skyleaf" "Starstriker" "Green Striker" "Fern Striker" "Fir Striker" "Twig Striker" Farskies Skyshooter "Green Flash" Dart Rusher Skyrusher Skystriker Starshoot Triffid "Pride of the Forest" "Tenacious Crenator" "Unassailable Crenator" "Magnificent Crenator" "Exalted Crenator" "Exalted Petiole" "Magnificent Petiole" "Tenacious Petiole" "Fierce Petiole" 
+		corvette = { 
+			Aurora "Fierce Crenator" Resinous Tuberous "Green Sentinel" "Red Sentinel" "Golden Sentinel" "Green Sentry" "Red Sentry" "Golden Sentry" Skysentry "Green Assault" Starforce Starleaf "Skyleaf" "Starstriker" "Green Striker" "Fern Striker" "Fir Striker" "Twig Striker" Farskies Skyshooter "Green Flash" Dart Rusher Skyrusher Skystriker Starshoot Triffid "Pride of the Forest" "Tenacious Crenator" "Unassailable Crenator" "Magnificent Crenator" "Exalted Crenator" "Exalted Petiole" "Magnificent Petiole" "Tenacious Petiole" "Fierce Petiole" 
 		}
 		
-		destroyer = { "Pride of the Grove" "Pride of the Grasslands" "Pride of the Marshes" Stalker Skystalker "Green Stalker" Starstalker "Green Lightning" "Green Pride" "Pride of the Moors" "Pride of the Glade" "Pride of the Ocean" "Pride of the Valley" "Pride of Yax Imix Che" "Pride of Kalpavriksha" "Pride of Bo" "Pride of Akshayavat" "Pride of Nookomis Giizhig" "Pride of Irminsul" "Pride of Somb" "Pride of Tule" "Pride of Ashvattha" "Pride of Fusang" 
+		destroyer = { 
+			"Pride of the Grove" "Pride of the Grasslands" "Pride of the Marshes" Stalker Skystalker "Green Stalker" Starstalker "Green Lightning" "Green Pride" "Pride of the Moors" "Pride of the Glade" "Pride of the Ocean" "Pride of the Valley" "Pride of Yax Imix Che" "Pride of Kalpavriksha" "Pride of Bo" "Pride of Akshayavat" "Pride of Nookomis Giizhig" "Pride of Irminsul" "Pride of Somb" "Pride of Tule" "Pride of Ashvattha" "Pride of Fusang" 
 		}
 		
-		cruiser = { "Protector of the Valleys" "Protector of the Marshes" "Protector of the Forests" "Protector of the Oceans" "Protector of the Rivers" "Protector of the Groves"
+		cruiser = { 
+			"Protector of the Valleys" "Protector of the Marshes" "Protector of the Forests" "Protector of the Oceans" "Protector of the Rivers" "Protector of the Groves"
 		}
 		
-		battleship = { "Defender of Yggdrasil" "Defender of Yax Imix Che" "Defender of Kalpavriksha" "Defender of Bo" "Defender of Akshayavat" "Defender of Irminsul" "Defender of Somb" "Defender of Tule" "Defender of Ashvattha" "Defender of Fusang"
+		battleship = { 
+			"Defender of Yggdrasil" "Defender of Yax Imix Che" "Defender of Kalpavriksha" "Defender of Bo" "Defender of Akshayavat" "Defender of Irminsul" "Defender of Somb" "Defender of Tule" "Defender of Ashvattha" "Defender of Fusang"
 		}
 		
-		science = { Leguminant Perennia Pithy Evergreener
+		titan = {
+			"Champion of the Valleys" "Champion of the Marshes" "Champion of the Forests" "Champion of the Oceans" "Champion of the Rivers" "Champion of the Groves"
 		}
 		
-		colonizer = { Twig Undulator Whorler Petiole 
+		colossus = {
+			"Nature's Wrath" "Nature's Fury" "Nature's Rage" "Nature's Spite"
 		}
 		
-		constructor = { "Green Crenator" "Rust Crenator" "Golden Crenator"
+		science = { 
+			Leguminant Perennia Pithy Evergreener
+		}
+		
+		colonizer = { 
+			Twig Undulator Whorler Petiole 
+		}
+		
+		constructor = { 
+			"Green Crenator" "Rust Crenator" "Golden Crenator"
 		}
 
-		transport = { "Transport"
+		transport = {
+			"Green Conveyor" "Rust Conveyor" "Golden Conveyor"
 		}
 		
-		orbital_station = {
+		military_station_small = {
+			"Pride of the Tundra" "Pride of the Rivers"
 		}
-		mining_station = {
+		
+		ion_cannon = {
+			"Pride of Yggdrasil"
 		}
-		research_station = {
+
+		### For Fallen Empires
+		small_ship_fallen_empire = {
+			Aurora "Fierce Crenator" Resinous Tuberous "Green Sentinel" "Red Sentinel" "Golden Sentinel" "Green Sentry" "Red Sentry" "Golden Sentry" Skysentry "Green Assault" Starforce Starleaf "Skyleaf" "Starstriker" "Green Striker" "Fern Striker" "Fir Striker" "Twig Striker" Farskies Skyshooter "Green Flash" Dart Rusher Skyrusher Skystriker Starshoot Triffid "Pride of the Forest" "Tenacious Crenator" "Unassailable Crenator" "Magnificent Crenator" "Exalted Crenator" "Exalted Petiole" "Magnificent Petiole" "Tenacious Petiole" "Fierce Petiole" 
 		}
-		wormhole_station = { }
-		#terraform_station = {
-		#}
-		observation_station = {
+		large_ship_fallen_empire = {
+			"Defender of Yggdrasil" "Defender of Yax Imix Che" "Defender of Kalpavriksha" "Defender of Bo" "Defender of Akshayavat" "Defender of Irminsul" "Defender of Somb" "Defender of Tule" "Defender of Ashvattha" "Defender of Fusang"
 		}
-	
-		military_station_small = { "Pride of the Tundra" "Pride of the Rivers" "Pride of Yggdrasil"}
-	
-		military_station_medium = { "Pride of the Tundra" "Pride of the Rivers" "Pride of Yggdrasil" }
-	
-		military_station_large = { "Pride of the Tundra" "Pride of the Rivers" "Pride of Yggdrasil" }	
+		massive_ship_fallen_empire = {
+			"Champion of the Valleys" "Champion of the Marshes" "Champion of the Forests" "Champion of the Oceans" "Champion of the Rivers" "Champion of the Groves"
+		}
 	}
 	
 	fleet_names = {
@@ -59,7 +74,6 @@ PLANT2 = {
 		sequential_name = "%O% Bouquet"
 	}
 
-	### ARMIES
 	army_names = {
 		defense_army = {
 			sequential_name = "%O% Protective Stalk"
@@ -105,16 +119,12 @@ PLANT2 = {
 			sequential_name = "%O% Hybrid Stalk"
 		}
 	}
-
-		
-	
-	### PLANETS
 	
 	planet_names = {
 	
 		generic = {
 			names = {
-				Mosshome Arborealis Herbaceon Horticultured Grasslands Nutfall Shrubbery Trunksite Fernfield Cloverbed Fernutopia Future Bulb Fusang "Star Grove" "New Roots" "Starflower" Verano "New Hope" Fernglade "Tule's Glory" "Yax Imix Che" Kalpavriksha Bo Akshayavat "Nookomis Giizhig" Irminsul Somb Tule Ashvattha Mosslands Paradise "Goldgrass" "Leafy" "Starnut" "Bliss" "Golden Flower"	"New Soil" "Leaf's Haven"
+				Mosshome Arborealis Herbaceon Horticultured Grasslands Nutfall Shrubbery Trunksite Fernfield Cloverbed Fernutopia Future Bulb Fusang "Star Grove" "New Roots" "Starflower" Verano "New Hope" Fernglade "Tule's Glory" "Yax Imix Che" Kalpavriksha Bo Akshayavat "Nookomis Giizhig" Irminsul Somb Tule Ashvattha Mosslands Paradise "Goldgrass" "Leafy" "Starnut" "Bliss" "Golden Flower" "New Soil" "Leaf's Haven"
 			}
 		}
 		
@@ -164,8 +174,6 @@ PLANT2 = {
 		}
 		
 	}
-	
-	### CHARACTERS
 
 	character_names = {
 		default = {

@@ -35,7 +35,7 @@ portraits = {
 					"gfx/models/portraits/avian/avian_slender_02_brown_red.dds"
 				}
 	}
-	avi3 = {	entity = "portrait_avian_03_entity"	clothes_selector = "avian_slender_clothes_01" hair_selector = "no_texture"	greeting_sound = "avian_01_greetings" 
+	avi3 = {	entity = "portrait_avian_03_entity"	clothes_selector = "no_texture" hair_selector = "no_texture"	greeting_sound = "avian_01_greetings" 
 			character_textures = {
 					"gfx/models/portraits/avian/avian_slender_03_olive.dds"
 					"gfx/models/portraits/avian/avian_slender_03_olive.dds"
@@ -92,7 +92,7 @@ portraits = {
 				}
 	}
 	
-	avi7_f = {	entity = "portrait_avian_07_entity"	clothes_selector = "avian_normal_clothes_01" hair_selector = "no_texture"	greeting_sound = "avian_01_greetings" 
+	avi7_f = {	entity = "portrait_avian_07_entity"	clothes_selector = "no_texture" hair_selector = "no_texture"	greeting_sound = "avian_01_greetings" 
 			character_textures = {
 					"gfx/models/portraits/avian/avian_normal_07_green_yellow.dds"
 					"gfx/models/portraits/avian/avian_normal_07_green_orange.dds"
@@ -103,7 +103,7 @@ portraits = {
 				}
 	}	
 	
-	avi7_m = {	entity = "portrait_avian_07_entity"	clothes_selector = "avian_normal_clothes_01" hair_selector = "no_texture"	greeting_sound = "avian_01_greetings" 
+	avi7_m = {	entity = "portrait_avian_07_entity"	clothes_selector = "no_texture" hair_selector = "no_texture"	greeting_sound = "avian_01_greetings" 
 			character_textures = {
 					"gfx/models/portraits/avian/avian_normal_07_brown_yellow.dds"
 					"gfx/models/portraits/avian/avian_normal_07_brown_orange.dds"

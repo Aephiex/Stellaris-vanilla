@@ -1,12 +1,10 @@
-﻿### Reptilian 1
-REP2 = {
-	### SHIPS
+﻿### Reptilian 2
 
+REP2 = {
 	ship_names = {
 
 		generic = {
-			Xad-Nyak Xederex Zadhadex Xontex Xadamach Xedleetha Xiin Zadakhat Ximang Zaraxes Ziinaxad Xadara Xischmi Zongax Zaraxim Zidix Zadaxon Zixim Ciimixin Ceremax Casarax Codvox Xiad Xomba Cardaxes Cardix Xobbon Zidinix Zarakh Zidrimax Zymtarax Cidjax Ximpa Xarxa Xogor Xanar Zilgar Deltox Zinivar Zendjax Zorixon Derazix Dolzor Dargaxor Darbix Daraxa Diinorzo Debar-Zax Zor-Kalos Zur-Talax Xom-Buruk Xol-Remok Xar-Corox Zel-Dotor Zod-Garax Diigarzak Zebarax Cyntharzo Conobax Carox Dez-Hilam Dax-Endiv Zablinnox Zapozor Zakithor Zadamak Zikrax Zuuldorox Zaximock Zaatrix Xoldagoros Xurinzaga Xorbozhaga Caldorix Cathrox Dexirama Dezuzarix Dirixiz Descorax Difirixamon Canix Zakarax Zithrix Cablarex Xarkaz Xeplaz Xevarex Damonix Decorza Daxarim Zakardim
-			Xodarciz Zimizar Zulxari Zib-Korox Xuv-Xanim Xol-Irix Xam-Zevon Zed-Kevlax
+			Xad-Nyak Xederex Zadhadex Xontex Xadamach Xedleetha Xiin Zadakhat Ximang Zaraxes Ziinaxad Xadara Xischmi Zongax Zaraxim Zidix Zadaxon Zixim Ciimixin Ceremax Casarax Codvox Xiad Xomba Cardaxes Cardix Xobbon Zidinix Zarakh Zidrimax Zymtarax Cidjax Ximpa Xarxa Xogor Xanar Zilgar Deltox Zinivar Zendjax Zorixon Derazix Dolzor Dargaxor Darbix Daraxa Diinorzo Debar-Zax Zor-Kalos Zur-Talax Xom-Buruk Xol-Remok Xar-Corox Zel-Dotor Zod-Garax Diigarzak Zebarax Cyntharzo Conobax Carox Dez-Hilam Dax-Endiv Zablinnox Zapozor Zakithor Zadamak Zikrax Zuuldorox Zaximock Zaatrix Xoldagoros Xurinzaga Xorbozhaga Caldorix Cathrox Dexirama Dezuzarix Dirixiz Descorax Difirixamon Canix Zakarax Zithrix Cablarex Xarkaz Xeplaz Xevarex Damonix Decorza Daxarim Zakardim Xodarciz Zimizar Zulxari Zib-Korox Xuv-Xanim Xol-Irix Xam-Zevon Zed-Kevlax
 		}
 
 		corvette = {
@@ -21,6 +19,12 @@ REP2 = {
 		battleship = {
 		}
 		
+		titan = {
+		}
+		
+		colossus = {
+		}
+		
 		science = {
 		}
 		
@@ -30,29 +34,23 @@ REP2 = {
 		constructor = {
 		}
 		
-		mining_station = { }
-		research_station = { }
-		wormhole_station = { }
-		#terraform_station = { }
-		observation_station = { }
-		outpost_station = {
-			#random_names = { }
-			#sequential_name = "%O% Frontier Outpost"
+		transport = {
 		}
-
-		military_station_small = {}
-		military_station_medium = {}
-		military_station_large = {}	
+		
+		military_station_small = {
+		}
+		
+		ion_cannon = {
+		}
 	}
 
 	fleet_names = {
 		random_names = {
-			"Finix Star Hunters" "The Ravenous Star Hunters" "The Slithering Star Hunters" "The Awaiting Star Hunters" "The Leaping Star Hunters" "The Relentless Star Hunters" "Cartoich's Star Hunters" "Gror'cash Star Hunters" "The Swift Star Hunters" "The Devouring Star Hunters" "Xo'artish Star Hunters" "Chiklash Star Hunters" "The Harrowed Star Hunters" "The Malevolent Star Hunters" "The Crushing Star Hunters"
+			"Finix Star Hunters" "Ravenous Star Hunters" "Slithering Star Hunters" "Awaiting Star Hunters" "Leaping Star Hunters" "Relentless Star Hunters" "Cartoich's Star Hunters" "Gror'cash Star Hunters" "Swift Star Hunters" "Devouring Star Hunters" "Xo'artish Star Hunters" "Chiklash Star Hunters" "Harrowed Star Hunters" "Malevolent Star Hunters" "Crushing Star Hunters"
 		}
 		sequential_name = "%O% Star Hunters"
 	}
 	
-	### ARMIES
 	army_names = {
 		defense_army = {
 			sequential_name = "%O% Planetary Patrol"
@@ -98,7 +96,6 @@ REP2 = {
 			sequential_name = "%O% Mutant Elites"
 		}	
 	}
-	### PLANETS
 
 	planet_names = {
 
@@ -155,13 +152,11 @@ REP2 = {
 		
 	}
 
-	### CHARACTERS
-
 	character_names = {
 		default = {
 			# A complete name
 			full_names = {
-				Xirgliss Cathiox Zir Zarax Rekaxir Cax Zidlaxi Cabroxi Xidlor Zeraxim Moz Zoz Xaz Zax Zacadliss Cothaxir Xoblagiss Rezicax Morezac Midloxec
+				Xirgliss Cathiox Zir Zarax Rekaxir Cax Zidlaxi Cabroxi Xidlor Zeraxim Moz Zoz Xaz Zax Zacadliss Cothaxir Xoblagiss Rezicax Morezac Midloxec Vax Zumax Raxir Xiraxor Vox Zurix Xirax Caberox Cimax Morax Zetioz Verizac Medizac Carizac Mozac Vitarax Cobanox Xaboc Vaxoma Zetix Carax Cablox Zinix Cadux Mirox Raxor
 			}
 			
 			# Always combined with a second name

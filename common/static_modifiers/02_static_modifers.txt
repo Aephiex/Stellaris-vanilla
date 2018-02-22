@@ -65,7 +65,7 @@ food_rich_planet = {
 	icon_frame = 1
 }
 super_sensor_array = {
-	planet_sensor_range_mult = 2.0
+	planet_sensor_range_add = 4
 	icon = "gfx/interface/icons/planet_modifiers/pm_factory.dds"
 	icon_frame = 1
 }
@@ -117,20 +117,20 @@ scared_population = {
 	icon_frame = 3
 }
 secured_factory = {
-	edict_influence_cost = 0.25
+	edict_cost = 0.25
 	planet_building_build_speed_mult = -0.25
 	icon = "gfx/interface/icons/planet_modifiers/pm_factory.dds"
 	icon_frame = 3
 }
 fear_as_control = {
 	pop_happiness = -0.20
-	edict_influence_cost = -0.25
+	edict_cost = -0.25
 	army_morale = 0.25
 	icon = "gfx/interface/icons/planet_modifiers/pm_unknown.dds"
 	icon_frame = 2
 }
 fear_as_control_militarist = {
-	edict_influence_cost = -0.25
+	edict_cost = -0.25
 	army_morale = 0.25
 	icon = "gfx/interface/icons/planet_modifiers/pm_unknown.dds"
 	icon_frame = 1
@@ -216,7 +216,7 @@ science_inspiration = {
 	ship_anomaly_research_speed_mult = 0.20
 }
 zero_gravity_revelation = {
-	spaceport_module_cost_mult  = -0.1
+	starbase_module_build_cost_mult  = -0.1
 }
 youthful_elite = {
 	leader_age = 15
@@ -236,7 +236,7 @@ immigrants_protection = {
 	tile_resource_energy_mult = -0.05
 }
 fear_as_control_militarist_p2 = {
-	leader_influence_cost = 0.20
+	leader_cost = 0.20
 }
 alien_genome_research = {
 	army_damage_mult = 0.05
@@ -268,9 +268,29 @@ streamlined_ship_design = {
 }
 ship_excess_power = {
 	ship_evasion_mult = 0.1
-	ship_speed_mult = 0.2
-	ship_combat_speed_mult = 0.1
+	ship_speed_mult = 0.1
 	ship_weapon_damage = 0.1
+}
+# Applied when the ship is orbiting a planet where repairs are possible
+ship_orbit_repair = {
+	ship_hull_regen_add_perc = 2
+	ship_armor_regen_add_perc = 2
+}
+# Scaling 1% HP: 100% penalty -> 100% HP: 0% penalty
+# Only ship_fire_rate_mult and ship_speed_mult will have an effect here
+ship_max_damaged_effect = {
+	ship_fire_rate_mult = -0.5
+}
+# Self repair applied to stations when they are not on cooldown
+# Only ship_{hull,armor,shield}_regen_add_{perc,static} modifiers will have an effect here
+station_self_repair = {
+	ship_hull_regen_add_perc = 1
+	ship_armor_regen_add_perc = 1
+}
+
+# For each 100% size disparity between combatants
+fleet_force_disparity_effect = {
+	force_disparity_fire_rate_mult = 0.5
 }
 
 ##########################################################################

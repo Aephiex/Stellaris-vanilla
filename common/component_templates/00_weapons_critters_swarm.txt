@@ -12,7 +12,7 @@
 # Standard Scourge Missile
 weapon_component_template = {
 	key = "LARGE_SCOURGE_MISSILE_1"
-	size = large
+	size = torpedo
 	entity = "turret_missile_large_entity"
 	
 	icon = "GFX_ship_part_scourge_missile_1"
@@ -24,61 +24,8 @@ weapon_component_template = {
 	component_set = "SCOURGE_MISSILE_1"
 	projectile_gfx = "scourge_missile"
 	tags = { weapon_type_explosive }
-	ai_tags = { weapon_role_long_range }
-}
-
-# Small Spaceport Scourge Missiles
-weapon_component_template = {
-	key = "SMALL_SPACEPORT_SCOURGE_MISSILE"
-	size = small
-	hidden = yes
-	entity = "turret_missile_small_entity"
-	
-	icon = "GFX_ship_part_scourge_missile_1"
-	icon_frame = 1
-	static_rotation = yes
-	type = missile
-	
-	component_set = "SPACEPORT_SCOURGE_MISSILE"
-	projectile_gfx = "scourge_missile"
-	tags = { weapon_type_explosive }
-	ai_tags = { weapon_role_long_range }
-}
-
-# Medium Spaceport Scourge Missiles
-weapon_component_template = {
-	key = "MEDIUM_SPACEPORT_SCOURGE_MISSILE"
-	size = medium
-	hidden = yes
-	entity = "turret_missile_medium_entity"
-	
-	icon = "GFX_ship_part_scourge_missile_1"
-	icon_frame = 1
-	static_rotation = yes
-	type = missile
-	
-	component_set = "SPACEPORT_SCOURGE_MISSILE"
-	projectile_gfx = "scourge_missile"
-	tags = { weapon_type_explosive }
-	ai_tags = { weapon_role_long_range }
-}
-
-# Large Spaceport Scourge Missiles
-weapon_component_template = {
-	key = "LARGE_SPACEPORT_SCOURGE_MISSILE"
-	size = large
-	hidden = yes
-	entity = "turret_missile_large_entity"
-	
-	icon = "GFX_ship_part_scourge_missile_1"
-	icon_frame = 1
-	static_rotation = yes
-	type = missile
-	
-	component_set = "SPACEPORT_SCOURGE_MISSILE"
-	projectile_gfx = "scourge_missile"
-	tags = { weapon_type_explosive }
-	ai_tags = { weapon_role_long_range }
+	ai_tags = { weapon_role_artillery }
+	ai_tag_weight = 0
 }
 
 ### Projectiles
@@ -124,24 +71,24 @@ strike_craft_component_template = {
 	key = "SWARM_STRIKE_CRAFT"
 	size = LARGE
 	entity = "swarm_01_fighter_entity"
-	cost = 60
-	power = -60
+	cost = 100
+	power = -80
 
 	count = 10
 	regeneration_per_day = @regen
 	launch_time = 1.0
 	
-	damage = { min = 19 max = 21 }
+	damage = { min = 8 max = 12 }
 	cooldown = 8
-	range = 20
+	range = 10
 	accuracy = 1.0
 	
-	health = 100
-	armor = 0
+	health = 80
+	armor = 20
 	shield = 0
 	evasion = 0.80
 	
-	speed = 5
+	speed = 180
 	rotation_speed = 0.2
 	acceleration = 0.5
 	

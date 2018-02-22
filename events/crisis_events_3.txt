@@ -663,13 +663,7 @@ country_event = {
 		}
 		every_owned_ship = {
 			limit = {
-				OR = {
-					has_component = COMBAT_COMPUTER_SAPIENT
-					has_component = CORVETTE_COMBAT_COMPUTER_4
-					has_component = DESTROYER_COMBAT_COMPUTER_4
-					has_component = CRUISER_COMBAT_COMPUTER_4
-					has_component = BATTLESHIP_COMBAT_COMPUTER_4
-				}
+				has_sapient_combat_computer = yes
 			}
 			add_modifier = {
 				modifier = "ship_ghost_signal_5"
@@ -679,13 +673,7 @@ country_event = {
 		if = {
 			limit = {
 				any_owned_ship = {
-					OR = {
-						has_component = COMBAT_COMPUTER_SAPIENT
-						has_component = CORVETTE_COMBAT_COMPUTER_4
-						has_component = DESTROYER_COMBAT_COMPUTER_4
-						has_component = CRUISER_COMBAT_COMPUTER_4
-						has_component = BATTLESHIP_COMBAT_COMPUTER_4
-					}
+					has_sapient_combat_computer = yes
 				}
 			}
 			country_event = { id = crisis.2099 days = 10 }
@@ -838,24 +826,26 @@ planet_event = {
 					"null"
 				}
 			}
+			effect = {
+				create_ship_design = { design = "NAME_AI_Transport" }
+				add_ship_design = last_created_design
+				create_ship_design = { design = "NAME_AI_Constructor" }
+				add_ship_design = last_created_design
+				create_ship_design = { design = "NAME_AI_1" }
+				add_ship_design = last_created_design
+				create_ship_design = { design = "NAME_AI_2" }
+				add_ship_design = last_created_design
+				create_ship_design = { design = "NAME_AI_STARBASE" }
+				add_ship_design = last_created_design			
+			}
 		}
 		last_created_country = { 
 			save_event_target_as = AI_crisis 
-			create_ship_design = { design = "NAME_AI_Transport" }
-			add_ship_design = last_created_design
-			create_ship_design = { design = "NAME_AI_Constructor" }
-			add_ship_design = last_created_design
-			create_ship_design = { design = "NAME_AI_1" }
-			add_ship_design = last_created_design
-			create_ship_design = { design = "NAME_AI_2" }
-			add_ship_design = last_created_design
 		}
 		every_owned_pop = { kill_pop = yes }
 		change_pc = pc_ai
 		reset_planet = yes
 		set_name = "NAME_Sterilization_Hub_1"
-		set_planet_max_health = 20000
-		set_planet_health = 20000
 		set_owner = event_target:AI_crisis
 		set_controller = event_target:AI_crisis
 		create_ai_planet_defense = yes
@@ -889,6 +879,18 @@ planet_event = {
 		awaken_fallen_machine_empire = yes
 		set_global_flag = ai_invasion_ongoing
 		set_global_flag = synth_terror
+
+		solar_system = {
+			if = {
+				limit = { exists = starbase }
+				starbase = {
+					fleet = {
+						destroy_fleet = this
+					}
+				}
+			}
+			create_contingency_starbase = yes
+		}
 	}
 }
 
@@ -908,8 +910,6 @@ planet_event = {
 		change_pc = pc_ai
 		reset_planet = yes
 		set_name = "NAME_Sterilization_Hub_2"
-		set_planet_max_health = 20000
-		set_planet_health = 20000
 		set_owner = event_target:AI_crisis
 		set_controller = event_target:AI_crisis
 		create_ai_planet_defense = yes
@@ -928,6 +928,17 @@ planet_event = {
 				counter = "active_machine_worlds"
 				amount = 1 
 			}
+		}
+		solar_system = {
+			if = {
+				limit = { exists = starbase }
+				starbase = {
+					fleet = {
+						destroy_fleet = this
+					}
+				}
+			}
+			create_contingency_starbase = yes
 		}
 	}
 }
@@ -948,8 +959,6 @@ planet_event = {
 		reset_planet = yes
 		change_planet_size = 20
 		set_name = "NAME_Sterilization_Hub_3"
-		set_planet_max_health = 20000
-		set_planet_health = 20000
 		set_owner = event_target:AI_crisis
 		set_controller = event_target:AI_crisis
 		create_ai_planet_defense = yes
@@ -969,6 +978,17 @@ planet_event = {
 				amount = 1 
 			}
 		}
+		solar_system = {
+			if = {
+				limit = { exists = starbase }
+				starbase = {
+					fleet = {
+						destroy_fleet = this
+					}
+				}
+			}
+			create_contingency_starbase = yes
+		}
 	}
 }
 
@@ -987,8 +1007,6 @@ planet_event = {
 		change_pc = pc_ai
 		reset_planet = yes
 		set_name = "NAME_Sterilization_Hub_4"
-		set_planet_max_health = 20000
-		set_planet_health = 20000
 		set_owner = event_target:AI_crisis
 		set_controller = event_target:AI_crisis
 		create_ai_planet_defense = yes
@@ -1007,6 +1025,17 @@ planet_event = {
 				counter = "active_machine_worlds"
 				amount = 1 
 			}
+		}
+		solar_system = {
+			if = {
+				limit = { exists = starbase }
+				starbase = {
+					fleet = {
+						destroy_fleet = this
+					}
+				}
+			}
+			create_contingency_starbase = yes
 		}
 	}
 }
@@ -1205,7 +1234,15 @@ country_event = {
 					}
 				}
 			}
-
+			if = {
+				limit = { exists = starbase }
+				starbase = {
+					fleet = {
+						destroy_fleet = this
+					}
+				}
+			}
+			create_contingency_starbase = yes
 		}
 		every_country = {
 			limit = { is_ai = no }
@@ -1383,11 +1420,10 @@ planet_event = {
 				remove_point_of_interest = ai_crisis_poi.4
 			}
 		}
-		destroy_colony = { keep_buildings = no }
-		set_planet_max_health = 0
-		change_pc = pc_barren
+		destroy_colony = yes
+		change_pc = pc_broken
 		reset_planet = yes
-		set_planet_entity = { entity = "barren_planet_01_destroyed_entity" }
+		#set_planet_entity = { entity = "barren_planet_01_destroyed_entity" }
 		orbital_deposit_tile = {
 			hidden_effect = { clear_deposits = yes }
 			add_deposit = d_living_metal_deposit
@@ -1430,13 +1466,7 @@ planet_event = {
 					}
 					every_owned_ship = {
 						limit = {
-							OR = {
-								has_component = COMBAT_COMPUTER_SAPIENT
-								has_component = CORVETTE_COMBAT_COMPUTER_4
-								has_component = DESTROYER_COMBAT_COMPUTER_4
-								has_component = CRUISER_COMBAT_COMPUTER_4
-								has_component = BATTLESHIP_COMBAT_COMPUTER_4
-							}
+							has_sapient_combat_computer = yes
 						}
 						remove_modifier = "ship_ghost_signal_5"
 						add_modifier = { modifier = "ship_ghost_signal_4" days = -1 }
@@ -1453,13 +1483,7 @@ planet_event = {
 					}
 					every_owned_ship = {
 						limit = {
-							OR = {
-								has_component = COMBAT_COMPUTER_SAPIENT
-								has_component = CORVETTE_COMBAT_COMPUTER_4
-								has_component = DESTROYER_COMBAT_COMPUTER_4
-								has_component = CRUISER_COMBAT_COMPUTER_4
-								has_component = BATTLESHIP_COMBAT_COMPUTER_4
-							}
+							has_sapient_combat_computer = yes
 						}
 						remove_modifier = "ship_ghost_signal_5"
 						add_modifier = { modifier = "ship_ghost_signal_4" days = -1 }
@@ -1492,13 +1516,7 @@ planet_event = {
 					}
 					every_owned_ship = {
 						limit = {
-							OR = {
-								has_component = COMBAT_COMPUTER_SAPIENT
-								has_component = CORVETTE_COMBAT_COMPUTER_4
-								has_component = DESTROYER_COMBAT_COMPUTER_4
-								has_component = CRUISER_COMBAT_COMPUTER_4
-								has_component = BATTLESHIP_COMBAT_COMPUTER_4
-							}
+							has_sapient_combat_computer = yes
 						}
 						remove_modifier = "ship_ghost_signal_4"
 						add_modifier = { modifier = "ship_ghost_signal_3" days = -1 }
@@ -1513,13 +1531,7 @@ planet_event = {
 					}
 					every_owned_ship = {
 						limit = {
-							OR = {
-								has_component = COMBAT_COMPUTER_SAPIENT
-								has_component = CORVETTE_COMBAT_COMPUTER_4
-								has_component = DESTROYER_COMBAT_COMPUTER_4
-								has_component = CRUISER_COMBAT_COMPUTER_4
-								has_component = BATTLESHIP_COMBAT_COMPUTER_4
-							}
+							has_sapient_combat_computer = yes
 						}
 						remove_modifier = "ship_ghost_signal_4"
 					}
@@ -1556,13 +1568,7 @@ planet_event = {
 					}
 					every_owned_ship = {
 						limit = {
-							OR = {
-								has_component = COMBAT_COMPUTER_SAPIENT
-								has_component = CORVETTE_COMBAT_COMPUTER_4
-								has_component = DESTROYER_COMBAT_COMPUTER_4
-								has_component = CRUISER_COMBAT_COMPUTER_4
-								has_component = BATTLESHIP_COMBAT_COMPUTER_4
-							}
+							has_sapient_combat_computer = yes
 						}
 						remove_modifier = "ship_ghost_signal_3"
 						add_modifier = { modifier = "ship_ghost_signal_2" days = -1 }
@@ -1593,13 +1599,7 @@ planet_event = {
 					}
 					every_owned_ship = {
 						limit = {
-							OR = {
-								has_component = COMBAT_COMPUTER_SAPIENT
-								has_component = CORVETTE_COMBAT_COMPUTER_4
-								has_component = DESTROYER_COMBAT_COMPUTER_4
-								has_component = CRUISER_COMBAT_COMPUTER_4
-								has_component = BATTLESHIP_COMBAT_COMPUTER_4
-							}
+							has_sapient_combat_computer = yes
 						}
 						remove_modifier = "ship_ghost_signal_2"
 						add_modifier = { modifier = "ship_ghost_signal_1" days = -1 }
@@ -1625,12 +1625,9 @@ country_event = {
 	
 	immediate = {
 		FROMFROM = {
+			add_threat = { who = root amount = 2 }
 			set_controller = root
 			purge = yes
-			add_threat = {
-				who = root
-				amount = 1 # scales to pops
-			}
 		}
 	}
 }
@@ -1665,18 +1662,9 @@ country_event = {
 	}
 
 	option = {
-		name = crisis.2042.a
-		fromfrom = {
-			set_owner = root
-			best_tile_for_pop = {
-				create_pop = { species = owner_main_species }
-			}
-		}
-	}
-	option = {
-		name = crisis.2042.b
+		name = crisis.2042.c
 		fromfrom = { 
-			destroy_colony = { keep_buildings = yes }
+			destroy_colony = yes
 		}
 	}
 }
@@ -1757,11 +1745,10 @@ planet_event = {
 		remove_global_flag = synth_terror
 		remove_global_flag = ai_ghost_signal
 		remove_global_flag = ai_invasion_ongoing
-		destroy_colony = { keep_buildings = no }
-		set_planet_max_health = 0
-		change_pc = pc_barren
+		destroy_colony = yes
+		change_pc = pc_broken
 		reset_planet = yes
-		set_planet_entity = { entity = "barren_planet_01_destroyed_entity" }
+		#set_planet_entity = { entity = "barren_planet_01_destroyed_entity" }
 		every_country = {
 			limit = { has_notification_modifier = ghost_signal_1 }
 			remove_notification_modifier = ghost_signal_1
@@ -1771,13 +1758,7 @@ planet_event = {
 			}
 			every_owned_ship = {
 				limit = {
-					OR = {
-						has_component = COMBAT_COMPUTER_SAPIENT
-						has_component = CORVETTE_COMBAT_COMPUTER_4
-						has_component = DESTROYER_COMBAT_COMPUTER_4
-						has_component = CRUISER_COMBAT_COMPUTER_4
-						has_component = BATTLESHIP_COMBAT_COMPUTER_4
-					}
+					has_sapient_combat_computer = yes
 				}
 				remove_modifier = "ship_ghost_signal_1"
 			}
@@ -1830,22 +1811,6 @@ planet_event = {
 			}
 			random_country = {
 				limit = { is_country_type = cybrex_empire }
-
-				# Cybrex Fleets Return Home
-				every_owned_fleet = {
-					limit = { has_fleet_flag = cybrex_attack_fleet }
-					queue_actions = {
-						find_closest_system = {
-							trigger = {
-								id = crisis.2043.trigger.1
-								has_star_flag = cybrex_beta
-							}
-							found_system = {
-								move_to = this
-							}
-						}
-					}
-				}
 
 				# Cybrex recall expeditionary fleets
 				every_country = {
@@ -1908,7 +1873,7 @@ planet_event = {
 		}
 		# If being bombarded, check again later
 		if = {
-			limit = { under_bombardment = yes }
+			limit = { has_orbital_bombardment = yes }
 			planet_event = { id = crisis.2050 days = 300 }
 			break = yes
 		}
@@ -1989,7 +1954,7 @@ planet_event = {
 		}
 		# If being bombarded, check again later
 		if = {
-			limit = { under_bombardment = yes }
+			limit = { has_orbital_bombardment = yes }
 			planet_event = { id = crisis.2052 days = 300 }
 			break = yes
 		}
@@ -2098,13 +2063,7 @@ ship_event = {
 
 	trigger = {
 		has_global_flag = ai_ghost_signal
-		OR = {
-			has_component = COMBAT_COMPUTER_SAPIENT
-			has_component = CORVETTE_COMBAT_COMPUTER_4
-			has_component = DESTROYER_COMBAT_COMPUTER_4
-			has_component = CRUISER_COMBAT_COMPUTER_4
-			has_component = BATTLESHIP_COMBAT_COMPUTER_4
-		}
+		has_sapient_combat_computer = yes
 		owner = {
 			OR = {
 				has_notification_modifier = ghost_signal_5
@@ -2168,11 +2127,7 @@ ship_event = {
 			}
 		}
 		OR = {
-			has_component = COMBAT_COMPUTER_SAPIENT
-			has_component = CORVETTE_COMBAT_COMPUTER_4
-			has_component = DESTROYER_COMBAT_COMPUTER_4
-			has_component = CRUISER_COMBAT_COMPUTER_4
-			has_component = BATTLESHIP_COMBAT_COMPUTER_4
+			has_sapient_combat_computer = yes
 			has_modifier = ship_ghost_signal_5
 			has_modifier = ship_ghost_signal_4
 			has_modifier = ship_ghost_signal_3
@@ -2184,13 +2139,7 @@ ship_event = {
 	immediate = {
 		if = {
 			limit = {
-				NOR = {
-					has_component = COMBAT_COMPUTER_SAPIENT
-					has_component = CORVETTE_COMBAT_COMPUTER_4
-					has_component = DESTROYER_COMBAT_COMPUTER_4
-					has_component = CRUISER_COMBAT_COMPUTER_4
-					has_component = BATTLESHIP_COMBAT_COMPUTER_4
-				}
+				has_sapient_combat_computer = no
 			}
 			remove_modifier = ship_ghost_signal_5
 			remove_modifier = ship_ghost_signal_4
@@ -2201,13 +2150,7 @@ ship_event = {
 		}
 		if = {
 			limit = {
-				OR = {
-					has_component = COMBAT_COMPUTER_SAPIENT
-					has_component = CORVETTE_COMBAT_COMPUTER_4
-					has_component = DESTROYER_COMBAT_COMPUTER_4
-					has_component = CRUISER_COMBAT_COMPUTER_4
-					has_component = BATTLESHIP_COMBAT_COMPUTER_4
-				}
+				has_sapient_combat_computer = yes
 				owner = { has_notification_modifier = ghost_signal_5 }
 				NOT = { has_modifier = "ship_ghost_signal_5" }
 			}
@@ -2220,13 +2163,7 @@ ship_event = {
 		}
 		if = {
 			limit = {
-				OR = {
-					has_component = COMBAT_COMPUTER_SAPIENT
-					has_component = CORVETTE_COMBAT_COMPUTER_4
-					has_component = DESTROYER_COMBAT_COMPUTER_4
-					has_component = CRUISER_COMBAT_COMPUTER_4
-					has_component = BATTLESHIP_COMBAT_COMPUTER_4
-				}
+				has_sapient_combat_computer = yes
 				owner = { has_notification_modifier = ghost_signal_4 }
 				NOT = { has_modifier = "ship_ghost_signal_4" }
 			}
@@ -2239,13 +2176,7 @@ ship_event = {
 		}
 		if = {
 			limit = {
-				OR = {
-					has_component = COMBAT_COMPUTER_SAPIENT
-					has_component = CORVETTE_COMBAT_COMPUTER_4
-					has_component = DESTROYER_COMBAT_COMPUTER_4
-					has_component = CRUISER_COMBAT_COMPUTER_4
-					has_component = BATTLESHIP_COMBAT_COMPUTER_4
-				}
+				has_sapient_combat_computer = yes
 				owner = { has_notification_modifier = ghost_signal_3 }
 				NOT = { has_modifier = "ship_ghost_signal_3" }
 			}
@@ -2258,13 +2189,7 @@ ship_event = {
 		}
 		if = {
 			limit = {
-				OR = {
-					has_component = COMBAT_COMPUTER_SAPIENT
-					has_component = CORVETTE_COMBAT_COMPUTER_4
-					has_component = DESTROYER_COMBAT_COMPUTER_4
-					has_component = CRUISER_COMBAT_COMPUTER_4
-					has_component = BATTLESHIP_COMBAT_COMPUTER_4
-				}
+				has_sapient_combat_computer = yes
 				owner = { has_notification_modifier = ghost_signal_2 }
 				NOT = { has_modifier = "ship_ghost_signal_2" }
 			}
@@ -2277,13 +2202,7 @@ ship_event = {
 		}
 		if = {
 			limit = {
-				OR = {
-					has_component = COMBAT_COMPUTER_SAPIENT
-					has_component = CORVETTE_COMBAT_COMPUTER_4
-					has_component = DESTROYER_COMBAT_COMPUTER_4
-					has_component = CRUISER_COMBAT_COMPUTER_4
-					has_component = BATTLESHIP_COMBAT_COMPUTER_4
-				}
+				has_sapient_combat_computer = yes
 				owner = { has_notification_modifier = ghost_signal_1 }
 				NOT = { has_modifier = "ship_ghost_signal_1" }
 			}
@@ -2651,7 +2570,10 @@ country_event = {
 	trigger = {
 		any_owned_planet = {
 			controller = { is_same_value = root }
-			has_spaceport = yes
+			solar_system = {
+				exists = starbase
+				starbase = { owner = { is_same_value = root } }
+			}
 		}
 		NOT = {
 			has_country_flag = machine_spaceport_scuttled
@@ -2669,8 +2591,10 @@ country_event = {
 			limit = {
 				controller = { is_same_value = root }
 			}
-			destroy_fleet = spaceport
 			save_event_target_as = space_port_hijacked_planet
+			solar_system = {
+				starbase = { fleet = { destroy_fleet = this } }
+			}
 		}
 	}
 	
@@ -2759,7 +2683,6 @@ country_event = {
 		any_owned_planet = {
 			any_tile = {
 				OR = {
-					has_building = building_basic_power_plant
 					has_building = building_power_plant_1
 					has_building = building_power_plant_2
 					has_building = building_power_plant_3
@@ -2781,7 +2704,6 @@ country_event = {
 				limit = {
 					any_tile = {
 						OR = {
-							has_building = building_basic_power_plant
 							has_building = building_power_plant_1
 							has_building = building_power_plant_2
 							has_building = building_power_plant_3
@@ -2796,7 +2718,6 @@ country_event = {
 				random_tile = {
 					limit = {
 						OR = {
-							has_building = building_basic_power_plant
 							has_building = building_power_plant_1
 							has_building = building_power_plant_2
 							has_building = building_power_plant_3
@@ -2839,10 +2760,6 @@ country_event = {
 		any_owned_planet = {
 			any_tile = {
 				OR = {
-					has_building = building_mineral_silo_1
-					has_building = building_mineral_silo_2
-					has_building = building_mineral_silo_3
-					has_building = building_basic_mine
 					has_building = building_mining_network_1
 					has_building = building_mining_network_2
 					has_building = building_mining_network_3
@@ -3323,7 +3240,12 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		has_spaceport = yes
+		solar_system = {
+			exists = starbase
+			starbase = {
+				owner = { is_same_value = root.owner }
+			}
+		}
 		NOT = {
 			owner = { has_country_flag = synth_spaceport_bombing }
 		}
@@ -3332,7 +3254,9 @@ planet_event = {
 
 	immediate = {
 		owner = { set_country_flag = synth_spaceport_bombing }
-		destroy_fleet = spaceport
+		solar_system = {
+			starbase = { fleet = { destroy_fleet = this } }
+		}
 	}
 	
 	option = {
@@ -3515,13 +3439,7 @@ country_event = {
 
 	trigger = {
 		any_owned_ship = {
-			OR = {
-				has_component = COMBAT_COMPUTER_SAPIENT
-				has_component = CORVETTE_COMBAT_COMPUTER_4
-				has_component = DESTROYER_COMBAT_COMPUTER_4
-				has_component = CRUISER_COMBAT_COMPUTER_4
-				has_component = BATTLESHIP_COMBAT_COMPUTER_4
-			}
+			has_sapient_combat_computer = yes
 		}
 	}
 	
@@ -3926,7 +3844,6 @@ country_event = {
 			}
 			every_controlled_planet = {
 				limit = { is_planet_class = pc_cybrex }
-				set_planet_max_health = 0
 				change_pc = pc_ringworld_habitable
 				reset_planet = yes
 			}
@@ -3998,7 +3915,7 @@ country_event = {
 			type = admiral
 			species = owner_main_species
 			name = random
-			skill = 800
+			skill = 5
 			traits = {
 				trait = leader_trait_cybrex
 			}
@@ -4010,7 +3927,7 @@ country_event = {
 				effect = {
 					set_owner = event_target:cybrex
 					while = {
-						count = 16
+						count = 10
 						create_ship = {
 							name = random
 							design = "NAME_Taciturn"
@@ -4019,7 +3936,7 @@ country_event = {
 					}
 					assign_leader = last_created_leader
 					while = {
-						count = 38
+						count = 20
 						create_ship = {
 							name = random
 							design = "NAME_Reticent"
@@ -4037,43 +3954,6 @@ country_event = {
 					set_fleet_stance = aggressive
 					set_aggro_range_measure_from = self
 					set_fleet_flag = cybrex_attack_fleet
-					
-					queue_actions = {
-						repeat = {
-							find_closest_system = {
-								trigger = {
-									id = "crisis.2420.trigger.1"
-									any_planet = {
-										exists = owner
-										owner = { is_same_value = event_target:contingency }
-									}
-									NOT = {
-										any_ship_in_system = {
-											fleet = { is_same_value = event_target:cybrex_fleet }
-										}
-									}
-								}
-								found_system = {
-									move_to = THIS
-								}	
-							}
-							find_closest_planet = {
-								trigger = {
-									id = "crisis.2420.trigger.2"
-									exists = owner
-									owner = { is_same_value = event_target:contingency }
-								}
-								found_planet = {
-									orbit_planet = THIS
-									wait = { duration = 60 }
-									effect = {
-										id = crisis.2420.e1
-										planet_event = { id = crisis.2476 days = 40 }
-									}
-								}
-							}
-						}
-					}
 				}
 			}
 		}
@@ -4100,7 +3980,7 @@ country_event = {
 			type = admiral
 			species = owner_main_species
 			name = random
-			skill = 800
+			skill = 5
 			traits = {
 				trait = leader_trait_cybrex
 			}
@@ -4112,7 +3992,7 @@ country_event = {
 				effect = {
 					set_owner = event_target:cybrex
 					while = {
-						count = 16
+						count = 10
 						create_ship = {
 							name = random
 							design = "NAME_Taciturn"
@@ -4121,7 +4001,7 @@ country_event = {
 					}
 					assign_leader = last_created_leader
 					while = {
-						count = 38
+						count = 20
 						create_ship = {
 							name = random
 							design = "NAME_Reticent"
@@ -4139,43 +4019,6 @@ country_event = {
 					set_fleet_stance = aggressive
 					set_aggro_range_measure_from = self
 					set_fleet_flag = cybrex_attack_fleet
-					
-					queue_actions = {
-						repeat = {
-							find_closest_system = {
-								trigger = {
-									id = "crisis.2421.trigger.1"
-									any_planet = {
-										exists = owner
-										owner = { is_same_value = event_target:contingency }
-									}
-									NOT = {
-										any_ship_in_system = {
-											fleet = { is_same_value = event_target:cybrex_fleet }
-										}
-									}
-								}
-								found_system = {
-									move_to = THIS
-								}	
-							}
-							find_closest_planet = {
-								trigger = {
-									id = "crisis.2421.trigger.2"
-									exists = owner
-									owner = { is_same_value = event_target:contingency }
-								}
-								found_planet = {
-									orbit_planet = THIS
-									wait = { duration = 60 }
-									effect = {
-										id = crisis.2421.e1
-										planet_event = { id = crisis.2476 days = 40 }
-									}
-								}
-							}
-						}
-					}
 				}
 			}
 		}
@@ -4255,7 +4098,7 @@ country_event = {
 					effect = {
 						set_owner = event_target:cybrex # For Cybrex ship names and difficulty modifiers
 						while = {
-							count = 16
+							count = 10
 							create_ship = {
 								name = random
 								design = "NAME_Taciturn"
@@ -4263,7 +4106,7 @@ country_event = {
 							}
 						}
 						while = {
-							count = 38
+							count = 20
 							create_ship = {
 								name = random
 								design = "NAME_Reticent"
@@ -4276,6 +4119,10 @@ country_event = {
 							angle = random
 						}
 						set_owner = root
+					}
+					settings = {
+						uses_naval_capacity = no
+						can_disband = no
 					}
 				}
 			}
@@ -4340,8 +4187,7 @@ planet_event = {
 	}
 	
 	immediate = {
-		destroy_colony = { keep_buildings = no }
-		set_planet_max_health = 0
+		destroy_colony = yes
 		change_pc = pc_ringworld_habitable
 		reset_planet = yes
 	}
@@ -4355,18 +4201,13 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		owner = { is_same_value = event_target:contingency }
+		owner = { is_country_type = ai_empire }
 		NOT = { is_planet_class = pc_ai }
 		has_ground_combat = no
-		event_target:cybrex = {
-			any_owned_fleet = {
-				exists = orbit
-				orbit = { is_same_value = root }
-			}
-		}
+		from = { is_country_type = cybrex_empire }
 	}
 	
 	immediate = {
-		destroy_colony = { keep_buildings = yes }
+		destroy_colony = yes
 	}
 }

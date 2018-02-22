@@ -46,7 +46,7 @@ entity = {
 
 entity = {
 	name = "molluscoid_01_turret_energy_torpedo_entity"
-	pdxmesh = "molluscoid_01_turret_projectile_medium_mesh"
+	pdxmesh = "molluscoid_01_turret_projectile_large_mesh"
 	
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"
@@ -1001,6 +1001,13 @@ entity = {
 		event = { time = 19.0 node = "part2" particle = "large_player_ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 	}
 	
+	state = { name = "kill_planet" animation = "death" looping = no next_state = "kill_planet_looping"
+		event = { time = 1000 id = "beam_start" } #will never fire, but lets the game know that an event with this ID exists
+	}
+	state = { name = "kill_planet_looping" animation = "idle"
+		event = { time = 0	id = "beam_start" }	
+	}
+	
 	scale = 1.0
 	
 	game_data = {
@@ -1388,6 +1395,8 @@ entity = {
 		event = { time = 4.63 node = "ship_main" particle = "large_ship_explosion_particle" }
 	}
 	
+	state = { name = "kill_planet"	animation = "idle" } # TODO [HL]: Debug
+	
 	game_data = {
 		size = @constructor_scale
 		emissive_recolor_crunch = 10.0
@@ -1477,6 +1486,14 @@ entity = {
 		event = { time = 3.26 node = "cons_explosion_locator4" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 		event = { time = 3.9 node = "cons_explosion_locator5" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 		event = { time = 4.1 node = "cons_explosion_locator6" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
+	}
+	
+	# TODO [HL]: Debug
+	state = { name = "kill_planet"						animation = "working"		looping = no	next_state = kill_planet_looping 
+		event = { time = 1000 id = "beam_start" }#will never fire, but lets the game know that an event with this ID exists
+	}
+	state = { name = "kill_planet_looping"				animation = "working_looping"
+		event = { time = 0	id = "beam_start" }
 	}
 	
 	game_data = {		
@@ -1735,6 +1752,8 @@ entity = {
 	name = "molluscoid_01_orbital_station_assemblyyard_section_entity"
 	pdxmesh = "molluscoid_01_orbital_station_assemblyyard_section_mesh"
 	
+	locator = { name = "root" position = { 0 0 0 } }
+	
 	default_state = "idle"
 	state = { name = "idle" state_time = 5
 		event = { time = 0.0 node = "light_locator_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
@@ -1751,6 +1770,8 @@ entity = {
 entity = {
 	name = "molluscoid_01_orbital_station_hangarbay_section_entity"
 	pdxmesh = "molluscoid_01_orbital_station_hangarbay_section_mesh"
+	
+	locator = { name = "strike_craft_locator_01"	position = { 0 0 0 } }
 	
 	default_state = "idle"
 	state = { name = "idle" state_time = 5

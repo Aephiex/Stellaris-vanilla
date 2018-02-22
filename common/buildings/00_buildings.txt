@@ -65,7 +65,6 @@
 
 @natural_equilibrium_happiness = 0.02
 
-
 ########################
 ### Empire Unique buildings ###
 ########################
@@ -75,8 +74,8 @@ building_galactic_stock_exchange = {
 	empire_unique = yes
 	
 	cost = {
-		minerals = 500
-		influence = 100
+		minerals = 300
+		influence = 150
 	}
 	
 	produced_resources = {
@@ -106,12 +105,12 @@ building_galactic_stock_exchange = {
 	
 	allow = {
 		custom_tooltip = {
-			text = "requires_any_empire_capital"
+			text = "requires_building_capital_2"
 			planet = {
 				OR = {
+					has_building = "building_capital_2"
 					has_building = "building_capital_3"
-					has_building = "building_hab_capital"
-				}		
+				}
 			}
 		}
 	}
@@ -134,8 +133,8 @@ building_ministry_benevolence = {
 	empire_unique = yes
 	
 	cost = {
-		minerals = 500
-		influence = 100
+		minerals = 300
+		influence = 150
 	}
 	
 	required_resources = {
@@ -174,12 +173,12 @@ building_ministry_benevolence = {
 	
 	allow = {
 		custom_tooltip = {
-			text = "requires_any_empire_capital"
+			text = "requires_building_capital_2"
 			planet = {
 				OR = {
+					has_building = "building_capital_2"
 					has_building = "building_capital_3"
-					has_building = "building_hab_capital"
-				}		
+				}
 			}
 		}
 	}
@@ -197,8 +196,8 @@ building_institute = {
 	empire_unique = yes
 	
 	cost = {
-		minerals = 500
-		influence = 100
+		minerals = 300
+		influence = 150
 	}
 	
 	produced_resources = {
@@ -238,12 +237,12 @@ building_institute = {
 	
 	allow = {
 		custom_tooltip = {
-			text = "requires_any_empire_capital"
+			text = "requires_building_capital_2"
 			planet = {
 				OR = {
+					has_building = "building_capital_2"
 					has_building = "building_capital_3"
-					has_building = "building_hab_capital"
-				}		
+				}
 			}
 		}
 	}
@@ -282,6 +281,9 @@ building_psi_corps = {
 		owner = {
 			has_ascension_perk = ap_mind_over_matter
 		}
+		planet = {
+			is_capital = yes
+		}		
 	}
 
 	destroy_if = {
@@ -291,9 +293,13 @@ building_psi_corps = {
 	
 	allow = {
 		custom_tooltip = {
-			text = "requires_building_capital_3"
+			fail_text = "requires_building_capital_1"
 			planet = {
-				has_building = "building_capital_3"
+				OR = {
+					has_building = "building_capital_1"
+					has_building = "building_capital_2"
+					has_building = "building_capital_3"
+				}
 			}
 		}
 	}
@@ -616,53 +622,6 @@ building_xeno_zoo = {
 #	ENERGY
 #
 
-building_basic_power_plant = {
-	base_buildtime = @b0time
-	
-	cost = {
-		minerals = @b0cost
-	}
-
-	potential = {
-		planet = {
-			NOT = { is_planet_class = pc_habitat }
-			OR = {
-				has_building = "building_colony_shelter"
-				has_building = "building_deployment_post"
-			}
-		}	
-	}
-	
-	produced_resources = {
-		energy = 1
-	}
-	
-	upgrades = {
-		building_power_plant_1
-	}
-	
-	ai_allow = {
-		NOR = {
-			has_resource = {
-				type = sr_betharian
-				amount > 0
-			}	
-			has_resource = {
-				type = sr_alien_pets
-				amount > 0
-			}				
-		}
-	}	
-	
-	ai_weight = {
-		factor = 1
-		modifier = {
-			factor = 0.25
-			is_slave_tile_or_planet = yes			
-		}
-	}
-}
-
 building_power_plant_1 = {
 	base_buildtime = @b1time
 	
@@ -686,41 +645,6 @@ building_power_plant_1 = {
 	
 	prerequisites = {
 		"tech_power_plant_1"
-	}
-	
-	allow = {
-		if = {
-			limit = {
-				owner = {
-					NOT = { has_authority = auth_machine_intelligence }
-				}
-			}
-			custom_tooltip = {
-				text = "requires_building_capital_1"
-				planet = {
-					OR = {
-						has_building = "building_capital_1"
-						has_building = "building_capital_2"
-						has_building = "building_capital_3"
-					}
-				}
-			}
-		}
-		if = {
-			limit = {
-				owner = { has_authority = auth_machine_intelligence }
-			}
-			custom_tooltip = {
-				text = "requires_building_machine_capital_1"
-				planet = {
-					OR = {
-						has_building = "building_machine_capital_1"
-						has_building = "building_machine_capital_2"
-						has_building = "building_machine_capital_3"
-					}
-				}
-			}
-		}
 	}
 	
 	ai_allow = {
@@ -1211,90 +1135,6 @@ building_power_hub_2 = {
 #	FOOD
 #
 
-building_basic_farm = {
-	tags = { hydroponics_farm }
-
-	base_buildtime = @b0time
-	
-	cost = {
-		minerals = @b0cost
-	}
-
-	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
-
-	potential = {
-		NOT = {
-			owner = { has_authority = auth_machine_intelligence }
-		}
-		planet = {
-			NOT = { is_planet_class = pc_habitat }	
-			OR = {
-				has_building = "building_colony_shelter"
-				has_building = "building_deployment_post"
-			}
-		}
-	}
-
-	destroy_if = {
-		exists = owner
-		owner = { has_authority = auth_machine_intelligence }
-	}
-	
-	produced_resources = {
-		food = 1
-	}
-	
-	produced_resource_trigger = {
-		modifier = {
-			has_valid_civic = civic_agrarian_idyll
-			NOT = { has_swapped_tradition = tr_adaptability_finish }
-			resources = {
-				unity = 1
-			}
-		}
-		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
-			NOT = { has_valid_civic = civic_agrarian_idyll }
-			resources = {
-				minerals = 1
-			}
-		}
-		modifier = {
-			has_swapped_tradition = tr_adaptability_finish
-			has_valid_civic = civic_agrarian_idyll
-			resources = {
-				unity = 1
-				minerals = 1
-			}
-		}		
-	}
-	
-	required_resources = {
-		energy = @b0upkeep
-	}
-	
-	upgrades = {
-		building_hydroponics_farm_1
-	}
-	
-	ai_allow = {
-		NOR = {
-			has_resource = {
-				type = sr_betharian
-				amount > 0
-			}	
-			has_resource = {
-				type = sr_alien_pets
-				amount > 0
-			}				
-		}		
-	}
-
-	ai_weight = {
-		factor = 1
-	}
-}
-
 building_hydroponics_farm_1 = {
 	tags = { hydroponics_farm }
 
@@ -1359,19 +1199,6 @@ building_hydroponics_farm_1 = {
 	destroy_if = {
 		exists = owner
 		owner = { has_authority = auth_machine_intelligence }
-	}
-	
-	allow = {
-		custom_tooltip = {
-			text = "requires_building_capital_1"
-			planet = {
-				OR = {
-					has_building = "building_capital_1"
-					has_building = "building_capital_2"
-					has_building = "building_capital_3"
-				}
-			}
-		}
 	}
 	
 	ai_allow = {
@@ -1719,232 +1546,6 @@ building_hydroponics_farm_5 = {
 #	MINERALS
 #
 
-building_mineral_silo_1 = {
-	base_buildtime = @b1time
-	planet_unique = yes
-	
-	cost = {
-		minerals = @b1cost
-	}
-	
-	potential = {
-		planet = {
-			NOT = { is_planet_class = pc_habitat }	
-		}
-	}
-	
-	country_modifier = {
-		max_minerals = 2000
-	}
-	
-	adjacency_bonus = {
-		tile_building_resource_minerals_add = 1
-	}
-	
-	upgrades = {
-		building_mineral_silo_2
-	}
-
-	ai_allow = {
-		NOR = {
-			has_resource = {
-				type = sr_betharian
-				amount > 0
-			}	
-			has_resource = {
-				type = sr_alien_pets
-				amount > 0
-			}				
-		}
-	}
-
-	ai_weight = {
-		factor = 1
-	}	
-}
-
-building_mineral_silo_2 = {
-	base_buildtime = @b2time
-	icon = "building_mineral_silo_1"
-	planet_unique = yes
-	
-	is_listed = no
-	
-	cost = {
-		minerals = @b2cost
-	}
-	
-	potential = {
-		planet = {
-			NOT = { is_planet_class = pc_habitat }	
-		}
-	}		
-	
-	allow = {
-		if = {
-			limit = {
-				owner = {
-					NOT = { has_authority = auth_machine_intelligence }
-				}
-			}
-			custom_tooltip = {
-				text = "requires_building_capital_1"
-				planet = {
-					OR = {
-						has_building = "building_capital_1"
-						has_building = "building_capital_2"
-						has_building = "building_capital_3"
-					}
-				}
-			}
-		}
-		if = {
-			limit = {
-				owner = { has_authority = auth_machine_intelligence }
-			}
-			custom_tooltip = {
-				text = "requires_building_machine_capital_1"
-				planet = {
-					OR = {
-						has_building = "building_machine_capital_1"
-						has_building = "building_machine_capital_2"
-						has_building = "building_machine_capital_3"
-					}
-				}
-			}
-		}
-	}
-	
-	country_modifier = {
-		max_minerals = 3000
-	}
-	
-	adjacency_bonus = {
-		tile_building_resource_minerals_add = 1
-	}
-	
-	prerequisites = {
-		"tech_mineral_processing_1"
-	}
-	
-	upgrades = {
-		building_mineral_silo_3
-	}	
-}
-
-building_mineral_silo_3 = {
-	base_buildtime = @b3time
-	icon = "building_mineral_silo_1"
-	planet_unique = yes
-	
-	is_listed = no
-	
-	cost = {
-		minerals = @b3cost
-	}
-
-	potential = {
-		planet = {
-			NOT = { is_planet_class = pc_habitat }	
-		}
-	}	
-	
-	allow = {
-		if = {
-			limit = {
-				owner = {
-					NOT = { has_authority = auth_machine_intelligence }
-				}
-			}
-			custom_tooltip = {
-				text = "requires_building_capital_2"
-				planet = {
-					OR = {
-						has_building = "building_capital_2"
-						has_building = "building_capital_3"
-					}
-				}
-			}
-		}
-		if = {
-			limit = {
-				owner = { has_authority = auth_machine_intelligence }
-			}
-			custom_tooltip = {
-				text = "requires_building_machine_capital_2"
-				planet = {
-					OR = {
-						has_building = "building_machine_capital_2"
-						has_building = "building_machine_capital_3"
-					}
-				}
-			}
-		}
-	}
-	
-	country_modifier = {
-		max_minerals = 4000
-	}
-	
-	adjacency_bonus = {
-		tile_building_resource_minerals_add = 1
-	}
-	
-	prerequisites = {
-		"tech_mineral_processing_2"
-	}	
-}
-
-
-building_basic_mine = {
-	tags = { mining_network }
-
-	base_buildtime = @b0time
-	
-	potential = {
-		planet = {
-			NOT = { is_planet_class = pc_habitat }	
-			OR = {
-				has_building = "building_colony_shelter"
-				has_building = "building_deployment_post"
-			}
-		}
-	}
-	
-	cost = {
-		minerals = @b0cost
-	}
-	
-	produced_resources = {
-		minerals = 1
-	}
-	
-	required_resources = {
-		energy = @b0upkeep
-	}	
-	
-	upgrades = {
-		building_mining_network_1
-	}
-	
-	ai_allow = {
-		NOR = {
-			has_resource = {
-				type = sr_betharian
-				amount > 0
-			}	
-			has_resource = {
-				type = sr_alien_pets
-				amount > 0
-			}				
-		}
-	}
-
-	ai_weight = {
-		factor = 1
-	}	
-}
-
 building_mining_network_1 = {
 	tags = { mining_network }
 
@@ -1974,41 +1575,6 @@ building_mining_network_1 = {
 	
 	prerequisites = {
 		"tech_basic_industry"
-	}
-	
-	allow = {
-		if = {
-			limit = {
-				owner = {
-					NOT = { has_authority = auth_machine_intelligence }
-				}
-			}
-			custom_tooltip = {
-				text = "requires_building_capital_1"
-				planet = {
-					OR = {
-						has_building = "building_capital_1"
-						has_building = "building_capital_2"
-						has_building = "building_capital_3"
-					}
-				}
-			}
-		}
-		if = {
-			limit = {
-				owner = { has_authority = auth_machine_intelligence }
-			}
-			custom_tooltip = {
-				text = "requires_building_machine_capital_1"
-				planet = {
-					OR = {
-						has_building = "building_machine_capital_1"
-						has_building = "building_machine_capital_2"
-						has_building = "building_machine_capital_3"
-					}
-				}
-			}
-		}
 	}
 	
 	ai_allow = {
@@ -2435,6 +2001,70 @@ building_mineral_processing_plant_2 = {
 	
 	prerequisites = {
 		"tech_mineral_processing_2"
+	}
+}
+
+#
+# Matter Generator
+#
+
+building_replicator = {
+	base_buildtime = 720
+	
+	cost = {
+		minerals = 500
+	}
+	
+	allow = {
+		if = {
+			limit = {
+				owner = {
+					NOT = { has_authority = auth_machine_intelligence }
+				}
+			}
+			custom_tooltip = {
+				text = "requires_building_capital_2"
+				planet = {
+					OR = {
+						has_building = "building_capital_2"
+						has_building = "building_capital_3"
+						has_building = "building_hab_capital"
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { has_authority = auth_machine_intelligence }
+			}
+			custom_tooltip = {
+				text = "requires_building_machine_capital_2"
+				planet = {
+					OR = {
+						has_building = "building_machine_capital_2"
+						has_building = "building_machine_capital_3"
+						has_building = "building_hab_capital"
+					}
+				}
+			}
+		}
+	}
+	
+	planet_modifier = {
+		static_planet_resource_minerals_add = 30
+	}
+	
+	required_resources = {
+		energy = 50
+	}
+	
+	prerequisites = {
+		"tech_matter_generator"
+	}
+	
+	ai_replace = no	
+	ai_weight = {
+		factor = 0
 	}
 }
 
@@ -3351,7 +2981,13 @@ building_autochthon_monument = {
 		minerals = 100
 	}
 	
-	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
+	show_tech_unlock_if = { 
+		NOR = {
+			has_ethic = ethic_spiritualist		
+			has_ethic = ethic_fanatic_spiritualist
+			has_authority = auth_machine_intelligence
+		}
+	}
 
 	potential = {
 		owner = {
@@ -3583,6 +3219,13 @@ building_temple = {
 		energy = 1
 	}
 	
+	show_tech_unlock_if = { 
+		OR = {
+			has_ethic = ethic_spiritualist		
+			has_ethic = ethic_fanatic_spiritualist
+		}
+	}	
+	
 	potential = { 	
 		owner = {
 			OR = {
@@ -3794,6 +3437,7 @@ building_colony_shelter = {
 	planet_unique = yes
 	capital = yes
 	level = 0
+	defense_armies = 1
 	
 	cost = {
 	}
@@ -3856,6 +3500,7 @@ building_capital_1 = {
 	planet_unique = yes
 	capital = yes
 	level = 1
+	defense_armies = 3
 	
 	cost = {
 		minerals = 350
@@ -3934,6 +3579,7 @@ building_capital_1 = {
 building_capital_2 = {
 	base_buildtime = 720
 	is_listed = no
+	defense_armies = 5
 	
 	cost = {
 		minerals = 500
@@ -4020,6 +3666,7 @@ building_capital_3 = {
 	capital = yes
 	empire_unique = yes
 	level = 3
+	defense_armies = 7
 	
 	cost = {
 		minerals = 1000
@@ -4098,37 +3745,48 @@ building_clone_vats = {
 	required_resources = {
 		energy = 2
 	}
-	
-	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
 
 	potential = {
-		NOT = {
-			owner = { has_authority = auth_machine_intelligence }
-		}
 		planet = {
 			NOT = { is_planet_class = pc_habitat }	
 		}
 	}	
-
-	destroy_if = {
-		exists = owner
-		owner = { has_authority = auth_machine_intelligence }
-	}
 	
 	allow = {
-		custom_tooltip = {
-			text = "requires_building_capital_2"
-			planet = {
-				OR = {
-					has_building = "building_capital_2"
-					has_building = "building_capital_3"
+		if = {
+			limit = {
+				owner = {
+					NOT = { has_authority = auth_machine_intelligence }
+				}
+			}
+			custom_tooltip = {
+				text = "requires_building_capital_2"
+				planet = {
+					OR = {
+						has_building = "building_capital_2"
+						has_building = "building_capital_3"
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { has_authority = auth_machine_intelligence }
+			}
+			custom_tooltip = {
+				text = "requires_building_machine_capital_2"
+				planet = {
+					OR = {
+						has_building = "building_machine_capital_2"
+						has_building = "building_machine_capital_3"
+					}
 				}
 			}
 		}
 	}
 	
 	prerequisites = {
-		"tech_cloning"
+		"tech_gene_banks"
 	}
 	
 	ai_allow = {
@@ -4165,7 +3823,7 @@ building_clone_vats = {
 			from = {
 				owner = {
 					NOT = {
-						has_technology = tech_cloning
+						has_technology = tech_gene_banks
 						OR = {
 							has_ethic = ethic_militarist
 							has_ethic = ethic_fanatic_militarist
@@ -4178,23 +3836,28 @@ building_clone_vats = {
 	}
 }
 
-# Grants additional fortification strength to planets
+# Increases the time it takes to bombard the planet
 building_planetary_shield_generator = {
 	icon = "building_shield_generator"
 	base_buildtime = 360	
 	planet_unique = yes
+	immune_to_bombardment = yes
 	
 	cost = {
-		minerals = 350
+		minerals = 500
+	}
+	
+	required_resources = {
+		energy = 5
 	}
 	
 	planet_modifier = {
-		planet_fortification_strength = 1
+		planet_orbital_bombardment_damage = -0.75
 	}
 
 	produced_resources = {
-		engineering_research = 2
-		physics_research = 2
+		engineering_research = 3
+		physics_research = 3
 	}	
 	
 	potential = {
@@ -4211,9 +3874,10 @@ building_planetary_shield_generator = {
 				}
 			}
 			custom_tooltip = {
-				text = "requires_building_capital_2"
+				text = "requires_building_capital_1"
 				planet = {
 					OR = {
+						has_building = "building_capital_1"
 						has_building = "building_capital_2"
 						has_building = "building_capital_3"
 					}
@@ -4225,9 +3889,10 @@ building_planetary_shield_generator = {
 				owner = { has_authority = auth_machine_intelligence }
 			}
 			custom_tooltip = {
-				text = "requires_building_machine_capital_2"
+				text = "requires_building_machine_capital_1"
 				planet = {
 					OR = {
+						has_building = "building_machine_capital_1"
 						has_building = "building_machine_capital_2"
 						has_building = "building_machine_capital_3"
 					}
@@ -4283,7 +3948,7 @@ building_slave_processing = {
 	planet_modifier = {
 		slave_mineral_output = 0.10
 		slave_food_output = 0.10
-		country_unrest_unhappy_slave_effect_mult = -0.50
+		country_unrest_unhappy_slave_effect_mult = -0.25
 	}	
 	
 	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
@@ -4512,6 +4177,7 @@ building_hospital = {
 building_military_academy = {
 	base_buildtime = 360
 	planet_unique = yes
+	defense_armies = 2
 	
 	cost = {
 		minerals = 200
@@ -4554,14 +4220,14 @@ building_military_academy = {
 	required_resources = {
 		energy = 2
 	}
-
+	
 	army_modifier = {
-		army_damage_mult = 0.10
+		army_starting_experience_add = 100
 	}
 	
 	planet_modifier = {
-		planet_army_build_speed_mult = 0.25
-		planet_unrest_add = -10
+		planet_army_build_speed_mult = 0.50
+		planet_unrest_add = -10	
 	}
 	
 	prerequisites = {
@@ -4815,16 +4481,196 @@ building_symbol_purity = {
 	planet_modifier = {
 		pop_government_ethic_attraction = 0.20
 	}
+
+	ai_weight = {
+		factor = 10
+	}
+}
+
+###############################
+###       Fortresses	    ###
+###############################
+building_stronghold = {
+	base_buildtime = 180
+	is_listed = yes
+	defense_armies = 3
+	protects_from_bombardment = yes
+	
+	planetary_ftl_inhibitor = yes
+	
+	prerequisites = {
+		"tech_planetary_defenses"
+	}
+	
+	cost = {
+		minerals = 300
+	}
+	
+	produced_resources = {
+		unity = 1
+	}
+	
+	required_resources = {
+		energy = 2
+	}
+	
+	upgrades = {
+		building_fortress
+	}
+	
+	planet_modifier = {
+		planet_unrest_add = -30
+	}
+
+	ai_weight = {
+		weight = 1000
+		modifier = {
+			factor = 0
+			years_passed < 25
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 12
+						OR = {
+							has_building = "building_capital_1"
+							has_building = "building_capital_2"
+							has_building = "building_capital_3"	
+							has_building = "building_machine_capital_1"
+							has_building = "building_machine_capital_2"
+							has_building = "building_machine_capital_3"							
+						}							
+					}				
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 16
+						OR = {
+							has_building = "building_capital_2"
+							has_building = "building_capital_3"	
+							has_building = "building_machine_capital_2"
+							has_building = "building_machine_capital_3"							
+						}						
+					}					
+				}
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold
+							has_building = building_fortress
+						}
+					}
+					count > 0					
+				}				
+			}
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 20
+						OR = {
+							has_building = "building_capital_2"
+							has_building = "building_capital_3"	
+							has_building = "building_machine_capital_2"
+							has_building = "building_machine_capital_3"							
+						}						
+					}				
+				}
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold
+							has_building = building_fortress
+						}
+					}
+					count > 1					
+				}				
+			}
+		}	
+		modifier = {
+			factor = 0
+			planet = {
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold
+							has_building = building_fortress
+						}
+					}
+					count > 2					
+				}
+			}
+		}
+	}
+}
+
+building_fortress = {
+	base_buildtime = 180
+	is_listed = no
+	defense_armies = 5
+	protects_from_bombardment = yes
+	
+	planetary_ftl_inhibitor = yes
+	
+	prerequisites = {
+		"tech_global_defense_grid"
+	}
+	
+	cost = {
+		minerals = 500
+	}
+	
+	produced_resources = {
+		unity = 2
+	}
+	
+	required_resources = {
+		energy = 4
+	}
+	
+	planet_modifier = {
+		planet_unrest_add = -50
+	}
 	
 	allow = {
-		AND = {
+		if = {
+			limit = {
+				owner = {
+					NOT = { has_authority = auth_machine_intelligence }
+				}
+			}
 			custom_tooltip = {
-				fail_text = "requires_building_capital_1"
+				text = "requires_building_capital_2"
 				planet = {
 					OR = {
-						has_building = "building_capital_1"
 						has_building = "building_capital_2"
 						has_building = "building_capital_3"
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				owner = { has_authority = auth_machine_intelligence }
+			}
+			custom_tooltip = {
+				text = "requires_building_machine_capital_2"
+				planet = {
+					OR = {
+						has_building = "building_machine_capital_2"
+						has_building = "building_machine_capital_3"
 					}
 				}
 			}
@@ -4832,6 +4678,95 @@ building_symbol_purity = {
 	}
 
 	ai_weight = {
-		factor = 10
+		weight = 10
+		modifier = {
+			factor = 0
+			years_passed < 25
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 12
+						OR = {
+							has_building = "building_capital_1"
+							has_building = "building_capital_2"
+							has_building = "building_capital_3"	
+							has_building = "building_machine_capital_1"
+							has_building = "building_machine_capital_2"
+							has_building = "building_machine_capital_3"							
+						}							
+					}				
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 16
+						OR = {
+							has_building = "building_capital_2"
+							has_building = "building_capital_3"	
+							has_building = "building_machine_capital_2"
+							has_building = "building_machine_capital_3"							
+						}						
+					}					
+				}
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold
+							has_building = building_fortress
+						}
+					}
+					count > 0					
+				}				
+			}
+		}
+		modifier = {
+			factor = 0
+			planet = {
+				NOR = {
+					unrest > 50
+					AND = {
+						planet_size > 20
+						OR = {
+							has_building = "building_capital_2"
+							has_building = "building_capital_3"	
+							has_building = "building_machine_capital_2"
+							has_building = "building_machine_capital_3"							
+						}						
+					}				
+				}
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold
+							has_building = building_fortress
+						}
+					}
+					count > 1					
+				}				
+			}
+		}	
+		modifier = {
+			factor = 0
+			planet = {
+				count_tile = {
+					limit = {
+						OR = {
+							has_building = building_stronghold
+							has_building = building_fortress
+						}
+					}
+					count > 2					
+				}
+			}
+		}
 	}
 }

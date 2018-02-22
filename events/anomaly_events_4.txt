@@ -155,7 +155,7 @@ ship_event = {
 			enable_special_project = {
 				name = "CRYSTAL_CODEX_PROJECT"
 				location = this
-				owner = root
+				owner = root.owner
 			}
 		}
 		hidden_effect = { owner = { country_event = { id = story.5 days = 30 } } }
@@ -208,7 +208,7 @@ ship_event = {
 			enable_special_project = {
 				name = "ALIEN_BARRACKS_PROJECT"
 				location = this
-				owner = root
+				owner = root.owner
 			}
 		}
 		hidden_effect = { owner = { country_event = { id = story.5 days = 30 } } }
@@ -285,7 +285,7 @@ ship_event = {
 			enable_special_project = {
 				name = "ROBOT_MINERALS_PROJECT"
 				location = this
-				owner = root
+				owner = root.owner
 			}
 		}
 		hidden_effect = { owner = { country_event = { id = story.5 days = 30 } } }
@@ -349,7 +349,6 @@ ship_event = {
 						set_owner = prev
 						create_ship_design = {
 							design = "NAME_Reaver"
-							ftl = event_target:owner_country
 						}
 						create_ship = {
 							graphical_culture = "pirate_01"
@@ -453,7 +452,6 @@ ship_event = {
 						set_owner = prev
 						create_ship_design = {
 							design = "NAME_Reaver"
-							ftl = event_target:owner_country
 						}
 						create_ship = {
 							graphical_culture = "pirate_01"
@@ -512,7 +510,6 @@ ship_event = {
 						set_owner = prev
 						create_ship_design = {
 							design = "NAME_Reaver"
-							ftl = event_target:owner_country
 						}
 						create_ship = {
 							graphical_culture = "pirate_01"
@@ -605,7 +602,7 @@ ship_event = {
 			enable_special_project = {
 				name = "BALANCE_ECOSYSTEM_PROJECT"
 				location = this
-				owner = root
+				owner = root.owner
 			}
 		}
 		hidden_effect = {
@@ -710,7 +707,7 @@ ship_event = {
 			enable_special_project = {
 				name = "HEAD_IN_SAND_PROJECT"
 				location = this
-				owner = root
+				owner = root.owner
 			}
 		}
 	}
@@ -735,7 +732,7 @@ ship_event = {
 			enable_special_project = {
 				name = "HEAD_IN_SAND_PROJECT"
 				location = this
-				owner = root
+				owner = root.owner
 			}
 		}
 	}
@@ -764,7 +761,6 @@ ship_event = {
 						set_owner = prev
 						create_ship_design = {
 							design = "NAME_Dagger"
-							ftl = event_target:owner_country
 						}
 						create_ship = {
 							graphical_culture = "pirate_01"
@@ -1010,7 +1006,7 @@ ship_event = {
 				enable_special_project = {
 					name = "THE_PRINCE_PROJECT"
 					location = this
-					owner = root
+					owner = root.owner
 				}
 			}
 		}
@@ -1211,7 +1207,7 @@ ship_event = {
 			enable_special_project = {
 				name = "EMERGENCY_BUOY_PROJECT"
 				location = this
-				owner = root
+				owner = root.owner
 			}
 		}
 	}
@@ -1314,21 +1310,56 @@ country_event = {
 	immediate = {
 		set_country_flag = captive_rescue
 		#owner_species = { save_event_target_as = owner_species }
-		random_system = {
+		if = {
 			limit = {
-				distance = {
-					source = event_target:buoy
-					max_distance = 120
-					min_distance = 5
-				}
-				any_planet = { is_asteroid = yes }
-				NOT = { has_star_flag = hostile_system }
-				OR = {
-					has_owner = no
-					is_owned_by = ROOT
+				any_system = {
+					distance = {
+						source = event_target:buoy
+						max_distance = 120
+						min_distance = 5
+					}
+					NOR = {
+						exists = space_owner
+						has_star_flag = hostile_system
+						any_ship_in_system = { always = yes }
+					}
+					any_planet = { is_asteroid = yes }
 				}
 			}
-			set_star_flag = ransomeer_system
+			random_system = {
+				limit = {
+					distance = {
+						source = event_target:buoy
+						max_distance = 120
+						min_distance = 5
+					}
+					NOR = {
+						exists = space_owner
+						has_star_flag = hostile_system
+						any_ship_in_system = { always = yes }
+					}
+					any_planet = { is_asteroid = yes }
+				}
+				set_star_flag = ransomeer_system
+				save_event_target_as = the_ransomeer_system
+			}
+			else = {
+				random_system = {
+					limit = {
+						distance = {
+							source = event_target:buoy
+							max_distance = 120
+							min_distance = 5
+						}
+						is_owned_by = ROOT
+						any_planet = { is_asteroid = yes }
+					}
+					set_star_flag = ransomeer_system
+					save_event_target_as = the_ransomeer_system
+				}
+			}
+		}
+		event_target:the_ransomeer_system = {
 			random_system_planet = {
 				limit = { is_asteroid = yes }
 				save_event_target_as = ransomeer_asteroid
@@ -1336,7 +1367,7 @@ country_event = {
 			create_country = {
 				name = "NAME_Ransomeers"
 				type = faction
-				name_list = "PRT2"
+				name_list = "PRT1"
 				auto_delete = no
 			}
 			last_created_country = {
@@ -1350,7 +1381,7 @@ country_event = {
 						set_owner = prev
 						create_ship = {
 							name = "NAME_Ingrates_Inferno"
-							design = "NAME_Pirate_Lair"
+							design = "NAME_Pirate_Nest"
 							graphical_culture = "pirate_01"
 						}
 						set_location = event_target:ransomeer_asteroid
@@ -1361,7 +1392,7 @@ country_event = {
 					type = admiral
 					species = root.owner_species
 					name = random
-					skill = 100
+					skill = 2
 				}
 				create_fleet = {
 					name = "NAME_Ransomeers"
@@ -1369,7 +1400,6 @@ country_event = {
 						set_owner = PREV
 						create_ship_design = {
 							design = "NAME_Reaver"
-							ftl = warp
 						}
 						create_ship = {
 							name = random
@@ -1561,7 +1591,7 @@ country_event = {
 		from = {
 			destroy_country = yes
 		}
-		owner = { remove_country_flag = captive_rescue }
+		remove_country_flag = captive_rescue
 	}
 
 	option = {
@@ -1590,7 +1620,7 @@ country_event = {
 		from = {
 			destroy_country = yes
 		}
-		owner = { remove_country_flag = captive_rescue }
+		remove_country_flag = captive_rescue
 	}
 
 	option = {
@@ -1619,10 +1649,8 @@ country_event = {
 		from = {
 			destroy_country = yes
 		}
-		owner = {
-			remove_country_flag = captive_rescue
-			set_country_flag = ransomeer_done
-		}
+		remove_country_flag = captive_rescue
+		set_country_flag = ransomeer_done
 	}
 
 	option = {
@@ -1785,7 +1813,7 @@ ship_event = {
 			enable_special_project = {
 				name = WRECKED_FLEET_1
 				location = this
-				owner = root
+				owner = root.owner
 			}
 		}
 	}
@@ -1979,7 +2007,7 @@ fleet_event = {
 			create_country = {
 				name = "NAME_Wreckers"
 				type = faction
-				name_list = "PRT2"
+				name_list = "PRT1"
 				auto_delete = no
 				flag = {
 					icon = {
@@ -2014,7 +2042,7 @@ fleet_event = {
 					set_owner = event_target:wreckers
 					create_ship = {
 						name = "NAME_Patchwork_Paradise"
-						design = "NAME_Pirate_Lair"
+						design = "NAME_Pirate_Nest"
 						graphical_culture = "pirate_01"
 					}
 					set_location = event_target:wrecker_asteroid
@@ -2025,7 +2053,7 @@ fleet_event = {
 				type = admiral
 				species = event_target:owner_species
 				name = random
-				skill = 100
+				skill = 2
 			}
 			create_fleet = {
 				name = "NAME_Wreckers"
@@ -2033,7 +2061,6 @@ fleet_event = {
 					set_owner = event_target:wreckers
 					create_ship_design = {
 						design = "NAME_Reaver"
-						ftl = warp
 					}
 					create_ship = {
 						name = random
@@ -2067,7 +2094,6 @@ fleet_event = {
 					}
 					create_ship_design = {
 						design = "NAME_Marauder"
-						ftl = warp
 					}
 					create_ship = {
 						name = random
@@ -2076,7 +2102,6 @@ fleet_event = {
 					}
 					create_ship_design = {
 						design = "NAME_Corsair"
-						ftl = warp
 					}
 					create_ship = {
 						name = random
@@ -2147,7 +2172,7 @@ fleet_event = {
 			enable_special_project = {
 				name = WRECKED_FLEET_2
 				location = this
-				owner = event_target:owner_species
+				owner = root.owner
 			}
 		}
 	}
@@ -2176,7 +2201,6 @@ country_event = {
 				set_owner = root
 				create_ship_design = {
 					design = "NAME_Persistent"
-					ftl = event_target:owner_species
 				}
 				create_ship = {
 					name = random
@@ -2184,7 +2208,6 @@ country_event = {
 				}
 				create_ship_design = {
 					design = "NAME_Starfang"
-					ftl = event_target:owner_species
 				}
 				create_ship = {
 					name = random
@@ -2192,7 +2215,6 @@ country_event = {
 				}
 				create_ship_design = {
 					design = "NAME_Voidstalker"
-					ftl = event_target:owner_species
 				}
 				create_ship = {
 					name = random
@@ -2204,7 +2226,6 @@ country_event = {
 				}
 				create_ship_design = {
 					design = "NAME_Seeker"
-					ftl = event_target:owner_species
 				}
 				create_ship = {
 					name = random
@@ -2212,7 +2233,6 @@ country_event = {
 				}
 				create_ship_design = {
 					design = "NAME_Sword"
-					ftl = event_target:owner_species
 				}
 				create_ship = {
 					name = random
@@ -2269,7 +2289,7 @@ country_event = {
 		}
 		if = {
 			limit = {
-				NOT = { has_technology = tech_spaceport_4 }
+				NOT = { has_technology = tech_destroyers }
 			}
 			set_country_flag = goodies
 		}
@@ -2297,16 +2317,16 @@ country_event = {
 			}
 		if = {
 			limit = {
-				has_tech_option = tech_spaceport_4
+				has_tech_option = tech_destroyers
 			}
 			add_tech_progress = {
-				tech = tech_spaceport_4
+				tech = tech_destroyers
 				progress = 0.90
 			}
 			else = {
-				add_research_option = tech_spaceport_4
+				add_research_option = tech_destroyers
 				add_tech_progress = {
-					tech = tech_spaceport_4
+					tech = tech_destroyers
 					progress = 0.6
 				}
 			}
@@ -2351,6 +2371,7 @@ ship_event = {
 				}
 			}
 		}
+		owner = { add_influence = 100 }
 	}
 
 	option = {
@@ -2362,7 +2383,7 @@ ship_event = {
 			enable_special_project = {
 				name = "MANUFACTORY_PROJECT"
 				location = this
-				owner = root
+				owner = root.owner
 			}
 		}
 	}
@@ -2552,11 +2573,11 @@ ship_event = {
 		owner = { set_country_flag = manufactory3 }
 		random_country = {
 			limit = { is_country_type = drone }
-			save_event_target_as = drone_country
+			save_event_target_as = drone_country2
 			create_fleet = {
 				name = "NAME_Tricksy_Mining_Drones"
 				effect = {
-					set_owner = event_target:drone_country
+					set_owner = event_target:drone_country2
 					create_ship = {
 						name = "NAME_Drone_1433-D"
 						design = "NAME_Ancient_Mining_Drone"

@@ -1,7 +1,4 @@
-@cost = 56
-
 tr_harmony_adopt = {
-	cost = { unity = @cost }
 	modifier = {
 		pop_growth_speed = 0.25
 	}
@@ -95,10 +92,9 @@ tr_harmony_finish = {
 }
 
 tr_harmony_the_greater_good = {
-	cost = { unity = @cost }
 	
 	modifier = {
-		planet_unrest_mult = -0.25
+		planet_unrest_mult = -0.20
 	}
 
 	tradition_swap = {
@@ -126,7 +122,6 @@ tr_harmony_the_greater_good = {
 }
 
 tr_harmony_kinship = {
-	cost = { unity = @cost }
 	
 	modifier = {
 		mod_distance_to_capital_static_modifier_efficiency_mult = -0.5
@@ -157,7 +152,6 @@ tr_harmony_kinship = {
 }
 
 tr_harmony_utopian_dream = {
-	cost = { unity = @cost }	
 	possible = {
 		has_tradition = tr_harmony_the_greater_good
 	}
@@ -234,14 +228,13 @@ tr_harmony_utopian_dream = {
 }
 
 tr_harmony_bulwark_of_harmony = {
-	cost = { unity = @cost }
 	possible = {
 		has_tradition = tr_harmony_kinship
 		has_tradition = tr_harmony_mind_and_body
 	}
 	
 	modifier = {
-		spaceport_defensive_war_ship_build_speed_mult = 0.33
+		starbase_defensive_war_ship_build_speed_mult = 0.33
 		ship_home_territory_fire_rate_mult = 0.15
 	}
 
@@ -251,7 +244,6 @@ tr_harmony_bulwark_of_harmony = {
 }
 
 tr_harmony_mind_and_body = {
-	cost = { unity = @cost }
 	
 	modifier = {
 		leader_age = 20

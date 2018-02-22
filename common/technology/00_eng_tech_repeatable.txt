@@ -2,9 +2,9 @@
 ### TECH COSTS - REPEATABLE  ###
 ###########################
 
-@repeatableTechBaseCost = 5000
-@repeatableTechLevelCost = 1000
-@repeatableTechTier = 4
+@repeatableTechBaseCost = 20000
+@repeatableTechLevelCost = 5000
+@repeatableTechTier = 5
 
 ###########################
 ### TECH WEIGHTS - REPEATABLE  ###
@@ -54,7 +54,7 @@ tech_repeatable_improved_military_station_damage = {
 	tier = @repeatableTechTier
 	category = { voidcraft }
 	levels = -1
-	prerequisites = { "tech_space_defense_station_2" }
+	prerequisites = { "tech_defense_platform_hull_1" }
 	weight = @repeatableTechWeight
 	
 	weight_modifier = {
@@ -84,7 +84,7 @@ tech_repeatable_improved_military_station_health = {
 	tier = @repeatableTechTier
 	category = { voidcraft }
 	levels = -1
-	prerequisites = { "tech_space_defense_station_2" }
+	prerequisites = { "tech_defense_platform_hull_1" }
 	weight = @repeatableTechWeight
 	
 	weight_modifier = {
@@ -103,40 +103,40 @@ tech_repeatable_improved_military_station_health = {
 	}
 	
 	modifier = {
-		shipclass_military_station_hit_points_mult = 0.1
+		shipclass_military_station_hull_mult = 0.1
 	}
 }
 
-tech_repeatable_improved_ship_health = {
-	area = engineering
-	cost = @repeatableTechBaseCost
-	cost_per_level = @repeatableTechLevelCost
-	tier = @repeatableTechTier
-	category = { voidcraft }
-	ai_update_type = military	
-	levels = -1
-	prerequisites = { "tech_spaceport_4" }
-	weight = @repeatableTechWeight
-	
-	weight_modifier = {
-		factor = @repatableTechFactor
-	}
-	
-	ai_weight = {
-		factor = 1.0
-	}
-	
-	weight_groups = {
-		repeatable
-	}
-	mod_weight_if_group_picked = {
-		repeatable = 0.01
-	}
-	
-	modifier = {
-		ship_hitpoints_mult = 0.05
-	}
-}
+#tech_repeatable_improved_ship_health = {
+#	area = engineering
+#	cost = @repeatableTechBaseCost
+#	cost_per_level = @repeatableTechLevelCost
+#	tier = @repeatableTechTier
+#	category = { voidcraft }
+#	ai_update_type = military	
+#	levels = -1
+#	prerequisites = { "tech_battleships" }
+#	weight = @repeatableTechWeight
+#	
+#	weight_modifier = {
+#		factor = @repatableTechFactor
+#	}
+#	
+#	ai_weight = {
+#		factor = 1.0
+#	}
+#	
+#	weight_groups = {
+#		repeatable
+#	}
+#	mod_weight_if_group_picked = {
+#		repeatable = 0.01
+#	}
+#	
+#	modifier = {
+#		ship_hull_mult = 0.05
+#	}
+#}
 
 tech_repeatable_improved_armor_output = {
 	area = engineering
@@ -174,7 +174,7 @@ tech_repeatable_weapon_type_explosive_damage = {
 	cost = @repeatableTechBaseCost
 	cost_per_level = @repeatableTechLevelCost
 	tier = @repeatableTechTier
-	category = { rocketry }
+	category = { propulsion }
 	ai_update_type = military
 	levels = -1
 	prerequisites = { "tech_missiles_3" }
@@ -205,7 +205,7 @@ tech_repeatable_weapon_type_explosive_fire_rate = {
 	cost = @repeatableTechBaseCost
 	cost_per_level = @repeatableTechLevelCost
 	tier = @repeatableTechTier
-	category = { rocketry }
+	category = { propulsion }
 	ai_update_type = military
 	levels = -1
 	prerequisites = { "tech_missiles_3" }
@@ -236,7 +236,7 @@ tech_repeatable_weapon_type_kinetic_damage = {
 	cost = @repeatableTechBaseCost
 	cost_per_level = @repeatableTechLevelCost
 	tier = @repeatableTechTier
-	category = { materials }
+	category = { propulsion }
 	ai_update_type = military
 	levels = -1
 	prerequisites = { "tech_mass_drivers_3" }
@@ -267,7 +267,7 @@ tech_repeatable_weapon_type_kinetic_fire_rate = {
 	cost = @repeatableTechBaseCost
 	cost_per_level = @repeatableTechLevelCost
 	tier = @repeatableTechTier
-	category = { materials }
+	category = { propulsion }
 	ai_update_type = military
 	levels = -1
 	prerequisites = { "tech_mass_drivers_3" }
@@ -301,7 +301,7 @@ tech_repeatable_weapon_type_strike_craft_fire_damage = {
 	category = { voidcraft }
 	ai_update_type = military
 	levels = -1
-	prerequisites = { "tech_spaceport_5" }
+	prerequisites = { "tech_strike_craft_3" }
 	weight = @repeatableTechWeight
 	
 	weight_modifier = {
@@ -332,7 +332,7 @@ tech_repeatable_weapon_type_strike_craft_fire_rate = {
 	category = { voidcraft }
 	ai_update_type = military
 	levels = -1
-	prerequisites = { "tech_spaceport_5" }
+	prerequisites = { "tech_strike_craft_3" }
 	weight = @repeatableTechWeight
 	
 	weight_modifier = {
@@ -361,7 +361,7 @@ tech_repeatable_reduced_building_time = {
 	cost_per_level = @repeatableTechLevelCost
 	tier = @repeatableTechTier
 	category = { industry }
-	levels = 10
+	levels = 5
 	prerequisites = { "tech_construction_templates" }
 	weight = @repeatableTechWeight
 	

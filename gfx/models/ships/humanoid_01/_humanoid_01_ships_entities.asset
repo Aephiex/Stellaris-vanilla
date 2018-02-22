@@ -41,7 +41,7 @@ entity = {
 
 entity = {
 	name = "humanoid_01_turret_energy_torpedo_entity"
-	pdxmesh = "humanoid_01_turret_projectile_medium_mesh"
+	pdxmesh = "humanoid_01_turret_projectile_large_mesh"
 	
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"
@@ -1630,9 +1630,10 @@ entity = {
 entity = {
 	name = "humanoid_01_science_ship_entity"
 	pdxmesh = "humanoid_01_science_ship_mesh"
+	locator = { name = "root" position = { 0 0 0 } }
 	
 	default_state = "idle"
-	state = { name = "idle" animation = "idle"
+	state = { name = "idle" state_time = 5
 		event = { time = 0.0 node = "engine_small_01" particle = "mammalian_01_1_5_exhaust_oblong_idle_particle" keep_particle = yes trigger_once = yes }
 		event = { time = 0.0 node = "engine_small_02" particle = "mammalian_01_1_5_exhaust_oblong_idle_particle" keep_particle = yes trigger_once = yes }
 		event = { time = 0.0 node = "engine_small_03" particle = "mammalian_01_1_5_exhaust_oblong_idle_particle" keep_particle = yes trigger_once = yes }
@@ -1644,7 +1645,7 @@ entity = {
 		event = { time = 0 node = "light_locator_02" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "light_locator_03" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 	}
-	state = { name = "moving" animation = "idle"
+	state = { name = "moving" state_time = 5
 		event = { time = 0.0 node = "engine_small_01" particle = "mammalian_01_1_5_ship_exhaust_oblong_moving_particle" keep_particle = yes trigger_once = yes }
 		event = { time = 0.0 node = "engine_small_02" particle = "mammalian_01_1_5_ship_exhaust_oblong_moving_particle" keep_particle = yes trigger_once = yes }
 		event = { time = 0.0 node = "engine_small_03" particle = "mammalian_01_1_5_ship_exhaust_oblong_moving_particle" keep_particle = yes trigger_once = yes }
@@ -1656,7 +1657,7 @@ entity = {
 		event = { time = 0 node = "light_locator_02" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "light_locator_03" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 	}
-	state = { name = "death" chance = 1 looping = no animation = "idle"
+	state = { name = "death" chance = 1 looping = no state_time = 5
 	
 		event = { time = 0.0 node = "explosion_locator_01" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 		event = { time = 1.6 node = "explosion_locator_02" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
@@ -1673,6 +1674,18 @@ entity = {
 			"engine_small_02" = 		{ width = @small_trail_W 	lenght = @small_trail_L   	}
 		}
 	}
+	
+	attach = { root = "humanoid_01_science_ship_sphere_entity" }
+}
+
+entity = {
+	name = "humanoid_01_science_ship_sphere_entity"
+	pdxmesh = "humanoid_01_science_ship_sphere_mesh"
+	
+	get_state_from_parent = no
+	
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" }
 }
 
 
@@ -1849,16 +1862,7 @@ entity = {
 	scale = 1.0
 }
 
-entity = {
-	name = "humanoid_01_orbital_station_turret_section_entity"
-	pdxmesh = "humanoid_01_orbital_station_turret_section_mesh"
-	
-	default_state = "idle"
-	state = { name = "idle" state_time = 5
-		event = { time = 0.0 node = "light_locator_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
-		event = { time = 0.0 node = "light_locator_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
-	}
-}
+
 
 entity = {
 	name = "humanoid_01_orbital_station_hydroponics_section_entity"

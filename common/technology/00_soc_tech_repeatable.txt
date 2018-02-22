@@ -3,10 +3,9 @@
 ### TECH COSTS - REPEATABLE  ###
 ###########################
 
-@repeatableTechBaseCost = 5000
-@repeatableTechLevelCost = 1000
-@repeatableTechTier = 4
-
+@repeatableTechBaseCost = 20000
+@repeatableTechLevelCost = 5000
+@repeatableTechTier = 5
 
 ###########################
 ### TECH WEIGHTS - REPEATABLE  ###
@@ -51,7 +50,7 @@ tech_repeatable_improved_sector_cap = {
 	cost = @repeatableTechBaseCost
 	cost_per_level = @repeatableTechLevelCost
 	tier = @repeatableTechTier
-	category = { statecraft }
+	category = { new_worlds }
 	levels = -1
 	prerequisites = { "tech_adaptive_bureaucracy" }
 	weight = @repeatableTechWeight
@@ -81,7 +80,7 @@ tech_repeatable_improved_core_system_cap = {
 	cost = @repeatableTechBaseCost
 	cost_per_level = @repeatableTechLevelCost
 	tier = @repeatableTechTier
-	category = { statecraft }
+	category = { new_worlds }
 	levels = -1
 	prerequisites = { "tech_galactic_bureaucracy" }
 	weight = @repeatableTechWeight
@@ -133,36 +132,6 @@ tech_repeatable_improved_leader_cap = {
 	
 	modifier = {
 		country_leader_cap = 1
-	}
-}
-
-tech_repeatable_reduced_leader_cost = {
-	area = society
-	cost = @repeatableTechBaseCost
-	cost_per_level = @repeatableTechLevelCost
-	tier = @repeatableTechTier
-	category = { statecraft }
-	levels = 5
-	prerequisites = { "tech_adaptive_bureaucracy" }
-	weight = @repeatableTechWeight
-	
-	weight_modifier = {
-		factor = @repatableTechFactor
-	}
-	
-	ai_weight = {
-		factor = 1.0
-	}
-	
-	weight_groups = {
-		repeatable
-	}
-	mod_weight_if_group_picked = {
-		repeatable = 0.01
-	}
-	
-	modifier = {
-		leader_influence_cost = -0.05
 	}
 }
 
@@ -286,63 +255,93 @@ tech_repeatable_improved_leader_life_span = {
 	}
 }
 
-#tech_repeatable_improved_border_range = {
-#	area = society
-#	cost = @repeatableTechBaseCost
-#	cost_per_level = @repeatableTechLevelCost
-#	tier = @repeatableTechTier
-#	category = { statecraft }
-#	levels = -1
-#	prerequisites = { "tech_galactic_ambitions" }
-#	weight = @repeatableTechWeight
-#	
-#	weight_modifier = {
-#		factor = @repatableTechFactor
-#	}
-#	
-#	ai_weight = {
-#		factor = 1.0
-#	}
-#	
-#	weight_groups = {
-#		repeatable
-#	}
-#	mod_weight_if_group_picked = {
-#		repeatable = 0.01
-#	}
-#	
-#	modifier = {
-#		country_border_mult = 0.1
-#	}
-#}
+tech_repeatable_naval_cap = {
+	area = society
+	cost = @repeatableTechBaseCost
+	cost_per_level = @repeatableTechLevelCost
+	tier = @repeatableTechTier
+	category = { military_theory }
+	levels = 5
+	prerequisites = { "tech_doctrine_navy_size_4" }
+	weight = @repeatableTechWeight
+	
+	weight_modifier = {
+		factor = @repatableTechFactor
+	}
+	
+	ai_weight = {
+		factor = 1.0
+	}
+	
+	weight_groups = {
+		repeatable
+	}
+	mod_weight_if_group_picked = {
+		repeatable = 0.01
+	}
+	
+	modifier = {
+		country_naval_cap_add = 20		
+	}
+}
 
-#tech_repeatable_improved_slave_mineral_output = {
-#	area = society
-#	cost = @repeatableTechBaseCost
-#	cost_per_level = @repeatableTechLevelCost
-#	tier = @repeatableTechTier
-#	category = { biology }
-#	levels = 5
-#	prerequisites = { "tech_neural_implants" }
-#	weight = @repeatableTechWeight
-#	
-#	weight_modifier = {
-#		factor = @repatableTechFactor
-#	}
-#	
-#	ai_weight = {
-#		factor = 1.0
-#	}
-#	
-#	weight_groups = {
-#		repeatable
-#	}
-#	mod_weight_if_group_picked = {
-#		repeatable = 0.01
-#	}
-#	
-#	modifier = {
-#		slave_mineral_output = 0.05
-#		slave_food_output = 0.05
-#	}
-#}
+tech_repeatable_command_limit = {
+	area = society
+	cost = @repeatableTechBaseCost
+	cost_per_level = @repeatableTechLevelCost
+	tier = @repeatableTechTier
+	category = { military_theory }
+	levels = 5
+	prerequisites = { "tech_doctrine_fleet_size_5" }
+	weight = @repeatableTechWeight
+	
+	weight_modifier = {
+		factor = @repatableTechFactor
+	}
+	
+	ai_weight = {
+		factor = 1.0
+	}
+	
+	weight_groups = {
+		repeatable
+	}
+	mod_weight_if_group_picked = {
+		repeatable = 0.01
+	}
+	
+	modifier = {
+		country_command_limit_add = 10		
+	}
+}
+
+
+tech_repeatable_improved_starbase_capacity = {
+	area = society
+	cost = @repeatableTechBaseCost
+	cost_per_level = @repeatableTechLevelCost
+	tier = @repeatableTechTier
+	category = { new_worlds }
+	levels = 5
+	prerequisites = { "tech_galactic_ambitions" }
+	weight = @repeatableTechWeight
+	
+	weight_modifier = {
+		factor = @repatableTechFactor
+	}
+	
+	ai_weight = {
+		factor = 1.0
+	}
+	
+	weight_groups = {
+		repeatable
+	}
+	mod_weight_if_group_picked = {
+		repeatable = 0.01
+	}
+	
+	modifier = {
+		country_starbase_capacity_add = 1
+	}
+}

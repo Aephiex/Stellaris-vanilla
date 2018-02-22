@@ -1,21 +1,11 @@
 ﻿### Fungoid 1
-FUN1 = {
-	### SHIPS
+### Created by Henrik Eklund
 
+FUN1 = {
 	ship_names = {
 
 		generic = {
-			Ythleem-Ju Vakeem-Ju Madeem-Ju Retheem-Ju Bolteem-Ju Valleem-Ju Buffeem-Ju Bammadeem-Ju Toscheem-Ju Vabreem-Ju
-			Juleem-Ju Mikreem-Qa Kashmadeem-Qa Rashbadeem-Qa Condeem-Qa Indageem-Qa Keleem-Qa Viggadeem-Qa Othafeem-Qa
-			Korbadeem-Qa Kanjareem-Qa Jockeem-Qa Sareem-Qa Vukreem-Qa Soltreem-Bu Gardeem-Bu Ythareem-Bu Nagreem-Bu Pethreem-Bu
-			Vagreem-Bu Tyraneem-Bu Keldeem-Bu Salasheem-Bu Valdoreem-Bu Leganeem-Bu Lotheem-Bu Lasgareem-Bu Lyrrameen-Bu Libareem-Bu
-			Boromeen-Ro Patharomeen-Ro Ondareem-Ro Ovgareem-Ro Jhalseem-Ro Berokeem-Ro Manthareem-Ro Mythoreem-Ro Murgareem-Ro
-			Molgareem-Ro Mashgadeem-Ro Uldoreem-Ro Ugaratheem-Ro Utharabeem-Ro Undagreem-Ro Urasmadeem-Ro Uplageem-Ta Hestareem-Ta
-			Hothoreem-Ta Hiniscoreem-Ta Haggrineem-Ta Hirameen-Ta Horbageem-Ta Sarrascameen-Ta Sindorneem-Ta Sukareem-Ta Solbareem-Ta
-			Savironeem-Ni Argoreem-Ni Alduroneem-Ni Algordeem-Ni Abrikoneem-Ni Astorneem-Ni Irrigoneem-Ni Ivobradeem-Ni Indarageem-Ni
-			Ivijhareem-Ni Endoreem-Ni Elgoreem-Ni Evakeem-Ni Eriotheem-Ni Karbadeem-Sa Matjoneem-Sa Vokroneem-Sa Sraknoreem-Sa
-			Setarobeem-Sa Iblargobeem-Sa Purgabeem-Sa Ylgobeem-Sa Udnabeem-Sa Reskobeem-Sa Ivirbeem-Sa Bederbeem-Sa Uliasbeem-Sa
-			Sotoribeem-Sa Kervebeem-Sa Reblabeem-Sa Rithlabeem-Sa Evadnobeem-Sa Cadimobeem-Sa Cufflabeem-Sa
+			Ythleem-Ju Vakeem-Ju Madeem-Ju Retheem-Ju Bolteem-Ju Valleem-Ju Buffeem-Ju Bammadeem-Ju Toscheem-Ju Vabreem-Ju Juleem-Ju Mikreem-Qa Kashmadeem-Qa Rashbadeem-Qa Condeem-Qa Indageem-Qa Keleem-Qa Viggadeem-Qa Othafeem-Qa Korbadeem-Qa Kanjareem-Qa Jockeem-Qa Sareem-Qa Vukreem-Qa Soltreem-Bu Gardeem-Bu Ythareem-Bu Nagreem-Bu Pethreem-Bu Vagreem-Bu Tyraneem-Bu Keldeem-Bu Salasheem-Bu Valdoreem-Bu Leganeem-Bu Lotheem-Bu Lasgareem-Bu Lyrrameen-Bu Libareem-Bu Boromeen-Ro Patharomeen-Ro Ondareem-Ro Ovgareem-Ro Jhalseem-Ro Berokeem-Ro Manthareem-Ro Mythoreem-Ro Murgareem-Ro Molgareem-Ro Mashgadeem-Ro Uldoreem-Ro Ugaratheem-Ro Utharabeem-Ro Undagreem-Ro Urasmadeem-Ro Uplageem-Ta Hestareem-Ta Hothoreem-Ta Hiniscoreem-Ta Haggrineem-Ta Hirameen-Ta Horbageem-Ta Sarrascameen-Ta Sindorneem-Ta Sukareem-Ta Solbareem-Ta Savironeem-Ni Argoreem-Ni Alduroneem-Ni Algordeem-Ni Abrikoneem-Ni Astorneem-Ni Irrigoneem-Ni Ivobradeem-Ni Indarageem-Ni Ivijhareem-Ni Endoreem-Ni Elgoreem-Ni Evakeem-Ni Eriotheem-Ni Karbadeem-Sa Matjoneem-Sa Vokroneem-Sa Sraknoreem-Sa Setarobeem-Sa Iblargobeem-Sa Purgabeem-Sa Ylgobeem-Sa Udnabeem-Sa Reskobeem-Sa Ivirbeem-Sa Bederbeem-Sa Uliasbeem-Sa Sotoribeem-Sa Kervebeem-Sa Reblabeem-Sa Rithlabeem-Sa Evadnobeem-Sa Cadimobeem-Sa Cufflabeem-Sa
 		}
 
 		corvette = {
@@ -29,6 +19,12 @@ FUN1 = {
 		
 		battleship = {
 		}
+
+		titan = {
+		}
+
+		colossus = {
+		}
 		
 		science = {
 		}
@@ -39,21 +35,14 @@ FUN1 = {
 		constructor = {
 		}
 		
-		
-		orbital_station = { }
-		mining_station = { }
-		research_station = { }
-		wormhole_station = { }
-		#terraform_station = { }
-		observation_station = { }
-		outpost_station = {
-			#random_names = { }
-			#sequential_name = "%O% Frontier Outpost"
+		transport = {
+		}
+	
+		military_station_small = {
 		}
 
-		military_station_small = {}
-		military_station_medium = {}
-		military_station_large = {}	
+		ion_cannon = {
+		}
 	}
 
 	fleet_names = {
@@ -109,9 +98,6 @@ FUN1 = {
 			sequential_name = "%O% Shock Infantry"
 		}
 	}
-
-
-	### PLANETS
 
 	planet_names = {
 
@@ -169,16 +155,13 @@ FUN1 = {
 			names = {
 			}
 		}
-		
 	}
-
-	### CHARACTERS
 
 	character_names = {
 		default = {
 			# A complete name
 			full_names = {
-				Spagruum Daggatuum Shabliguum Hingorgh Vagglog Mashgirg Igoriim Elgothuum Hoblorgh Gugaana Thrumaag Shabangheel Vagorileem Volgethaana Spurbliig Humiigol Kuhdtad Kaghoreem Kasvaluud Kovublaan
+				Spagruum Daggatuum Shabliguum Hingorgh Vagglog Mashgirg Igoriim Elgothuum Hoblorgh Gugaana Thrumaag Shabangheel Vagorileem Volgethaana Spurbliig Humiigol Kuhdtad Kaghoreem Kasvaluud Kovublaan Bagglag Schpugram Kaggogh Gigglahb Nuhloigh Shiglaarg Hoggagha Iggigha Daggagom Kariggho Birghagh Glaggro Hugghlagga
 			}
 			
 			# Always combined with a second name

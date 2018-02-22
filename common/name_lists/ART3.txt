@@ -18,6 +18,12 @@ ART3 = {
 		
 		battleship = {
 		}
+
+		titan = {
+		}
+
+		colossus = {
+		}
 		
 		science = {
 		}
@@ -28,24 +34,14 @@ ART3 = {
 		constructor = {
 		}
 		
-		orbital_station = { }
-		mining_station = { }
-		research_station = { }
-		wormhole_station = { }
-		#terraform_station = { }
-		observation_station = { }
-		outpost_station = {
-			#random_names = {
-				"Mecinfic Outpost" "Huxinfic Outpost" "Ytranfic Outpost" "Cabbinfic Outpost" "Lopinfic Outpost" "Draxinfic Outpost" "Ekerinfic Outpost" "Xapinfic Outpost"
-			#}
-			#sequential_name = "%O% Frontier Outpost"
+		transport = {
 		}
 	
-		military_station_small = {}
-	
-		military_station_medium = {}
-	
-		military_station_large = {}	
+		military_station_small = {
+		}
+
+		ion_cannon = {
+		}
 	}
 	
 	fleet_names = {
@@ -55,7 +51,6 @@ ART3 = {
 		sequential_name = "%O% Husk Squadron"
 	}
 
-	###ARMIES
 	army_names = {
 	
 		defense_army = {
@@ -102,8 +97,6 @@ ART3 = {
 			sequential_name = "%O% Brutes"
 		}
 	}
-	
-	### PLANETS
 	
 	planet_names = {
 	
@@ -159,8 +152,6 @@ ART3 = {
 		}
 		
 	}
-	
-	### CHARACTERS
 	
 	character_names = {
 		default = {

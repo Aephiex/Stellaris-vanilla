@@ -9,6 +9,18 @@
 
 # ID 3000 - 3999
 
+@shroudreq1 = 3000
+@shroudreq2 = 2500
+@shroudreq3 = 2000
+@shroudreq4 = 1500
+@shroudreq5 = 1000
+
+@shroudcost1 = -3000
+@shroudcost2 = -2500
+@shroudcost3 = -2000
+@shroudcost4 = -1500
+@shroudcost5 = -1000
+
 namespace = utopia
 
 # The Shroud Lobby
@@ -142,35 +154,35 @@ country_event = {
 							type = sr_zro
 							amount = 0
 						}
-						energy > 1200
+						energy > @shroudreq1
 					}
 					AND = {
 						has_country_strategic_resource = {
 							type = sr_zro
 							amount = 1
 						}
-						energy > 1000
+						energy > @shroudreq2
 					}
 					AND = {
 						has_country_strategic_resource = {
 							type = sr_zro
 							amount = 2
 						}
-						energy > 800
+						energy > @shroudreq3
 					}
 					AND = {
 						has_country_strategic_resource = {
 							type = sr_zro
 							amount = 3
 						}
-						energy > 600
+						energy > @shroudreq4
 					}
 					AND = {
 						has_country_strategic_resource = {
 							type = sr_zro
 							amount > 3
 						}
-						energy > 400
+						energy > @shroudreq5
 					}
 				}
 			}
@@ -183,7 +195,7 @@ country_event = {
 					amount = 0
 				}
 			}
-			add_energy = -1200
+			add_energy = @shroudcost1
 		}
 		if = {
 			limit = {
@@ -192,7 +204,7 @@ country_event = {
 					amount = 1
 				}
 			}
-			add_energy = -1000
+			add_energy = @shroudcost2
 		}
 		if = {
 			limit = {
@@ -201,7 +213,7 @@ country_event = {
 					amount = 2
 				}
 			}
-			add_energy = -800
+			add_energy = @shroudcost3
 		}
 		if = {
 			limit = {
@@ -210,7 +222,7 @@ country_event = {
 					amount = 3
 				}
 			}
-			add_energy = -600
+			add_energy = @shroudcost4
 		}
 		if = {
 			limit = {
@@ -219,7 +231,7 @@ country_event = {
 					amount > 3
 				}
 			}
-			add_energy = -400
+			add_energy = @shroudcost5
 		}
 
 		hidden_effect = {
@@ -4881,11 +4893,7 @@ country_event = {
 	immediate = {	
 		set_global_flag = end_of_the_cycle_complete
 		set_country_flag = end_of_the_cycle_reckoning
-		add_minerals = -50000
-		add_energy = -50000
-		add_food = -50000
-		add_influence = -50000
-		add_unity = -50000
+		clear_resources = yes
 		add_minerals = 1000
 		add_energy = 500
 		add_food = 100
@@ -5099,7 +5107,7 @@ country_event = {
 				limit = { 
 					is_planet_class = pc_habitat 
 				}
-				destroy_colony = { keep_buildings = no }
+				destroy_colony = yes
 				remove_planet = yes						
 				else = {
 					if = {
@@ -5325,28 +5333,52 @@ fleet_event = {
 	
 	immediate = {
 		set_timed_global_flag = { flag = end_of_the_cycle_orders_cooldown days = 30 }
-		random_planet = {
+		closest_system = {
 			limit = {
-				OR = {
-					is_colonizable = yes
-					has_owner = yes
-				}
-				OR = {
-					NOT = { has_planet_flag = exile_planet }
-					NOT = {
-						any_system = {
-							any_planet = {
-								OR = {
-									is_colonizable = yes
-									has_owner = yes
+				any_planet = {
+					OR = {
+						is_colonizable = yes
+						has_owner = yes
+					}
+					OR = {
+						NOT = { has_planet_flag = exile_planet }
+						NOT = {
+							any_system = {
+								any_planet = {
+									OR = {
+										is_colonizable = yes
+										has_owner = yes
+									}
+									NOT = { has_planet_flag = exile_planet }
 								}
-								NOT = { has_planet_flag = exile_planet }
 							}
 						}
 					}
-				}				
+				}
 			}
-			save_event_target_as = move_to_planet
+			random_system_planet = {
+				limit = {
+					OR = {
+						is_colonizable = yes
+						has_owner = yes
+					}
+					OR = {
+						NOT = { has_planet_flag = exile_planet }
+						NOT = {
+							any_system = {
+								any_planet = {
+									OR = {
+										is_colonizable = yes
+										has_owner = yes
+									}
+									NOT = { has_planet_flag = exile_planet }
+								}
+							}
+						}
+					}				
+				}
+				save_event_target_as = move_to_planet
+			}
 		}
 		queue_actions = {
 			find_closest_system = {
@@ -5370,12 +5402,12 @@ fleet_event = {
 								set_timed_global_flag = { flag = end_of_the_cycle_orders_cooldown days = 30 }
 								planet_event = { id = utopia.3324 }
 							}
-						} 
+						}
 					}
 				}
 			}
-		}	
-	}	
+		}
+	}
 }
 
 planet_event = {
@@ -5397,7 +5429,7 @@ planet_event = {
 			limit = { 
 				is_planet_class = pc_habitat 
 			}
-			destroy_colony = { keep_buildings = no }					
+			destroy_colony = yes					
 			else = {
 				if = {
 					limit = {

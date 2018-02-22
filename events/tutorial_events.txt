@@ -44,18 +44,7 @@ country_event = {
 		name = SITLOG
 		custom_tooltip = tutorial_1_tooltip
 		hidden_effect = {
-			if = {
-				limit = { has_technology = "tech_warp_drive_1" }
-				country_event = { id = tutorial.70 days = 10 }
-			}
-			if = {
-				limit = { has_technology = "tech_hyper_drive_1" }
-				country_event = { id = tutorial.71 days = 10 }
-			}
-			if = {
-				limit = { has_technology = "tech_wormhole_generation_1" }
-				country_event = { id = tutorial.72 days = 10 }
-			}
+			country_event = { id = tutorial.71 days = 10 }
 		}
 	}
 }
@@ -108,14 +97,6 @@ ship_event = {
 			is_tutorial_level = 2
 			is_ai = no
 			has_country_flag = tutorial_1
-			FROM = {
-				solar_system = {
-					any_planet = {
-						is_capital = yes
-						is_owned_by = PREVPREVPREV
-					}
-				}
-			}
 		}
 	}
 	
@@ -977,7 +958,7 @@ ship_event = {
 					NOT = { is_same_value = event_target:HomeSystem }
 					is_surveyed = {
 						who = event_target:ShipOwner
-						status = true
+						status = yes
 					}
 				}
 			}
@@ -987,7 +968,7 @@ ship_event = {
 				country_event = { id = tutorial.200 days = 10 } #Backup for flags 
 				country_event = { id = tutorial.33 days = 120 }
 				country_event = { id = tutorial.330 days = 120 }
-				country_event = { id = tutorial.24 days = 20 }
+				#country_event = { id = tutorial.24 days = 20 }
 				country_event = { id = tutorial.240 days = 20 } #Backup to set flags if finished early
 				country_event = { id = tutorial.75 days = 40 }
 			}
@@ -1076,7 +1057,7 @@ country_event = {
 	option = {
 		name = "OK"
 		hidden_effect = {
-			country_event = { id = tutorial.24 days = 20 }
+			#country_event = { id = tutorial.24 days = 20 }
 			country_event = { id = tutorial.240 days = 20 } #Backup to set flags if finished early
 			country_event = { id = tutorial.75 days = 40 }
 		}
@@ -1255,9 +1236,10 @@ country_event = {
 	show_sound = tut_build_colony_ship_intro
 	
 	is_advisor_event = yes
-	is_triggered_only = yes
+	#is_triggered_only = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		has_technology = tech_colonization_1
 		count_owned_ships = {
@@ -1270,6 +1252,17 @@ country_event = {
 				is_capital = no
 			}
 		}
+		any_planet_within_border = {
+			is_ideal_planet_class = {
+				who = root
+				status = yes
+			}
+			is_colony = no
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
 	}
 
 	immediate = {
@@ -3106,23 +3099,23 @@ country_event = {
 ### TUTORIAL: FTL DESCRIPTION
 
 # Warp Travel
-country_event = {
-	id = tutorial.70
-	title = tutorial.70.name
-	desc = tutorial.70.desc
-	show_sound = tut_ftl_warp_travel
-
-	is_triggered_only = yes
-	is_advisor_event = yes
-
-	trigger = {
-		is_tutorial_level > 0
-	}
-
-	option = {
-		name = OK
-	}
-}
+#country_event = {
+#	id = tutorial.70
+#	title = tutorial.70.name
+#	desc = tutorial.70.desc
+#	show_sound = tut_ftl_warp_travel
+#
+#	is_triggered_only = yes
+#	is_advisor_event = yes
+#
+#	trigger = {
+#		is_tutorial_level > 0
+#	}
+#
+#	option = {
+#		name = OK
+#	}
+#}
 
 # Hyperspace Travel
 country_event = {
@@ -3144,23 +3137,23 @@ country_event = {
 }
 
 # Wormhole Travel
-country_event = {
-	id = tutorial.72
-	title = tutorial.72.name
-	desc = tutorial.72.desc
-	show_sound = tut_ftl_wormhole_travel
-
-	is_triggered_only = yes
-	is_advisor_event = yes
-
-	trigger = {
-		is_tutorial_level > 0
-	}
-
-	option = {
-		name = OK
-	}
-}
+#country_event = {
+#	id = tutorial.72
+#	title = tutorial.72.name
+#	desc = tutorial.72.desc
+#	show_sound = tut_ftl_wormhole_travel
+#
+#	is_triggered_only = yes
+#	is_advisor_event = yes
+#
+#	trigger = {
+#		is_tutorial_level > 0
+#	}
+#
+#	option = {
+#		name = OK
+#	}
+#}
 
 ### TUTORIAL REMINDER: Obtained Uplift tech
 country_event = {
@@ -3213,7 +3206,7 @@ ship_event = {
 	}
 }
 
-### TUTORIAL: BUILD FRONTIER OUTPOST
+### TUTORIAL: STARBASE
 
 # Start
 country_event = {
@@ -3327,6 +3320,7 @@ country_event = {
 	trigger = {
 		is_tutorial_level = 1
 		has_country_flag = tutorial_level_picked
+		NOT = { has_ethic = ethic_gestalt_consciousness }
 	}
 
 	option = {
@@ -3351,6 +3345,7 @@ country_event = {
 	trigger = {
 		is_tutorial_level = 2
 		has_country_flag = tutorial_level_picked
+		NOT = { has_ethic = ethic_gestalt_consciousness }
 	}
 
 	option = {

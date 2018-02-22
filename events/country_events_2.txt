@@ -1188,14 +1188,12 @@ country_event = {
 	option = {
 		name = country.1040.b
 		trigger = {
-			owner = {
-				energy > 149
-				OR = {
-					has_ethic = "ethic_fanatic_pacifist"
-					has_ethic = "ethic_pacifist"
-					has_ethic = "ethic_fanatic_materialist"
-					has_ethic = "ethic_materialist"
-				}
+			energy > 149
+			OR = {
+				has_ethic = "ethic_fanatic_pacifist"
+				has_ethic = "ethic_pacifist"
+				has_ethic = "ethic_fanatic_materialist"
+				has_ethic = "ethic_materialist"
 			}
 		}
 		response_text = country.1040.b.response
@@ -1554,7 +1552,6 @@ ship_event = {
 					set_owner = prev
 					create_ship_design = {
 						design = "NAME_Prototype"
-						ftl = event_target:owner_country
 					}
 					create_ship = {
 						name = "NAME_Research_Expedition_Vessel"
@@ -1771,6 +1768,7 @@ country_event = {
 		is_ai = no
 		NOR = {
 			has_ethic = ethic_gestalt_consciousness
+			has_valid_civic = civic_life_seeded
 			has_country_flag = starting_event
 		}
 	}

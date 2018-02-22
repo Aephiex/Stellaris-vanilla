@@ -25,11 +25,21 @@ AI = {
 		
 		mining_station = { }
 		research_station = { }
-		wormhole_station = { }
-		#terraform_station = { }
 		observation_station = { }
-		outpost_station = {
-			sequential_name = "%O% Frontier Outpost"
+		starbase_outpost = {
+			sequential_name = "%O% Starbase"
+		}
+		starbase_starport = {
+			sequential_name = "%O% Starbase"
+		}
+		starbase_starhold = {
+			sequential_name = "%O% Starbase"
+		}
+		starbase_starfortress = {
+			sequential_name = "%O% Starbase"
+		}
+		starbase_citadel = {
+			sequential_name = "%O% Starbase"
 		}
 		
 		transport = {

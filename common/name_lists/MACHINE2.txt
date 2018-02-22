@@ -1,64 +1,72 @@
 ﻿### Machine 2
+### Written by Dee Majek
+
 MACHINE2 = {
 	should_name_home_system_planets = no
 	
 	ship_names = {
 
 		generic = {
-			"Deca" "Deci" "Centi" "Nano" "Pico" "Femto" "Atto" "Zepto" "Yocto" "Exa" "Peta" "Tera" "Giga" "Mega" "Zetta" "Yotta" "Kibi" "Mebi" "Gibi" "Tebi" "Pebi" "Exbi" "Zebi" "Yobi" "Myria" "Demi" "Xenna" "Weka" "Vendeka" "Xono" "Weco" "Vundo" "Hedbo" "Micri"
 		}
 
 		corvette = {
-			"Combat Ship Deca" "Combat Ship Deci" "Combat Ship Centi" "Combat Ship Nano" "Combat Ship Pico" "Combat Ship Femto" "Combat Ship Atto" "Combat Ship Zepto" "Combat Ship Yocto" "Combat Ship Exa" "Combat Ship Peta" "Combat Ship Tera" "Combat Ship Giga" "Combat Ship Mega" "Combat Ship Zetta" "Combat Ship Yotta" "Combat Ship Kibi" "Combat Ship Mebi" "Combat Ship Gibi" "Combat Ship Tebi" "Combat Ship Pebi" "Combat Ship Exbi" "Combat Ship Zebi" "Combat Ship Yobi" "Combat Ship Myria" "Combat Ship Demi" "Combat Ship Xenna" "Combat Ship Weka" "Combat Ship Vendeka" "Combat Ship Xono" "Combat Ship Weco" "Combat Ship Vundo" "Combat Ship Hedbo" "Combat Ship Micri"
+			"Deca" "Deci" "Centi" "Nano" "Pico" "Femto" "Atto" "Zepto" "Yocto" "Exa" "Peta" "Tera" "Giga" "Mega" "Zetta" "Yotta" "Kibi" "Mebi" "Gibi" "Tebi" "Pebi" "Exbi" "Zebi" "Yobi" "Myria" "Demi" "Xenna" "Weka" "Vendeka" "Xono" "Weco" "Vundo" "Hedbo" "Micri"
 		}
 		
 		destroyer = {
-			"Combat Ship Deca" "Combat Ship Deci" "Combat Ship Centi" "Combat Ship Nano" "Combat Ship Pico" "Combat Ship Femto" "Combat Ship Atto" "Combat Ship Zepto" "Combat Ship Yocto" "Combat Ship Exa" "Combat Ship Peta" "Combat Ship Tera" "Combat Ship Giga" "Combat Ship Mega" "Combat Ship Zetta" "Combat Ship Yotta" "Combat Ship Kibi" "Combat Ship Mebi" "Combat Ship Gibi" "Combat Ship Tebi" "Combat Ship Pebi" "Combat Ship Exbi" "Combat Ship Zebi" "Combat Ship Yobi" "Combat Ship Myria" "Combat Ship Demi" "Combat Ship Xenna" "Combat Ship Weka" "Combat Ship Vendeka" "Combat Ship Xono" "Combat Ship Weco" "Combat Ship Vundo" "Combat Ship Hedbo" "Combat Ship Micri"
+			"Deca" "Deci" "Centi" "Nano" "Pico" "Femto" "Atto" "Zepto" "Yocto" "Exa" "Peta" "Tera" "Giga" "Mega" "Zetta" "Yotta" "Kibi" "Mebi" "Gibi" "Tebi" "Pebi" "Exbi" "Zebi" "Yobi" "Myria" "Demi" "Xenna" "Weka" "Vendeka" "Xono" "Weco" "Vundo" "Hedbo" "Micri"
 		}
 		
 		cruiser = {
-			"Combat Ship Deca" "Combat Ship Deci" "Combat Ship Centi" "Combat Ship Nano" "Combat Ship Pico" "Combat Ship Femto" "Combat Ship Atto" "Combat Ship Zepto" "Combat Ship Yocto" "Combat Ship Exa" "Combat Ship Peta" "Combat Ship Tera" "Combat Ship Giga" "Combat Ship Mega" "Combat Ship Zetta" "Combat Ship Yotta" "Combat Ship Kibi" "Combat Ship Mebi" "Combat Ship Gibi" "Combat Ship Tebi" "Combat Ship Pebi" "Combat Ship Exbi" "Combat Ship Zebi" "Combat Ship Yobi" "Combat Ship Myria" "Combat Ship Demi" "Combat Ship Xenna" "Combat Ship Weka" "Combat Ship Vendeka" "Combat Ship Xono" "Combat Ship Weco" "Combat Ship Vundo" "Combat Ship Hedbo" "Combat Ship Micri"
+			"Deca" "Deci" "Centi" "Nano" "Pico" "Femto" "Atto" "Zepto" "Yocto" "Exa" "Peta" "Tera" "Giga" "Mega" "Zetta" "Yotta" "Kibi" "Mebi" "Gibi" "Tebi" "Pebi" "Exbi" "Zebi" "Yobi" "Myria" "Demi" "Xenna" "Weka" "Vendeka" "Xono" "Weco" "Vundo" "Hedbo" "Micri"
 		}
 		
 		battleship = {
-			"Combat Ship Deca" "Combat Ship Deci" "Combat Ship Centi" "Combat Ship Nano" "Combat Ship Pico" "Combat Ship Femto" "Combat Ship Atto" "Combat Ship Zepto" "Combat Ship Yocto" "Combat Ship Exa" "Combat Ship Peta" "Combat Ship Tera" "Combat Ship Giga" "Combat Ship Mega" "Combat Ship Zetta" "Combat Ship Yotta" "Combat Ship Kibi" "Combat Ship Mebi" "Combat Ship Gibi" "Combat Ship Tebi" "Combat Ship Pebi" "Combat Ship Exbi" "Combat Ship Zebi" "Combat Ship Yobi" "Combat Ship Myria" "Combat Ship Demi" "Combat Ship Xenna" "Combat Ship Weka" "Combat Ship Vendeka" "Combat Ship Xono" "Combat Ship Weco" "Combat Ship Vundo" "Combat Ship Hedbo" "Combat Ship Micri"
+			"Deca" "Deci" "Centi" "Nano" "Pico" "Femto" "Atto" "Zepto" "Yocto" "Exa" "Peta" "Tera" "Giga" "Mega" "Zetta" "Yotta" "Kibi" "Mebi" "Gibi" "Tebi" "Pebi" "Exbi" "Zebi" "Yobi" "Myria" "Demi" "Xenna" "Weka" "Vendeka" "Xono" "Weco" "Vundo" "Hedbo" "Micri"
+		}
+
+		titan = {
+			"Deca" "Deci" "Centi" "Nano" "Pico" "Femto" "Atto" "Zepto" "Yocto" "Exa" "Peta" "Tera" "Giga" "Mega" "Zetta" "Yotta" "Kibi" "Mebi" "Gibi" "Tebi" "Pebi" "Exbi" "Zebi" "Yobi" "Myria" "Demi" "Xenna" "Weka" "Vendeka" "Xono" "Weco" "Vundo" "Hedbo" "Micri"
+		}
+
+		colossus = {
+			"Deca" "Deci" "Centi" "Nano" "Pico" "Femto" "Atto" "Zepto" "Yocto" "Exa" "Peta" "Tera" "Giga" "Mega" "Zetta" "Yotta" "Kibi" "Mebi" "Gibi" "Tebi" "Pebi" "Exbi" "Zebi" "Yobi" "Myria" "Demi" "Xenna" "Weka" "Vendeka" "Xono" "Weco" "Vundo" "Hedbo" "Micri"
 		}
 		
 		science = { 
-			#"Voidborne Researcher"
+			"Researcher"
 		}
 		
-		colonizer = { 
+		colonizer = {  
 			"Colonization Carrier"
 		}
 		
 		constructor = { 
-			#"Voidborne Constructor"
+			"Constructor"
 		}
 
 		transport = { 
 			"Machine Transport"
 		}
 		
-
-		mining_station = { }
-		research_station = { }
-		wormhole_station = { }
-		#terraform_station = { }
-		observation_station = { }
-		outpost_station = { 
-			#random_names = { }
+		military_station_small = {
+			"Anti-Invasion Simplex"
 		}
 
-		military_station_small = { "Anti-Invasion Simplex" }
-		military_station_medium = { "Anti-Invasion Complex" }
-		military_station_large = { "Anti-Invasion Suplex" }
-	}
+		ion_cannon = {
+			"Anti-Invasion Suplex"
+		}
 
-	ship_class_names = {
-		generic = {
-			
-		}		
+		### For Fallen Empires
+		small_ship_fallen_empire = {
+			"Deca" "Deci" "Centi" "Nano" "Pico" "Femto" "Atto" "Zepto" "Yocto" "Exa" "Peta" "Tera" "Giga" "Mega" "Zetta" "Yotta" "Kibi" "Mebi" "Gibi" "Tebi" "Pebi" "Exbi" "Zebi" "Yobi" "Myria" "Demi" "Xenna" "Weka" "Vendeka" "Xono" "Weco" "Vundo" "Hedbo" "Micri"
+		}
+		large_ship_fallen_empire = {
+			"Deca" "Deci" "Centi" "Nano" "Pico" "Femto" "Atto" "Zepto" "Yocto" "Exa" "Peta" "Tera" "Giga" "Mega" "Zetta" "Yotta" "Kibi" "Mebi" "Gibi" "Tebi" "Pebi" "Exbi" "Zebi" "Yobi" "Myria" "Demi" "Xenna" "Weka" "Vendeka" "Xono" "Weco" "Vundo" "Hedbo" "Micri"
+		}
+		massive_ship_fallen_empire = {
+			"Deca" "Deci" "Centi" "Nano" "Pico" "Femto" "Atto" "Zepto" "Yocto" "Exa" "Peta" "Tera" "Giga" "Mega" "Zetta" "Yotta" "Kibi" "Mebi" "Gibi" "Tebi" "Pebi" "Exbi" "Zebi" "Yobi" "Myria" "Demi" "Xenna" "Weka" "Vendeka" "Xono" "Weco" "Vundo" "Hedbo" "Micri"
+		}
 	}
 
 	fleet_names = {
@@ -74,93 +82,85 @@ MACHINE2 = {
 			sequential_name = "%O% Assaultobot"
 		}
 
-		machine_defense_1 = {
+		machine_defense = {
 			sequential_name = "%O% Defensitron"
 		}
 		
 		machine_assault_2 = {
 			sequential_name = "%O% Advanced Assaultobot"
 		}
-
-		machine_defense_2 = {
-			sequential_name = "%O% Advanced Defensitron"
-		}
 		
 		machine_assault_3 = {
 			sequential_name = "%O% Hypertron Behemoth"
 		}
+		
+		defense_army = {
+			sequential_name = "%O% Cybertron Garrison"
+		}
+			
+		assault_army = {
+			sequential_name = "%O% Cybertron Force"
+		}
+		
+		clone_army = {
+			sequential_name = "%O% Cybertron Clones"
+		}
 	}
 		
-
-	### PLANETS
-
 	planet_names = {
 
 		generic = {
 			names = {
-
 				Cylex Nanex Voltra Ionus Hydrex Vertron Polybit Cubicub Toroidus Icosidon Maniflex Multiplus Cebrenus Tribon Ozonex Nitron Mechus Protus Omnius Trion Omicron Ultrus Isotoxon Xubix Cybrus Cybroid Machinus Prismus Robonus Integron Tessellon Protron Strobus Mechanex Zoplex Retrion Cyphorex Robex Robitron Combinus Arcus Fluxitron Magnetron Positrex Negabit Antiplex Technus Synthon Datus Maxus Gyricon Nega Lazerex Radex Radion Teslus Voxus Voxon Plexon Itron Techron Extron Terminex Valicron Quatron Helixon Leptonex Nucleux Cybro Solaron Spectron Enertron Kaonus Negitron Atomiton Positrus Symmetrus Qubex
-
 			}
 		}
 		
 		pc_desert = {
 			names = { 
-				
 			}
 		}
 		
 		pc_tropical = {
 			names = { 
-				
 			}
 		}
 		
 		pc_arid = {
 			names = { 
-				
 			}
 		}
 		
 		pc_continental = {
 			names = { 
-				
 			}
 		}
 		
 		pc_ocean = {
 			names = { 
-				
 			}
 		}
 		
 		pc_tundra = {
 			names = { 
-				
 			}
 		}
 		
 		pc_arctic = {
 			names = { 
-				
 			}
 		}
 
 		pc_savannah = {
 			names = { 
-				
 			}
 		}
 
 		pc_alpine = {
 			names = { 
-				
 			}
 		}
 		
 	}
-
-	### CHARACTERS
 
 	character_names = {
 		default = {
@@ -190,7 +190,7 @@ MACHINE2 = {
 	ruler_names = {
 		default = {
 			full_names = {
-				Calculus Operator Protius Protia
+				Calculus Operator Protius Protia Mechanus Lexer Terminus Combinatrix Automata Multiplex Logos Cognitus
 			}
 		}
 	}

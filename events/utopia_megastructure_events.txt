@@ -685,7 +685,7 @@ country_event = {
 				modifier = "ring_world_halted"
 			}
 		}
-		owner = { add_minerals = 500 }
+		add_minerals = 500
 	}
 
 	option = {
@@ -1199,7 +1199,7 @@ country_event = {
 
 	is_triggered_only = yes
 
-	title = TRANSMISSION
+	#title = TRANSMISSION
 
 	diplomatic = yes
 
@@ -1369,7 +1369,7 @@ country_event = {
 						who = event_target:dysonsphere_builder
 						category = all
 						value = inferior
-					}	
+					}
 				}
 			}
 		}
@@ -1523,10 +1523,6 @@ event = {
 					owner_species = { has_trait = trait_mechanical }
 				}
 			}
-		save_event_target_as = target_country
-		}
-		
-		event_target:target_country = {
 			random_owned_megastructure = {
 				limit = {
 					OR = {
@@ -1536,9 +1532,6 @@ event = {
 				}
 				save_event_target_as = think_tank_2
 			}
-		}
-		
-		event_target:target_country = {
 			random_list = {
 				# Nothing
 				90 = { }
@@ -1574,20 +1567,59 @@ country_event = {
 		any_country = {
 			is_country_type = default
 			has_communications = root
-			NOT = {
-				has_country_flag = fountain_of_youth 
-				is_same_value = ROOT
+			species = {
+				NOR = {
+					has_trait = trait_mechanical
+					has_trait = trait_machine_unit
+				}
 			}
-		}
-		NOT = {
-			has_global_flag = utopia_51
-			has_country_flag = fountain_of_youth 
+			NOR = {
+				has_country_flag = fountain_of_youth
+				has_country_flag = synthetic_empire
+				is_same_value = root
+				has_global_flag = utopia_51
+			}
+			any_owned_planet = {
+				controller = { is_same_value = prevprev }
+			}
 		}
 	}
 
 	immediate = {
 		set_country_flag = think_tank_event
-		set_global_flag = utopia_51
+		save_global_event_target_as = fountain_of_youth_country
+		random_country = {
+			limit = {
+				is_country_type = default
+				has_communications = root
+				species = {
+					NOR = {
+						has_trait = trait_mechanical
+						has_trait = trait_machine_unit
+					}
+				}
+				NOR = {
+					has_country_flag = synthetic_empire 
+					has_country_flag = fountain_of_youth
+					is_same_value = root
+					has_global_flag = utopia_51
+				}
+
+				any_owned_planet = {
+					controller = { is_same_value = prevprev }
+				}
+			}
+			save_global_event_target_as = target_country
+			random_owned_planet = {
+				limit = {
+					controller = { is_same_value = prevprev }
+				}
+				save_global_event_target_as = missing_pops_planet
+				solar_system = {
+					save_global_event_target_as = ointment_name
+				}
+			}
+		}
 	}
 
 	option = {
@@ -1599,21 +1631,6 @@ country_event = {
 			}
 		}
 
-		random_country = {
-			limit = {
-				is_country_type = default
-				has_communications = root
-			}
-			save_event_target_as = target_country
-			random_system_within_border = {
-				limit = {
-					any_planet = {
-						is_colony = yes
-					}
-				}
-				save_event_target_as = ointment_name
-			}
-		}
 		add_energy = -1000
 		hidden_effect = {
 			set_global_flag = utopia_51
@@ -1624,9 +1641,7 @@ country_event = {
 	option = {
 		name = utopia.51.b
 		trigger = {
-			OR = {
 			energy > 999
-			}
 		}
 		hidden_effect = {
 			if = {
@@ -1653,9 +1668,7 @@ country_event = {
 	option = {
 		name = utopia.51.c
 		trigger = {
-			OR = {
 			energy < 1000
-			}
 		}
 			hidden_effect = {
 			if = {
@@ -1708,9 +1721,7 @@ country_event = {
 	option = {
 		name = utopia.54.c
 		trigger = {
-			OR = {
 			energy < 500
-			}
 		}
 	}
 }
@@ -1734,8 +1745,11 @@ country_event = {
 		name = utopia.55.b
 		custom_tooltip = utopia.55.b.tooltip
 		hidden_effect = { 
-			country_event = { id = utopia.57 days = 60 random = 20 } 
+			country_event = { id = utopia.57 days = 60 random = 20 }
 			set_country_flag = miracle_cream
+			event_target:target_country = {
+				country_event = { id = utopia.100 days = 80 }
+			}
 		}
 	}
 }
@@ -1757,10 +1771,10 @@ country_event = {
 	option = {
 		name = utopia.56.b
 		add_monthly_resource_mult = {
-   				resource = society_research
-   				value = @tier1researchreward
-   				min = @tier1researchmin
-   				max = @tier1researchmax
+   			resource = society_research
+   			value = @tier1researchreward
+   			min = @tier1researchmin
+   			max = @tier1researchmax
    		}
 	}
 
@@ -1781,8 +1795,8 @@ country_event = {
 
 	immediate = {
 		add_modifier = {
-				modifier = "energy_utopia_57"
-  				days = 360
+			modifier = "energy_utopia_57"
+  			days = 1800
   		}
 	}
 
@@ -1791,9 +1805,313 @@ country_event = {
 		tooltip = { 
 			add_modifier = {
 				modifier = "energy_utopia_57"
-  				days = 360
+  				days = 1800
   			}
   		}
+	}
+}
+
+# target_empire notices pops are missing
+country_event = {
+	id = utopia.100
+	title = "utopia.100.name"
+	desc = "utopia.100.desc"
+	picture = GFX_evt_alien_propaganda
+	show_sound = event_administrative_work 
+	location = event_target:missing_pops_planet
+
+	is_triggered_only = yes
+
+	immediate = {
+		country_event = { id = utopia.102 days = 200 }
+		event_target:missing_pops_planet = {
+			add_modifier = {
+ 				modifier = pop_disappearances
+ 				days = 7200
+   			}
+   		}
+	}
+
+	option = {
+		name = utopia.100.a
+		event_target:missing_pops_planet = {
+			enable_special_project = {
+				name = "disappearing_pops_project"
+				location = this
+				owner = root
+			}
+		}
+	}
+
+	option = {
+		name = utopia.100.b
+	}
+}
+
+# Update on missing pops
+country_event = {
+	id = utopia.101
+	title = "utopia.101.name"
+	desc = "utopia.101.desc"
+	picture = GFX_evt_smugglers_in_bar
+	show_sound = event_administrative_work 
+	location = event_target:missing_pops_planet
+
+	is_triggered_only = yes
+
+	immediate = {
+		event_target:missing_pops_planet = {
+			remove_modifier = pop_disappearances
+		}
+	}
+
+	option = {
+		name = utopia.101.a
+	}
+}
+
+# News of anti-aging cream spread throughout the target empire
+country_event = {
+	id = utopia.102
+	title = utopia.102.name
+	desc = utopia.102.desc
+	picture = GFX_evt_genetic_modification
+	show_sound = event_administrative_work 
+	location = event_target:missing_pops_planet
+
+	is_triggered_only = yes
+
+	immediate = {
+		random_owned_leader = {
+			limit = {
+				is_researching_area = society
+			}
+			save_event_target_as = worried_scientist
+		}
+	}
+
+	option = {
+		name = utopia.102.a
+		event_target:missing_pops_planet = {
+			enable_special_project = {
+				name = "mystery_cream_project"
+				location = this
+				owner = root
+			}
+		}
+	}
+	option = {
+		name = utopia.102.b
+	}
+}
+
+# Anti-aging cream fraud discovery
+country_event = {
+	id = utopia.103
+	title = utopia.103.name
+	desc = utopia.103.desc
+	picture = GFX_evt_genetic_modification
+	show_sound = event_administrative_work 
+	location = event_target:missing_pops_planet
+
+	is_triggered_only = yes
+
+	immediate = {
+		add_modifier = {
+			modifier = ageless
+			days = -1
+		}
+	}
+
+	option = {
+		name = utopia.103.a
+		tooltip = {
+			add_modifier = {
+				modifier = ageless
+				days = -1
+			}
+		}
+		event_target:missing_pops_planet = {
+			enable_special_project = {
+				name = "cream_origin_project"
+				location = this
+				owner = root
+			}
+		}
+	}
+
+	option = {
+		name = utopia.103.b
+		tooltip = {
+			add_modifier = {
+				modifier = ageless
+				days = -1
+			}
+		}
+	}
+}
+# Target country uncovers identity of pop-napping country
+country_event = {
+	id = utopia.104
+	title = utopia.104.name
+	desc = utopia.104.desc
+	picture = GFX_evt_think_tank
+	show_sound = event_administrative_work 
+	location = event_target:fountain_of_youth_country
+
+	is_triggered_only = yes
+
+	option = {
+		name = utopia.104.a
+		custom_tooltip = "utopia.104.a.tooltip"
+		hidden_effect = {
+			event_target:fountain_of_youth_country = {
+				country_event = { id = utopia.105 days = 4 }
+			}
+		}
+	}
+
+	option = {
+		name = utopia.104.c
+		custom_tooltip = utopia.104.c.tooltip
+	}
+
+	option = {
+		name = utopia.104.d
+	}
+}
+
+# Pop-napping country finds out they've been busted
+country_event = {
+	id = utopia.105
+	title = utopia.105.name
+	desc = utopia.105.desc
+	picture = GFX_evt_think_tank
+	show_sound = event_administrative_work 
+	location = event_target:missing_pops_planet
+
+	is_triggered_only = yes
+
+	option = {
+		name = utopia.105.a
+		hidden_effect = {
+			event_target:target_country = {
+				country_event = { id = utopia.106 days = 20 }
+			}
+		}
+		if = {
+			limit = { has_modifier = energy_utopia_57 }
+			remove_modifier = energy_utopia_57
+		}
+	}
+
+	option = {
+		name = utopia.105.b
+		event_target:target_country = {
+			add_opinion_modifier = {
+				who = root
+				modifier = opinion_stole_our_glands
+			}
+		}
+		hidden_effect = {
+			country_event = { id = utopia.108 days = 20 }
+			event_target:target_country = {
+				country_event = { id = utopia.107 days = 1 }
+			}
+		}
+	}
+
+	option = {
+		name = utopia.105.c
+		custom_tooltip = utopia.105.c.tooltip
+		event_target:target_country = {
+			add_opinion_modifier = {
+				who = root
+				modifier = opinion_stole_our_glands
+			}
+		}
+		hidden_effect = {
+			country_event = { id = utopia.108 days = 20 }
+			event_target:target_country = {
+				country_event = { id = utopia.107 days = 20 }
+				set_country_flag = request_ignored
+			}
+		}
+	}
+}
+# Target country is notified that pop-nappers agreed to their demands
+country_event = {
+	id = utopia.106
+	title = utopia.106.name
+	desc = utopia.106.desc
+	picture = GFX_evt_think_tank
+	show_sound = event_administrative_work
+	location = capital_scope
+
+	is_triggered_only = yes
+
+	option = {
+		name = utopia.106.a
+	}
+}
+# Target country is notified that pop-nappers didn't agree to their demands
+country_event = {
+	id = utopia.107
+	title = utopia.107.name
+	desc = {
+		trigger = {
+			NOT = {
+				has_country_flag = request_ignored
+			}
+		}
+		text = utopia.107.desc.a
+	}
+	desc = {
+		trigger = {
+			has_country_flag = request_ignored
+		}
+		text = utopia.107.desc.b
+	}
+	picture = GFX_evt_think_tank
+	show_sound = event_administrative_work
+	location = capital_scope
+
+	is_triggered_only = yes
+
+	option = {
+		name = utopia.107.a
+	}
+}
+# Refusal reaction
+country_event = {
+	id = utopia.108
+	title = utopia.108.name
+	desc = utopia.108.desc
+	picture = GFX_evt_think_tank
+	show_sound = event_administrative_work
+	location = capital_scope
+
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				has_modifier = energy_utopia_57
+			}
+			remove_modifier = energy_utopia_57
+		}
+	}
+
+	option = {
+		name = utopia.108.a
+		if = {
+			limit = {
+				has_modifier = energy_utopia_57
+			}
+			tooltip = {
+				remove_modifier = energy_utopia_57
+			}
+		}
 	}
 }
 
@@ -2013,7 +2331,6 @@ country_event = {
 				set_owner = root
 				create_ship_design = {
 					design = "NAME_Prototype"
-					ftl = root
 				}
 				create_ship = {
 					name = "NAME_From_Beyond"

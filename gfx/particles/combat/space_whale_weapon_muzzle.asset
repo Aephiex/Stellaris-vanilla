@@ -43,7 +43,7 @@ particle={
 	}
 	subsystem={
 		name="flare"
-		max_amount=200
+		max_amount=45
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"
@@ -84,7 +84,7 @@ particle={
 	}
 	subsystem={
 		name="electricity"
-		max_amount=200
+		max_amount=5
 		slave_particles=0
 		sort="depth"
 		emitter_type="sphere"
@@ -128,7 +128,7 @@ particle={
 	}
 	subsystem={
 		name="energy_well_dots"
-		max_amount=200
+		max_amount=27
 		slave_particles=0
 		sort="depth"
 		emitter_type="sphere"
@@ -173,7 +173,7 @@ particle={
 	}
 	subsystem={
 		name="energy_well_dots"
-		max_amount=200
+		max_amount=27
 		slave_particles=0
 		sort="depth"
 		emitter_type="sphere"
@@ -238,32 +238,6 @@ particle={
 		maxValue=1.000
 		curve={
 			0.000 1.000 1.000 0.047 
-		}
-		op="MUL"
-		time="life"
-	}
-	animation={
-		name="long_fade"
-		start=0.000
-		duration=1.000
-		repeat=no
-		minValue=0.000
-		maxValue=1.000
-		curve={
-			0.000 0.000 0.856 0.969 1.000 0.000 
-		}
-		op="MUL"
-		time="life"
-	}
-	animation={
-		name="grow"
-		start=0.000
-		duration=1.000
-		repeat=no
-		minValue=0.000
-		maxValue=1.000
-		curve={
-			0.000 0.383 1.000 1.000 
 		}
 		op="MUL"
 		time="life"

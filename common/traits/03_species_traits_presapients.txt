@@ -23,8 +23,7 @@ trait_presapient_earthbound = {
 	allowed_archetypes = { BIOLOGICAL PRESAPIENT }
 	modifier = {
 		tile_resource_energy_mult = 0.1
-		garrison_health = 1.0
-		pop_fortification_defense = 0.5
+		army_defense_damage_mult = 0.5
 	}
 }
 

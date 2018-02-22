@@ -135,6 +135,21 @@ part = {
 	}
 }
 
+# Gaia
+part = {
+	location = 0
+	localization = "START_SCREEN_PART_ONE_GAIA"
+	
+	trigger = {
+		ideal_planet_class = pc_gaia
+		NOR = { 
+			has_country_flag = custom_start_screen 
+			has_authority = auth_hive_mind
+			has_authority = auth_machine_intelligence
+		}
+	}
+}
+
 ### SECOND PARTS
 
 ### GOVERNMENT REWORK
@@ -152,7 +167,11 @@ part = {
 			has_government = gov_enlightened_monarchy
 			has_government = gov_elective_monarchy
 		}
-		NOT = { has_country_flag = custom_start_screen }
+		NOR = { 
+			has_country_flag = custom_start_screen 
+			has_civic = civic_post_apocalyptic 
+			has_civic = civic_life_seeded
+		}
 	}
 }
 
@@ -163,7 +182,11 @@ part = {
 	
 	trigger = {
 		has_government = gov_plutocratic_oligarchy
-		NOT = { has_country_flag = custom_start_screen }
+		NOR = { 
+			has_country_flag = custom_start_screen 
+			has_civic = civic_post_apocalyptic 
+			has_civic = civic_life_seeded
+		}
 	}
 }
 
@@ -174,7 +197,11 @@ part = {
 	
 	trigger = {
 		has_government = gov_representative_democracy
-		NOT = { has_country_flag = custom_start_screen }
+		NOR = { 
+			has_country_flag = custom_start_screen 
+			has_civic = civic_post_apocalyptic 
+			has_civic = civic_life_seeded
+		}
 	}
 }
 
@@ -189,7 +216,11 @@ part = {
 			has_government = gov_theocratic_dictatorship
 			has_government = gov_divine_empire
 		}
-		NOT = { has_country_flag = custom_start_screen }
+		NOR = { 
+			has_country_flag = custom_start_screen 
+			has_civic = civic_post_apocalyptic 
+			has_civic = civic_life_seeded
+		}
 	}
 }
 
@@ -203,7 +234,11 @@ part = {
 			has_government = gov_theocratic_oligarchy
 			has_government = gov_holy_tribunal
 		}
-		NOT = { has_country_flag = custom_start_screen }
+		NOR = { 
+			has_country_flag = custom_start_screen 
+			has_civic = civic_post_apocalyptic 
+			has_civic = civic_life_seeded
+		}
 	}
 }
 
@@ -214,7 +249,11 @@ part = {
 	
 	trigger = {
 		has_government = gov_theocratic_republic
-		NOT = { has_country_flag = custom_start_screen }
+		NOR = { 
+			has_country_flag = custom_start_screen 
+			has_civic = civic_post_apocalyptic 
+			has_civic = civic_life_seeded
+		}
 	}
 }
 
@@ -229,7 +268,11 @@ part = {
 			has_government = gov_military_dictatorship
 			has_government = gov_military_junta
 		}
-		NOT = { has_country_flag = custom_start_screen }
+		NOR = { 
+			has_country_flag = custom_start_screen 
+			has_civic = civic_post_apocalyptic 
+			has_civic = civic_life_seeded
+		}
 	}
 }
 
@@ -240,7 +283,11 @@ part = {
 	
 	trigger = {
 		has_government = gov_military_commissariat
-		NOT = { has_country_flag = custom_start_screen }
+		NOR = { 
+			has_country_flag = custom_start_screen 
+			has_civic = civic_post_apocalyptic 
+			has_civic = civic_life_seeded
+		}
 	}
 }
 
@@ -255,7 +302,11 @@ part = {
 			has_government = gov_martial_dictatorship
 			has_government = gov_war_council
 		}
-		NOT = { has_country_flag = custom_start_screen }
+		NOR = { 
+			has_country_flag = custom_start_screen 
+			has_civic = civic_post_apocalyptic 
+			has_civic = civic_life_seeded
+		}
 	}
 }
 
@@ -266,7 +317,11 @@ part = {
 	
 	trigger = {
 		has_government = gov_assembly_of_clans
-		NOT = { has_country_flag = custom_start_screen }
+		NOR = { 
+			has_country_flag = custom_start_screen 
+			has_civic = civic_post_apocalyptic 
+			has_civic = civic_life_seeded
+		}
 	}
 }
 
@@ -280,7 +335,11 @@ part = {
 			has_government = gov_citizen_stratocracy
 			has_government = gov_citizen_republic
 		}
-		NOT = { has_country_flag = custom_start_screen }
+		NOR = { 
+			has_country_flag = custom_start_screen 
+			has_civic = civic_post_apocalyptic 
+			has_civic = civic_life_seeded
+		}
 	}
 }
 
@@ -291,7 +350,11 @@ part = {
 	
 	trigger = {
 		has_government = gov_irenic_monarchy
-		NOT = { has_country_flag = custom_start_screen }
+		NOR = { 
+			has_country_flag = custom_start_screen 
+			has_civic = civic_post_apocalyptic 
+			has_civic = civic_life_seeded
+		}
 	}
 }
 
@@ -305,7 +368,11 @@ part = {
 			has_government = gov_irenic_bureaucracy
 			has_government = gov_irenic_dictatorship
 		}
-		NOT = { has_country_flag = custom_start_screen }
+		NOR = { 
+			has_country_flag = custom_start_screen 
+			has_civic = civic_post_apocalyptic 
+			has_civic = civic_life_seeded
+		}
 	}
 }
 
@@ -316,7 +383,11 @@ part = {
 	
 	trigger = {
 		has_government = gov_moral_democracy
-		NOT = { has_country_flag = custom_start_screen }
+		NOR = { 
+			has_country_flag = custom_start_screen 
+			has_civic = civic_post_apocalyptic 
+			has_civic = civic_life_seeded
+		}
 	}
 }
 
@@ -327,7 +398,11 @@ part = {
 	
 	trigger = {
 		has_government = gov_celestial_empire
-		NOT = { has_country_flag = custom_start_screen }
+		NOR = { 
+			has_country_flag = custom_start_screen 
+			has_civic = civic_post_apocalyptic 
+			has_civic = civic_life_seeded
+		}
 	}
 }
 
@@ -341,7 +416,11 @@ part = {
 			has_government = gov_despotic_hegemony
 			has_government = gov_totalitarian_regime
 		}
-		NOT = { has_country_flag = custom_start_screen }
+		NOR = { 
+			has_country_flag = custom_start_screen 
+			has_civic = civic_post_apocalyptic 
+			has_civic = civic_life_seeded
+		}
 	}
 }
 
@@ -352,7 +431,11 @@ part = {
 	
 	trigger = {
 		has_government = gov_executive_committee
-		NOT = { has_country_flag = custom_start_screen }
+		NOR = { 
+			has_country_flag = custom_start_screen 
+			has_civic = civic_post_apocalyptic 
+			has_civic = civic_life_seeded
+		}
 	}
 }
 
@@ -363,7 +446,11 @@ part = {
 	
 	trigger = {
 		has_government = gov_direct_democracy
-		NOT = { has_country_flag = custom_start_screen }
+		NOR = { 
+			has_country_flag = custom_start_screen 
+			has_civic = civic_post_apocalyptic 
+			has_civic = civic_life_seeded
+		}
 	}
 }
 
@@ -377,7 +464,11 @@ part = {
 			has_government = gov_illuminated_autocracy
 			has_government = gov_technocratic_dictatorship
 		}
-		NOT = { has_country_flag = custom_start_screen }
+		NOR = { 
+			has_country_flag = custom_start_screen 
+			has_civic = civic_post_apocalyptic 
+			has_civic = civic_life_seeded
+		}
 	}
 }
 
@@ -388,7 +479,11 @@ part = {
 	
 	trigger = {
 		has_government = gov_science_directorate
-		NOT = { has_country_flag = custom_start_screen }
+		NOR = { 
+			has_country_flag = custom_start_screen 
+			has_civic = civic_post_apocalyptic 
+			has_civic = civic_life_seeded
+		}
 	}
 }
 
@@ -399,7 +494,26 @@ part = {
 	
 	trigger = {
 		has_government = gov_rational_consensus
-		NOT = { has_country_flag = custom_start_screen }
+		NOR = { 
+			has_country_flag = custom_start_screen 
+			has_civic = civic_post_apocalyptic 
+			has_civic = civic_life_seeded
+		}
+	}
+}
+
+# Trade League
+part = {
+	location = 1
+	localization = "START_SCREEN_PART_TWO_TRADE_LEAGUE"
+	
+	trigger = {
+		has_government = gov_trade_league
+		NOR = { 
+			has_country_flag = custom_start_screen 
+			has_civic = civic_post_apocalyptic 
+			has_civic = civic_life_seeded
+		}
 	}
 }
 
@@ -410,7 +524,11 @@ part = {
 	
 	trigger = {
 		has_government = gov_megacorporation
-		NOT = { has_country_flag = custom_start_screen }
+		NOR = { 
+			has_country_flag = custom_start_screen 
+			has_civic = civic_post_apocalyptic 
+			has_civic = civic_life_seeded
+		}
 	}
 }
 
@@ -421,7 +539,29 @@ part = {
 	
 	trigger = {
 		has_government = gov_megachurch
-		NOT = { has_country_flag = custom_start_screen }
+		NOR = { 
+			has_country_flag = custom_start_screen 
+			has_civic = civic_post_apocalyptic 
+			has_civic = civic_life_seeded
+		}
+	}
+}
+
+# Bandit Kingdom/Commune
+part = {
+	location = 1
+	localization = "START_SCREEN_PART_TWO_BANDIT_KINGDOM"
+	
+	trigger = {
+		OR = {
+			has_government = gov_bandit_kingdom
+			has_government = gov_bandit_commune
+		}
+		NOR = { 
+			has_country_flag = custom_start_screen 
+			has_civic = civic_post_apocalyptic 
+			has_civic = civic_life_seeded
+		}
 	}
 }
 
@@ -437,7 +577,11 @@ part = {
 			has_government = gov_purification_committee
 			has_government = gov_purity_assembly
 		}
-		NOT = { has_country_flag = custom_start_screen }
+		NOR = { 
+			has_country_flag = custom_start_screen 
+			has_civic = civic_post_apocalyptic 
+			has_civic = civic_life_seeded
+		}
 	}
 }
 
@@ -448,7 +592,7 @@ part = {
 	
 	trigger = {
 		has_government = gov_hive_mind
-		NOT = { has_country_flag = custom_start_screen }
+		NOR = { has_country_flag = custom_start_screen }
 	}
 }
 
@@ -459,7 +603,7 @@ part = {
 	
 	trigger = {
 		has_government = gov_devouring_swarm
-		NOT = { has_country_flag = custom_start_screen }
+		NOR = { has_country_flag = custom_start_screen }
 	}
 }
 
@@ -519,46 +663,38 @@ part = {
 	}
 }
 
-### THIRD PARTS
-
-# Warp
+# Post-Apocalyptic Civic
 part = {
-	location = 2
-	localization = "START_SCREEN_PART_THREE_WARP"
+	location = 1
+	localization = "START_SCREEN_POST_APOCALYPTIC"
 	
 	trigger = {
-		always = yes
-		has_technology = "tech_warp_drive_1"
-		NOR = { 
-			has_country_flag = custom_start_screen 
-			has_authority = auth_hive_mind
-			has_authority = auth_machine_intelligence
-		}
+		has_civic = civic_post_apocalyptic
+		NOT = { has_country_flag = custom_start_screen }
 	}
 }
+
+# Life-Seeded Civic
+part = {
+	location = 1
+	localization = "START_SCREEN_POST_LIFE_SEEDED"
+	
+	trigger = {
+		has_civic = civic_life_seeded
+		NOT = { has_country_flag = custom_start_screen }
+	}
+}
+
+### THIRD PARTS
+
 # Hyperspace
 part = {
 	location = 2
 	localization = "START_SCREEN_PART_THREE_HYPERSPACE"
 	
 	trigger = {
-		has_technology = "tech_hyper_drive_1"
 		NOR = { 
-			has_country_flag = custom_start_screen 
-			has_authority = auth_hive_mind
-			has_authority = auth_machine_intelligence
-		}
-	}
-}
-# Wormholes
-part = {
-	location = 2
-	localization = "START_SCREEN_PART_THREE_WORMHOLES"
-	
-	trigger = {
-		has_technology = "tech_wormhole_generation_1"
-		NOR = { 
-			has_country_flag = custom_start_screen 
+			has_country_flag = custom_start_screen
 			has_authority = auth_hive_mind
 			has_authority = auth_machine_intelligence
 		}

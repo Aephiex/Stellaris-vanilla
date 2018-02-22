@@ -1336,6 +1336,20 @@ ship_event = {
 				add_deposit = d_living_metal_deposit
 			}
 		}
+		owner = {
+			if = {
+				limit = {
+					has_tech_option = tech_mine_living_metal
+				}
+				add_tech_progress = {
+					tech = tech_mine_living_metal
+					progress = 0.25
+				}
+				else = {
+					add_research_option = tech_mine_living_metal
+				}
+			}
+		}
 	}
 }
 
@@ -1672,11 +1686,13 @@ ship_event = {
 			save_event_target_as = owner_country
 			create_fleet = {
 				name = "NAME_New_Ships"
+				settings = {
+					spawn_debris = no
+				}				
 				effect = {
 					set_owner = PREV
 					create_ship_design = {
 						design = "NAME_R44"
-						ftl = event_target:owner_country
 					}
 					create_ship = {
 						name = "NAME_Specter"
@@ -1700,7 +1716,6 @@ ship_event = {
 				}
 			}
 		}
-		leader = { add_experience = 200 }
 	}
 }
 
@@ -1720,11 +1735,13 @@ ship_event = {
 			save_event_target_as = owner_country
 			create_fleet = {
 				name = "NAME_New_Ship"
+				settings = {
+					spawn_debris = no
+				}				
 				effect = {
 					set_owner = PREV
 					create_ship_design = {
 						design = "NAME_F79"
-						ftl = event_target:owner_country
 					}
 					create_ship = {
 						name = "NAME_Dark_Wanderer"
@@ -1736,7 +1753,6 @@ ship_event = {
 				}
 			}
 		}
-		leader = { add_experience = 200 }
 	}
 }
 
@@ -1781,11 +1797,13 @@ ship_event = {
 		name = EXCELLENT
 		owner = {
 			create_fleet = {
+				settings = {
+					spawn_debris = no
+				}
 				effect = {
 					set_owner = PREV
 					create_ship_design = {
 						design = "NAME_Derelict"
-						ftl = root.owner
 					}
 					create_ship = {
 						name = "NAME_Salvage"

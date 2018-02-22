@@ -2,7 +2,7 @@ particle={
 	name="gamma_laser_file"
 	subsystem={
 		name="flare_1"
-		max_amount=200
+		max_amount=11
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"
@@ -84,7 +84,7 @@ particle={
 	}
 	subsystem={
 		name="flare_big"
-		max_amount=200
+		max_amount=5
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"
@@ -125,7 +125,7 @@ particle={
 	}
 	subsystem={
 		name="cloud"
-		max_amount=200
+		max_amount=5
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"
@@ -166,7 +166,7 @@ particle={
 	}
 	subsystem={
 		name="flare_1"
-		max_amount=200
+		max_amount=11
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"

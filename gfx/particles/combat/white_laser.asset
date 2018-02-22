@@ -2,7 +2,7 @@ particle={
 	name="white_laser_file"
 	subsystem={
 		name="flare_1_small"
-		max_amount=100
+		max_amount=7
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"
@@ -43,7 +43,7 @@ particle={
 	}
 	subsystem={
 		name="flare_1_large"
-		max_amount=100
+		max_amount=11
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"
@@ -104,19 +104,6 @@ particle={
 		maxValue=1.000
 		curve={
 			0.000 0.800 1.000 1.000 
-		}
-		op="MUL"
-		time="life"
-	}
-	animation={
-		name="shrink"
-		start=0.000
-		duration=1.000
-		repeat=no
-		minValue=0.000
-		maxValue=1.000
-		curve={
-			0.000 1.000 1.000 0.200 
 		}
 		op="MUL"
 		time="life"

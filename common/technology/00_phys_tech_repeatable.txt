@@ -3,9 +3,9 @@
 ### TECH COSTS - REPEATABLE  ###
 ###########################
 
-@repeatableTechBaseCost = 5000
-@repeatableTechLevelCost = 1000
-@repeatableTechTier = 4
+@repeatableTechBaseCost = 20000
+@repeatableTechLevelCost = 5000
+@repeatableTechTier = 5
 
 ###########################
 ### TECH WEIGHTS - REPEATABLE  ###
@@ -20,7 +20,7 @@ tech_repeatable_improved_tile_energy_output = {
 	cost = @repeatableTechBaseCost
 	cost_per_level = @repeatableTechLevelCost
 	tier = @repeatableTechTier
-	category = { industry }
+	category = { field_manipulation }
 	levels = -1
 	prerequisites = {"tech_power_plant_3"}
 	weight = @repeatableTechWeight
@@ -72,7 +72,7 @@ tech_repeatable_improved_shield_output = {
 	}
 	
 	modifier = {
-		ship_shield_hp_mult = 0.05
+		ship_shield_mult = 0.05
 	}
 }
 
@@ -135,37 +135,6 @@ tech_repeatable_weapon_type_energy_fire_rate = {
 	
 	modifier = {
 		weapon_type_energy_weapon_fire_rate_mult = 0.05
-	}
-}
-
-tech_repeatable_improved_planet_sensor_range = {
-	area = physics
-	cost = @repeatableTechBaseCost
-	cost_per_level = @repeatableTechLevelCost
-	tier = @repeatableTechTier
-	category = { voidcraft }
-	ai_update_type = all
-	levels = -1
-	prerequisites = {"tech_sensors_3"}
-	weight = @repeatableTechWeight
-	
-	weight_modifier = {
-		factor = @repatableTechFactor
-	}
-	
-	ai_weight = {
-		factor = 1.0
-	}
-	
-	weight_groups = {
-		repeatable
-	}
-	mod_weight_if_group_picked = {
-		repeatable = 0.01
-	}
-	
-	modifier = {
-		planet_sensor_range_mult = 0.1
 	}
 }
 

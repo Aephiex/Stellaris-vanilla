@@ -45,7 +45,7 @@ PixelShader =
 VertexStruct VS_INPUT
 {
     float3 	vPosition				: POSITION;
-	float2 	vUV						: TEXCOORD0;
+	int2 	vUV						: TEXCOORD0;
 	float 	vAlpha					: TEXCOORD1;
 };
 
@@ -107,16 +107,9 @@ PixelShader =
 			float vAlpha = In.vAlpha;
 			const float vAlphaBreakVal = 0.91f;
 			const float vPadding = 0.7f;
-			if( vAlpha > vAlphaBreakVal )
-			{
-				vAlpha = smoothstep( 1.0f - vPadding, vAlphaBreakVal, vAlpha );
-			}
-			else
-			{
-				vAlpha = smoothstep( vPadding, vAlphaBreakVal, vAlpha );
-			}
+			vAlpha = smoothstep( vPadding, vAlphaBreakVal, vAlpha );
 			
-			vAlpha *= smoothstep( 0.15f, 0.0f, abs( In.vUV.x - 0.5f ) * 2.f );
+			vAlpha *= smoothstep( 0.85f, 1.0f, 1.0f - abs( In.vUV.x - 0.5f ) * 2.f );
 			return float4( 0.0f, 0.4f, 1.0f, vAlpha * 0.25 );
 		}
 	]]

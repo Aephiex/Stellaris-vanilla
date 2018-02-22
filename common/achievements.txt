@@ -1085,3 +1085,133 @@ achievement_planet_of_the_mechs = {
 		has_country_flag = planet_of_the_mechs
 	}
 }
+
+achievement_exterminatus = {
+	id = 71
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		has_country_flag = exterminatus
+	}
+}
+
+achievement_clash_of_the_titans = {
+	id = 72
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		has_country_flag = clash_of_the_titans
+	}
+}
+
+achievement_stay_on_target = {
+	id = 73
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		has_country_flag = stay_on_target
+	}
+}
+
+achievement_star_struck = {
+	id = 74
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		num_starbases > 199
+	}
+}
+
+achievement_pandoras_world = {
+	id = 75
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		has_country_flag = pandoras_world
+	}
+}
+
+achievement_imperial_highway = {
+	id = 76
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		num_owned_active_gateways > 3
+	}
+}
+
+achievement_citadel_of_death = {
+	id = 77
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		any_owned_starbase = {
+			fleet = {
+				fleet_power > 39999
+			}
+		}
+	}
+}
+
+achievement_tradition_is_everything = {
+	id = 78
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		has_tradition = tr_diplomacy_finish
+		has_tradition = tr_discovery_finish
+		has_tradition = tr_domination_finish
+		has_tradition = tr_expansion_finish
+		has_tradition = tr_harmony_finish
+		has_tradition = tr_prosperity_finish
+		has_tradition = tr_supremacy_finish
+	}
+}
+
+achievement_emissary = {
+	id = 79
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		has_country_flag = emissary
+	}
+}
+
+achievement_no_khan_do = {
+	id = 80
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		has_country_flag = no_khan_do
+	}
+}

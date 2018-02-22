@@ -4,9 +4,6 @@
 #
 
 default = {										# "default" should always exists as it's the value the engine will always fall back on
-	garrison = "garrison_army"
-	defense_armies = "defense_army"				# determines the starting armies created on owned planets
-
 	colony_shelter = {
 		default = "building_colony_shelter"
 		pc_habitat = "building_hab_capital"
@@ -18,9 +15,6 @@ default = {										# "default" should always exists as it's the value the engi
 }
 
 machines = {
-	garrison = "machine_garrison"
-	defense_armies = "machine_defense_1"
-
 	colony_shelter = {
 		default = "building_deployment_post"
 		pc_habitat = "building_hab_capital"

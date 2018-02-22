@@ -1,31 +1,26 @@
 #reloadable with 'reload stats'
 # This file is where you start when you want to configure something new, then go to sections
 
-@civilian_ships_combat_speed = 0.5
-@corvette_combat_speed = 1.5 	# assault ships
-@corvette_combat_rotation = 0.08
 @corvette_collision_radius = 2.0
 
-@destroyer_combat_speed = 1.0	 # picket ships, should stay with the battleships
-@destroyer_combat_rotation = 0.05
 @destroyer_collision_radius = 2.5
 
-@cruiser_combat_speed = 1.25	 # assault ships
-@cruiser_combat_rotation = 0.025
 @cruiser_collision_radius = 3
 
-@battleship_combat_speed = 0.75	
-@battleship_combat_rotation = 0.02
 @battleship_collision_radius = 3
 
-@titan_combat_speed = 0.75
-@titan_combat_rotation = 0.02
 @titan_collision_radius = 15
 
 @build_block_radius_none = 0
 @build_block_radius_civilian = 20
 @build_block_radius_military = 200
 
+@speed_crawl = 30
+@speed_very_slow = 60
+@speed_slow = 80
+@speed_default = 100
+@speed_fast = 120
+@speed_very_fast = 170
 
 # Dragon Test
 # Swarm Queen
@@ -34,18 +29,17 @@ space_dragon_red = {
 	is_space_object = yes
 	#graphical_culture = {  "guardian_01" }
 	graphical_culture = no
-	max_speed = 6
+	can_be_inspected = no
+	max_speed = @speed_very_fast
 	acceleration = 0.4
 	rotation_speed = 0.50
-	combat_max_speed = @battleship_combat_speed
-	combat_rotation_speed = @battleship_combat_rotation
 	collision_radius = 7
 	modifier = {
 		ship_evasion_add = 25
-		ship_armor_add = 100
-		ship_upkeep_mult = -1
+		ship_armor_add = 100000
 	}
-	max_hitpoints = 75000
+	max_hitpoints = 150000
+	combat_size_multiplier = 50
 	size_multiplier = 32
 	fleet_slot_size = 8
 	section_slots = { "mid" = { locator = "part1" } }
@@ -64,11 +58,11 @@ enclave_station = {
 	max_speed = 0.0
 	acceleration = 0.0
 	rotation_speed = 0.10
-	combat_rotation_speed = 0.10
 	modifier = {
 		ship_evasion_mult = -1
 	}
 	max_hitpoints = 20000
+	combat_size_multiplier = 20
 	size_multiplier = 8
 	fleet_slot_size = 4
 	section_slots = { "mid" = { locator = "station" } }
@@ -85,18 +79,16 @@ stellarite = {
 	is_space_object = yes
 	#graphical_culture = {  "guardian_01" }
 	graphical_culture = no
-	max_speed = 1.0
+	can_be_inspected = no
+	max_speed = @speed_crawl
 	acceleration = 0.2
 	rotation_speed = 0.01
-	combat_max_speed = 0.25
-	combat_rotation_speed = 0.1
 	collision_radius = @titan_collision_radius
 	modifier = {
 		ship_evasion_add = 30
-		ship_armor_add = 100
-		ship_upkeep_mult = -1
 	}
-	max_hitpoints = 100000
+	max_hitpoints = 200000
+	combat_size_multiplier = 50
 	size_multiplier = 32
 	fleet_slot_size = 8
 	section_slots = { "mid" = { locator = "part1" } }
@@ -112,18 +104,16 @@ stellarite = {
 sphere = {
 	is_space_object = yes
 	graphical_culture = { "techno" }
-	max_speed = 1.5
+	max_speed = @speed_very_slow
 	acceleration = 0.3
 	rotation_speed = 1.00
-	combat_max_speed = @battleship_combat_speed
-	combat_rotation_speed = @battleship_combat_rotation
 	collision_radius = @titan_collision_radius
 	modifier = {
 		ship_evasion_add = 35
-		ship_armor_add = 150
-		ship_upkeep_mult = -1
+		ship_armor_add = 20000
 	}
-	max_hitpoints = 40000
+	max_hitpoints = 50000
+	combat_size_multiplier = 50
 	size_multiplier = 32
 	fleet_slot_size = 8
 	section_slots = { "mid" = { locator = "part1" } }
@@ -140,18 +130,15 @@ galleon = {
 	is_space_object = yes
 	graphical_culture = {  "pirate_01" }
 	graphical_culture = yes
-	max_speed = 1.5
+	max_speed = @speed_very_slow
 	acceleration = 0.3
 	rotation_speed = 0.05
-	combat_max_speed = @battleship_combat_speed
-	combat_rotation_speed = @battleship_combat_rotation
 	collision_radius = 7
 	modifier = {
-		ship_evasion_add = 35
-		ship_armor_add = 100
-		ship_upkeep_mult = -1
+		ship_evasion_add = 5
 	}
 	max_hitpoints = 40000
+	combat_size_multiplier = 20
 	size_multiplier = 8
 	fleet_slot_size = 4
 	section_slots = { "mid" = { locator = "part1" } }
@@ -164,7 +151,7 @@ galleon = {
 }
 
 station_xl = {
-	graphical_culture = {  "ancient" }
+	graphical_culture = { "ancient" }
 	max_speed = 0.0
 	acceleration = 0.0
 	rotation_speed = 0.0
@@ -173,6 +160,7 @@ station_xl = {
 		ship_evasion_mult = -1
 	}
 	max_hitpoints = 50000
+	combat_size_multiplier = 20
 	size_multiplier = 16
 	fleet_slot_size = 16
 	section_slots = { "mid" = { locator = "part1" } }
@@ -268,19 +256,20 @@ station_xs = {
 # Dimensional Horror
 dimensional_horror = {
 	graphical_culture = no
+	can_be_inspected = no
 	is_space_object = yes
 	max_speed = 0.0
 	acceleration = 0.0
 	rotation_speed = 0.05
-	combat_max_speed = 0.01
-	combat_rotation_speed = 0.05
 	collision_radius = 15
 	modifier = {
 		ship_evasion_mult = -1
-		ship_armor_add = 150
+		ship_shield_add = 100000
+		ship_armor_add = 100000
 		ship_weapon_range_mult = 0.50
 	}
 	max_hitpoints = 100000
+	combat_size_multiplier = 50
 	size_multiplier = 32
 	fleet_slot_size = 8
 	section_slots = { 
@@ -301,21 +290,20 @@ npc_warship_01 = {
 	graphical_culture = {  "npf_01"  "npf_01_dirty" }
 	is_space_object = yes
 	graphical_culture = yes
-	max_speed = 2
+	max_speed = @speed_very_slow
 	acceleration = 0.15
 	rotation_speed = 0.1
-	combat_max_speed = @titan_combat_speed
-	combat_rotation_speed = @titan_combat_rotation
 	collision_radius = 7
 	modifier = {
 		ship_evasion_add = 2
-		ship_armor_add = 54
 		ship_upkeep_mult = -1
 		ship_fire_rate_mult = 1
 		ship_weapon_damage = 2
-		ship_shield_hp_mult = 3
+		ship_shield_mult = 3
+		ship_armor_add = 5000
 	}
-	max_hitpoints = 15000
+	max_hitpoints = 10000
+	combat_size_multiplier = 50
 	size_multiplier = 16
 	fleet_slot_size = 8
 	section_slots = { "mid" = { locator = "part1" } }
@@ -334,9 +322,10 @@ homebase = {
 	rotation_speed = 0.0
 	modifier = {
 		ship_evasion_mult = -1
-		ship_armor_add = 11
+		ship_armor_add = 10000
 	}
-	max_hitpoints = 40000
+	max_hitpoints = 30000
+	combat_size_multiplier = 20
 	size_multiplier = 8
 	fleet_slot_size = 4
 	section_slots = { "mid" = { locator = "part1" } }
@@ -350,12 +339,13 @@ homebase = {
 
 hive_asteroid = {
 	graphical_culture = no
+	can_be_inspected = no
 	max_speed = 0.0
 	acceleration = 0.0
 	rotation_speed = 0.0
 	modifier = {
 		ship_evasion_mult = -1
-		ship_armor_add = 40
+		ship_armor_add = 10000
 	}
 	max_hitpoints = 20000
 	size_multiplier = 8
@@ -375,18 +365,17 @@ wraith_01_blue = {
 	is_space_object = yes
 	#graphical_culture = {  "guardian_01" }
 	graphical_culture = no
-	max_speed = 2
+	can_be_inspected = no
+	max_speed = @speed_very_slow
 	acceleration = 0.3
 	rotation_speed = 0.50
-	combat_max_speed = @cruiser_combat_speed
-	combat_rotation_speed = @cruiser_combat_rotation
 	collision_radius = 8
 	modifier = {
 		ship_evasion_add = 75
-		ship_armor_add = 150
-		ship_upkeep_mult = -1
+		ship_armor_add = 10000
 	}
 	max_hitpoints = 20000
+	combat_size_multiplier = 50
 	size_multiplier = 20
 	fleet_slot_size = 8
 	section_slots = { "mid" = { locator = "part1" } }
@@ -403,18 +392,17 @@ wraith_01_red = {
 	is_space_object = yes
 	#graphical_culture = {  "guardian_01" }
 	graphical_culture = no
-	max_speed = 2
+	can_be_inspected = no
+	max_speed = @speed_very_slow
 	acceleration = 0.3
 	rotation_speed = 0.50
-	combat_max_speed = @cruiser_combat_speed
-	combat_rotation_speed = @cruiser_combat_rotation
 	collision_radius = 8
 	modifier = {
 		ship_evasion_add = 75
-		ship_armor_add = 100
-		ship_upkeep_mult = -1
+		ship_armor_add = 10000
 	}
-	max_hitpoints = 10000
+	max_hitpoints = 20000
+	combat_size_multiplier = 50
 	size_multiplier = 8
 	fleet_slot_size = 4
 	section_slots = { "mid" = { locator = "part1" } }
@@ -431,18 +419,17 @@ wraith_01_yellow = {
 	is_space_object = yes
 	#graphical_culture = {  "guardian_01" }
 	graphical_culture = no
-	max_speed = 2
+	can_be_inspected = no
+	max_speed = @speed_very_slow
 	acceleration = 0.3
 	rotation_speed = 0.50
-	combat_max_speed = @cruiser_combat_speed
-	combat_rotation_speed = @cruiser_combat_rotation
 	collision_radius = 8
 	modifier = {
 		ship_evasion_add = 75
-		ship_armor_add = 100
-		ship_upkeep_mult = -1
+		ship_armor_add = 10000
 	}
-	max_hitpoints = 10000
+	max_hitpoints = 20000
+	combat_size_multiplier = 50
 	size_multiplier = 8
 	fleet_slot_size = 4
 	section_slots = { "mid" = { locator = "part1" } }
@@ -459,15 +446,13 @@ space_dragon_baby = {
 	is_space_object = yes
 	#graphical_culture = {  "guardian_01" }
 	graphical_culture = no
-	max_speed = 4
+	can_be_inspected = no
+	max_speed = @speed_default
 	acceleration = 0.8
 	rotation_speed = 0.8
-	combat_max_speed = @battleship_combat_speed
-	combat_rotation_speed = @battleship_combat_rotation
 	collision_radius = 7
 	modifier = {
 		ship_evasion_add = 25
-		ship_armor_add = 100
 		ship_upkeep_mult = -1
 	}
 	max_hitpoints = 10000
@@ -481,7 +466,7 @@ space_dragon_baby = {
 	class = shipclass_military
 	is_designable = no
 	required_component_set = "ftl_components"
-	required_component_set = "ship_sensor_components"
+	required_component_set = "sensor_components"
 	required_component_set = "thruster_components"
 	required_component_set = "combat_computers"
 }

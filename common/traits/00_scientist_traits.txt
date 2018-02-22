@@ -376,7 +376,7 @@ leader_trait_expertise_materials = {
 	leader_trait = yes
 	leader_class = { scientist }
 	opposites = { 
-		"leader_trait_expertise_rocketry" 
+		"leader_trait_expertise_propulsion" 
 		"leader_trait_expertise_voidcraft"
 		"leader_trait_expertise_industry" 
 		"leader_trait_expertise_field_manipulation"
@@ -399,12 +399,12 @@ leader_trait_expertise_materials = {
 	}
 }
 
-leader_trait_expertise_rocketry = {
+leader_trait_expertise_propulsion = {
 	cost = 1
 	modification = no
-	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_expertise_rocketry.dds"
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_expertise_propulsion.dds"
 	modifier = {
-		category_rocketry_research_speed_mult = @categorybonus
+		category_propulsion_research_speed_mult = @categorybonus
 	}
 	leader_trait = yes
 	leader_class = { scientist }
@@ -421,7 +421,7 @@ leader_trait_expertise_rocketry = {
 		"leader_trait_expertise_biology"
 		"leader_trait_expertise_military_theory" 
 	}
-	# higher chance to generate techs in category rocketry (done in tech-script)
+	# higher chance to generate techs in category propulsion (done in tech-script)
 	
 	ai_categories = {
 		engineering
@@ -443,7 +443,7 @@ leader_trait_expertise_voidcraft = {
 	leader_class = { scientist }
 	opposites = {
 		"leader_trait_expertise_materials" 
-		"leader_trait_expertise_rocketry"
+		"leader_trait_expertise_propulsion"
 		"leader_trait_expertise_industry" 
 		"leader_trait_expertise_field_manipulation"
 		"leader_trait_expertise_particles"
@@ -458,7 +458,6 @@ leader_trait_expertise_voidcraft = {
 	
 	ai_categories = {
 		engineering
-		physics
 	}
 	
 	ai_weight = {
@@ -477,7 +476,7 @@ leader_trait_expertise_industry = {
 	leader_class = { scientist }
 	opposites = { 
 		"leader_trait_expertise_materials" 
-		"leader_trait_expertise_rocketry" 
+		"leader_trait_expertise_propulsion" 
 		"leader_trait_expertise_voidcraft"
 		"leader_trait_expertise_field_manipulation"
 		"leader_trait_expertise_particles"
@@ -492,7 +491,6 @@ leader_trait_expertise_industry = {
 	
 	ai_categories = {
 		engineering
-		physics
 	}
 	
 	ai_weight = {
@@ -511,7 +509,7 @@ leader_trait_expertise_field_manipulation = {
 	leader_class = { scientist }
 	opposites = { 
 		"leader_trait_expertise_materials" 
-		"leader_trait_expertise_rocketry" 
+		"leader_trait_expertise_propulsion" 
 		"leader_trait_expertise_voidcraft"
 		"leader_trait_expertise_industry"
 		"leader_trait_expertise_particles"
@@ -544,7 +542,7 @@ leader_trait_expertise_particles = {
 	leader_class = { scientist }
 	opposites = { 
 		"leader_trait_expertise_materials" 
-		"leader_trait_expertise_rocketry" 
+		"leader_trait_expertise_propulsion" 
 		"leader_trait_expertise_voidcraft"
 		"leader_trait_expertise_industry" 
 		"leader_trait_expertise_field_manipulation"
@@ -576,7 +574,7 @@ leader_trait_expertise_computing = {
 	leader_class = { scientist }
 	opposites = { 
 		"leader_trait_expertise_materials" 
-		"leader_trait_expertise_rocketry" 
+		"leader_trait_expertise_propulsion" 
 		"leader_trait_expertise_voidcraft"
 		"leader_trait_expertise_industry" 
 		"leader_trait_expertise_field_manipulation"
@@ -610,7 +608,7 @@ leader_trait_expertise_psionics = {
 	prerequisites = { tech_psionic_theory }
 	opposites = { 
 		"leader_trait_expertise_materials" 
-		"leader_trait_expertise_rocketry" 
+		"leader_trait_expertise_propulsion" 
 		"leader_trait_expertise_voidcraft"
 		"leader_trait_expertise_industry" 
 		"leader_trait_expertise_field_manipulation"
@@ -643,7 +641,7 @@ leader_trait_expertise_new_worlds = {
 	leader_class = { scientist }
 	opposites = { 
 		"leader_trait_expertise_materials" 
-		"leader_trait_expertise_rocketry" 
+		"leader_trait_expertise_propulsion" 
 		"leader_trait_expertise_voidcraft"
 		"leader_trait_expertise_industry" 
 		"leader_trait_expertise_field_manipulation"
@@ -676,7 +674,7 @@ leader_trait_expertise_statecraft = {
 	leader_class = { scientist }
 	opposites = { 
 		"leader_trait_expertise_materials" 
-		"leader_trait_expertise_rocketry" 
+		"leader_trait_expertise_propulsion" 
 		"leader_trait_expertise_voidcraft"
 		"leader_trait_expertise_industry" 
 		"leader_trait_expertise_field_manipulation"
@@ -709,7 +707,7 @@ leader_trait_expertise_biology = {
 	leader_class = { scientist }
 	opposites = { 
 		"leader_trait_expertise_materials" 
-		"leader_trait_expertise_rocketry" 
+		"leader_trait_expertise_propulsion" 
 		"leader_trait_expertise_voidcraft"
 		"leader_trait_expertise_industry" 
 		"leader_trait_expertise_field_manipulation"
@@ -742,7 +740,7 @@ leader_trait_expertise_military_theory = {
 	leader_class = { scientist }
 	opposites = { 
 		"leader_trait_expertise_materials" 
-		"leader_trait_expertise_rocketry" 
+		"leader_trait_expertise_propulsion" 
 		"leader_trait_expertise_voidcraft"
 		"leader_trait_expertise_industry" 
 		"leader_trait_expertise_field_manipulation"

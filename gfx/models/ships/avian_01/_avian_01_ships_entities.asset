@@ -45,7 +45,7 @@ entity = {
 
 entity = {
 	name = "avian_01_turret_energy_torpedo_entity"
-	pdxmesh = "avian_01_turret_projectile_medium_mesh"
+	pdxmesh = "avian_01_turret_projectile_large_mesh"
 	
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"
@@ -1937,6 +1937,8 @@ entity = {
 			name = "avian_01_orbital_station_assemblyyard_section_entity"
 			pdxmesh = "avian_01_orbital_station_assemblyyard_section_mesh"
 			
+			locator = { name = "root" position = { 0 0 0 } }
+			
 			default_state = "idle"
 				state = { name = "idle" state_time = 5
 				event = { time = 0 node = "runway_light_left_r_01" particle = "ship_light_blue_regular_effect" keep_particle = yes trigger_once = yes }
@@ -1962,10 +1964,12 @@ entity = {
 			scale = 1.0
 		}
 
-		entity = {
-			name = "avian_01_orbital_station_hangarbay_section_entity"
-			pdxmesh = "avian_01_orbital_station_hangarbay_section_mesh"
-			
+	entity = {
+		name = "avian_01_orbital_station_hangarbay_section_entity"
+		pdxmesh = "avian_01_orbital_station_hangarbay_section_mesh"
+		
+		locator = { name = "strike_craft_locator_01"	position = { 0 0 0 } }
+	
 		default_state = "idle"
 		state = { name = "idle" state_time = 2
 			event = { time = 0.35 node = "runway_light_01" particle = "ship_light_blue_rolling_effect" keep_particle = yes trigger_once = yes }

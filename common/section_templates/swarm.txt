@@ -7,23 +7,23 @@ ship_section_template = {
 	icon = "GFX_ship_part_core_mid"
 	
 	component_slot = {
-		name = "LARGE_GUN_01"
-		slot_size = large
+		name = "TORPEDO_01"
+		slot_size = torpedo
 		slot_type = weapon
 		locatorname = "large_gun_01"
 		is_side_slot = yes
 		rotation = 90
 	}
 	component_slot = {
-		name = "LARGE_GUN_02"
-		slot_size = large
+		name = "TORPEDO_02"
+		slot_size = torpedo
 		slot_type = weapon
 		locatorname = "large_gun_02"
 		is_side_slot = yes
 	}
 	component_slot = {
-		name = "LARGE_GUN_03"
-		slot_size = large
+		name = "TORPEDO_03"
+		slot_size = torpedo
 		slot_type = weapon
 		locatorname = "large_gun_03"
 		is_side_slot = yes
@@ -45,8 +45,6 @@ ship_section_template = {
 		rotation = 90
 	}
 	
-	medium_utility_slots = 1
-	large_utility_slots = 2
 	aux_utility_slots = 1
 }
 
@@ -60,25 +58,25 @@ ship_section_template = {
 	
 	component_slot = {
 		name = "STRIKE_CRAFT_01"
-		slot_size = large
+		slot_size = torpedo
 		slot_type = strike_craft
 		locatorname = "large_gun_01"
 	}
 	component_slot = {
 		name = "STRIKE_CRAFT_02"
-		slot_size = large
+		slot_size = torpedo
 		slot_type = strike_craft
 		locatorname = "large_gun_02"
 	}
 	component_slot = {
 		name = "STRIKE_CRAFT_03"
-		slot_size = large
+		slot_size = torpedo
 		slot_type = strike_craft
 		locatorname = "large_gun_03"
 	}
 	component_slot = {
 		name = "STRIKE_CRAFT_04"
-		slot_size = large
+		slot_size = torpedo
 		slot_type = strike_craft
 		locatorname = "large_gun_03"
 	}
@@ -94,9 +92,7 @@ ship_section_template = {
 		slot_type = weapon
 		locatorname = "large_gun_01"
 	}
-	
-	medium_utility_slots = 1
-	large_utility_slots = 2
+
 	aux_utility_slots = 1
 }
 
@@ -109,7 +105,7 @@ ship_section_template = {
 	icon = "GFX_ship_part_core_mid"
 	
 	component_slot = {
-		name = "LARGE_GUN_01"
+		name = "TORPEDO_01"
 		slot_size = medium
 		slot_type = weapon
 		locatorname = "medium_gun_01"
@@ -129,46 +125,45 @@ ship_section_template = {
 		locatorname = "medium_gun_03"
 		is_side_slot = yes
 	}
-
-	medium_utility_slots = 2
+	
 	aux_utility_slots = 1
 }
 
-# Swarm Large Station Section
+# Swarm Starbase Section
 ship_section_template = {
-	key = "swarm_station_large_key"
-	ship_size = military_station_large_swarm
-	fits_on_slot = mid
+	key = "swarm_starbase_key"
+	ship_size = starbase_swarm
+	fits_on_slot = "core"
 	entity = "empty_section_entity"
 	icon = "GFX_ship_part_core_mid"
 	
 	component_slot = {
-		name = "LARGE_GUN_01"
-		slot_size = large
+		name = "TORPEDO_01"
+		slot_size = torpedo
 		slot_type = weapon
 		locatorname = "root"
 	}
 	component_slot = {
-		name = "LARGE_GUN_02"
-		slot_size = large
+		name = "TORPEDO_02"
+		slot_size = torpedo
 		slot_type = weapon
 		locatorname = "root"
 	}
 	component_slot = {
-		name = "LARGE_GUN_03"
-		slot_size = large
+		name = "TORPEDO_03"
+		slot_size = torpedo
 		slot_type = weapon
 		locatorname = "root"
 	}
 	component_slot = {
-		name = "LARGE_GUN_04"
-		slot_size = large
+		name = "TORPEDO_04"
+		slot_size = torpedo
 		slot_type = weapon
 		locatorname = "root"
 	}
 	component_slot = {
-		name = "LARGE_GUN_05"
-		slot_size = large
+		name = "TORPEDO_05"
+		slot_size = torpedo
 		slot_type = weapon
 		locatorname = "root"
 	}
@@ -204,80 +199,23 @@ ship_section_template = {
 	}
 	component_slot = {
 		name = "STRIKE_CRAFT_01"
-		slot_size = large
+		slot_size = torpedo
 		slot_type = strike_craft
 		locatorname = "root"
 	}
 	component_slot = {
 		name = "STRIKE_CRAFT_02"
-		slot_size = large
+		slot_size = torpedo
 		slot_type = strike_craft
 		locatorname = "root"
 	}
 	component_slot = {
 		name = "STRIKE_CRAFT_03"
-		slot_size = large
+		slot_size = torpedo
 		slot_type = strike_craft
 		locatorname = "root"
 	}
-
-	large_utility_slots = 4
-	medium_utility_slots = 1
-	aux_utility_slots = 1
-}
-
-# Swarm Small Station Section
-ship_section_template = {
-	key = "swarm_station_small_key"
-	ship_size = military_station_small_swarm
-	fits_on_slot = mid
-	entity = "empty_section_entity"
-	icon = "GFX_ship_part_core_mid"
 	
-	component_slot = {
-		name = "LARGE_GUN_01"
-		slot_size = large
-		slot_type = weapon
-		locatorname = "root"
-	}
-	component_slot = {
-		name = "LARGE_GUN_02"
-		slot_size = large
-		slot_type = weapon
-		locatorname = "root"
-	}
-	component_slot = {
-		name = "LARGE_GUN_03"
-		slot_size = large
-		slot_type = weapon
-		locatorname = "root"
-	}
-	component_slot = {
-		name = "SMALL_GUN_01"
-		slot_size = small
-		slot_type = weapon
-		locatorname = "root"
-	}
-	component_slot = {
-		name = "SMALL_GUN_02"
-		slot_size = small
-		slot_type = weapon
-		locatorname = "root"
-	}
-	component_slot = {
-		name = "SMALL_GUN_03"
-		slot_size = small
-		slot_type = weapon
-		locatorname = "root"
-	}
-	component_slot = {
-		name = "STRIKE_CRAFT_01"
-		slot_size = large
-		slot_type = strike_craft
-		locatorname = "root"
-	}
-
-	medium_utility_slots = 4
 	aux_utility_slots = 1
 }
 
@@ -290,26 +228,26 @@ ship_section_template = {
 	icon = "GFX_ship_part_core_mid"
 	
 	component_slot = {
-		name = "LARGE_GUN_01"
-		slot_size = large
+		name = "TORPEDO_01"
+		slot_size = torpedo
 		slot_type = weapon
 		locatorname = "root"
 	}
 	component_slot = {
-		name = "LARGE_GUN_02"
-		slot_size = large
+		name = "TORPEDO_02"
+		slot_size = torpedo
 		slot_type = weapon
 		locatorname = "root"
 	}		
 	component_slot = {
-		name = "LARGE_GUN_03"
-		slot_size = large
+		name = "TORPEDO_03"
+		slot_size = torpedo
 		slot_type = weapon
 		locatorname = "root"
 	}
 	component_slot = {
-		name = "LARGE_GUN_04"
-		slot_size = large
+		name = "TORPEDO_04"
+		slot_size = torpedo
 		slot_type = weapon
 		locatorname = "root"
 	}
@@ -333,25 +271,23 @@ ship_section_template = {
 	}
 	component_slot = {
 		name = "STRIKE_CRAFT_01"
-		slot_size = large
+		slot_size = torpedo
 		slot_type = strike_craft
 		locatorname = "root"
 	}
 	component_slot = {
 		name = "STRIKE_CRAFT_02"
-		slot_size = large
+		slot_size = torpedo
 		slot_type = strike_craft
 		locatorname = "root"
 	}
 	component_slot = {
 		name = "STRIKE_CRAFT_03"
-		slot_size = large
+		slot_size = torpedo
 		slot_type = strike_craft
 		locatorname = "root"
 	}
 
-	medium_utility_slots = 1
-	large_utility_slots = 3
 	aux_utility_slots = 1
 }
 
@@ -363,9 +299,6 @@ ship_section_template = {
 	entity = "empty_section_entity"
 	icon = "GFX_ship_part_core_mid"
 	
-	
-	small_utility_slots = 4
-	medium_utility_slots = 1
 	aux_utility_slots = 1
 }
 
@@ -377,9 +310,6 @@ ship_section_template = {
 	entity = "empty_section_entity"
 	icon = "GFX_ship_part_core_mid"
 	
-	
-	small_utility_slots = 4
-	medium_utility_slots = 1
 	aux_utility_slots = 1
 }
 
@@ -391,8 +321,5 @@ ship_section_template = {
 	entity = "empty_section_entity"
 	icon = "GFX_ship_part_core_mid"
 	
-	
-	small_utility_slots = 4
-	medium_utility_slots = 1
 	aux_utility_slots = 1
 }

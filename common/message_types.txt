@@ -21,6 +21,17 @@ message_type = {
 }
 
 message_type = {
+	key = "STARBASE_CONSTRUCTION_MESSAGE_TYPE"
+	icon = "GFX_message_other_construction_spaceport"
+	icon_frame = 1
+
+	#sound = "spaceport_complete_alert"
+	sound = "advisor_notification_construction_complete"
+	sound_is_advisor = yes
+	ping = "ping_notification_green"
+}
+
+message_type = {
 	key = "SPACEPORT_CONSTRUCTION_MESSAGE_TYPE"
 	icon = "GFX_message_other_construction_spaceport"
 	icon_frame = 1
@@ -158,11 +169,20 @@ message_type = {
 }
 
 message_type = {
+	key = "BYPASS_EXPLORED"
+	icon = "GFX_message_system_survey_complete"
+	icon_frame = 1
+
+	name = "MESSAGE_BYPASS_EXPLORED"
+	sound = "survey_complete"
+	ping = "ping_notification_green"
+}
+
+message_type = {
 	key = "SYSTEM_SURVEYED"
 	icon = "GFX_message_system_survey_complete"
 	icon_frame = 1
 
-	#sound = "survey_complete"
 	sound = "advisor_notification_system_survey_complete"
 	sound_is_advisor = yes
 	ping = "ping_notification_green"
@@ -215,7 +235,7 @@ message_type = {
 
 message_type = {
 	key = "DEFEAT"
-	icon = "GFX_message_diplomatic_war"
+	icon = "GFX_message_surrender_we"
 	icon_frame = 2
 
 	sound = "notification"
@@ -423,6 +443,16 @@ message_type = {
 }
 
 message_type = {
+	key = "PLANET_DESTROYED"
+	icon = "GFX_message_planet_destroyed"
+	icon_frame = 1
+
+	name = "MESSAGE_PLANET_DESTROYED"
+	sound = "event_air_raid_siren"
+	ping = "mixed_notification_red"
+}
+
+message_type = {
 	key = "ALLIED_ENTERED_WAR"
 	icon = "GFX_message_entered_war"
 	icon_frame = 1
@@ -594,7 +624,6 @@ message_type = {
 	sound = "discovery"
 	ping = "mixed_notification_yellow"
 }
-
 
 #############################################
 # Diplomatic Action Messages
@@ -1020,6 +1049,16 @@ message_type = {
 }
 
 message_type = {
+	key = "RIVALRY_INVALID"
+	icon = "GFX_message_rivalry"
+	icon_frame = 1
+
+	name = "RIVALRY_INVALID_TITLE"
+	sound = "diplomatic_notification"
+	ping = "ping_notification_red"
+}
+
+message_type = {
 	key = "DIPLO_ACTION_MAKE_RIVAL"
 	icon = "GFX_message_rivalry"
 	icon_frame = 1
@@ -1138,6 +1177,25 @@ message_type = {
 }
 
 message_type = {
+	key = "EXPIRED_EDICT"
+	icon = "GFX_message_conditional_effect_lost"
+	icon_frame = 1
+
+	sound = "notification"
+	ping = "ping_notification_red"
+}
+
+message_type = {
+	key = "RETREAT_CASUALTIES"
+	icon = "GFX_message_retreat_casualties"
+	icon_frame = 1
+
+	name = "MESSAGE_RETREAT_CASUALTIES_TITLE"
+	sound = "notification"
+	ping = "ping_notification_red"
+}
+
+message_type = {
 	key = "EMERGENCY_FTL_CASUALTIES"
 	icon = "GFX_message_emergency_ftl_casualties"
 	icon_frame = 1
@@ -1233,6 +1291,46 @@ message_type = {
 	icon_frame = 1
 
 	name = "UPLIFT_COMPLETE_TITLE"
+	sound = "notification"
+	ping = "ping_notification_green"
+}
+
+message_type = {
+	key = "MESSAGE_TYPE_NEW_CASUS_BELLI_HOLDER"
+	icon = "GFX_message_casus_belli_holder"
+	icon_frame = 1
+
+	name = "MESSAGE_NEW_CASUS_BELLI_HOLDER_TITLE"
+	sound = "notification"
+	ping = "ping_notification_green"
+}
+
+message_type = {
+	key = "MESSAGE_TYPE_NEW_CASUS_BELLI_TARGET"
+	icon = "GFX_message_casus_belli_target"
+	icon_frame = 1
+
+	name = "MESSAGE_NEW_CASUS_BELLI_TARGET_TITLE"
+	sound = "notification"
+	ping = "ping_notification_green"
+}
+
+message_type = {
+	key = "MESSAGE_TYPE_LOST_CASUS_BELLI"
+	icon = "GFX_message_lost_casus_belli"
+	icon_frame = 1
+
+	name = "MESSAGE_LOST_CASUS_BELLI_TITLE"
+	sound = "notification"
+	ping = "ping_notification_green"
+}
+
+message_type = {
+	key = "MESSAGE_TYPE_NEW_CLAIM_ON_SYSTEM"
+	icon = "GFX_message_system_claimed"
+	icon_frame = 1
+
+	name = "MESSAGE_NEW_CLAIM_ON_SYSTEM_TITLE"
 	sound = "notification"
 	ping = "ping_notification_green"
 }

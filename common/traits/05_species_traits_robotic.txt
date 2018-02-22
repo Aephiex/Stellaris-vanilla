@@ -96,7 +96,7 @@ trait_robot_double_jointed = {
 	cost = 1
 	opposites = { "trait_robot_bulky" }
 
-	allowed_archetypes = { MACHINE }
+	allowed_archetypes = { ROBOT MACHINE }
 
 	modifier = {
 		pop_resettlement_cost_mult = -0.5
@@ -107,7 +107,7 @@ trait_robot_bulky = {
 	cost = -1
 	opposites = { "trait_robot_double_jointed" }
 
-	allowed_archetypes = { MACHINE }
+	allowed_archetypes = { ROBOT MACHINE }
 
 	modifier = {
 		pop_resettlement_cost_mult = 0.5
@@ -117,7 +117,9 @@ trait_robot_bulky = {
 trait_robot_enhanced_memory = {
 	cost = 2
 
-	allowed_archetypes = { MACHINE }
+	allowed_archetypes = { ROBOT MACHINE }
+	
+	opposites = { trait_robotic_1 trait_robotic_2 } # Synth only
 
 	modifier = {
 		leader_skill_levels = 2
@@ -164,7 +166,9 @@ trait_robot_learning_algorithms = {
 	cost = 1
 	opposites = { "trait_robot_repurposed_hardware" }
 
-	allowed_archetypes = { MACHINE }
+	allowed_archetypes = { ROBOT MACHINE }
+	
+	opposites = { trait_robotic_1 trait_robotic_2 } # Synth only
 
 	modifier = {
 		species_leader_exp_gain = 0.25
@@ -175,8 +179,10 @@ trait_robot_repurposed_hardware = {
 	cost = -1
 	opposites = { "trait_robot_learning_algorithms" }
 
-	allowed_archetypes = { MACHINE }
+	allowed_archetypes = { ROBOT MACHINE }
 
+	opposites = { trait_robotic_1 trait_robotic_2 } # Synth only
+	
 	modifier = {
 		species_leader_exp_gain = -0.25
 	}
@@ -189,7 +195,7 @@ trait_robot_mass_produced = {
 	allowed_archetypes = { ROBOT MACHINE }
 
 	modifier = {
-		pop_robot_build_speed_mult = 0.25
+		pop_robot_build_speed_mult = 0.20
 	}
 }
 
@@ -200,7 +206,7 @@ trait_robot_custom_made = {
 	allowed_archetypes = { ROBOT MACHINE }
 
 	modifier = {
-		pop_robot_build_speed_mult = -0.25
+		pop_robot_build_speed_mult = -0.20
 	}
 }
 trait_robot_recycled = {
@@ -232,5 +238,32 @@ trait_robot_propaganda_machines = {
 
 	modifier = {
 		tile_resource_unity_mult = 0.15
+	}
+}
+
+trait_robot_awoken = {
+	allowed_archetypes = { MACHINE }
+	initial = no
+	randomized = no
+	modification = no
+	modifier = {
+		tile_resource_society_research_mult = 0.30
+		tile_resource_physics_research_mult = 0.30
+		tile_resource_engineering_research_mult = 0.30
+		pop_consumer_goods_mult = 0.25
+		pop_resettlement_cost_mult = 0.5
+	}
+}
+
+trait_robot_awoken_01 = {
+	allowed_archetypes = { MACHINE }
+	initial = no
+	randomized = no
+	modification = no
+	modifier = {
+		tile_resource_society_research_mult = 0.30
+		tile_resource_physics_research_mult = 0.30
+		tile_resource_engineering_research_mult = 0.30
+		pop_consumer_goods_mult = 0.25
 	}
 }

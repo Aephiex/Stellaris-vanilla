@@ -69,10 +69,13 @@ PixelShader =
 	[[
 		float4 main( VS_OUTPUT v ) : PDX_COLOR
 		{
-			float4 vHasAccess = float4( HSVtoRGB( float3( 2.1, 1.0, 0.6 ) ), 0.05 );
-			float4 vNoAccess = float4( HSVtoRGB( float3( 0.1, 1.0, 0.9 ) ), 0.05 );
+			float fMinAlpha = 0.05f;
+			float fAlpha = 0.25f;
+			float4 vHasAccess = float4( HSVtoRGB( float3( 3.25, 1.0, 1.5 ) ), fAlpha );
+			float4 vNoAccess = float4( HSVtoRGB( float3( 0.1, 1.0, 0.9 ) ), fAlpha );
 			float4 vColor = lerp( vNoAccess, vHasAccess, saturate( pow( v.vAccess, 15 ) ) );
 			vColor = ApplyTerraIncognita( vColor, v.vPos, 5.f, TerraIncognitaTexture );
+			vColor.a = lerp( fMinAlpha, fAlpha, CalcTerraIncognitaValue( v.vPos, TerraIncognitaTexture ) );
 			return vColor;
 		}
 		

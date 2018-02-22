@@ -963,5 +963,7 @@ objectTypes = {
 		#texture_diffuse = "1x1.dds"
 		#}	
 	}
-
+	
 }
+
+

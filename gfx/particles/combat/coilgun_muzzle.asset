@@ -36,7 +36,7 @@ particle={
 	}
 	subsystem={
 		name="smoke"
-		max_amount=50
+		max_amount=25
 		slave_particles=0
 		emitter_type="point"
 		invert=no
@@ -69,7 +69,7 @@ particle={
 	}
 	subsystem={
 		name="fill_smoke"
-		max_amount=100
+		max_amount=25
 		slave_particles=0
 		emitter_type="point"
 		invert=no
@@ -102,7 +102,7 @@ particle={
 	}
 	subsystem={
 		name="fire"
-		max_amount=200
+		max_amount=50
 		slave_particles=0
 		emitter_type="point"
 		invert=no

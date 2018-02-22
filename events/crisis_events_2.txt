@@ -83,7 +83,7 @@ country_event = {
 	immediate = {
 		random_country = {
 			limit = { is_country_type = portal_holder }
-			random_owned_ship = { 
+			random_owned_ship = {
 				limit = { is_ship_size = dimensional_portal_ed }
 				set_ship_flag = unbidden_portal
 			}
@@ -97,10 +97,10 @@ country_event = {
 	hide_window = yes
 	fire_only_once = yes
 	is_triggered_only = yes
-	
+
 	immediate = {
 		set_crisis_sound = extradimensional_crisis_ambient_stage_1
-		set_crisis_stage_1 = yes		
+		set_crisis_stage_1 = yes
 		create_country = {
 			name = "NAME_Portal_Holder_1"
 			type = portal_holder
@@ -128,7 +128,7 @@ country_event = {
 			}
 		}
 		awaken_guardians_of_the_galaxy = yes
-	
+
 		endgame_telemetry = extradimensional
 		set_global_flag = extradimensional_invasion_happened
 		set_global_flag = galactic_crisis_happened
@@ -177,22 +177,17 @@ country_event = {
 							"null"
 						}
 					}
+					effect = {
+						create_ship_design = { design = "NAME_Void_Shaper" }
+						add_ship_design = last_created_design
+						create_ship_design = { design = "NAME_Unbidden_Anchor" }
+						add_ship_design = last_created_design
+						set_graphical_culture = extra_dimensional_01
+						save_global_event_target_as = extradimensionals
+					}
 				}
 				last_created_species = { save_event_target_as = extradimensional_species }
 				last_created_country = {
-					add_modifier = {
-						modifier = ed_anchor_buildspeed
-						days = -1
-					}
-					save_event_target_as = extradimensionals
-					create_ship_design = { design = "NAME_Void_Shaper" }
-					add_ship_design = last_created_design
-					create_ship_design = { design = "NAME_Phantasm_Alpha" }
-					add_ship_design = last_created_design
-					create_ship_design = { design = "NAME_Whisper_Alpha" }
-					add_ship_design = last_created_design
-					create_ship_design = { design = "NAME_Unbidden_Anchor" }
-					add_ship_design = last_created_design
 					save_event_target_as = extradimensionals
 					create_fleet = {
 						name = "NAME_Dimensional_Portal"
@@ -231,7 +226,7 @@ country_event = {
 						type = admiral
 						species = event_target:extradimensional_species
 						name = random
-						skill = 500
+						skill = 3
 						traits = {
 							trait = leader_trait_ethereal
 						}
@@ -246,7 +241,7 @@ country_event = {
 							}
 							assign_leader = last_created_leader
 							while = {
-								count = 35
+								count = 20
 								create_ship = {
 									name = random
 									design = "NAME_Revenant"
@@ -254,7 +249,7 @@ country_event = {
 								}
 							}
 							while = {
-								count = 56
+								count = 30
 								create_ship = {
 									name = random
 									design = "NAME_Phantom"
@@ -262,12 +257,12 @@ country_event = {
 								}
 							}
 							while = {
-								count = 86
+								count = 45
 								create_ship = {
 									name = random
 									design = "NAME_Wraith"
 									graphical_culture = "extra_dimensional_01"
-								}	
+								}
 							}
 							set_location = {
 								target = event_target:dimensional_portal
@@ -281,6 +276,14 @@ country_event = {
 					}
 				}
 			}
+			if = {
+				limit = { exists = starbase }
+				starbase = { fleet = { destroy_fleet = this } }
+			}
+			create_starbase = {
+				size = starbase_exd
+				owner = event_target:extradimensionals
+			}
 		}
 		every_country = {
 			limit = {
@@ -289,7 +292,7 @@ country_event = {
 					is_country_type = fallen_empire
 					is_country_type = awakened_fallen_empire
 				}
-				intel_level = { 
+				intel_level = {
 					level = high
 					system = event_target:extradimensional_system
 				}
@@ -304,14 +307,14 @@ country_event = {
 					is_country_type = awakened_fallen_empire
 				}
 				NOT = {
-					intel_level = { 
+					intel_level = {
 						level = high
 						system = event_target:extradimensional_system
 					}
 				}
 			}
 			country_event = { id = crisis.1008 }
-		}	
+		}
 	}
 }
 
@@ -319,9 +322,9 @@ country_event = {
 fleet_event = {
 	id = crisis.1003
 	hide_window = yes
-	
+
 	is_triggered_only = yes
-	
+
 	immediate = {
 		event_target:extradimensionals = {
 			random_list = {
@@ -330,7 +333,7 @@ fleet_event = {
 						type = admiral
 						species = event_target:extradimensional_species
 						name = random
-						skill = 1000
+						skill = 3
 						traits = {
 							trait = leader_trait_ethereal
 						}
@@ -341,7 +344,7 @@ fleet_event = {
 						type = admiral
 						species = event_target:extradimensional_species
 						name = random
-						skill = 1000
+						skill = 3
 						traits = {
 							trait = leader_trait_dimensional_stutter
 						}
@@ -352,7 +355,7 @@ fleet_event = {
 						type = admiral
 						species = event_target:extradimensional_species
 						name = random
-						skill = 500
+						skill = 3
 					}
 				}
 			}
@@ -366,7 +369,7 @@ fleet_event = {
 					}
 					assign_leader = last_created_leader
 					while = {
-						count = 14
+						count = 8
 						create_ship = {
 							name = random
 							design = "NAME_Revenant"
@@ -374,7 +377,7 @@ fleet_event = {
 						}
 					}
 					while = {
-						count = 20
+						count = 12
 						create_ship = {
 							name = random
 							design = "NAME_Phantom"
@@ -382,12 +385,12 @@ fleet_event = {
 						}
 					}
 					while = {
-						count = 38
+						count = 20
 						create_ship = {
 							name = random
 							design = "NAME_Wraith"
 							graphical_culture = "extra_dimensional_01"
-						}	
+						}
 					}
 					set_location = {
 						target = ROOT
@@ -407,9 +410,9 @@ fleet_event = {
 fleet_event = {
 	id = crisis.1006
 	hide_window = yes
-	
+
 	is_triggered_only = yes
-	
+
 	immediate = {
 		event_target:extradimensionals = {
 			create_fleet = {
@@ -439,7 +442,7 @@ country_event = {
 	picture = GFX_evt_wormhole
 	show_sound = event_ex_started
 	location = event_target:extradimensional_system
-	
+
 	is_triggered_only = yes
 
 	after = {
@@ -462,7 +465,7 @@ country_event = {
 		}
 		hidden_effect = { country_event = { id = crisis.1010 } }
 	}
-	
+
 	option = {
 		name = crisis.18.a
 		trigger = {
@@ -579,12 +582,12 @@ country_event = {
 	desc = "crisis.1008.desc"
 	picture = GFX_evt_physics_research
 	show_sound = event_alien_signal
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = crisis.1008.a
-		hidden_effect = { 
+		hidden_effect = {
 			country_event = { id = crisis.1009 days = 30 }
 		}
 	}
@@ -597,9 +600,9 @@ country_event = {
 	desc = "crisis.1009.desc"
 	picture = GFX_evt_wormhole
 	show_sound = event_ex_started
-	
+
 	is_triggered_only = yes
-	
+
 	immediate = {
 		random_system = {
 			limit = { has_star_flag = extradimensional_origin_system }
@@ -627,7 +630,7 @@ country_event = {
 		}
 		hidden_effect = { country_event = { id = crisis.1010 } }
 	}
-	
+
 	option = {
 		name = crisis.18.a
 		trigger = {
@@ -742,20 +745,20 @@ country_event = {
 	id = crisis.1010
 	title = "crisis.1010.name"
 	desc = "crisis.1010.desc"
-	
+
 	diplomatic = yes
-	
+
 	picture_event_data = {
 		portrait = exd1
 		room = "extradimensional_room"
 	}
-	
+
 	is_triggered_only = yes
-	
+
 	immediate = {
 		establish_communications_no_message = event_target:extradimensionals
 	}
-	
+
 	option = {
 		name = crisis.1010.a
 	}
@@ -768,24 +771,21 @@ planet_event = {
 	desc = "crisis.1011.desc"
 	picture = GFX_evt_city_ruins
 	show_sound = event_ghost_town
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		FROM = {
 			OR = {
-				is_country_type = extradimensional 
+				is_country_type = extradimensional
 				is_country_type = extradimensional_2
 				is_country_type = extradimensional_3
 			}
 		}
 	}
-	
+
 	immediate = {
-		add_threat = {
-			who = from
-			amount = 1 # scales to pops
-		}
+		add_threat = { who = from amount = 2 }
 		while = {
 			limit = {
 				any_tile = { has_blocker = tb_tribal_settlement }
@@ -795,7 +795,7 @@ planet_event = {
 				remove_blocker = yes
 			}
 		}
-		destroy_colony = { keep_buildings = no }
+		destroy_colony = yes
 		if = {
 			limit = {
 				NOR = {
@@ -828,10 +828,10 @@ planet_event = {
 			limit = { FROM = { is_country_type = extradimensional } }
 			every_country = {
 				limit = { has_event_chain = "extradimensional_invasion_chain" }
-				add_event_chain_counter = { 
-					event_chain = "extradimensional_invasion_chain" 
-					counter = "extradimensional_planets_1" 
-					amount = 1 
+				add_event_chain_counter = {
+					event_chain = "extradimensional_invasion_chain"
+					counter = "extradimensional_planets_1"
+					amount = 1
 				}
 			}
 			break = yes
@@ -840,10 +840,10 @@ planet_event = {
 			limit = { FROM = { is_country_type = extradimensional_2 } }
 			every_country = {
 				limit = { has_event_chain = "extradimensional_invasion_chain_2" }
-				add_event_chain_counter = { 
-					event_chain = "extradimensional_invasion_chain_2" 
-					counter = "extradimensional_planets_2" 
-					amount = 1 
+				add_event_chain_counter = {
+					event_chain = "extradimensional_invasion_chain_2"
+					counter = "extradimensional_planets_2"
+					amount = 1
 				}
 			}
 			break = yes
@@ -852,16 +852,16 @@ planet_event = {
 			limit = { FROM = { is_country_type = extradimensional_3 } }
 			every_country = {
 				limit = { has_event_chain = "extradimensional_invasion_chain_3" }
-				add_event_chain_counter = { 
-					event_chain = "extradimensional_invasion_chain_3" 
-					counter = "extradimensional_planets_3" 
-					amount = 1 
+				add_event_chain_counter = {
+					event_chain = "extradimensional_invasion_chain_3"
+					counter = "extradimensional_planets_3"
+					amount = 1
 				}
 			}
 			break = yes
 		}
 	}
-	
+
 	option = {
 		name = crisis.1011.a
 	}
@@ -871,15 +871,15 @@ planet_event = {
 country_event = {
 	id = crisis.1012
 	hide_window = yes
-	
+
 	fire_only_once = yes
 	is_triggered_only = yes
-	
+
 	trigger = {
 		is_country_type = extradimensional
 		FROMFROM = { is_ship_size = dimensional_portal_ed }
 	}
-	
+
 	immediate = {
 		if = {
 			limit = {
@@ -944,9 +944,9 @@ country_event = {
 	desc = "crisis.1013.desc"
 	picture = GFX_evt_wormhole
 	show_sound = event_super_explosion
-	
+
 	is_triggered_only = yes
-	
+
 	immediate = {
 		random_system = {
 			limit = { has_star_flag = extradimensional_origin_system }
@@ -955,7 +955,7 @@ country_event = {
 		remove_point_of_interest = extradimensional_invasion_poi.1
 		set_country_flag = extradimensionals_expunged
 	}
-	
+
 	option = {
 		name = crisis.1013.a
 	}
@@ -968,9 +968,9 @@ country_event = {
 	desc = "crisis.1016.desc"
 	picture = GFX_evt_wormhole
 	show_sound = event_super_explosion
-	
+
 	is_triggered_only = yes
-	
+
 	immediate = {
 		random_system = {
 			limit = { has_star_flag = extradimensional_origin_system }
@@ -979,7 +979,7 @@ country_event = {
 		set_global_flag = extradimensional_first_portal_destroyed
 		remove_point_of_interest = extradimensional_invasion_poi.1
 	}
-	
+
 	option = {
 		name = crisis.1016.a
 	}
@@ -989,7 +989,7 @@ country_event = {
 country_event = {
 	id = crisis.1050
 	title = "TRANSMISSION"
-	
+
 	desc = {
 		text = crisis.1050.desc_01
 		trigger = {
@@ -1035,23 +1035,23 @@ country_event = {
 			}
 		}
 	}
-	
+
 	diplomatic = yes
 	force_open = yes
-	
+
 	picture_event_data = {
 		portrait = exd1
 		room = "extradimensional_room"
 	}
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		FROM = {
 			is_country_type = extradimensional
 		}
 	}
-	
+
 	option = {
 		name = crisis.1050.a
 		response_text = crisis.1050.a.response
@@ -1138,7 +1138,7 @@ country_event = {
 country_event = {
 	id = crisis.1051
 	title = "TRANSMISSION"
-	
+
 	desc = {
 		text = crisis.1051.desc_01
 	}
@@ -1148,23 +1148,23 @@ country_event = {
 	desc = {
 		text = crisis.1051.desc_03
 	}
-	
+
 	diplomatic = yes
 	force_open = yes
-	
+
 	picture_event_data = {
 		portrait = exd2
 		room = "extradimensional_orange_room"
 	}
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		FROM = {
 			is_country_type = extradimensional_2
 		}
 	}
-	
+
 	option = {
 		name = crisis.1051.a
 		response_text = crisis.1051.a.response
@@ -1175,7 +1175,7 @@ country_event = {
 country_event = {
 	id = crisis.1052
 	title = "TRANSMISSION"
-	
+
 	desc = {
 		text = crisis.1052.desc_01
 	}
@@ -1185,23 +1185,23 @@ country_event = {
 	desc = {
 		text = crisis.1052.desc_03
 	}
-	
+
 	diplomatic = yes
 	force_open = yes
-	
+
 	picture_event_data = {
 		portrait = exd3
 		room = "extradimensional_green_room"
 	}
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		FROM = {
 			is_country_type = extradimensional_3
 		}
 	}
-	
+
 	option = {
 		name = crisis.1052.a
 		response_text = crisis.1052.a.response
@@ -1215,25 +1215,24 @@ country_event = {
 	id = crisis.1100
 	hide_window = yes
 	fire_only_once = yes
-	
+
 	trigger = {
 		is_country_type = extradimensional
 		NOT = { has_global_flag = extradimensional_second_portal }
 		galaxy_percentage > 0.15
 	}
-	
+
 	mean_time_to_happen = {
 		months = 12
 	}
-	
+
 	immediate = {
 		set_crisis_sound = extradimensional_crisis_ambient_stage_3
-		set_crisis_stage_3 = yes			
+		set_crisis_stage_3 = yes
 		set_global_flag = extradimensional_second_portal
 		random_system_within_border = {
-			limit = { 
+			limit = {
 				NOT = { has_star_flag = extradimensional_origin_system }
-
 			}
 			set_star_flag = extradimensional_second_portal_system
 			save_event_target_as = second_portal_system
@@ -1249,7 +1248,6 @@ country_event = {
 					type = "extradimensional_2"
 					species = last_created
 					name_list = "Extradimensional"
-					effect = { set_country_flag = aberrant }
 					flag = {
 						icon= {
 							category = "special"
@@ -1266,23 +1264,19 @@ country_event = {
 							"null"
 						}
 					}
+					effect = {
+						set_country_flag = aberrant
+						save_global_event_target_as = extradimensionals2
+						create_ship_design = { design = "NAME_Void_Former" }
+						add_ship_design = last_created_design
+						create_ship_design = { design = "NAME_Aberrant_Anchor" }
+						add_ship_design = last_created_design
+					}
 				}
 				last_created_species = { save_event_target_as = extradimensional_hunters_species }
 				last_created_country = {
 					set_graphical_culture = extra_dimensional_02
-					add_modifier = {
-						modifier = ed_anchor_buildspeed
-						days = -1
-					}
 					save_event_target_as = extradimensional_hunters
-					create_ship_design = { design = "NAME_Void_Former" }
-					add_ship_design = last_created_design
-					create_ship_design = { design = "NAME_Phantasm_Beta" }
-					add_ship_design = last_created_design
-					create_ship_design = { design = "NAME_Whisper_Beta" }
-					add_ship_design = last_created_design
-					create_ship_design = { design = "NAME_Aberrant_Anchor" }
-					add_ship_design = last_created_design
 					create_fleet = {
 						name = "NAME_Dimensional_Portal"
 						effect = {
@@ -1320,7 +1314,7 @@ country_event = {
 								type = admiral
 								species = event_target:extradimensional_hunters_species
 								name = random
-								skill = 1000
+								skill = 3
 								traits = {
 									trait = leader_trait_ethereal
 								}
@@ -1331,7 +1325,7 @@ country_event = {
 								type = admiral
 								species = event_target:extradimensional_hunters_species
 								name = random
-								skill = 1000
+								skill = 3
 								traits = {
 									trait = leader_trait_dimensional_stutter
 								}
@@ -1342,7 +1336,7 @@ country_event = {
 								type = admiral
 								species = event_target:extradimensional_hunters_species
 								name = random
-								skill = 500
+								skill = 3
 							}
 						}
 					}
@@ -1356,7 +1350,7 @@ country_event = {
 							}
 							assign_leader = last_created_leader
 							while = {
-								count = 35
+								count = 20
 								create_ship = {
 									name = random
 									design = "NAME_Huntress"
@@ -1364,7 +1358,7 @@ country_event = {
 								}
 							}
 							while = {
-								count = 56
+								count = 30
 								create_ship = {
 									name = random
 									design = "NAME_Assassin"
@@ -1372,7 +1366,7 @@ country_event = {
 								}
 							}
 							while = {
-								count = 86
+								count = 45
 								create_ship = {
 									name = random
 									design = "NAME_Predator"
@@ -1390,6 +1384,10 @@ country_event = {
 						}
 					}
 				}
+			}
+			create_starbase = {
+				size = starbase_exd
+				owner = event_target:extradimensionals2
 			}
 		}
 		every_country = {
@@ -1413,9 +1411,9 @@ country_event = {
 fleet_event = {
 	id = crisis.1103
 	hide_window = yes
-	
+
 	is_triggered_only = yes
-	
+
 	immediate = {
 		event_target:extradimensional_hunters = {
 			random_list = {
@@ -1424,7 +1422,7 @@ fleet_event = {
 						type = admiral
 						species = event_target:extradimensional_hunters_species
 						name = random
-						skill = 1000
+						skill = 3
 						traits = {
 							trait = leader_trait_ethereal
 						}
@@ -1435,7 +1433,7 @@ fleet_event = {
 						type = admiral
 						species = event_target:extradimensional_hunters_species
 						name = random
-						skill = 1000
+						skill = 3
 						traits = {
 							trait = leader_trait_dimensional_stutter
 						}
@@ -1446,7 +1444,7 @@ fleet_event = {
 						type = admiral
 						species = event_target:extradimensional_hunters_species
 						name = random
-						skill = 500
+						skill = 3
 					}
 				}
 			}
@@ -1460,7 +1458,7 @@ fleet_event = {
 					}
 					assign_leader = last_created_leader
 					while = {
-						count = 14
+						count = 8
 						create_ship = {
 							name = random
 							design = "NAME_Huntress"
@@ -1468,7 +1466,7 @@ fleet_event = {
 						}
 					}
 					while = {
-						count = 20
+						count = 12
 						create_ship = {
 							name = random
 							design = "NAME_Assassin"
@@ -1476,7 +1474,7 @@ fleet_event = {
 						}
 					}
 					while = {
-						count = 38
+						count = 20
 						create_ship = {
 							name = random
 							design = "NAME_Predator"
@@ -1501,9 +1499,9 @@ fleet_event = {
 fleet_event = {
 	id = crisis.1106
 	hide_window = yes
-	
+
 	is_triggered_only = yes
-	
+
 	immediate = {
 		event_target:extradimensional_hunters = {
 			create_fleet = {
@@ -1532,16 +1530,16 @@ country_event = {
 	desc = "crisis.1110.desc"
 	picture = GFX_evt_wormhole
 	show_sound = event_ex_started
-	
+
 	is_triggered_only = yes
-	
+
 	immediate = {
 		random_country = {
 			limit = { is_country_type = extradimensional_2 }
 			establish_communications_no_message = ROOT
 		}
 	}
-	
+
 	option = {
 		name = crisis.1110.a
 		begin_event_chain = {
@@ -1563,9 +1561,9 @@ country_event = {
 	id = crisis.1111
 	hide_window = yes
 	fire_only_once = yes
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		exists = from
 		NOT = { has_global_flag = extradimensionals_fight }
@@ -1574,13 +1572,13 @@ country_event = {
 			is_country_type = extradimensional_2
 		}
 		FROM = {
-			OR = { 
+			OR = {
 				is_country_type = extradimensional
 				is_country_type = extradimensional_2
 			}
 		}
 	}
-	
+
 	immediate = {
 		set_global_flag = extradimensionals_fight
 		every_country = {
@@ -1599,12 +1597,12 @@ country_event = {
 	desc = "crisis.1112.desc"
 	picture = GFX_evt_wormhole
 	show_sound = event_alien_signal
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = crisis.1112.a
-		hidden_effect = { 
+		hidden_effect = {
 			country_event = { id = crisis.1113 }
 		}
 	}
@@ -1615,16 +1613,16 @@ country_event = {
 	id = crisis.1113
 	title = "TRANSMISSION"
 	desc = "crisis.1113.desc"
-	
+
 	diplomatic = yes
-	
+
 	picture_event_data = {
 		portrait = exd2
 		room = "extradimensional_orange_room"
 	}
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = crisis.1113.a
 	}
@@ -1634,15 +1632,15 @@ country_event = {
 country_event = {
 	id = crisis.1115
 	hide_window = yes
-	
+
 	fire_only_once = yes
 	is_triggered_only = yes
-	
+
 	trigger = {
 		is_country_type = extradimensional_2
 		FROMFROM = { is_ship_size = dimensional_portal_ed }
 	}
-	
+
 	immediate = {
 		if = {
 			limit = {
@@ -1690,7 +1688,7 @@ country_event = {
 	title = "crisis.1116.name"
 	picture = GFX_evt_wormhole
 	show_sound = event_super_explosion
-	
+
 	desc = {
 		text = "crisis.1116.desc.a"
 		trigger = {
@@ -1703,9 +1701,9 @@ country_event = {
 			NOT = { has_communications = event_target:portal_killer }
 		}
 	}
-	
+
 	is_triggered_only = yes
-	
+
 	immediate = {
 		random_system = {
 			limit = { has_star_flag = extradimensional_second_portal_system }
@@ -1714,7 +1712,7 @@ country_event = {
 		remove_point_of_interest = extradimensional_invasion_poi.2
 		set_country_flag = extradimensionals_expunged
 	}
-	
+
 	option = {
 		name = crisis.1013.a
 	}
@@ -1727,9 +1725,9 @@ country_event = {
 	desc = "crisis.1117.desc"
 	picture = GFX_evt_wormhole
 	show_sound = event_super_explosion
-	
+
 	is_triggered_only = yes
-	
+
 	immediate = {
 		random_system = {
 			limit = { has_star_flag = extradimensional_second_portal_system }
@@ -1738,7 +1736,7 @@ country_event = {
 		set_global_flag = extradimensional_second_portal_destroyed
 		remove_point_of_interest = extradimensional_invasion_poi.2
 	}
-	
+
 	option = {
 		name = crisis.1016.a
 	}
@@ -1751,26 +1749,26 @@ country_event = {
 	id = crisis.1200
 	hide_window = yes
 	fire_only_once = yes
-	
+
 	trigger = {
 		has_global_flag = extradimensionals_fight
 		NOT = { has_global_flag = extradimensional_third_portal }
 		is_country_type = extradimensional_2
 		any_country = { is_country_type = extradimensional }
 	}
-	
+
 	mean_time_to_happen = {
 		months = 40
 	}
-	
+
 	immediate = {
 		set_global_flag = extradimensional_third_portal
 		random_country = {
 			limit = { is_country_type = extradimensional }
 			random_system_within_border = {
-				limit = { 
-					NOT = { 
-						has_star_flag = extradimensional_origin_system 
+				limit = {
+					NOT = {
+						has_star_flag = extradimensional_origin_system
 						has_star_flag = extradimensional_second_portal_system
 					}
 				}
@@ -1788,7 +1786,6 @@ country_event = {
 						type = "extradimensional_3"
 						species = last_created
 						name_list = "Extradimensional"
-						effect = { set_country_flag = vehement }
 						flag = {
 							icon= {
 								category = "special"
@@ -1805,23 +1802,19 @@ country_event = {
 								"null"
 							}
 						}
+						effect = {
+							set_country_flag = vehement
+							save_global_event_target_as = extradimensionals3
+							create_ship_design = { design = "NAME_Void_Weaver" }
+							add_ship_design = last_created_design
+							create_ship_design = { design = "NAME_Vehement_Anchor" }
+							add_ship_design = last_created_design
+						}
 					}
 					last_created_species = { save_event_target_as = extradimensional_trespassers_species }
 					last_created_country = {
 						set_graphical_culture = extra_dimensional_03
-						add_modifier = {
-							modifier = ed_anchor_buildspeed
-							days = -1
-						}
 						save_event_target_as = extradimensional_trespassers
-						create_ship_design = { design = "NAME_Void_Weaver" }
-						add_ship_design = last_created_design
-						create_ship_design = { design = "NAME_Phantasm_Gamma" }
-						add_ship_design = last_created_design
-						create_ship_design = { design = "NAME_Whisper_Gamma" }
-						add_ship_design = last_created_design
-						create_ship_design = { design = "NAME_Vehement_Anchor" }
-						add_ship_design = last_created_design
 						create_fleet = {
 							name = "NAME_Dimensional_Portal"
 							effect = {
@@ -1859,7 +1852,7 @@ country_event = {
 									type = admiral
 									species = event_target:extradimensional_trespassers_species
 									name = random
-									skill = 1000
+									skill = 3
 									traits = {
 										trait = leader_trait_ethereal
 									}
@@ -1870,7 +1863,7 @@ country_event = {
 									type = admiral
 									species = event_target:extradimensional_trespassers_species
 									name = random
-									skill = 1000
+									skill = 3
 									traits = {
 										trait = leader_trait_dimensional_stutter
 									}
@@ -1881,7 +1874,7 @@ country_event = {
 									type = admiral
 									species = event_target:extradimensional_trespassers_species
 									name = random
-									skill = 500
+									skill = 3
 								}
 							}
 						}
@@ -1895,7 +1888,7 @@ country_event = {
 								}
 								assign_leader = last_created_leader
 								while = {
-									count = 35
+									count = 20
 									create_ship = {
 										name = random
 										design = "NAME_Eradicator"
@@ -1903,7 +1896,7 @@ country_event = {
 									}
 								}
 								while = {
-									count = 56
+									count = 30
 									create_ship = {
 										name = random
 										design = "NAME_Annihilator"
@@ -1911,7 +1904,7 @@ country_event = {
 									}
 								}
 								while = {
-									count = 86
+									count = 45
 									create_ship = {
 										name = random
 										design = "NAME_Obliterator"
@@ -1929,6 +1922,10 @@ country_event = {
 							}
 						}
 					}
+				}
+				create_starbase = {
+					size = starbase_exd
+					owner = event_target:extradimensionals3
 				}
 			}
 			establish_communications_no_message = event_target:extradimensional_trespassers
@@ -1951,9 +1948,9 @@ country_event = {
 fleet_event = {
 	id = crisis.1203
 	hide_window = yes
-	
+
 	is_triggered_only = yes
-	
+
 	immediate = {
 		event_target:extradimensional_trespassers = {
 			random_list = {
@@ -1962,7 +1959,7 @@ fleet_event = {
 						type = admiral
 						species = event_target:extradimensional_trespassers_species
 						name = random
-						skill = 1000
+						skill = 3
 						traits = {
 							trait = leader_trait_ethereal
 						}
@@ -1973,7 +1970,7 @@ fleet_event = {
 						type = admiral
 						species = event_target:extradimensional_trespassers_species
 						name = random
-						skill = 1000
+						skill = 3
 						traits = {
 							trait = leader_trait_dimensional_stutter
 						}
@@ -1984,7 +1981,7 @@ fleet_event = {
 						type = admiral
 						species = event_target:extradimensional_trespassers_species
 						name = random
-						skill = 500
+						skill = 3
 					}
 				}
 			}
@@ -1998,7 +1995,7 @@ fleet_event = {
 					}
 					assign_leader = last_created_leader
 					while = {
-						count = 14
+						count = 8
 						create_ship = {
 							name = random
 							design = "NAME_Eradicator"
@@ -2006,7 +2003,7 @@ fleet_event = {
 						}
 					}
 					while = {
-						count = 20
+						count = 12
 						create_ship = {
 							name = random
 							design = "NAME_Annihilator"
@@ -2014,7 +2011,7 @@ fleet_event = {
 						}
 					}
 					while = {
-						count = 38
+						count = 20
 						create_ship = {
 							name = random
 							design = "NAME_Obliterator"
@@ -2039,9 +2036,9 @@ fleet_event = {
 fleet_event = {
 	id = crisis.1206
 	hide_window = yes
-	
+
 	is_triggered_only = yes
-	
+
 	immediate = {
 		event_target:extradimensional_trespassers = {
 			create_fleet = {
@@ -2070,16 +2067,16 @@ country_event = {
 	desc = "crisis.1210.desc"
 	picture = GFX_evt_wormhole
 	show_sound = event_ex_started
-	
+
 	is_triggered_only = yes
-	
+
 	immediate = {
 		random_country = {
 			limit = { is_country_type = extradimensional_3 }
 			establish_communications_no_message = ROOT
 		}
 	}
-	
+
 	option = {
 		name = crisis.1210.a
 		begin_event_chain = {
@@ -2104,16 +2101,16 @@ country_event = {
 	id = crisis.1211
 	title = "TRANSMISSION"
 	desc = "crisis.1211.desc"
-	
+
 	diplomatic = yes
-	
+
 	picture_event_data = {
 		portrait = exd3
 		room = "extradimensional_green_room"
 	}
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = crisis.1211.a
 	}
@@ -2123,15 +2120,15 @@ country_event = {
 country_event = {
 	id = crisis.1215
 	hide_window = yes
-	
+
 	fire_only_once = yes
 	is_triggered_only = yes
-	
+
 	trigger = {
 		is_country_type = extradimensional_3
 		FROMFROM = { is_ship_size = dimensional_portal_ed }
 	}
-	
+
 	immediate = {
 		if = {
 			limit = {
@@ -2179,7 +2176,7 @@ country_event = {
 	title = "crisis.1216.name"
 	picture = GFX_evt_wormhole
 	show_sound = event_super_explosion
-	
+
 	desc = {
 		text = "crisis.1216.desc.a"
 		trigger = {
@@ -2192,9 +2189,9 @@ country_event = {
 			NOT = { has_communications = event_target:portal_killer }
 		}
 	}
-	
+
 	is_triggered_only = yes
-	
+
 	immediate = {
 		random_system = {
 			limit = { has_star_flag = extradimensional_third_portal_system }
@@ -2203,7 +2200,7 @@ country_event = {
 		remove_point_of_interest = extradimensional_invasion_poi.3
 		set_country_flag = extradimensionals_expunged
 	}
-	
+
 	option = {
 		name = crisis.1013.a
 	}
@@ -2216,9 +2213,9 @@ country_event = {
 	desc = "crisis.1217.desc"
 	picture = GFX_evt_wormhole
 	show_sound = event_super_explosion
-	
+
 	is_triggered_only = yes
-	
+
 	immediate = {
 		random_system = {
 			limit = { has_star_flag = extradimensional_third_portal_system }
@@ -2227,7 +2224,7 @@ country_event = {
 		set_global_flag = extradimensional_third_portal_destroyed
 		remove_point_of_interest = extradimensional_invasion_poi.3
 	}
-	
+
 	option = {
 		name = crisis.1016.a
 	}
@@ -2338,9 +2335,9 @@ event = {
 country_event = {
 	id = crisis.1260
 	hide_window = yes
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		OR = {
 			is_country_type = extradimensional
@@ -2361,11 +2358,11 @@ country_event = {
 			}
 		}
 	}
-		
-		
+
+
 	immediate = {
 		# Spawn Construction Ships if needed
-		country_event = { id = crisis.1266 days = 6 } 
+		country_event = { id = crisis.1266 days = 6 }
 		# If at fleet cap
 		if = {
 			limit = {
@@ -2378,7 +2375,7 @@ country_event = {
 		if = {
 			limit = {
 				count_owned_ships = {
-					limit = { is_ship_size = anchor_station }
+					limit = { is_ship_size = starbase_citadel }
 					count < 1
 				}
 			}
@@ -2388,7 +2385,7 @@ country_event = {
 		if = {
 			limit = {
 				count_owned_ships = {
-					limit = { is_ship_size = anchor_station }
+					limit = { is_ship_size = starbase_citadel }
 					count = 1
 				}
 			}
@@ -2398,7 +2395,7 @@ country_event = {
 		if = {
 			limit = {
 				count_owned_ships = {
-					limit = { is_ship_size = anchor_station }
+					limit = { is_ship_size = starbase_citadel }
 					count = 2
 				}
 			}
@@ -2408,7 +2405,7 @@ country_event = {
 		if = {
 			limit = {
 				count_owned_ships = {
-					limit = { is_ship_size = anchor_station }
+					limit = { is_ship_size = starbase_citadel }
 					count = 3
 				}
 			}
@@ -2418,7 +2415,7 @@ country_event = {
 		if = {
 			limit = {
 				count_owned_ships = {
-					limit = { is_ship_size = anchor_station }
+					limit = { is_ship_size = starbase_citadel }
 					count = 4
 				}
 			}
@@ -2428,7 +2425,7 @@ country_event = {
 		if = {
 			limit = {
 				count_owned_ships = {
-					limit = { is_ship_size = anchor_station }
+					limit = { is_ship_size = starbase_citadel }
 					count = 5
 				}
 			}
@@ -2438,7 +2435,7 @@ country_event = {
 		if = {
 			limit = {
 				count_owned_ships = {
-					limit = { is_ship_size = anchor_station }
+					limit = { is_ship_size = starbase_citadel }
 					count = 6
 				}
 			}
@@ -2448,7 +2445,7 @@ country_event = {
 		if = {
 			limit = {
 				count_owned_ships = {
-					limit = { is_ship_size = anchor_station }
+					limit = { is_ship_size = starbase_citadel }
 					count = 7
 				}
 			}
@@ -2458,7 +2455,7 @@ country_event = {
 		if = {
 			limit = {
 				count_owned_ships = {
-					limit = { is_ship_size = anchor_station }
+					limit = { is_ship_size = starbase_citadel }
 					count = 8
 				}
 			}
@@ -2468,7 +2465,7 @@ country_event = {
 		if = {
 			limit = {
 				count_owned_ships = {
-					limit = { is_ship_size = anchor_station }
+					limit = { is_ship_size = starbase_citadel }
 					count = 9
 				}
 			}
@@ -2478,7 +2475,7 @@ country_event = {
 		if = {
 			limit = {
 				count_owned_ships = {
-					limit = { is_ship_size = anchor_station }
+					limit = { is_ship_size = starbase_citadel }
 					count > 9
 				}
 			}
@@ -2492,9 +2489,9 @@ country_event = {
 country_event = {
 	id = crisis.1265
 	hide_window = yes
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		# Must only trigger if portal is still alive
 		OR = {
@@ -2513,7 +2510,7 @@ country_event = {
 			}
 		}
 	}
-	
+
 	immediate = {
 		random_country = {
 			limit = { is_country_type = portal_holder }
@@ -2528,11 +2525,11 @@ country_event = {
 		}
 		owner_species = { save_event_target_as = extradimensional_species }
 		country_event = { id = crisis.1260 } # Restart spawn cycle
-		
+
 		# Extradimensionals 1
 		if = {
 			limit = { is_country_type = extradimensional }
-			
+
 			# Create Admiral
 			random_list = {
 				25 = {
@@ -2540,7 +2537,7 @@ country_event = {
 						type = admiral
 						species = event_target:extradimensional_species
 						name = random
-						skill = 1000
+						skill = 3
 						traits = {
 							trait = leader_trait_ethereal
 						}
@@ -2551,7 +2548,7 @@ country_event = {
 						type = admiral
 						species = event_target:extradimensional_species
 						name = random
-						skill = 1000
+						skill = 3
 						traits = {
 							trait = leader_trait_dimensional_stutter
 						}
@@ -2562,11 +2559,11 @@ country_event = {
 						type = admiral
 						species = event_target:extradimensional_species
 						name = random
-						skill = 500
+						skill = 3
 					}
 				}
 			}
-			
+
 			# Create Fleet
 			create_fleet = {
 				effect = {
@@ -2578,7 +2575,7 @@ country_event = {
 					}
 					assign_leader = last_created_leader
 					while = {
-						count = 7
+						count = 5
 						create_ship = {
 							name = random
 							design = "NAME_Revenant"
@@ -2586,7 +2583,7 @@ country_event = {
 						}
 					}
 					while = {
-						count = 10
+						count = 8
 						create_ship = {
 							name = random
 							design = "NAME_Phantom"
@@ -2594,12 +2591,12 @@ country_event = {
 						}
 					}
 					while = {
-						count = 19
+						count = 15
 						create_ship = {
 							name = random
 							design = "NAME_Wraith"
 							graphical_culture = "extra_dimensional_01"
-						}	
+						}
 					}
 					set_location = {
 						target = event_target:dimensional_portal
@@ -2612,11 +2609,11 @@ country_event = {
 				}
 			}
 		}
-		
+
 		# Extradimensionals 2
 		if = {
 			limit = { is_country_type = extradimensional_2 }
-			
+
 			# Create Admiral
 			random_list = {
 				25 = {
@@ -2624,7 +2621,7 @@ country_event = {
 						type = admiral
 						species = event_target:extradimensional_species
 						name = random
-						skill = 1000
+						skill = 3
 						traits = {
 							trait = leader_trait_ethereal
 						}
@@ -2635,7 +2632,7 @@ country_event = {
 						type = admiral
 						species = event_target:extradimensional_species
 						name = random
-						skill = 1000
+						skill = 3
 						traits = {
 							trait = leader_trait_dimensional_stutter
 						}
@@ -2646,11 +2643,11 @@ country_event = {
 						type = admiral
 						species = event_target:extradimensional_species
 						name = random
-						skill = 500
+						skill = 3
 					}
 				}
 			}
-			
+
 			# Create Fleet
 			create_fleet = {
 				effect = {
@@ -2662,7 +2659,7 @@ country_event = {
 					}
 					assign_leader = last_created_leader
 					while = {
-						count = 7
+						count = 5
 						create_ship = {
 							name = random
 							design = "NAME_Huntress"
@@ -2670,7 +2667,7 @@ country_event = {
 						}
 					}
 					while = {
-						count = 10
+						count = 8
 						create_ship = {
 							name = random
 							design = "NAME_Assassin"
@@ -2678,7 +2675,7 @@ country_event = {
 						}
 					}
 					while = {
-						count = 20
+						count = 15
 						create_ship = {
 							name = random
 							design = "NAME_Predator"
@@ -2697,11 +2694,11 @@ country_event = {
 			}
 			break = yes
 		}
-		
+
 		# Extradimensionals 3
 		if = {
 			limit = { is_country_type = extradimensional_3 }
-			
+
 			# Create Admiral
 			random_list = {
 				25 = {
@@ -2709,7 +2706,7 @@ country_event = {
 						type = admiral
 						species = event_target:extradimensional_species
 						name = random
-						skill = 1000
+						skill = 3
 						traits = {
 							trait = leader_trait_ethereal
 						}
@@ -2720,7 +2717,7 @@ country_event = {
 						type = admiral
 						species = event_target:extradimensional_species
 						name = random
-						skill = 1000
+						skill = 3
 						traits = {
 							trait = leader_trait_dimensional_stutter
 						}
@@ -2731,11 +2728,11 @@ country_event = {
 						type = admiral
 						species = event_target:extradimensional_species
 						name = random
-						skill = 500
+						skill = 3
 					}
 				}
 			}
-			
+
 			# Create Fleet
 			create_fleet = {
 				effect = {
@@ -2747,7 +2744,7 @@ country_event = {
 					}
 					assign_leader = last_created_leader
 					while = {
-						count = 7
+						count = 5
 						create_ship = {
 							name = random
 							design = "NAME_Eradicator"
@@ -2755,7 +2752,7 @@ country_event = {
 						}
 					}
 					while = {
-						count = 10
+						count = 8
 						create_ship = {
 							name = random
 							design = "NAME_Annihilator"
@@ -2763,7 +2760,7 @@ country_event = {
 						}
 					}
 					while = {
-						count = 20
+						count = 15
 						create_ship = {
 							name = random
 							design = "NAME_Obliterator"
@@ -2789,9 +2786,9 @@ country_event = {
 country_event = {
 	id = crisis.1266
 	hide_window = yes
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		# Must only trigger if portal is still alive
 		OR = {
@@ -2809,13 +2806,13 @@ country_event = {
 				}
 			}
 		}
-		
+
 		count_owned_ships = {
 			limit = { is_ship_size = construction_ship_ed }
 			count < 3
 		}
 	}
-	
+
 	immediate = {
 		# Extradimensionals 1
 		random_country = {
@@ -2851,7 +2848,7 @@ country_event = {
 			}
 			break = yes
 		}
-		
+
 		# Extradimensionals 2
 		if = {
 			limit = { is_country_type = extradimensional_2 }
@@ -2875,7 +2872,7 @@ country_event = {
 			}
 			break = yes
 		}
-		
+
 		# Extradimensionals 3
 		if = {
 			limit = { is_country_type = extradimensional_3 }
@@ -2906,11 +2903,17 @@ country_event = {
 ship_event = {
 	id = crisis.1267
 	hide_window = yes
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
+		is_ship_size = starbase_citadel
 		owner = {
+			OR = {
+				is_country_type = extradimensional
+				is_country_type = extradimensional_2
+				is_country_type = extradimensional_3
+			}
 			# Must only trigger if portal is still alive
 			OR = {
 				count_owned_ships = {
@@ -2935,7 +2938,7 @@ ship_event = {
 			num_ships < 2001
 		}
 	}
-	
+
 	immediate = {
 		owner = {
 			country_event = { id = crisis.1266 days = 6 } # Spawn Construction Ships if needed
@@ -2951,11 +2954,11 @@ ship_event = {
 				save_event_target_as = dimensional_portal
 			}
 			owner_species = { save_event_target_as = extradimensional_species }
-			
+
 			# Extradimensionals 1
 			if = {
 				limit = { is_country_type = extradimensional }
-				
+
 				# Create Admiral
 				random_list = {
 					25 = {
@@ -2963,7 +2966,7 @@ ship_event = {
 							type = admiral
 							species = event_target:extradimensional_species
 							name = random
-							skill = 1000
+							skill = 3
 							traits = {
 								trait = leader_trait_ethereal
 							}
@@ -2974,7 +2977,7 @@ ship_event = {
 							type = admiral
 							species = event_target:extradimensional_species
 							name = random
-							skill = 1000
+							skill = 3
 							traits = {
 								trait = leader_trait_dimensional_stutter
 							}
@@ -2985,11 +2988,11 @@ ship_event = {
 							type = admiral
 							species = event_target:extradimensional_species
 							name = random
-							skill = 500
+							skill = 3
 						}
 					}
 				}
-				
+
 				# Create Fleet
 				create_fleet = {
 					effect = {
@@ -3001,7 +3004,7 @@ ship_event = {
 						}
 						assign_leader = last_created_leader
 						while = {
-							count = 7
+							count = 5
 							create_ship = {
 								name = random
 								design = "NAME_Revenant"
@@ -3009,7 +3012,7 @@ ship_event = {
 							}
 						}
 						while = {
-							count = 10
+							count = 8
 							create_ship = {
 								name = random
 								design = "NAME_Phantom"
@@ -3017,12 +3020,12 @@ ship_event = {
 							}
 						}
 						while = {
-							count = 19
+							count = 15
 							create_ship = {
 								name = random
 								design = "NAME_Wraith"
 								graphical_culture = "extra_dimensional_01"
-							}	
+							}
 						}
 						set_location = {
 							target = event_target:dimensional_portal
@@ -3035,11 +3038,11 @@ ship_event = {
 					}
 				}
 			}
-			
+
 			# Extradimensionals 2
 			if = {
 				limit = { is_country_type = extradimensional_2 }
-				
+
 				# Create Admiral
 				random_list = {
 					25 = {
@@ -3047,7 +3050,7 @@ ship_event = {
 							type = admiral
 							species = event_target:extradimensional_species
 							name = random
-							skill = 1000
+							skill = 3
 							traits = {
 								trait = leader_trait_ethereal
 							}
@@ -3058,7 +3061,7 @@ ship_event = {
 							type = admiral
 							species = event_target:extradimensional_species
 							name = random
-							skill = 1000
+							skill = 3
 							traits = {
 								trait = leader_trait_dimensional_stutter
 							}
@@ -3069,11 +3072,11 @@ ship_event = {
 							type = admiral
 							species = event_target:extradimensional_species
 							name = random
-							skill = 500
+							skill = 3
 						}
 					}
 				}
-				
+
 				# Create Fleet
 				create_fleet = {
 					effect = {
@@ -3085,7 +3088,7 @@ ship_event = {
 						}
 						assign_leader = last_created_leader
 						while = {
-							count = 7
+							count = 5
 							create_ship = {
 								name = random
 								design = "NAME_Huntress"
@@ -3093,7 +3096,7 @@ ship_event = {
 							}
 						}
 						while = {
-							count = 10
+							count = 8
 							create_ship = {
 								name = random
 								design = "NAME_Assassin"
@@ -3101,7 +3104,7 @@ ship_event = {
 							}
 						}
 						while = {
-							count = 20
+							count = 15
 							create_ship = {
 								name = random
 								design = "NAME_Predator"
@@ -3120,11 +3123,11 @@ ship_event = {
 				}
 				break = yes
 			}
-			
+
 			# Extradimensionals 3
 			if = {
 				limit = { is_country_type = extradimensional_3 }
-				
+
 				# Create Admiral
 				random_list = {
 					25 = {
@@ -3132,7 +3135,7 @@ ship_event = {
 							type = admiral
 							species = event_target:extradimensional_species
 							name = random
-							skill = 1000
+							skill = 3
 							traits = {
 								trait = leader_trait_ethereal
 							}
@@ -3143,7 +3146,7 @@ ship_event = {
 							type = admiral
 							species = event_target:extradimensional_species
 							name = random
-							skill = 1000
+							skill = 3
 							traits = {
 								trait = leader_trait_dimensional_stutter
 							}
@@ -3154,11 +3157,11 @@ ship_event = {
 							type = admiral
 							species = event_target:extradimensional_species
 							name = random
-							skill = 500
+							skill = 3
 						}
 					}
 				}
-				
+
 				# Create Fleet
 				create_fleet = {
 					effect = {
@@ -3170,7 +3173,7 @@ ship_event = {
 						}
 						assign_leader = last_created_leader
 						while = {
-							count = 7
+							count = 5
 							create_ship = {
 								name = random
 								design = "NAME_Eradicator"
@@ -3178,7 +3181,7 @@ ship_event = {
 							}
 						}
 						while = {
-							count = 10
+							count = 8
 							create_ship = {
 								name = random
 								design = "NAME_Annihilator"
@@ -3186,7 +3189,7 @@ ship_event = {
 							}
 						}
 						while = {
-							count = 20
+							count = 15
 							create_ship = {
 								name = random
 								design = "NAME_Obliterator"
@@ -3213,9 +3216,9 @@ ship_event = {
 country_event = {
 	id = crisis.1270
 	hide_window = yes
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		OR = {
 			is_country_type = extradimensional
@@ -3227,7 +3230,7 @@ country_event = {
 				AND = {
 					NOT = { is_same_value = ROOT }
 					OR = {
-						is_country_type = extradimensional 
+						is_country_type = extradimensional
 						is_country_type = extradimensional_2
 						is_country_type = extradimensional_3
 					}
@@ -3256,7 +3259,7 @@ country_event = {
 	desc = "crisis.1271.desc"
 	picture = GFX_evt_metropolis
 	show_sound = event_celebration
-	
+
 	is_triggered_only = yes
 
 	immediate = {
@@ -3264,7 +3267,7 @@ country_event = {
 		end_event_chain = "extradimensional_invasion_chain_2"
 		end_event_chain = "extradimensional_invasion_chain_3"
 	}
-	
+
 	option = { # Spiritualist Response
 		name = crisis.1271.a
 		trigger = {
@@ -3381,9 +3384,20 @@ country_event = {
 ship_event = {
 	id = crisis.1280
 	hide_window = yes
-	
+
 	is_triggered_only = yes
-	
+
+	trigger = {
+		owner = {
+			OR = {
+				is_country_type = extradimensional
+				is_country_type = extradimensional_2
+				is_country_type = extradimensional_3
+			}
+		}
+		is_ship_size = starbase_citadel
+	}
+
 	immediate = {
 		owner = {
 			log = "anchor built and crisis.1280 executed, not yet reaching fleet owner switch"
@@ -3393,8 +3407,8 @@ ship_event = {
 			}
 			random_owned_ship = {
 				limit = { is_ship_size = dimensional_portal_ed }
-				fleet = { set_event_locked = yes }
 				fleet = {
+					set_event_locked = yes
 					set_owner = event_target:portal_holder_1
 					log = "anchor built and crisis.1280 executed, reaching fleet owner switch"
 				}
@@ -3404,10 +3418,10 @@ ship_event = {
 			limit = { owner = { is_country_type = extradimensional } }
 			every_country = {
 				limit = { has_event_chain = "extradimensional_invasion_chain" }
-				add_event_chain_counter = { 
-					event_chain = "extradimensional_invasion_chain" 
-					counter = "dimensional_anchors_1" 
-					amount = 1 
+				add_event_chain_counter = {
+					event_chain = "extradimensional_invasion_chain"
+					counter = "dimensional_anchors_1"
+					amount = 1
 				}
 			}
 			break = yes
@@ -3416,10 +3430,10 @@ ship_event = {
 			limit = { owner = { is_country_type = extradimensional_2 } }
 			every_country = {
 				limit = { has_event_chain = "extradimensional_invasion_chain_2" }
-				add_event_chain_counter = { 
-					event_chain = "extradimensional_invasion_chain_2" 
-					counter = "dimensional_anchors_2" 
-					amount = 1 
+				add_event_chain_counter = {
+					event_chain = "extradimensional_invasion_chain_2"
+					counter = "dimensional_anchors_2"
+					amount = 1
 				}
 			}
 			break = yes
@@ -3428,10 +3442,10 @@ ship_event = {
 			limit = { owner = { is_country_type = extradimensional_3 } }
 			every_country = {
 				limit = { has_event_chain = "extradimensional_invasion_chain_3" }
-				add_event_chain_counter = { 
-					event_chain = "extradimensional_invasion_chain_3" 
-					counter = "dimensional_anchors_3" 
-					amount = 1 
+				add_event_chain_counter = {
+					event_chain = "extradimensional_invasion_chain_3"
+					counter = "dimensional_anchors_3"
+					amount = 1
 				}
 			}
 			break = yes
@@ -3443,19 +3457,19 @@ ship_event = {
 country_event = {
 	id = crisis.1281
 	hide_window = yes
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
-		FROMFROM = { is_ship_size = anchor_station }
+		FROMFROM = { is_ship_size = starbase_citadel }
 	}
-	
+
 	immediate = {
 		log = "anchor destroyed event crisis.1281 triggered"
 		if = {
 			limit = {
 				count_owned_ships = {
-					limit = { is_ship_size = anchor_station }
+					limit = { is_ship_size = starbase_citadel }
 					count = 1
 				}
 			}
@@ -3512,10 +3526,10 @@ country_event = {
 			limit = { is_country_type = extradimensional }
 			every_country = {
 				limit = { has_event_chain = "extradimensional_invasion_chain" }
-				add_event_chain_counter = { 
-					event_chain = "extradimensional_invasion_chain" 
-					counter = "dimensional_anchors_1" 
-					amount = -1 
+				add_event_chain_counter = {
+					event_chain = "extradimensional_invasion_chain"
+					counter = "dimensional_anchors_1"
+					amount = -1
 				}
 			}
 			break = yes
@@ -3524,10 +3538,10 @@ country_event = {
 			limit = { is_country_type = extradimensional_2 }
 			every_country = {
 				limit = { has_event_chain = "extradimensional_invasion_chain_2" }
-				add_event_chain_counter = { 
-					event_chain = "extradimensional_invasion_chain_2" 
-					counter = "dimensional_anchors_2" 
-					amount = -1 
+				add_event_chain_counter = {
+					event_chain = "extradimensional_invasion_chain_2"
+					counter = "dimensional_anchors_2"
+					amount = -1
 				}
 			}
 			break = yes
@@ -3536,10 +3550,10 @@ country_event = {
 			limit = { is_country_type = extradimensional_3 }
 			every_country = {
 				limit = { has_event_chain = "extradimensional_invasion_chain_3" }
-				add_event_chain_counter = { 
-					event_chain = "extradimensional_invasion_chain_3" 
-					counter = "dimensional_anchors_3" 
-					amount = -1 
+				add_event_chain_counter = {
+					event_chain = "extradimensional_invasion_chain_3"
+					counter = "dimensional_anchors_3"
+					amount = -1
 				}
 			}
 			break = yes
@@ -3551,17 +3565,17 @@ country_event = {
 country_event = {
 	id = crisis.1282
 	hide_window = yes
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		OR = {
-			is_country_type = extradimensional 
+			is_country_type = extradimensional
 			is_country_type = extradimensional_2
 			is_country_type = extradimensional_3
 		}
 	}
-	
+
 	immediate = {
 		if = {
 			limit = {
@@ -3569,10 +3583,10 @@ country_event = {
 				FROM = { has_event_chain = "extradimensional_invasion_chain" }
 			}
 			FROM = {
-				add_event_chain_counter = { 
-					event_chain = "extradimensional_invasion_chain" 
-					counter = "extradimensional_kills_us_1" 
-					amount = 1 
+				add_event_chain_counter = {
+					event_chain = "extradimensional_invasion_chain"
+					counter = "extradimensional_kills_us_1"
+					amount = 1
 				}
 			}
 		}
@@ -3582,10 +3596,10 @@ country_event = {
 				FROM = { has_event_chain = "extradimensional_invasion_chain_2" }
 			}
 			FROM = {
-				add_event_chain_counter = { 
-					event_chain = "extradimensional_invasion_chain_2" 
-					counter = "extradimensional_kills_us_2" 
-					amount = 1 
+				add_event_chain_counter = {
+					event_chain = "extradimensional_invasion_chain_2"
+					counter = "extradimensional_kills_us_2"
+					amount = 1
 				}
 			}
 		}
@@ -3595,24 +3609,24 @@ country_event = {
 				FROM = { has_event_chain = "extradimensional_invasion_chain_3" }
 			}
 			FROM = {
-				add_event_chain_counter = { 
-					event_chain = "extradimensional_invasion_chain_3" 
-					counter = "extradimensional_kills_us_3" 
-					amount = 1 
+				add_event_chain_counter = {
+					event_chain = "extradimensional_invasion_chain_3"
+					counter = "extradimensional_kills_us_3"
+					amount = 1
 				}
 			}
 		}
 		if = {
 			limit = { is_country_type = extradimensional }
 			every_country = {
-				limit = { 
-					has_event_chain = "extradimensional_invasion_chain" 
+				limit = {
+					has_event_chain = "extradimensional_invasion_chain"
 					NOT = { is_same_value = FROM }
 				}
-				add_event_chain_counter = { 
-					event_chain = "extradimensional_invasion_chain" 
-					counter = "extradimensional_kills_others_1" 
-					amount = 1 
+				add_event_chain_counter = {
+					event_chain = "extradimensional_invasion_chain"
+					counter = "extradimensional_kills_others_1"
+					amount = 1
 				}
 			}
 			break = yes
@@ -3620,14 +3634,14 @@ country_event = {
 		if = {
 			limit = { is_country_type = extradimensional_2 }
 			every_country = {
-				limit = { 
+				limit = {
 					has_event_chain = "extradimensional_invasion_chain_2"
 					NOT = { is_same_value = FROM }
 				}
-				add_event_chain_counter = { 
-					event_chain = "extradimensional_invasion_chain_2" 
-					counter = "extradimensional_kills_others_2" 
-					amount = 1 
+				add_event_chain_counter = {
+					event_chain = "extradimensional_invasion_chain_2"
+					counter = "extradimensional_kills_others_2"
+					amount = 1
 				}
 			}
 			break = yes
@@ -3635,14 +3649,14 @@ country_event = {
 		if = {
 			limit = { is_country_type = extradimensional_3 }
 			every_country = {
-				limit = { 
+				limit = {
 					has_event_chain = "extradimensional_invasion_chain_3"
 					NOT = { is_same_value = FROM }
 				}
-				add_event_chain_counter = { 
-					event_chain = "extradimensional_invasion_chain_3" 
-					counter = "extradimensional_kills_others_3" 
-					amount = 1 
+				add_event_chain_counter = {
+					event_chain = "extradimensional_invasion_chain_3"
+					counter = "extradimensional_kills_others_3"
+					amount = 1
 				}
 			}
 			break = yes
@@ -3654,33 +3668,33 @@ country_event = {
 country_event = {
 	id = crisis.1283
 	hide_window = yes
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		OR = {
-			is_country_type = extradimensional 
+			is_country_type = extradimensional
 			is_country_type = extradimensional_2
 			is_country_type = extradimensional_3
 		}
 		FROM = {
 			NOT = {
-				is_country_type = extradimensional 
+				is_country_type = extradimensional
 				is_country_type = extradimensional_2
 				is_country_type = extradimensional_3
 			}
 		}
 	}
-	
+
 	immediate = {
 		if = {
 			limit = { is_country_type = extradimensional }
 			every_country = {
 				limit = { has_event_chain = "extradimensional_invasion_chain" }
-				add_event_chain_counter = { 
-					event_chain = "extradimensional_invasion_chain" 
-					counter = "extradimensional_victims_1" 
-					amount = 1 
+				add_event_chain_counter = {
+					event_chain = "extradimensional_invasion_chain"
+					counter = "extradimensional_victims_1"
+					amount = 1
 				}
 			}
 			break = yes
@@ -3689,10 +3703,10 @@ country_event = {
 			limit = { is_country_type = extradimensional_2 }
 			every_country = {
 				limit = { has_event_chain = "extradimensional_invasion_chain_2" }
-				add_event_chain_counter = { 
-					event_chain = "extradimensional_invasion_chain_2" 
-					counter = "extradimensional_victims_2" 
-					amount = 1 
+				add_event_chain_counter = {
+					event_chain = "extradimensional_invasion_chain_2"
+					counter = "extradimensional_victims_2"
+					amount = 1
 				}
 			}
 			break = yes
@@ -3701,10 +3715,10 @@ country_event = {
 			limit = { is_country_type = extradimensional_3 }
 			every_country = {
 				limit = { has_event_chain = "extradimensional_invasion_chain_3" }
-				add_event_chain_counter = { 
-					event_chain = "extradimensional_invasion_chain_3" 
-					counter = "extradimensional_victims_3" 
-					amount = 1 
+				add_event_chain_counter = {
+					event_chain = "extradimensional_invasion_chain_3"
+					counter = "extradimensional_victims_3"
+					amount = 1
 				}
 			}
 			break = yes
@@ -3717,158 +3731,158 @@ country_event = {
 country_event = {
 	id = crisis.1230
 	hide_window = yes
-	
+
 	trigger = {
 		has_crisis_stage_3 = yes
 		OR = {
-			is_country_type = extradimensional 
+			is_country_type = extradimensional
 			is_country_type = extradimensional_2
 			is_country_type = extradimensional_3
 		}
 		NOT = {
 			any_country = {
 				OR = {
-					is_country_type = extradimensional 
+					is_country_type = extradimensional
 					is_country_type = extradimensional_2
 					is_country_type = extradimensional_3
-				}			
+				}
 				galaxy_percentage > 0.10
 			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 1
 	}
-	
+
 	immediate = {
 		set_crisis_sound = extradimensional_crisis_ambient_stage_2
-		set_crisis_stage_2 = yes	
+		set_crisis_stage_2 = yes
 	}
 }
 
 country_event = {
 	id = crisis.1231
 	hide_window = yes
-	
+
 	trigger = {
 		has_crisis_stage_2 = yes
 		OR = {
-			is_country_type = extradimensional 
+			is_country_type = extradimensional
 			is_country_type = extradimensional_2
 			is_country_type = extradimensional_3
 		}
 		any_country = {
 			OR = {
-				is_country_type = extradimensional 
+				is_country_type = extradimensional
 				is_country_type = extradimensional_2
 				is_country_type = extradimensional_3
-			}			
+			}
 			galaxy_percentage > 0.15
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 1
-	}	
-	
+	}
+
 	immediate = {
 		set_crisis_sound = extradimensional_crisis_ambient_stage_3
-		set_crisis_stage_3 = yes	
+		set_crisis_stage_3 = yes
 	}
 }
 
 country_event = {
 	id = crisis.1232
 	hide_window = yes
-	
+
 	trigger = {
 		has_crisis_stage_4 = yes
 		OR = {
-			is_country_type = extradimensional 
+			is_country_type = extradimensional
 			is_country_type = extradimensional_2
 			is_country_type = extradimensional_3
 		}
 		NOT = {
 			any_country = {
 				OR = {
-					is_country_type = extradimensional 
+					is_country_type = extradimensional
 					is_country_type = extradimensional_2
 					is_country_type = extradimensional_3
-				}			
+				}
 				galaxy_percentage > 0.25
 			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 1
-	}	
-	
+	}
+
 	immediate = {
 		set_crisis_sound = extradimensional_crisis_ambient_stage_3
-		set_crisis_stage_3 = yes	
+		set_crisis_stage_3 = yes
 	}
 }
 
 country_event = {
 	id = crisis.1233
 	hide_window = yes
-	
+
 	trigger = {
 		has_crisis_stage_3 = yes
 		OR = {
-			is_country_type = extradimensional 
+			is_country_type = extradimensional
 			is_country_type = extradimensional_2
 			is_country_type = extradimensional_3
 		}
 		any_country = {
 			OR = {
-				is_country_type = extradimensional 
+				is_country_type = extradimensional
 				is_country_type = extradimensional_2
 				is_country_type = extradimensional_3
-			}			
+			}
 			galaxy_percentage > 0.30
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 1
-	}	
-	
+	}
+
 	immediate = {
 		set_crisis_sound = extradimensional_crisis_ambient_stage_4
-		set_crisis_stage_4 = yes	
+		set_crisis_stage_4 = yes
 	}
 }
 
 country_event = {
 	id = crisis.1234
 	hide_window = yes
-	
+
 	trigger = {
 		has_crisis_stage_1 = yes
 		OR = {
-			is_country_type = extradimensional 
+			is_country_type = extradimensional
 			is_country_type = extradimensional_2
 			is_country_type = extradimensional_3
 		}
 		any_country = {
 			OR = {
-				is_country_type = extradimensional 
+				is_country_type = extradimensional
 				is_country_type = extradimensional_2
 				is_country_type = extradimensional_3
-			}			
+			}
 			galaxy_percentage > 0.05
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 1
-	}	
-	
+	}
+
 	immediate = {
 		set_crisis_sound = extradimensional_crisis_ambient_stage_2
-		set_crisis_stage_2 = yes	
+		set_crisis_stage_2 = yes
 	}
 }

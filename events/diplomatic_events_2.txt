@@ -32,7 +32,7 @@ country_event = {
 	location = event_target:exercise_system
 	
 	trigger = {
-		years_passed > 99
+		mid_game_years_passed >= 0
 		is_country_type = default
 		is_at_war = no
 		is_subject = no
@@ -169,8 +169,10 @@ country_event = {
 				if = {
 					limit = {
 						root = {
-							fleet_power > 7999
-							fleet_power < 20000
+							any_owned_fleet = {
+								fleet_power > 1599
+								fleet_power < 4000
+							}
 						}
 					}
 					enable_special_project = {
@@ -183,8 +185,10 @@ country_event = {
 				if = {
 					limit = {
 						root = {
-							fleet_power > 19999
-							fleet_power < 50000
+							any_owned_fleet = {
+								fleet_power > 3999
+								fleet_power < 10000
+							}
 						}
 					}
 					enable_special_project = {
@@ -196,7 +200,9 @@ country_event = {
 				}
 				if = {
 					limit = {
-						root = { fleet_power > 49999 }
+						root = {
+							any_owned_fleet = { fleet_power > 9999 }
+						}
 					}
 					enable_special_project = {
 						name = "FLEET_MANEUVERS_3_PROJECT"
@@ -539,7 +545,7 @@ country_event = {
 					type = admiral
 					species = owner_main_species
 					name = random
-					skill = 201
+					skill = 2
 					traits = {
 						trait = leader_trait_gale_speed
 						trait = leader_trait_aggressive
@@ -555,7 +561,7 @@ country_event = {
 					type = admiral
 					species = owner_main_species
 					name = random
-					skill = 301
+					skill = 2
 					traits = {
 						trait = leader_trait_aggressive
 						trait = leader_trait_engineer
@@ -571,7 +577,7 @@ country_event = {
 					type = admiral
 					species = owner_main_species
 					name = random
-					skill = 401
+					skill = 2
 					traits = {
 						trait = leader_trait_fleet_logistician
 						trait = leader_trait_cautious
@@ -587,7 +593,7 @@ country_event = {
 					type = admiral
 					species = owner_main_species
 					name = random
-					skill = 250
+					skill = 2
 					traits = {
 						trait = leader_trait_scout
 						trait = leader_trait_trickster

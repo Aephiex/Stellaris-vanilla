@@ -17,8 +17,8 @@ leader_trait_trickster = {
 	modification = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_trickster.dds"
 	modifier = {
-		ship_combat_speed_mult = 0.20
-		ship_emergency_ftl_mult = -0.50
+		ship_speed_mult = 0.20
+		ship_disengage_chance_mult = 0.25
 	}
 	leader_trait = yes
 	leader_class = { admiral }
@@ -44,7 +44,8 @@ leader_trait_engineer = {
 	modification = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_engineer.dds"
 	modifier = {
-		ship_auto_repair_add = 0.02 # Regenerates 1% ship-health per month
+		ship_hull_regen_add_perc = 0.5
+		ship_armor_regen_add_perc = 0.5
 	}
 	leader_trait = yes
 	leader_class = { admiral }
@@ -57,7 +58,7 @@ leader_trait_aggressive = {
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_aggressive.dds"
 	modifier = {
 		ship_fire_rate_mult = 0.05
-		ship_combat_speed_mult = 0.1
+		ship_speed_mult = 0.1
 	}
 	leader_trait = yes
 	leader_class = { admiral }
@@ -81,7 +82,7 @@ leader_trait_scout = {
 	modification = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_scout.dds"
 	modifier = {
-		ship_sensor_range_mult = 0.25
+		ship_sensor_range_add = 1
 		ship_speed_mult = 0.2
 	}
 	leader_trait = yes
@@ -93,7 +94,9 @@ leader_trait_unyielding = {
 	modification = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_unyielding.dds"
 	modifier = {
-		ship_hitpoints_mult = 0.1
+		ship_hull_mult = 0.1
+		ship_weapon_damage = 0.05
+		ship_disengage_chance_mult = -0.33
 	}
 	leader_trait = yes
 	leader_class = { admiral }
@@ -108,7 +111,7 @@ leader_trait_nervous = {
 		ship_fire_rate_mult = -0.1
 	}
 	leader_trait = yes
-	leader_class = { ruler }
+	leader_class = { admiral }
 	opposites = { "leader_trait_unyielding" }
 	initial = no
 	randomized = no
@@ -121,7 +124,6 @@ leader_trait_gale_speed = {
 	modifier = {
 		ship_evasion_mult = 0.05
 		ship_speed_mult = 0.2
-		ship_combat_speed_mult = 0.2
 	}
 	leader_trait = yes
 	leader_class = { admiral }
@@ -151,7 +153,7 @@ leader_trait_lethargic = {
 leader_trait_sentinel = {
 	cost = 1
 	modification = no
-	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_fist.dds"
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_sentinel.dds"
 	modifier = {
 		damage_vs_country_type_swarm_mult = 0.2
 	}
@@ -180,7 +182,6 @@ leader_trait_void_swimmer = {
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_ship.dds"
 	modifier = {
 		ship_speed_mult = 0.2
-		ship_combat_speed_mult = 0.2
 	}
 	leader_trait = yes
 	leader_class = { admiral }
@@ -207,7 +208,6 @@ leader_trait_dimensional_stutter = {
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_ship.dds"
 	modifier = {
 		ship_speed_mult = 0.2
-		ship_combat_speed_mult = 0.2
 	}
 	leader_trait = yes
 	leader_class = { admiral }
@@ -220,7 +220,7 @@ leader_trait_dragonslayer = {
 	modification = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_glory_seeker.dds"
 	modifier = {
-		ship_combat_speed_mult = 0.1
+		ship_speed_mult = 0.1
 		ship_fire_rate_mult = 0.1
 	}
 	leader_trait = yes
@@ -293,6 +293,41 @@ leader_trait_cybrex = {
 		damage_vs_country_type_ai_empire_mult = 0.2
 		ship_evasion_mult = 0.1
 		ship_fire_rate_mult = 0.1
+	}
+	leader_trait = yes
+	leader_class = { admiral }
+	initial = no
+	randomized = no
+}
+
+leader_trait_mercenary_warrior = {
+	cost = 0
+	modification = no
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_mercenary_warrior.dds" 
+	modifier = {
+		ship_evasion_mult = 0.1
+		ship_fire_rate_mult = 0.1
+	}
+	leader_trait = yes
+	leader_class = { admiral }
+	initial = no
+	randomized = no
+}
+
+leader_trait_great_khan = {
+	cost = 0
+	modification = no
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_great_khan.dds" 
+	immortal_leaders = yes
+	modifier = {
+		ship_fire_rate_mult = 0.2
+		ship_speed_mult = 0.2
+		ship_weapon_damage = 0.2
+		ship_evasion_mult = 0.3
+		ship_hull_mult = 0.2
+		ship_hull_regen_add_perc = 0.5
+		ship_armor_regen_add_perc = 0.5
+		ship_weapon_range_mult = 0.2
 	}
 	leader_trait = yes
 	leader_class = { admiral }

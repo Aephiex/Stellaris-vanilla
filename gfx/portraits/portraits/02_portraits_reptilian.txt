@@ -180,7 +180,7 @@ portraits = {
 			"gfx/models/portraits/reptilian/reptilian_massive_13_brown.dds"
 		}
 	}
-	rep14 = {	entity = "portrait_reptilian_14_entity"	clothes_selector = "reptilian_massive_clothes_01" hair_selector = "no_texture" 
+	rep14 = {	entity = "portrait_reptilian_14_entity"	clothes_selector = "no_texture" hair_selector = "no_texture" 
 		greeting_sound = "reptilian_01_greetings"
 		character_textures = {
 			"gfx/models/portraits/reptilian/reptilian_massive_14_yellow.dds"

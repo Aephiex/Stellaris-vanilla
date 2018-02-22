@@ -2286,10 +2286,8 @@ planet_event = {
 			}
 			if = {
 				limit = {
-					owner = {
-						NOT = {
-							has_ethic = "ethic_fanatic_xenophobe"
-						}
+					NOT = {
+						has_ethic = "ethic_fanatic_xenophobe"
 					}
 				}
 				country_add_ethic = "ethic_fanatic_xenophobe"

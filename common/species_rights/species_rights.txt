@@ -11,6 +11,7 @@ citizenship_full = {
 
 	allow = {
 		hidden_trigger = { exists = from }
+
 		custom_tooltip = {
 			fail_text = "lonely_hive_mind_pops_kill_themselves_citizenship"
 			is_lonely_hive_mind_pop = no
@@ -130,6 +131,10 @@ citizenship_assimilation = {
 				has_ascension_perk = ap_evolutionary_mastery
 				NOT = { has_ethic = ethic_gestalt_consciousness }
 			}
+			# psionic assimilation
+			from = {
+				has_ascension_perk = ap_transcendence
+			}
 		}
 	}
 
@@ -232,6 +237,7 @@ citizenship_assimilation = {
 						has_country_flag = flesh_weakened
 						has_country_flag = synthetic_empire
 						has_ethic = ethic_gestalt_consciousness
+						has_ascension_perk = ap_transcendence
 					}
 				}
 				AND = {
@@ -243,6 +249,44 @@ citizenship_assimilation = {
 							has_country_flag = flesh_weakened
 							has_country_flag = synthetic_empire
 						}
+					}
+				}
+			}
+		}
+		custom_tooltip = { # species must be organic to transcend
+			fail_text = TRANSCENDING_SPECIES_MUST_BE_ORGANIC
+			OR = {
+				from = { NOT = { has_ascension_perk = ap_transcendence } }
+				AND = {
+					from = { has_ascension_perk = ap_transcendence }
+					NOR = {
+						has_trait = trait_mechanical
+						has_trait = trait_cybernetic
+						has_trait = trait_machine_unit
+					}
+				}
+			}
+		}
+		custom_tooltip = { # species already has psionic trait
+			fail_text = TRANSCENDING_SPECIES_IS_ALREADY_PSIONIC
+			OR = {
+				from = { NOT = { has_ascension_perk = ap_transcendence } }
+				AND = {
+					from = { has_ascension_perk = ap_transcendence }
+					NOT = {
+						has_trait = trait_psionic
+					}
+				}
+			}
+		}
+		custom_tooltip = { # transcending species cannot be gestalt consciousness
+			fail_text = TRANSCENDING_SPECIES_CANT_BE_HIVE
+			OR = {
+				from = { NOT = { has_ascension_perk = ap_transcendence } }
+				AND = {
+					from = { has_ascension_perk = ap_transcendence }
+					NOT = {
+						has_trait = trait_hive_mind
 					}
 				}
 			}
@@ -304,7 +348,7 @@ citizenship_limited = {
 
 	pop_modifier = {
 		pop_happiness = -0.05
-		pop_consumer_goods_mult = -0.1
+		pop_consumer_goods_mult = -0.20
 	}
 
 	potential = {
@@ -445,6 +489,25 @@ citizenship_caste_system = {
 	}
 	ai_will_do = {
 		factor = 5		
+		modifier = {
+			factor = 0
+			from = {
+				has_valid_civic = civic_syncretic_evolution
+				OR = {
+					has_ethic = ethic_xenophobe
+					has_ethic = ethic_fanatic_xenophobe
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			from = {
+				has_valid_ai_personality = yes
+				NOT = {
+					has_ai_personality_behaviour = caste_system
+				}
+			}
+		}		
 	}
 }
 
@@ -453,7 +516,7 @@ citizenship_caste_system_limited = {
 	
 	pop_modifier = {
 		pop_happiness = -0.1
-		pop_consumer_goods_mult = -0.25
+		pop_consumer_goods_mult = -0.25	
 	}
 
 	potential = {
@@ -525,6 +588,25 @@ citizenship_caste_system_limited = {
 					has_ethic = ethic_fanatic_xenophile
 				}
 			}
+		}	
+		modifier = {
+			factor = 0
+			from = {
+				has_valid_civic = civic_syncretic_evolution
+				OR = {
+					has_ethic = ethic_xenophobe
+					has_ethic = ethic_fanatic_xenophobe
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			from = {
+				has_valid_ai_personality = yes
+				NOT = {
+					has_ai_personality_behaviour = caste_system
+				}
+			}
 		}		
 	}
 }
@@ -533,9 +615,12 @@ citizenship_slavery = {
 	token = citizenship_slavery
 
 	potential = {
-		NOR = {
-			has_trait = trait_mechanical
-			has_trait = trait_machine_unit
+		NAND = {
+			exists = this
+			OR = {
+				has_trait = trait_mechanical
+				has_trait = trait_machine_unit			
+			}
 		}			
 	}
 
@@ -563,6 +648,15 @@ citizenship_slavery = {
 				has_valid_civic = civic_machine_terminator
 				has_valid_civic = civic_hive_devouring_swarm
 			} 	
+		}	
+		custom_tooltip = {
+			fail_text = empire_xenophile
+			from = {
+				NOR = {
+					has_ethic = ethic_xenophile
+					has_ethic = ethic_fanatic_xenophile
+				}
+			}
 		}		
 		custom_tooltip = {
 			fail_text = "FANATIC_PURIFIERS_MUST_PURIFY"
@@ -572,12 +666,14 @@ citizenship_slavery = {
 			}
 		}
 		custom_tooltip = {
-			fail_text = does_not_embrace_slavery_phobe
+			fail_text = does_not_embrace_species_slavery
 			from = {
 				allows_slavery = yes
 				OR = {
 					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
+					has_ethic = ethic_fanatic_xenophobe				
+					has_ethic = ethic_authoritarian
+					has_ethic = ethic_fanatic_authoritarian
 					has_ethic = ethic_gestalt_consciousness
 				}
 			}		
@@ -592,6 +688,26 @@ citizenship_slavery = {
 	}
 	ai_will_do = {
 		factor = 15	
+		modifier = {
+			factor = 0			
+			from = {
+				has_valid_ai_personality = yes
+				NOT = {
+					has_ai_personality_behaviour = slaver
+				}
+				NAND = {
+					is_ai = no
+					is_xenophobe = yes				
+				}
+			}
+		}	
+		modifier = {
+			factor = 0
+			from = {
+				is_authoritarian = yes
+				is_xenophobe = no
+			}
+		}
 	}
 }
 
@@ -599,17 +715,8 @@ citizenship_purge = {
 	token = citizenship_purge
 	
 	potential = {
-		NAND = {
-			from = { has_authority = auth_machine_intelligence }
-			OR = {
-				has_trait = trait_machine_unit
-				has_trait = trait_mechanical
-			}
-		}
-		OR = {
-			NOT = { from = { has_valid_civic = civic_machine_servitor } }
-			is_lonely_hive_mind_pop = yes
-		}
+		exists = from
+		NOT = { from = { has_authority = auth_machine_intelligence } }
 	}
 
 	allow = {
@@ -721,8 +828,9 @@ citizenship_purge_machine = {
 	token = citizenship_purge_machine
 	
 	potential = {
+		exists = from
 		from = { has_authority = auth_machine_intelligence }
-		OR = {
+		NOR = {
 			has_trait = trait_machine_unit
 			has_trait = trait_mechanical
 		}
@@ -1017,6 +1125,16 @@ slavery_livestock = {
 				has_trait = trait_machine_unit
 			}
 		}
+		custom_tooltip = {
+			fail_text = empire_not_xenophobe
+			from = {
+				OR = {
+					has_ethic = ethic_xenophobe
+					has_ethic = ethic_fanatic_xenophobe
+					has_ethic = ethic_gestalt_consciousness
+				}
+			}
+		}		
 	}
 	ai_will_do = {
 		factor = 3
@@ -1443,6 +1561,40 @@ living_standard_tech_assimilation = {
 	}
 }
 
+living_standard_psi_assimilation = {
+	token = living_standard_psi_assimilation
+	name = living_standard_psi_assimilation
+
+	pop_modifier = {
+		pop_happiness = -0.25
+		pop_consumer_goods_add = 2.0
+	}
+
+	potential = {
+		host_has_dlc = "Utopia"
+		exists = from
+		from = {
+			has_ascension_perk = ap_transcendence
+		}
+	}
+
+	allow = {
+		hidden_trigger = { exists = from }
+		custom_tooltip = {
+			fail_text = SPECIES_MUST_BE_ASSIMILATING
+			has_citizenship_type = {
+				type = citizenship_assimilation
+				country = from
+			}
+		}
+	}
+
+	ai_will_do = {
+		factor = 100
+	}
+}
+
+
 living_standard_organic_trophy = {
 	token = living_standard_organic_trophy
 	name = living_standard_organic_trophy
@@ -1485,13 +1637,7 @@ living_standard_chemical_bliss = {
 	pop_modifier = {
 		pop_happiness = 0.4
 		pop_consumer_goods_add = 2.0
-		tile_resource_food_mult = -0.6
-		tile_resource_minerals_mult = -0.6
-		tile_resource_energy_mult = -0.6
-		tile_resource_unity_mult = -0.6
-		tile_resource_physics_research_mult = -0.6
-		tile_resource_society_research_mult = -0.6
-		tile_resource_engineering_research_mult = -0.6
+		pop_resource_output = -0.6
 	}
 	
 	potential = {
@@ -1802,7 +1948,7 @@ living_standard_good = {
 		}
 		modifier = {
 			factor = 0
-			NOT = { has_living_standard = { country = from type = living_standard_utopian } }
+			NOT = { has_living_standard = { country = from type = living_standard_good } }
 			NOT = {
 				from = {
 					has_monthly_income = {
@@ -1814,7 +1960,7 @@ living_standard_good = {
 		}
 		modifier = {
 			factor = 0
-			has_living_standard = { country = from type = living_standard_utopian }
+			has_living_standard = { country = from type = living_standard_good }
 			NOT = {
 				from = {
 					has_monthly_income = {
@@ -2002,6 +2148,27 @@ living_standard_subsistence = {
 	}
 }
 
+living_standard_servitude = {
+	token = living_standard_servitude
+	name = living_standard_servitude_name
+
+	pop_modifier = {
+	 	pop_consumer_goods_add = 0.5
+	}
+	
+	potential = {
+		always = no # Used from code
+	}		
+	
+	allow = {
+		always = yes # Used from code
+	}
+	
+	ai_will_do = {
+		factor = 0
+	}
+}
+
 # Used for pops that have no happiness
 living_standard_hive_mind = {
 	token = living_standard_hive_mind
@@ -2109,7 +2276,7 @@ migration_control_yes = {
 				has_valid_ai_personality = yes
 				NOR = {
 					has_ethic = ethic_gestalt_consciousness
-					has_ai_personality_behaviour = multispecies
+					NOT = { has_ai_personality_behaviour = multispecies }
 				}
 			}
 		}
@@ -2149,7 +2316,7 @@ population_control_yes = {
 	}
 
 	pop_modifier = {
-		pop_happiness = -0.1
+		biological_pop_happiness = -0.1
 	}
 
 	allow = {

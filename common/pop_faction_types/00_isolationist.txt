@@ -150,62 +150,26 @@ isolationist = {
 		}
 	}
 
-	#demand = { # "ISOLATIONIST_NO_WAR"
-	#	title = "ISOLATIONIST_NO_DEFENSIVE_WAR"
-	#	unfulfilled_title = "ISOLATIONIST_DEFENSIVE_WAR"
-	#	desc = "ISOLATIONIST_NO_DEFENSIVE_WAR_DESC"
-#
-	#	unfulfilled_effect = -5
-#
-	#	potential = {
-	#		exists = owner
-	#		owner = {
-	#			num_communications > 2
-	#		}
-	#	}
-#
-	#	trigger = {
-	#		owner = {
-	#			OR = {
-	#				has_country_flag = entered_war_as_defender
-	#			}
-	#		}
-	#	}
-	#}
-
-	#demand = {
-	#	title = "ISOLATIONIST_NO_DIPLO"
-	#	unfulfilled_title = "ISOLATIONIST_DIPLO"
-	#	desc = "ISOLATIONIST_NO_DIPLO_DESC"
-	#	
-	#	unfulfilled_effect = -5
-	#	
-	#	potential = {
-	#		exists = owner
-	#		owner = {
-	#			num_communications > 0
-	#		}
-	#	}
-	#	
-	#	trigger = {
-	#		owner = {
-	#			NOT = {
-	#				any_relation = {
-	#					has_communications = root.owner
-	#					OR = {
-	#						has_diplo_migration_treaty = root.owner
-	#						has_research_agreement = root.owner
-	#						is_in_federation_with = root.owner
-	#						is_guaranteeing = root.owner
-	#						has_defensive_pact = root.owner
-	#					}
-	#				}
-	#			}
-	#		}
-	#	}
-	#}
-
-
+	demand = {
+		title = "SUPREMACIST_ISOLATIONIST_NO_FEDERATION"
+		unfulfilled_title = "SUPREMACIST_ISOLATIONIST_FEDERATION"
+		desc = "SUPREMACIST_ISOLATIONIST_NO_FEDERATION_DESC"
+		
+		unfulfilled_effect = -25
+		
+		potential = {
+			exists = owner
+			owner = {
+				num_communications > 0
+			}
+		}
+		
+		trigger = {
+			owner = {
+				has_federation = no
+			}
+		}
+	}
 
 	demand = {
 		title = "ISOLATIONIST_MOVEMENT_RESTRICTED"

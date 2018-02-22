@@ -403,7 +403,6 @@ country_event = {
 	trigger = {
 		is_country_type = primitive
 		has_country_flag = early_space_age
-		#NOT = { has_country_flag = recently_advanced }
 		OR = {
 			AND = {
 				exists = from
@@ -414,7 +413,11 @@ country_event = {
 					}
 				}
 			}
-			years_passed > 25
+			AND = {
+				NOT = { has_country_flag = recently_advanced }
+				years_passed > 25
+				home_planet = { has_observation_outpost = no }			
+			}
 		}
 	}
 
@@ -524,126 +527,188 @@ country_event = {
 				add_deposit = d_energy_deposit
 				set_building = "building_capital_2"
 			}
-			random_tile = {
-				limit = {
-					has_grown_pop = yes
-					OR = {
-						has_building = "building_primitive_farm"
-						has_building = "building_primitive_factory"
-						has_building = no
+			while = {
+				count = 2
+				random_tile = {
+					limit = {
+						has_grown_pop = yes
+						OR = {
+							has_building = "building_primitive_farm"
+							has_building = "building_primitive_factory"
+							has_building = no
+						}
 					}
+					clear_deposits = yes
+					add_deposit = d_mineral_deposit
+					set_building = "building_mining_network_1"
 				}
-				clear_deposits = yes
-				add_deposit = d_mineral_deposit
-				set_building = "building_mining_network_1"
 			}
-			random_tile = {
-				limit = {
-					has_grown_pop = yes
-					OR = {
-						has_building = "building_primitive_farm"
-						has_building = "building_primitive_factory"
-						has_building = no
+			while = {
+				count = 2
+				random_tile = {
+					limit = {
+						has_grown_pop = yes
+						OR = {
+							has_building = "building_primitive_farm"
+							has_building = "building_primitive_factory"
+							has_building = no
+						}
 					}
+					clear_deposits = yes
+					add_deposit = d_farmland_deposit
+					set_building = "building_hydroponics_farm_1"
 				}
-				clear_deposits = yes
-				add_deposit = d_mineral_deposit
-				set_building = "building_mining_network_1"
 			}
-			random_tile = {
-				limit = {
-					has_grown_pop = yes
-					OR = {
-						has_building = "building_primitive_farm"
-						has_building = "building_primitive_factory"
-						has_building = no
+			while = {
+				count = 3
+				random_tile = {
+					limit = {
+						has_grown_pop = yes
+						OR = {
+							has_building = "building_primitive_farm"
+							has_building = "building_primitive_factory"
+							has_building = no
+						}
 					}
+					clear_deposits = yes
+					add_deposit = d_energy_deposit
+					set_building = "building_power_plant_1"
 				}
-				clear_deposits = yes
-				add_deposit = d_farmland_deposit
-				set_building = "building_hydroponics_farm_1"
-			}
-			random_tile = {
-				limit = {
-					has_grown_pop = yes
-					OR = {
-						has_building = "building_primitive_farm"
-						has_building = "building_primitive_factory"
-						has_building = no
-					}
-				}
-				clear_deposits = yes
-				add_deposit = d_farmland_deposit
-				set_building = "building_hydroponics_farm_1"
-			}
-			random_tile = {
-				limit = {
-					has_grown_pop = yes
-					OR = {
-						has_building = "building_primitive_farm"
-						has_building = "building_primitive_factory"
-						has_building = no
-					}
-				}
-				clear_deposits = yes
-				add_deposit = d_energy_deposit
-				set_building = "building_power_plant_1"
-			}
-			random_tile = {
-				limit = {
-					has_grown_pop = yes
-					OR = {
-						has_building = "building_primitive_farm"
-						has_building = "building_primitive_factory"
-						has_building = no
-					}
-				}
-				clear_deposits = yes
-				add_deposit = d_energy_deposit
-				set_building = "building_power_plant_1"
-			}
-			random_tile = {
-				limit = {
-					has_grown_pop = yes
-					OR = {
-						has_building = "building_primitive_farm"
-						has_building = "building_primitive_factory"
-						has_building = no
-					}
-				}
-				clear_deposits = yes
-				add_deposit = d_energy_deposit
-				set_building = "building_power_plant_1"
 			}
 			remove_all_armies = yes
-			create_army = {
-				name = random
-				owner = PREV
-				species = owner_main_species
-				type = "defense_army"
-			}
-			create_army = {
-				name = random
-				owner = PREV
-				species = owner_main_species
-				type = "defense_army"
-			}
-			create_army = {
-				name = random
-				owner = PREV
-				species = owner_main_species
-				type = "defense_army"
-			}
-			create_army = {
-				name = random
-				owner = PREV
-				species = owner_main_species
-				type = "defense_army"
-			}
+			solar_system = {
+				if = {
+					limit = {
+						NOT = { exists = starbase }
+					}
+					create_starbase = {
+						size = starbase_outpost
+						owner = root
+					}
+					else = {
+						if = {
+							limit = {
+								starbase = {
+									NOT = { owner = { is_same_value = root } }
+								}								
+							}	
+							starbase = {
+								owner = { country_event = { id = primitive.180 days = 10 } }
+							}								
+						}
+					}
+				}
+			}				
 		}
 		random_owned_ship = {
 			limit = { is_ship_size = primitive_space_station }
 			fleet = { destroy_fleet = THIS }
+		}
+	}
+}
+
+country_event = {
+	id = primitive.180
+	title = primitive.180.name
+	location = from.capital_scope.solar_system
+	desc = primitive.180.desc
+
+	diplomatic = yes
+
+	is_triggered_only = yes
+
+	picture_event_data = {
+		portrait = from
+		planet_background = from
+		graphical_culture = from
+		city_level = from
+		room = from.ruler
+	}
+
+	option = {
+		name = primitive.180.a # Cede
+		trigger = {
+			NOR = {
+				has_valid_civic = civic_machine_terminator
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_fanatic_purifiers
+			}
+		}
+
+		if = {
+			limit = {
+				OR = {
+					has_ethic = ethic_fanatic_xenophobe
+					has_ethic = ethic_xenophobe
+				}
+			}
+			add_influence = -200
+		}
+
+		custom_tooltip = primitive.180.a.tooltip
+		hidden_effect = {
+			from = {
+				capital_scope.solar_system.starbase = {
+					set_owner = root.from
+				}
+
+				add_opinion_modifier = {
+					modifier = opinion_ceded_starbase
+					who = root
+				}
+			}
+		}
+	}
+
+	option = {
+		name = primitive.180.b # Don't cede
+		trigger = {
+			NOR = {
+				has_valid_civic = civic_machine_terminator
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_fanatic_purifiers
+			}
+		}
+
+		if = {
+			limit = {
+				OR = {
+					has_ethic = ethic_fanatic_xenophile
+					has_ethic = ethic_xenophile
+				}
+			}
+			add_influence = -200
+		}
+
+		custom_tooltip = primitive.180.b.tooltip
+		hidden_effect = {
+			from = {
+				add_opinion_modifier = {
+					modifier = opinion_not_ceded_starbase
+					who = root
+				}
+			}
+		}
+	}
+
+	option = {
+		name = primitive.180.c # Prepare for termination
+		trigger = {
+			has_valid_civic = civic_machine_terminator
+		}
+	}
+
+	option = {
+		name = primitive.180.d # Food...
+		trigger = {
+			has_valid_civic = civic_hive_devouring_swarm
+		}
+	}
+
+	option = {
+		name = SCUM # Xeno Scum
+		trigger = {
+			has_valid_civic = civic_fanatic_purifiers
 		}
 	}
 }
@@ -1348,16 +1413,7 @@ country_event = {
 
 	immediate = {
 		FROM = {
-			destroy_colony = { keep_buildings = no }
-			change_pc = pc_toxic
-			reset_planet = yes
-			add_modifier = {
-				modifier = "nuclear_devastation"
-				days = -1
-			}
-			every_owned_pop = {
-				kill_pop = yes
-			}
+			nuke_primitives_toxic_effect = yes
 		}
 	}
 
@@ -1388,13 +1444,7 @@ country_event = {
 
 	immediate = {
 		FROM = {
-			destroy_colony = { keep_buildings = no }
-			set_planet_flag = primitives_nuked_themselves
-			change_pc = pc_nuked
-			reroll_planet = yes
-			every_owned_pop = {
-				kill_pop = yes
-			}
+			nuke_primitives_effect = yes
 		}
 	}
 

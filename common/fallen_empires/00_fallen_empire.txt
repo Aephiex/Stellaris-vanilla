@@ -37,17 +37,14 @@ fallen_empire_1_1 = {
 				add_food = 1000
 				add_influence = 500
 				# must initialize global designs here
+				add_global_ship_design = "NAME_Enforcer"
 				add_global_ship_design = "NAME_Savant"
 				add_global_ship_design = "NAME_Scholar"
 				add_global_ship_design = "NAME_Sage"
-				add_global_ship_design = "NAME_Obscurer"
 				add_global_ship_design = "NAME_Cloaker"
 				add_global_ship_design = "NAME_Librarian"
+				add_global_ship_design = "NAME_Archivist"
 				add_global_ship_design = "NAME_Seeker"	
-				modify_species = {
-					species = this
-					add_trait = trait_cybernetic
-				}					
 			}
 		}
 	}
@@ -92,17 +89,13 @@ fallen_empire_1_2 = {
 				add_food = 1000
 				add_influence = 500
 				# must initialize global designs here
+				add_global_ship_design = "NAME_Enforcer"
 				add_global_ship_design = "NAME_Savant"
 				add_global_ship_design = "NAME_Scholar"
 				add_global_ship_design = "NAME_Sage"
-				add_global_ship_design = "NAME_Obscurer"
 				add_global_ship_design = "NAME_Cloaker"
 				add_global_ship_design = "NAME_Librarian"
-				add_global_ship_design = "NAME_Seeker"		
-				modify_species = {
-					species = this
-					add_trait = trait_cybernetic
-				}					
+				add_global_ship_design = "NAME_Seeker"						
 			}
 		}
 	}
@@ -142,17 +135,13 @@ fallen_empire_2 = {
 				add_food = 1000
 				add_influence = 500							
 				# must initialize global designs here
+				add_global_ship_design = "NAME_Cleanser"				
 				add_global_ship_design = "NAME_Eternal"
 				add_global_ship_design = "NAME_Avatar"
 				add_global_ship_design = "NAME_Zealot"
 				add_global_ship_design = "NAME_Penitent"
-				add_global_ship_design = "NAME_Bulwark"
 				add_global_ship_design = "NAME_Faith"
-				add_global_ship_design = "NAME_Pilgrim"			
-				modify_species = {
-					species = this
-					add_trait = trait_psionic
-				}					
+				add_global_ship_design = "NAME_Pilgrim"							
 			}
 		}
 	}
@@ -192,11 +181,11 @@ fallen_empire_3 = {
 				add_food = 1000
 				add_influence = 500								
 				# must initialize global designs here
+				add_global_ship_design = "NAME_Adjuster"
 				add_global_ship_design = "NAME_Keeper"
 				add_global_ship_design = "NAME_Custodian"
 				add_global_ship_design = "NAME_Warden"
 				add_global_ship_design = "NAME_Watcher"
-				add_global_ship_design = "NAME_Sentinel"
 				add_global_ship_design = "NAME_Seeder"
 				add_global_ship_design = "NAME_Builder"				
 			}
@@ -239,10 +228,10 @@ fallen_empire_4 = {
 				add_food = 1000
 				add_influence = 500						
 				# must initialize global designs here
+				add_global_ship_design = "NAME_Reaper"
 				add_global_ship_design = "NAME_Imperium"
 				add_global_ship_design = "NAME_Supremacy"
 				add_global_ship_design = "NAME_Glory"
-				add_global_ship_design = "NAME_Reaper"
 				add_global_ship_design = "NAME_Devastator"
 				add_global_ship_design = "NAME_Servitor"
 				add_global_ship_design = "NAME_Destiny"					
@@ -291,20 +280,22 @@ fallen_machine_empire = {
 				add_minerals = 10000
 				add_energy = 10000	
 				add_food = 1000
-				add_influence = 500						
+				add_influence = 500				
+				if = {
+					limit = { host_has_dlc = "Apocalypse" }
+					give_technology = {
+						tech = tech_colossus
+						message = no
+					}
+				}
 				# must initialize global designs here
+				add_global_ship_design = "NAME_Omega"
 				add_global_ship_design = "NAME_Alpha"
 				add_global_ship_design = "NAME_Beta"
 				add_global_ship_design = "NAME_Gamma"
 				add_global_ship_design = "NAME_Theta"
 				add_global_ship_design = "NAME_Tau"
-				add_global_ship_design = "NAME_Omega"
 				add_global_ship_design = "NAME_Sigma"
-				# add some extra border range
-				add_modifier = {
-					modifier = fallen_machine_empire
-					days = -1
-				}
 			}
 		}
 	}

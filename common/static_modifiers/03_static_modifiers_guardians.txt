@@ -91,27 +91,19 @@ asteroid_hive_weak_points = {
 }
 
 curator_insight = {
-	tile_resource_physics_research_mult = 0.15
-	tile_resource_society_research_mult = 0.15
-	tile_resource_engineering_research_mult = 0.15
+	all_technology_research_speed = 0.10
 }
 
 infinity_calculations = {
-	country_physics_tech_research_speed = 0.05
-	country_society_tech_research_speed = 0.05
-	country_engineering_tech_research_speed = 0.05
+	all_technology_research_speed = 0.05
 }
 
 infinity_calculations_hacked = {
-	country_physics_tech_research_speed = 0.03
-	country_society_tech_research_speed = 0.03
-	country_engineering_tech_research_speed = 0.03
+	all_technology_research_speed = 0.05
 }
 
 black_hole_pantagruel_research = {
-	country_physics_tech_research_speed = 0.10
-	country_society_tech_research_speed = 0.10
-	country_engineering_tech_research_speed = 0.10
+	all_technology_research_speed = 0.10
 }
 
 technosphere_praising = {
@@ -124,10 +116,10 @@ technosphere_praising = {
 ### Difficulty
 guardian_hard = {
 	ship_weapon_damage = 0.25
-	ship_hitpoints_mult = 0.25
+	ship_hull_mult = 0.25
 }
 
 guardian_insane = {
 	ship_weapon_damage = 0.50
-	ship_hitpoints_mult = 0.50
+	ship_hull_mult = 0.50
 }

@@ -8,15 +8,15 @@ ship_design = {
 		slot = "mid"
 		
 		component = {
-			slot = "LARGE_GUN_01"
+			slot = "TORPEDO_01"
 			template = "LARGE_SCOURGE_MISSILE_1"
 		}
 		component = {
-			slot = "LARGE_GUN_02"
+			slot = "TORPEDO_02"
 			template = "LARGE_SCOURGE_MISSILE_1"
 		}
 		component = {
-			slot = "LARGE_GUN_03"
+			slot = "TORPEDO_03"
 			template = "LARGE_SCOURGE_MISSILE_1"
 		}
 		component = {
@@ -28,22 +28,14 @@ ship_design = {
 			template = "MEDIUM_SCOURGE_PROJECTILE_WEAPON"
 		}
 		component = {
-			slot = "LARGE_UTILITY_1"
-			template = "LARGE_ARMOR_5"
-		}
-		component = {
-			slot = "LARGE_UTILITY_2"
-			template = "LARGE_ARMOR_5"
-		}
-		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
 	}
-	required_component="WARP_DRIVE_3"
-	required_component="COMBAT_COMPUTER_DEFAULT"
-	required_component="SHIP_THRUSTER_4"
-	required_component="SHIP_SENSOR_4"
+	required_component="BIO_DRIVE"
+	required_component="BIO_PROPULSION"
+	required_component="BIO_SENSORS"
+	required_component="COMBAT_COMPUTER_LINE_DEFAULT"
 }
 
 # Swarm Large Carrier Ship
@@ -80,22 +72,14 @@ ship_design = {
 			template = "SMALL_SCOURGE_PROJECTILE_WEAPON"
 		}
 		component = {
-			slot = "LARGE_UTILITY_1"
-			template = "LARGE_ARMOR_5"
-		}
-		component = {
-			slot = "LARGE_UTILITY_2"
-			template = "LARGE_ARMOR_5"
-		}
-		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
 	}
-	required_component="WARP_DRIVE_3"
-	required_component="COMBAT_COMPUTER_DEFAULT"
-	required_component="SHIP_THRUSTER_4"
-	required_component="SHIP_SENSOR_4"
+	required_component="BIO_DRIVE"
+	required_component="BIO_PROPULSION"
+	required_component="BIO_SENSORS"
+	required_component="COMBAT_COMPUTER_ARTILLERY_DEFAULT"
 }
 
 # Swarm Small Ship
@@ -108,7 +92,7 @@ ship_design = {
 		slot = "mid"
 		
 		component = {
-			slot = "LARGE_GUN_01"
+			slot = "TORPEDO_01"
 			template = "LARGE_SCOURGE_MISSILE_1"
 		}
 		component = {
@@ -120,47 +104,42 @@ ship_design = {
 			template = "SMALL_SCOURGE_PROJECTILE_WEAPON"
 		}
 		component = {
-			slot = "MEDIUM_UTILITY_1"
-			template = "MEDIUM_ARMOR_5"
-		}
-		component = {
-			slot = "MEDIUM_UTILITY_1"
+			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
 	}
-	required_component="WARP_DRIVE_3"
-	required_component="COMBAT_COMPUTER_DEFAULT"
-	required_component="SHIP_THRUSTER_4"
-	required_component="SHIP_SENSOR_4"
+	required_component="BIO_DRIVE"
+	required_component="COMBAT_COMPUTER_PICKET_DEFAULT"
+	required_component="BIO_SENSORS"
 }
 
-# Swarm Large Station
+# Swarm Starbase
 ship_design = {
-	name = "NAME_Swarm_Large_Station"
-	ship_size = military_station_large_swarm
+	name = "NAME_Swarm_Starbase"
+	ship_size = starbase_swarm
 	country_type = swarm
 	section = {
-		template = "swarm_station_large_key"
-		slot = "mid"
+		template = "swarm_starbase_key"
+		slot = "core"
 		
 		component = {
-			slot = "LARGE_GUN_01"
+			slot = "TORPEDO_01"
 			template = "LARGE_SCOURGE_MISSILE_1"
 		}
 		component = {
-			slot = "LARGE_GUN_02"
+			slot = "TORPEDO_02"
 			template = "LARGE_SCOURGE_MISSILE_1"
 		}
 		component = {
-			slot = "LARGE_GUN_03"
+			slot = "TORPEDO_03"
 			template = "LARGE_SCOURGE_MISSILE_1"
 		}
 		component = {
-			slot = "LARGE_GUN_04"
+			slot = "TORPEDO_04"
 			template = "LARGE_SCOURGE_MISSILE_1"
 		}
 		component = {
-			slot = "LARGE_GUN_05"
+			slot = "TORPEDO_05"
 			template = "LARGE_SCOURGE_MISSILE_1"
 		}
 		component = {
@@ -196,84 +175,11 @@ ship_design = {
 			template = "SWARM_STRIKE_CRAFT"
 		}
 		component = {
-			slot = "LARGE_UTILITY_1"
-			template = "LARGE_ARMOR_5"
-		}
-		component = {
-			slot = "LARGE_UTILITY_2"
-			template = "LARGE_ARMOR_5"
-		}
-		component = {
-			slot = "LARGE_UTILITY_3"
-			template = "LARGE_ARMOR_5"
-		}
-		component = {
-			slot = "LARGE_UTILITY_4"
-			template = "LARGE_ARMOR_5"
-		}
-		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
 	}
-	required_component="SHIP_SENSOR_4"
-}
-
-# Swarm Small Station
-ship_design = {
-	name = "NAME_Swarm_Small_Station"
-	ship_size = military_station_small_swarm
-	country_type = swarm
-	section = {
-		template = "swarm_station_small_key"
-		slot = "mid"
-		
-		component = {
-			slot = "LARGE_GUN_01"
-			template = "LARGE_SCOURGE_MISSILE_1"
-		}
-		component = {
-			slot = "LARGE_GUN_02"
-			template = "LARGE_SCOURGE_MISSILE_1"
-		}
-		component = {
-			slot = "LARGE_GUN_03"
-			template = "LARGE_SCOURGE_MISSILE_1"
-		}
-		component = {
-			slot = "SMALL_GUN_01"
-			template = "SMALL_SCOURGE_PROJECTILE_WEAPON"
-		}
-		component = {
-			slot = "SMALL_GUN_02"
-			template = "SMALL_SCOURGE_PROJECTILE_WEAPON"
-		}
-		component = {
-			slot = "SMALL_GUN_03"
-			template = "SMALL_SCOURGE_PROJECTILE_WEAPON"
-		}
-		component = {
-			slot = "STRIKE_CRAFT_01"
-			template = "SWARM_STRIKE_CRAFT"
-		}
-		component = {
-			slot = "MEDIUM_UTILITY_1"
-			template = "MEDIUM_ARMOR_5"
-		}
-		component = {
-			slot = "MEDIUM_UTILITY_2"
-			template = "MEDIUM_ARMOR_5"
-		}
-		component = {
-			slot = "MEDIUM_UTILITY_3"
-			template = "MEDIUM_ARMOR_5"
-		}
-		component = {
-			slot = "AUX_UTILITY_1"
-			template = "AUTO_REPAIR"
-		}
-	}
-	required_component="SHIP_SENSOR_4"
+	required_component="BIO_SENSORS"
 }
 
 # Swarm Queen
@@ -286,19 +192,19 @@ ship_design = {
 		slot = "mid"
 		
 		component = {
-			slot = "LARGE_GUN_01"
+			slot = "TORPEDO_01"
 			template = "LARGE_SCOURGE_MISSILE_1"
 		}
 		component = {
-			slot = "LARGE_GUN_02"
+			slot = "TORPEDO_02"
 			template = "LARGE_SCOURGE_MISSILE_1"
 		}
 		component = {
-			slot = "LARGE_GUN_03"
+			slot = "TORPEDO_03"
 			template = "LARGE_SCOURGE_MISSILE_1"
 		}
 		component = {
-			slot = "LARGE_GUN_04"
+			slot = "TORPEDO_04"
 			template = "LARGE_SCOURGE_MISSILE_1"
 		}
 		component = {
@@ -326,26 +232,14 @@ ship_design = {
 			template = "SWARM_STRIKE_CRAFT"
 		}
 		component = {
-			slot = "LARGE_UTILITY_1"
-			template = "LARGE_ARMOR_5"
-		}
-		component = {
-			slot = "LARGE_UTILITY_2"
-			template = "LARGE_ARMOR_5"
-		}
-		component = {
-			slot = "LARGE_UTILITY_3"
-			template = "LARGE_ARMOR_5"
-		}
-		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
 	}
-	required_component="WARP_DRIVE_3"
-	required_component="COMBAT_COMPUTER_DEFAULT"
-	required_component="SHIP_THRUSTER_4"
-	required_component="SHIP_SENSOR_4"
+	required_component="BIO_DRIVE"
+	required_component="BIO_PROPULSION"
+	required_component="BIO_SENSORS"
+	required_component="COMBAT_COMPUTER_ARTILLERY_DEFAULT"
 }
 
 # Swarm Transport
@@ -364,8 +258,9 @@ ship_design = {
 		}
 	}
 	
-	required_component="WARP_DRIVE_3"
-	required_component="SHIP_THRUSTER_4"
+	required_component="BIO_DRIVE"
+	required_component="BIO_PROPULSION"
+	required_component="BIO_SENSORS"
 }
 
 # Swarm Colonizer
@@ -384,9 +279,9 @@ ship_design = {
 		}
 	}
 	
-	required_component="WARP_DRIVE_3"
-	required_component="SHIP_THRUSTER_4"
-	required_component="SHIP_SENSOR_4"
+	required_component="BIO_DRIVE"
+	required_component="BIO_PROPULSION"
+	required_component="BIO_SENSORS"
 }
 
 # Swarm Constructor
@@ -405,7 +300,7 @@ ship_design = {
 		}
 	}
 	
-	required_component="WARP_DRIVE_3"
-	required_component="SHIP_THRUSTER_4"
-	required_component="SHIP_SENSOR_4"
+	required_component="BIO_DRIVE"
+	required_component="BIO_PROPULSION"
+	required_component="BIO_SENSORS"
 }

@@ -378,8 +378,7 @@ science_nexus_init_01 = {
 	change_orbit = 90
 
 	planet = {
-		class = "pc_barren"
-		entity = "barren_planet_01_destroyed_entity"
+		class = "pc_broken"
 		size = { min = 10 max = 15 }
 		
 		init_effect = { prevent_anomaly = yes }

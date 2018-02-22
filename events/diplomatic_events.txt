@@ -731,7 +731,7 @@ country_event = {
 		event_target:music_listening_planet = {
 			random_owned_pop = {
 				limit = {
-					is_same_species = owner_main_species
+					is_same_species = owner_species
 					NOT = { has_modifier = alien_music }
 				}
 				add_modifier = {
@@ -822,89 +822,102 @@ country_event = {
 }
 
 # Encroaching Colonies
-planet_event = {
-	id = diplomatic.21
-	title = "diplomatic.21.name"
-	desc = "diplomatic.21.desc"
-	picture = GFX_evt_colony_settlement
-	location = root
-
-	is_triggered_only = yes
-
-	trigger = {
-		NOT = { is_planet_class = pc_habitat }
-		solar_system = {
-			NOT = {	exists = space_owner } # colonizing outside borders
-			any_neighbor_system = {
-				exists = space_owner
-				space_owner = {
-					is_ai = yes
-					is_country_type = default
-					has_communications = root.owner
-					NOR = {
-						is_country = root.owner
-						is_at_war_with = root.owner
-						is_subject = yes
-						is_in_federation_with = root.owner
-						has_opinion_modifier = { who = root.owner modifier = encroaching_colony }
-						opinion = {
-							who = root.owner
-							value > -100
-						}
-					}
-				}
-			}
-		}
-	}
-
-	immediate = {
-		solar_system = {
-			random_neighbor_system = {
-				limit = {
-					exists = space_owner
-					space_owner = {
-						has_communications = root.owner
-						NOT = { is_country = ROOT.owner }
-						is_ai = yes
-						is_country_type = default
-						NOT = { is_in_federation_with = ROOT.owner }
-						has_opinion_modifier = { who = ROOT.owner modifier = encroaching_colony }
-						opinion = {
-							who = root.owner
-							value > -100
-						}
-					}
-				}
-				space_owner = { save_event_target_as = neighbor_contesting_colony }
-			}
-		}
-	}
-
-	diplomatic = yes
-
-	picture_event_data = {
-		portrait = event_target:neighbor_contesting_colony
-		planet_background = event_target:neighbor_contesting_colony
-		graphical_culture = event_target:neighbor_contesting_colony
-		city_level = event_target:neighbor_contesting_colony
-		room = event_target:neighbor_contesting_colony.ruler
-	}
-	
-	option = {
-		name = diplomatic.21.a
-		destroy_colony = { keep_buildings = no }
-		ai_chance = {
-			factor = 0
-		}
-	}
-
-	option = {
-		name = diplomatic.21.b
-		event_target:neighbor_contesting_colony = {
-			add_opinion_modifier = {
-				who = ROOT.owner
-				modifier = encroaching_colony
-			}
-		}
-	}
-}
+#planet_event = {
+#	id = diplomatic.21
+#	title = "diplomatic.21.name"
+#	desc = "diplomatic.21.desc"
+#	picture = GFX_evt_colony_settlement
+#	location = root
+#
+#	is_triggered_only = yes
+#
+#	trigger = {
+#		NOR = {
+#			is_planet_class = pc_habitat
+#			is_planet_class = pc_ringworld_habitable
+#		}
+#		solar_system = {
+#			#NOT = {	exists = space_owner } # colonizing outside borders
+#			any_neighbor_system = {
+#				exists = space_owner
+#				space_owner = {
+#					is_ai = yes
+#					is_country_type = default
+#					has_communications = root.controller
+#					NOR = {
+#						is_same_value = root.controller
+#						is_at_war_with = root.controller
+#						is_subject = yes
+#						is_in_federation_with = root.controller
+#						has_opinion_modifier = {
+#							who = root.controller
+#							modifier = encroaching_colony
+#						}
+#						opinion = {
+#							who = root.controller
+#							value > -100
+#						}
+#					}
+#				}
+#			}
+#		}
+#	}
+#
+#	immediate = {
+#		solar_system = {
+#			random_neighbor_system = {
+#				limit = {
+#					exists = space_owner
+#					space_owner = {
+#						is_ai = yes
+#						is_country_type = default
+#						has_communications = root.controller
+#						NOR = {
+#							is_same_value = root.controller
+#							is_at_war_with = root.controller
+#							is_subject = yes
+#							is_in_federation_with = root.controller
+#							has_opinion_modifier = {
+#								who = root.controller
+#								modifier = encroaching_colony
+#							}
+#							opinion = {
+#								who = root.controller
+#								value > -100
+#							}
+#						}
+#					}
+#				}
+#				space_owner = { save_event_target_as = neighbor_contesting_colony }
+#			}
+#		}
+#	}
+#
+#	diplomatic = yes
+#
+#	picture_event_data = {
+#		portrait = event_target:neighbor_contesting_colony
+#		planet_background = event_target:neighbor_contesting_colony
+#		graphical_culture = event_target:neighbor_contesting_colony
+#		city_level = event_target:neighbor_contesting_colony
+#		room = event_target:neighbor_contesting_colony.ruler
+#	}
+#	
+#	option = {
+#		name = diplomatic.21.a
+#		destroy_colony = yes
+#		ai_chance = {
+#			factor = 0
+#		}
+#	}
+#
+#	option = {
+#		name = diplomatic.21.b
+#		event_target:neighbor_contesting_colony = {
+#			add_opinion_modifier = {
+#				who = ROOT.owner
+#				modifier = encroaching_colony
+#			}
+#		}
+#	}
+#}

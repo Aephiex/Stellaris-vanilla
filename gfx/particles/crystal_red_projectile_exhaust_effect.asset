@@ -2,7 +2,7 @@ particle={
 	name="red_crystal_projectile_exhaust_effect"
 	subsystem={
 		name="smoke"
-		max_amount=400
+		max_amount=110
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"
@@ -42,7 +42,7 @@ particle={
 	}
 	subsystem={
 		name="lights"
-		max_amount=400
+		max_amount=110
 		slave_particles=0
 		sort="depth"
 		emitter_type="sphere"
@@ -85,7 +85,7 @@ particle={
 	}
 	subsystem={
 		name="smoke_dark"
-		max_amount=400
+		max_amount=110
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"

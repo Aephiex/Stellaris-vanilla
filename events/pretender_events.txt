@@ -49,7 +49,6 @@ country_event = {
 			type = ruler
 			species = owner_main_species
 			name = random
-			skill = 0
 			traits = {}
 		}
 		assign_leader = last_created_leader

@@ -137,6 +137,24 @@ trait_slow_learners = {
 	}
 }
 
+trait_traditional = {
+	cost = 1
+	opposites = { "trait_quarrelsome" }
+	allowed_archetypes = { BIOLOGICAL }
+	modifier = {
+		tile_resource_unity_mult = 0.1
+	}
+}
+
+trait_quarrelsome = {
+	cost = -1
+	opposites = { "trait_traditional" }
+	allowed_archetypes = { BIOLOGICAL }
+	modifier = {
+		tile_resource_unity_mult = -0.1
+	}
+}
+
 trait_very_strong = {
 	cost = 3
 	opposites = { "trait_weak" "trait_strong" }
@@ -172,7 +190,7 @@ trait_weak = {
 
 trait_nomadic = {
 	cost = 1
-	opposites = { "trait_sedentary" "trait_hive_mind" "trait_machine_unit" }
+	opposites = { "trait_sedentary" "trait_machine_unit" }
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = {
 		pop_migration_speed = 0.5
@@ -182,7 +200,7 @@ trait_nomadic = {
 
 trait_sedentary = {
 	cost = -1
-	opposites = { "trait_nomadic" "trait_hive_mind" "trait_machine_unit" }
+	opposites = { "trait_nomadic" "trait_machine_unit" }
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = {
 		pop_migration_speed = -0.5
@@ -322,8 +340,7 @@ trait_resilient = {
 	cost = 1
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = {
-		garrison_health = 1.0
-		pop_fortification_defense = 0.5
+		army_defense_damage_mult = 0.5
 	}
 }
 
@@ -413,6 +430,7 @@ trait_self_modified = {
 	initial = no
 	randomized = no
 	modification = no
+	alters_species_identity = yes
 
 	allowed_archetypes = { BIOLOGICAL }
 	
@@ -453,7 +471,7 @@ trait_nerve_stapled = {
 }
 
 trait_fertile = {
-	cost = 3
+	cost = 4
 	initial = no
 	randomized = no
 	advanced_trait = yes
@@ -461,6 +479,8 @@ trait_fertile = {
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = {
 		pop_growth_speed = 0.3
+		tile_resource_unity_mult = 0.1
+		pop_other_species_owner_happiness = 0.05
 		pop_happiness = 0.05
 	}
 }
@@ -476,12 +496,12 @@ trait_erudite = {
 		tile_resource_engineering_research_mult = 0.2
 		tile_resource_physics_research_mult = 0.2
 		tile_resource_society_research_mult = 0.2
-		leader_skill_levels = 1
+		leader_skill_levels = 2
 	}
 }
 
 trait_robust = {
-	cost = 6
+	cost = 4
 	initial = no
 	randomized = no
 	advanced_trait = yes
@@ -489,6 +509,19 @@ trait_robust = {
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = {
 		pop_environment_tolerance = 0.30
+		pop_resource_output = 0.05
 		leader_age = 50
+	}
+}
+
+trait_survivor = {
+	cost = 0
+	initial = no
+	randomized = no
+	modification = no
+	allowed_archetypes = { BIOLOGICAL }
+	modifier = {
+		pc_nuked_habitability = 0.7
+		leader_age = 10
 	}
 }

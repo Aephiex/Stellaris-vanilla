@@ -23,14 +23,20 @@ ship_design = {
 			template = "SMALL_CRYSTAL_SHIP_BLUE_LIGHTNING"
 		}
 		component = {
+			slot = "SMALL_UTILITY_1"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}
+		component = {
+			slot = "SMALL_UTILITY_2"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}		
+		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
-		component = {
-			slot = "AUX_UTILITY_2"
-			template = "CRYSTAL_ARMOR_1"
-		}
 	}
+	
+	required_component="BIO_PROPULSION"
 }
 # Medium Crystal Entity - Blue
 ship_design = {
@@ -63,14 +69,20 @@ ship_design = {
 			template = "SMALL_CRYSTAL_SHIP_BLUE_LIGHTNING"
 		}
 		component = {
+			slot = "SMALL_UTILITY_1"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}
+		component = {
+			slot = "SMALL_UTILITY_2"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}		
+		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
-		component = {
-			slot = "AUX_UTILITY_2"
-			template = "CRYSTAL_ARMOR_1"
-		}
 	}
+	
+	required_component="BIO_PROPULSION"
 }
 # Large Crystal Entity - Blue
 ship_design = {
@@ -103,14 +115,20 @@ ship_design = {
 			template = "MEDIUM_CRYSTAL_SHIP_BLUE_LIGHTNING"
 		}
 		component = {
+			slot = "SMALL_UTILITY_1"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}
+		component = {
+			slot = "SMALL_UTILITY_2"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}		
+		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
-		component = {
-			slot = "AUX_UTILITY_2"
-			template = "CRYSTAL_ARMOR_1"
-		}
 	}
+	
+	required_component="BIO_PROPULSION"
 }
 
 # Small Crystal Entity - Green
@@ -136,14 +154,20 @@ ship_design = {
 			template = "SMALL_CRYSTAL_SHIP_GREEN_LIGHTNING"
 		}
 		component = {
+			slot = "SMALL_UTILITY_1"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}
+		component = {
+			slot = "SMALL_UTILITY_2"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}		
+		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
-		component = {
-			slot = "AUX_UTILITY_2"
-			template = "CRYSTAL_ARMOR_1"
-		}
 	}
+	
+	required_component="BIO_PROPULSION"
 }
 # Medium Crystal Entity - Green
 ship_design = {
@@ -176,14 +200,20 @@ ship_design = {
 			template = "SMALL_CRYSTAL_SHIP_GREEN_LIGHTNING"
 		}
 		component = {
+			slot = "SMALL_UTILITY_1"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}
+		component = {
+			slot = "SMALL_UTILITY_2"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}		
+		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
-		component = {
-			slot = "AUX_UTILITY_2"
-			template = "CRYSTAL_ARMOR_1"
-		}
 	}
+
+	required_component="BIO_PROPULSION"
 }
 # Large Crystal Entity - Green
 ship_design = {
@@ -216,14 +246,20 @@ ship_design = {
 			template = "MEDIUM_CRYSTAL_SHIP_GREEN_LIGHTNING"
 		}
 		component = {
+			slot = "SMALL_UTILITY_1"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}
+		component = {
+			slot = "SMALL_UTILITY_2"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}		
+		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
-		component = {
-			slot = "AUX_UTILITY_2"
-			template = "CRYSTAL_ARMOR_1"
-		}
 	}
+
+	required_component="BIO_PROPULSION"
 }
 
 # Small Crystal Entity - Yellow
@@ -249,14 +285,20 @@ ship_design = {
 			template = "SMALL_CRYSTAL_SHIP_YELLOW_LIGHTNING"
 		}
 		component = {
+			slot = "SMALL_UTILITY_1"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}
+		component = {
+			slot = "SMALL_UTILITY_2"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}		
+		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
-		component = {
-			slot = "AUX_UTILITY_2"
-			template = "CRYSTAL_ARMOR_1"
-		}
 	}
+	
+	required_component="BIO_PROPULSION"
 }
 # Medium Crystal Entity - Yellow
 ship_design = {
@@ -289,14 +331,20 @@ ship_design = {
 			template = "SMALL_CRYSTAL_SHIP_YELLOW_LIGHTNING"
 		}
 		component = {
+			slot = "SMALL_UTILITY_1"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}
+		component = {
+			slot = "SMALL_UTILITY_2"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}		
+		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
-		component = {
-			slot = "AUX_UTILITY_2"
-			template = "CRYSTAL_ARMOR_1"
-		}
 	}
+	
+	required_component="BIO_PROPULSION"
 }
 # Large Crystal Entity - Yellow
 ship_design = {
@@ -329,14 +377,20 @@ ship_design = {
 			template = "MEDIUM_CRYSTAL_SHIP_YELLOW_LIGHTNING"
 		}
 		component = {
+			slot = "SMALL_UTILITY_1"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}
+		component = {
+			slot = "SMALL_UTILITY_2"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}		
+		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
-		component = {
-			slot = "AUX_UTILITY_2"
-			template = "CRYSTAL_ARMOR_1"
-		}
 	}
+	
+	required_component="BIO_PROPULSION"
 }
 
 # Small Crystal Entity - Red
@@ -362,14 +416,20 @@ ship_design = {
 			template = "SMALL_CRYSTAL_SHIP_RED_LIGHTNING"
 		}
 		component = {
+			slot = "SMALL_UTILITY_1"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}
+		component = {
+			slot = "SMALL_UTILITY_2"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}		
+		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
-		component = {
-			slot = "AUX_UTILITY_2"
-			template = "CRYSTAL_ARMOR_1"
-		}
 	}
+	
+	required_component="BIO_PROPULSION"
 }
 # Medium Crystal Entity - Red
 ship_design = {
@@ -402,14 +462,20 @@ ship_design = {
 			template = "SMALL_CRYSTAL_SHIP_RED_LIGHTNING"
 		}
 		component = {
+			slot = "SMALL_UTILITY_1"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}
+		component = {
+			slot = "SMALL_UTILITY_2"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}		
+		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
-		component = {
-			slot = "AUX_UTILITY_2"
-			template = "CRYSTAL_ARMOR_1"
-		}
 	}
+	
+	required_component="BIO_PROPULSION"	
 }
 # Large Crystal Entity - Red
 ship_design = {
@@ -442,14 +508,20 @@ ship_design = {
 			template = "MEDIUM_CRYSTAL_SHIP_RED_LIGHTNING"
 		}
 		component = {
+			slot = "SMALL_UTILITY_1"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}
+		component = {
+			slot = "SMALL_UTILITY_2"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}		
+		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
-		component = {
-			slot = "AUX_UTILITY_2"
-			template = "CRYSTAL_ARMOR_1"
-		}
 	}
+	
+	required_component="BIO_PROPULSION"
 }
 
 # Small Crystal Entity - Blue - ELITE
@@ -475,14 +547,20 @@ ship_design = {
 			template = "SMALL_CRYSTAL_SHIP_BLUE_ELITE_LIGHTNING"
 		}
 		component = {
+			slot = "SMALL_UTILITY_1"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}
+		component = {
+			slot = "SMALL_UTILITY_2"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}		
+		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
-		component = {
-			slot = "AUX_UTILITY_2"
-			template = "CRYSTAL_ARMOR_1"
-		}
 	}
+	
+	required_component="BIO_PROPULSION"
 }
 
 # Medium Crystal Entity - Blue - ELITE
@@ -516,14 +594,20 @@ ship_design = {
 			template = "SMALL_CRYSTAL_SHIP_BLUE_ELITE_LIGHTNING"
 		}
 		component = {
+			slot = "SMALL_UTILITY_1"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}
+		component = {
+			slot = "SMALL_UTILITY_2"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}		
+		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
-		component = {
-			slot = "AUX_UTILITY_2"
-			template = "CRYSTAL_ARMOR_1"
-		}
 	}
+	
+	required_component="BIO_PROPULSION"
 }
 # Large Crystal Entity - Blue - ELITE
 ship_design = {
@@ -556,14 +640,20 @@ ship_design = {
 			template = "MEDIUM_CRYSTAL_SHIP_BLUE_ELITE_LIGHTNING"
 		}
 		component = {
+			slot = "SMALL_UTILITY_1"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}
+		component = {
+			slot = "SMALL_UTILITY_2"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}		
+		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
-		component = {
-			slot = "AUX_UTILITY_2"
-			template = "CRYSTAL_ARMOR_1"
-		}
 	}
+	
+	required_component="BIO_PROPULSION"
 }
 
 # Small Crystal Entity - Green - ELITE
@@ -589,14 +679,20 @@ ship_design = {
 			template = "SMALL_CRYSTAL_SHIP_GREEN_ELITE_LIGHTNING"
 		}
 		component = {
+			slot = "SMALL_UTILITY_1"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}
+		component = {
+			slot = "SMALL_UTILITY_2"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}		
+		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
-		component = {
-			slot = "AUX_UTILITY_2"
-			template = "CRYSTAL_ARMOR_1"
-		}
 	}
+	
+	required_component="BIO_PROPULSION"
 }
 # Medium Crystal Entity - Green - ELITE
 ship_design = {
@@ -629,14 +725,20 @@ ship_design = {
 			template = "SMALL_CRYSTAL_SHIP_GREEN_ELITE_LIGHTNING"
 		}
 		component = {
+			slot = "SMALL_UTILITY_1"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}
+		component = {
+			slot = "SMALL_UTILITY_2"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}		
+		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
-		component = {
-			slot = "AUX_UTILITY_2"
-			template = "CRYSTAL_ARMOR_1"
-		}
 	}
+	
+	required_component="BIO_PROPULSION"
 }
 # Large Crystal Entity - Green - ELITE
 ship_design = {
@@ -669,14 +771,20 @@ ship_design = {
 			template = "MEDIUM_CRYSTAL_SHIP_GREEN_ELITE_LIGHTNING"
 		}
 		component = {
+			slot = "SMALL_UTILITY_1"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}
+		component = {
+			slot = "SMALL_UTILITY_2"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}		
+		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
-		component = {
-			slot = "AUX_UTILITY_2"
-			template = "CRYSTAL_ARMOR_1"
-		}
 	}
+	
+	required_component="BIO_PROPULSION"
 }
 
 # Small Crystal Entity - Yellow - ELITE
@@ -702,14 +810,20 @@ ship_design = {
 			template = "SMALL_CRYSTAL_SHIP_YELLOW_ELITE_LIGHTNING"
 		}
 		component = {
+			slot = "SMALL_UTILITY_1"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}
+		component = {
+			slot = "SMALL_UTILITY_2"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}		
+		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
-		component = {
-			slot = "AUX_UTILITY_2"
-			template = "CRYSTAL_ARMOR_1"
-		}
 	}
+	
+	required_component="BIO_PROPULSION"
 }
 # Medium Crystal Entity - Yellow - ELITE
 ship_design = {
@@ -742,14 +856,20 @@ ship_design = {
 			template = "SMALL_CRYSTAL_SHIP_YELLOW_ELITE_LIGHTNING"
 		}
 		component = {
+			slot = "SMALL_UTILITY_1"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}
+		component = {
+			slot = "SMALL_UTILITY_2"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}		
+		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
-		component = {
-			slot = "AUX_UTILITY_2"
-			template = "CRYSTAL_ARMOR_1"
-		}
 	}
+	
+	required_component="BIO_PROPULSION"
 }
 # Large Crystal Entity - Yellow - ELITE
 ship_design = {
@@ -782,14 +902,20 @@ ship_design = {
 			template = "MEDIUM_CRYSTAL_SHIP_YELLOW_ELITE_LIGHTNING"
 		}
 		component = {
+			slot = "SMALL_UTILITY_1"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}
+		component = {
+			slot = "SMALL_UTILITY_2"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}		
+		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
-		component = {
-			slot = "AUX_UTILITY_2"
-			template = "CRYSTAL_ARMOR_1"
-		}
 	}
+	
+	required_component="BIO_PROPULSION"
 }
 
 # Small Crystal Entity - Red - ELITE
@@ -815,14 +941,20 @@ ship_design = {
 			template = "SMALL_CRYSTAL_SHIP_RED_ELITE_LIGHTNING"
 		}
 		component = {
+			slot = "SMALL_UTILITY_1"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}
+		component = {
+			slot = "SMALL_UTILITY_2"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}		
+		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
-		component = {
-			slot = "AUX_UTILITY_2"
-			template = "CRYSTAL_ARMOR_1"
-		}
 	}
+	
+	required_component="BIO_PROPULSION"
 }
 # Medium Crystal Entity - Red - ELITE
 ship_design = {
@@ -855,14 +987,20 @@ ship_design = {
 			template = "SMALL_CRYSTAL_SHIP_RED_ELITE_LIGHTNING"
 		}
 		component = {
+			slot = "SMALL_UTILITY_1"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}
+		component = {
+			slot = "SMALL_UTILITY_2"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}		
+		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
-		component = {
-			slot = "AUX_UTILITY_2"
-			template = "CRYSTAL_ARMOR_1"
-		}
 	}
+	
+	required_component="BIO_PROPULSION"
 }
 # Large Crystal Entity - Red - ELITE
 ship_design = {
@@ -895,14 +1033,20 @@ ship_design = {
 			template = "MEDIUM_CRYSTAL_SHIP_RED_ELITE_LIGHTNING"
 		}
 		component = {
+			slot = "SMALL_UTILITY_1"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}
+		component = {
+			slot = "SMALL_UTILITY_2"
+			template = "SMALL_CRYSTAL_ARMOR_1"
+		}		
+		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
-		component = {
-			slot = "AUX_UTILITY_2"
-			template = "CRYSTAL_ARMOR_1"
-		}
 	}
+	
+	required_component="BIO_PROPULSION"
 }
 
 ship_design = {
@@ -963,12 +1107,18 @@ ship_design = {
 			template = "SMALL_CRYSTAL_SHIP_BLUE_ELITE_LIGHTNING"
 		}		
 		component = {
+			slot = "SMALL_UTILITY_1"
+			template = "SMALL_CRYSTAL_ARMOR_2"
+		}
+		component = {
+			slot = "SMALL_UTILITY_2"
+			template = "SMALL_CRYSTAL_ARMOR_2"
+		}		
+		component = {
 			slot = "AUX_UTILITY_1"
 			template = "AUTO_REPAIR"
 		}
-		component = {
-			slot = "AUX_UTILITY_2"
-			template = "CRYSTAL_ARMOR_2"
-		}
 	}
+	
+	required_component="BIO_PROPULSION"
 }

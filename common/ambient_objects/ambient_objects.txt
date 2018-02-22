@@ -252,3 +252,11 @@ ambient_object = {
 	selectable = no
 	show_name = yes
 }
+
+# Broken FE Outpost
+ambient_object = {
+	name = "broken_holy_world_outpost"
+	entity = "fallen_empire_02_starbase_outpost_section_entity"
+	selectable = no
+	show_name = no
+}

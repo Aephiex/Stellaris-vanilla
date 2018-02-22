@@ -1,6 +1,5 @@
-﻿military_station = no
 space_construction = yes
-colonize = no
-tile_resources = no
+tile_resources = yes
 redevelopment = yes
 robotic = yes
+colonize = no

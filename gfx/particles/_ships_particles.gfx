@@ -83,6 +83,18 @@ objectTypes = {
 		scale = 1.0
 	}
 	
+	pdxparticle = {
+		name = "wormhole_active_effect"
+		type = "wormhole_active_effect"
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "gateway_active_effect"
+		type = "gateway_active_effect"
+		scale = 1.0
+	}
+	
 ############
 # EXPLOSIONS
 ############
@@ -118,6 +130,12 @@ objectTypes = {
 		name = "small_player_ship_explosion_particle"
 		type = "player_ship_explosion_effect"
 		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "small_2_player_ship_explosion_particle"
+		type = "player_ship_explosion_effect"
+		scale = 0.8
 	}
 	
 	pdxparticle = {

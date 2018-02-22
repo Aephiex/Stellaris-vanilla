@@ -3,20 +3,25 @@
 ##################
 #If you change any of these, use replace in files so the values are the same across all files
 
-@tier1cost1 = 360
-@tier1cost2 = 480
-@tier1cost3 = 600
-@tier1cost4 = 720
+@tier1cost1 = 500
+@tier1cost2 = 640
+@tier1cost3 = 780
 
 @tier2cost1 = 1000
-@tier2cost2 = 1400
-@tier2cost3 = 1800
-@tier2cost4 = 2200
+@tier2cost2 = 1500
+@tier2cost3 = 2000
 
 @tier3cost1 = 3000
 @tier3cost2 = 4000
 @tier3cost3 = 5000
-@tier3cost4 = 6000
+
+@tier4cost1 = 6000
+@tier4cost2 = 8000
+@tier4cost3 = 10000
+
+@tier5cost1 = 14000
+@tier5cost2 = 17000
+@tier5cost3 = 20000
 
 ####################
 ### TECH WEIGHTS ###
@@ -25,17 +30,22 @@
 @tier1weight1 = 100
 @tier1weight2 = 95
 @tier1weight3 = 90
-@tier1weight4 = 85
 
-@tier2weight1 = 75
-@tier2weight2 = 70
-@tier2weight3 = 65
-@tier2weight4 = 60
+@tier2weight1 = 85
+@tier2weight2 = 75
+@tier2weight3 = 70
 
-@tier3weight1 = 50
-@tier3weight2 = 45
-@tier3weight3 = 40
-@tier3weight4 = 35
+@tier3weight1 = 65
+@tier3weight2 = 60
+@tier3weight3 = 50
+
+@tier4weight1 = 45
+@tier4weight2 = 40
+@tier4weight3 = 35
+
+@tier5weight1 = 30
+@tier5weight2 = 25
+@tier5weight3 = 20
 
 #######################################
 ######### STRATEGIC RESOURCES #########
@@ -47,12 +57,12 @@
 
 #Garanthium Mining
 tech_mine_garanthium = {
-	cost = @tier1cost3
+	cost = @tier2cost1
 	area = engineering
-	tier = 1
+	tier = 2
 	category = { materials }	
 	prerequisites = { "tech_mineral_processing_1" }
-	weight = @tier1weight3
+	weight = @tier2weight1
 	
 	weight_modifier = {
 		factor = 2 #strategic resource
@@ -94,12 +104,12 @@ tech_mine_garanthium = {
 
 #Lythuric Gas Refining
 tech_lythuric_gas = {
-	cost = @tier1cost3
+	cost = @tier2cost1
 	area = physics
-	tier = 1
+	tier = 2
 	category = { field_manipulation }
 	prerequisites = { "tech_sensors_2" }
-	weight = @tier1weight3
+	weight = @tier2weight1
 		
 	## unlock see lythuric gas
 	
@@ -143,12 +153,12 @@ tech_lythuric_gas = {
 
 #Engos Vapor Refining
 tech_engos_vapor = {
-	cost = @tier1cost3
+	cost = @tier2cost1
 	area = society
-	tier = 1
+	tier = 2
 	category = { biology }	
 	prerequisites = { "tech_genome_mapping" }
-	weight = @tier1weight3
+	weight = @tier2weight1
 	
 	weight_modifier = {
 		factor = 2 #strategic resource
@@ -190,12 +200,12 @@ tech_engos_vapor = {
 
 #Teldar Crystal Mining
 tech_mine_teldar = {
-	cost = @tier1cost3
+	cost = @tier2cost1
 	area = engineering
-	tier = 1
+	tier = 2
 	category = { materials }	
 	prerequisites = { "tech_mineral_processing_1" }
-	weight = @tier1weight3
+	weight = @tier2weight1
 	
 	weight_modifier = {
 		factor = 2 #strategic resource
@@ -238,12 +248,12 @@ tech_mine_teldar = {
 
 #Yuranic Crystal Mining
 tech_mine_yuranic = {
-	cost = @tier1cost3
+	cost = @tier2cost1
 	area = engineering
-	tier = 1
+	tier = 2
 	category = { materials }	
 	prerequisites = { "tech_mineral_processing_1" }
-	weight = @tier1weight3
+	weight = @tier2weight1
 	
 	weight_modifier = {
 		factor = 2 #strategic resource
@@ -285,12 +295,12 @@ tech_mine_yuranic = {
 
 #Pitharan Dust Refining
 tech_pitharan_dust = {
-	cost = @tier1cost3
+	cost = @tier2cost1
 	area = society
-	tier = 1
+	tier = 2
 	category = { biology }	
 	prerequisites = { "tech_genome_mapping" }
-	weight = @tier1weight3
+	weight = @tier2weight1
 	
 	weight_modifier = {
 		factor = 2 #strategic resource
@@ -317,12 +327,12 @@ tech_pitharan_dust = {
 
 #Orillium Extraction
 tech_mine_orillium = {
-	cost = @tier1cost3
+	cost = @tier2cost1
 	area = engineering
-	tier = 1
+	tier = 2
 	category = { materials }	
 	prerequisites = { "tech_mineral_processing_1" }
-	weight = @tier1weight3
+	weight = @tier2weight1
 	
 	weight_modifier = {
 		factor = 2 #strategic resource
@@ -368,12 +378,12 @@ tech_mine_orillium = {
 
 #Neutronium Extraction 
 tech_mine_neutronium = {
-	cost = @tier3cost2
+	cost = @tier4cost1
 	area = physics
-	tier = 3
-	category = { materials }
+	tier = 4
+	category = { particles }
 	prerequisites = { "tech_sensors_4" }
-	weight = @tier3weight2
+	weight = @tier4weight1
 		
 	## unlock see neutronium ore
 	
@@ -383,7 +393,7 @@ tech_mine_neutronium = {
 			factor = 1.5
 			research_leader = {
 				area = physics
-				has_trait = "leader_trait_expertise_materials"
+				has_trait = "leader_trait_expertise_particles"
 			}
 		}
 	}
@@ -394,7 +404,7 @@ tech_mine_neutronium = {
 			factor = 1.25
 			research_leader = {
 				area = physics
-				has_trait = "leader_trait_expertise_materials"
+				has_trait = "leader_trait_expertise_particles"
 			}
 		}
 	}
@@ -402,12 +412,12 @@ tech_mine_neutronium = {
 
 #Living Metal
 tech_mine_living_metal = {
-	cost = @tier3cost4
+	cost = @tier5cost1
 	area = engineering
-	tier = 3
+	tier = 5
 	category = { materials }
 	prerequisites = { "tech_space_construction" }
-	weight = @tier3weight4
+	weight = @tier5weight1
 	
 	weight_modifier = {
 		factor = 0
@@ -416,12 +426,12 @@ tech_mine_living_metal = {
 
 #Betharian Refining
 tech_mine_betharian = {
-	cost = @tier1cost1
+	cost = @tier1cost2
 	area = engineering
-	tier = 1
-	category = { industry }
+	tier = 2
+	category = { materials }
 	prerequisites = { "tech_space_construction" }
-	weight = @tier1weight1
+	weight = @tier1weight2
 	
 	weight_modifier = {
 		factor = 2
@@ -429,7 +439,7 @@ tech_mine_betharian = {
 			factor = 2
 			research_leader = {
 				area = engineering
-				has_trait = "leader_trait_expertise_industry"
+				has_trait = "leader_trait_expertise_materials"
 			}
 		}
 		modifier = {
@@ -453,21 +463,21 @@ tech_mine_betharian = {
 			factor = 1.25
 			research_leader = {
 				area = engineering
-				has_trait = "leader_trait_expertise_industry"
+				has_trait = "leader_trait_expertise_materials"
 			}
 		}
 	}	
 }
 
 tech_mine_zro = {
-	cost = @tier2cost4
-	area = physics
-	tier = 2
+	cost = @tier4cost1
+	area = society
+	tier = 4
 	category = { psionics }
 	is_rare = yes	
 	prerequisites = { "tech_sensors_3" "tech_psionic_theory" }
 	is_reverse_engineerable = no
-	weight = @tier2weight4
+	weight = @tier4weight1
 		
 	## unlock see zro ore
 	
@@ -512,12 +522,12 @@ tech_mine_zro = {
 
 #Satramene Refining
 tech_mine_satramene = {
-	cost = @tier2cost1
+	cost = @tier2cost2
 	area = physics
 	tier = 2
-	category = { materials }	
+	category = { particles }	
 	prerequisites = { "tech_sensors_3" }
-	weight = @tier2weight1
+	weight = @tier2weight2
 	
 	weight_modifier = {
 		factor = 2 #strategic resource
@@ -525,7 +535,7 @@ tech_mine_satramene = {
 			factor = 2
 			research_leader = {
 				area = engineering
-				has_trait = "leader_trait_expertise_materials"
+				has_trait = "leader_trait_expertise_particles"
 			}
 		}	
 	}
@@ -536,7 +546,7 @@ tech_mine_satramene = {
 			factor = 1.25
 			research_leader = {
 				area = engineering
-				has_trait = "leader_trait_expertise_materials"
+				has_trait = "leader_trait_expertise_particles"
 			}
 		}
 	}
@@ -544,12 +554,12 @@ tech_mine_satramene = {
 
 #Dark Matter Drawing
 tech_mine_dark_matter = {
-	cost = @tier3cost2
+	cost = @tier4cost2
 	area = physics
-	tier = 3
+	tier = 4
 	category = { field_manipulation }
 	prerequisites = { "tech_sensors_4" }
-	weight = @tier3weight2
+	weight = @tier4weight2
 		
 	## unlock see dark matter
 	

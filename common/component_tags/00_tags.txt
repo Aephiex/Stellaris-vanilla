@@ -16,6 +16,6 @@ torpedo
 extra_large
 weapon_role_anti_armor
 weapon_role_anti_shield
-weapon_role_long_range
-weapon_role_short_range
+weapon_role_artillery
+weapon_role_anti_hull
 weapon_role_point_defense

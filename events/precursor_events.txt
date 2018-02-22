@@ -4698,362 +4698,68 @@ ship_event = {
 	}
 }
 
-## You study a Ringworld for the first time, and it spawns resources if none are present 
-#ship_event = {
-#	id = precursor.2200
-#	title = "precursor.2200.name"
-#
-#	desc = {
-#		text = precursor.2200.desc
-#		trigger = {
-#			any_owned_megastructure = {
-#				NOT = {
-#					OR = {
-#						is_megastructure_type = ring_world_1
-#						is_megastructure_type = ring_world_2
-#					}
-#				}
-#			}
-#			NOT = { has_country_flag = finished_ringworld }
-#		}
-#	}
-#	desc = {
-#		text = precursor.2200.desc.b
-#		trigger = {
-#			OR = {
-#				any_owned_megastructure = {
-#					OR = {
-#						is_megastructure_type = ring_world_1
-#						is_megastructure_type = ring_world_2
-#					}
-#				}
-#				has_country_flag = finished_ringworld
-#			}
-#		}
-#	}
-#	
-#	picture = GFX_evt_ringworld
-#	show_sound = event_mystic_reveal
-#
-#	is_triggered_only = yes
-#	
-#	trigger = {
-#		owner = {
-#			NOT = { has_country_flag = living_metal_studied }
-#			is_ai = no
-#		}
-#		from = {
-#			OR = {
-#				is_planet_class = pc_ringworld_tech
-#				is_planet_class = pc_ringworld_tech_damaged
-#				is_planet_class = pc_ringworld_seam
-#				is_planet_class = pc_ringworld_seam_damaged
-#				is_planet_class = pc_ringworld_habitable
-#				is_planet_class = pc_ringworld_habitable_damaged
-#			}
-#			solar_system = {
-#				NOT = { has_star_flag = ring_world_built }
-#			}
-#		}
-#	}
-#	
-#	immediate = {
-#		leader = { save_event_target_as = RogueLeader }
-#		solar_system = {
-#			random_list = {
-#				33 = { set_variable = { which = depositPlacedVar value = 3 } }
-#				34 = { set_variable = { which = depositPlacedVar value = 4 } }
-#				33 = { set_variable = { which = depositPlacedVar value = 5 } }
-#			}
-#			if = {
-#				limit = { NOT = { has_star_flag = ringworld_deposited } }
-#				from = { #First deposit
-#					orbital_deposit_tile = {
-#						clear_deposits = yes
-#						add_deposit = d_living_metal_deposit
-#					}
-#					set_planet_flag = ringworld_section_deposit
-#				}
-#				set_star_flag = ringworld_deposited
-#				random_system_planet = { #Second deposit
-#					limit = {
-#						OR = {
-#							is_planet_class = pc_ringworld_tech
-#							is_planet_class = pc_ringworld_tech_damaged
-#							is_planet_class = pc_ringworld_seam
-#							is_planet_class = pc_ringworld_seam_damaged
-#							is_planet_class = pc_ringworld_habitable
-#							is_planet_class = pc_ringworld_habitable_damaged
-#						}
-#						NOT = { has_planet_flag = ringworld_section_deposit }
-#					}
-#					orbital_deposit_tile = {
-#						clear_deposits = yes
-#						add_deposit = d_living_metal_deposit
-#					}
-#					set_planet_flag = ringworld_section_deposit
-#				}
-#				if = {
-#					limit = {
-#						OR = {
-#							check_variable = { which = depositPlacedVar value = 3 }
-#							check_variable = { which = depositPlacedVar value > 3 }
-#						}
-#					}
-#					random_system_planet = { #Third deposit
-#						limit = {
-#							OR = {
-#								is_planet_class = pc_ringworld_tech
-#								is_planet_class = pc_ringworld_tech_damaged
-#								is_planet_class = pc_ringworld_seam
-#								is_planet_class = pc_ringworld_seam_damaged
-#								is_planet_class = pc_ringworld_habitable
-#								is_planet_class = pc_ringworld_habitable_damaged
-#							}
-#							NOT = { has_planet_flag = ringworld_section_deposit }
-#						}
-#						orbital_deposit_tile = {
-#							clear_deposits = yes
-#							add_deposit = d_living_metal_deposit
-#						}
-#						set_planet_flag = ringworld_section_deposit
-#					}
-#				}
-#				if = {
-#					limit = {
-#						OR = {
-#							check_variable = { which = depositPlacedVar value = 4 }
-#							check_variable = { which = depositPlacedVar value = 5 }
-#						}
-#					}
-#					random_system_planet = { #Fourth deposit
-#						limit = {
-#							OR = {
-#								is_planet_class = pc_ringworld_tech
-#								is_planet_class = pc_ringworld_tech_damaged
-#								is_planet_class = pc_ringworld_seam
-#								is_planet_class = pc_ringworld_seam_damaged
-#								is_planet_class = pc_ringworld_habitable
-#								is_planet_class = pc_ringworld_habitable_damaged
-#								is_planet_class = pc_ringworld_habitable_damaged
-#							}
-#							NOT = { has_planet_flag = ringworld_section_deposit }
-#						}
-#						orbital_deposit_tile = {
-#							clear_deposits = yes
-#							add_deposit = d_living_metal_deposit
-#						}
-#						set_planet_flag = ringworld_section_deposit
-#					}
-#				}
-#				if = {
-#					limit = {
-#						check_variable = { which = depositPlacedVar value = 5 }
-#					}
-#					random_system_planet = { #Fifth deposit
-#						limit = {
-#							OR = {
-#								is_planet_class = pc_ringworld_tech
-#								is_planet_class = pc_ringworld_tech_damaged
-#								is_planet_class = pc_ringworld_seam
-#								is_planet_class = pc_ringworld_seam_damaged
-#								is_planet_class = pc_ringworld_habitable
-#								is_planet_class = pc_ringworld_habitable_damaged
-#							}
-#							NOT = { has_planet_flag = ringworld_section_deposit }
-#						}
-#						orbital_deposit_tile = {
-#							clear_deposits = yes
-#							add_deposit = d_living_metal_deposit
-#						}
-#						set_planet_flag = ringworld_section_deposit
-#					}
-#				}
-#			}
-#		}
-#	}
-#	
-#	option = {
-#		name = AMAZING
-#		owner = {
-#			hidden_effect = {
-#				set_country_flag = living_metal_studied
-#			}
-#			if = {
-#				limit = {
-#					has_tech_option = tech_mine_living_metal
-#				}
-#				add_tech_progress = {
-#					tech = tech_mine_living_metal
-#					progress = 0.25
-#				}
-#				else = {
-#					add_research_option = tech_mine_living_metal
-#				}
-#			}
-#		}
-#	}
-#}
-## You study another Ringworld that has no resources yet and we secretly spawn some  
-#ship_event = {
-#	id = precursor.2201
-#	hide_window = yes	
-#	is_triggered_only = yes
-#	
-#	trigger = {
-#		owner = {
-#			has_country_flag = living_metal_studied
-#			is_ai = no
-#		}
-#		from = {
-#			OR = {
-#				is_planet_class = pc_ringworld_tech
-#				is_planet_class = pc_ringworld_tech_damaged
-#				is_planet_class = pc_ringworld_seam
-#				is_planet_class = pc_ringworld_seam_damaged
-#				is_planet_class = pc_ringworld_habitable
-#				is_planet_class = pc_ringworld_habitable_damaged
-#			}
-#		}
-#		solar_system = {
-#			NOT = { 
-#				has_star_flag = ringworld_deposited 
-#				has_star_flag = ring_world_built
-#			}
-#		}
-#	}
-#	
-#	immediate = {
-#		solar_system = {
-#			random_list = {
-#				33 = { set_variable = { which = depositPlacedVar value = 3 } }
-#				34 = { set_variable = { which = depositPlacedVar value = 4 } }
-#				33 = { set_variable = { which = depositPlacedVar value = 5 } }
-#			}
-#			if = {
-#				limit = { NOT = { has_star_flag = ringworld_deposited } }
-#				from = { #First deposit
-#					orbital_deposit_tile = {
-#						clear_deposits = yes
-#						add_deposit = d_living_metal_deposit
-#					}
-#					set_planet_flag = ringworld_section_deposit
-#				}
-#				set_star_flag = ringworld_deposited
-#				random_system_planet = { #Second deposit
-#					limit = {
-#						OR = {
-#							is_planet_class = pc_ringworld_tech
-#							is_planet_class = pc_ringworld_tech_damaged
-#							is_planet_class = pc_ringworld_seam
-#							is_planet_class = pc_ringworld_seam_damaged
-#							is_planet_class = pc_ringworld_habitable
-#							is_planet_class = pc_ringworld_habitable_damaged
-#						}
-#						NOT = { has_planet_flag = ringworld_section_deposit }
-#					}
-#					orbital_deposit_tile = {
-#						clear_deposits = yes
-#						add_deposit = d_living_metal_deposit
-#					}
-#					set_planet_flag = ringworld_section_deposit
-#				}
-#				if = {
-#					limit = {
-#						OR = {
-#							check_variable = { which = depositPlacedVar value = 3 }
-#							check_variable = { which = depositPlacedVar value > 3 }
-#						}
-#					}
-#					random_system_planet = { #Third deposit
-#						limit = {
-#							OR = {
-#								is_planet_class = pc_ringworld_tech
-#								is_planet_class = pc_ringworld_tech_damaged
-#								is_planet_class = pc_ringworld_seam
-#								is_planet_class = pc_ringworld_seam_damaged
-#								is_planet_class = pc_ringworld_habitable
-#								is_planet_class = pc_ringworld_habitable_damaged
-#							}
-#							NOT = { has_planet_flag = ringworld_section_deposit }
-#						}
-#						orbital_deposit_tile = {
-#							clear_deposits = yes
-#							add_deposit = d_living_metal_deposit
-#						}
-#						set_planet_flag = ringworld_section_deposit
-#					}
-#				}
-#				if = {
-#					limit = {
-#						OR = {
-#							check_variable = { which = depositPlacedVar value = 4 }
-#							check_variable = { which = depositPlacedVar value = 5 }
-#						}
-#					}
-#					random_system_planet = { #Fourth deposit
-#						limit = {
-#							OR = {
-#								is_planet_class = pc_ringworld_tech
-#								is_planet_class = pc_ringworld_tech_damaged
-#								is_planet_class = pc_ringworld_seam
-#								is_planet_class = pc_ringworld_seam_damaged
-#								is_planet_class = pc_ringworld_habitable
-#								is_planet_class = pc_ringworld_habitable_damaged
-#								is_planet_class = pc_ringworld_habitable_damaged
-#							}
-#							NOT = { has_planet_flag = ringworld_section_deposit }
-#						}
-#						orbital_deposit_tile = {
-#							clear_deposits = yes
-#							add_deposit = d_living_metal_deposit
-#						}
-#						set_planet_flag = ringworld_section_deposit
-#					}
-#				}
-#				if = {
-#					limit = {
-#						check_variable = { which = depositPlacedVar value = 5 }
-#					}
-#					random_system_planet = { #Fifth deposit
-#						limit = {
-#							OR = {
-#								is_planet_class = pc_ringworld_tech
-#								is_planet_class = pc_ringworld_tech_damaged
-#								is_planet_class = pc_ringworld_seam
-#								is_planet_class = pc_ringworld_seam_damaged
-#								is_planet_class = pc_ringworld_habitable
-#								is_planet_class = pc_ringworld_habitable_damaged
-#							}
-#							NOT = { has_planet_flag = ringworld_section_deposit }
-#						}
-#						orbital_deposit_tile = {
-#							clear_deposits = yes
-#							add_deposit = d_living_metal_deposit
-#						}
-#						set_planet_flag = ringworld_section_deposit
-#					}
-#				}
-#			}
-#		}
-#	}
-#}
-
 # New Precursor Anomaly Found
 country_event = {
 	id = precursor.301
 	title = "precursor.301.name"
-	desc = "precursor.301.a.desc"
-	desc = "precursor.301.b.desc"
-	desc = "precursor.301.c.desc"
-	desc = "precursor.301.d.desc"
+	desc = {
+		trigger = {
+			NOR = {
+				has_authority = auth_machine_intelligence
+				has_authority = auth_hive_mind
+			}
+		}
+		text = precursor.301.a.desc
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				has_authority = auth_machine_intelligence
+				has_authority = auth_hive_mind
+			}
+		}
+		text = precursor.301.b.desc
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				has_authority = auth_machine_intelligence
+				has_authority = auth_hive_mind
+			}
+		}
+		text = precursor.301.c.desc
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				has_authority = auth_machine_intelligence
+				has_authority = auth_hive_mind
+			}
+		}
+		text = precursor.301.d.desc
+	}
+	desc = {
+		trigger = {
+			has_authority = auth_machine_intelligence
+		}
+		text = precursor.301.e.desc
+	}
+	desc = {
+		trigger = {
+			has_authority = auth_hive_mind
+		}
+		text = precursor.301.f.desc
+	}
 	picture = GFX_evt_archaeological_dig
 	location = event_target:precursor_planet
 	
 	trigger = {
 		is_ai = no
-		years_passed > 50
-		NOT = { has_country_flag = new_precursor }
+		mid_game_years_passed > 0
+		NOR = {
+			has_country_flag = new_precursor
+			has_country_flag = ongoing_precursor_artifact
+		}
 		OR = {
 			AND = {
 				has_event_chain = "vultaum_chain"
@@ -5088,7 +4794,7 @@ country_event = {
 				any_system_within_border = {
 					has_star_flag = precursor_2
 					any_planet = {
-						habitable_planet = yes
+						uninhabitable_regular_planet = yes
 						NOT = { has_planet_flag = precursor_world }
 						has_owner = no
 						has_anomaly = no
@@ -5132,7 +4838,7 @@ country_event = {
 				any_system_within_border = {
 					has_star_flag = precursor_4
 					any_planet = {
-						habitable_planet = yes
+						uninhabitable_regular_planet = yes
 						NOT = { has_planet_flag = precursor_world }
 						has_owner = no
 						has_anomaly = no
@@ -5154,7 +4860,7 @@ country_event = {
 				any_system_within_border = {
 					has_star_flag = precursor_5
 					any_planet = {
-						habitable_planet = yes
+						uninhabitable_regular_planet = yes
 						NOT = { has_planet_flag = precursor_world }
 						has_owner = no
 						has_anomaly = no
@@ -5169,7 +4875,11 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 360
+		months = 240
+		modifier = {
+			factor = 0.66
+			has_ethic = ethic_gestalt_consciousness # Won't get the other events
+		}
 	}
 	
 	immediate = {
@@ -5228,6 +4938,1187 @@ country_event = {
 	
 	option = {
 		name = precursor.301.a
-		custom_tooltip = new_precursor_anomaly
+		custom_tooltip = new_precursor_project
+	}
+}
+
+# Vultaum Artifact Recovered
+ship_event = {
+	id = precursor.302
+	title = "precursor.302.name"
+	desc = {
+		trigger = {
+			NOR = {
+				owner = { has_authority = auth_machine_intelligence }
+				owner = { has_authority = auth_hive_mind }
+			}
+		}
+		text = precursor.302.a.desc
+	}
+	desc = {
+		trigger = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		text = precursor.302.b.desc
+	}
+	desc = {
+		trigger = {
+			owner = { has_authority = auth_hive_mind }
+		}
+		text = precursor.302.c.desc
+	}
+	picture = GFX_evt_archaeological_dig
+	location = event_target:precursor_planet
+	
+	is_triggered_only = yes
+
+	immediate = {
+		owner = { set_country_flag = vultaum_artifact_recoverer }
+	}
+
+	after = {
+		hidden_effect = {
+			owner = { remove_country_flag = vultaum_artifact_recoverer }
+		}
+	}
+	
+	option = {
+		name = INTERESTING
+		owner = {
+			add_event_chain_counter = { 
+				event_chain = "vultaum_chain" 
+				counter = "vultaum_artifacts" 
+				amount = 1 
+			}
+			add_monthly_resource_mult = {
+				resource = physics_research
+				value = @tier1researchreward
+				min = @tier1researchmin
+				max = @tier1researchmax
+			}
+			hidden_effect = { 
+				country_event = { id = precursor.97 } 
+				remove_country_flag = ongoing_precursor_artifact
+			}
+		}
+	}
+}
+
+# Yuht Artifact Recovered
+ship_event = {
+	id = precursor.303
+	title = "precursor.303.name"
+	desc = {
+		trigger = {
+			NOR = {
+				owner = { has_authority = auth_machine_intelligence }
+				owner = { has_authority = auth_hive_mind }
+			}
+		}
+		text = precursor.302.a.desc
+	}
+	desc = {
+		trigger = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		text = precursor.302.b.desc
+	}
+	desc = {
+		trigger = {
+			owner = { has_authority = auth_hive_mind }
+		}
+		text = precursor.302.c.desc
+	}
+	picture = GFX_evt_archaeological_dig
+	location = event_target:precursor_planet
+	
+	is_triggered_only = yes
+
+	immediate = {
+		owner = { set_country_flag = yuht_artifact_recoverer }
+	}
+
+	after = {
+		hidden_effect = {
+			owner = { remove_country_flag = yuht_artifact_recoverer }
+		}
+	}
+	
+	option = {
+		name = INTERESTING
+		owner = {
+			add_event_chain_counter = { 
+				event_chain = "yuht_chain" 
+				counter = "yuht_artifacts" 
+				amount = 1 
+			}
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier1researchreward
+				min = @tier1researchmin
+				max = @tier1researchmax
+			}
+			hidden_effect = { 
+				country_event = { id = precursor.597 } 
+				remove_country_flag = ongoing_precursor_artifact
+			}
+		}
+	}
+}
+
+# First League Artifact Recovered
+ship_event = {
+	id = precursor.304
+	title = "precursor.304.name"
+	desc = {
+		trigger = {
+			NOR = {
+				owner = { has_authority = auth_machine_intelligence }
+				owner = { has_authority = auth_hive_mind }
+			}
+		}
+		text = precursor.302.a.desc
+	}
+	desc = {
+		trigger = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		text = precursor.302.b.desc
+	}
+	desc = {
+		trigger = {
+			owner = { has_authority = auth_hive_mind }
+		}
+		text = precursor.302.c.desc
+	}
+	picture = GFX_evt_archaeological_dig
+	location = event_target:precursor_planet
+	
+	is_triggered_only = yes
+
+	immediate = {
+		owner = { set_country_flag = first_league_artifact_recoverer }
+	}
+
+	after = {
+		hidden_effect = {
+			owner = { remove_country_flag = first_league_artifact_recoverer }
+		}
+	}
+	
+	option = {
+		name = INTERESTING
+		owner = {
+			add_event_chain_counter = { 
+				event_chain = "first_league_chain" 
+				counter = "first_league_artifacts" 
+				amount = 1 
+			}
+			add_monthly_resource_mult = {
+				resource = engineering_research
+				value = @tier1researchreward
+				min = @tier1researchmin
+				max = @tier1researchmax
+			}
+			hidden_effect = { 
+				country_event = { id = precursor.1097 } 
+				remove_country_flag = ongoing_precursor_artifact
+			}
+		}
+	}
+}
+
+# Irassian Artifact Recovered
+ship_event = {
+	id = precursor.305
+	title = "precursor.305.name"
+	desc = {
+		trigger = {
+			NOR = {
+				owner = { has_authority = auth_machine_intelligence }
+				owner = { has_authority = auth_hive_mind }
+			}
+		}
+		text = precursor.302.a.desc
+	}
+	desc = {
+		trigger = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		text = precursor.302.b.desc
+	}
+	desc = {
+		trigger = {
+			owner = { has_authority = auth_hive_mind }
+		}
+		text = precursor.302.c.desc
+	}
+	picture = GFX_evt_archaeological_dig
+	location = event_target:precursor_planet
+	
+	is_triggered_only = yes
+
+	immediate = {
+		owner = { set_country_flag = irassian_artifact_recoverer }
+	}
+
+	after = {
+		hidden_effect = {
+			owner = { remove_country_flag = irassian_artifact_recoverer }
+		}
+	}
+	
+	option = {
+		name = INTERESTING
+		owner = {
+			add_event_chain_counter = { 
+				event_chain = "irassian_chain" 
+				counter = "irassian_artifacts" 
+				amount = 1 
+			}
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier1researchreward
+				min = @tier1researchmin
+				max = @tier1researchmax
+			}
+			hidden_effect = { 
+				country_event = { id = precursor.1597 } 
+				remove_country_flag = ongoing_precursor_artifact
+			}
+		}
+	}
+}
+
+# Cybrex Artifact Recovered
+ship_event = {
+	id = precursor.306
+	title = "precursor.306.name"
+	desc = {
+		trigger = {
+			NOR = {
+				owner = { has_authority = auth_machine_intelligence }
+				owner = { has_authority = auth_hive_mind }
+			}
+		}
+		text = precursor.302.a.desc
+	}
+	desc = {
+		trigger = {
+			owner = { has_authority = auth_machine_intelligence }
+		}
+		text = precursor.302.b.desc
+	}
+	desc = {
+		trigger = {
+			owner = { has_authority = auth_hive_mind }
+		}
+		text = precursor.302.c.desc
+	}
+	picture = GFX_evt_archaeological_dig
+	location = event_target:precursor_planet
+	
+	is_triggered_only = yes
+
+	immediate = {
+		owner = { set_country_flag = cybrex_artifact_recoverer }
+	}
+
+	after = {
+		hidden_effect = {
+			owner = { remove_country_flag = cybrex_artifact_recoverer }
+		}
+	}
+	
+	option = {
+		name = INTERESTING
+		owner = {
+			add_event_chain_counter = { 
+				event_chain = "cybrex_chain" 
+				counter = "cybrex_artifacts" 
+				amount = 1 
+			}
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier1researchreward
+				min = @tier1researchmin
+				max = @tier1researchmax
+			}
+			hidden_effect = { 
+				country_event = { id = precursor.2103 } 
+				remove_country_flag = ongoing_precursor_artifact
+			}
+		}
+	}
+}
+
+# Private Collector has Artifact
+country_event = {
+	id = precursor.310
+	title = "precursor.310.name"
+	desc = "precursor.310.desc"
+	picture = GFX_evt_archaeological_dig
+	location = event_target:collector_home
+	
+	trigger = {
+		is_ai = no
+		mid_game_years_passed > 0
+		NOR = {
+			has_country_flag = new_precursor
+			has_country_flag = ongoing_precursor_artifact
+			has_country_flag = precursor_collector_fired
+			has_ethic = ethic_gestalt_consciousness
+		}
+		OR = {
+			AND = {
+				has_event_chain = "vultaum_chain"
+				NOT = {
+					has_completed_event_chain_counter = {
+						event_chain = vultaum_chain
+						counter = vultaum_artifacts
+					}
+				}
+			}
+			AND = {
+				has_event_chain = "yuht_chain"
+				NOT = {
+					has_completed_event_chain_counter = {
+						event_chain = yuht_chain
+						counter = yuht_artifacts
+					}
+				}
+			}
+			AND = { 
+				has_event_chain = "first_league_chain"
+				NOT = {
+					has_completed_event_chain_counter = {
+						event_chain = first_league_chain
+						counter = first_league_artifacts
+					}
+				}
+			}
+			AND = {
+				has_event_chain = "irassian_chain"
+				NOT = {
+					has_completed_event_chain_counter = {
+						event_chain = irassian_chain
+						counter = irassian_artifacts
+					}
+				}
+			}
+			AND = {
+				has_event_chain = "cybrex_chain"
+				NOT = {
+					has_completed_event_chain_counter = {
+						event_chain = cybrex_chain
+						counter = cybrex_artifacts
+					}
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+	}
+	
+	immediate = {
+		set_timed_country_flag = { flag = new_precursor days = 1200 }
+		set_country_flag = precursor_collector_fired
+		random_owned_planet = { save_event_target_as = collector_home }
+		if = {
+			limit = { has_event_chain = "vultaum_chain" }
+			set_country_flag = vultaum_artifact_recoverer
+			break = yes
+		}
+		if = {
+			limit = { has_event_chain = "yuht_chain" }
+			set_country_flag = yuht_artifact_recoverer
+			break = yes
+		}
+		if = {
+			limit = { has_event_chain = "first_league_chain" }
+			set_country_flag = first_league_artifact_recoverer
+			break = yes
+		}
+		if = {
+			limit = { has_event_chain = "irassian_chain" }
+			set_country_flag = irassian_artifact_recoverer
+			break = yes
+		}
+		if = {
+			limit = { has_event_chain = "cybrex_chain" }
+			set_country_flag = cybrex_artifact_recoverer
+			break = yes
+		}
+	}
+
+	after = {
+		hidden_effect = {
+			remove_country_flag = vultaum_artifact_recoverer
+			remove_country_flag = yuht_artifact_recoverer
+			remove_country_flag = first_league_artifact_recoverer
+			remove_country_flag = irassian_artifact_recoverer
+			remove_country_flag = cybrex_artifact_recoverer
+		}
+	}
+	
+	option = {
+		name = precursor.310.a
+		allow = { energy > 499 }
+		custom_tooltip = buy_precursor_artifact
+		add_energy = -500
+		collector_surrenders_artifact = yes
+	}
+	option = {
+		name = precursor.310.b
+		allow = { influence > 99 }
+		custom_tooltip = seize_precursor_artifact
+		add_influence = -100
+		collector_surrenders_artifact = yes
+	}
+	option = {
+		name = precursor.310.c
+		custom_tooltip = leave_precursor_artifact
+	}
+}
+
+
+
+# Neighbor Offers to Sell Artifact
+country_event = {
+	id = precursor.311
+	title = TRANSMISSION
+	desc = "precursor.311.desc"
+
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = event_target:artifact_seller
+		room = event_target:artifact_seller.ruler
+	}
+
+	trigger = {
+		is_ai = no
+		mid_game_years_passed > 0
+		NOR = {
+			has_country_flag = new_precursor
+			has_country_flag = ongoing_precursor_artifact
+			has_country_flag = precursor_seller_fired
+			has_ethic = ethic_gestalt_consciousness
+			has_relation_flag = {
+				who = event_target:artifact_seller
+				flag = precursor_artifact_deal
+			}
+		}
+		OR = {
+			AND = {
+				has_event_chain = "vultaum_chain"
+				NOT = {
+					has_completed_event_chain_counter = {
+						event_chain = vultaum_chain
+						counter = vultaum_artifacts
+					}
+				}
+				any_neighbor_country = {
+					has_communications = root
+					is_country_type = default
+					is_subject = no
+					NOR = { 
+						has_ethic = ethic_gestalt_consciousness
+						is_at_war_with = root 
+						is_same_value = root
+						is_protective_to = root
+						is_friendly_to = root
+						is_loyal_to = root
+						is_hostile_to = root
+						is_domineering_to = root
+						is_unfriendly_to = root
+					}
+					any_system_within_border = { has_star_flag = precursor_1 }
+				}
+			}
+			AND = {
+				has_event_chain = "yuht_chain"
+				NOT = {
+					has_completed_event_chain_counter = {
+						event_chain = yuht_chain
+						counter = yuht_artifacts
+					}
+				}
+				any_neighbor_country = {
+					has_communications = root
+					is_country_type = default
+					is_subject = no
+					NOR = { 
+						has_ethic = ethic_gestalt_consciousness
+						is_at_war_with = root 
+						is_same_value = root
+						is_protective_to = root
+						is_friendly_to = root
+						is_loyal_to = root
+						is_hostile_to = root
+						is_domineering_to = root
+						is_unfriendly_to = root
+					}
+					any_system_within_border = { has_star_flag = precursor_2 }
+				}
+			}
+			AND = { 
+				has_event_chain = "first_league_chain"
+				NOT = {
+					has_completed_event_chain_counter = {
+						event_chain = first_league_chain
+						counter = first_league_artifacts
+					}
+				}
+				any_neighbor_country = {
+					has_communications = root
+					is_country_type = default
+					is_subject = no
+					NOR = { 
+						has_ethic = ethic_gestalt_consciousness
+						is_at_war_with = root 
+						is_same_value = root
+						is_protective_to = root
+						is_friendly_to = root
+						is_loyal_to = root
+						is_hostile_to = root
+						is_domineering_to = root
+						is_unfriendly_to = root
+					}
+					any_system_within_border = { has_star_flag = precursor_3 }
+				}
+			}
+			AND = {
+				has_event_chain = "irassian_chain"
+				NOT = {
+					has_completed_event_chain_counter = {
+						event_chain = irassian_chain
+						counter = irassian_artifacts
+					}
+				}
+				any_neighbor_country = {
+					has_communications = root
+					is_country_type = default
+					is_subject = no
+					NOR = { 
+						has_ethic = ethic_gestalt_consciousness
+						is_at_war_with = root 
+						is_same_value = root
+						is_protective_to = root
+						is_friendly_to = root
+						is_loyal_to = root
+						is_hostile_to = root
+						is_domineering_to = root
+						is_unfriendly_to = root
+					}
+					any_system_within_border = { has_star_flag = precursor_4 }
+				}
+			}
+			AND = {
+				has_event_chain = "cybrex_chain"
+				NOT = {
+					has_completed_event_chain_counter = {
+						event_chain = cybrex_chain
+						counter = cybrex_artifacts
+					}
+				}
+				any_neighbor_country = {
+					has_communications = root
+					is_country_type = default
+					is_subject = no
+					NOR = { 
+						has_ethic = ethic_gestalt_consciousness
+						is_at_war_with = root 
+						is_same_value = root
+						is_protective_to = root
+						is_friendly_to = root
+						is_loyal_to = root
+						is_hostile_to = root
+						is_domineering_to = root
+						is_unfriendly_to = root
+					}
+					any_system_within_border = { has_star_flag = precursor_5 }
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+	}
+
+	immediate = {
+		set_country_flag = precursor_seller_fired
+		set_timed_country_flag = { flag = new_precursor days = 1200 }
+		set_relation_flag = {
+			who = event_target:artifact_giver
+			flag = precursor_artifact_deal
+		}
+		if = {
+			limit = { has_event_chain = "vultaum_chain" }
+			set_country_flag = vultaum_artifact_recoverer
+			random_neighbor_country = {
+				limit = {
+					has_communications = root
+					is_country_type = default
+					is_subject = no
+					NOR = { 
+						has_ethic = ethic_gestalt_consciousness
+						is_at_war_with = root 
+						is_same_value = root
+						is_protective_to = root
+						is_friendly_to = root
+						is_loyal_to = root
+						is_hostile_to = root
+						is_domineering_to = root
+						is_unfriendly_to = root
+					}
+					any_system_within_border = { has_star_flag = precursor_1 }
+				}
+				save_event_target_as = artifact_seller
+			}
+			break = yes
+		}
+		if = {
+			limit = { has_event_chain = "yuht_chain" }
+			set_country_flag = yuht_artifact_recoverer
+			random_neighbor_country = {
+				limit = {
+					has_communications = root
+					is_country_type = default
+					is_subject = no
+					NOR = { 
+						has_ethic = ethic_gestalt_consciousness
+						is_at_war_with = root 
+						is_same_value = root
+						is_protective_to = root
+						is_friendly_to = root
+						is_loyal_to = root
+						is_hostile_to = root
+						is_domineering_to = root
+						is_unfriendly_to = root
+					}
+					any_system_within_border = { has_star_flag = precursor_2 }
+				}
+				save_event_target_as = artifact_seller
+			}
+			break = yes
+		}
+		if = {
+			limit = { has_event_chain = "first_league_chain" }
+			set_country_flag = first_league_artifact_recoverer
+			random_neighbor_country = {
+				limit = {
+					has_communications = root
+					is_country_type = default
+					is_subject = no
+					NOR = { 
+						has_ethic = ethic_gestalt_consciousness
+						is_at_war_with = root 
+						is_same_value = root
+						is_protective_to = root
+						is_friendly_to = root
+						is_loyal_to = root
+						is_hostile_to = root
+						is_domineering_to = root
+						is_unfriendly_to = root
+					}
+					any_system_within_border = { has_star_flag = precursor_3 }
+				}
+				save_event_target_as = artifact_seller
+			}
+			break = yes
+		}
+		if = {
+			limit = { has_event_chain = "irassian_chain" }
+			set_country_flag = irassian_artifact_recoverer
+			random_neighbor_country = {
+				limit = {
+					has_communications = root
+					is_country_type = default
+					is_subject = no
+					NOR = { 
+						has_ethic = ethic_gestalt_consciousness
+						is_at_war_with = root 
+						is_same_value = root
+						is_protective_to = root
+						is_friendly_to = root
+						is_loyal_to = root
+						is_hostile_to = root
+						is_domineering_to = root
+						is_unfriendly_to = root
+					}
+					any_system_within_border = { has_star_flag = precursor_4 }
+				}
+				save_event_target_as = artifact_seller
+			}
+			break = yes
+		}
+		if = {
+			limit = { has_event_chain = "cybrex_chain" }
+			set_country_flag = cybrex_artifact_recoverer
+			random_neighbor_country = {
+				limit = {
+					has_communications = root
+					is_country_type = default
+					is_subject = no
+					NOR = { 
+						has_ethic = ethic_gestalt_consciousness
+						is_at_war_with = root 
+						is_same_value = root
+						is_protective_to = root
+						is_friendly_to = root
+						is_loyal_to = root
+						is_hostile_to = root
+						is_domineering_to = root
+						is_unfriendly_to = root
+					}
+					any_system_within_border = { has_star_flag = precursor_5 }
+				}
+				save_event_target_as = artifact_seller
+			}
+			break = yes
+		}
+	}
+
+	after = {
+		hidden_effect = {
+			remove_country_flag = vultaum_artifact_recoverer
+			remove_country_flag = yuht_artifact_recoverer
+			remove_country_flag = first_league_artifact_recoverer
+			remove_country_flag = irassian_artifact_recoverer
+			remove_country_flag = cybrex_artifact_recoverer
+		}
+	}
+	
+	option = {
+		name = "precursor.311.a"
+		response_text = precursor.311.a.reply
+		allow = { energy > 999 }
+		custom_tooltip = purchase_artifact
+		add_energy = -1000
+		hidden_effect = {
+			event_target:artifact_seller = { add_energy = 1000 }
+		}
+		collector_surrenders_artifact = yes
+	}
+	option = {
+		name = "precursor.311.b"
+		response_text = precursor.311.b.reply
+		allow = { energy > 499 }
+		trigger = { has_valid_civic = civic_corporate_dominion }
+		custom_tooltip = purchase_artifact
+		add_energy = -500
+		hidden_effect = {
+			event_target:artifact_seller = { add_energy = 500 }
+		}
+		collector_surrenders_artifact = yes
+	}
+	option = {
+		name = "precursor.311.c"
+		trigger = { has_valid_civic = civic_warrior_culture }
+		hidden_effect = {
+			random_list = {
+				10 = { # Refuses
+					modifier = {
+						factor = 50
+						relative_power = {
+							who = event_target:artifact_seller
+							category = fleet
+							value = inferior
+						}
+					}
+					modifier = {
+						factor = 50
+						relative_power = {
+							who = event_target:artifact_seller
+							category = fleet
+							value = pathetic
+						}
+					}
+					modifier = {
+						factor = 50
+						event_target:artifact_seller = { has_valid_civic = civic_warrior_culture }
+					}
+					country_event = { id = precursor.312 }
+				}
+				10 = { # Folds
+					modifier = {
+						factor = 50
+						relative_power = {
+							who = event_target:artifact_seller
+							category = fleet
+							value = superior
+						}
+					}
+					modifier = {
+						factor = 50
+						relative_power = {
+							who = event_target:artifact_seller
+							category = fleet
+							value = overwhelming
+						}
+					}
+					country_event = { id = precursor.313 }
+				}
+			}
+		}
+		custom_tooltip = coerce_artifact
+	}
+	option = {
+		name = "precursor.311.d"
+	}
+}
+
+# Rejects Threat
+country_event = {
+	id = precursor.312
+	title = TRANSMISSION
+	desc = "precursor.312.desc"
+
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = event_target:artifact_seller
+		room = event_target:artifact_seller
+	}
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "precursor.312.d"
+		event_target:artifact_seller = {
+			add_opinion_modifier = { 
+				who = root
+				modifier = opinion_threatened_artifact
+			}
+		}
+	}
+}
+
+# Folds to threat
+country_event = {
+	id = precursor.313
+	title = TRANSMISSION
+	desc = "precursor.313.desc"
+
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = event_target:artifact_seller
+		room = event_target:artifact_seller
+	}
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "precursor.313.d"
+		collector_surrenders_artifact = yes
+	}
+}
+
+# Neighbor Gifts Artifact
+country_event = {
+	id = precursor.314
+	title = TRANSMISSION
+	desc = "precursor.314.desc"
+
+	diplomatic = yes
+	
+	picture_event_data = {
+		portrait = event_target:artifact_giver
+		room = event_target:artifact_giver.ruler
+	}
+
+	trigger = {
+		is_ai = no
+		mid_game_years_passed > 0
+		NOR = {
+			has_country_flag = new_precursor
+			has_country_flag = ongoing_precursor_artifact
+			has_country_flag = precursor_giver_fired
+			has_ethic = ethic_gestalt_consciousness
+			has_relation_flag = {
+				who = event_target:artifact_giver
+				flag = precursor_artifact_deal
+			}
+		}
+		OR = {
+			AND = {
+				has_event_chain = "vultaum_chain"
+				NOT = {
+					has_completed_event_chain_counter = {
+						event_chain = vultaum_chain
+						counter = vultaum_artifacts
+					}
+				}
+				any_neighbor_country = {
+					has_communications = root
+					is_country_type = default
+					is_subject = no
+					OR = {
+						is_protective_to = root
+						is_friendly_to = root
+						is_loyal_to = root
+					}
+					NOR = { 
+						has_ethic = ethic_gestalt_consciousness
+						is_at_war_with = root 
+						is_same_value = root
+					}
+					any_system_within_border = { has_star_flag = precursor_1 }
+				}
+			}
+			AND = {
+				has_event_chain = "yuht_chain"
+				NOT = {
+					has_completed_event_chain_counter = {
+						event_chain = yuht_chain
+						counter = yuht_artifacts
+					}
+				}
+				any_neighbor_country = {
+					has_communications = root
+					is_country_type = default
+					is_subject = no
+					OR = {
+						is_protective_to = root
+						is_friendly_to = root
+						is_loyal_to = root
+					}
+					NOR = { 
+						has_ethic = ethic_gestalt_consciousness
+						is_at_war_with = root 
+						is_same_value = root
+					}
+					any_system_within_border = { has_star_flag = precursor_2 }
+				}
+			}
+			AND = { 
+				has_event_chain = "first_league_chain"
+				NOT = {
+					has_completed_event_chain_counter = {
+						event_chain = first_league_chain
+						counter = first_league_artifacts
+					}
+				}
+				any_neighbor_country = {
+					has_communications = root
+					is_country_type = default
+					is_subject = no
+					OR = {
+						is_protective_to = root
+						is_friendly_to = root
+						is_loyal_to = root
+					}
+					NOR = { 
+						has_ethic = ethic_gestalt_consciousness
+						is_at_war_with = root 
+						is_same_value = root
+					}
+					any_system_within_border = { has_star_flag = precursor_3 }
+				}
+			}
+			AND = {
+				has_event_chain = "irassian_chain"
+				NOT = {
+					has_completed_event_chain_counter = {
+						event_chain = irassian_chain
+						counter = irassian_artifacts
+					}
+				}
+				any_neighbor_country = {
+					has_communications = root
+					is_country_type = default
+					is_subject = no
+					OR = {
+						is_protective_to = root
+						is_friendly_to = root
+						is_loyal_to = root
+					}
+					NOR = { 
+						has_ethic = ethic_gestalt_consciousness
+						is_at_war_with = root 
+						is_same_value = root
+					}
+					any_system_within_border = { has_star_flag = precursor_4 }
+				}
+			}
+			AND = {
+				has_event_chain = "cybrex_chain"
+				NOT = {
+					has_completed_event_chain_counter = {
+						event_chain = cybrex_chain
+						counter = cybrex_artifacts
+					}
+				}
+				any_neighbor_country = {
+					has_communications = root
+					is_country_type = default
+					is_subject = no
+					OR = {
+						is_protective_to = root
+						is_friendly_to = root
+						is_loyal_to = root
+					}
+					NOR = { 
+						has_ethic = ethic_gestalt_consciousness
+						is_at_war_with = root 
+						is_same_value = root
+					}
+					any_system_within_border = { has_star_flag = precursor_5 }
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+	}
+
+	immediate = {
+		set_country_flag = precursor_giver_fired
+		set_timed_country_flag = { flag = new_precursor days = 1200 }
+		set_relation_flag = {
+			who = event_target:artifact_giver
+			flag = precursor_artifact_deal
+		}
+		if = {
+			limit = { has_event_chain = "vultaum_chain" }
+			set_country_flag = vultaum_artifact_recoverer
+			random_neighbor_country = {
+				limit = {
+					has_communications = root
+					is_country_type = default
+					is_subject = no
+					OR = {
+						is_protective_to = root
+						is_friendly_to = root
+						is_loyal_to = root
+					}
+					NOR = { 
+						has_ethic = ethic_gestalt_consciousness
+						is_at_war_with = root 
+						is_same_value = root
+					}
+					any_system_within_border = { has_star_flag = precursor_1 }
+				}
+				save_event_target_as = artifact_giver
+			}
+			break = yes
+		}
+		if = {
+			limit = { has_event_chain = "yuht_chain" }
+			set_country_flag = yuht_artifact_recoverer
+			random_neighbor_country = {
+				limit = {
+					has_communications = root
+					is_country_type = default
+					is_subject = no
+					OR = {
+						is_protective_to = root
+						is_friendly_to = root
+						is_loyal_to = root
+					}
+					NOR = { 
+						has_ethic = ethic_gestalt_consciousness
+						is_at_war_with = root 
+						is_same_value = root
+					}
+					any_system_within_border = { has_star_flag = precursor_2 }
+				}
+				save_event_target_as = artifact_giver
+			}
+			break = yes
+		}
+		if = {
+			limit = { has_event_chain = "first_league_chain" }
+			set_country_flag = first_league_artifact_recoverer
+			random_neighbor_country = {
+				limit = {
+					has_communications = root
+					is_country_type = default
+					is_subject = no
+					OR = {
+						is_protective_to = root
+						is_friendly_to = root
+						is_loyal_to = root
+					}
+					NOR = { 
+						has_ethic = ethic_gestalt_consciousness
+						is_at_war_with = root 
+						is_same_value = root
+					}
+					any_system_within_border = { has_star_flag = precursor_3 }
+				}
+				save_event_target_as = artifact_giver
+			}
+			break = yes
+		}
+		if = {
+			limit = { has_event_chain = "irassian_chain" }
+			set_country_flag = irassian_artifact_recoverer
+			random_neighbor_country = {
+				limit = {
+					has_communications = root
+					is_country_type = default
+					is_subject = no
+					OR = {
+						is_protective_to = root
+						is_friendly_to = root
+						is_loyal_to = root
+					}
+					NOR = { 
+						has_ethic = ethic_gestalt_consciousness
+						is_at_war_with = root 
+						is_same_value = root
+					}
+					any_system_within_border = { has_star_flag = precursor_4 }
+				}
+				save_event_target_as = artifact_giver
+			}
+			break = yes
+		}
+		if = {
+			limit = { has_event_chain = "cybrex_chain" }
+			set_country_flag = cybrex_artifact_recoverer
+			random_neighbor_country = {
+				limit = {
+					has_communications = root
+					is_country_type = default
+					is_subject = no
+					OR = {
+						is_protective_to = root
+						is_friendly_to = root
+						is_loyal_to = root
+					}
+					NOR = { 
+						has_ethic = ethic_gestalt_consciousness
+						is_at_war_with = root 
+						is_same_value = root
+					}
+					any_system_within_border = { has_star_flag = precursor_5 }
+				}
+				save_event_target_as = artifact_giver
+			}
+			break = yes
+		}
+	}
+
+	after = {
+		hidden_effect = {
+			remove_country_flag = vultaum_artifact_recoverer
+			remove_country_flag = yuht_artifact_recoverer
+			remove_country_flag = first_league_artifact_recoverer
+			remove_country_flag = irassian_artifact_recoverer
+			remove_country_flag = cybrex_artifact_recoverer
+		}
+	}
+	
+	option = {
+		name = "precursor.314.a"
+		collector_surrenders_artifact = yes
 	}
 }

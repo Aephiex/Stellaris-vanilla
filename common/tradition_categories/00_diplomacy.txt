@@ -14,6 +14,7 @@ tradition_diplomacy = {
 			OR = {
 				has_valid_civic = civic_fanatic_purifiers
 				has_valid_civic = civic_inwards_perfection
+				has_valid_civic = civic_barbaric_despoilers
 				has_authority = auth_hive_mind
 			}
 		}

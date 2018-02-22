@@ -11,31 +11,20 @@
 ##################
 # General Traits #
 ##################
-
-leader_trait_defender = {
+leader_trait_restrained = {
 	cost = 1
 	modification = no
-	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_defender.dds"
-	modifier = {
-		army_defense_morale_mult = 0.2
-		army_defense_damage_mult = 0.2
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_restrained.dds"
+	modifier = {	
+		army_disengage_chance_mult = 0.20
+		army_collateral_damage_mult = -0.33
 	}
+	leader_potential_add = {
+		NOT = { from = { has_authority = "auth_machine_intelligence" } }
+	}	
 	leader_trait = yes
 	leader_class = { general }
-	opposites = { "leader_trait_attacker" }
-}
-
-leader_trait_attacker = {
-	cost = 1
-	modification = no
-	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_attacker.dds"
-	modifier = {
-		army_attack_morale_mult = 0.2
-		army_attack_damage_mult = 0.2
-	}
-	leader_trait = yes
-	leader_class = { general }
-	opposites = { "leader_trait_defender" }
+	opposites = { "leader_trait_butcher" }
 }
 
 leader_trait_charismatic = {
@@ -58,10 +47,11 @@ leader_trait_butcher = {
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_butcher.dds"
 	modifier = {
 		army_damage_mult = 0.1
+		army_collateral_damage_mult = 0.33
 	}
 	leader_trait = yes
 	leader_class = { general }
-	opposites = { "leader_trait_armchair_commander" }
+	opposites = { "leader_trait_armchair_commander" "leader_trait_restrained" }
 }
 
 leader_trait_glory_seeker = {
@@ -143,7 +133,7 @@ leader_trait_general_psionic = {
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_psionic_leader.dds"
 	modifier = {
 		army_morale = 0.15
-		army_attack_morale_mult = 0.15
+		army_morale_damage_mult = 0.15
 	}
 	leader_trait = yes
 	leader_class = { general }
@@ -158,11 +148,24 @@ leader_trait_general_chosen = {
 	immortal_leaders = yes
 	modifier = {
 		army_morale = 0.3
-		army_attack_morale_mult = 0.3
+		army_morale_damage_mult = 0.3
 		army_damage_mult = 0.2
 	}
 	leader_trait = yes
 	leader_class = { general }
+	initial = no
+	randomized = no
+}
+
+leader_trait_general_mercenary_warrior = {
+	cost = 0
+	modification = no
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_glory_seeker.dds" 
+	modifier = {
+		army_damage_mult = 0.10
+	}
+	leader_trait = yes
+	leader_class = { admiral }
 	initial = no
 	randomized = no
 }

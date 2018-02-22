@@ -4034,7 +4034,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = hive_mind
-			FROM = {
+				FROM = {
 				OR = {
 					has_ethic = ethic_egalitarian
 					has_ethic = ethic_fanatic_egalitarian
@@ -8387,6 +8387,20 @@ greetings = {
 		}
 	}
 
+	MECH_E_MECH_GREETING_05 = {
+		weight = {
+			weight = 1000
+		}
+		trigger = {
+			has_authority = auth_machine_intelligence
+			has_civic = civic_machine_terminator
+			NOT = { is_at_war_with = from }
+			from = {
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+
 	MECH_E_SYNTH_GREETING_01 = {
 		weight = {
 			weight = 3000
@@ -11259,6 +11273,8 @@ greetings = {
 				is_species_class = ROBOT
 				has_ethic = ethic_spiritualist
 				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_egalitarian
+				has_ethic = ethic_fanatic_egalitarian
 				is_at_war_with = FROM
 			}
 			from = {
@@ -11307,6 +11323,8 @@ greetings = {
 				is_species_class = ROBOT
 				has_ethic = ethic_spiritualist
 				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_fanatic_pacifist
+				has_ethic = ethic_pacifist
 				is_at_war_with = FROM
 			}
 			from = {
@@ -11410,6 +11428,33 @@ greetings = {
 	}
 
 	ORG_A_HOSTILE_GREETING_01 = {
+		weight = {
+			weight = 9000
+		}
+		trigger = {
+			OR = {
+				is_hostile_to = from
+				is_unfriendly_to = from
+			}
+			NOR = {
+				has_authority = auth_machine_intelligence
+				is_species_class = ROBOT
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_xenophile
+				has_ethic = ethic_fanatic_xenophile
+				is_at_war_with = FROM
+			}
+			from = {
+				AND = {
+					has_authority = auth_machine_intelligence
+					has_civic = civic_machine_assimilator
+				}
+			}
+		}
+	}
+
+	ORG_A_HOSTILE_GREETING_02 = {
 		weight = {
 			weight = 9000
 		}
@@ -11656,6 +11701,37 @@ greetings = {
 		}
 		trigger = {
 			is_neutral_to = from
+			NOR = {
+				is_species_class = ROBOT
+				has_ethic = ethic_gestalt_consciousness
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_authoritarian
+				has_ethic = ethic_fanatic_authoritarian
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+				is_at_war_with = FROM
+			}
+			from = {
+				AND = {
+					has_authority = auth_machine_intelligence
+					has_civic = civic_machine_servitor
+				}
+			}
+		}
+	}
+	ORG_S_NEUTRAL_GREETING_02 = {
+		weight = {
+			weight = 19000
+		}
+		trigger = {
+			is_neutral_to = from
+			OR = {
+				has_ethic = ethic_authoritarian
+				has_ethic = ethic_fanatic_authoritarian
+				has_ethic = ethic_xenophobe
+				has_ethic = ethic_fanatic_xenophobe
+			}
 			NOR = {
 				has_authority = auth_machine_intelligence
 				is_species_class = ROBOT
@@ -12001,6 +12077,8 @@ greetings = {
 				is_species_class = ROBOT
 				has_ethic = ethic_spiritualist
 				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_fanatic_egalitarian
+				has_ethic = ethic_fanatic_pacifist
 			}
 			from = {
 				has_authority = auth_machine_intelligence
@@ -12019,6 +12097,7 @@ greetings = {
 				is_species_class = ROBOT
 				has_ethic = ethic_spiritualist
 				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_fanatic_pacifist
 			}
 			from = {
 				has_authority = auth_machine_intelligence
@@ -12684,6 +12763,476 @@ greetings = {
 					has_authority = auth_machine_intelligence
 					is_species_class = ROBOT
 				}
+			}
+		}
+	}
+
+	# Horde Successor States
+	HORDE_SUCCESSOR_GREETING_01 = {
+		weight = {
+			weight = 1000
+		}
+		trigger = {
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				has_government = gov_diadochi
+				has_government = gov_successor_khanate
+			}
+		}
+	}
+	HORDE_SUCCESSOR_GREETING_02 = {
+		weight = {
+			weight = 1000
+		}
+		trigger = {
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				has_government = gov_diadochi
+				has_government = gov_successor_khanate
+			}
+		}
+	}
+	HORDE_SUCCESSOR_GREETING_03 = {
+		weight = {
+			weight = 1000
+		}
+		trigger = {
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				has_government = gov_diadochi
+				has_government = gov_successor_khanate
+			}
+		}
+	}
+	HORDE_SUCCESSOR_GREETING_04 = {
+		weight = {
+			weight = 1000
+		}
+		trigger = {
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				has_government = gov_diadochi
+				has_government = gov_successor_khanate
+			}
+		}
+	}
+	HORDE_SUCCESSOR_GREETING_05 = {
+		weight = {
+			weight = 1000
+		}
+		trigger = {
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				has_government = gov_diadochi
+				has_government = gov_successor_khanate
+			}
+		}
+	}
+	HORDE_SUCCESSOR_GREETING_06 = {
+		weight = {
+			weight = 1000
+		}
+		trigger = {
+			NOT = { is_at_war_with = FROM }
+			OR = {
+				has_government = gov_diadochi
+				has_government = gov_successor_khanate
+			}
+		}
+	}
+
+	HORDE_SUCCESSOR_WAR_GREETING_01 = {
+		weight = {
+			weight = 1000
+		}
+		trigger = {
+			is_at_war_with = FROM
+			OR = {
+				has_government = gov_diadochi
+				has_government = gov_successor_khanate
+			}
+		}
+	}
+	HORDE_SUCCESSOR_WAR_GREETING_02 = {
+		weight = {
+			weight = 1000
+		}
+		trigger = {
+			is_at_war_with = FROM
+			OR = {
+				has_government = gov_diadochi
+				has_government = gov_successor_khanate
+			}
+		}
+	}
+	HORDE_SUCCESSOR_WAR_GREETING_03 = {
+		weight = {
+			weight = 1000
+		}
+		trigger = {
+			is_at_war_with = FROM
+			OR = {
+				has_government = gov_diadochi
+				has_government = gov_successor_khanate
+			}
+		}
+	}
+	HORDE_SUCCESSOR_WAR_GREETING_04 = {
+		weight = {
+			weight = 1000
+		}
+		trigger = {
+			is_at_war_with = FROM
+			OR = {
+				has_government = gov_diadochi
+				has_government = gov_successor_khanate
+			}
+		}
+	}
+	HORDE_SUCCESSOR_WAR_GREETING_05 = {
+		weight = {
+			weight = 1000
+		}
+		trigger = {
+			is_at_war_with = FROM
+			OR = {
+				has_government = gov_diadochi
+				has_government = gov_successor_khanate
+			}
+		}
+	}
+	HORDE_SUCCESSOR_WAR_GREETING_06 = {
+		weight = {
+			weight = 1000
+		}
+		trigger = {
+			is_at_war_with = FROM
+			OR = {
+				has_government = gov_diadochi
+				has_government = gov_successor_khanate
+			}
+		}
+	}
+
+	# Colossus Greetings
+	FRIENDLY_COLOSSUS_GREETING_01 = {
+		trigger = {
+			any_owned_ship = { is_ship_size = colossus }
+			NOR = {
+				has_ethic = ethic_gestalt_consciousness
+				has_valid_civic = civic_fanatic_purifiers
+				is_at_war_with = FROM
+				has_ethic = ethic_fanatic_pacifist
+				has_ethic = ethic_pacifist
+			}
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+
+	FRIENDLY_COLOSSUS_GREETING_02 = {
+		trigger = {
+			any_owned_ship = { is_ship_size = colossus }
+			NOR = {
+				has_ethic = ethic_gestalt_consciousness
+				has_valid_civic = civic_fanatic_purifiers
+				is_at_war_with = FROM
+				has_ethic = ethic_fanatic_pacifist
+				has_ethic = ethic_pacifist
+			}
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+
+	FRIENDLY_COLOSSUS_REACT_GREETING_01 = {
+		trigger = {
+			from = {
+				any_owned_ship = { is_ship_size = colossus }
+			}
+			NOR = {
+				any_owned_ship = { is_ship_size = colossus }
+				has_ethic = ethic_gestalt_consciousness
+				has_valid_civic = civic_fanatic_purifiers
+				is_at_war_with = FROM
+				has_ethic = ethic_fanatic_pacifist
+				has_ethic = ethic_pacifist
+			}
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+
+	FRIENDLY_COLOSSUS_REACT_GREETING_02 = {
+		trigger = {
+			from = {
+				any_owned_ship = { is_ship_size = colossus }
+			}
+			NOR = {
+				any_owned_ship = { is_ship_size = colossus }
+				has_ethic = ethic_gestalt_consciousness
+				has_valid_civic = civic_fanatic_purifiers
+				is_at_war_with = FROM
+				has_ethic = ethic_fanatic_pacifist
+				has_ethic = ethic_pacifist
+			}
+			OR = {
+				is_friendly_to = FROM
+				is_cordial_to = FROM
+				is_protective_to = FROM
+			}
+		}
+	}
+
+	NEUTRAL_COLOSSUS_GREETING_01 = {
+		trigger = {
+			any_owned_ship = { is_ship_size = colossus }
+			NOR = {
+				has_ethic = ethic_gestalt_consciousness
+				has_valid_civic = civic_fanatic_purifiers
+				is_at_war_with = FROM
+				has_ethic = ethic_fanatic_pacifist
+				has_ethic = ethic_pacifist
+			}
+			OR = {
+				is_neutral_to = FROM
+				is_threatened_to = FROM
+			}
+		}
+	}
+
+	NEUTRAL_COLOSSUS_GREETING_02 = {
+		trigger = {
+			any_owned_ship = { is_ship_size = colossus }
+			NOR = {
+				has_ethic = ethic_gestalt_consciousness
+				has_valid_civic = civic_fanatic_purifiers
+				is_at_war_with = FROM
+				has_ethic = ethic_fanatic_pacifist
+				has_ethic = ethic_pacifist
+			}
+			OR = {
+				is_neutral_to = FROM
+				is_threatened_to = FROM
+			}
+		}
+	}
+
+	NEUTRAL_COLOSSUS_REACT_GREETING_01 = {
+		trigger = {
+			from = {
+				any_owned_ship = { is_ship_size = colossus }
+			}
+			NOR = {
+				any_owned_ship = { is_ship_size = colossus }
+				has_ethic = ethic_gestalt_consciousness
+				has_valid_civic = civic_fanatic_purifiers
+				is_at_war_with = FROM
+				has_ethic = ethic_fanatic_pacifist
+				has_ethic = ethic_pacifist
+			}
+			OR = {
+				is_neutral_to = FROM
+				is_threatened_to = FROM
+			}
+		}
+	}
+
+	NEUTRAL_COLOSSUS_REACT_GREETING_02 = {
+		trigger = {
+			from = {
+				any_owned_ship = { is_ship_size = colossus }
+			}
+			NOR = {
+				any_owned_ship = { is_ship_size = colossus }
+				has_ethic = ethic_gestalt_consciousness
+				has_valid_civic = civic_fanatic_purifiers
+				is_at_war_with = FROM
+				has_ethic = ethic_fanatic_pacifist
+				has_ethic = ethic_pacifist
+			}
+			OR = {
+				is_neutral_to = FROM
+				is_threatened_to = FROM
+			}
+		}
+	}
+
+	HOSTILE_COLOSSUS_GREETING_01 = {
+		trigger = {
+			any_owned_ship = { is_ship_size = colossus }
+			NOR = {
+				has_ethic = ethic_gestalt_consciousness
+				has_valid_civic = civic_fanatic_purifiers
+				is_at_war_with = FROM
+				has_ethic = ethic_fanatic_pacifist
+				has_ethic = ethic_pacifist
+			}
+			OR = {
+				is_hostile_to = FROM
+				is_domineering_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+
+	HOSTILE_COLOSSUS_GREETING_02 = {
+		trigger = {
+			any_owned_ship = { is_ship_size = colossus }
+			NOR = {
+				has_ethic = ethic_gestalt_consciousness
+				has_valid_civic = civic_fanatic_purifiers
+				is_at_war_with = FROM
+				has_ethic = ethic_fanatic_pacifist
+				has_ethic = ethic_pacifist
+			}
+			OR = {
+				is_hostile_to = FROM
+				is_domineering_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+
+	HOSTILE_COLOSSUS_REACT_GREETING_01 = {
+		trigger = {
+			from = {
+				any_owned_ship = { is_ship_size = colossus }
+			}
+			NOR = {
+				any_owned_ship = { is_ship_size = colossus }
+				has_ethic = ethic_gestalt_consciousness
+				has_valid_civic = civic_fanatic_purifiers
+				is_at_war_with = FROM
+				has_ethic = ethic_fanatic_pacifist
+				has_ethic = ethic_pacifist
+			}
+			OR = {
+				is_hostile_to = FROM
+				is_domineering_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+
+	HOSTILE_COLOSSUS_REACT_GREETING_02 = {
+		trigger = {
+			from = {
+				any_owned_ship = { is_ship_size = colossus }
+			}
+			NOR = {
+				any_owned_ship = { is_ship_size = colossus }
+				has_ethic = ethic_gestalt_consciousness
+				has_valid_civic = civic_fanatic_purifiers
+				is_at_war_with = FROM
+				has_ethic = ethic_fanatic_pacifist
+				has_ethic = ethic_pacifist
+			}
+			OR = {
+				is_hostile_to = FROM
+				is_domineering_to = FROM
+				is_unfriendly_to = FROM
+			}
+		}
+	}
+
+	PACIFIST_COLOSSUS_GREETING_01 = {
+		trigger = {
+			any_owned_ship = { is_ship_size = colossus }
+			NOR = {
+				has_ethic = ethic_gestalt_consciousness
+				has_valid_civic = civic_fanatic_purifiers
+				is_at_war_with = FROM
+			}
+			OR = {
+				has_ethic = ethic_fanatic_pacifist
+				has_ethic = ethic_pacifist
+			}
+		}
+	}
+
+	SPIRITUALIST_COLOSSUS_GREETING_01 = {
+		trigger = {
+			any_owned_ship = { is_ship_size = colossus }
+			NOR = {
+				has_ethic = ethic_gestalt_consciousness
+				has_valid_civic = civic_fanatic_purifiers
+				is_at_war_with = FROM
+			}
+			OR = {
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_spiritualist
+			}
+		}
+	}
+
+	MATERIALIST_COLOSSUS_GREETING_01 = {
+		trigger = {
+			any_owned_ship = { is_ship_size = colossus }
+			NOR = {
+				has_ethic = ethic_gestalt_consciousness
+				has_valid_civic = civic_fanatic_purifiers
+				is_at_war_with = FROM
+			}
+			OR = {
+				has_ethic = ethic_fanatic_materialist
+				has_ethic = ethic_materialist
+			}
+		}
+	}
+
+	PURIFIER_COLOSSUS_GREETING_01 = {
+		trigger = {
+			any_owned_ship = { is_ship_size = colossus }
+			has_valid_civic = civic_fanatic_purifiers
+		}
+	}
+
+	EXTERMINATOR_COLOSSUS_GREETING_01 = {
+		trigger = {
+			any_owned_ship = { is_ship_size = colossus }
+			has_government = gov_machine_terminator
+		}
+	}
+
+	HIVE_COLOSSUS_GREETING_01 = {
+		trigger = {
+			any_owned_ship = { is_ship_size = colossus }
+			has_authority = auth_hive_mind
+		}
+	}
+
+	WAR_COLOSSUS_GREETING_01 = {
+		trigger = {
+			any_owned_ship = { is_ship_size = colossus }
+			is_at_war_with = FROM
+			NOR = {
+				has_ethic = ethic_gestalt_consciousness
+				has_valid_civic = civic_fanatic_purifiers
+				has_ethic = ethic_fanatic_pacifist
+				has_ethic = ethic_pacifist
+			}
+		}
+	}
+
+	WAR_COLOSSUS_GREETING_02 = {
+		trigger = {
+			any_owned_ship = { is_ship_size = colossus }
+			is_at_war_with = FROM
+			NOR = {
+				has_ethic = ethic_gestalt_consciousness
+				has_valid_civic = civic_fanatic_purifiers
+				has_ethic = ethic_fanatic_pacifist
+				has_ethic = ethic_pacifist
 			}
 		}
 	}
@@ -14217,7 +14766,7 @@ action_offer_peace = {
 					NOT = { has_ethic = ethic_gestalt_consciousness }
 					NOT = { has_ai_personality = fanatic_purifiers }
 					NOT = { is_same_species_class = ROOT }
-					num_war_demands > 0
+					has_war_goal = yes
 				}
 			}
 		}
@@ -14227,7 +14776,7 @@ action_offer_peace = {
 					NOT = { has_ethic = ethic_gestalt_consciousness }
 					NOT = { has_ai_personality = fanatic_purifiers }
 					is_same_species_class = ROOT
-					num_war_demands > 0
+					has_war_goal = yes
 				}
 			}
 		}
@@ -14237,7 +14786,7 @@ action_offer_peace = {
 					NOT = { has_ethic = ethic_gestalt_consciousness }
 					NOT = { has_ai_personality = fanatic_purifiers }
 					NOT = { is_same_species_class = ROOT }
-					num_war_demands < 1
+					has_war_goal = no
 				}
 			}
 		}
@@ -14247,7 +14796,7 @@ action_offer_peace = {
 					NOT = { has_ethic = ethic_gestalt_consciousness }
 					NOT = { has_ai_personality = fanatic_purifiers }
 					is_same_species_class = ROOT
-					num_war_demands < 1
+					has_war_goal = no
 				}
 			}
 		}
@@ -14540,7 +15089,7 @@ action_offer_peace = {
 				NOT = { is_berserker_to = FROM }
 			}
 		}
-		FALLEN_MACHINE_EMPIRE_PEACE_ACCEPT_REFUSE = {
+		FALLEN_MACHINE_EMPIRE_PEACE_REFUSE_BERSERK = {
 			trigger = {
 				is_fallen_machine_empire = yes
 				is_berserker_to = FROM
@@ -18202,6 +18751,11 @@ action_offer_trade_deal = {
 				NOR = { is_country_type = fallen_empire
 						has_authority = auth_machine_intelligence
 				}
+				NOR = {
+					is_hostile_to = FROM
+					is_domineering_to = FROM
+					is_unfriendly_to = FROM
+				}					
 			}
 		}	
 		02_OFFER_TRADE_DEAL_GIFT_ACCEPT = {
@@ -18210,8 +18764,39 @@ action_offer_trade_deal = {
 				NOR = { is_country_type = fallen_empire
 						has_authority = auth_machine_intelligence
 				}
+				NOR = {
+					is_hostile_to = FROM
+					is_domineering_to = FROM
+					is_unfriendly_to = FROM
+				}				
 			}			
 		}	
+		01_OFFER_TRADE_DEAL_GIFT_ACCEPT_HOSTILE = {
+			only_for_gift = yes
+			trigger = {
+				NOR = { is_country_type = fallen_empire
+						has_authority = auth_machine_intelligence
+				}
+				OR = {
+					is_hostile_to = FROM
+					is_domineering_to = FROM
+					is_unfriendly_to = FROM
+				}				
+			}
+		}	
+		02_OFFER_TRADE_DEAL_GIFT_ACCEPT_HOSTILE = {
+			only_for_gift = yes
+			trigger = {
+				NOR = { is_country_type = fallen_empire
+						has_authority = auth_machine_intelligence
+				}
+				OR = {
+					is_hostile_to = FROM
+					is_domineering_to = FROM
+					is_unfriendly_to = FROM
+				}				
+			}			
+		}			
 		01_OFFER_TRADE_DEAL_GIFT_ACCEPT_FE = {
 			only_for_gift = yes
 			trigger = {
@@ -25044,6 +25629,33 @@ action_insult = {
 	}
 	
 	accept = {
+		01_INSULT_ACCEPT_FE = {
+			trigger = {
+				is_fallen_machine_empire = no
+				OR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+		}
+		02_INSULT_ACCEPT_FE = {
+			trigger = {
+				is_fallen_machine_empire = no
+				OR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+		}
+		03_INSULT_ACCEPT_FE = {
+			trigger = {
+				is_fallen_machine_empire = no
+				OR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}
+			}
+		}		
 		01_INSULT_ACCEPT_FALLEN_MACHINE_EMPIRE_BERSERK = {
 			trigger = {
 				is_fallen_machine_empire = yes
@@ -25107,6 +25719,10 @@ action_insult = {
 		01_INSULT_ACCEPT_NEUTRAL = {
 			trigger = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOR = {
+					is_country_type = fallen_empire
+					is_country_type = awakened_fallen_empire
+				}				
 				OR = {
 					is_neutral_to = FROM
 					is_threatened_to = FROM
@@ -25118,25 +25734,19 @@ action_insult = {
 		}
 		02_INSULT_ACCEPT_NEUTRAL = {
 			trigger = {
-				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ethic = ethic_gestalt_consciousness }				
 				OR = {
 					is_neutral_to = FROM
 					is_threatened_to = FROM
-					is_dismissive_to = FROM
-					is_patronizing_to = FROM
-					is_custodial_to = FROM
 				}
 			}
 		}
 		03_INSULT_ACCEPT_NEUTRAL = {
 			trigger = {
-				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ethic = ethic_gestalt_consciousness }			
 				OR = {
 					is_neutral_to = FROM
-					is_threatened_to = FROM
-					is_dismissive_to = FROM
-					is_patronizing_to = FROM
-					is_custodial_to = FROM					
+					is_threatened_to = FROM				
 				}
 			}
 		}
@@ -25146,9 +25756,6 @@ action_insult = {
 				OR = {
 					is_neutral_to = FROM
 					is_threatened_to = FROM
-					is_dismissive_to = FROM
-					is_patronizing_to = FROM
-					is_custodial_to = FROM
 				}
 			}
 		}
@@ -25177,9 +25784,6 @@ action_insult = {
 				OR = {
 					is_neutral_to = FROM
 					is_threatened_to = FROM
-					is_dismissive_to = FROM
-					is_patronizing_to = FROM
-					is_custodial_to = FROM
 				}
 			}
 		}
@@ -25345,10 +25949,6 @@ action_insult = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
 					is_protective_to = FROM
-					is_angry_to = FROM
-					is_imperious_to = FROM
-					is_arrogant_to = FROM
-					is_belligerent_to = FROM
 				}
 			}
 		}
@@ -25359,10 +25959,6 @@ action_insult = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
 					is_protective_to = FROM
-					is_angry_to = FROM
-					is_imperious_to = FROM
-					is_arrogant_to = FROM
-					is_belligerent_to = FROM
 				}
 			}
 		}
@@ -25373,10 +25969,6 @@ action_insult = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
 					is_protective_to = FROM
-					is_angry_to = FROM
-					is_imperious_to = FROM
-					is_arrogant_to = FROM
-					is_belligerent_to = FROM
 				}
 			}
 		}
@@ -25387,10 +25979,6 @@ action_insult = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
 					is_protective_to = FROM
-					is_angry_to = FROM
-					is_imperious_to = FROM
-					is_arrogant_to = FROM
-					is_belligerent_to = FROM
 				}
 			}
 		}
@@ -25401,10 +25989,6 @@ action_insult = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
 					is_protective_to = FROM
-					is_angry_to = FROM
-					is_imperious_to = FROM
-					is_arrogant_to = FROM
-					is_belligerent_to = FROM
 				}
 			}
 		}
@@ -25415,10 +25999,6 @@ action_insult = {
 					is_hostile_to = FROM
 					is_domineering_to = FROM
 					is_unfriendly_to = FROM
-					is_angry_to = FROM
-					is_imperious_to = FROM
-					is_arrogant_to = FROM
-					is_belligerent_to = FROM
 				}
 			}
 		}
@@ -25429,10 +26009,6 @@ action_insult = {
 					is_hostile_to = FROM
 					is_domineering_to = FROM
 					is_unfriendly_to = FROM
-					is_angry_to = FROM
-					is_imperious_to = FROM
-					is_arrogant_to = FROM
-					is_belligerent_to = FROM
 				}
 			}
 		}
@@ -25443,10 +26019,6 @@ action_insult = {
 					is_hostile_to = FROM
 					is_domineering_to = FROM
 					is_unfriendly_to = FROM
-					is_angry_to = FROM
-					is_imperious_to = FROM
-					is_arrogant_to = FROM
-					is_belligerent_to = FROM
 				}
 			}
 		}
@@ -25457,10 +26029,6 @@ action_insult = {
 					is_hostile_to = FROM
 					is_domineering_to = FROM
 					is_unfriendly_to = FROM
-					is_angry_to = FROM
-					is_imperious_to = FROM
-					is_arrogant_to = FROM
-					is_belligerent_to = FROM
 				}
 			}
 		}
@@ -25471,10 +26039,6 @@ action_insult = {
 					is_hostile_to = FROM
 					is_domineering_to = FROM
 					is_unfriendly_to = FROM
-					is_angry_to = FROM
-					is_imperious_to = FROM
-					is_arrogant_to = FROM
-					is_belligerent_to = FROM
 				}
 			}
 		}

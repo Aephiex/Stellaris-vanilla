@@ -25,8 +25,8 @@ ship_section_template = {
 		locatorname = "root"
 	}
 	
-	small_utility_slots = 1
-	aux_utility_slots = 2
+	small_utility_slots = 2
+	aux_utility_slots = 1
 }
 
 # Medium Crystal Ship Section - Blue
@@ -68,8 +68,8 @@ ship_section_template = {
 		locatorname = "root"
 	}
 	
-	small_utility_slots = 1
-	aux_utility_slots = 2
+	small_utility_slots = 2
+	aux_utility_slots = 1
 }
 
 # Large Crystal Ship Section - Blue
@@ -111,8 +111,8 @@ ship_section_template = {
 		locatorname = "root"
 	}
 	
-	small_utility_slots = 1
-	aux_utility_slots = 2
+	small_utility_slots = 2
+	aux_utility_slots = 1
 }
 
 
@@ -143,8 +143,8 @@ ship_section_template = {
 		locatorname = "root"
 	}
 	
-	small_utility_slots = 1
-	aux_utility_slots = 2
+	small_utility_slots = 2
+	aux_utility_slots = 1
 }
 
 # Medium Crystal Ship Section - Green
@@ -186,8 +186,8 @@ ship_section_template = {
 		locatorname = "root"
 	}
 	
-	small_utility_slots = 1
-	aux_utility_slots = 2
+	small_utility_slots = 2
+	aux_utility_slots = 1
 }
 
 # Large Crystal Ship Section - Green
@@ -229,8 +229,8 @@ ship_section_template = {
 		locatorname = "root"
 	}
 	
-	small_utility_slots = 1
-	aux_utility_slots = 2
+	small_utility_slots = 2
+	aux_utility_slots = 1
 }
 
 
@@ -261,8 +261,8 @@ ship_section_template = {
 		locatorname = "root"
 	}
 	
-	small_utility_slots = 1
-	aux_utility_slots = 2
+	small_utility_slots = 2
+	aux_utility_slots = 1
 }
 
 # Medium Crystal Ship Section - Yellow
@@ -304,8 +304,8 @@ ship_section_template = {
 		locatorname = "root"
 	}
 	
-	small_utility_slots = 1
-	aux_utility_slots = 2
+	small_utility_slots = 2
+	aux_utility_slots = 1
 }
 
 # Large Crystal Ship Section - Yellow
@@ -347,8 +347,8 @@ ship_section_template = {
 		locatorname = "root"
 	}
 	
-	small_utility_slots = 1
-	aux_utility_slots = 2
+	small_utility_slots = 2
+	aux_utility_slots = 1
 }
 
 
@@ -379,8 +379,8 @@ ship_section_template = {
 		locatorname = "root"
 	}
 	
-	small_utility_slots = 1
-	aux_utility_slots = 2
+	small_utility_slots = 2
+	aux_utility_slots = 1
 }
 
 # Medium Crystal Ship Section - Red
@@ -422,8 +422,8 @@ ship_section_template = {
 		locatorname = "root"
 	}
 	
-	small_utility_slots = 1
-	aux_utility_slots = 2
+	small_utility_slots = 2
+	aux_utility_slots = 1
 }
 
 # Large Crystal Ship Section - Red
@@ -465,8 +465,8 @@ ship_section_template = {
 		locatorname = "root"
 	}
 	
-	small_utility_slots = 1
-	aux_utility_slots = 2
+	small_utility_slots = 2
+	aux_utility_slots = 1
 }
 
 # Small Crystal Ship Section - Blue - ELITE
@@ -496,8 +496,8 @@ ship_section_template = {
 		locatorname = "root"
 	}
 	
-	small_utility_slots = 1
-	aux_utility_slots = 2
+	small_utility_slots = 2
+	aux_utility_slots = 1
 }
 
 # Small Crystal Ship Section - Blue - ELITE
@@ -539,8 +539,8 @@ ship_section_template = {
 		locatorname = "root"
 	}
 	
-	small_utility_slots = 1
-	aux_utility_slots = 2
+	small_utility_slots = 2
+	aux_utility_slots = 1
 }
 
 # Large Crystal Ship Section - Blue - ELITE
@@ -582,8 +582,8 @@ ship_section_template = {
 		locatorname = "root"
 	}
 	
-	small_utility_slots = 1
-	aux_utility_slots = 2
+	small_utility_slots = 2
+	aux_utility_slots = 1
 }
 
 
@@ -614,8 +614,8 @@ ship_section_template = {
 		locatorname = "root"
 	}
 	
-	small_utility_slots = 1
-	aux_utility_slots = 2
+	small_utility_slots = 2
+	aux_utility_slots = 1
 }
 
 # Small Crystal Ship Section - Green - ELITE
@@ -657,8 +657,8 @@ ship_section_template = {
 		locatorname = "root"
 	}
 	
-	small_utility_slots = 1
-	aux_utility_slots = 2
+	small_utility_slots = 2
+	aux_utility_slots = 1
 }
 
 # Large Crystal Ship Section - Green - ELITE
@@ -700,8 +700,8 @@ ship_section_template = {
 		locatorname = "root"
 	}
 	
-	small_utility_slots = 1
-	aux_utility_slots = 2
+	small_utility_slots = 2
+	aux_utility_slots = 1
 }
 
 
@@ -732,8 +732,8 @@ ship_section_template = {
 		locatorname = "root"
 	}
 	
-	small_utility_slots = 1
-	aux_utility_slots = 2
+	small_utility_slots = 2
+	aux_utility_slots = 1
 }
 
 # Medium Crystal Ship Section - Yellow - ELITE
@@ -775,8 +775,8 @@ ship_section_template = {
 		locatorname = "root"
 	}
 	
-	small_utility_slots = 1
-	aux_utility_slots = 2
+	small_utility_slots = 2
+	aux_utility_slots = 1
 }
 
 # Large Crystal Ship Section - Yellow - ELITE
@@ -818,8 +818,8 @@ ship_section_template = {
 		locatorname = "root"
 	}
 	
-	small_utility_slots = 1
-	aux_utility_slots = 2
+	small_utility_slots = 2
+	aux_utility_slots = 1
 }
 
 
@@ -850,8 +850,8 @@ ship_section_template = {
 		locatorname = "root"
 	}
 	
-	small_utility_slots = 1
-	aux_utility_slots = 2
+	small_utility_slots = 2
+	aux_utility_slots = 1
 }
 
 # Small Crystal Ship Section - Red - ELITE
@@ -893,8 +893,8 @@ ship_section_template = {
 		locatorname = "root"
 	}
 	
-	small_utility_slots = 1
-	aux_utility_slots = 2
+	small_utility_slots = 2
+	aux_utility_slots = 1
 }
 
 # Large Crystal Ship Section - Red - ELITE
@@ -936,8 +936,8 @@ ship_section_template = {
 		locatorname = "root"
 	}
 	
-	small_utility_slots = 1
-	aux_utility_slots = 2
+	small_utility_slots = 2
+	aux_utility_slots = 1
 }
 
 ship_section_template = {
@@ -1020,6 +1020,7 @@ ship_section_template = {
 		locatorname = "root"
 	}
 	
-	aux_utility_slots = 2
+	small_utility_slots = 2
+	aux_utility_slots = 1
 }
 

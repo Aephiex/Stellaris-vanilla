@@ -38,7 +38,7 @@ passive_observation = {
 	small_icon = 1
 
 	gain = {
-		society_research = 5
+		society_research = 8
 	}
 	
 	ai_weight = {
@@ -52,7 +52,7 @@ specimen_collection = {
 	small_icon = 2
 
 	gain = {
-		society_research = 8
+		society_research = 10
 	}
 
 	potential = {
@@ -79,6 +79,14 @@ native_indoctrination = {
 		host_has_dlc = "Utopia"
 	}
 	
+	cost = {
+		energy = 3
+	}
+	
+	gain = {
+		society_research = 6
+	}
+	
 	#planet_modifier = native_indoctrination
 
 	valid = {
@@ -90,21 +98,26 @@ native_indoctrination = {
 	}
 	
 	ai_weight = {
-		weight = 8
+		weight = 20
 		modifier = {
 			factor = 0
-			NOR = {
-				has_ethic = ethic_spiritualist
-				has_ethic = ethic_fanatic_spiritualist
-				has_ethic = ethic_xenophile
-				has_ethic = ethic_fanatic_xenophile
+			NAND = {
+				has_ai_personality = democratic_crusaders
+				from = {
+					owner = { 
+						NOR = {
+							has_ethic = ethic_egalitarian
+							has_ethic = ethic_fanatic_egalitarian
+						}
+					}				
+				}
 			}
 		}
 	}
 }
 
 @enlighten_soc_cost = 5
-@enlighten_nrg_cost = 5
+@enlighten_nrg_cost = 10
 
 # Technological Enlightenment - Stone Age
 technological_enlightenment_0 = {

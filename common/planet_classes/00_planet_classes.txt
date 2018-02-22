@@ -30,7 +30,9 @@
 #	moon_size = { min = @habitable_moon_min_size max = @habitable_moon_max_size }
 #	
 #	colonizable = yes
-#	#colonization_tech = { "tech_tropical_colonization@1" }
+#	colonization_tech = { "tech_tropical_colonization@1" }
+#
+# 	space_monster_target = yes	# Country types with space monster AI will wander to this planet type if set to yes
 #}
 ###
 
@@ -337,6 +339,8 @@ pc_gas_giant = {
 	moon_size = { min = 8 max = 15 }
 	
 	production_spawn_chance = 0.5
+	
+	space_monster_target = yes
 
 	colonizable = no
 }
@@ -533,7 +537,7 @@ pc_machine = {
 	max_distance_from_sun = 1000
 	
 	modifier = {
-		pop_robot_production_output = 0.25
+		pop_robot_production_output = 0.20
 	}
 	
 	spawn_odds = 0
@@ -556,6 +560,7 @@ pc_machine = {
 
 pc_shielded = {
 	entity = "shielded_planet"
+	overlay_entity = "planet_shield_effect_entity"
 	icon_frame = 1
 	
 	entity_scale = @planet_standard_scale
@@ -568,6 +573,7 @@ pc_shielded = {
 	max_distance_from_sun = 80
 	spawn_odds = 0
 	
+	show_city = no
 	city_color_lut = "gfx/portraits/misc/colorcorrection_desert.dds"
 	
 	extra_orbit_size = 0
@@ -595,6 +601,10 @@ pc_ai = {
 
 	city_color_lut = "gfx/portraits/misc/colorcorrection_neutral.dds"
 	
+	modifier = {
+		planet_orbital_bombardment_damage = -0.5
+	}
+	
 	min_distance_from_sun = 40
 	max_distance_from_sun = 1000
 	
@@ -606,6 +616,7 @@ pc_ai = {
 	chance_of_ring = 0.0
 	
 	can_be_invaded = no
+	show_health_bar_in_planet_view = yes # Determines whether to display 'surface integrity' gui component
 	
 	planet_size = { min = @habitable_planet_min_size max = @habitable_planet_max_size }
 	moon_size = { min = @habitable_moon_min_size max = @habitable_moon_max_size }
@@ -627,6 +638,10 @@ pc_infested = {
 	# Should not really be needed, because swarm should not have cities, but they do currently, and if this is not here, you get lots of errors
 	city_color_lut = "gfx/portraits/misc/colorcorrection_neutral.dds"
 	
+	modifier = {
+		planet_orbital_bombardment_damage = -0.5
+	}
+	
 	min_distance_from_sun = 120
 	max_distance_from_sun = 1000
 	spawn_odds = 0
@@ -637,6 +652,7 @@ pc_infested = {
 	chance_of_ring = 0
 	
 	can_be_invaded = no
+	show_health_bar_in_planet_view = yes # Determines whether to display 'surface integrity' gui component
 	
 	planet_size = { min = 12 max = 25 }
 	moon_size = { min = 7 max = 12 }
@@ -658,8 +674,8 @@ pc_gaia = {
 	city_color_lut = "gfx/portraits/misc/colorcorrection_tropical.dds"
 	
 	modifier = {
+		pop_resource_output = 0.10
 		biological_pop_happiness = 0.05
-		tile_resource_unity_mult = 0.15
 	}
 
 	min_distance_from_sun = 60
@@ -700,6 +716,7 @@ pc_cybrex = {
 	show_city = no
 	orbit_lines = no
 	can_be_invaded = no
+	show_health_bar_in_planet_view = yes # Determines whether to display 'surface integrity' gui component
 }
 
 # ###########
@@ -937,7 +954,6 @@ pc_ringworld_habitable = {
 	entity = "ringworld_habitable_entity"
 	picture = pc_ringworld
 	tile_set = pc_gaia
-	outliner_planet_type = special
 	icon_frame = 21
 	entity_scale = 1.0
 	enable_tilt = no
@@ -1088,7 +1104,6 @@ pc_habitat = {
 	ideal = yes
 	starting_planet = no
 	orbit_lines = no
-	can_support_spaceport = no
 	has_colonization_influence_cost = no			# applies when within own borders
 }
 
@@ -1107,6 +1122,46 @@ pc_shrouded = {
 	extra_planet_count = 0
 	
 	planet_size = { min = 10 max = 25 }
+	moon_size = { min = 6 max = 10 }
+	
+	colonizable = no
+}
+
+pc_broken = {
+	entity = "broken_planet"
+	entity_scale = @planet_standard_scale
+	icon_frame = 10
+	
+	atmosphere_color 		= hsv { 0.1 0.4 0.7 }		#DONE
+	atmosphere_intensity 	= 1.0
+	atmosphere_width 		= 0.5
+
+	spawn_odds = 0
+	
+	extra_orbit_size = 0
+	extra_planet_count = 0
+	
+	planet_size = { min = 12 max = 30 }
+	moon_size = { min = 6 max = 10 }
+	
+	colonizable = no
+}
+
+pc_shattered = {
+	entity = "shattered_planet"
+	entity_scale = @planet_standard_scale
+	icon_frame = 10
+	
+	atmosphere_color 		= hsv { 0.1 0.4 0.7 }		#DONE
+	atmosphere_intensity 	= 1.0
+	atmosphere_width 		= 0.5
+
+	spawn_odds = 0
+	
+	extra_orbit_size = 0
+	extra_planet_count = 0
+	
+	planet_size = { min = 12 max = 30 }
 	moon_size = { min = 6 max = 10 }
 	
 	colonizable = no
@@ -1175,6 +1230,8 @@ random_list = {
 		"pc_infested"
 		"pc_shielded"
 		"pc_gaia"
+		"pc_shrouded"
+		"pc_broken"
 	}
 }
 				

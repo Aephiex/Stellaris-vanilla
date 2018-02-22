@@ -72,19 +72,19 @@ country_event = {
 		months = 60
 		modifier = {
 			factor = 0.5
-			years_passed > 50
+			mid_game_years_passed > 0
 		}
 		modifier = {
 			factor = 0.5
-			years_passed > 100
+			mid_game_years_passed > 50
 		}
 		modifier = {
 			factor = 0.5
-			years_passed > 150
+			end_game_years_passed > 0
 		}		
 		modifier = {
 			factor = 0.5
-			years_passed > 200
+			end_game_years_passed > 50
 		}		
 	}
 

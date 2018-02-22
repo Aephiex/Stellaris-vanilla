@@ -42,7 +42,6 @@ trait_machine_unit = {
 	forced_happiness = yes
 	modifier = {
 		pop_environment_tolerance = 2.0
-		leader_influence_cost = 1
 	}
 }
 
@@ -80,7 +79,6 @@ trait_robotic_1 = {
 		tile_resource_unity_mult = -0.4
 		tile_resource_energy_mult = -0.4
 		tile_resource_minerals_mult = 0.10
-		pop_consumer_goods_add = 0.5
 	}
 }
 
@@ -102,7 +100,6 @@ trait_robotic_2 = {
 		tile_resource_unity_mult = -0.2
 		tile_resource_energy_mult = -0.2
 		tile_resource_minerals_mult = 0.15
-		pop_consumer_goods_add = 0.5
 	}
 }
 
@@ -123,7 +120,6 @@ trait_robotic_3 = {
 		tile_resource_unity_mult = 0.20
 		tile_resource_energy_mult = 0.20
 		tile_resource_minerals_mult = 0.20
-		pop_consumer_goods_add = 0.5
 	}
 }
 

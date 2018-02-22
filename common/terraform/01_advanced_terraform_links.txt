@@ -10,7 +10,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -26,7 +26,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -42,7 +42,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -58,7 +58,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -74,7 +74,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -90,7 +90,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -110,7 +110,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -126,7 +126,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -142,7 +142,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -158,7 +158,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -174,7 +174,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -190,7 +190,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -210,7 +210,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -226,7 +226,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -242,7 +242,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -258,7 +258,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -274,7 +274,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -290,7 +290,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -310,7 +310,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -326,7 +326,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -342,7 +342,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -358,7 +358,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -374,7 +374,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -390,7 +390,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -410,7 +410,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -426,7 +426,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -442,7 +442,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -458,7 +458,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -474,7 +474,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -490,7 +490,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -510,7 +510,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -526,7 +526,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -542,7 +542,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -558,7 +558,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -574,7 +574,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -590,7 +590,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -610,7 +610,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -626,7 +626,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -642,7 +642,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -658,7 +658,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -674,7 +674,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -690,7 +690,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -710,7 +710,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -726,7 +726,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -742,7 +742,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -758,7 +758,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -774,7 +774,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -790,7 +790,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -810,7 +810,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -826,7 +826,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -842,7 +842,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -858,7 +858,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -874,7 +874,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {
@@ -890,7 +890,7 @@ terraform_link = {
 	duration = 3600
 	
 	condition = {
-		has_technology = "tech_atmospheric_manipulation"
+		has_technology = "tech_terrestrial_sculpting"
 	}
 	
 	ai_weight = {

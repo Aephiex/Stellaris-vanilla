@@ -1,8 +1,7 @@
 ﻿### Plantoid 3
-### Created by Rufus Tronde, Miranda van den Brink
-PLANT3 = {	
-	### SHIPS
+### Created by Rufus Tronde and Miranda van den Brink
 
+PLANT3 = {	
 	ship_names = {
 	
 		generic = {
@@ -21,6 +20,12 @@ PLANT3 = {
 		battleship = {
 		}
 		
+		titan = {
+		}
+		
+		colossus = {
+		}
+		
 		science = {
 		}
 		
@@ -30,23 +35,14 @@ PLANT3 = {
 		constructor = {
 		}
 		
-		orbital_station = {
-		}
-		mining_station = {
-		}
-		research_station = {
-		}
-		wormhole_station = { }
-		#terraform_station = {
-		#}
-		observation_station = {
+		transport = {
 		}
 	
-		military_station_small = {  }
-	
-		military_station_medium = {  }
-	
-		military_station_large = {  }	
+		military_station_small = {
+		}
+		
+		ion_cannon = {
+		}
 	}
 	
 	fleet_names = {
@@ -56,7 +52,6 @@ PLANT3 = {
 		sequential_name = "%O% Bion Armada"
 	}
 
-	### ARMIES
 	army_names = {
 		defense_army = {
 			sequential_name = "%O% Shield of Bark"
@@ -102,10 +97,6 @@ PLANT3 = {
 			sequential_name = "%O% Extremophile Force"
 		}
 	}
-
-		
-	
-	### PLANETS
 	
 	planet_names = {
 	
@@ -161,8 +152,6 @@ PLANT3 = {
 		}
 		
 	}
-	
-	### CHARACTERS
 	
 	character_names = {
 		default = {

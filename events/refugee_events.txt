@@ -81,6 +81,10 @@ pop_event = {
 			has_purge_type = { type = purge_displacement }
 		}
 		modifier = {
+			factor = 0.25
+			has_purge_type = { type = purge_normal }
+		}		
+		modifier = {
 			factor = 0.1
 			pop_can_live_on_planet = no
 			planet = { is_planet_class = pc_machine }

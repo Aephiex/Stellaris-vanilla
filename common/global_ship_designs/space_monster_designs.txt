@@ -9,24 +9,23 @@ ship_design = {
 		slot = "mid"
 		
 		component = {
-			slot = "MEDIUM_GUN_01"
+			slot = "LARGE_GUN_01"
 			template = "SPACE_CLOUD_LIGHTNING"
 		}
 		component = {
-			slot = "MEDIUM_GUN_02"
+			slot = "LARGE_GUN_02"
 			template = "SPACE_CLOUD_LIGHTNING"
 		}
 		component = {
-			slot = "MEDIUM_GUN_03"
+			slot = "LARGE_GUN_03"
 			template = "SPACE_CLOUD_LIGHTNING"
 		}
 		component = {
-			slot = "MEDIUM_GUN_04"
+			slot = "LARGE_GUN_04"
 			template = "SPACE_CLOUD_LIGHTNING"
 		}
 	}
-	required_component="COMBAT_COMPUTER_AGGRESSIVE_BASIC"
-	required_component="SHIP_THRUSTER_1"
+	required_component="BIO_DRIVE"
 }
 
 
@@ -49,7 +48,7 @@ ship_design = {
 		
 		component = {
 			slot = "LARGE_GUN_01"
-			template = "SPACE_AMOEBA_WEAPON"
+			template = "LARGE_SPACE_AMOEBA_WEAPON"
 		}
 		component = {
 			slot = "SMALL_GUN_01"
@@ -68,7 +67,7 @@ ship_design = {
 			template = "AUTO_REPAIR"
 		}
 	}
-	required_component="WARP_DRIVE_3"
+	required_component="BIO_DRIVE"
 }
 
 
@@ -86,7 +85,7 @@ ship_design = {
 		
 		component = {
 			slot = "LARGE_GUN_01"
-			template = "SPACE_AMOEBA_WEAPON"
+			template = "LARGE_SPACE_AMOEBA_WEAPON"
 		}
 		component = {
 			slot = "SMALL_GUN_01"
@@ -105,7 +104,7 @@ ship_design = {
 			template = "AUTO_REPAIR"
 		}
 	}
-	required_component="WARP_DRIVE_3"
+	required_component="BIO_DRIVE"
 }
 
 # Small Space Amoeba
@@ -130,8 +129,12 @@ ship_design = {
 			slot = "SMALL_GUN_03"
 			template = "SMALL_SPACE_AMOEBA_WEAPON"
 		}
+		component = {
+			slot = "AUX_UTILITY_1"
+			template = "AUTO_REPAIR"
+		}		
 	}
-	required_component="WARP_DRIVE_3"
+	required_component="BIO_DRIVE"
 }
 
 # Large Space Amoeba
@@ -146,7 +149,7 @@ ship_design = {
 		
 		component = {
 			slot = "LARGE_GUN_01"
-			template = "SPACE_AMOEBA_WEAPON"
+			template = "LARGE_SPACE_AMOEBA_WEAPON"
 		}
 		component = {
 			slot = "SMALL_GUN_01"
@@ -166,7 +169,7 @@ ship_design = {
 		}
 	}
 	
-	required_component="WARP_DRIVE_3"
+	required_component="BIO_DRIVE"
 }
 # Small Space Amoeba
 ship_design = {
@@ -190,9 +193,13 @@ ship_design = {
 			slot = "SMALL_GUN_03"
 			template = "SMALL_SPACE_AMOEBA_WEAPON"
 		}
+		component = {
+			slot = "AUX_UTILITY_1"
+			template = "AUTO_REPAIR"
+		}		
 	}
 	
-	required_component="WARP_DRIVE_3"
+	required_component="BIO_DRIVE"
 }
 
 # Large Space Amoeba
@@ -207,7 +214,7 @@ ship_design = {
 		
 		component = {
 			slot = "LARGE_GUN_01"
-			template = "SPACE_AMOEBA_WEAPON"
+			template = "LARGE_SPACE_AMOEBA_WEAPON"
 		}
 		component = {
 			slot = "SMALL_GUN_01"
@@ -227,7 +234,7 @@ ship_design = {
 		}
 	}
 	
-	required_component="WARP_DRIVE_3"
+	required_component="BIO_DRIVE"
 }
 
 # Small Space Amoeba
@@ -252,9 +259,13 @@ ship_design = {
 			slot = "SMALL_GUN_03"
 			template = "SMALL_SPACE_AMOEBA_WEAPON"
 		}
+		component = {
+			slot = "AUX_UTILITY_1"
+			template = "AUTO_REPAIR"
+		}		
 	}
 	
-	required_component="WARP_DRIVE_3"
+	required_component="BIO_DRIVE"
 }
 
 # Large Space Amoeba
@@ -269,7 +280,7 @@ ship_design = {
 		
 		component = {
 			slot = "LARGE_GUN_01"
-			template = "SPACE_AMOEBA_WEAPON"
+			template = "LARGE_SPACE_AMOEBA_WEAPON"
 		}
 		component = {
 			slot = "SMALL_GUN_01"
@@ -289,7 +300,7 @@ ship_design = {
 		}
 	}
 	
-	required_component="WARP_DRIVE_3"
+	required_component="BIO_DRIVE"
 }
 
 # Small Space Amoeba
@@ -314,7 +325,11 @@ ship_design = {
 			slot = "SMALL_GUN_03"
 			template = "SMALL_SPACE_AMOEBA_WEAPON"
 		}
+		component = {
+			slot = "AUX_UTILITY_1"
+			template = "AUTO_REPAIR"
+		}		
 	}
 	
-	required_component="WARP_DRIVE_3"
+	required_component="BIO_DRIVE"
 }

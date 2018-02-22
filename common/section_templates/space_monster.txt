@@ -7,34 +7,29 @@ ship_section_template = {
 	icon = "GFX_ship_part_core_mid"
 	
 	component_slot = {
-		name = "MEDIUM_GUN_01"
-		slot_size = medium
+		name = "LARGE_GUN_01"
+		slot_size = large
 		slot_type = weapon
 		locatorname = "root"
 	}
 	component_slot = {
-		name = "MEDIUM_GUN_02"
-		slot_size = medium
+		name = "LARGE_GUN_02"
+		slot_size = large
 		slot_type = weapon
 		locatorname = "root"
 	}
 	component_slot = {
-		name = "MEDIUM_GUN_03"
-		slot_size = medium
+		name = "LARGE_GUN_03"
+		slot_size = large
 		slot_type = weapon
 		locatorname = "root"
 	}
 	component_slot = {
-		name = "MEDIUM_GUN_04"
-		slot_size = medium
+		name = "LARGE_GUN_04"
+		slot_size = large
 		slot_type = weapon
 		locatorname = "root"
 	}
-	
-	small_utility_slots = 1
-	medium_utility_slots = 1
-	large_utility_slots = 1
-	aux_utility_slots = 1
 }
 
 #####################################
@@ -75,8 +70,7 @@ ship_section_template = {
 		rotation = 90
 		locatorname = "strike_craft_spawn_locator"
 	}
-
-	medium_utility_slots = 4
+	
 	aux_utility_slots = 1
 }
 
@@ -107,7 +101,6 @@ ship_section_template = {
 		locatorname = "gun_01"
 	}
 	
-	small_utility_slots = 4
 	aux_utility_slots = 1
 }
 
@@ -146,7 +139,6 @@ ship_section_template = {
 		locatorname = "strike_craft_spawn_locator"
 	}
 	
-	medium_utility_slots = 4
 	aux_utility_slots = 1
 }
 
@@ -177,7 +169,6 @@ ship_section_template = {
 		locatorname = "gun_01"
 	}
 	
-	small_utility_slots = 4
 	aux_utility_slots = 1
 }
 
@@ -215,7 +206,6 @@ ship_section_template = {
 		locatorname = "strike_craft_spawn_locator"
 	}
 	
-	medium_utility_slots = 4
 	aux_utility_slots = 1
 }
 
@@ -246,7 +236,6 @@ ship_section_template = {
 		locatorname = "gun_01"
 	}
 	
-	small_utility_slots = 4
 	aux_utility_slots = 1
 }
 
@@ -284,7 +273,6 @@ ship_section_template = {
 		locatorname = "strike_craft_spawn_locator"
 	}
 	
-	medium_utility_slots = 4
 	aux_utility_slots = 1
 }
 
@@ -315,6 +303,5 @@ ship_section_template = {
 		locatorname = "gun_01"
 	}
 	
-	small_utility_slots = 4
 	aux_utility_slots = 1
 }

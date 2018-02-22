@@ -207,7 +207,7 @@ country_event = {
 	
 	immediate = {
 		event_target:primitive_impact_planet = {
-			destroy_colony = { keep_buildings = no }
+			destroy_colony = yes
 			change_pc = pc_barren
 			reset_planet = yes
 			remove_planet_flag = asteroid_sighted_prim_planet
@@ -1065,10 +1065,7 @@ country_event = {
 	
 	immediate = {
 		FROM = {
-			destroy_colony = { keep_buildings = no }
-			set_planet_flag = primitives_nuked_themselves
-			change_pc = pc_nuked
-			reroll_planet = yes
+			nuke_primitives_effect = yes			
 		}
 	}
 	
@@ -1102,13 +1099,7 @@ country_event = {
 	
 	immediate = {
 		FROM = {
-			destroy_colony = { keep_buildings = no }
-			change_pc = pc_toxic
-			reset_planet = yes
-			add_modifier = {
-				modifier = "nuclear_devastation"
-				days = -1
-			}
+			nuke_primitives_toxic_effect = yes			
 		}
 	}
 	
@@ -1519,7 +1510,7 @@ ship_event = {
 				type = scientist
 				species = event_target:primitive_species
 				name = "NAME_Sobak"
-				skill = 4000
+				skill = 6
 				traits = {
 					trait = leader_trait_spark_of_genius
 				}
@@ -2150,8 +2141,26 @@ country_event = {
 			}
 			observation_outpost = {
 				dismantle = yes
-			}
-			owner = {
+			}			
+			owner = { save_event_target_as = primitive_country }
+			solar_system = {
+				if = {
+					limit = {
+						starbase = { owner = { is_same_value = root } }
+					}
+					starbase = {
+						set_owner = event_target:primitive_country
+					}						
+				}
+				every_system_planet = {
+					limit = {
+						exists = owner
+						owner = { is_same_value = root }
+					}
+					set_owner = event_target:primitive_country			
+				}
+			}			
+			event_target:primitive_country = {
 				switch = {
 					trigger = has_country_flag
 					stone_age = {
@@ -2287,7 +2296,7 @@ planet_event = {
 		NOT = {
 			owner = {
 				has_relation_flag = {
-					who = root.observation_outpost_owner
+					who = root.observation_outpost_owner # TODO [MO] THIS DOES NOT WORK. WOW.
 					flag = xenophobe_enlightenment
 				}
 			}
@@ -5280,10 +5289,7 @@ country_event = {
 	
 	immediate = {
 		FROMFROM = {
-			destroy_colony = { keep_buildings = no }
-			set_planet_flag = primitives_nuked_themselves
-			change_pc = pc_nuked
-			reroll_planet = yes
+			nuke_primitives_effect = yes			
 		}
 	}
 	
@@ -5335,6 +5341,7 @@ planet_event = {
 				has_ethic = ethic_gestalt_consciousness
 			}
 		}
+		exists = owner
 		owner = {
 			is_country_type = primitive
 			OR = {

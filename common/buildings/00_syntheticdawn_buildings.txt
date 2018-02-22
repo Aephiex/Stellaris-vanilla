@@ -58,6 +58,7 @@ building_uplink_node = {
 	}
 
 	destroy_if = {
+		exists = owner
 		owner = {
 			NOT = { has_authority = auth_machine_intelligence }
 		}		
@@ -127,6 +128,7 @@ building_network_junction = {
 	}
 
 	destroy_if = {
+		exists = owner
 		owner = {
 			NOT = { has_authority = auth_machine_intelligence }
 		}		
@@ -254,15 +256,13 @@ building_alpha_hub = {
 	}
 
 	destroy_if = {
+		exists = owner
 		owner = {
 			NOT = { has_authority = auth_machine_intelligence }
 		}		
+		planet = { is_capital = no }
 	}
 
-	destroy_if = {
-		planet = { is_capital = no }
-	}	
-	
 	allow = {
 		custom_tooltip = {
 			text = "requires_any_empire_capital"
@@ -291,6 +291,7 @@ building_deployment_post = {
 	planet_unique = yes
 	capital = yes
 	level = 0
+	defense_armies = 1
 	
 	cost = {
 	}
@@ -330,6 +331,7 @@ building_deployment_post = {
 	}
 
 	destroy_if = {
+		exists = owner
 		owner = {
 			NOT = { has_authority = auth_machine_intelligence }
 		}		
@@ -352,6 +354,7 @@ building_machine_capital_1 = {
 	planet_unique = yes
 	capital = yes
 	level = 1
+	defense_armies = 3
 	
 	cost = {
 		minerals = 350
@@ -390,6 +393,7 @@ building_machine_capital_1 = {
 	}
 
 	destroy_if = {
+		exists = owner
 		owner = {
 			NOT = { has_authority = auth_machine_intelligence }
 		}		
@@ -424,6 +428,7 @@ building_machine_capital_1 = {
 building_machine_capital_2 = {
 	base_buildtime = 720
 	is_listed = no
+	defense_armies = 5
 	
 	cost = {
 		minerals = 500
@@ -505,6 +510,7 @@ building_machine_capital_3 = {
 	capital = yes
 	empire_unique = yes
 	level = 3
+	defense_armies = 7
 	
 	cost = {
 		minerals = 1000
@@ -544,14 +550,12 @@ building_machine_capital_3 = {
 	}
 
 	destroy_if = {
+		exists = owner
 		owner = {
 			NOT = { has_authority = auth_machine_intelligence }
 		}		
-	}
-	
-	destroy_if = {
 		planet = { is_capital = no }
-	}	
+	}
 	
 	prerequisites = {
 		"tech_galactic_administration"
@@ -580,6 +584,7 @@ building_animal_evaluation_laboratory = {
 	}
 
 	destroy_if = {
+		exists = owner
 		owner = {
 			NOT = { has_authority = auth_machine_intelligence }
 		}		
@@ -643,6 +648,7 @@ building_spare_parts_depot = {
 	}
 
 	destroy_if = {
+		exists = owner
 		owner = {
 			NOT = { has_authority = auth_machine_intelligence }
 		}		
@@ -704,6 +710,7 @@ building_unit_assembly_plant = {
 	}
 
 	destroy_if = {
+		exists = owner
 		owner = {
 			NOT = { has_authority = auth_machine_intelligence }
 		}		
@@ -782,6 +789,7 @@ building_singularity_core = {
 
 	destroy_if = {
 		planet = { is_capital = no }
+		exists = owner
 		owner = {
 			NOT = { has_authority = auth_machine_intelligence }
 		}		
@@ -828,6 +836,7 @@ building_probability_engine = {
 
 	destroy_if = {
 		planet = { is_capital = no }
+		exists = owner
 		owner = {
 			NOT = { has_authority = auth_machine_intelligence }
 		}		
@@ -927,6 +936,7 @@ building_organic_paradise = {
 	}
 	
 	destroy_if = {
+		exists = owner
 		NAND = {
 			owner = {
 				has_authority = auth_machine_intelligence
@@ -1047,6 +1057,7 @@ building_neuro_electric_amplifier = {
 	}
 
 	destroy_if = {
+		exists = owner
 		owner = {
 			NOT = { 
 				has_authority = auth_machine_intelligence
@@ -1084,6 +1095,15 @@ building_neuro_electric_amplifier = {
 				amount > 0
 			}				
 		}
+		planet = {
+			OR = {
+				has_building = building_neuro_electric_amplifier
+				count_pops = {
+					limit = { has_trait = trait_cybernetic }
+					count > 2
+				}				
+			}
+		}	
 	}
 	
 	ai_weight = {
@@ -1091,24 +1111,21 @@ building_neuro_electric_amplifier = {
 	}
 }
 
-# War Factory (Exterminators Only)
+# War Factory 
 building_war_factory = {
 	base_buildtime = 360
 	planet_unique = yes
+	defense_armies = 2
 	
 	cost = {
 		minerals = 200
 	}
 	
-	show_tech_unlock_if = {
-		has_authority = auth_machine_intelligence
-		has_government = gov_machine_terminator # required civic cannot be added/removed
-	}
+	show_tech_unlock_if = { has_authority = auth_machine_intelligence }
 	
 	potential = {
 		owner = { 
 			has_authority = auth_machine_intelligence
-			has_government = gov_machine_terminator
 		}
 		planet = {
 			NOT = { is_planet_class = pc_habitat }	
@@ -1116,10 +1133,10 @@ building_war_factory = {
 	}
 
 	destroy_if = {
+		exists = owner
 		owner = {
 			NOT = { 
 				has_authority = auth_machine_intelligence
-				has_government = gov_machine_terminator
 			}
 		}		
 	}
@@ -1147,14 +1164,16 @@ building_war_factory = {
 	}
 
 	army_modifier = {
-		army_damage_mult = 0.10
+		army_starting_experience_add = 100
 	}
 	
 	planet_modifier = {
-		planet_army_build_speed_mult = 0.25
+		planet_army_build_speed_mult = 0.50
+		planet_unrest_add = -10	
 	}
 	
 	prerequisites = {
+		tech_centralized_command
 	}
 	
 	ai_allow = {

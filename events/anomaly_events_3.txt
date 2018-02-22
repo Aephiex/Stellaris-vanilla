@@ -1842,13 +1842,12 @@ ship_event = {
 					type = scientist
 					species = owner_main_species
 					name = "NAME_The_Exile"
-					skill = 0
+					skill = 3
 					event_leader = yes
 				}
 				last_created_leader = {
 					add_experience = 500
 				}
-				set_country_flag = exile_employed
 			}
 		}
 	}
@@ -1867,9 +1866,6 @@ ship_event = {
 
 	option = {
 		name = "anomaly.171.a"
-		hidden_effect = {
-			owner = { set_country_flag = exile_missing }
-		}
 	}
 }
 
@@ -1886,9 +1882,6 @@ ship_event = {
 
 	option = {
 		name = UNFORTUNATE
-		hidden_effect = {
-			owner = { set_country_flag = exile_missing }
-		}
 	}
 }
 
@@ -2230,7 +2223,6 @@ ship_event = {
 						set_owner = prev
 						create_ship_design = {
 							design = "NAME_Prototype"
-							ftl = event_target:owner_country
 						}
 						create_ship = {
 							name = "NAME_From_Beyond"
@@ -3161,6 +3153,7 @@ ship_event = {
 	desc = anomaly.285.desc
 	picture = GFX_evt_ship_in_orbit
 	show_sound = event_scanner
+	location = from
 
 	is_triggered_only = yes
 

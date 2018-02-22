@@ -1,7 +1,7 @@
-@view_w = 600
+@view_w = 650
 @view_h = 600
 @col2_y = 65
-@col1_w = 580
+@col1_w = 630
 @component_w = 58
 @component_h = 78
 
@@ -93,7 +93,7 @@ guiTypes = {
 			gridBoxType = {
 				name = "armaments"
 				slotSize = { width = 56 height = 56 }
-				max_slots_horizontal = 10
+				max_slots_horizontal = 11
 				format = "UPPER_LEFT"
 				position = { x = 8 y = 4 }
 				size = { width = @col1_w height = 0 }
@@ -134,7 +134,7 @@ guiTypes = {
 			gridBoxType = {
 				name = "utilities"
 				slotSize = { width = 56 height = 56 }
-				max_slots_horizontal = 10
+				max_slots_horizontal = 11
 				format = "UPPER_LEFT"
 				position = { x = 8 y = 4 }
 				size = { width = @col1_w height = 0 }
@@ -220,7 +220,7 @@ guiTypes = {
 
 		containerWindowType = {
 			name = "ship_model"
-			size = { width = 298 height = 120 }
+			size = { width = 348 height = 120 }
 			position = { x = 15 y = @col2_y }
 
 			#background = {
@@ -231,7 +231,7 @@ guiTypes = {
 			buttonType = {
 				name = "3d_icon"
 				quadTextureSprite = "GFX_dummy_3d_ship_details"
-				size = { x = 298 y = 120 }
+				size = { x = 348 y = 120 }
 				position = { x = 0 y = 0 }
 			}
 		}
@@ -279,7 +279,7 @@ guiTypes = {
 				maxWidth = 260
 				maxHeight = 20
 				fixedsize = yes
-				position = { x = 6 y = 30 }
+				position = { x = 6 y = 55 }
 				format = left
 			}
 
@@ -290,7 +290,7 @@ guiTypes = {
 				maxWidth = 260
 				maxHeight = 20
 				fixedsize = yes
-				position = { x = -10 y = 30 }
+				position = { x = -10 y = 55 }
 				format = right
 			}
 
@@ -301,7 +301,7 @@ guiTypes = {
 				maxWidth = 260
 				maxHeight = 20
 				fixedsize = yes
-				position = { x = 6 y = 55 }
+				position = { x = 6 y = 30 }
 				format = left
 			}
 
@@ -312,13 +312,13 @@ guiTypes = {
 				maxWidth = 260
 				maxHeight = 20
 				fixedsize = yes
-				position = { x = -10 y = 55 }
+				position = { x = -10 y = 30 }
 				format = right
 			}
 
 			instantTextBoxType={
-				name = "combat_speed"
-				text = "SHIP_STAT_COMBAT_SPEED_INLINE"
+				name = "speed"
+				text = "SHIP_STAT_SPEED_INLINE"
 				font = "cg_16b"
 				maxWidth = 260
 				maxHeight = 20
@@ -328,7 +328,7 @@ guiTypes = {
 			}
 
 			instantTextBoxType={
-				name = "combat_speed_value"
+				name = "speed_value"
 				text = ""
 				font = "cg_16b"
 				maxWidth = 260
@@ -381,13 +381,35 @@ guiTypes = {
 				position = { x = -10 y = 130 }
 				format = right
 			}
+			
+			instantTextBoxType={
+				name = "rank"
+				text = "SHIP_STAT_RANK_INLINE"
+				font = "cg_16b"
+				maxWidth = 260
+				maxHeight = 20
+				fixedsize = yes
+				position = { x = 6 y = 155 }
+				format = left
+			}
+
+			instantTextBoxType={
+				name = "rank_value"
+				text = "EXPERIENCED"
+				font = "cg_16b"
+				maxWidth = 260
+				maxHeight = 20
+				fixedsize = yes
+				position = { x = -10 y = 155 }
+				format = right
+			}
 		}
 
 		# core components
 
 		containerWindowType = {
 			name = "components"
-			size = { width = 308 height = @component_h }
+			size = { width = 358 height = @component_h }
 			position = { x = 10 y = 195 }
 
 			instantTextBoxType = {
@@ -407,16 +429,16 @@ guiTypes = {
 				alwaysTransparent = yes
 				spriteType = "GFX_tiles_frame_light"
 				position = { x = 0 y = 15 }
-				size = { x = 308 y = @component_h }
+				size = { x = 363 y = @component_h }
 			}
 
 			gridBoxType = {
 				name = "components"
 				slotSize = { width = @component_w height = @component_h }
-				max_slots_horizontal = 5
+				max_slots_horizontal = 6
 				format = "UPPER_LEFT"
 				position = { x = 9 y = 15 }
-				size = { width = 298 height = @component_h }
+				size = { width = 348 height = @component_h }
 			}
 		}
 

@@ -1,23 +1,34 @@
 ﻿### Plantoid 1
-### Created by Rufus Tronde Miranda van den Brink
-PLANT = {	
-	### SHIPS
+### Created by Rufus Tronde and Miranda van den Brink
 
+PLANT = {	
 	ship_names = {
 	
 		generic = {
-			   	}
+		}
 	
-		corvette = {  "Thorn" "Silver Thorn" "Iron Thorn" "Piercing Thorn" "Emerald Thorn" "Gold Thorn" "Trichome" "Silver Trichome" "Iron Trichome" "Jade Trichome" "Emerald Trichome" "Gold Trichome" "Needle" "Silver Needle" "Iron Needle" "Jade Needle" "Gold Needle" "Piercing Needle" "Emerald Needle" "Rash" 
+		corvette = {  
+			Thorn "Silver Thorn" "Iron Thorn" "Piercing Thorn" "Emerald Thorn" "Gold Thorn" Trichome "Silver Trichome" "Iron Trichome" "Jade Trichome" "Emerald Trichome" "Gold Trichome" Needle "Silver Needle" "Iron Needle" "Jade Needle" "Gold Needle" "Piercing Needle" "Emerald Needle" Rash
 		}
 		
-		destroyer = { "Petal" "Silver Petal" "Iron Petal" "Jade Petal" "Emerald Petal" "Gold Petal" "Piercer" "Silver Piercer" "Gold Piercer" "Iron Piercer" "Emerald Piercer" "Silver Stinger" "Stinger" "Steel Stinger" "Piercing Stinger" "Slasher" "Cutter"
+		destroyer = { 
+			Petal "Silver Petal" "Iron Petal" "Jade Petal" "Emerald Petal" "Gold Petal" Piercer "Silver Piercer" "Gold Piercer" "Iron Piercer" "Emerald Piercer" "Silver Stinger" Stinger "Steel Stinger" "Piercing Stinger" Slasher Cutter
 		}
 		
-		cruiser = { "Blade" "Silver Blade" "Iron Blade" "Jade Blade" "Emerald Blade" "Gold Blade" "Cutting Blade" "Slashing Blade" "Piercing blade"
+		cruiser = { 
+			Blade "Silver Blade" "Iron Blade" "Jade Blade" "Emerald Blade" "Gold Blade" "Cutting Blade" "Slashing Blade" "Piercing Blade"
 		}
 		
-		battleship = { Spike "Silver Spike" "Iron Spike" "Jade Spike" "Emerald Spike" "Gold Spike" "Piercing Spike" "Fury" "Emerald Fury" "Thorn Fury" "Spike of Fury" "Punisher"
+		battleship = { 
+			Spike "Silver Spike" "Iron Spike" "Jade Spike" "Emerald Spike" "Gold Spike" "Piercing Spike" Fury "Emerald Fury" "Thorn Fury" "Spike of Fury" Punisher
+		}
+		
+		titan = {
+			"Silver Flower" "Iron Flower" "Emerald Flower" "Piercing Flower" "Gold Flower" "Jade Flower"
+		}
+		
+		colossus = {
+			"Blossom of Judgment" "Blossom of Doom" "Final Blossom"
 		}
 		
 		science = {
@@ -29,36 +40,31 @@ PLANT = {
 		}
 		
 		constructor = {
-			"Meristem"
-		}
-
-		transport = {
-			"Transport"
+			Meristem
 		}
 		
-		orbital_station = {
-			"Branch"
+		transport = {
+			"Iron Branch" "Piercing Branch" "Emerald Branch" "Gold Branch" "Silver Branch" "Jade Branch"
 		}
-		mining_station = {
-			"Root"
+		
+		military_station_small = {
+			"Iron Thistle" "Piercing Thistle" "Emerald Thistle" "Gold Thistle" "Silver Thistle" "Jade Thistle"
 		}
-		research_station = {
-			"Topiary"
+		
+		ion_cannon = {
+			"Iron Barb" "Piercing Barb" "Emerald Barb" "Gold Barb" "Silver Barb" "Jade Barb"
 		}
-		wormhole_station = { }
-		#terraform_station = {
-		#	"Greenhouse"
-		#	"Orangerie"
-		#}
-		observation_station = {
-			"Sensing Vine" "Climbing Vine" "Grasping Vine" "Twining Vine" "Growing Vine" "Enveloping Vine" "Dandelion Vine"
+
+		### For Fallen Empires
+		small_ship_fallen_empire = {
+			Thorn "Silver Thorn" "Iron Thorn" "Piercing Thorn" "Emerald Thorn" "Gold Thorn" Trichome "Silver Trichome" "Iron Trichome" "Jade Trichome" "Emerald Trichome" "Gold Trichome" Needle "Silver Needle" "Iron Needle" "Jade Needle" "Gold Needle" "Piercing Needle" "Emerald Needle" Rash Petal "Silver Petal" "Iron Petal" "Jade Petal" "Emerald Petal" "Gold Petal" Piercer "Silver Piercer" "Gold Piercer" "Iron Piercer" "Emerald Piercer" "Silver Stinger" Stinger "Steel Stinger" "Piercing Stinger" Slasher Cutter
 		}
-	
-		military_station_small = { "Ya-te-veo" }
-	
-		military_station_medium = { "Ya-te-veo" }
-	
-		military_station_large = { "Ya-te-veo" }	
+		large_ship_fallen_empire = {
+			Blade "Silver Blade" "Iron Blade" "Jade Blade" "Emerald Blade" "Gold Blade" "Cutting Blade" "Slashing Blade" "Piercing Blade" Spike "Silver Spike" "Iron Spike" "Jade Spike" "Emerald Spike" "Gold Spike" "Piercing Spike" Fury "Emerald Fury" "Thorn Fury" "Spike of Fury" Punisher
+		}
+		massive_ship_fallen_empire = {
+			"Silver Flower" "Iron Flower" "Emerald Flower" "Piercing Flower" "Gold Flower" "Jade Flower"
+		}
 	}
 	
 	fleet_names = {
@@ -68,7 +74,6 @@ PLANT = {
 		sequential_name = "%O% Corolla"
 	}
 
-	### ARMIES
 	army_names = {
 		defense_army = {
 			sequential_name = "%O% Protector's Wreath"
@@ -114,16 +119,13 @@ PLANT = {
 			sequential_name = "%O% Transgenic Wreath"
 		}
 	}
-
-		
-	
-	### PLANETS
 	
 	planet_names = {
 	
 		generic = {
 			names = {
-			"Beauty" "Joy" "New Beginning" "Bears fruit" "Round Nut" "Seed of Hope" "Budding Dreams" "Nectar of Hope" "Hope's Tendrils" "Fruitful Endeavor" "Forever Spring" "Spring Rain" "New Light"	"Triumph" "Scion" "Sprout" "Thriving Green" "Bloom" "Blooming" }
+				Beauty Joy "New Beginning" "Bears Fruit" "Round Nut" "Seed of Hope" "Budding Dreams" "Nectar of Hope" "Hope's Tendrils" "Fruitful Endeavor" "Forever Spring" "Spring Rain" "New Light" Triumph Scion Sprout "Thriving Green" Bloom "Blooming Fields" "Star Root" "Soil of Hope" "Great Promise" Abundance "New Roots" "Gentle Winds" "Grasping Branch" "Pollen Cloud"
+			} 
 		}
 		
 		pc_desert = {
@@ -146,7 +148,7 @@ PLANT = {
 		
 		pc_arid = {
 			names = {
-				"Dry Foliage" "Sun's Scrutiny" "Riverdry" "Rock" "Deep Roots" "Tolerance" "Great Drought" "No Rest" "Leaf's Folly" "Desolation" "Barren Lands" Treeless Victory Scrublands Shrublands  "Fear of Foliage" "The Great Chaparral" Endeavor 
+				"Dry Foliage" "Sun's Scrutiny" "Riverdry" "Rock" "Deep Roots" "Tolerance" "Great Drought" "No Rest" "Leaf's Folly" "Desolation" "Barren Lands" Treeless Victory Scrublands Shrublands "Fear of Foliage" "The Great Chaparral" Endeavor 
 			} 
 		}
 		
@@ -164,17 +166,20 @@ PLANT = {
 		
 		pc_tundra = {
 			names = {
-				"Boreal Rim" "Moss' Expanse" "Prudence" "Frost" "Spring" "Rock" "Cold Nights" "Frosty Moss" "Grey Nut" "Rocky Nut" "Mossy Spruce" "Silty Soil" "Stone Forest" "Late Bloomer"			}
+				"Boreal Rim" "Moss' Expanse" "Prudence" "Frost" "Spring" "Rock" "Cold Nights" "Frosty Moss" "Grey Nut" "Rocky Nut" "Mossy Spruce" "Silty Soil" "Stone Forest" "Late Bloomer"
+			}
 		}
 
 		pc_alpine = {
 			names = {
-				"Blossoming Slopes" Befrosted "Valley of Flowers" "Dale" "Billowing Mountains" "Great Ridge" "Jagged Earth" "Torn Earth" "White Crag" "Spring Vale" Pinelands "Fir Valley" "White Ridge"	"Glory Glens"		}
+				"Blossoming Slopes" Befrosted "Valley of Flowers" "Dale" "Billowing Mountains" "Great Ridge" "Jagged Earth" "Torn Earth" "White Crag" "Spring Vale" Pinelands "Fir Valley" "White Ridge" "Glory Glens"
+			}
 		}
 		
 		pc_arctic = {
 			names = {
-				"Evergreen" "Perseverence" "Endurance" "Snowland" "White Storm" "Winterland" "Only Winter"	"White Blanket"	"Snow Globe" "Frosty Roots" "Silver Fields" "White Expanse" "Ice Flower" "Ice Leaf" "Frost Flower" "Defiance"	}
+				"Evergreen" "Perseverence" "Endurance" "Snowland" "White Storm" "Winterland" "Only Winter"	"White Blanket"	"Snow Globe" "Frosty Roots" "Silver Fields" "White Expanse" "Ice Flower" "Ice Leaf" "Frost Flower" "Defiance"
+			}
 		}
 		
 		pc_savannah = {
@@ -188,8 +193,6 @@ PLANT = {
 		}
 		
 	}
-	
-	### CHARACTERS
 	
 	character_names = {
 		default = {

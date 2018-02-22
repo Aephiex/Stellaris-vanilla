@@ -4,7 +4,7 @@
 
 # ## Energy Lance 1
 weapon_component_template = {
-	key = "LARGE_ENERGY_LANCE_1"
+	key = "ENERGY_LANCE_1"
 	size = extra_large
 	entity = "invisible_turret_entity"
 	type = instant
@@ -21,24 +21,14 @@ weapon_component_template = {
 	component_set = "ENERGY_LANCE_1"
 	projectile_gfx = "particle_lance"
 	tags = { weapon_type_energy }
-	ai_tags = { weapon_role_long_range weapon_role_anti_armor }
-	upgrades_to = "LARGE_ENERGY_LANCE_2"
-	
-	target_weights = {
-		npc_warship_01 = 5000
-		space_dragon_baby = 5000	
-		massive_ship_fallen_empire = 5000
-		large_ship_fallen_empire = 5000	
-		battleship = 5000
-		cruiser = 2500
-		destroyer = 1000
-		small_ship_fallen_empire = 1000	
-	}
+	ai_tags = { weapon_role_artillery }
+	ai_tag_weight = 0
+	upgrades_to = "ENERGY_LANCE_2"
 }
 
 # ## Energy Lance 2
 weapon_component_template = {
-	key = "LARGE_ENERGY_LANCE_2"
+	key = "ENERGY_LANCE_2"
 	size = extra_large
 	entity = "invisible_turret_entity"
 	type = instant
@@ -55,18 +45,8 @@ weapon_component_template = {
 	component_set = "ENERGY_LANCE_2"
 	projectile_gfx = "tachyon_lance"
 	tags = { weapon_type_energy }
-	ai_tags = { weapon_role_long_range weapon_role_anti_armor }
-	
-	target_weights = {
-		npc_warship_01 = 5000
-		space_dragon_baby = 5000	
-		massive_ship_fallen_empire = 5000
-		large_ship_fallen_empire = 5000	
-		battleship = 5000
-		cruiser = 2500
-		destroyer = 1000
-		small_ship_fallen_empire = 1000	
-	}
+	ai_tags = { weapon_role_artillery }
+	ai_tag_weight = 0
 }
 
 # ####################
@@ -75,7 +55,7 @@ weapon_component_template = {
 
 # ## Arc Emitter 1
 weapon_component_template = {
-	key = "LARGE_ARC_EMITTER_1"
+	key = "ARC_EMITTER_1"
 	size = extra_large
 	entity = "invisible_turret_entity"
 	type = instant
@@ -83,7 +63,7 @@ weapon_component_template = {
 	icon = "GFX_ship_part_arc_emitter_1"
 	icon_frame = 1
 	
-	firing_arc = 25.0
+	firing_arc = 35.0
 	min_range = 10.0
 	static_rotation = yes
 	use_ship_kill_target = no
@@ -92,24 +72,14 @@ weapon_component_template = {
 	component_set = "ARC_EMITTER_1"
 	projectile_gfx = "arc_emitter"
 	tags = { weapon_type_energy }
-	ai_tags = { weapon_role_long_range weapon_role_anti_shield }
-	upgrades_to = "LARGE_ARC_EMITTER_2"
-	
-	target_weights = {
-		npc_warship_01 = 5000
-		space_dragon_baby = 5000	
-		massive_ship_fallen_empire = 5000
-		large_ship_fallen_empire = 5000	
-		battleship = 5000
-		cruiser = 2500
-		destroyer = 1000
-		small_ship_fallen_empire = 1000	
-	}
+	ai_tags = { weapon_role_artillery }
+	ai_tag_weight = 0
+	upgrades_to = "ARC_EMITTER_2"
 }
 
 # ## Arc Emitter 2
 weapon_component_template = {
-	key = "LARGE_ARC_EMITTER_2"
+	key = "ARC_EMITTER_2"
 	size = extra_large
 	entity = "invisible_turret_entity"
 	type = instant
@@ -117,7 +87,7 @@ weapon_component_template = {
 	icon = "GFX_ship_part_arc_emitter_2"
 	icon_frame = 1
 	
-	firing_arc = 25.0
+	firing_arc = 35.0
 	min_range = 10.0
 	static_rotation = yes
 	use_ship_kill_target = no
@@ -126,18 +96,8 @@ weapon_component_template = {
 	component_set = "ARC_EMITTER_2"
 	projectile_gfx = "focused_arc_emitter"
 	tags = { weapon_type_energy }
-	ai_tags = { weapon_role_long_range weapon_role_anti_shield }
-	
-	target_weights = {
-		npc_warship_01 = 5000
-		space_dragon_baby = 5000	
-		massive_ship_fallen_empire = 5000
-		large_ship_fallen_empire = 5000	
-		battleship = 5000
-		cruiser = 2500
-		destroyer = 1000
-		small_ship_fallen_empire = 1000	
-	}
+	ai_tags = { weapon_role_artillery }
+	ai_tag_weight = 0
 }
 
 
@@ -149,7 +109,7 @@ weapon_component_template = {
 weapon_component_template = {
 	type = instant
 	
-	key = "LARGE_MASS_ACCELERATOR_1"
+	key = "MASS_ACCELERATOR_1"
 	size = extra_large
 	entity = "invisible_turret_entity"
 	
@@ -165,26 +125,16 @@ weapon_component_template = {
 	component_set = "MASS_ACCELERATOR_1"
 	projectile_gfx = "kinetic_artillery"
 	tags = { weapon_type_kinetic }
-	ai_tags = { weapon_role_long_range }
-	upgrades_to = "LARGE_MASS_ACCELERATOR_2"
-	
-	target_weights = {
-		npc_warship_01 = 5000
-		space_dragon_baby = 5000	
-		massive_ship_fallen_empire = 5000
-		large_ship_fallen_empire = 5000	
-		battleship = 5000
-		cruiser = 2500
-		destroyer = 1000
-		small_ship_fallen_empire = 1000	
-	}
+	ai_tags = { weapon_role_artillery }
+	ai_tag_weight = 0
+	upgrades_to = "MASS_ACCELERATOR_2"
 }
 
 # ## Mass Accelerator 2
 weapon_component_template = {
 	type = instant
 	
-	key = "LARGE_MASS_ACCELERATOR_2"
+	key = "MASS_ACCELERATOR_2"
 	size = extra_large
 	entity = "invisible_turret_entity"
 	
@@ -200,28 +150,62 @@ weapon_component_template = {
 	component_set = "MASS_ACCELERATOR_2"
 	projectile_gfx = "adv_kinetic_artillery"
 	tags = { weapon_type_kinetic }
-	ai_tags = { weapon_role_long_range }
-	
-	target_weights = {
-		npc_warship_01 = 5000
-		space_dragon_baby = 5000	
-		massive_ship_fallen_empire = 5000
-		large_ship_fallen_empire = 5000	
-		battleship = 5000
-		cruiser = 2500
-		destroyer = 1000
-		small_ship_fallen_empire = 1000	
-	}
+	ai_tags = { weapon_role_artillery }
+	ai_tag_weight = 0
 }
 
 # ####################
 #  Titan Laser
 # ####################
 
-# ## Titan Laser
+# ## Perdition Beam
+weapon_component_template = {
+	key = "PERDITION_BEAM_TITAN"
+	size = titanic
+	entity = "invisible_turret_entity"
+	type = instant
+	prio_projectile = yes
+		
+	icon = "GFX_ship_part_perdition_beam"
+	icon_frame = 1
+	
+	firing_arc = 10.0
+	min_range = 30.0
+	static_rotation = yes
+	use_ship_kill_target = no
+	
+	prerequisites = { "tech_titans" }
+	component_set = "PERDITION_BEAM"
+	projectile_gfx = "perdition_beam"
+	size_restriction = { titan }
+}
+
+# ## Perdition Beam
+weapon_component_template = {
+	key = "PERDITION_BEAM_ION"
+	size = titanic
+	entity = "invisible_turret_entity"
+	type = instant
+	prio_projectile = yes
+		
+	icon = "GFX_ship_part_perdition_beam"
+	icon_frame = 1
+	
+	firing_arc = 10.0
+	min_range = 30.0
+	static_rotation = yes
+	use_ship_kill_target = no
+	
+	prerequisites = { "tech_titans" }
+	component_set = "PERDITION_BEAM"
+	projectile_gfx = "ion_cannon"
+	size_restriction = { ion_cannon }
+}
+
+# ## Titan Lance
 weapon_component_template = {
 	key = "TITAN_LASER"
-	size = extra_large
+	size = titanic
 	entity = "invisible_turret_entity"
 	type = instant
 	prio_projectile = yes
@@ -238,15 +222,4 @@ weapon_component_template = {
 	
 	component_set = "TITAN_LASER"
 	projectile_gfx = "titan_laser"
-	
-	target_weights = {
-		npc_warship_01 = 5000
-		space_dragon_baby = 5000	
-		massive_ship_fallen_empire = 5000
-		large_ship_fallen_empire = 5000	
-		battleship = 5000
-		cruiser = 2500
-		destroyer = 1000
-		small_ship_fallen_empire = 1000	
-	}
 }

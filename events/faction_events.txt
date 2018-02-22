@@ -199,20 +199,20 @@ country_event = {
 }
 
 # Imperialist frontier outpost demand
-ship_event = {
-	id = factions.220
-	hide_window = yes
-	is_triggered_only = yes
-
-	immediate = {
-		owner = {
-			set_timed_country_flag = {
-				flag = imperialist_frontier_outpost_timed_flag
-				days = 7200 # 20 years
-			}
-		}
-	}
-}
+#ship_event = {
+#	id = factions.220
+#	hide_window = yes
+#	is_triggered_only = yes
+#
+#	immediate = {
+#		owner = {
+#			set_timed_country_flag = {
+#				flag = imperialist_frontier_outpost_timed_flag
+#				days = 7200 # 20 years
+#			}
+#		}
+#	}
+#}
 
 # Industrialist Recent Monster Extermination
 # This = owner of fleet 1 (combatant)
@@ -330,7 +330,7 @@ country_event = {
 		}
 	}
 
-	picture = GFX_evt_galactic_senate
+	picture = GFX_evt_alien_propaganda
 	show_sound = event_factions
 
 	is_triggered_only = yes

@@ -54,5 +54,14 @@ objectTypes = {
 		overlay = "gfx/arrows/taskarrow_texture.dds"
 		effect = "gfx/FX/arrow.lua"
 		size = 0.7
-	}	
+	}
+	arrowType = {
+		name = "galaxy_bypass_arrow"
+		texture = "gfx/arrows/bypassarrow_frame.dds"
+		normal = "gfx/arrows/movearrow_normals.dds"
+		specular = "gfx/arrows/movearrow_mask.dds"
+		overlay = "gfx/arrows/bypassarrow_texture.dds"
+		effect = "gfx/FX/arrow.lua"
+		size = 0.7
+	}
 }

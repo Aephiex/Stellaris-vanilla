@@ -1,83 +1,67 @@
-﻿### Avian Predator
+﻿### Avian 2
 ### Created by Johan Andersson 2015-07-31
 
 AVI3 = {
 	ship_names = {
-		generic = {
-			"Scream" "Screech" "Shriek" "Howl" "Cry"
-			"Soar" "Ascend" "Rise" "Escalate" "Fly"
-			"Drift" "Float" "Glide" "Swoop" "Pounce"
-			"Sweep" "Dive"
-		}
 		
 		corvette = {
-			"Sharp" "Quick" "Frenzy" "Bloodstain" "Scar"
-			"Gore" "Maim" "Maul" "Wound" "Hurt"
-			"Slash" "Scratch" "Cut" "Mutilate" "Injury"
-			"Crippler" "Disfigure" "Griever" "Deformer" "Piercer"
+			Sharp Quick Frenzy Bloodstain Scar Gore Maim Maul Wound Hurt Slash Scratch Cut Mutilate Injury Crippler Disfigure Griever Deformer Piercer Scream Screech Shriek Howl Cry Soar Ascend Rise Escalate Fly Drift Float Glide Swoop Pounce Sweep Dive
 		}
-		
-		constructor = {
-			"Nest Maker" "Nest Builder" "Nest Creator" "Nest Producer" "Nest Manufacturer"
-			"Roost Maker" "Roost Builder" "Roost Creator" "Roost Producer" "Roost Manufacturer"
-		}
-		
-		colonizer = {
-			"Eggcarrier I" "Eggcarrier II" "Eggcarrier III" "Eggcarrier IV" "Eggcarrier V"
-			"Eggcarrier VI" "Eggcarrier VII" "Eggcarrier VIII" "Eggcarrier IX" "Eggcarrier X"
-			"Eggcarrier XI" "Eggcarrier XII" "Eggcarrier XIII" "Eggcarrier XIV" "Eggcarrier XV"
-			"Eggcarrier XVI" "Eggcarrier XVII" "Eggcarrier XVIII" "Eggcarrier XIX" "Eggcarrier XX"
-		}
-		
-		science = {
-			"Inner Eye" "Third Eye" "Viewing Eye" "Examining Eye" "Analysing Eye"
-			"Contemplating Eye" "Considering Eye" "Evaluating Eye" "Thinking Eye"
-			"Appraising Eye" "Assessing Eye"  "Classifying Eye" "Estimating Eye" "Determening Eye"
-			"Inspecting Eye" "Studying Eye" "Investigating Eye" "Probing Eye" "Observing Eye"
-		}
-		
+
 		destroyer = {
-			"Sharp Claw" "Quick Claw" "Frenzied Claw" "Bloodstained Claw" "Scarring Claw"
-			"Gory Claw" "Grisly Claw" "Maiming Claw" "Mauling Claw" "Wounding Claw"
-			"Slashing Claw" "Scratching Claw" "Cutting Claw" "Mutilating Claw" "Injuring Claw"
-			"Crippling Claw" "Disfiguring Claw" "Grieving Claw" "Deforming Claw" "Piercing Claw"
+			"Sharp Claw" "Quick Claw" "Frenzied Claw" "Bloodstained Claw" "Scarring Claw" "Gory Claw" "Grisly Claw" "Maiming Claw" "Mauling Claw" "Wounding Claw" "Slashing Claw" "Scratching Claw" "Cutting Claw" "Mutilating Claw" "Injuring Claw" "Crippling Claw" "Disfiguring Claw" "Grieving Claw" "Deforming Claw" "Piercing Claw"
 		}
-		
+
 		cruiser = {
-			"Sharp Beak" "Quick Beak" "Frenzied Beak" "Bloodstained Beak" "Scarring Beak"
-			"Gory Beak" "Grisly Beak" "Maiming Beak" "Mauling Beak" "Wounding Beak"
-			"Slashing Beak" "Scratching Beak" "Cutting Beak" "Mutilating Beak" "Injuring Beak"
-			"Crippling Beak" "Disfiguring Beak" "Grieving Beak" "Deforming Beak" "Piercing Beak"
+			"Sharp Beak" "Quick Beak" "Frenzied Beak" "Bloodstained Beak" "Scarring Beak" "Gory Beak" "Grisly Beak" "Maiming Beak" "Mauling Beak" "Wounding Beak" "Slashing Beak" "Scratching Beak" "Cutting Beak" "Mutilating Beak" "Injuring Beak" "Crippling Beak" "Disfiguring Beak" "Grieving Beak" "Deforming Beak" "Piercing Beak"
 		}
 		
 		battleship = {
-			"Glorious Massacre" "Glorious Bloodbath" "Glorious Carnage" "Glorious Slaughter" "Glorious Bloodshed"
-			"Gorgeous Massacre" "Gorgeous Bloodbath" "Gorgeous Carnage" "Gorgeous Slaughter" "Gorgeous Bloodshed"
-			"Inspiring Massacre" "Inspiring Bloodbath" "Inspiring Carnage" "Inspiring Slaughter" "Inspiring Bloodshed"
-			"Delightful Massacre" "Delightful Bloodbath" "Delightful Carnage" "Delightful Slaughter" "Delightful Bloodshed"
+			"Glorious Massacre" "Glorious Bloodbath" "Glorious Carnage" "Glorious Slaughter" "Glorious Bloodshed" "Gorgeous Massacre" "Gorgeous Bloodbath" "Gorgeous Carnage" "Gorgeous Slaughter" "Gorgeous Bloodshed" "Inspiring Massacre" "Inspiring Bloodbath" "Inspiring Carnage" "Inspiring Slaughter" "Inspiring Bloodshed" "Delightful Massacre" "Delightful Bloodbath" "Delightful Carnage" "Delightful Slaughter" "Delightful Bloodshed"
+		}
+
+		titan = {
+			"Majestic Havoc" "Majestic Carnage" "Majestic Slaughter" "Majestic Bloodbath" "Majestic Mayhem"
+ 		}
+
+		colossus = {
+			"Egg of Death" "Egg of Destruction" "Egg of Oblivion" "Egg of Ruination"
 		}
 		
-		orbital_station = { }
-		mining_station = { }
-		research_station = { }
-		wormhole_station = { }
-		#terraform_station = { 
-		#	"Nest Shaper" "Roost Shaper"
-		#}
-		observation_station = { }
-		outpost_station = {
-			#random_names = {
-				"Attentive Eye" "Watchful Eye" "Resting Eye" "Sharp Eye" "Scornful Eye" "Oblivious Eye" "Cunning Eye" "Zealous Eye" "Dauntless Eye" "Stubborn Eye"
-			#}
-			#sequential_name = "%O% Frontier Outpost"
+		constructor = {
+			"Nest Maker" "Nest Builder" "Nest Creator" "Nest Producer" "Nest Manufacturer" "Roost Maker" "Roost Builder" "Roost Creator" "Roost Producer" "Roost Manufacturer"
+		}
+		
+		colonizer = {
+			"Eggcarrier I" "Eggcarrier II" "Eggcarrier III" "Eggcarrier IV" "Eggcarrier V" "Eggcarrier VI" "Eggcarrier VII" "Eggcarrier VIII" "Eggcarrier IX" "Eggcarrier X" "Eggcarrier XI" "Eggcarrier XII" "Eggcarrier XIII" "Eggcarrier XIV" "Eggcarrier XV" "Eggcarrier XVI" "Eggcarrier XVII" "Eggcarrier XVIII" "Eggcarrier XIX" "Eggcarrier XX"
+		}
+		
+		science = {
+			"Inner Eye" "Third Eye" "Viewing Eye" "Examining Eye" "Analysing Eye" "Contemplating Eye" "Considering Eye" "Evaluating Eye" "Thinking Eye" "Appraising Eye" "Assessing Eye"  "Classifying Eye" "Estimating Eye" "Determening Eye" "Inspecting Eye" "Studying Eye" "Investigating Eye" "Probing Eye" "Observing Eye"
 		}
 		
 		transport = {
+			"Death Bringer" "Doom Bringer" "Destruction Bringer" "Ruination Bringer"
+		} 
+
+		military_station_small = {
+			"Sharp Talon" "Quick Talon" "Frenzied Talon" "Bloodstained Talon" "Scarring Talon" "Gory Talon" "Grisly Talon" "Maiming Talon" "Mauling Talon" "Wounding Talon" "Slashing Talon" "Scratching Talon" "Cutting Talon" "Mutilating Talon" "Injuring Talon" "Crippling Talon" "Disfiguring Talon" "Grieving Talon" "Deforming Talon" "Piercing Talon"
 		}
 
-		military_station_small = {}
-		military_station_medium = {}
-		military_station_large = {}
+		ion_cannon = { 
+			"Doom Perch" "Judgment Perch" "Ruin Perch" "Death Perch" "Calamity Perch"
+		}
+
+		### For Fallen Empires
+		small_ship_fallen_empire = {
+			Sharp Quick Frenzy Bloodstain Scar Gore Maim Maul Wound Hurt Slash Scratch Cut Mutilate Injury Crippler Disfigure Griever Deformer Piercer Scream Screech Shriek Howl Cry Soar Ascend Rise Escalate Fly Drift Float Glide Swoop Pounce Sweep Dive "Sharp Claw" "Quick Claw" "Frenzied Claw" "Bloodstained Claw" "Scarring Claw" "Gory Claw" "Grisly Claw" "Maiming Claw" "Mauling Claw" "Wounding Claw" "Slashing Claw" "Scratching Claw" "Cutting Claw" "Mutilating Claw" "Injuring Claw" "Crippling Claw" "Disfiguring Claw" "Grieving Claw" "Deforming Claw" "Piercing Claw"
+		}
+		large_ship_fallen_empire = {
+			"Glorious Massacre" "Glorious Bloodbath" "Glorious Carnage" "Glorious Slaughter" "Glorious Bloodshed" "Gorgeous Massacre" "Gorgeous Bloodbath" "Gorgeous Carnage" "Gorgeous Slaughter" "Gorgeous Bloodshed" "Inspiring Massacre" "Inspiring Bloodbath" "Inspiring Carnage" "Inspiring Slaughter" "Inspiring Bloodshed" "Delightful Massacre" "Delightful Bloodbath" "Delightful Carnage" "Delightful Slaughter" "Delightful Bloodshed"
+		}
+		massive_ship_fallen_empire = {
+			"Majestic Havoc" "Majestic Carnage" "Majestic Slaughter" "Majestic Bloodbath" "Majestic Mayhem"
+		}
 	}
 
 	fleet_names = {
@@ -87,7 +71,6 @@ AVI3 = {
 		sequential_name = "%O% Murder"
 	}
 
-	### ARMIES
 	army_names = {
 		defense_army = {
 			sequential_name = "%O% Defense Flock"
@@ -135,8 +118,6 @@ AVI3 = {
 	}
 
 	planet_names = {
-
-		# Names that can be assigned to all planet types
 		generic = {
 			names = {
 				"Trast" "Fidgit" "Micaw" "Craw't" "Caw'taan" "Krachaw's Nest" "Frackaw's Eyrie" "Rickichi's Roost" "Lirchi's Nest" "Croo's Cocoon" "Carcana" "Frippit" "Whoo'tar" "Fashaaw" "Chyy'ta" "Fyyrt" "Drakoo" "Foshoo's Rest" "Ury" "Travuu" "Kloo" "Claive" "Biribit" "Rooki" "Tripitit" "Trobbi" "Trittita" "Foosh'ro" "Urytry"
@@ -189,9 +170,6 @@ AVI3 = {
 		}
 		
 	}
-
-
-	### CHARACTERS
 
 	character_names = {
 		default = {

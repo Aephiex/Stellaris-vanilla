@@ -76,8 +76,7 @@ imperialist = {
 		unfulfilled_title = "IMPERIALIST_NO_PHILOSOPHY"
 		desc = "IMPERIALIST_PHILOSOPHY_DESC"
 
-		#fulfilled_effect = 5
-		unfulfilled_effect = -10
+		unfulfilled_effect = -30
 
 		potential = {
 			exists = owner
@@ -121,46 +120,25 @@ imperialist = {
 	}
 
 	demand = {
-		title = "IMPERIALIST_FRONTIER_OUTPOSTS"
-		unfulfilled_title = "IMPERIALIST_NO_RECENT_FRONTIER_OUTPOSTS"
-		desc = "IMPERIALIST_FRONTIER_OUTPOSTS_DESC"
+		title = "SUPREMACIST_FANATIC_PURIFIERS"
+		unfulfilled_title = "SUPREMACIST_NOT_FANATIC_PURIFIERS"
+		desc = "SUPREMACIST_FANATIC_PURIFIERS_DESC"
 
 		fulfilled_effect = 5
-
-		potential = {
-			exists = owner
-		}
-
-		trigger = {
-			owner = {
-				has_country_flag = imperialist_frontier_outpost_timed_flag
-			}
-		}
-	}
-
-	demand = {
-		title = "IMPERIALIST_RIVALS1"
-		unfulfilled_title = "IMPERIALIST_FEW_RIVALS1"
-		desc = "IMPERIALIST_RIVALS_DESC1"
-		
-		fulfilled_effect = 2
 		
 		potential = {
 			exists = owner
 			owner = {
-				num_communications > 2
+				has_valid_civic = civic_fanatic_purifiers
 			}
 		}
 		
 		trigger = {
 			owner = {
-				any_neighbor_country = {
-					prev = { is_rival = prev }
-				}
+				has_valid_civic = civic_fanatic_purifiers
 			}
 		}
-	}
-	
+	}	
 
 	demand = {
 		title = "IMPERIALIST_SUPREMACY_TRADITION"
@@ -183,18 +161,43 @@ imperialist = {
 			}
 		}
 	}	
+	
+	demand = {
+		title = "IMPERIALIST_RIVALS1"
+		unfulfilled_title = "IMPERIALIST_FEW_RIVALS1"
+		desc = "IMPERIALIST_RIVALS_DESC1"
+		
+		fulfilled_effect = 2
+		
+		potential = {
+			exists = owner
+			owner = {
+				num_communications > 2
+				NOT = { has_valid_civic = civic_fanatic_purifiers }
+			}
+		}
+		
+		trigger = {
+			owner = {
+				any_neighbor_country = {
+					prev = { is_rival = prev }
+				}
+			}
+		}
+	}
 
 	demand = {
 		title = "IMPERIALIST_RIVALS2"
 		unfulfilled_title = "IMPERIALIST_FEW_RIVALS2"
 		desc = "IMPERIALIST_RIVALS_DESC2"
 		
-		fulfilled_effect = 3
+		fulfilled_effect = 4
 		
 		potential = {
 			exists = owner
 			owner = {
 				num_communications > 2
+				NOT = { has_valid_civic = civic_fanatic_purifiers }				
 				any_neighbor_country = {
 					prev = { is_rival = prev }
 				}
@@ -218,12 +221,13 @@ imperialist = {
 		unfulfilled_title = "IMPERIALIST_FEW_RIVALS3"
 		desc = "IMPERIALIST_RIVALS_DESC3"
 		
-		fulfilled_effect = 5
+		fulfilled_effect = 6
 		
 		potential = {
 			exists = owner
 			owner = {
 				num_communications > 2
+				NOT = { has_valid_civic = civic_fanatic_purifiers }
 				count_neighbor_country = {
 					limit = {
 						prev = { is_rival = prev }
@@ -246,27 +250,6 @@ imperialist = {
 	}
 
 	demand = {
-		title = "IMPERIALIST_NO_FEDERATION"
-		unfulfilled_title = "IMPERIALIST_FEDERATION"
-		desc = "IMPERIALIST_NO_FEDERATION_DESC"
-		
-		unfulfilled_effect = -25
-		
-		potential = {
-			exists = owner
-			owner = {
-				num_communications > 0
-			}
-		}
-		
-		trigger = {
-			owner = {
-				has_federation = no
-			}
-		}
-	}
-
-	demand = {
 		title = "IMPERIALIST_OVERLORD" #Imperial Hegemony
 		unfulfilled_title = "IMPERIALIST_NOT_OVERLORD"
 		desc = "IMPERIALIST_OVERLORD_DESC"
@@ -277,6 +260,7 @@ imperialist = {
 			exists = owner
 			owner = {
 				num_communications > 2
+				NOT = { has_valid_civic = civic_fanatic_purifiers }
 			}
 		}
 

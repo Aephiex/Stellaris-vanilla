@@ -83,15 +83,16 @@ country_event = {
 		random_rim_system = {
 			limit = {
 				NOT = {
-					any_ship_in_system = {
-						exists = owner
-					}
-					any_country = {
+					#any_ship_in_system = {
+					#	exists = owner
+					#}
+					any_playable_country = {
 						intel_level = {
 							level > low
 							system = prev
 						}
 					}
+					has_star_flag = hostile_system
 				}
 			}
 			random_system = {
@@ -214,7 +215,7 @@ country_event = {
 					type = admiral
 					species = owner_main_species
 					name = random
-					skill = 100
+					skill = 2
 				}
 				create_fleet = {
 					name = "NAME_Nomadic_Armada"
@@ -1775,7 +1776,6 @@ fleet_event = {
 							OR = {
 								has_mining_station = yes
 								has_research_station = yes
-								has_spaceport = yes
 							}
 							is_owned_by = event_target:attacker_country
 						}
@@ -1796,7 +1796,6 @@ fleet_event = {
 							OR = {
 								has_mining_station = yes
 								has_research_station = yes
-								has_spaceport = yes
 							}
 							is_owned_by = event_target:attacker_country
 						}
@@ -1811,7 +1810,6 @@ fleet_event = {
 						OR = {
 							has_mining_station = yes
 							has_research_station = yes
-							has_spaceport = yes
 						}
 						is_owned_by = event_target:attacker_country
 					}
@@ -1858,7 +1856,7 @@ fleet_event = {
 							factor = 2
 							owner = {
 								check_variable = {
-									which nomads_attacked_systems
+									which = nomads_attacked_systems
 									value > 2
 								}
 							}
@@ -1868,7 +1866,7 @@ fleet_event = {
 							owner = {
 								OR = {
 									check_variable = {
-										which nomads_attacked_systems
+										which = nomads_attacked_systems
 										value > 4
 									}
 									fleet_power < 1500
@@ -2444,6 +2442,18 @@ country_event = {
 				surveyed = {
 					set_surveyed = yes
 					surveyor = root
+				}
+				solar_system = {
+					if = {
+						limit = { exists = starbase }
+						# nothin'
+						else = {
+							create_starbase = {
+								size = starbase_outpost
+								owner = event_target:nomad_new_country
+							}
+						}
+					}
 				}
 			}
 			event_target:nomad_fleet = {
@@ -3744,7 +3754,6 @@ country_event = {
 				set_owner = root
 				create_ship_design = {
 					design = "NAME_Nomad_Cruiser"
-					ftl = root
 				}
 				while = {
 					count = 5
@@ -3771,7 +3780,6 @@ country_event = {
 					set_owner = root
 					create_ship_design = {
 						design = "NAME_Nomad_Cruiser"
-						ftl = root
 					}
 					while = {
 						count = 10

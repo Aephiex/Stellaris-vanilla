@@ -21,9 +21,12 @@ ship_design = {
 		}
 		component = {
 			slot = "LARGE_UTILITY_1"
-			template = "LARGE_FUSION_REACTOR"
+			template = "LARGE_ARMOR_1"
 		}
 	}
+	required_component="CORVETTE_FUSION_REACTOR"
+	required_component="SHIP_THRUSTER_2"
+	required_component="SENSOR_1"
 }
 
 # Ancient Combat Drone
@@ -54,12 +57,15 @@ ship_design = {
 		component = {
 			slot = "MEDIUM_UTILITY_2"
 			template = "MEDIUM_ARMOR_1"
-		}			
+		}
 		component = {
 			slot = "LARGE_UTILITY_1"
-			template = "LARGE_FUSION_REACTOR"
-		}				
+			template = "LARGE_ARMOR_1"
+		}
 	}
+	required_component="CORVETTE_FUSION_REACTOR"
+	required_component="SHIP_THRUSTER_2"
+	required_component="SENSOR_1"
 }
 
 # Ancient Drone
@@ -101,9 +107,12 @@ ship_design = {
 		}
 		component = {
 			slot = "LARGE_UTILITY_1"
-			template = "LARGE_FUSION_REACTOR"
+			template = "LARGE_ARMOR_1"
 		}
 	}
+	required_component="DESTROYER_FUSION_REACTOR"
+	required_component="SHIP_THRUSTER_2"
+	required_component="SENSOR_1"
 }
 
 ship_design = {
@@ -152,9 +161,10 @@ ship_design = {
 		}
 		component = {
 			slot = "LARGE_UTILITY_5"
-			template = "LARGE_FUSION_REACTOR"
+			template = "LARGE_ARMOR_1"
 		}
 		
 	}
-	required_component="SHIP_SENSOR_1"
+	required_component="BATTLESHIP_FUSION_REACTOR"
+	required_component="SENSOR_1"
 }

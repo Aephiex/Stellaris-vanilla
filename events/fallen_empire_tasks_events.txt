@@ -20,7 +20,6 @@ country_event = {
 		is_country_type = default				
 		fleet_power < 100000	
 		is_at_war = no
-		years_passed > 20
 		
 		any_country = {
 			is_valid_fallen_empire_for_task = yes
@@ -175,12 +174,35 @@ country_event = {
 			
 			root = {
 				random_list = {
-					35 = { set_country_flag = fe_gift_resources_small }
-					15 = { set_country_flag = fe_gift_resources_large }
+					50 = { 
+						if = {
+							limit = { mid_game_years_passed >= 0 }
+							set_country_flag = fe_gift_resources_large 
+							else = {
+								set_country_flag = fe_gift_resources_small
+							}
+						}									
+					}
 					20 = { set_country_flag = fe_gift_databanks }
 					15 = { set_country_flag = fe_gift_rare_tech }
-					10 = { set_country_flag = fe_gift_escorts }
-					5 = { set_country_flag = fe_gift_battlecruiser }
+					10 = { 
+						if = {
+							limit = { mid_game_years_passed >= 0 }
+							set_country_flag = fe_gift_escorts 
+							else = {
+								set_country_flag = fe_gift_resources_large 
+							}
+						}					
+					}
+					5 = { 
+						if = {
+							limit = { mid_game_years_passed >= 0 }
+							set_country_flag = fe_gift_battlecruiser 
+							else = {
+								set_country_flag = fe_gift_resources_large
+							}
+						}
+					}						
 				}			
 			}
 			
@@ -417,14 +439,6 @@ country_event = {
 			limit = { has_country_flag = fe_gift_rare_tech }
 			if = {
 				limit = {
-					NOT = { has_technology = tech_orbital_sensor_array }
-				}
-				give_technology = { tech = tech_orbital_sensor_array }
-				hidden_effect = { remove_country_flag = fe_gift_rare_tech }
-				break = yes
-			}	
-			if = {
-				limit = {
 					NOT = { has_technology = tech_planetary_shield_generator }
 				}
 				give_technology = { tech = tech_planetary_shield_generator }
@@ -447,14 +461,6 @@ country_event = {
 				hidden_effect = { remove_country_flag = fe_gift_rare_tech }
 				break = yes
 			}				
-			if = {
-				limit = {
-					NOT = { has_technology = tech_hyperlane_mapping }
-				}
-				give_technology = { tech = tech_hyperlane_mapping }
-				hidden_effect = { remove_country_flag = fe_gift_rare_tech }
-				break = yes
-			}		
 			if = {
 				limit = {
 					NOT = { has_technology = tech_space_defense_station_improvement }
@@ -492,102 +498,22 @@ country_event = {
 							if = {
 								limit = {
 									event_target:FallenEmpireTaskOrigin = { has_authority = auth_machine_intelligence }
-									root = { has_technology = "tech_warp_drive_1" }
 								}
 								create_ship = {
 									name = "NAME_Surplus_I"
-									design = "NAME_Surplus_Gamma_I"
+									design = "NAME_Surplus_Gamma"
 									graphical_culture = event_target:FallenEmpireTaskOrigin
 									upgradable = no
 								}
 								create_ship = {
 									name = "NAME_Surplus_II"
-									design = "NAME_Surplus_Gamma_I"
+									design = "NAME_Surplus_Gamma"
 									graphical_culture = event_target:FallenEmpireTaskOrigin
 									upgradable = no
 								}
 								create_ship = {
 									name = "NAME_Surplus_III"
-									design = "NAME_Surplus_Gamma_I"
-									graphical_culture = event_target:FallenEmpireTaskOrigin
-									upgradable = no
-								}
-							}	
-							if = {
-								limit = {
-									event_target:FallenEmpireTaskOrigin = { has_authority = auth_machine_intelligence }
-									root = {
-										NOT = { has_technology = "tech_warp_drive_1" }
-										has_technology = "tech_hyper_drive_1"
-									}
-								}
-								create_ship = {
-									name = "NAME_Surplus_I"
-									design = "NAME_Surplus_Gamma_II"
-									graphical_culture = event_target:FallenEmpireTaskOrigin
-									upgradable = no
-								}
-								create_ship = {
-									name = "NAME_Surplus_II"
-									design = "NAME_Surplus_Gamma_II"
-									graphical_culture = event_target:FallenEmpireTaskOrigin
-									upgradable = no
-								}
-								create_ship = {
-									name = "NAME_Surplus_III"
-									design = "NAME_Surplus_Gamma_II"
-									graphical_culture = event_target:FallenEmpireTaskOrigin
-									upgradable = no
-								}
-							}
-							if = {
-								limit = {
-									event_target:FallenEmpireTaskOrigin = { has_authority = auth_machine_intelligence }
-									root = {
-										NOT = { has_technology = "tech_warp_drive_1" }
-										NOT = { has_technology = "tech_hyper_drive_1" }
-										has_technology = "tech_wormhole_generation_1"
-									}
-								}
-								create_ship = {
-									name = "NAME_Surplus_I"
-									design = "NAME_Surplus_Gamma_III"
-									graphical_culture = event_target:FallenEmpireTaskOrigin
-									upgradable = no
-								}
-								create_ship = {
-									name = "NAME_Surplus_II"
-									design = "NAME_Surplus_Gamma_III"
-									graphical_culture = event_target:FallenEmpireTaskOrigin
-									upgradable = no
-								}
-								create_ship = {
-									name = "NAME_Surplus_III"
-									design = "NAME_Surplus_Gamma_III"
-									graphical_culture = event_target:FallenEmpireTaskOrigin
-									upgradable = no
-								}
-							}							
-							if = {
-								limit = {
-									event_target:FallenEmpireTaskOrigin = { has_ethic = ethic_fanatic_materialist }
-									root = { has_technology = "tech_warp_drive_1" }
-								}
-								create_ship = {
-									name = "NAME_Surplus_I"
-									design = "NAME_Surplus_Sage_I"
-									graphical_culture = event_target:FallenEmpireTaskOrigin
-									upgradable = no
-								}
-								create_ship = {
-									name = "NAME_Surplus_II"
-									design = "NAME_Surplus_Sage_I"
-									graphical_culture = event_target:FallenEmpireTaskOrigin
-									upgradable = no
-								}
-								create_ship = {
-									name = "NAME_Surplus_III"
-									design = "NAME_Surplus_Sage_I"
+									design = "NAME_Surplus_Gamma"
 									graphical_culture = event_target:FallenEmpireTaskOrigin
 									upgradable = no
 								}
@@ -595,54 +521,22 @@ country_event = {
 							if = {
 								limit = {
 									event_target:FallenEmpireTaskOrigin = { has_ethic = ethic_fanatic_materialist }
-									root = {
-										NOT = { has_technology = "tech_warp_drive_1" }
-										has_technology = "tech_hyper_drive_1"
-									}
 								}
 								create_ship = {
 									name = "NAME_Surplus_I"
-									design = "NAME_Surplus_Sage_II"
+									design = "NAME_Surplus_Sage"
 									graphical_culture = event_target:FallenEmpireTaskOrigin
 									upgradable = no
 								}
 								create_ship = {
 									name = "NAME_Surplus_II"
-									design = "NAME_Surplus_Sage_II"
+									design = "NAME_Surplus_Sage"
 									graphical_culture = event_target:FallenEmpireTaskOrigin
 									upgradable = no
 								}
 								create_ship = {
 									name = "NAME_Surplus_III"
-									design = "NAME_Surplus_Sage_II"
-									graphical_culture = event_target:FallenEmpireTaskOrigin
-									upgradable = no
-								}
-							}
-							if = {
-								limit = {
-									event_target:FallenEmpireTaskOrigin = { has_ethic = ethic_fanatic_materialist }
-									root = {
-										NOT = { has_technology = "tech_warp_drive_1" }
-										NOT = { has_technology = "tech_hyper_drive_1" }
-										has_technology = "tech_wormhole_generation_1"
-									}
-								}
-								create_ship = {
-									name = "NAME_Surplus_I"
-									design = "NAME_Surplus_Sage_III"
-									graphical_culture = event_target:FallenEmpireTaskOrigin
-									upgradable = no
-								}
-								create_ship = {
-									name = "NAME_Surplus_II"
-									design = "NAME_Surplus_Sage_III"
-									graphical_culture = event_target:FallenEmpireTaskOrigin
-									upgradable = no
-								}
-								create_ship = {
-									name = "NAME_Surplus_III"
-									design = "NAME_Surplus_Sage_III"
+									design = "NAME_Surplus_Sage"
 									graphical_culture = event_target:FallenEmpireTaskOrigin
 									upgradable = no
 								}
@@ -650,78 +544,22 @@ country_event = {
 							if = {
 								limit = {
 									event_target:FallenEmpireTaskOrigin = { has_ethic = ethic_fanatic_xenophile }
-									root = { has_technology = "tech_warp_drive_1" }
 								}
 								create_ship = {
 									name = "NAME_Surplus_I"
-									design = "NAME_Surplus_Warden_I"
+									design = "NAME_Surplus_Warden"
 									graphical_culture = event_target:FallenEmpireTaskOrigin
 									upgradable = no
 								}
 								create_ship = {
 									name = "NAME_Surplus_II"
-									design = "NAME_Surplus_Warden_I"
+									design = "NAME_Surplus_Warden"
 									graphical_culture = event_target:FallenEmpireTaskOrigin
 									upgradable = no
 								}
 								create_ship = {
 									name = "NAME_Surplus_III"
-									design = "NAME_Surplus_Warden_I"
-									graphical_culture = event_target:FallenEmpireTaskOrigin
-									upgradable = no
-								}
-							}
-							if = {
-								limit = {
-									event_target:FallenEmpireTaskOrigin = { has_ethic = ethic_fanatic_xenophile }
-									root = {
-										NOT = { has_technology = "tech_warp_drive_1" }
-										has_technology = "tech_hyper_drive_1"
-									}
-								}
-								create_ship = {
-									name = "NAME_Surplus_I"
-									design = "NAME_Surplus_Warden_II"
-									graphical_culture = event_target:FallenEmpireTaskOrigin
-									upgradable = no
-								}
-								create_ship = {
-									name = "NAME_Surplus_II"
-									design = "NAME_Surplus_Warden_II"
-									graphical_culture = event_target:FallenEmpireTaskOrigin
-									upgradable = no
-								}
-								create_ship = {
-									name = "NAME_Surplus_III"
-									design = "NAME_Surplus_Warden_II"
-									graphical_culture = event_target:FallenEmpireTaskOrigin
-									upgradable = no
-								}
-							}
-							if = {
-								limit = {
-									event_target:FallenEmpireTaskOrigin = { has_ethic = ethic_fanatic_xenophile }
-									root = {
-										NOT = { has_technology = "tech_warp_drive_1" }
-										NOT = { has_technology = "tech_hyper_drive_1" }
-										has_technology = "tech_wormhole_generation_1"
-									}
-								}
-								create_ship = {
-									name = "NAME_Surplus_I"
-									design = "NAME_Surplus_Warden_III"
-									graphical_culture = event_target:FallenEmpireTaskOrigin
-									upgradable = no
-								}
-								create_ship = {
-									name = "NAME_Surplus_II"
-									design = "NAME_Surplus_Warden_III"
-									graphical_culture = event_target:FallenEmpireTaskOrigin
-									upgradable = no
-								}
-								create_ship = {
-									name = "NAME_Surplus_III"
-									design = "NAME_Surplus_Warden_III"
+									design = "NAME_Surplus_Warden"
 									graphical_culture = event_target:FallenEmpireTaskOrigin
 									upgradable = no
 								}
@@ -729,82 +567,26 @@ country_event = {
 							if = {
 								limit = {
 									event_target:FallenEmpireTaskOrigin = { has_ethic = ethic_fanatic_spiritualist }
-									root = { has_technology = "tech_warp_drive_1" }
 								}
 								create_ship = {
 									name = "NAME_Surplus_I"
-									design = "NAME_Surplus_Zealot_I"
+									design = "NAME_Surplus_Zealot"
 									graphical_culture = event_target:FallenEmpireTaskOrigin
 									upgradable = no
 								}
 								create_ship = {
 									name = "NAME_Surplus_II"
-									design = "NAME_Surplus_Zealot_I"
+									design = "NAME_Surplus_Zealot"
 									graphical_culture = event_target:FallenEmpireTaskOrigin
 									upgradable = no
 								}
 								create_ship = {
 									name = "NAME_Surplus_III"
-									design = "NAME_Surplus_Zealot_I"
+									design = "NAME_Surplus_Zealot"
 									graphical_culture = event_target:FallenEmpireTaskOrigin
 									upgradable = no
 								}
 							}
-							if = {
-								limit = {
-									event_target:FallenEmpireTaskOrigin = { has_ethic = ethic_fanatic_spiritualist }
-									root = {
-										NOT = { has_technology = "tech_warp_drive_1" }
-										has_technology = "tech_hyper_drive_1"
-									}
-								}
-								create_ship = {
-									name = "NAME_Surplus_I"
-									design = "NAME_Surplus_Zealot_II"
-									graphical_culture = event_target:FallenEmpireTaskOrigin
-									upgradable = no
-								}
-								create_ship = {
-									name = "NAME_Surplus_II"
-									design = "NAME_Surplus_Zealot_II"
-									graphical_culture = event_target:FallenEmpireTaskOrigin
-									upgradable = no
-								}
-								create_ship = {
-									name = "NAME_Surplus_III"
-									design = "NAME_Surplus_Zealot_II"
-									graphical_culture = event_target:FallenEmpireTaskOrigin
-									upgradable = no
-								}
-							}
-							if = {
-								limit = {
-									event_target:FallenEmpireTaskOrigin = { has_ethic = ethic_fanatic_spiritualist }
-									root = {
-										NOT = { has_technology = "tech_warp_drive_1" }
-										NOT = { has_technology = "tech_hyper_drive_1" }
-										has_technology = "tech_wormhole_generation_1"
-									}
-								}
-								create_ship = {
-									name = "NAME_Surplus_I"
-									design = "NAME_Surplus_Zealot_III"
-									graphical_culture = event_target:FallenEmpireTaskOrigin
-									upgradable = no
-								}
-								create_ship = {
-									name = "NAME_Surplus_II"
-									design = "NAME_Surplus_Zealot_III"
-									graphical_culture = event_target:FallenEmpireTaskOrigin
-									upgradable = no
-								}
-								create_ship = {
-									name = "NAME_Surplus_III"
-									design = "NAME_Surplus_Zealot_III"
-									graphical_culture = event_target:FallenEmpireTaskOrigin
-									upgradable = no
-								}
-							}							
 							add_modifier = {
 								modifier = fe_gift_ship
 								days = -1
@@ -829,44 +611,10 @@ country_event = {
 							if = {
 								limit = {
 									event_target:FallenEmpireTaskOrigin = { has_authority = auth_machine_intelligence }
-									root = {
-										has_technology = "tech_warp_drive_1"
-									}
 								}
 								create_ship = {
 									name = "NAME_Progress"
-									design = "NAME_Surplus_Beta_I"
-									graphical_culture = event_target:FallenEmpireTaskOrigin
-									upgradable = no
-								}
-							}
-							if = {
-								limit = {
-									event_target:FallenEmpireTaskOrigin = { has_authority = auth_machine_intelligence }
-									root = {
-										NOT = { has_technology = "tech_warp_drive_1" }
-										has_technology = "tech_hyper_drive_1"
-									}
-								}
-								create_ship = {
-									name = "NAME_Progress"
-									design = "NAME_Surplus_Beta_II"
-									graphical_culture = event_target:FallenEmpireTaskOrigin
-									upgradable = no
-								}
-							}
-							if = {
-								limit = {
-									event_target:FallenEmpireTaskOrigin = { has_authority = auth_machine_intelligence }
-									root = {
-										NOT = { has_technology = "tech_warp_drive_1" }
-										NOT = { has_technology = "tech_hyper_drive_1" }
-										has_technology = "tech_wormhole_generation_1"
-									}
-								}
-								create_ship = {
-									name = "NAME_Progress"
-									design = "NAME_Surplus_Beta_III"
+									design = "NAME_Surplus_Beta"
 									graphical_culture = event_target:FallenEmpireTaskOrigin
 									upgradable = no
 								}
@@ -874,58 +622,10 @@ country_event = {
 							if = {
 								limit = {
 									event_target:FallenEmpireTaskOrigin = { has_ethic = ethic_fanatic_materialist }
-									root = {
-										has_technology = "tech_warp_drive_1"
-									}
 								}
 								create_ship = {
 									name = "NAME_Progress"
-									design = "NAME_Surplus_Scholar_I"
-									graphical_culture = event_target:FallenEmpireTaskOrigin
-									upgradable = no
-								}
-							}
-							if = {
-								limit = {
-									event_target:FallenEmpireTaskOrigin = { has_ethic = ethic_fanatic_materialist }
-									root = {
-										NOT = { has_technology = "tech_warp_drive_1" }
-										has_technology = "tech_hyper_drive_1"
-									}
-								}
-								create_ship = {
-									name = "NAME_Progress"
-									design = "NAME_Surplus_Scholar_II"
-									graphical_culture = event_target:FallenEmpireTaskOrigin
-									upgradable = no
-								}
-							}
-							if = {
-								limit = {
-									event_target:FallenEmpireTaskOrigin = { has_ethic = ethic_fanatic_materialist }
-									root = {
-										NOT = { has_technology = "tech_warp_drive_1" }
-										NOT = { has_technology = "tech_hyper_drive_1" }
-										has_technology = "tech_wormhole_generation_1"
-									}
-								}
-								create_ship = {
-									name = "NAME_Progress"
-									design = "NAME_Surplus_Scholar_III"
-									graphical_culture = event_target:FallenEmpireTaskOrigin
-									upgradable = no
-								}
-							}							
-							if = {
-								limit = {
-									event_target:FallenEmpireTaskOrigin = { has_ethic = ethic_fanatic_xenophile }
-									root = {
-										has_technology = "tech_warp_drive_1"
-									}
-								}
-								create_ship = {
-									name = "NAME_Benevolence"
-									design = "NAME_Surplus_Custodian_I"
+									design = "NAME_Surplus_Scholar"
 									graphical_culture = event_target:FallenEmpireTaskOrigin
 									upgradable = no
 								}
@@ -933,30 +633,10 @@ country_event = {
 							if = {
 								limit = {
 									event_target:FallenEmpireTaskOrigin = { has_ethic = ethic_fanatic_xenophile }
-									root = {
-										NOT = { has_technology = "tech_warp_drive_1" }
-										has_technology = "tech_hyper_drive_1"
-									}
 								}
 								create_ship = {
 									name = "NAME_Benevolence"
-									design = "NAME_Surplus_Custodian_II"
-									graphical_culture = event_target:FallenEmpireTaskOrigin
-									upgradable = no
-								}
-							}
-							if = {
-								limit = {
-									event_target:FallenEmpireTaskOrigin = { has_ethic = ethic_fanatic_xenophile }
-									root = {
-										NOT = { has_technology = "tech_warp_drive_1" }
-										NOT = { has_technology = "tech_hyper_drive_1" }
-										has_technology = "tech_wormhole_generation_1"
-									}
-								}
-								create_ship = {
-									name = "NAME_Benevolence"
-									design = "NAME_Surplus_Custodian_III"
+									design = "NAME_Surplus_Custodian"
 									graphical_culture = event_target:FallenEmpireTaskOrigin
 									upgradable = no
 								}
@@ -964,48 +644,14 @@ country_event = {
 							if = {
 								limit = {
 									event_target:FallenEmpireTaskOrigin = { has_ethic = ethic_fanatic_spiritualist }
-									root = {
-										has_technology = "tech_warp_drive_1"
-									}
 								}
 								create_ship = {
 									name = "NAME_Benevolence"
-									design = "NAME_Surplus_Avatar_I"
+									design = "NAME_Surplus_Avatar"
 									graphical_culture = event_target:FallenEmpireTaskOrigin
 									upgradable = no
 								}
 							}
-							if = {
-								limit = {
-									event_target:FallenEmpireTaskOrigin = { has_ethic = ethic_fanatic_spiritualist }
-									root = {
-										NOT = { has_technology = "tech_warp_drive_1" }
-										has_technology = "tech_hyper_drive_1"
-									}
-								}
-								create_ship = {
-									name = "NAME_Benevolence"
-									design = "NAME_Surplus_Avatar_II"
-									graphical_culture = event_target:FallenEmpireTaskOrigin
-									upgradable = no
-								}
-							}
-							if = {
-								limit = {
-									event_target:FallenEmpireTaskOrigin = { has_ethic = ethic_fanatic_spiritualist }
-									root = {
-										NOT = { has_technology = "tech_warp_drive_1" }
-										NOT = { has_technology = "tech_hyper_drive_1" }
-										has_technology = "tech_wormhole_generation_1"
-									}
-								}
-								create_ship = {
-									name = "NAME_Benevolence"
-									design = "NAME_Surplus_Avatar_III"
-									graphical_culture = event_target:FallenEmpireTaskOrigin
-									upgradable = no
-								}
-							}							
 							add_modifier = {
 								modifier = fe_gift_ship
 								days = -1
@@ -1562,50 +1208,51 @@ country_event = {
 	}
 }
 
+# TODO [HL] [AUG-14707]: Rework for new war system
 # Success
-country_event = {
-	id = fallen_empires_tasks.9
-	title = fallen_empires_tasks.9.name
-	desc = fallen_empires_tasks.9.desc
-	
-	is_triggered_only = yes
-	
-	immediate = {
-		remove_global_flag = fe_task_stop_atrocity_active
-		random_country = {
-			limit = { has_country_flag = fe_task_stop_atrocity_origin }
-			save_event_target_as = FallenEmpireTaskOrigin
-		}
-		random_country = {
-			limit = { has_country_flag = fe_task_stop_atrocity_target }
-			save_event_target_as = FallenEmpireTaskTarget
-		}	
-		end_event_chain = fe_stop_atrocity_task_chain
-	}
-	
-	diplomatic = yes
-	
-	picture_event_data = {
-		portrait = event_target:FallenEmpireTaskOrigin
-		planet_background = event_target:FallenEmpireTaskOrigin
-		graphical_culture = event_target:FallenEmpireTaskOrigin
-		city_level = event_target:FallenEmpireTaskOrigin
-		room = event_target:FallenEmpireTaskOrigin.ruler
-	}
-	
-	option = {
-		name = fallen_empires_tasks.9.a
-		custom_tooltip = fallen_empire_happy_tooltip
-		hidden_effect = { event_target:FallenEmpireTaskOrigin = { add_opinion_modifier = { who = root modifier = opinion_completed_fallen_empire_task } } }		
-		hidden_effect = {
-			every_country = {
-				remove_country_flag = fe_task_stop_atrocity
-				remove_country_flag = fe_task_stop_atrocity_origin
-				remove_country_flag = fe_task_stop_atrocity_target
-			}
-		}
-	}
-}
+#country_event = {
+#	id = fallen_empires_tasks.9
+#	title = fallen_empires_tasks.9.name
+#	desc = fallen_empires_tasks.9.desc
+#	
+#	is_triggered_only = yes
+#	
+#	immediate = {
+#		remove_global_flag = fe_task_stop_atrocity_active
+#		random_country = {
+#			limit = { has_country_flag = fe_task_stop_atrocity_origin }
+#			save_event_target_as = FallenEmpireTaskOrigin
+#		}
+#		random_country = {
+#			limit = { has_country_flag = fe_task_stop_atrocity_target }
+#			save_event_target_as = FallenEmpireTaskTarget
+#		}	
+#		end_event_chain = fe_stop_atrocity_task_chain
+#	}
+#	
+#	diplomatic = yes
+#	
+#	picture_event_data = {
+#		portrait = event_target:FallenEmpireTaskOrigin
+#		planet_background = event_target:FallenEmpireTaskOrigin
+#		graphical_culture = event_target:FallenEmpireTaskOrigin
+#		city_level = event_target:FallenEmpireTaskOrigin
+#		room = event_target:FallenEmpireTaskOrigin.ruler
+#	}
+#	
+#	option = {
+#		name = fallen_empires_tasks.9.a
+#		custom_tooltip = fallen_empire_happy_tooltip
+#		hidden_effect = { event_target:FallenEmpireTaskOrigin = { add_opinion_modifier = { who = root modifier = opinion_completed_fallen_empire_task } } }		
+#		hidden_effect = {
+#			every_country = {
+#				remove_country_flag = fe_task_stop_atrocity
+#				remove_country_flag = fe_task_stop_atrocity_origin
+#				remove_country_flag = fe_task_stop_atrocity_target
+#			}
+#		}
+#	}
+#}
 
 # Failure - timer ran out
 country_event = {
@@ -2017,50 +1664,51 @@ country_event = {
 	}
 }
 
+# TODO [HL] [AUG-14707]: Rework for new war system
 # Success
-country_event = {
-	id = fallen_empires_tasks.16
-	title = fallen_empires_tasks.16.name
-	desc = fallen_empires_tasks.16.desc
-	
-	is_triggered_only = yes
-	
-	immediate = {
-		remove_global_flag = fe_task_stop_robots_active
-		random_country = {
-			limit = { has_country_flag = fe_task_stop_robots_origin }
-			save_event_target_as = FallenEmpireTaskOrigin
-		}
-		random_country = {
-			limit = { has_country_flag = fe_task_stop_robots_target }
-			save_event_target_as = FallenEmpireTaskTarget
-		}	
-		end_event_chain = fe_stop_robots_task_chain
-	}
-	
-	diplomatic = yes
-	
-	picture_event_data = {
-		portrait = event_target:FallenEmpireTaskOrigin
-		planet_background = event_target:FallenEmpireTaskOrigin
-		graphical_culture = event_target:FallenEmpireTaskOrigin
-		city_level = event_target:FallenEmpireTaskOrigin
-		room = event_target:FallenEmpireTaskOrigin.ruler
-	}
-	
-	option = {
-		name = fallen_empires_tasks.16.a
-		custom_tooltip = fallen_empire_happy_tooltip
-		hidden_effect = { event_target:FallenEmpireTaskOrigin = { add_opinion_modifier = { who = root modifier = opinion_completed_fallen_empire_task } } }		
-		hidden_effect = {
-			every_country = {
-				remove_country_flag = fe_task_stop_robots
-				remove_country_flag = fe_task_stop_robots_origin
-				remove_country_flag = fe_task_stop_robots_target
-			}
-		}
-	}
-}
+#country_event = {
+#	id = fallen_empires_tasks.16
+#	title = fallen_empires_tasks.16.name
+#	desc = fallen_empires_tasks.16.desc
+#	
+#	is_triggered_only = yes
+#	
+#	immediate = {
+#		remove_global_flag = fe_task_stop_robots_active
+#		random_country = {
+#			limit = { has_country_flag = fe_task_stop_robots_origin }
+#			save_event_target_as = FallenEmpireTaskOrigin
+#		}
+#		random_country = {
+#			limit = { has_country_flag = fe_task_stop_robots_target }
+#			save_event_target_as = FallenEmpireTaskTarget
+#		}	
+#		end_event_chain = fe_stop_robots_task_chain
+#	}
+#	
+#	diplomatic = yes
+#	
+#	picture_event_data = {
+#		portrait = event_target:FallenEmpireTaskOrigin
+#		planet_background = event_target:FallenEmpireTaskOrigin
+#		graphical_culture = event_target:FallenEmpireTaskOrigin
+#		city_level = event_target:FallenEmpireTaskOrigin
+#		room = event_target:FallenEmpireTaskOrigin.ruler
+#	}
+#	
+#	option = {
+#		name = fallen_empires_tasks.16.a
+#		custom_tooltip = fallen_empire_happy_tooltip
+#		hidden_effect = { event_target:FallenEmpireTaskOrigin = { add_opinion_modifier = { who = root modifier = opinion_completed_fallen_empire_task } } }		
+#		hidden_effect = {
+#			every_country = {
+#				remove_country_flag = fe_task_stop_robots
+#				remove_country_flag = fe_task_stop_robots_origin
+#				remove_country_flag = fe_task_stop_robots_target
+#			}
+#		}
+#	}
+#}
 
 # Failure - timer ran out
 country_event = {

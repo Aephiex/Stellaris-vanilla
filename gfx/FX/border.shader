@@ -1,6 +1,5 @@
 Includes = {
 	"constants.fxh"
-	"borders.fxh"
 	"terra_incognita.fxh"
 }
 
@@ -23,13 +22,12 @@ PixelShader =
 			AddressU = "Clamp";
 			AddressV = "Clamp";
 		}
-		BorderColor = {
-			Index = 2;
-			MagFilter = "point";
-			MinFilter = "point";
-			MipFilter = "none";
-			AddressU = "Clamp";
-			AddressV = "Clamp";
+		BorderSDF = {
+			Index = 2
+			MagFilter = "linear"
+			MinFilter = "linear"
+			AddressU = "Clamp"
+			AddressV = "Clamp"
 		}
 		TerraIncognitaTexture = 
 		{
@@ -58,11 +56,6 @@ VertexStruct VS_OUTPUT_STAR_PIN
 {
 	float4 vPosition	: PDX_POSITION;
 	float3 vPos			: TEXCOORD0;
-};
-
-VertexStruct VS_INPUT_FULLSCREEN
-{
-    int2 position	: POSITION;
 };
 
 VertexStruct VS_OUTPUT
@@ -110,11 +103,23 @@ ConstantBuffer( SectorBorders, 0, 0 )	#Sector borders
 	float4x4	ViewProjectionMatrix;
 	float3		vCamPos;
 	float		vCamZoom;
-	float4		Color;
+	float4		SectorColor;
 	float		vPlayerID;
 	float		vBorderIDTextureSize;
 	float		vSelected;
 	float		vTime;
+	float2		vBoundsMin;
+	float2		vBoundsMax;
+}
+
+ConstantBuffer( CountrySdfBorders, 0, 0 ) #SDF borders
+{
+	float4x4	ViewProjectionMatrix;
+	float3		vCamPos;
+	float4		PrimaryColor;
+	float4		SecondaryColor;
+	float		vSdfTime;
+	float		vBorderHighLight;
 }
 
 VertexShader =
@@ -128,20 +133,6 @@ VertexShader =
 			Out.vPosition  	= mul( ViewProjectionMatrix, float4( v.vPosition.x, 0.0f, v.vPosition.y, 1.0f ) );
 			Out.vUV			= v.vUV;
 			Out.vPos 		= v.vPosition.xy;
-			return Out;
-		}
-		
-	]]
-	MainCode VertexShaderFullscreen
-		ConstantBuffers = { CountryBorders }
-	[[
-		VS_OUTPUT main(const VS_INPUT_FULLSCREEN v )
-		{
-			VS_OUTPUT Out;
-			Out.vPosition  	= mul( ViewProjectionMatrix, float4( v.position.x * 1000.f, 0.0f, v.position.y * 1000.f, 1.0f ) );
-			
-			Out.vUV = ( v.position + 1.0f ) * 0.5f;
-			Out.vPos = float2( v.position );
 			return Out;
 		}
 		
@@ -162,14 +153,14 @@ VertexShader =
 			return Out;
 		}
 	]]
-	MainCode VertexShaderSector
+	MainCode VertexShaderSectorSdf
 		ConstantBuffers = { SectorBorders }
 	[[
 		VS_OUTPUT_SECTOR main(const VS_INPUT_SECTOR v )
 		{
 			VS_OUTPUT_SECTOR Out;
 			Out.vPosition  	= mul( ViewProjectionMatrix, float4( v.vPosition.x, 0.0f, v.vPosition.y, 1.0f ) );
-			Out.vUV 		= ( v.vPosition / 2000.f ) + vec2( 0.5f );
+			Out.vUV 		= ( v.vPosition - vBoundsMin ) / ( vBoundsMax - vBoundsMin );
 			Out.vDistance	= v.vDistance;
 			return Out;
 		}
@@ -179,30 +170,51 @@ VertexShader =
 
 PixelShader =
 {
-	MainCode PixelShader
-		ConstantBuffers = { CountryBorders }
+	MainCode PixelShaderSDF
+		ConstantBuffers = { CountrySdfBorders }
 	[[
 		float4 main( VS_OUTPUT v ) : PDX_COLOR
 		{
-			float4 vColor = GetBorderColor( v.vUV, BorderID, vTextureSize, BorderColor );
-			clip( vColor.a - 0.01f );
-			//vColor.a *= 0.3f;
+			float vDist = tex2D( BorderSDF, v.vUV ).a;
+			
+			const float vMaxMidDistance = 0.53f;	
+			const float vMinMidDistance = 0.47f;
+			clip( vMaxMidDistance - vDist );
+			
+			float vCameraDistance = length( vCamPos - float3(v.vPos.x, 0.f, v.vPos.y ) );
+			float vCamDistFactor = saturate( vCameraDistance / 1600.0f );
+			
+			float vMid = lerp( vMinMidDistance, vMaxMidDistance, vCamDistFactor );
+			
+			float vEpsilon = 0.005f + vCamDistFactor * 0.05f;
+			float vOffset = -0.000f;
+			float vAlpha = smoothstep( vMid + vEpsilon, vMid - vEpsilon, vDist + vOffset );
+					
+			float vAlphaMin = 0.5f + 0.5f * vCamDistFactor;
+			
+			float vEdgeWidth = 0.025f + 0.35f * vCamDistFactor;
+			const float vEdgeSharpness = 100.0f;			
+			float vBlackBorderWidth = vEdgeWidth * 0.25f;
+			const float vBlackBorderSharpness = 25.0f;
+
+			//vAlphaOuterEdge makes the outermost edge smoother
+			float vAlphaOuterEdge = smoothstep( vMid + vEpsilon, vMid - vEpsilon, vDist + vOffset );
+			//vAlphaEdge is the saturated part at the outer edge
+			float vAlphaEdge = saturate( (vDist-vMid + vEdgeWidth)*vEdgeSharpness );
+			//vAlphaFill is the soft gradient inside the blobs
+			float vAlphaFill = max( vAlphaMin, saturate( vMid + (vDist-0.25f + vEdgeWidth*1.0f)*2.0f ) * 0.75f );
+
+			float4 vColor = vAlphaEdge *  PrimaryColor + ( 1 - vAlphaEdge ) * SecondaryColor;
+
+			//Add a black edge that becomes more visible the further away from the camera it is
+			vColor *= 1.0f - ( 0.25f * saturate( (vDist-vMid + vBlackBorderWidth)*vBlackBorderSharpness ) );
+			vColor[3] = saturate(vAlphaEdge + vAlphaFill) * vAlphaOuterEdge;
+			
 			return vColor;
 		}
 		
 	]]
-	
-	MainCode PixelShaderFullscreen
-		ConstantBuffers = { CountryBorders }
-	[[
-		float4 main( VS_OUTPUT v ) : PDX_COLOR
-		{	
-			float4 vBorderColor = GetBorderColor( v.vUV, BorderID, vTextureSize, BorderColor );
-			//return float4( vBorderUV, 0.f, 0.5f );
-			return vBorderColor;
-		}
-	]]
-	
+		
 	MainCode PixelShaderCentroid
 		ConstantBuffers = { CountryBorders }
 	[[
@@ -227,29 +239,17 @@ PixelShader =
 			return saturate( vColor );
 		}
 	]]
-	MainCode PixelShaderSector
+	MainCode PixelShaderSectorSdf
 		ConstantBuffers = { SectorBorders }
 	[[
 		float4 main( VS_OUTPUT_SECTOR v ) : PDX_COLOR
 		{
-			float vDistance = v.vDistance;
-			clip( vDistance - 0.0001f );
+			float vDist = tex2D( BorderSDF, v.vUV ).a;
 			
-			float vBorderIntensity;
-			float vBorderID = GetBorderID( v.vUV, vBorderIntensity, BorderID, vBorderIDTextureSize );
-			
-			clip( 0.1f - abs( vBorderID*255 - vPlayerID - 1 ) );
-			
-			float vBorderStart = 0.6f;
-			float vBorderStop = 0.7f + 0.2 * ( vCamZoom - 100.f ) / 3000.f ;
-			clip( vBorderIntensity - vBorderStart );
-			float vDistancePerIntensity = ( 2000.f / vBorderIDTextureSize ) * ( vBorderStop - vBorderStart );
-			vBorderIntensity = ( vBorderIntensity - vBorderStart ) / ( vBorderStop - vBorderStart );
-			
-			if( vBorderIntensity < vBorderStop )
-				vDistance = min( vDistance, vBorderIntensity * vDistancePerIntensity );			
-			
-			float vThickness = 0.2f + vSelected * 0.5f + ( vCamZoom / 3000.f );
+			float vDistance = min( v.vDistance/64.0f, 0.5f - vDist );
+			clip( vDistance - 0.0001f );	
+					
+			float vThickness = 0.005f + vSelected * 0.01f + ( vCamZoom / 70000.f );
 			float vInvThickness = 1.f / vThickness;
 			
 			//1 - ( (x - 0.25) * 4 ) ^ 2
@@ -268,9 +268,8 @@ PixelShader =
 			
 			vColor = lerp( vColor, Selected, vSelected );
 			
-			return float4( vColor * vValue, 0.7f );
+			return float4( vColor * vValue, vValue * 0.75f );
 		}
-		
 	]]
 }
 
@@ -306,16 +305,10 @@ RasterizerState RasterizerState
 	#FillMode = "fill_wireframe"	
 }
 
-Effect Border
+Effect BorderSDF
 {
 	VertexShader = "VertexShader"
-	PixelShader = "PixelShader"
-}
-
-Effect BorderFullscreen
-{
-	VertexShader = "VertexShaderFullscreen"
-	PixelShader = "PixelShaderFullscreen"
+	PixelShader = "PixelShaderSDF"
 }
 
 Effect BorderCentroid
@@ -332,10 +325,10 @@ Effect StarPin
 	BlendState = "BlendStateAdditiveBlend"
 }
 
-Effect Sector
+Effect SectorSdf
 {
-	VertexShader = "VertexShaderSector"
-	PixelShader = "PixelShaderSector"
+	VertexShader = "VertexShaderSectorSdf"
+	PixelShader = "PixelShaderSectorSdf"
 	
 	BlendState = "BlendStateAdditiveBlend"
 }

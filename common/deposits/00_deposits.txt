@@ -14,11 +14,7 @@ d_null_deposit = {
 		modifier = {
 			weight = 0
 			planet = {
-				OR = {
-					is_planet_class = pc_black_hole
-					is_planet_class = pc_neutron_star
-					is_planet_class = pc_pulsar				
-				}
+				is_star = yes
 			}
 		}
 		modifier = {
@@ -26,19 +22,13 @@ d_null_deposit = {
 			planet = {
 				is_planet_class = pc_gaia
 			}
-		}
+		}		
 		modifier = {
 			weight = 100
 			planet = {
 				OR = {
 					is_planet_class = pc_barren
 					is_planet_class = pc_barren_cold
-					is_planet_class = pc_a_star
-					is_planet_class = pc_b_star
-					is_planet_class = pc_f_star
-					is_planet_class = pc_g_star
-					is_planet_class = pc_k_star
-					is_planet_class = pc_m_star
 					is_planet_class = pc_nuked
 				}
 			}
@@ -54,17 +44,11 @@ d_mineral_deposit = {
 	resources = { minerals = 1 }
 	station = shipclass_mining_station
 	orbital_weight = {
-		weight = 10
+		weight = 0
 	}
 	
 	drop_weight = {
 		weight = 0
-		modifier = {
-			weight = 10
-			planet = {
-				is_planet_class = pc_nuked
-			}
-		}
 		modifier = {
 			weight = 15
 			planet = {
@@ -81,6 +65,7 @@ d_mineral_deposit = {
 					is_planet_class = pc_arctic
 					is_planet_class = pc_alpine
 					is_planet_class = pc_savannah
+					is_planet_class = pc_nuked
 				}
 			}
 		}
@@ -112,7 +97,6 @@ d_rich_mineral_deposit = {
 				OR = {
 					is_planet_class = pc_molten
 					is_planet_class = pc_toxic
-					is_planet_class = pc_nuked
 					is_planet_class = pc_frozen
 				}
 			}
@@ -133,6 +117,7 @@ d_rich_mineral_deposit = {
 					is_planet_class = pc_arctic
 					is_planet_class = pc_alpine
 					is_planet_class = pc_savannah
+					is_planet_class = pc_nuked
 				}
 			}
 		}
@@ -198,6 +183,7 @@ d_vast_mineral_deposit = {
 					is_planet_class = pc_frozen
 					is_planet_class = pc_molten
 					is_planet_class = pc_toxic
+					is_planet_class = pc_nuked
 				}
 			}
 		}
@@ -261,6 +247,7 @@ d_immense_mineral_deposit = {
 					is_planet_class = pc_frozen
 					is_planet_class = pc_molten
 					is_planet_class = pc_toxic
+					is_planet_class = pc_nuked
 				}
 			}
 		}
@@ -328,6 +315,7 @@ d_mineral_energy_deposit = {
 					is_planet_class = pc_arctic
 					is_planet_class = pc_alpine
 					is_planet_class = pc_savannah
+					is_planet_class = pc_nuked
 				}
 			}
 		}	
@@ -372,6 +360,7 @@ d_rich_mineral_energy_deposit = {
 					is_planet_class = pc_arctic
 					is_planet_class = pc_alpine
 					is_planet_class = pc_savannah
+					is_planet_class = pc_nuked
 				}
 			}
 		}
@@ -418,6 +407,7 @@ d_mineral_food_deposit = {
 					is_planet_class = pc_arctic
 					is_planet_class = pc_alpine
 					is_planet_class = pc_savannah
+					is_planet_class = pc_nuked
 				}
 			}
 		}
@@ -458,6 +448,7 @@ d_rich_food_mineral_deposit = {
 					is_planet_class = pc_arctic
 					is_planet_class = pc_alpine
 					is_planet_class = pc_savannah
+					is_planet_class = pc_nuked
 				}
 			}
 		}
@@ -488,7 +479,7 @@ d_energy_deposit = {
 	resources = { energy = 1 }
 	station = shipclass_mining_station
 	orbital_weight = {
-		weight = 10
+		weight = 0
 	}
 	
 	drop_weight = {
@@ -509,6 +500,7 @@ d_energy_deposit = {
 					is_planet_class = pc_arctic
 					is_planet_class = pc_alpine
 					is_planet_class = pc_savannah
+					is_planet_class = pc_nuked
 				}
 			}
 		}
@@ -556,11 +548,12 @@ d_rich_energy_deposit = {
 					is_planet_class = pc_arctic
 					is_planet_class = pc_alpine
 					is_planet_class = pc_savannah
+					is_planet_class = pc_nuked
 				}
 			}
 		}
 		modifier = {
-			weight = 12
+			weight = 100
 			planet = {
 				OR = {
 					is_planet_class = pc_a_star
@@ -607,19 +600,6 @@ d_vast_energy_deposit = {
 	drop_weight = {
 		weight = 0		
 		modifier = {
-			weight = 2
-			planet = {
-				OR = {
-					is_planet_class = pc_a_star
-					is_planet_class = pc_b_star
-					is_planet_class = pc_f_star
-					is_planet_class = pc_g_star
-					is_planet_class = pc_k_star
-					is_planet_class = pc_m_star
-				}
-			}
-		}
-		modifier = {
 			weight = 1
 			planet = {
 				OR = {
@@ -635,15 +615,43 @@ d_vast_energy_deposit = {
 					is_planet_class = pc_arctic
 					is_planet_class = pc_alpine
 					is_planet_class = pc_savannah
+					is_planet_class = pc_nuked
 				}
 			}
 		}		
 		modifier = {
-			weight = 8
+			weight = 10
 			planet = {
 				is_planet_class = pc_gas_giant
 			}
 		}	
+		modifier = {
+			weight = 30
+			planet = {
+				OR = {
+					is_planet_class = pc_a_star
+					is_planet_class = pc_b_star
+				}
+			}
+		}
+		modifier = {
+			weight = 20
+			planet = {
+				OR = {
+					is_planet_class = pc_f_star
+					is_planet_class = pc_g_star
+				}
+			}
+		}	
+		modifier = {
+			weight = 10
+			planet = {
+				OR = {
+					is_planet_class = pc_k_star
+					is_planet_class = pc_m_star
+				}
+			}
+		}
 		modifier = {
 			factor = 1.5
 			planet = {
@@ -673,7 +681,7 @@ d_immense_energy_deposit = {
 	drop_weight = {
 		weight = 0		
 		modifier = {
-			weight = 1
+			weight = 2
 			planet = {
 				OR = {
 					is_planet_class = pc_a_star
@@ -701,6 +709,7 @@ d_immense_energy_deposit = {
 					is_planet_class = pc_arctic
 					is_planet_class = pc_alpine
 					is_planet_class = pc_savannah
+					is_planet_class = pc_nuked
 				}
 			}
 		}		
@@ -709,7 +718,34 @@ d_immense_energy_deposit = {
 			planet = {
 				is_planet_class = pc_gas_giant
 			}
+		}
+		modifier = {
+			weight = 12
+			planet = {
+				OR = {
+					is_planet_class = pc_a_star
+					is_planet_class = pc_b_star
+				}
+			}
+		}
+		modifier = {
+			weight = 6
+			planet = {
+				OR = {
+					is_planet_class = pc_f_star
+					is_planet_class = pc_g_star
+				}
+			}
 		}	
+		modifier = {
+			weight = 3
+			planet = {
+				OR = {
+					is_planet_class = pc_k_star
+					is_planet_class = pc_m_star
+				}
+			}
+		}		
 		modifier = {
 			factor = 1.5
 			planet = {
@@ -907,7 +943,7 @@ d_society_deposit = {
 	resources = { society_research = 1 }
 	station = shipclass_research_station 
 	orbital_weight = {
-		weight = 10
+		weight = 0
 	}
 	
 	drop_weight = {
@@ -1162,7 +1198,7 @@ d_physics_deposit = {
 	resources = { physics_research = 1 }
 	station = shipclass_research_station 
 	orbital_weight = {
-		weight = 10
+		weight = 0
 	}
 	
 	drop_weight = {
@@ -1240,18 +1276,32 @@ d_rich_physics_deposit = {
 			}
 		}
 		modifier = {
-			weight = 5
+			weight = 20
 			planet = {
 				OR = {
-					is_planet_class = pc_a_star
-					is_planet_class = pc_b_star
-					is_planet_class = pc_f_star
-					is_planet_class = pc_g_star
 					is_planet_class = pc_k_star
 					is_planet_class = pc_m_star
 				}
 			}
 		}
+		modifier = {
+			weight = 10
+			planet = {
+				OR = {
+					is_planet_class = pc_f_star
+					is_planet_class = pc_g_star
+				}
+			}
+		}
+		modifier = {
+			weight = 5
+			planet = {
+				OR = {
+					is_planet_class = pc_a_star
+					is_planet_class = pc_b_star
+				}
+			}
+		}		
 		modifier = {
 			factor = 1.5
 			planet = {
@@ -1281,15 +1331,29 @@ d_vast_physics_deposit = {
 	drop_weight = {
 		weight = 0	
 		modifier = {
-			weight = 1.5
+			weight = 12
+			planet = {
+				OR = {
+					is_planet_class = pc_k_star
+					is_planet_class = pc_m_star
+				}
+			}
+		}
+		modifier = {
+			weight = 6
+			planet = {
+				OR = {
+					is_planet_class = pc_f_star
+					is_planet_class = pc_g_star
+				}
+			}
+		}
+		modifier = {
+			weight = 3
 			planet = {
 				OR = {
 					is_planet_class = pc_a_star
 					is_planet_class = pc_b_star
-					is_planet_class = pc_f_star
-					is_planet_class = pc_g_star
-					is_planet_class = pc_k_star
-					is_planet_class = pc_m_star
 				}
 			}
 		}
@@ -1299,6 +1363,15 @@ d_vast_physics_deposit = {
 				is_planet_class = pc_nuked
 			}
 		}
+		modifier = {
+			weight = 3
+			planet = {
+				OR = {
+					is_planet_class = pc_barren
+					is_planet_class = pc_barren_cold
+				}
+			}
+		}		
 		modifier = {
 			weight = 2
 			planet = {
@@ -1325,9 +1398,10 @@ d_vast_physics_deposit = {
 			}
 		}
 		modifier = {
-			weight = 20
+			weight = 50
 			planet = {
 				OR = {
+					is_planet_class = pc_black_hole
 					is_planet_class = pc_pulsar
 					is_planet_class = pc_neutron_star
 				}
@@ -1358,7 +1432,7 @@ d_immense_physics_deposit = {
 			}
 		}
 		modifier = {
-			weight = 25
+			weight = 50
 			planet = {
 				OR = {
 					is_planet_class = pc_black_hole
@@ -1423,7 +1497,7 @@ d_engineering_deposit = {
 	resources = { engineering_research = 1 }
 	station = shipclass_research_station 
 	orbital_weight = {
-		weight = 10
+		weight = 0
 	}
 	
 	drop_weight = {
@@ -2451,4 +2525,26 @@ d_zro_deposit = {
 			}
 		}
 	}
+}
+
+##########################
+# Special Event Deposits #
+##########################
+
+d_marauder_deposit = {
+	resources = {
+		minerals = 8
+	}
+	station = shipclass_mining_station
+	orbital_weight = { weight = 0 }
+	drop_weight = { weight = 0 }
+}
+
+d_marauder_deposit_2 = {
+	resources = {
+		energy = 6
+	}
+	station = shipclass_mining_station
+	orbital_weight = { weight = 0 }
+	drop_weight = { weight = 0 }
 }

@@ -1,4 +1,6 @@
 ﻿### Machine 3
+### Written by Dee Majek
+
 MACHINE3 = {
 	should_name_home_system_planets = no
 	
@@ -8,8 +10,7 @@ MACHINE3 = {
 		}
 
 		corvette = {
-			"Steel Responder" "Steel Sentry" "Ironside Responder" "Chrome Retainer" "Steel Knight" "Steel Champion" "Steel Partizan" "Steel Lancer" "Chrome Warrior" "Steel Ranger" "Steel Gunner" "Chrome Warden" "Iron Guardian" "Steel Defender" "Chrome Guard" "Steel Warder" "Steel Sentinel" "Iron Vigilant" "Chrome Keeper" "Steel Watcher" "Chrome Custodian" "Steel Protector" "Chrome Escort" "Steel Preserver" "Chrome Patroller" "Iron Shield" "Steel Shepard" "Chrome Aegis" "Iron Ward" "Chrome Tender" "Steel Surveiller" "Iron Overseer"
-			"Machine Responder" "Voltaic Sentry" "Galvanic Retainer" "Galvanic Knight" "Galvanic Champion" "Silver Partizan" "Silver Lancer" "Voltaic Warrior" "Cybernated Ranger" "Galvanic Gunner" "Silver Warden" "Galvanized Guardian" "Synchronic Defender" "Machine Guard" "Cybernated Warder" "Synchronic Sentinel" "Voltaic Vigilant" "Linked Keeper" "Silver Watcher" "Machine Protector" "Linked Escort" "Synchronic Preserver" "Linked Patroller" "Galvanized Shield" "Cybernated Shepard" "Silver Aegis" "Galvanic Ward" "Synchronic Surveiller" "Mechanized Overseer"
+			"Steel Responder" "Steel Sentry" "Ironside Responder" "Chrome Retainer" "Steel Knight" "Steel Champion" "Steel Partizan" "Steel Lancer" "Chrome Warrior" "Steel Ranger" "Steel Gunner" "Chrome Warden" "Iron Guardian" "Steel Defender" "Chrome Guard" "Steel Warder" "Steel Sentinel" "Iron Vigilant" "Chrome Keeper" "Steel Watcher" "Chrome Custodian" "Steel Protector" "Chrome Escort" "Steel Preserver" "Chrome Patroller" "Iron Shield" "Steel Shepard" "Chrome Aegis" "Iron Ward" "Chrome Tender" "Steel Surveiller" "Iron Overseer" "Machine Responder" "Voltaic Sentry" "Galvanic Retainer" "Galvanic Knight" "Galvanic Champion" "Silver Partizan" "Silver Lancer" "Voltaic Warrior" "Cybernated Ranger" "Galvanic Gunner" "Silver Warden" "Galvanized Guardian" "Synchronic Defender" "Machine Guard" "Cybernated Warder" "Synchronic Sentinel" "Voltaic Vigilant" "Linked Keeper" "Silver Watcher" "Machine Protector" "Linked Escort" "Synchronic Preserver" "Linked Patroller" "Galvanized Shield" "Cybernated Shepard" "Silver Aegis" "Galvanic Ward" "Synchronic Surveiller" "Mechanized Overseer"
 
 		}	
 	
@@ -22,6 +23,14 @@ MACHINE3 = {
 		}
 		
 		battleship = {
+			"Steel Responder" "Steel Sentry" "Ironside Responder" "Chrome Retainer" "Steel Knight" "Steel Champion" "Steel Partizan" "Steel Lancer" "Chrome Warrior" "Steel Ranger" "Steel Gunner" "Chrome Warden" "Iron Guardian" "Steel Defender" "Chrome Guard" "Steel Warder" "Steel Sentinel" "Iron Vigilant" "Chrome Keeper" "Steel Watcher" "Chrome Custodian" "Steel Protector" "Chrome Escort" "Steel Preserver" "Chrome Patroller" "Iron Shield" "Steel Shepard" "Chrome Aegis" "Iron Ward" "Chrome Tender" "Steel Surveiller" "Iron Shelter" "Steel Fortitude" "Iron Overseer" "Machine Responder" "Voltaic Sentry" "Galvanic Retainer" "Galvanic Knight" "Galvanic Champion" "Silver Partizan" "Silver Lancer" "Voltaic Warrior" "Cybernated Ranger" "Galvanic Gunner" "Silver Warden" "Galvanized Guardian" "Synchronic Defender" "Machine Guard" "Cybernated Warder" "Synchronic Sentinel" "Voltaic Vigilant" "Linked Keeper" "Silver Watcher" "Machine Protector" "Linked Escort" "Synchronic Preserver" "Linked Patroller" "Galvanized Shield" "Cybernated Shepard" "Silver Aegis" "Galvanic Ward" "Synchronic Surveiller" "Mechanized Overseer" "Steel Bastion" "Iron Mantle" "Silver Bastion" "Silver Mantle"
+		}
+
+		titan = {
+			"Steel Responder" "Steel Sentry" "Ironside Responder" "Chrome Retainer" "Steel Knight" "Steel Champion" "Steel Partizan" "Steel Lancer" "Chrome Warrior" "Steel Ranger" "Steel Gunner" "Chrome Warden" "Iron Guardian" "Steel Defender" "Chrome Guard" "Steel Warder" "Steel Sentinel" "Iron Vigilant" "Chrome Keeper" "Steel Watcher" "Chrome Custodian" "Steel Protector" "Chrome Escort" "Steel Preserver" "Chrome Patroller" "Iron Shield" "Steel Shepard" "Chrome Aegis" "Iron Ward" "Chrome Tender" "Steel Surveiller" "Iron Shelter" "Steel Fortitude" "Iron Overseer" "Machine Responder" "Voltaic Sentry" "Galvanic Retainer" "Galvanic Knight" "Galvanic Champion" "Silver Partizan" "Silver Lancer" "Voltaic Warrior" "Cybernated Ranger" "Galvanic Gunner" "Silver Warden" "Galvanized Guardian" "Synchronic Defender" "Machine Guard" "Cybernated Warder" "Synchronic Sentinel" "Voltaic Vigilant" "Linked Keeper" "Silver Watcher" "Machine Protector" "Linked Escort" "Synchronic Preserver" "Linked Patroller" "Galvanized Shield" "Cybernated Shepard" "Silver Aegis" "Galvanic Ward" "Synchronic Surveiller" "Mechanized Overseer" "Steel Bastion" "Iron Mantle" "Silver Bastion" "Silver Mantle"
+		}
+
+		colossus = {
 			"Steel Responder" "Steel Sentry" "Ironside Responder" "Chrome Retainer" "Steel Knight" "Steel Champion" "Steel Partizan" "Steel Lancer" "Chrome Warrior" "Steel Ranger" "Steel Gunner" "Chrome Warden" "Iron Guardian" "Steel Defender" "Chrome Guard" "Steel Warder" "Steel Sentinel" "Iron Vigilant" "Chrome Keeper" "Steel Watcher" "Chrome Custodian" "Steel Protector" "Chrome Escort" "Steel Preserver" "Chrome Patroller" "Iron Shield" "Steel Shepard" "Chrome Aegis" "Iron Ward" "Chrome Tender" "Steel Surveiller" "Iron Shelter" "Steel Fortitude" "Iron Overseer" "Machine Responder" "Voltaic Sentry" "Galvanic Retainer" "Galvanic Knight" "Galvanic Champion" "Silver Partizan" "Silver Lancer" "Voltaic Warrior" "Cybernated Ranger" "Galvanic Gunner" "Silver Warden" "Galvanized Guardian" "Synchronic Defender" "Machine Guard" "Cybernated Warder" "Synchronic Sentinel" "Voltaic Vigilant" "Linked Keeper" "Silver Watcher" "Machine Protector" "Linked Escort" "Synchronic Preserver" "Linked Patroller" "Galvanized Shield" "Cybernated Shepard" "Silver Aegis" "Galvanic Ward" "Synchronic Surveiller" "Mechanized Overseer" "Steel Bastion" "Iron Mantle" "Silver Bastion" "Silver Mantle"
 		}
 		
@@ -40,20 +49,25 @@ MACHINE3 = {
 		transport = { 
 			"Transport Module"
 		}
-		
 
-		mining_station = { }
-		research_station = { }
-		wormhole_station = { }
-		#terraform_station = { }
-		observation_station = { }
-		outpost_station = { 
-			#random_names = { }
+		military_station_small = {
+			"Iron Redoubt" "Steel Bulwark"
 		}
 
-		military_station_small = { "Iron Redoubt" }
-		military_station_medium = { "Steel Bulwark" }
-		military_station_large = { "Chrome Keep" }
+		ion_cannon = {
+			"Chrome Keep"
+		}
+
+		### For Fallen Empires
+		small_ship_fallen_empire = {
+			"Deca" "Deci" "Centi" "Nano" "Pico" "Femto" "Atto" "Zepto" "Yocto" "Exa" "Peta" "Tera" "Giga" "Mega" "Zetta" "Yotta" "Kibi" "Mebi" "Gibi" "Tebi" "Pebi" "Exbi" "Zebi" "Yobi" "Myria" "Demi" "Xenna" "Weka" "Vendeka" "Xono" "Weco" "Vundo" "Hedbo" "Micri"
+		}
+		large_ship_fallen_empire = {
+			"Deca" "Deci" "Centi" "Nano" "Pico" "Femto" "Atto" "Zepto" "Yocto" "Exa" "Peta" "Tera" "Giga" "Mega" "Zetta" "Yotta" "Kibi" "Mebi" "Gibi" "Tebi" "Pebi" "Exbi" "Zebi" "Yobi" "Myria" "Demi" "Xenna" "Weka" "Vendeka" "Xono" "Weco" "Vundo" "Hedbo" "Micri"
+		}
+		massive_ship_fallen_empire = {
+			"Deca" "Deci" "Centi" "Nano" "Pico" "Femto" "Atto" "Zepto" "Yocto" "Exa" "Peta" "Tera" "Giga" "Mega" "Zetta" "Yotta" "Kibi" "Mebi" "Gibi" "Tebi" "Pebi" "Exbi" "Zebi" "Yobi" "Myria" "Demi" "Xenna" "Weka" "Vendeka" "Xono" "Weco" "Vundo" "Hedbo" "Micri"
+		}
 	}
 
 	ship_class_names = {
@@ -65,7 +79,7 @@ MACHINE3 = {
 	fleet_names = {
 		random_names = {
 		}
-		sequential_name = "%O% Security Echelon"
+		sequential_name = "Security Echelon %CCC%"
 	}
 	
 	army_names = {
@@ -74,20 +88,28 @@ MACHINE3 = {
 			sequential_name = "%O% Pro-Active Caretaker Squad"
 		}
 
-		machine_defense_1 = {
+		machine_defense = {
 			sequential_name = "%O% Defensive Caretaker Squad"
 		}
 		
 		machine_assault_2 = {
 			sequential_name = "%O% Ultra-Active Caretaker Squad"
 		}
-
-		machine_defense_2 = {
-			sequential_name = "%O% Impenetrable Caretaker Squad"
-		}
 		
 		machine_assault_3 = {
 			sequential_name = "%O% Caretaker Mega-Colossus"
+		}
+		
+		defense_army = {
+			sequential_name = "%O% Bio-Curated Defenders"
+		}
+			
+		assault_army = {
+			sequential_name = "%O% Bio-Curated Caretakers"
+		}
+		
+		clone_army = {
+			sequential_name = "%O% Bio-Curated Clones"
 		}
 	}
 		
@@ -99,11 +121,7 @@ MACHINE3 = {
 		generic = {
 			names = {
 				
-				 "Habitat Kzzt" "Habitat Bwok" "Habitat Blip" "Habitat Koaxi" "Habitat Dwook" "Habitat Kwok" "Habitat Vworp" "Habitat Trock" "Habitat Clanck" "Habitat Qwert" "Habitat Zyzzyx" "Habitat Blixt" "Habitat Dwoop" "Habitat Bleep" "Habitat Fzzz" "Habitat Thwock" "Habitat Zonk" "Habitat Tessel" "Habitat Vrrr" "Habitat Whirr" "Habitat Flik" "Habitat Clack" "Habitat Nzzz" "Habitat Vizz" "Habitat Klonk" "Habitat Zap" "Habitat Plonk" "Habitat Krank" "Habitat Vert" "Habitat Pix" "Habitat Plink" "Habitat Zzt" "Habitat Bolt" "Habitat Klink" "Habitat Zpark" "Habitat Bzzt" "Habitat Cyl" "Habitat Axl" "Habitat Ovv" "Habitat Klik" "Habitat Mekk" "Habitat Brrow"
-
-				#"Habitat 1-8X" "Habitat 2-0Y" "Habitat 3-K3" "Habitat 4-7Z" "Habitat 5-0J" "Habitat 9-1V" "Habitat 7-5I" "Habitat 0-2M" "Habitat X-5X" "Habitat O-9T" "Habitat 6-G6" "Habitat B-X8" "Habitat I-39" "Habitat 8-0C" "Habitat 4-JH" "Habitat 0-VT" "Habitat Y-7N" "Habitat E-35" "Habitat 5-I5" "Habitat U-84" "Habitat T-14" "Habitat E-4N" "Habitat F-01" "Habitat 9-6L" "Habitat W-54" "Habitat K-06" "Habitat 3-J1" "Habitat 8-U7" "Habitat A-26" "Habitat R-49"
-
-				#"Biodome Alpha" "Biodome Beta" "Biodome Gamma" "Biodome Delta" "Biodome Epsilon" "Biodome Zeta" "Biodome Eta" "Biodome Theta" "Biodome Iota" "Biodome Kappa" "Biodome Lambda" "Biodome Mu" "Biodome Nu" "Biodome Xi" "Biodome Omikron" "Biodome Pi" "Biodome Rho" "Biodome Tau" "Biodome Upsilon" "Biodome Phi" "Biodome Khi" "Biodome Psi" "Biodome Omega"
+				 "Kzzt" "Bwok" "Blip" "Koaxi" "Dwook" "Kwok" "Vworp" "Trock" "Clanck" "Qwert" "Zyzzyx" "Blixt" "Bleep" "Fzzz" "Thwock" "Zonk" "Tessel" "Vrrr" "Whirr" "Flik" "Clack" "Vizz" "Klonk" "Zap" "Plonk" "Krank" "Vert" "Pix" "Plink" "Bolt" "Klink" "Zpark" "Bzzt" "Cyl" "Axl" "Wovv" "Klik" "Mekk" "Brrow" "Ping" "Dex" "Werx" "Gizmek" "Auton" "Motron" "Scy" "Int" "Char" "Bool" "Daton"
 			}
 		}
 		
@@ -197,7 +215,7 @@ MACHINE3 = {
 	ruler_names = {
 		default = {
 			full_names = {
-				Caretaker Affinitor Blip Qube Module
+				Caretaker Affinitor Blip Qube "Module" Coordinator Attenuator Simulacron Harmonizer PAL Architect Braket
 			}
 		}
 	}

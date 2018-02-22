@@ -133,7 +133,8 @@ entity = {
 	
 	default_state = "no_state"
 	state = { name = "idle"		animation = "closed" animation_blend_time = 0 looping = no next_state = "idle"
-		event = { trigger_once = yes sound = { soundeffect = "technosphere_idle" } }
+		start_event = { trigger_once = yes sound = { soundeffect = "technosphere_idle" } }
+		
 		chance = {
 			if_current_state = {
 				"idle" = 100
@@ -147,8 +148,7 @@ entity = {
 	state = { name = "idle"		animation = "closing" animation_blend_time = 0 looping = no next_state = "idle"
 		event = { trigger_once = yes sound = { soundeffect = "technosphere_closing" } }
 		event = { trigger_once = yes sound = { soundeffect = "distance_technosphere_closing" } }
-		event = { trigger_once = yes sound = { soundeffect = "technosphere_moving" stop_on_state_change = yes } }
-		event = { trigger_once = yes sound = { soundeffect = "technosphere_moving_out" } }
+		
 		chance = {
 			if_current_state = {
 				"idle" = 0
@@ -163,7 +163,9 @@ entity = {
 	state = { name = "combat_idle"		animation = "opening" animation_blend_time = 0 looping = no next_state = "combat_idle"
 		event = { trigger_once = yes sound = { soundeffect = "technosphere_opens" } }
 		event = { trigger_once = yes sound = { soundeffect = "distance_technosphere_opens" } }
+		
 		event = { time = 0 node = "ship_main" particle = "technosphere_opening_particle" keep_particle = yes }
+		
 		chance = {
 			if_current_state = {
 				"idle" = 100
@@ -175,7 +177,6 @@ entity = {
 		}
 	}
 	state = { name = "combat_idle"		animation = "opened" animation_blend_time = 0 looping = no next_state = "combat_idle"
-		#event = { trigger_once = yes sound = { soundeffect = "technosphere_idle" } }
 		chance = {
 			if_current_state = {
 				"idle" = 0
@@ -189,6 +190,7 @@ entity = {
 	state = { name = "combat_moving"		animation = "opening" animation_blend_time = 0 looping = no next_state = "combat_moving"
 		event = { trigger_once = yes sound = { soundeffect = "technosphere_opens" } }
 		event = { trigger_once = yes sound = { soundeffect = "distance_technosphere_opens" } }
+		
 		event = { time = 0 node = "ship_main" particle = "technosphere_opening_particle" keep_particle = yes }
 		chance = {
 			if_current_state = {
@@ -200,7 +202,10 @@ entity = {
 			default = 0
 		}
 	}
-	state = { name = "combat_moving"		animation = "opened" animation_blend_time = 0 looping = no next_state = "combat_moving"
+	state = { name = "combat_moving"		animation = "opened" animation_blend_time = 0 looping = yes next_state = "combat_moving"
+		event = { trigger_once = yes sound = { soundeffect = "technosphere_moving" stop_on_state_change = yes } }
+		event = { trigger_once = yes sound = { soundeffect = "technosphere_moving_out" } }
+	
 		chance = {
 			if_current_state = {
 				"idle" = 0
@@ -214,8 +219,7 @@ entity = {
 	state = { name = "moving"		animation = "closing" animation_blend_time = 0 looping = no next_state = "moving"
 		event = { trigger_once = yes sound = { soundeffect = "technosphere_closing" } }
 		event = { trigger_once = yes sound = { soundeffect = "distance_technosphere_closing" } }
-		event = { trigger_once = yes sound = { soundeffect = "technosphere_moving" stop_on_state_change = yes } }
-		event = { trigger_once = yes sound = { soundeffect = "technosphere_moving_out" } }
+		
 		chance = {
 			if_current_state = {
 				"idle" = 0
@@ -226,9 +230,10 @@ entity = {
 			default = 0
 		}
 	}
-	state = { name = "moving"		animation = "closed" animation_blend_time = 0 looping = no next_state = "moving"
-		#event = { trigger_once = yes sound = { soundeffect = "technosphere_moving" stop_on_state_change = yes } }
-		#event = { trigger_once = yes sound = { soundeffect = "technosphere_moving_out" } }
+	state = { name = "moving"		animation = "closed" animation_blend_time = 0 looping = yes next_state = "moving"
+		event = { trigger_once = yes sound = { soundeffect = "technosphere_moving" stop_on_state_change = yes } }
+		event = { trigger_once = yes sound = { soundeffect = "technosphere_moving_out" } }
+		
 		chance = {
 			if_current_state = {
 				"idle" = 100

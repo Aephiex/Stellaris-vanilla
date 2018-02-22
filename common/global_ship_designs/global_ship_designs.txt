@@ -1,10 +1,5 @@
 # This file configures pre-scripted designs the game will use. 
 
-ship_design = {
-	name = "spaceport"
-	ship_size = orbital_station
-}
-
 # Construction Ship
 ship_design = {
 	name = "NAME_Constructor"

@@ -5,7 +5,18 @@ on_monthly_pulse = {
 		unrest.162
 		unrest.164
 		syndaw.100 # servitor morale
-		crisis.240 # Prethoryn army reinforcements
+		marauder.511 # Great Khan Dies
+		#marauder.11 # Marauder infighting - commented out for now
+		crisis.120 # Feral Prethoryn
+		crisis.123 # Feral Prethoryn infighting
+		marauder.113
+		guardian.170
+		guardian.172
+		action.85 # flip planets to starbase owner
+		marauder.150 # AI hires Marauder raids
+		marauder.151 # AI hires Marauder mercs
+		action.90 # rebuild outpost for orphaned colonies
+		unrest.166
 	}
 }
 
@@ -16,10 +27,15 @@ on_yearly_pulse = {
 		crisis.204
 		crisis.205
 		crisis.208
+		crisis.240 # Prethoryn army reinforcements
 		crisis.1254
 		crisis.2080
 		crisis.2310
 		action.64 # species assimilation
+		marauder.100
+		crisis.122
+		marauder.85
+		marauder.160
 	}
 }
 
@@ -54,13 +70,17 @@ on_game_start = {
 		game_start.2
 		game_start.3
 		game_start.5
+		game_start.31
 	}
 }
 
 on_game_start_country = {
 	events = {
+		game_start.33
 		game_start.10
 		syndaw.101 # servitor morale
+		game_start.32
+		game_start.34
 	}
 }
 
@@ -88,24 +108,6 @@ on_press_begin = {
 	events = {
 		tutorial.104
 		advisor.1
-	}
-}
-
-# Triggers when a station is abandoned.
-# this = ship of station being lost.
-# from = country losing ownership.
-on_border_change_station_lost = {
-	events = {
-		guardian.1073
-	}
-}
-
-# Triggers when an abandoned station is gained.
-# this = ship of station being gained.
-# from = country gaining ownership.
-on_border_change_station_gained = {
-	events = {
-		guardian.1075
 	}
 }
 
@@ -137,6 +139,12 @@ on_custom_diplomacy = {
 		utopia.3010
 		crisis.2300
 		crisis.2403
+		marauder.19
+		marauder.20
+		marauder.102
+		marauder.550
+		marauder.112
+		marauder.665
 	}
 }
 
@@ -150,6 +158,7 @@ on_first_contact = {
 		action.17
 		action.18
 		action.25
+		action.26
 		action.50
 		#action.31
 		tutorial.59
@@ -187,6 +196,8 @@ on_planet_attackers_win = {
 		crisis.2041
 		crisis.2042
 		crisis.2045
+		marauder.503
+		marauder.515
 	}
 }
 
@@ -273,6 +284,8 @@ on_entering_system = {
 		utopia.2016
 		precursor.2101
 		precursor.2102
+		apoc.1
+		apoc.5
 	}
 	random_events = {
 		100 = 0
@@ -405,11 +418,12 @@ on_colonization_started = {
 		advisor.17
 		progress.3
 		progress.7
+		apoc.202 # lose new holy world status
 	}
 	random_events = {
 		190 = 0
 
-		10 = diplomatic.21
+		#10 = diplomatic.21
 	}
 }
 
@@ -472,6 +486,11 @@ on_ship_destroyed_victim = {
 		crisis.1012
 		crisis.1115
 		crisis.1215
+		marauder.4
+		marauder.505
+		marauder.509
+		crisis.80
+		marauder.525
 	}
 }
 
@@ -487,8 +506,27 @@ on_ship_destroyed_perp = {
 		crisis.218
 		crisis.2071
 		story.222
+		achievement.2
 	}
 	random_events = {
+	}
+}
+
+# This = owner of ship 1 (destroyed)
+# From = owner of ship 2 (combatant)
+# FromFrom = ship 1
+# FromFromFrom = ship 2
+on_ship_disengaged_victim = {
+	events = {
+	}
+}
+
+# This = owner of ship 1 (combatant)
+# From = owner of ship 2 (destroyed)
+# FromFrom = ship 1
+# FromFromFrom = ship 2
+on_ship_disengaged_perp = {
+	events = {
 	}
 }
 
@@ -507,9 +545,13 @@ on_fleet_destroyed_victim = {
 		country.1060
 		anomaly.3097
 		guardian.331
-		guardian.1072 #removes modifier if you have a station in orbit of pantagruel
 		guardian.3203
 		#guardian.649
+		marauder.51
+		#marauder.13 - Marauder infighting aftermath - commented out for now
+		crisis.108
+		crisis.125
+		marauder.115
 	}
 }
 
@@ -554,7 +596,6 @@ on_fleet_destroyed_perp = {
 		guardian.2014
 		guardian.4
 		pirate.25
-		pirate.13
 		akx.9318
 		akx.10030
 		factions.330
@@ -573,20 +614,38 @@ on_fleet_destroyed_perp = {
 	}
 }
 
+# This = owner of fleet 1 (winner)
+# From = owner of fleet 2 (loser)
+# FromFrom = fleet 1
+# FromFromFrom = fleet 2
+on_space_battle_won = {
+	events = {
+		achievement.1
+	}
+}
+
+# This = owner of fleet 1 (loser)
+# From = owner of fleet 2 (winner)
+# FromFrom = fleet 1
+# FromFromFrom = fleet 2
+on_space_battle_lost = {
+	events = {
+	}
+}
+
 # This = owner of fleet
 # From = disbanded fleet
 on_fleet_disbanded = {
 	events = {
 		mandate.3 #removes mandate progress if you disband a related station
-		guardian.1071 #removes modifier if you have a station in orbit of pantagruel
 	}
 }
 
 # This = owner of fleet
-# From = destroyed fleet
-on_fleet_destroyed_maintenance = {
+# From = fleet
+# Only works if clear auto move on arrival is enabled
+on_fleet_auto_move_arrival = {
 	events = {
-
 	}
 }
 
@@ -618,7 +677,6 @@ on_building_research_station = {
 		tutorial.12
 		tutorial.1200
 		tutorial.56
-		guardian.1070
 	}
 }
 
@@ -628,13 +686,11 @@ on_building_research_station = {
 # immediately before station is created
 on_building_outpost_station = {
 	events = {
-		tutorial.76
 		tutorial.750
 		tutorial.56
 		mandate.110
 		mandate.120
-		guardian.1070
-		factions.220
+		#factions.220
 	}
 }
 
@@ -646,13 +702,34 @@ on_building_wormhole_station = {
 	}
 }
 
-# This = construction ship
-# Fires when construction is complete,
-# immediately before station is created
-on_building_anchor_station = {
+on_building_starbase_outpost = {
 	events = {
-		crisis.1267
-		crisis.1280
+		tutorial.76
+	}
+}
+
+on_building_observation_station = {
+	events = {
+	}
+}
+
+on_building_starbase_ai = {
+	events = {
+	}
+}
+
+on_building_starbase_exd = {
+	events = {
+	}
+}
+
+on_building_starbase_swarm = {
+	events = {
+	}
+}
+
+on_building_starbase_marauder = {
+	events = {
 	}
 }
 
@@ -739,9 +816,15 @@ on_purge_begun = {
 on_purge_canceled = {
 }
 
+# Planets starts being terraformed
+# This = Planet
+# From = Terraforming country
+on_terraforming_begun = {
+}
+
 # Planet has been terraformed
 # This = Planet
-# From = Terraformer
+# From = Terraforming country
 on_terraforming_complete = {
 	events = {
 		action.68
@@ -749,7 +832,7 @@ on_terraforming_complete = {
 	}
 }
 
-# Planet has reached 0 health
+# Planet has reached 0 health from orbital bombardment
 # This = Planet
 # From = Bombarder
 on_planet_zero_health = {
@@ -759,6 +842,33 @@ on_planet_zero_health = {
 		crisis.2040
 		crisis.2043
 		crisis.2475
+		crisis.2476
+		marauder.103
+	}
+}
+
+# Planet has reached 0 pops from orbital bombardment
+# This = Planet
+# From = Bombarder
+on_planet_zero_pops = {
+	events = {
+		action.81	
+	}
+}
+
+# Planet has reached 0 health from collateral damage
+# This = Planet
+# From = Army owner
+on_planet_zero_health_ground_combat = {
+	events = {
+	}
+}
+
+# Planet has reached 0 pops from collateral damage
+# This = Planet
+# From = Army Owner
+on_planet_zero_pops = {
+	events = {
 	}
 }
 
@@ -772,13 +882,6 @@ on_pop_enslaved = {
 	}
 }
 
-# Full Orbital Bombardment commenced
-# This = Country scope
-# From = Planet
-on_full_orbital_bombardment = {
-	events = {
-	}
-}
 
 # Pop is released from slavery
 # This = Pop scope
@@ -823,6 +926,7 @@ on_leader_death = {
 		pretender.1
 		mandate.21
 		akx.9330
+		marauder.70
 	}
 }
 
@@ -889,6 +993,8 @@ on_policy_changed = {
 		action.35
 		syndaw.1300 # banning AI can cause Uprising
 		syndaw.1305 # banning bot workers can cause Uprising
+		leader.30 # banning AI will remove AI-dependent traits from leaders
+		action.80 # banning AI will remove existing Synthetic Armies
 	}
 }
 
@@ -920,6 +1026,8 @@ on_ship_designed = {
 on_ship_upgraded = {
 	events = {
 		crisis.2057
+		crisis.1267 # EXD anchors
+		crisis.1280 # EXD anchors
 	}
 }
 
@@ -940,14 +1048,6 @@ on_war_beginning = {
 on_war_ended = {
 	events = {
 		fallen_empires.14
-	}
-}
-
-# Root = Planet being bombarded for a day.
-# From = Fleet performing the delicate bombardment.
-on_daily_bombardment = {
-	events = {
-		#crisis.1011
 	}
 }
 
@@ -1076,15 +1176,6 @@ on_building_replaced = {
 	}
 }
 
-# A planet is being bombarded
-# This = planet under bombardment
-# From = bombarding empire
-on_monthly_orbital_bombardment = {
-	events = {
-		orbital_bombardment.1
-	}
-}
-
 # A tile building has been ruined
 # This = Planet
 # From = Tile
@@ -1118,6 +1209,7 @@ on_tutorial_level_changed = {
 # FromFrom = War
 on_war_won = {
 	events = {
+		action.37
 		action.32
 		action.44
 		#factions.205 # Imperialist Conquest
@@ -1127,56 +1219,38 @@ on_war_won = {
 	}
 }
 
-# A war has been won, by force
-# Root = Winner Warleader
-# From = Loser Warleader
-# FromFrom = War
-on_war_won_forced = {
-	events = {
-		action.37
-	}
-}
-
 # A war has been lost
 # Root = Loser Warleader
 # From = Winner Warleader
 # FromFrom = War
 on_war_lost = {
 	events = {
+		action.38
 		fallen_empires.2
 		fallen_empires.12
 	}
 }
 
-# A war has been lost, by force
-# Root = Loser Warleader
-# From = Winner Warleader
-# FromFrom = War
-on_war_lost_forced = {
+# A status quo has been signed
+# Root = Actor
+# From = Recipient
+# FromFrom = Main Attacker
+# FromFromFrom = Main Defender
+# FromFromFromFrom = War
+on_status_quo = {
 	events = {
-		action.38
+		action.39
+		action.45	
 	}
 }
 
-# A white peace has been signed
+# A status quo has been signed, by force
 # Root = Recipient
 # From = Actor
 # FromFrom = Main Attacker
 # FromFromFrom = Main Defender
 # FromFromFromFrom = War
-on_white_peace = {
-	events = {
-		action.45
-	}
-}
-
-# A white peace has been signed, by force
-# Root = Recipient
-# From = Actor
-# FromFrom = Main Attacker
-# FromFromFrom = Main Defender
-# FromFromFromFrom = War
-on_white_peace_forced = {
+on_status_quo_forced = {
 	events = {
 		action.39
 	}
@@ -1234,6 +1308,7 @@ on_buildable_pop_created = {
 		crisis.2312
 	}
 }
+
 # A pop has become fully grown
 # This = pop
 on_pop_fully_grown = {
@@ -1278,6 +1353,17 @@ on_planet_ownerless = {
 on_planet_transfer = {
 	events = {
 		action.42
+		apoc.202 # lose new holy world status
+	}
+}
+
+#Fired whenever a new owner is set for a planet, and the planet was aggressively conquered
+#Fired in ADDITION to on_planet_transfer
+#From = Country scope (new owner)
+#This = Planet scope
+on_planet_conquer = {
+	events = {
+		action.84
 	}
 }
 
@@ -1308,6 +1394,7 @@ on_country_destroyed = {
 		crisis.1270
 		action.61
 		crisis.2404
+		pirate.51
 	}
 }
 
@@ -1323,6 +1410,8 @@ on_megastructure_built = {
 		utopia.4000
 		utopia.4100
 		utopia.80
+		#apoc.10
+		#apoc.11
 	}
 }
 
@@ -1424,7 +1513,7 @@ on_colony_2_years_old = {
 	events = {
 	}
 	random_events = {
-		300 = 0
+		150 = 0
 
 		### Colony Events & Chains - 14
 		3 = colony.1 # Migrating Forests
@@ -1455,14 +1544,14 @@ on_colony_2_years_old = {
 		#150 = colony_mod.17 # Strong Magnetic Field - Bad
 
 		### Tomb Worlds - 8
-		150 = colony.150 # Underground Vault
-		150 = colony.155 # Nuclear Bomb
-		150 = colony.160 # Particle Accelerator
-		150 = colony.161 # Surviving Infrastructure
-		150 = colony.162 # Space Station
-		150 = colony.163 # Wasteland Radiation
-		150 = colony.164 # Pacifist Movement
-		150 = colony.170 # Orbital Debris
+		75 = colony.150 # Underground Vault
+		75 = colony.155 # Nuclear Bomb
+		75 = colony.160 # Particle Accelerator
+		75 = colony.161 # Surviving Infrastructure
+		75 = colony.162 # Space Station
+		75 = colony.163 # Wasteland Radiation
+		75 = colony.164 # Pacifist Movement
+		75 = colony.170 # Orbital Debris
 	}
 }
 
@@ -1470,7 +1559,7 @@ on_colony_3_years_old = {
 	events = {
 	}
 	random_events = {
-		300 = 0
+		150 = 0
 
 		### Colony Events & Chains - 14
 		2 = colony.1 # Migrating Forests
@@ -1501,20 +1590,20 @@ on_colony_3_years_old = {
 		#300 = colony_mod.17 # Strong Magnetic Field - Bad
 
 		### Tomb Worlds - 8
-		100 = colony.150 # Underground Vault
-		100 = colony.155 # Nuclear Bomb
-		100 = colony.160 # Particle Accelerator
-		100 = colony.161 # Surviving Infrastructure
-		100 = colony.162 # Space Station
-		100 = colony.163 # Wasteland Radiation
-		100 = colony.164 # Pacifist Movement
-		100 = colony.170 # Orbital Debris
+		50 = colony.150 # Underground Vault
+		50 = colony.155 # Nuclear Bomb
+		50 = colony.160 # Particle Accelerator
+		50 = colony.161 # Surviving Infrastructure
+		50 = colony.162 # Space Station
+		50 = colony.163 # Wasteland Radiation
+		50 = colony.164 # Pacifist Movement
+		50 = colony.170 # Orbital Debris
 	}
 }
 
 on_colony_4_years_old = {
 	random_events = {
-		300 = 0
+		150 = 0
 
 		### Colony Events & Chains - 14
 		1 = colony.2001 # Trouble in Paradise
@@ -1524,7 +1613,7 @@ on_colony_4_years_old = {
 
 on_colony_5_years_old = {
 	random_events = {
-		300 = 0
+		150 = 0
 		
 		# Colony Events
 		3 = colony.2010 # A Change of Heart
@@ -1598,5 +1687,40 @@ empire_init_create_capital_pops = {
 empire_init_create_ships = {
 	events = {
 		game_start.9
+	}
+}
+
+# Called when an election starts
+# scope: country
+on_election_started = {
+}
+
+# Called when an election ends
+# scope: country
+on_election_ended = {
+}
+
+# Called upon entering FTL (on-action name scripted on the Bypass type)
+# THIS = Fleet
+# FROM = System jumping to
+# FROMFROM = System jumped from
+on_entering_gateway = {
+	
+}
+
+# Called upon entering FTL (on-action name scripted on the Bypass type)
+# THIS = Fleet
+# FROM = System jumping to
+# FROMFROM = System jumped from
+on_entering_wormhole = {
+	events = {
+		achievement.4
+	}
+}
+
+# THIS = Fleet
+on_jump_drive = {
+	events = {
+		action.89
 	}
 }
