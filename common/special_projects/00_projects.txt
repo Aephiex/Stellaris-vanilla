@@ -554,7 +554,7 @@ special_project = {
 	cost = 0
 	days_to_research = 180
 	tech_department = physics_technology
-	timelimit = 730
+	timelimit = 1080
 	
 	event_scope = ship_event
 	
@@ -579,7 +579,7 @@ special_project = {
 	days_to_research = 180
 	tech_department = society_technology
 	picture = GFX_evt_gas_giant
-	timelimit = 360 # in days
+	timelimit = 1080
 	
 	event_scope = ship_event
 	
@@ -604,7 +604,7 @@ special_project = {
 	days_to_research = 180
 	tech_department = society_technology
 	picture = GFX_evt_gas_giant
-	timelimit = 730 # in days
+	timelimit = 1080
 	
 	event_scope = ship_event
 	
@@ -743,7 +743,7 @@ special_project = {
 	cost = 0
 	days_to_research = 180
 	tech_department = society_technology
-	timelimit = 730 # in days
+	timelimit = 1080
 	
 	event_scope = ship_event
 	
@@ -767,7 +767,7 @@ special_project = {
 	cost = 0
 	days_to_research = 180
 	tech_department = society_technology
-	timelimit = 730 # in days
+	timelimit = 1080
 	
 	event_scope = ship_event
 	
@@ -2546,7 +2546,7 @@ special_project = {
 	days_to_research = 60
 	tech_department = society_technology
 	picture = GFX_evt_smugglers_in_bar
-	timelimit = 720
+	timelimit = 1080
 	
 	event_scope = ship_event
 	
@@ -2570,7 +2570,7 @@ special_project = {
 	days_to_research = 60
 	tech_department = society_technology
 	picture = GFX_evt_smugglers_in_bar
-	timelimit = 720
+	timelimit = 1080
 	
 	event_scope = ship_event
 	
@@ -2594,7 +2594,7 @@ special_project = {
 	days_to_research = 60
 	tech_department = society_technology
 	picture = GFX_evt_smugglers_in_bar
-	timelimit = 720
+	timelimit = 1080
 	
 	event_scope = ship_event
 	
@@ -3079,7 +3079,7 @@ special_project = {
 	days_to_research = 60
 	tech_department = society_technology
 	picture = GFX_evt_cybernetics
-	timelimit = 720
+	timelimit = 1080
 	
 	event_scope = ship_event
 	
@@ -3124,7 +3124,16 @@ special_project = {
 # Synth Infiltration Project
 special_project = {
 	key = "SYNTH_INFILTRATION_PROJECT"
-	cost = 1000
+	cost = {
+		base = 600
+		scaled_modifier = {
+			limit = {
+			}
+			scope = this
+			add = 100
+			calc = pop_count
+		}
+	}
 	tech_department = society_technology
 	picture = GFX_evt_robot_assembly_plant
 	location = no

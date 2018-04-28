@@ -2,7 +2,7 @@ particle={
 	name="god_ray_muzzle_windup_effect"
 	subsystem={
 		name="start_flare"
-		max_amount=10
+		max_amount=5
 		slave_particles=0
 		emitter_type="point"
 		invert=no
@@ -35,7 +35,7 @@ particle={
 	}
 	subsystem={
 		name="flare"
-		max_amount=50
+		max_amount=10
 		slave_particles=0
 		emitter_type="point"
 		invert=no
@@ -67,7 +67,7 @@ particle={
 	}
 	subsystem={
 		name="grains"
-		max_amount=20
+		max_amount=15
 		slave_particles=0
 		emitter_type="point"
 		invert=no

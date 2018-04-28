@@ -194,10 +194,11 @@ sys_anchorage = {
 	}
 }
 
-# Anchorage System
+# Trade System
 sys_trading_hub = {
 	potential = {
 		exists = owner
+		owner = { NOT = { has_ethic = ethic_gestalt_consciousness } }
 		exists = starbase
 		starbase = {
 			has_starbase_size >= starbase_starport
@@ -501,5 +502,79 @@ sys_homeworld = {
 
 	weight_modifier = {
 		base = 2000
+	}
+}
+
+# Trade System - Gestalt
+sys_trading_hub_gestalt = {
+	potential = {
+		exists = owner
+		owner = { has_ethic = ethic_gestalt_consciousness }
+		exists = starbase
+		starbase = {
+			has_starbase_size >= starbase_starport
+			count_starbase_modules = {
+				type = trading_hub
+				count > 1
+			}
+		}
+	}
+
+	weight_modifier = {
+		base = 100	
+		modifier = {
+			add = 100
+			starbase = { 
+				count_starbase_modules = {
+					type = trading_hub
+					count > 2
+				} 
+			}
+		}
+		modifier = {
+			add = 100
+			starbase = { 
+				count_starbase_modules = {
+					type = trading_hub
+					count > 2
+				} 
+			}
+		}
+		modifier = {
+			add = 100
+			starbase = { 
+				count_starbase_modules = {
+					type = trading_hub
+					count > 2
+				} 
+			}
+		}
+		modifier = {
+			add = 100
+			starbase = { 
+				count_starbase_modules = {
+					type = trading_hub
+					count > 2
+				} 
+			}
+		}
+	}
+}
+
+# Marauder System
+sys_marauder = {
+	potential = {
+		exists = owner
+		owner = { 
+			OR = {
+				is_country_type = dormant_marauders
+				is_country_type = ruined_marauders
+				is_country_type = awakened_marauders
+			}
+		}
+	}
+	
+	weight_modifier = {
+		base = 1000
 	}
 }

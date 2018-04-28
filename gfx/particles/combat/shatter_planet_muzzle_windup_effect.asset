@@ -35,7 +35,7 @@ particle={
 	}
 	subsystem={
 		name="flare"
-		max_amount=50
+		max_amount=15
 		slave_particles=0
 		emitter_type="point"
 		invert=no

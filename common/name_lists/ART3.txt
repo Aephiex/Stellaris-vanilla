@@ -96,6 +96,18 @@ ART3 = {
 		gene_warrior_army = {
 			sequential_name = "%O% Brutes"
 		}
+
+		occupation_army = {
+			sequential_name = "%O% Occupation Cast"
+		}
+
+		robotic_occupation_army = {
+			sequential_name = "%O% Occupation Robo-Ticks"
+		}
+
+		android_occupation_army = {
+			sequential_name = "%O% Construct Occupation Cast"
+		}
 	}
 	
 	planet_names = {

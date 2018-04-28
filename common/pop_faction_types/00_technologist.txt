@@ -180,6 +180,7 @@ technologist = {
 		potential = {
 			exists = owner
 			owner = {
+				NOT = { has_ascension_perk = ap_synthetic_evolution }
 				any_relation = {
 					has_communications = root.owner
 					any_owned_pop = {
@@ -225,14 +226,7 @@ technologist = {
 
 		trigger = {
 			owner = {
-				OR = {
-					has_tradition = tr_discovery_adopt
-					has_tradition = tr_discovery_to_boldly_go
-					has_tradition = tr_discovery_planetary_survey_corps
-					has_tradition = tr_discovery_science_division
-					has_tradition = tr_discovery_polytechnic_education
-					has_tradition = tr_discovery_faith_in_science
-				}
+				has_tradition = "tr_discovery_adopt"
 			}
 		}
 	}

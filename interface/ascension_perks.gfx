@@ -99,8 +99,8 @@ spriteTypes = {
 	}
 
 	spriteType = {
-		name = "GFX_ap_reach_for_the_stars"
-		texturefile = "gfx/interface/icons/ascension_perks/ap_reach_for_the_stars.dds"
+		name = "GFX_ap_grasp_the_void"
+		texturefile = "gfx/interface/icons/ascension_perks/ap_grasp_the_void.dds"
 		alwaystransparent = yes
 	}
 
@@ -191,6 +191,12 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_ap_nihilistic_acquisition"
 		texturefile = "gfx/interface/icons/ascension_perks/ap_nihilistic_acquisition.dds"
+		alwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_ap_transcendent_learning"
+		texturefile = "gfx/interface/icons/ascension_perks/ap_transcendent_learning.dds"
 		alwaystransparent = yes
 	}
 }

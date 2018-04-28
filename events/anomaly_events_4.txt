@@ -1315,8 +1315,9 @@ country_event = {
 				any_system = {
 					distance = {
 						source = event_target:buoy
-						max_distance = 120
-						min_distance = 5
+						use_bypasses = no
+						min_jumps = 1
+						max_jumps = 6
 					}
 					NOR = {
 						exists = space_owner
@@ -1330,8 +1331,9 @@ country_event = {
 				limit = {
 					distance = {
 						source = event_target:buoy
-						max_distance = 120
-						min_distance = 5
+						use_bypasses = no
+						min_jumps = 1
+						max_jumps = 6
 					}
 					NOR = {
 						exists = space_owner
@@ -1348,8 +1350,9 @@ country_event = {
 					limit = {
 						distance = {
 							source = event_target:buoy
-							max_distance = 120
-							min_distance = 5
+							use_bypasses = no
+							min_jumps = 1
+							max_jumps = 6
 						}
 						is_owned_by = ROOT
 						any_planet = { is_asteroid = yes }
@@ -2289,7 +2292,7 @@ country_event = {
 		}
 		if = {
 			limit = {
-				NOT = { has_technology = tech_destroyers }
+				NOT = { has_technology = tech_cruisers }
 			}
 			set_country_flag = goodies
 		}
@@ -2299,38 +2302,67 @@ country_event = {
 		name = anomaly.3120.a
 		trigger = { NOT = { has_country_flag = goodies } }
 		add_monthly_resource_mult = {
-				resource = minerals
-				value = @tier2materialreward
-				min = @tier2materialmin
-				max = @tier2materialmax
-			}
+			resource = minerals
+			value = @tier2materialreward
+			min = @tier2materialmin
+			max = @tier2materialmax
+		}
 	}
 
 	option = {
 		name = anomaly.3120.b
 		trigger = { has_country_flag = goodies }
 		add_monthly_resource_mult = {
-				resource = minerals
-				value = @tier2materialreward
-				min = @tier2materialmin
-				max = @tier2materialmax
-			}
+			resource = minerals
+			value = @tier2materialreward
+			min = @tier2materialmin
+			max = @tier2materialmax
+		}
 		if = {
 			limit = {
-				has_tech_option = tech_destroyers
+				has_tech_option = tech_cruisers
 			}
 			add_tech_progress = {
-				tech = tech_destroyers
+				tech = tech_cruisers
 				progress = 0.90
 			}
 			else = {
-				add_research_option = tech_destroyers
+				add_research_option = tech_cruisers
 				add_tech_progress = {
-					tech = tech_destroyers
+					tech = tech_cruisers
 					progress = 0.6
 				}
 			}
 		}
+	}
+}
+
+# This = owner of fleet 1 (combatant)
+# From = owner of fleet 2 (destroyed)
+# FromFrom = fleet 1
+# FromFromFrom = fleet 2
+#on_fleet_destroyed_perp = {
+country_event = {
+	id = anomaly.3121
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		exists = from
+		from = {
+			NOT = {
+				has_relation_flag = {
+					who = root
+					flag = wrecker_relation
+				}
+			}
+		}
+		fromfromfrom = { has_fleet_flag = wrecker_base_flag }
+	}
+
+	immediate = {
+		from = { destroy_country = yes }
 	}
 }
 

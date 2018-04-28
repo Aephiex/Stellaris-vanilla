@@ -44,9 +44,9 @@ ship_behavior = {
 ship_behavior = {
 	name = "picket"
 	
-	preferred_attack_range = 40
-	formation_distance = 40				#when orbing/following ship will try to keep this distance to assigned position	
-	return_to_formation_distance = 50	#when attacking the ship will switch to passive mode if distance to assigned position is greater that this
+	preferred_attack_range = 30
+	formation_distance = 30				#when orbing/following ship will try to keep this distance to assigned position	
+	return_to_formation_distance = 40	#when attacking the ship will switch to passive mode if distance to assigned position is greater that this
 
 	collision_awareness = 0.75			#how much we try to avoid other ships
 	collision_strafe = 0.75				#collision_strafe allows the ship to move in any direction while colliding with another
@@ -60,10 +60,10 @@ ship_behavior = {
 
 ship_behavior = {
 	name = "line"
-	preferred_attack_range = 70		#max/min/median/12/412..	#this is the distance to target the ship wants to keep when attacking
+	preferred_attack_range = 50		#max/min/median/12/412..	#this is the distance to target the ship wants to keep when attacking
 	
-	formation_distance = 70				#when orbing/following ship will try to keep this distance to assigned position	
-	return_to_formation_distance = 80	#when attacking the ship will switch to passive mode if distance to assigned position is greater that this
+	formation_distance = 50				#when orbing/following ship will try to keep this distance to assigned position	
+	return_to_formation_distance = 60	#when attacking the ship will switch to passive mode if distance to assigned position is greater that this
 
 	collision_awareness = 0.75			
 	collision_radius = 1.0				
@@ -77,9 +77,9 @@ ship_behavior = {
 
 ship_behavior = {
 	name = "artillery"
-	preferred_attack_range = 100
-	formation_distance = 100
-	return_to_formation_distance = 110
+	preferred_attack_range = 80
+	formation_distance = 80
+	return_to_formation_distance = 90
 
 	combat_target_anchor = root
 

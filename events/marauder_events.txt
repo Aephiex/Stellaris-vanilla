@@ -88,6 +88,8 @@ namespace = marauder
 
 @raidcooldown = 600
 
+# Mercenary Costs
+
 @largemercallow = 9000
 @largemerccost = -9000
 
@@ -97,20 +99,10 @@ namespace = marauder
 @smallmercallow = 4000
 @smallmerccost = -4000
 
-@tributeallow = 500
-@tributecost = -500
+# Tribute Allow and Costs found in 01_scripted_triggers_marauder_tribute and marauder_tribute_effects
 
-@tributefoodallow = 500
-@tributefoodcost = -500
-
-@tributeallowraided = 1000
-@tributecostraided = -1000
-
-@tributefoodallowraided = 1000
-@tributefoodcostraided = -1000
-
-@leaderallow = 5000
-@leadercost = -5000
+@leaderallow = 2000
+@leadercost = -2000
 
 @raidallow = 3000
 @raidcost = -3000
@@ -301,14 +293,14 @@ country_event = {
 		owner_species = { save_event_target_as = marauder_species }
 		every_country = {
 			limit = { is_ai = no }
-			country_event = { id = marauder.5 days = 10 }
+			country_event = { id = marauder.5 }
 		}
 		random_relation = { 
 			limit = {
 				is_country_type = default
 				has_policy_flag = refugees_allowed
 			}
-			country_event = { id = marauder.9 days = 30 random = 10 }
+			country_event = { id = marauder.9 days = 10 random = 10 }
 		}
 
 		# Mercenary Desertions (Marauder 1)
@@ -1223,6 +1215,28 @@ country_event = {
 			has_valid_civic = civic_hive_devouring_swarm 
 			has_valid_civic = civic_fanatic_purifiers
 			has_valid_civic = civic_machine_terminator 
+		}
+		NOT = {
+			AND = {
+				has_relation_flag = {
+					who = from
+					flag = current_target
+				}
+				from = { is_country_type = dormant_marauders }
+			}
+			AND = {
+				from = { is_country_type = marauder_raiders }
+				any_country = {
+					is_country_type = dormant_marauders
+					has_country_flag = parent_of@from
+					root = {
+						has_relation_flag = {
+							who = prev
+							flag = current_target
+						}
+					}
+				}
+			}
 		}
 		NOT = { has_country_flag = marauder_diplomacy_engaged }
 	}
@@ -2202,14 +2216,6 @@ country_event = {
 	
 	immediate = {
 		from = { set_country_flag = hired@event_target:raiding_marauder }
-		event_target:raiding_marauder = {
-			set_faction_hostility = {
-				target = from
-				set_hostile = no
-				set_neutral = no
-				set_friendly = yes
-			}
-		}
 		if = {
 			limit = {
 				event_target:raiding_marauder = { has_country_flag = marauder_1 }
@@ -2263,9 +2269,42 @@ country_event = {
 		}
 		event_target:raiding_marauder = {
 			set_country_flag = raid_ongoing
+		}
+		create_country = {
+			name = event_target:raiding_marauder
+			type = "marauder_raiders"
+			flag = event_target:raiding_marauder
+			effect = {
+				save_event_target_as = marauder_raiding_country
+				if = {
+					limit = { event_target:raiding_marauder = { has_country_flag = marauder_1 } }
+					set_country_flag = marauder_1
+				}
+				if = {
+					limit = { event_target:raiding_marauder = { has_country_flag = marauder_2 } }
+					set_country_flag = marauder_2
+				}
+				if = {
+					limit = { event_target:raiding_marauder = { has_country_flag = marauder_3 } }
+					set_country_flag = marauder_3
+				}
+				set_country_flag = raid_ongoing
+			}
+		}
+		event_target:marauder_raiding_country = {
+			every_country = { establish_communications_no_message = event_target:marauder_raiding_country }
+			event_target:raiding_marauder = {
+				set_country_flag = parent_of@event_target:marauder_raiding_country
+				set_faction_hostility = {
+					target = event_target:marauder_raiding_country
+					set_hostile = no
+					set_neutral = no
+					set_friendly = yes
+				}
+			}
 			create_leader = {
 				type = admiral
-				species = owner_main_species
+				species = event_target:marauder_species
 				name = random
 				skill = 3
 				leader_age_min = 25
@@ -2278,9 +2317,8 @@ country_event = {
 			create_fleet = {
 				name = "NAME_Raiding_Fleet"
 				effect = {
-					set_owner = event_target:raiding_marauder
+					set_owner = event_target:raiding_marauder # For ship names
 					create_marauder_raiders = yes
-					assign_leader = last_created_leader
 					set_location = event_target:raid_source
 					set_fleet_stance = aggressive
 					set_fleet_bombardment_stance = indiscriminate
@@ -2288,6 +2326,8 @@ country_event = {
 					set_aggro_range = 150
 					set_fleet_flag = hired_raiding_fleet
 					set_fleet_flag = raiding_fleet
+					set_owner = event_target:marauder_raiding_country # Real owner
+					assign_leader = last_created_leader
 					
 					closest_system = {
 						limit = {
@@ -2314,6 +2354,12 @@ country_event = {
 						clear_auto_move_on_arrival = no
 					}
 				}
+			}
+			set_faction_hostility = {
+				target = event_target:marauder_target
+				set_hostile = yes
+				set_neutral = no
+				set_friendly = no
 			}
 		}
 		country_event = { id = marauder.120 }
@@ -4316,11 +4362,7 @@ event = {
 		years_passed >= 25
 		any_country = {
 			is_country_type = default 
-			NOR = {
-				has_valid_civic = "civic_fanatic_purifiers"
-				has_valid_civic = "civic_hive_devouring_swarm"
-				has_valid_civic = "civic_machine_terminator"
-			}
+			NOT = { has_country_flag = under_marauder_attack }
 			any_relation = {
 				AND = {
 					is_country_type = dormant_marauders
@@ -4340,11 +4382,7 @@ event = {
 				random_country = {
 					limit = { 
 						is_country_type = default
-						NOR = {
-							has_valid_civic = "civic_fanatic_purifiers"
-							has_valid_civic = "civic_hive_devouring_swarm"
-							has_valid_civic = "civic_machine_terminator"
-						}
+						NOT = { has_country_flag = under_marauder_attack }
 						any_relation = {
 							AND = {
 								is_country_type = dormant_marauders
@@ -4368,7 +4406,7 @@ event = {
 						save_event_target_as = raiding_marauder
 						species = { save_event_target_as = marauder_species }
 					}
-					country_event = { id = marauder.101 days = 10 random = 200 }
+					country_event = { id = marauder.101 days = 1 random = 10 }
 				}
 			}
 			60 = {}
@@ -4417,10 +4455,58 @@ country_event = {
 				any_owned_fleet = { has_fleet_flag = raiding_fleet }
 			}
 		}
+		NOT = { has_country_flag = recently_raided_or_threatened }
 	}
 
 	immediate = {
+		# Determine tribute level
+		if = {
+			limit = { 
+				has_monthly_income = { resource = minerals value < 50 }
+			}
+			set_country_flag = marauder_tribute_1@event_target:raiding_marauder
+		}
+		if = {
+			limit = {
+				has_monthly_income = { resource = minerals value > 49 }
+				has_monthly_income = { resource = minerals value < 100 }
+			}
+			set_country_flag = marauder_tribute_2@event_target:raiding_marauder
+		}
+		if = {
+			limit = {
+				has_monthly_income = { resource = minerals value > 99 }
+				has_monthly_income = { resource = minerals value < 150 }
+			}
+			set_country_flag = marauder_tribute_3@event_target:raiding_marauder
+		}
+		if = {
+			limit = {
+				has_monthly_income = { resource = minerals value > 149 }
+				has_monthly_income = { resource = minerals value < 200 }
+			}
+			set_country_flag = marauder_tribute_4@event_target:raiding_marauder
+		}
+		if = {
+			limit = {
+				has_monthly_income = { resource = minerals value > 199 }
+				has_monthly_income = { resource = minerals value < 250 }
+			}
+			set_country_flag = marauder_tribute_5@event_target:raiding_marauder
+		}
+		if = {
+			limit = {
+				has_monthly_income = { resource = minerals value > 249 }
+			}
+			set_country_flag = marauder_tribute_6@event_target:raiding_marauder
+		}
+
+		set_timed_country_flag = {
+			flag = recently_raided_or_threatened
+			days = 1800 # 5 years
+		}
 		set_country_flag = raid_target_of@event_target:raiding_marauder
+		set_country_flag = under_marauder_attack
 		if = {
 			limit = {
 				event_target:raiding_marauder = { has_country_flag = marauder_1 }
@@ -4467,9 +4553,44 @@ country_event = {
 		save_event_target_as = marauder_target
 		event_target:raiding_marauder = {
 			set_country_flag = raid_ongoing
+			owner_species = { save_event_target_as = marauder_species }
+		}
+		create_country = {
+			name = event_target:raiding_marauder
+			type = "marauder_raiders"
+			species = event_target:marauder_species
+			flag = event_target:raiding_marauder
+			effect = {
+				save_event_target_as = marauder_raiding_country
+				if = {
+					limit = { event_target:raiding_marauder = { has_country_flag = marauder_1 } }
+					set_country_flag = marauder_1
+				}
+				if = {
+					limit = { event_target:raiding_marauder = { has_country_flag = marauder_2 } }
+					set_country_flag = marauder_2
+				}
+				if = {
+					limit = { event_target:raiding_marauder = { has_country_flag = marauder_3 } }
+					set_country_flag = marauder_3
+				}
+				set_country_flag = raid_ongoing
+			}
+		}
+		event_target:marauder_raiding_country = {
+			every_country = { establish_communications_no_message = event_target:marauder_raiding_country }
+			event_target:raiding_marauder = {
+				set_country_flag = parent_of@event_target:marauder_raiding_country
+				set_faction_hostility = {
+					target = event_target:marauder_raiding_country
+					set_hostile = no
+					set_neutral = no
+					set_friendly = yes
+				}
+			}
 			create_leader = {
 				type = admiral
-				species = owner_main_species
+				species = event_target:marauder_species
 				name = random
 				skill = 3
 				leader_age_min = 25
@@ -4482,16 +4603,17 @@ country_event = {
 			create_fleet = {
 				name = "NAME_Raiding_Fleet"
 				effect = {
-					set_owner = event_target:raiding_marauder
+					set_owner = event_target:raiding_marauder # For ship names
 					create_marauder_raiders = yes
-					assign_leader = last_created_leader
 					set_location = event_target:raid_source
 					set_fleet_stance = aggressive
 					set_fleet_bombardment_stance = indiscriminate
 					set_aggro_range_measure_from = self
 					set_aggro_range = 150
 					set_fleet_flag = raiding_fleet
-
+					set_owner = event_target:marauder_raiding_country # Real owner
+					assign_leader = last_created_leader
+					
 					closest_system = {
 						limit = {
 							any_planet = {
@@ -4518,6 +4640,12 @@ country_event = {
 					}
 				}
 			}
+			set_faction_hostility = {
+				target = event_target:marauder_target
+				set_hostile = yes
+				set_neutral = no
+				set_friendly = no
+			}
 		}
 	}
 	
@@ -4528,22 +4656,33 @@ country_event = {
 			event_target:raiding_marauder = { has_country_flag = marauder_1 }
 		}
 		response_text = marauder.101.1.a.response
-		allow = { 
-			energy >= @tributeallow 
+		allow = {
+			determine_energy_tribute = yes
 		}
-		add_energy = @tributecost
+		tribute_cost_energy = yes
 		hidden_effect = {
+			remove_country_flag = raid_target_of@event_target:raiding_marauder
+			remove_country_flag = under_marauder_attack
+			remove_country_flag = marauder_tribute_1@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_2@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_3@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_4@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_5@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_6@event_target:raiding_marauder
 			remove_relation_flag = {
 				who = event_target:raiding_marauder
 				flag = current_target
 			}
 			event_target:raiding_marauder = {
+				remove_country_flag = raid_ongoing
+				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+			}
+			event_target:marauder_raiding_country = {
 				random_owned_fleet = {
 					limit = { has_fleet_flag = raiding_fleet }
 					delete_fleet = this
 				}
-				remove_country_flag = raid_ongoing
-				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+				destroy_country = yes
 			}
 		}
 	}
@@ -4553,22 +4692,33 @@ country_event = {
 			event_target:raiding_marauder = { has_country_flag = marauder_1 }
 		}
 		response_text = marauder.101.1.a.response
-		allow = { 
-			minerals >= @tributeallow
+		allow = {
+			determine_mineral_tribute = yes
 		}
-		add_minerals = @tributecost
+		tribute_cost_minerals = yes
 		hidden_effect = {
+			remove_country_flag = raid_target_of@event_target:raiding_marauder
+			remove_country_flag = under_marauder_attack
+			remove_country_flag = marauder_tribute_1@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_2@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_3@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_4@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_5@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_6@event_target:raiding_marauder
 			remove_relation_flag = {
 				who = event_target:raiding_marauder
 				flag = current_target
 			}
 			event_target:raiding_marauder = {
+				remove_country_flag = raid_ongoing
+				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+			}
+			event_target:marauder_raiding_country = {
 				random_owned_fleet = {
 					limit = { has_fleet_flag = raiding_fleet }
 					delete_fleet = this
 				}
-				remove_country_flag = raid_ongoing
-				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+				destroy_country = yes
 			}
 		}
 	}
@@ -4578,22 +4728,33 @@ country_event = {
 			event_target:raiding_marauder = { has_country_flag = marauder_1 }
 		}
 		response_text = marauder.101.1.a.response
-		allow = { 
-			food >= @tributefoodallow 
+		allow = {
+			determine_food_tribute = yes
 		}
-		add_food = @tributefoodcost
+		tribute_cost_food = yes
 		hidden_effect = {
+			remove_country_flag = raid_target_of@event_target:raiding_marauder
+			remove_country_flag = under_marauder_attack
+			remove_country_flag = marauder_tribute_1@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_2@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_3@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_4@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_5@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_6@event_target:raiding_marauder
 			remove_relation_flag = {
 				who = event_target:raiding_marauder
 				flag = current_target
 			}
 			event_target:raiding_marauder = {
+				remove_country_flag = raid_ongoing
+				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+			}
+			event_target:marauder_raiding_country = {
 				random_owned_fleet = {
 					limit = { has_fleet_flag = raiding_fleet }
 					delete_fleet = this
 				}
-				remove_country_flag = raid_ongoing
-				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+				destroy_country = yes
 			}
 		}
 	}
@@ -4612,22 +4773,33 @@ country_event = {
 			event_target:raiding_marauder = { has_country_flag = marauder_2 }
 		}
 		response_text = marauder.101.2.a.response
-		allow = { 
-			energy >= @tributeallow
+		allow = {
+			determine_energy_tribute = yes
 		}
-		add_energy = @tributecost
+		tribute_cost_energy = yes
 		hidden_effect = {
+			remove_country_flag = raid_target_of@event_target:raiding_marauder
+			remove_country_flag = under_marauder_attack
+			remove_country_flag = marauder_tribute_1@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_2@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_3@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_4@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_5@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_6@event_target:raiding_marauder
 			remove_relation_flag = {
 				who = event_target:raiding_marauder
 				flag = current_target
 			}
 			event_target:raiding_marauder = {
+				remove_country_flag = raid_ongoing
+				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+			}
+			event_target:marauder_raiding_country = {
 				random_owned_fleet = {
 					limit = { has_fleet_flag = raiding_fleet }
 					delete_fleet = this
 				}
-				remove_country_flag = raid_ongoing
-				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+				destroy_country = yes
 			}
 		}
 	}
@@ -4637,22 +4809,33 @@ country_event = {
 			event_target:raiding_marauder = { has_country_flag = marauder_2 }
 		}
 		response_text = marauder.101.2.a.response
-		allow = { 
-			minerals >= @tributeallow
+		allow = {
+			determine_mineral_tribute = yes
 		}
-		add_minerals = @tributecost
+		tribute_cost_minerals = yes
 		hidden_effect = {
+			remove_country_flag = raid_target_of@event_target:raiding_marauder
+			remove_country_flag = under_marauder_attack
+			remove_country_flag = marauder_tribute_1@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_2@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_3@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_4@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_5@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_6@event_target:raiding_marauder
 			remove_relation_flag = {
 				who = event_target:raiding_marauder
 				flag = current_target
 			}
 			event_target:raiding_marauder = {
+				remove_country_flag = raid_ongoing
+				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+			}
+			event_target:marauder_raiding_country = {
 				random_owned_fleet = {
 					limit = { has_fleet_flag = raiding_fleet }
 					delete_fleet = this
 				}
-				remove_country_flag = raid_ongoing
-				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+				destroy_country = yes
 			}
 		}
 	}
@@ -4662,22 +4845,33 @@ country_event = {
 			event_target:raiding_marauder = { has_country_flag = marauder_2 }
 		}
 		response_text = marauder.101.2.a.response
-		allow = { 
-			food >= @tributefoodallow 
+		allow = {
+			determine_food_tribute = yes
 		}
-		add_food = @tributefoodcost
+		tribute_cost_food = yes
 		hidden_effect = {
+			remove_country_flag = raid_target_of@event_target:raiding_marauder
+			remove_country_flag = under_marauder_attack
+			remove_country_flag = marauder_tribute_1@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_2@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_3@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_4@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_5@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_6@event_target:raiding_marauder
 			remove_relation_flag = {
 				who = event_target:raiding_marauder
 				flag = current_target
 			}
 			event_target:raiding_marauder = {
+				remove_country_flag = raid_ongoing
+				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+			}
+			event_target:marauder_raiding_country = {
 				random_owned_fleet = {
 					limit = { has_fleet_flag = raiding_fleet }
 					delete_fleet = this
 				}
-				remove_country_flag = raid_ongoing
-				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+				destroy_country = yes
 			}
 		}
 	}
@@ -4697,22 +4891,33 @@ country_event = {
 			event_target:raiding_marauder = { has_country_flag = marauder_3 }
 		}
 		response_text = marauder.101.3.a.response
-		allow = { 
-			energy >= @tributeallow
+		allow = {
+			determine_energy_tribute = yes
 		}
-		add_energy = @tributecost
+		tribute_cost_energy = yes
 		hidden_effect = {
+			remove_country_flag = raid_target_of@event_target:raiding_marauder
+			remove_country_flag = under_marauder_attack
+			remove_country_flag = marauder_tribute_1@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_2@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_3@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_4@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_5@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_6@event_target:raiding_marauder
 			remove_relation_flag = {
 				who = event_target:raiding_marauder
 				flag = current_target
 			}
 			event_target:raiding_marauder = {
+				remove_country_flag = raid_ongoing
+				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+			}
+			event_target:marauder_raiding_country = {
 				random_owned_fleet = {
 					limit = { has_fleet_flag = raiding_fleet }
 					delete_fleet = this
 				}
-				remove_country_flag = raid_ongoing
-				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+				destroy_country = yes
 			}
 		}
 	}
@@ -4722,22 +4927,33 @@ country_event = {
 			event_target:raiding_marauder = { has_country_flag = marauder_3 }
 		}
 		response_text = marauder.101.3.a.response
-		allow = { 
-			minerals >= @tributeallow
+		allow = {
+			determine_mineral_tribute = yes
 		}
-		add_minerals = @tributecost
+		tribute_cost_minerals = yes
 		hidden_effect = {
+			remove_country_flag = raid_target_of@event_target:raiding_marauder
+			remove_country_flag = under_marauder_attack
+			remove_country_flag = marauder_tribute_1@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_2@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_3@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_4@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_5@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_6@event_target:raiding_marauder
 			remove_relation_flag = {
 				who = event_target:raiding_marauder
 				flag = current_target
 			}
 			event_target:raiding_marauder = {
+				remove_country_flag = raid_ongoing
+				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+			}
+			event_target:marauder_raiding_country = {
 				random_owned_fleet = {
 					limit = { has_fleet_flag = raiding_fleet }
 					delete_fleet = this
 				}
-				remove_country_flag = raid_ongoing
-				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+				destroy_country = yes
 			}
 		}
 	}
@@ -4747,22 +4963,33 @@ country_event = {
 			event_target:raiding_marauder = { has_country_flag = marauder_3 }
 		}
 		response_text = marauder.101.3.a.response
-		allow = { 
-			food >= @tributefoodallow
+		allow = {
+			determine_food_tribute = yes
 		}
-		add_food = @tributefoodcost
+		tribute_cost_food = yes
 		hidden_effect = {
+			remove_country_flag = raid_target_of@event_target:raiding_marauder
+			remove_country_flag = under_marauder_attack
+			remove_country_flag = marauder_tribute_1@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_2@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_3@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_4@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_5@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_6@event_target:raiding_marauder
 			remove_relation_flag = {
 				who = event_target:raiding_marauder
 				flag = current_target
 			}
 			event_target:raiding_marauder = {
+				remove_country_flag = raid_ongoing
+				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+			}
+			event_target:marauder_raiding_country = {
 				random_owned_fleet = {
 					limit = { has_fleet_flag = raiding_fleet }
 					delete_fleet = this
 				}
-				remove_country_flag = raid_ongoing
-				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+				destroy_country = yes
 			}
 		}
 	}
@@ -4809,11 +5036,29 @@ country_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		has_relation_flag = {
-			who = from
-			flag = current_target
+		OR = {
+			AND = {
+				has_relation_flag = {
+					who = from
+					flag = current_target
+				}
+				from = { is_country_type = dormant_marauders }
+			}
+			AND = {
+				from = { is_country_type = marauder_raiders }
+				any_country = {
+					is_country_type = dormant_marauders
+					has_country_flag = parent_of@from
+					root = {
+						has_relation_flag = {
+							who = prev
+							flag = current_target
+						}
+					}
+
+				}
+			}
 		}
-		from = { is_country_type = dormant_marauders }
 		NOT = { has_country_flag = marauder_diplomacy_engaged }
 	}
 
@@ -4822,6 +5067,29 @@ country_event = {
 			owner_species = { save_event_target_as = marauder_species }
 		}
 		set_country_flag = marauder_diplomacy_engaged
+		if = {
+			limit = {
+				from = { is_country_type = marauder_raiders }
+			}
+			random_country = {
+				limit = {
+					is_country_type = dormant_marauders
+					has_country_flag = parent_of@from
+				}
+				save_event_target_as = marauder_country
+			}
+			from = { save_event_target_as = marauder_raiding_country }
+			else = {
+				from = { save_event_target_as = marauder_country }
+				random_country = {
+					limit = {
+						is_country_type = marauder_raiders
+						from = { has_country_flag = parent_of@prev }
+					}
+					save_event_target_as = marauder_raiding_country
+				}
+			}
+		}
 	}
 
 	after = {
@@ -4838,21 +5106,32 @@ country_event = {
 			from = { has_country_flag = marauder_1 }
 		}
 		allow = { 
-			energy >= @tributeallowraided 
+			determine_energy_tribute_raided = yes
 		}
-		add_energy = @tributecostraided
+		tribute_cost_energy_raided = yes
 		hidden_effect = {
+			remove_country_flag = raid_target_of@event_target:marauder_country
+			remove_country_flag = under_marauder_attack
+			remove_country_flag = marauder_tribute_1@event_target:marauder_country
+			remove_country_flag = marauder_tribute_2@event_target:marauder_country
+			remove_country_flag = marauder_tribute_3@event_target:marauder_country
+			remove_country_flag = marauder_tribute_4@event_target:marauder_country
+			remove_country_flag = marauder_tribute_5@event_target:marauder_country
+			remove_country_flag = marauder_tribute_6@event_target:marauder_country
 			remove_relation_flag = {
-				who = from
+				who = event_target:marauder_country
 				flag = current_target
 			}
-			from = {
+			event_target:marauder_country = {
+				remove_country_flag = raid_ongoing
+				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+			}
+			event_target:marauder_raiding_country = {
 				random_owned_fleet = {
 					limit = { has_fleet_flag = raiding_fleet }
 					delete_fleet = this
 				}
-				remove_country_flag = raid_ongoing
-				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+				destroy_country = yes
 			}
 		}
 	}
@@ -4863,21 +5142,32 @@ country_event = {
 			from = { has_country_flag = marauder_1 }
 		}
 		allow = { 
-			minerals >= @tributeallowraided 
+			determine_mineral_tribute_raided = yes
 		}
-		add_minerals = @tributecostraided
+		tribute_cost_minerals_raided = yes
 		hidden_effect = {
+			remove_country_flag = raid_target_of@event_target:marauder_country
+			remove_country_flag = under_marauder_attack
+			remove_country_flag = marauder_tribute_1@event_target:marauder_country
+			remove_country_flag = marauder_tribute_2@event_target:marauder_country
+			remove_country_flag = marauder_tribute_3@event_target:marauder_country
+			remove_country_flag = marauder_tribute_4@event_target:marauder_country
+			remove_country_flag = marauder_tribute_5@event_target:marauder_country
+			remove_country_flag = marauder_tribute_6@event_target:marauder_country
 			remove_relation_flag = {
-				who = from
+				who = event_target:marauder_country
 				flag = current_target
 			}
-			from = {
+			event_target:marauder_country = {
+				remove_country_flag = raid_ongoing
+				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+			}
+			event_target:marauder_raiding_country = {
 				random_owned_fleet = {
 					limit = { has_fleet_flag = raiding_fleet }
 					delete_fleet = this
 				}
-				remove_country_flag = raid_ongoing
-				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+				destroy_country = yes
 			}
 		}
 	}
@@ -4888,21 +5178,32 @@ country_event = {
 			from = { has_country_flag = marauder_1 }
 		}
 		allow = { 
-			food >= @tributefoodallowraided 
+			determine_food_tribute_raided = yes
 		}
-		add_food = @tributefoodcostraided
+		tribute_cost_food_raided = yes
 		hidden_effect = {
+			remove_country_flag = raid_target_of@event_target:marauder_country
+			remove_country_flag = under_marauder_attack
+			remove_country_flag = marauder_tribute_1@event_target:marauder_country
+			remove_country_flag = marauder_tribute_2@event_target:marauder_country
+			remove_country_flag = marauder_tribute_3@event_target:marauder_country
+			remove_country_flag = marauder_tribute_4@event_target:marauder_country
+			remove_country_flag = marauder_tribute_5@event_target:marauder_country
+			remove_country_flag = marauder_tribute_6@event_target:marauder_country
 			remove_relation_flag = {
-				who = from
+				who = event_target:marauder_country
 				flag = current_target
 			}
-			from = {
+			event_target:marauder_country = {
+				remove_country_flag = raid_ongoing
+				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+			}
+			event_target:marauder_raiding_country = {
 				random_owned_fleet = {
 					limit = { has_fleet_flag = raiding_fleet }
 					delete_fleet = this
 				}
-				remove_country_flag = raid_ongoing
-				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+				destroy_country = yes
 			}
 		}
 	}
@@ -4913,6 +5214,11 @@ country_event = {
 		trigger = {
 			from = { has_country_flag = marauder_1 }
 			NOT = { has_country_flag = marauder_ugly }
+			NOR = {
+				has_valid_civic = "civic_fanatic_purifiers"
+				has_valid_civic = "civic_hive_devouring_swarm"
+				has_valid_civic = "civic_machine_terminator"
+			}
 		}
 		set_country_flag = marauder_ugly
 	}
@@ -4925,21 +5231,32 @@ country_event = {
 			from = { has_country_flag = marauder_2 }
 		}
 		allow = { 
-			energy >= @tributeallowraided  
+			determine_energy_tribute_raided = yes
 		}
-		add_energy = @tributecostraided
+		tribute_cost_energy_raided = yes
 		hidden_effect = {
+			remove_country_flag = raid_target_of@event_target:marauder_country
+			remove_country_flag = under_marauder_attack
+			remove_country_flag = marauder_tribute_1@event_target:marauder_country
+			remove_country_flag = marauder_tribute_2@event_target:marauder_country
+			remove_country_flag = marauder_tribute_3@event_target:marauder_country
+			remove_country_flag = marauder_tribute_4@event_target:marauder_country
+			remove_country_flag = marauder_tribute_5@event_target:marauder_country
+			remove_country_flag = marauder_tribute_6@event_target:marauder_country
 			remove_relation_flag = {
-				who = from
+				who = event_target:marauder_country
 				flag = current_target
 			}
-			from = {
+			event_target:marauder_country = {
+				remove_country_flag = raid_ongoing
+				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+			}
+			event_target:marauder_raiding_country = {
 				random_owned_fleet = {
 					limit = { has_fleet_flag = raiding_fleet }
 					delete_fleet = this
 				}
-				remove_country_flag = raid_ongoing
-				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+				destroy_country = yes
 			}
 		}
 	}
@@ -4950,21 +5267,32 @@ country_event = {
 			from = { has_country_flag = marauder_2 }
 		}
 		allow = { 
-			minerals >= @tributeallowraided  
+			determine_mineral_tribute_raided = yes
 		}
-		add_minerals = @tributecostraided
+		tribute_cost_minerals_raided = yes
 		hidden_effect = {
+			remove_country_flag = raid_target_of@event_target:marauder_country
+			remove_country_flag = under_marauder_attack
+			remove_country_flag = marauder_tribute_1@event_target:marauder_country
+			remove_country_flag = marauder_tribute_2@event_target:marauder_country
+			remove_country_flag = marauder_tribute_3@event_target:marauder_country
+			remove_country_flag = marauder_tribute_4@event_target:marauder_country
+			remove_country_flag = marauder_tribute_5@event_target:marauder_country
+			remove_country_flag = marauder_tribute_6@event_target:marauder_country
 			remove_relation_flag = {
-				who = from
+				who = event_target:marauder_country
 				flag = current_target
 			}
-			from = {
+			event_target:marauder_country = {
+				remove_country_flag = raid_ongoing
+				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+			}
+			event_target:marauder_raiding_country = {
 				random_owned_fleet = {
 					limit = { has_fleet_flag = raiding_fleet }
 					delete_fleet = this
 				}
-				remove_country_flag = raid_ongoing
-				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+				destroy_country = yes
 			}
 		}
 	}
@@ -4975,21 +5303,32 @@ country_event = {
 			from = { has_country_flag = marauder_2 }
 		}
 		allow = { 
-			food >= @tributefoodallowraided  
+			determine_food_tribute_raided = yes
 		}
-		add_food = @tributefoodcostraided
+		tribute_cost_food_raided = yes
 		hidden_effect = {
+			remove_country_flag = raid_target_of@event_target:marauder_country
+			remove_country_flag = under_marauder_attack
+			remove_country_flag = marauder_tribute_1@event_target:marauder_country
+			remove_country_flag = marauder_tribute_2@event_target:marauder_country
+			remove_country_flag = marauder_tribute_3@event_target:marauder_country
+			remove_country_flag = marauder_tribute_4@event_target:marauder_country
+			remove_country_flag = marauder_tribute_5@event_target:marauder_country
+			remove_country_flag = marauder_tribute_6@event_target:marauder_country
 			remove_relation_flag = {
-				who = from
+				who = event_target:marauder_country
 				flag = current_target
 			}
-			from = {
+			event_target:marauder_country = {
+				remove_country_flag = raid_ongoing
+				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+			}
+			event_target:marauder_raiding_country = {
 				random_owned_fleet = {
 					limit = { has_fleet_flag = raiding_fleet }
 					delete_fleet = this
 				}
-				remove_country_flag = raid_ongoing
-				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+				destroy_country = yes
 			}
 		}
 	}
@@ -5002,21 +5341,32 @@ country_event = {
 			from = { has_country_flag = marauder_3 }
 		}
 		allow = { 
-			energy >= @tributeallowraided  
+			determine_energy_tribute_raided = yes
 		}
-		add_energy = @tributecostraided
+		tribute_cost_energy_raided = yes
 		hidden_effect = {
+			remove_country_flag = raid_target_of@event_target:marauder_country
+			remove_country_flag = under_marauder_attack
+			remove_country_flag = marauder_tribute_1@event_target:marauder_country
+			remove_country_flag = marauder_tribute_2@event_target:marauder_country
+			remove_country_flag = marauder_tribute_3@event_target:marauder_country
+			remove_country_flag = marauder_tribute_4@event_target:marauder_country
+			remove_country_flag = marauder_tribute_5@event_target:marauder_country
+			remove_country_flag = marauder_tribute_6@event_target:marauder_country
 			remove_relation_flag = {
-				who = from
+				who = event_target:marauder_country
 				flag = current_target
 			}
-			from = {
+			event_target:marauder_country = {
+				remove_country_flag = raid_ongoing
+				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+			}
+			event_target:marauder_raiding_country = {
 				random_owned_fleet = {
 					limit = { has_fleet_flag = raiding_fleet }
 					delete_fleet = this
 				}
-				remove_country_flag = raid_ongoing
-				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+				destroy_country = yes
 			}
 		}
 	}
@@ -5027,21 +5377,32 @@ country_event = {
 			from = { has_country_flag = marauder_3 }
 		}
 		allow = { 
-			minerals >= @tributeallowraided  
+			determine_mineral_tribute_raided = yes
 		}
-		add_minerals = @tributecostraided
+		tribute_cost_minerals_raided = yes
 		hidden_effect = {
+			remove_country_flag = raid_target_of@event_target:marauder_country
+			remove_country_flag = under_marauder_attack
+			remove_country_flag = marauder_tribute_1@event_target:marauder_country
+			remove_country_flag = marauder_tribute_2@event_target:marauder_country
+			remove_country_flag = marauder_tribute_3@event_target:marauder_country
+			remove_country_flag = marauder_tribute_4@event_target:marauder_country
+			remove_country_flag = marauder_tribute_5@event_target:marauder_country
+			remove_country_flag = marauder_tribute_6@event_target:marauder_country
 			remove_relation_flag = {
-				who = from
+				who = event_target:marauder_country
 				flag = current_target
 			}
-			from = {
+			event_target:marauder_country = {
+				remove_country_flag = raid_ongoing
+				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+			}
+			event_target:marauder_raiding_country = {
 				random_owned_fleet = {
 					limit = { has_fleet_flag = raiding_fleet }
 					delete_fleet = this
 				}
-				remove_country_flag = raid_ongoing
-				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+				destroy_country = yes
 			}
 		}
 	}
@@ -5052,21 +5413,32 @@ country_event = {
 			from = { has_country_flag = marauder_3 }
 		}
 		allow = { 
-			food >= @tributefoodallowraided  
+			determine_food_tribute_raided = yes
 		}
-		add_food = @tributefoodcostraided
+		tribute_cost_food_raided = yes
 		hidden_effect = {
+			remove_country_flag = raid_target_of@event_target:marauder_country
+			remove_country_flag = under_marauder_attack
+			remove_country_flag = marauder_tribute_1@event_target:marauder_country
+			remove_country_flag = marauder_tribute_2@event_target:marauder_country
+			remove_country_flag = marauder_tribute_3@event_target:marauder_country
+			remove_country_flag = marauder_tribute_4@event_target:marauder_country
+			remove_country_flag = marauder_tribute_5@event_target:marauder_country
+			remove_country_flag = marauder_tribute_6@event_target:marauder_country
 			remove_relation_flag = {
-				who = from
+				who = event_target:marauder_country
 				flag = current_target
 			}
-			from = {
+			event_target:marauder_country = {
+				remove_country_flag = raid_ongoing
+				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+			}
+			event_target:marauder_raiding_country = {
 				random_owned_fleet = {
 					limit = { has_fleet_flag = raiding_fleet }
 					delete_fleet = this
 				}
-				remove_country_flag = raid_ongoing
-				set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+				destroy_country = yes
 			}
 		}
 	}
@@ -5085,20 +5457,26 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		from = { is_country_type = dormant_marauders }
-		this = {
-			owner = {
-				OR = {
-					is_country_type = default
-					is_country_type = awakened_fallen_empire
-					is_country_type = fallen_empire
-				}
+		from = { is_country_type = marauder_raiders }
+		owner = {
+			OR = {
+				is_country_type = default
+				is_country_type = awakened_fallen_empire
+				is_country_type = fallen_empire
 			}
 		}
 		NOT = { has_planet_flag = planet_raided }
 	}
 
 	immediate = {
+		owner = { save_event_target_as = raid_victim }
+		random_country = {
+			limit = { 
+				is_country_type = dormant_marauders
+				has_country_flag = parent_of@from
+			}
+			save_event_target_as = marauder_country
+		}
 		set_timed_planet_flag = {
 			flag = planet_raided
 			days = 600 
@@ -5162,9 +5540,47 @@ planet_event = {
 	option = {
 		name = marauder.104.a
 		owner = {
-			add_energy = -500
-			add_minerals = -500
-			add_food = -50
+			if = {
+				limit = { has_country_flag = marauder_tribute_1@event_target:marauder_country }
+				add_energy = -200
+				add_minerals = -200
+				add_food = -50
+				break = yes
+			}
+			if = {
+				limit = { has_country_flag = marauder_tribute_2@event_target:marauder_country }
+				add_energy = -300
+				add_minerals = -300
+				add_food = -100
+				break = yes
+			}
+			if = {
+				limit = { has_country_flag = marauder_tribute_3@event_target:marauder_country }
+				add_energy = -500
+				add_minerals = -500
+				add_food = -150
+				break = yes
+			}
+			if = {
+				limit = { has_country_flag = marauder_tribute_4@event_target:marauder_country }
+				add_energy = -700
+				add_minerals = -700
+				add_food = -200
+				break = yes
+			}
+			if = {
+				limit = { has_country_flag = marauder_tribute_5@event_target:marauder_country }
+				add_energy = -900
+				add_minerals = -900
+				add_food = -250
+				break = yes
+			}
+			if = {
+				limit = { has_country_flag = marauder_tribute_6@event_target:marauder_country }
+				add_energy = -1100
+				add_minerals = -1100
+				add_food = -300
+			}
 		}
 	}
 }
@@ -5182,14 +5598,29 @@ planet_event = {
 
 	option = {
 		name = marauder.105.a
-		random_pop = {
-			kill_pop = yes
+		if = {
+			limit = { num_pops > 1 }
+			random_pop = {
+				kill_pop = yes
+			}
 		}
-		random_pop = {
-			kill_pop = yes
+		if = {
+			limit = { num_pops > 1 }
+			random_pop = {
+				kill_pop = yes
+			}
 		}
-		random_pop = {
-			kill_pop = yes
+		if = {
+			limit = { num_pops > 1 }
+			random_pop = {
+				kill_pop = yes
+			}
+		}
+		if = {
+			limit = { num_pops > 1 }
+			random_pop = {
+				kill_pop = yes
+			}
 		}
 	}
 }
@@ -5208,9 +5639,47 @@ planet_event = {
 	option = {
 		name = marauder.106.a
 		owner = {
-			add_energy = -500
-			add_minerals = -500
-			add_food = -50
+			if = {
+				limit = { has_country_flag = marauder_tribute_1@event_target:marauder_country }
+				add_energy = -200
+				add_minerals = -200
+				add_food = -50
+				break = yes
+			}
+			if = {
+				limit = { has_country_flag = marauder_tribute_2@event_target:marauder_country }
+				add_energy = -300
+				add_minerals = -300
+				add_food = -100
+				break = yes
+			}
+			if = {
+				limit = { has_country_flag = marauder_tribute_3@event_target:marauder_country }
+				add_energy = -500
+				add_minerals = -500
+				add_food = -150
+				break = yes
+			}
+			if = {
+				limit = { has_country_flag = marauder_tribute_4@event_target:marauder_country }
+				add_energy = -700
+				add_minerals = -700
+				add_food = -200
+				break = yes
+			}
+			if = {
+				limit = { has_country_flag = marauder_tribute_5@event_target:marauder_country }
+				add_energy = -900
+				add_minerals = -900
+				add_food = -250
+				break = yes
+			}
+			if = {
+				limit = { has_country_flag = marauder_tribute_6@event_target:marauder_country }
+				add_energy = -1100
+				add_minerals = -1100
+				add_food = -300
+			}
 		}
 	}
 }
@@ -5252,6 +5721,14 @@ planet_event = {
 			}
 			kill_pop = yes
 		}
+		random_pop = {
+			limit = {
+				is_robot_pop = no
+				is_sapient = yes
+				is_growing = no
+			}
+			kill_pop = yes
+		}
 	}
 }
 
@@ -5268,10 +5745,48 @@ planet_event = {
 
 	option = {
 		name = marauder.108.a
-		owner = {
-			add_energy = -500
-			add_minerals = -500
-			add_food = -50
+	owner = {
+			if = {
+				limit = { has_country_flag = marauder_tribute_1@event_target:marauder_country }
+				add_energy = -200
+				add_minerals = -200
+				add_food = -50
+				break = yes
+			}
+			if = {
+				limit = { has_country_flag = marauder_tribute_2@event_target:marauder_country }
+				add_energy = -300
+				add_minerals = -300
+				add_food = -100
+				break = yes
+			}
+			if = {
+				limit = { has_country_flag = marauder_tribute_3@event_target:marauder_country }
+				add_energy = -500
+				add_minerals = -500
+				add_food = -150
+				break = yes
+			}
+			if = {
+				limit = { has_country_flag = marauder_tribute_4@event_target:marauder_country }
+				add_energy = -700
+				add_minerals = -700
+				add_food = -200
+				break = yes
+			}
+			if = {
+				limit = { has_country_flag = marauder_tribute_5@event_target:marauder_country }
+				add_energy = -900
+				add_minerals = -900
+				add_food = -250
+				break = yes
+			}
+			if = {
+				limit = { has_country_flag = marauder_tribute_6@event_target:marauder_country }
+				add_energy = -1100
+				add_minerals = -1100
+				add_food = -300
+			}
 		}
 	}	
 }
@@ -5328,24 +5843,43 @@ fleet_event = {
 			destroy_on_arrival = yes
 			clear_auto_move_on_arrival = yes
 		}
-		owner = {
+		random_country = {
+			limit = { 
+				is_country_type = dormant_marauders
+				has_country_flag = parent_of@root.owner
+			}
+			save_event_target_as = raid_parent
 			remove_country_flag = raid_ongoing
 			set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
 		}
-		random_country = {
-			limit = { has_country_flag = raid_target_of@root.owner }
-			save_event_target_as = marauder_target
+		owner = { remove_country_flag = raid_ongoing }
+		event_target:raid_victim = {
 			country_event = { id = marauder.111 }
-			remove_country_flag = raid_target_of@root.owner
+			remove_country_flag = raid_target_of@event_target:raid_parent
+			remove_country_flag = under_marauder_attack
+			remove_country_flag = marauder_tribute_1@event_target:raid_parent
+			remove_country_flag = marauder_tribute_2@event_target:raid_parent
+			remove_country_flag = marauder_tribute_3@event_target:raid_parent
+			remove_country_flag = marauder_tribute_4@event_target:raid_parent
+			remove_country_flag = marauder_tribute_5@event_target:raid_parent
+			remove_country_flag = marauder_tribute_6@event_target:raid_parent
+			remove_relation_flag = {
+				who = event_target:raid_parent
+				flag = current_target
+			}
+			remove_relation_flag = {
+				who = event_target:raid_parent
+				flag = current_hired_target
+			}
 		}
 		if = {
 			limit = {
-				any_country = { has_country_flag = hired@root.owner }
+				any_country = { has_country_flag = hired@event_target:raid_parent }
 			}
 			random_country = {
-				limit = { has_country_flag = hired@root.owner }
+				limit = { has_country_flag = hired@event_target:raid_parent }
 				country_event = { id = marauder.122 }
-				remove_country_flag = hired@root.owner
+				remove_country_flag = hired@event_target:raid_parent
 			}
 		}
 	}
@@ -5358,26 +5892,26 @@ country_event = {
 	desc = { 
 		text = marauder.111.1.desc
 		trigger = { 
-			event_target:raiding_marauder = { has_country_flag = marauder_1 }
+			event_target:raid_parent = { has_country_flag = marauder_1 }
 		}
 	}
 	desc = { 
 		text = marauder.111.2.desc
 		trigger = { 
-			event_target:raiding_marauder = { has_country_flag = marauder_2 }
+			event_target:raid_parent = { has_country_flag = marauder_2 }
 		}
 	}
 	desc = { 
 		text = marauder.111.3.desc
 		trigger = { 
-			event_target:raiding_marauder = { has_country_flag = marauder_3 }
+			event_target:raid_parent = { has_country_flag = marauder_3 }
 		}
 	}
 	
 	diplomatic = yes
 	
 	picture_event_data = {
-		portrait = from.owner
+		portrait = event_target:raid_parent
 		room = "ethic_spaceship_room"
 	}
 	
@@ -5421,11 +5955,29 @@ country_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		has_relation_flag = {
-			who = from
-			flag = current_hired_target
+		OR = {
+			AND = {
+				has_relation_flag = {
+					who = from
+					flag = current_hired_target
+				}
+				from = { is_country_type = dormant_marauders }
+			}
+			AND = {
+				from = { is_country_type = marauder_raiders }
+				any_country = {
+					is_country_type = dormant_marauders
+					has_country_flag = parent_of@from
+					root = {
+						has_relation_flag = {
+							who = prev
+							flag = current_hired_target
+						}
+					}
+
+				}
+			}
 		}
-		from = { is_country_type = dormant_marauders }
 		NOT = { has_country_flag = marauder_diplomacy_engaged }
 	}
 
@@ -5505,7 +6057,7 @@ event = {
 
 	trigger = {
 		any_country = {
-			is_country_type = dormant_marauders
+			is_country_type = marauder_raiders
 			has_country_flag = raid_ongoing
 			any_owned_fleet = {
 				OR = {
@@ -5541,7 +6093,7 @@ event = {
 	immediate = {
 		random_country = {
 			limit = {
-				is_country_type = dormant_marauders
+				is_country_type = marauder_raiders
 				has_country_flag = raid_ongoing
 				any_owned_fleet = {
 					OR = {
@@ -5568,74 +6120,13 @@ event = {
 					}
 				}
 			}
-			save_event_target_as = marauder_country
-			if = {
+			save_event_target_as = marauder_raiding_country
+			random_country = {
 				limit = {
-					any_owned_fleet = {
-						has_fleet_flag = marauder_raider_fleet_1
-						is_in_combat = no
-						fleet_power < 1500
-					}
+					is_country_type = dormant_marauders
+					has_country_flag = parent_of@event_target:marauder_raiding_country
 				}
-				random_owned_fleet = {
-					limit = {
-						has_fleet_flag = marauder_raider_fleet_1
-						is_in_combat = no
-						fleet_power < 1500
-					}
-					save_event_target_as = raiding_fleet
-				}
-			}
-			if = {
-				limit = {
-					any_owned_fleet = {
-						has_fleet_flag = marauder_raider_fleet_2
-						is_in_combat = no
-						fleet_power < 2500
-					}
-				}
-				random_owned_fleet = {
-					limit = {
-						has_fleet_flag = marauder_raider_fleet_2
-						is_in_combat = no
-						fleet_power < 2500
-					}
-					save_event_target_as = raiding_fleet
-				}
-			}
-			if = {
-				limit = {
-					any_owned_fleet = {
-						has_fleet_flag = marauder_raider_fleet_3
-						is_in_combat = no
-						fleet_power < 3500
-					}
-				}
-				random_owned_fleet = {
-					limit = {
-						has_fleet_flag = marauder_raider_fleet_3
-						is_in_combat = no
-						fleet_power < 3500
-					}
-					save_event_target_as = raiding_fleet
-				}
-			}
-			if = {
-				limit = {
-					any_owned_fleet = {
-						has_fleet_flag = marauder_raider_fleet_4
-						is_in_combat = no
-						fleet_power < 6500
-					}
-				}
-				random_owned_fleet = {
-					limit = {
-						has_fleet_flag = marauder_raider_fleet_4
-						is_in_combat = no
-						fleet_power < 6500
-					}
-					save_event_target_as = raiding_fleet
-				}
+				save_event_target_as = marauder_country
 			}
 		}
 		event_target:marauder_country = {
@@ -5671,13 +6162,16 @@ event = {
 					}
 				}
 			}
-			event_target:raiding_fleet = {
-				clear_fleet_actions = this
-				solar_system = { save_event_target_as = retreating_fleet_system }
-				auto_move_to_planet = {
-					target = event_target:raid_source
-					destroy_on_arrival = yes
-					clear_auto_move_on_arrival = yes
+			event_target:marauder_raiding_country = {
+				remove_country_flag = raid_ongoing
+				every_owned_fleet = {
+					remove_auto_move_target = yes
+					solar_system = { save_event_target_as = retreating_fleet_system }
+					auto_move_to_planet = {
+						target = event_target:raid_source
+						destroy_on_arrival = yes
+						clear_auto_move_on_arrival = yes
+					}
 				}
 			}
 			random_country = {
@@ -5685,6 +6179,21 @@ event = {
 				save_event_target_as = marauder_target
 				country_event = { id = marauder.114 }
 				remove_country_flag = raid_target_of@event_target:marauder_country
+				remove_country_flag = under_marauder_attack
+				remove_country_flag = marauder_tribute_1@event_target:marauder_country
+				remove_country_flag = marauder_tribute_2@event_target:marauder_country
+				remove_country_flag = marauder_tribute_3@event_target:marauder_country
+				remove_country_flag = marauder_tribute_4@event_target:marauder_country
+				remove_country_flag = marauder_tribute_5@event_target:marauder_country
+				remove_country_flag = marauder_tribute_6@event_target:marauder_country
+				remove_relation_flag = {
+					who = event_target:marauder_country
+					flag = current_target
+				}
+				remove_relation_flag = {
+					who = event_target:marauder_country
+					flag = current_hired_target
+				}
 			}
 			if = {
 				limit = {
@@ -5727,7 +6236,7 @@ country_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		is_country_type = dormant_marauders
+		is_country_type = marauder_raiders
 		has_country_flag = raid_ongoing
 		fromfrom = { 
 			has_fleet_flag = raiding_fleet
@@ -5735,29 +6244,53 @@ country_event = {
 	}
 
 	immediate = {
-		save_event_target_as = raiding_marauder
+		random_country = {
+			limit = { 
+				is_country_type = dormant_marauders
+				has_country_flag = parent_of@root
+			}
+			save_event_target_as = raiding_marauder
+		}
 		fromfrom = {
 			solar_system = { save_event_target_as = destroyed_fleet_system }
 		}
 		random_country = {
-			limit = { has_country_flag = raid_target_of@root }
+			limit = { has_country_flag = raid_target_of@event_target:raiding_marauder }
 			country_event = { id = marauder.116 }
-			remove_country_flag = raid_target_of@root
+			remove_country_flag = raid_target_of@event_target:raiding_marauder
+			remove_country_flag = under_marauder_attack
+			remove_country_flag = marauder_tribute_1@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_2@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_3@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_4@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_5@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_6@event_target:raiding_marauder
+			remove_relation_flag = {
+				who = event_target:raiding_marauder
+				flag = current_target
+			}
+			remove_relation_flag = {
+				who = event_target:raiding_marauder
+				flag = current_hired_target
+			}
 		}
 		remove_country_flag = raid_ongoing
-		set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
-		from = { save_event_target_as = fleet_destroyer }
-		if = {
-			limit = {
-				any_country = {
-					is_country_type = default
-					has_country_flag = hired@root
+		event_target:raiding_marauder = {
+			remove_country_flag = raid_ongoing
+			set_timed_country_flag = { flag = raid_cooldown days = @raidcooldown }
+			from = { save_event_target_as = fleet_destroyer }
+			if = {
+				limit = {
+					any_country = {
+						is_country_type = default
+						has_country_flag = hired@event_target:raiding_marauder
+					}
 				}
-			}
-			random_country = {
-				limit = { has_country_flag = hired@root }
-				country_event = { id = marauder.124 }
-				remove_country_flag = hired@root
+				random_country = {
+					limit = { has_country_flag = hired@event_target:raiding_marauder }
+					country_event = { id = marauder.124 }
+					remove_country_flag = hired@event_target:raiding_marauder
+				}
 			}
 		}
 	}
@@ -5789,11 +6322,6 @@ country_event = {
 	location = event_target:retreating_fleet_system
 
 	is_triggered_only = yes
-
-	immediate = {
-		event_target:marauder_country = { save_event_target_as = raiding_marauder } # to make marauder.161 work
-		country_event = { id = marauder.161 days = 480 }
-	}
 
 	option = {
 		name = marauder.117.a
@@ -5888,10 +6416,6 @@ country_event = {
 
 	is_triggered_only = yes
 
-	immediate = {
-		country_event = { id = marauder.161 days = 480 }
-	}
-
 	option = {
 		name = marauder.122.a
 	}	
@@ -5907,17 +6431,6 @@ country_event = {
 	location = event_target:destroyed_fleet_system
 
 	is_triggered_only = yes
-
-	immediate = {
-		event_target:raiding_marauder = {
-			set_faction_hostility = {
-				target = root
-				set_hostile = yes
-				set_neutral = no
-				set_friendly = no
-			}
-		}
-	}
 
 	option = {
 		name = marauder.124.a
@@ -5943,6 +6456,10 @@ event = {
 			}
 			any_relation = { 
 				prev = { is_rival = prev }
+				NOR = { 
+					has_country_flag = under_marauder_attack
+					has_country_flag = target_of_hired_ai_raid
+				}
 			}
 			energy > 5000
 			any_relation = { 
@@ -5968,13 +6485,25 @@ event = {
 				}
 				any_relation = { 
 					prev = { is_rival = prev }
+					NOR = { 
+						has_country_flag = under_marauder_attack
+						has_country_flag = target_of_hired_ai_raid
+					}
 				}
 				energy > 5000
+				any_relation = { 
+					is_country_type = dormant_marauders 
+					has_communications = prev
+					NOR = { 
+						has_country_flag = raid_ongoing
+						has_country_flag = raid_cooldown
+					}
+				}
 			}
 			save_event_target_as = hired_marauders
 		}
 		random_list = {
-			5 = {
+			3 = {
 				modifier = {
 					factor = 0
 					event_target:hired_marauders = {
@@ -6007,12 +6536,17 @@ event = {
 				#	}
 				#	save_event_target_as = hired_marauders
 				event_target:hired_marauders = {
-					add_energy = -5000
+					add_energy = @raidcost
 					random_relation = {
 						limit = { 
 							prev = { is_rival = prev }
+							NOR = { 
+								has_country_flag = under_marauder_attack
+								has_country_flag = target_of_hired_ai_raid
+							}
 						}
 						save_event_target_as = marauder_target
+						set_timed_country_flag = { flag = target_of_hired_ai_raid days = 7200 }
 					}
 					random_relation = {
 						limit = { 
@@ -6066,9 +6600,44 @@ event = {
 				}
 				event_target:raiding_marauder = {
 					set_country_flag = raid_ongoing
+					owner_species = { save_event_target_as = marauder_species }
+				}
+				create_country = {
+					name = event_target:raiding_marauder
+					type = "marauder_raiders"
+					species = event_target:marauder_species
+					flag = event_target:raiding_marauder
+					effect = {
+						save_event_target_as = marauder_raiding_country
+						if = {
+							limit = { event_target:raiding_marauder = { has_country_flag = marauder_1 } }
+							set_country_flag = marauder_1
+						}
+						if = {
+							limit = { event_target:raiding_marauder = { has_country_flag = marauder_2 } }
+							set_country_flag = marauder_2
+						}
+						if = {
+							limit = { event_target:raiding_marauder = { has_country_flag = marauder_3 } }
+							set_country_flag = marauder_3
+						}
+						set_country_flag = raid_ongoing
+					}
+				}
+				event_target:marauder_raiding_country = {
+					every_country = { establish_communications_no_message = event_target:marauder_raiding_country }
+					event_target:raiding_marauder = {
+						set_country_flag = parent_of@event_target:marauder_raiding_country
+						set_faction_hostility = {
+							target = event_target:marauder_raiding_country
+							set_hostile = no
+							set_neutral = no
+							set_friendly = yes
+						}
+					}
 					create_leader = {
 						type = admiral
-						species = owner_main_species
+						species = event_target:marauder_species
 						name = random
 						skill = 3
 						leader_age_min = 25
@@ -6081,16 +6650,17 @@ event = {
 					create_fleet = {
 						name = "NAME_Raiding_Fleet"
 						effect = {
-							set_owner = event_target:raiding_marauder
+							set_owner = event_target:raiding_marauder # For ship names
 							create_marauder_raiders = yes
-							assign_leader = last_created_leader
 							set_location = event_target:raid_source
 							set_fleet_stance = aggressive
+							set_fleet_bombardment_stance = indiscriminate
 							set_aggro_range_measure_from = self
 							set_aggro_range = 150
-							set_fleet_bombardment_stance = indiscriminate
 							set_fleet_flag = hired_raiding_fleet
 							set_fleet_flag = raiding_fleet
+							set_owner = event_target:marauder_raiding_country # Real owner
+							assign_leader = last_created_leader
 							
 							closest_system = {
 								limit = {
@@ -6118,9 +6688,20 @@ event = {
 							}
 						}
 					}
+					set_faction_hostility = {
+						target = event_target:marauder_target
+						set_hostile = yes
+						set_neutral = no
+						set_friendly = no
+					}
 				}
 				event_target:marauder_target = {
 					set_country_flag = raid_target_of@event_target:raiding_marauder
+					set_country_flag = under_marauder_attack
+					set_relation_flag = {
+						who = event_target:raiding_marauder
+						flag = current_hired_target
+					}
 					if = {
 						limit = { has_communications = event_target:raiding_marauder }
 						country_event = { id = marauder.120 days = 1 random = 30 }
@@ -6130,7 +6711,7 @@ event = {
 					}
 				}
 			}
-			100 = {}
+			110 = {}
 		}
 	}
 }
@@ -6175,14 +6756,35 @@ event = {
 					AND = {
 						has_country_flag = marauder_1 
 						has_country_flag = mercenaries_available_1
+						NOR = {
+							AND = {
+								has_country_flag = merc_fleet_1_hired
+								has_country_flag = merc_fleet_2_hired
+								has_country_flag = merc_fleet_3_hired
+							}
+						}
 					}
 					AND = {
 						has_country_flag = marauder_2 
 						has_country_flag = mercenaries_available_2
+						NOR = {
+							AND = {
+								has_country_flag = merc_fleet_1_hired
+								has_country_flag = merc_fleet_2_hired
+								has_country_flag = merc_fleet_3_hired
+							}
+						}
 					}
 					AND = {
 						has_country_flag = marauder_3
 						has_country_flag = mercenaries_available_3
+						NOR = {
+							AND = {
+								has_country_flag = merc_fleet_1_hired
+								has_country_flag = merc_fleet_2_hired
+								has_country_flag = merc_fleet_3_hired
+							}
+						}
 					}
 				}
 			}
@@ -6222,14 +6824,35 @@ event = {
 						AND = {
 							has_country_flag = marauder_1 
 							has_country_flag = mercenaries_available_1
+							NOR = {
+								AND = {
+									has_country_flag = merc_fleet_1_hired
+									has_country_flag = merc_fleet_2_hired
+									has_country_flag = merc_fleet_3_hired
+								}
+							}
 						}
 						AND = {
 							has_country_flag = marauder_2 
 							has_country_flag = mercenaries_available_2
+							NOR = {
+								AND = {
+									has_country_flag = merc_fleet_1_hired
+									has_country_flag = merc_fleet_2_hired
+									has_country_flag = merc_fleet_3_hired
+								}
+							}
 						}
 						AND = {
 							has_country_flag = marauder_3
 							has_country_flag = mercenaries_available_3
+							NOR = {
+								AND = {
+									has_country_flag = merc_fleet_1_hired
+									has_country_flag = merc_fleet_2_hired
+									has_country_flag = merc_fleet_3_hired
+								}
+							}
 						}
 					}
 				}
@@ -6563,49 +7186,55 @@ event = {
 			is_country_type = dormant_marauders
 			has_country_flag = raid_ongoing
 			NOT = {
-				any_owned_fleet = {
-					OR = {
-						has_fleet_flag = hired_raiding_fleet
-						has_fleet_flag = raiding_fleet
-					}
+				any_country = {
+					is_country_type = marauder_raiders
+					prev = { has_country_flag = parent_of@prev }
 				}
 			}
 		}
 	}
 
 	immediate = {
-		every_country = {
+		random_country = {
 			limit = {
 				is_country_type = dormant_marauders
 				has_country_flag = raid_ongoing
 				NOT = {
-					any_owned_fleet = {
-						OR = {
-							has_fleet_flag = hired_raiding_fleet
-							has_fleet_flag = raiding_fleet
-						}
+					any_country = {
+						is_country_type = marauder_raiders
+						prev = { has_country_flag = parent_of@prev }
 					}
 				}
 			}
+			save_event_target_as = raiding_marauder
 			remove_country_flag = raid_ongoing
 		}
-	}
-}
-
-# Clear Friendly state after raid
-country_event = {
-	id = marauder.161
-	hide_window = yes
-
-	is_triggered_only = yes
-
-	immediate = {
-		event_target:raiding_marauder = {
-			set_faction_hostility = {
-				target = root
-				set_hostile = yes
-				set_neutral = no
-				set_friendly = no
+		random_playable_country = {
+			limit = { has_country_flag = raid_target_of@event_target:raiding_marauder }
+			remove_country_flag = raid_target_of@event_target:raiding_marauder
+			remove_country_flag = under_marauder_attack
+			remove_country_flag = marauder_tribute_1@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_2@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_3@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_4@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_5@event_target:raiding_marauder
+			remove_country_flag = marauder_tribute_6@event_target:raiding_marauder
+			remove_relation_flag = {
+				who = event_target:raiding_marauder
+				flag = current_target
+			}
+			remove_relation_flag = {
+				who = event_target:raiding_marauder
+				flag = current_hired_target
+			}
+		}
+		if = {
+			limit = {
+				any_playable_country = { has_country_flag = hired@event_target:raiding_marauder }
+			}
+			random_playable_country = {
+				limit = { has_country_flag = hired@event_target:raiding_marauder }
+				remove_country_flag = hired@event_target:raiding_marauder
 			}
 		}
 	}
@@ -7493,7 +8122,7 @@ country_event = {
 		}
 	}
 	option = { # Return to former owner
-		name = marauder.518.a
+		name = marauder.517.b
 		custom_tooltip = marauder.517.b.tooltip
 		event_target:liberated_planet = {
 			set_owner = event_target:planet_former_owner
@@ -7612,7 +8241,7 @@ country_event = {
 	immediate = {
 		from = { save_event_target_as = awakened_horde }
 		random_list = {
-			5 = {
+			2 = {
 				set_global_flag = horde_triggered
 				country_event = { id = marauder.500 }
 			}
@@ -8202,6 +8831,7 @@ country_event = {
 		exists = event_target:raider_khanate
 		is_country_type = default
 		is_subject = no
+		is_ai = yes
 		NOR = {
 			has_valid_civic = "civic_fanatic_purifiers"
 			has_valid_civic = "civic_hive_devouring_swarm"
@@ -8440,7 +9070,10 @@ country_event = {
 		every_country = {
 			limit = { has_modifier = satrapy_of_horde }
 			remove_modifier = "satrapy_of_horde"
-			country_event = { id = marauder.670 days = 10 }
+			set_subject_of = {
+				who = none
+			}
+			country_event = { id = marauder.670 days = 4 }
 		}
 
 		# Two Diadochi (Marauder small)
@@ -9000,7 +9633,6 @@ country_event = {
 	id = marauder.670
 	title = "marauder.670.name"
 	desc = "marauder.670.desc"
-
 	picture = GFX_evt_arguing_senate
 	show_sound = event_conversation
 
@@ -9016,7 +9648,6 @@ country_event = {
 	id = marauder.671
 	title = "marauder.671.name"
 	desc = "marauder.671.desc"
-
 	picture = GFX_evt_large_explosion
 	show_sound = event_ship_explosion
 
@@ -9025,4 +9656,418 @@ country_event = {
 	option = {
 		name = marauder.671.a
 	}	
+}
+
+### Neighbor Events
+
+event = {
+	id = marauder.699
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		any_country = {
+			is_country_type = default
+			any_system_within_border = {
+				any_neighbor_system = {
+					exists = space_owner
+					space_owner = { is_country_type = dormant_marauders }
+				}
+			}
+		}
+	}
+
+	immediate = {
+		random_playable_country = {
+			limit = {
+				any_system_within_border = {
+					any_neighbor_system = {
+						exists = space_owner
+						space_owner = { is_country_type = dormant_marauders }
+					}
+				}
+			}
+			random_list = {
+				20 = {
+					country_event = { id = marauder.700 }
+				}
+				80 = {}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = marauder.700
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		random_system_within_border = {
+			limit = {
+				any_neighbor_system = {
+					exists = space_owner
+					space_owner = { is_country_type = dormant_marauders }
+				}
+			}
+			save_event_target_as = border_system
+			random_system_planet = {
+				limit = {
+					is_star = no
+					is_asteroid = no
+					is_moon = no
+				}
+				save_event_target_as = border_planet
+			}
+			random_neighbor_system = {
+				limit = {
+					exists = space_owner
+					space_owner = { is_country_type = dormant_marauders }
+				}
+				space_owner = { 
+					save_event_target_as = marauder_neighbor
+					owner_species = { save_event_target_as = marauder_neighbor_species }
+				}
+			}
+		}
+
+		random_list = {
+			10 = {
+				if = {
+					limit = {
+						has_policy_flag = refugees_allowed
+						any_owned_planet = {
+							habitability = { who = event_target:marauder_neighbor_species value > 0.4 }
+							any_tile = {
+								has_blocker = no
+								has_pop = no
+							}
+						}
+					}
+					random_owned_planet = {
+						limit = {
+							habitability = { who = event_target:marauder_neighbor_species value > 0.4 }
+							any_tile = {
+								has_blocker = no
+								has_pop = no
+							}
+						}
+						create_pop = {
+							species = event_target:marauder_neighbor_species
+							ethos = {
+								ethic = "ethic_militarist"	
+							}
+						}
+						planet_event = { id = marauder.701 }
+					}
+				}
+			}
+			10 = {
+				country_event = { id = marauder.702 }
+			}
+			10 = {
+				country_event = { id = marauder.703 }
+			}
+			10 = {
+				country_event = { id = marauder.704 }
+			}
+			10 = {
+				country_event = { id = marauder.705 }
+			}
+			10 = {
+				country_event = { id = marauder.706 }
+			}
+			10 = {
+				country_event = { id = marauder.707 }
+			}
+		}
+	}
+}
+
+# Refugees
+planet_event = {
+	id = marauder.701
+	title = "marauder.701.name"
+	desc = "marauder.701.desc"
+	picture = GFX_evt_colony_settlement
+	show_sound = event_radio_chatter
+	location = root
+
+	is_triggered_only = yes
+
+	trigger = {
+		owner = {
+			NOT = { has_country_flag = marauder_neighbor_event_1 }
+		}
+	}
+
+	immediate = {
+		owner = {
+			set_country_flag = marauder_neighbor_event_1
+		}
+	}
+
+	option = {
+		name = marauder.701.a
+	}
+}
+
+# Battle Tactics
+country_event = {
+	id = marauder.702
+	title = "marauder.702.name"
+	desc = {
+		text = marauder.702.a.desc
+		trigger = {
+			NOR = {
+				has_authority = auth_hive_mind
+				has_authority = auth_machine_intelligence
+			}
+		}
+	}
+	desc = {
+		text = marauder.702.b.desc
+		trigger = {
+			has_authority = auth_hive_mind
+		}
+	}
+	desc = {
+		text = marauder.702.c.desc
+		trigger = {
+			has_authority = auth_machine_intelligence
+		}
+	}
+	picture = GFX_evt_machine_space_battle
+	show_sound = event_space_battle
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_country_flag = marauder_neighbor_event_2 }
+	}
+
+	immediate = {
+		set_country_flag = marauder_neighbor_event_2
+	}
+
+	option = {
+		name = EXCELLENT
+		add_modifier = {
+			modifier = "marauder_skirmishing"
+			days = 3600
+		}
+	}	
+}
+
+# New Admiral
+country_event = {
+	id = marauder.703
+	title = "marauder.703.name"
+	desc = "marauder.703.desc"
+	picture = GFX_evt_hangar_bay
+	show_sound = event_radio_chatter
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_country_flag = marauder_neighbor_event_3 }
+	}
+
+	immediate = {
+		set_country_flag = marauder_neighbor_event_3
+	}
+
+	option = {
+		name = marauder.703.a
+		trigger = {
+			NOR = {
+				has_valid_civic = civic_machine_terminator
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_fanatic_purifiers
+			}
+		}
+		create_leader = {
+			type = admiral
+			species = event_target:marauder_neighbor_species
+			name = random
+			skill = 4
+			leader_age_min = 25
+			leader_age_max = 45
+			traits = {
+				trait = leader_trait_mercenary_warrior
+				trait = random_trait
+			}
+		}
+		custom_tooltip = gain_marauder_admiral
+	}
+	option = {
+		name = marauder.703.b
+		trigger = {
+			NOR = {
+				has_valid_civic = civic_machine_terminator
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_fanatic_purifiers
+			}
+		}
+	}
+	option = {
+		name = marauder.703.c
+		trigger = {
+			has_valid_civic = civic_machine_terminator
+		}
+		add_influence = 50
+	}
+	option = {
+		name = marauder.703.d
+		trigger = {
+			has_valid_civic = civic_hive_devouring_swarm
+		}
+		add_food = 1
+		add_influence = 50
+	}
+	option = {
+		name = marauder.703.e
+		trigger = {
+			has_valid_civic = civic_fanatic_purifiers
+		}
+		add_influence = 50
+	}
+}
+
+# New Fleet
+country_event = {
+	id = marauder.704
+	title = "marauder.704.name"
+	desc = "marauder.704.desc"
+	picture = GFX_evt_pirate_armada
+	show_sound = event_radio_chatter
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_country_flag = marauder_neighbor_event_4 }
+		years_passed >= 30
+	}
+
+	immediate = {
+		set_country_flag = marauder_neighbor_event_4
+	}
+
+	option = {
+		name = marauder.704.a
+		create_fleet = {
+			name = "NAME_Salvaged_Fleet"
+			effect = {
+				set_owner = root
+				while = {
+					count = 4
+					create_ship = {
+						name = random
+						prefix = no
+						design = "NAME_Outrider"
+						graphical_culture = "pirate_01"
+					}
+				}
+				while = {
+					count = 2
+					create_ship = {
+						name = random
+						prefix = no
+						design = "NAME_Lancer"
+						graphical_culture = "pirate_01"
+					}
+				}
+				while = {
+					count = 1
+					create_ship = {
+						name = random
+						prefix = no
+						design = "NAME_Void_Champion"
+						graphical_culture = "pirate_01"
+					}
+				}
+				set_location = root.capital_scope
+			}
+		}
+		custom_tooltip = gain_marauder_fleet
+	}
+	option = {
+		name = marauder.704.b
+		add_minerals = 200
+	}
+}
+
+# Resource Cache
+country_event = {
+	id = marauder.705
+	title = "marauder.705.name"
+	desc = "marauder.705.desc"
+	picture = GFX_evt_space_debris
+	show_sound = event_scanner
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_country_flag = marauder_neighbor_event_5 }
+	}
+
+	immediate = {
+		set_country_flag = marauder_neighbor_event_5
+	}
+
+	option = {
+		name = EXCELLENT
+		add_minerals = 300
+		add_energy = 300
+	}
+}
+
+# Abandoned Habitat
+country_event = {
+	id = marauder.706
+	title = "marauder.706.name"
+	desc = "marauder.706.desc"
+	picture = GFX_evt_space_debris
+	show_sound = event_scanner
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_country_flag = marauder_neighbor_event_6 }
+	}
+
+	immediate = {
+		set_country_flag = marauder_neighbor_event_6
+	}
+
+	option = {
+		name = marauder.706.a
+		add_minerals = 400
+	}
+}
+
+# Shuttle
+country_event = {
+	id = marauder.707
+	title = "marauder.707.name"
+	desc = "marauder.707.desc"
+	picture = GFX_evt_machine_space_battle
+	show_sound = event_ship_thrusters
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_country_flag = marauder_neighbor_event_7 }
+	}
+
+	immediate = {
+		set_country_flag = marauder_neighbor_event_7
+	}
+
+	option = {
+		name = marauder.707.a
+		add_energy = 400
+	}
 }

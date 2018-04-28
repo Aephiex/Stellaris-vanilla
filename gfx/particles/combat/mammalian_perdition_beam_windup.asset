@@ -2,7 +2,7 @@ particle={
 	name="mammalian_01_perdition_beam_windup_effect"
 	subsystem={
 		name="glow"
-		max_amount=20
+		max_amount=5
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"
@@ -40,7 +40,7 @@ particle={
 	}
 	subsystem={
 		name="lightning"
-		max_amount=10
+		max_amount=1
 		slave_particles=0
 		sort="depth"
 		emitter_type="box"
@@ -83,7 +83,7 @@ particle={
 	}
 	subsystem={
 		name="lightning2"
-		max_amount=10
+		max_amount=1
 		slave_particles=0
 		sort="depth"
 		emitter_type="box"

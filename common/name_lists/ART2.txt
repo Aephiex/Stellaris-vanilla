@@ -96,6 +96,18 @@ ART2 = {
 		gene_warrior_army = {
 			sequential_name = "The Surpassing Ones %R%"
 		}
+
+		occupation_army = {
+			sequential_name = "%O% Endo Garrison Forces"
+		}
+
+		robotic_occupation_army = {
+			sequential_name = "%O% Mecha Garrison Group"
+		}
+
+		android_occupation_army = {
+			sequential_name = "%O% Constructor Garrison Group"
+		}
 	}
 	
 	planet_names = {

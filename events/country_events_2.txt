@@ -407,8 +407,9 @@ country_event = {
 					is_pirate_system = no
 					distance = {
 						source = event_target:capital_location
-						max_distance = 60
-						min_distance = 2
+						use_bypasses = no
+						min_jumps = 1
+						max_jumps = 5
 					}
 				}
 				set_star_flag = scientist_system_1
@@ -436,8 +437,9 @@ country_event = {
 					is_pirate_system = no
 					distance = {
 						source = event_target:capital_location
-						max_distance = 60
-						min_distance = 2
+						use_bypasses = no
+						min_jumps = 1
+						max_jumps = 5
 					}
 				}
 				set_star_flag = scientist_system_2
@@ -466,8 +468,9 @@ country_event = {
 					is_pirate_system = no
 					distance = {
 						source = event_target:capital_location
-						max_distance = 60
-						min_distance = 2
+						use_bypasses = no
+						min_jumps = 1
+						max_jumps = 5
 					}
 				}
 				set_star_flag = scientist_system_3
@@ -996,8 +999,9 @@ country_event = {
 				is_pirate_system = no
 				distance = {
 					source = event_target:capital_location
-					max_distance = 120
-					min_distance = 40
+					use_bypasses = no
+					min_jumps = 3
+					max_jumps = 8
 				}
 			}
 			set_star_flag = scientist_system_4
@@ -1483,8 +1487,9 @@ country_event = {
 					is_pirate_system = no
 					distance = {
 						source = event_target:capital_location
-						max_distance = 160
-						min_distance = 40
+						use_bypasses = no
+						min_jumps = 3
+						max_jumps = 8
 					}
 				}
 				set_star_flag = scientist_system_5
@@ -1816,8 +1821,9 @@ country_event = {
 				any_planet = { is_planet_class = pc_asteroid }
 				distance = {
 					source = event_target:capital_location
-					max_distance = 190
-					min_distance = 5
+					use_bypasses = no
+					min_jumps = 1
+					max_jumps = 8
 				}
 			}
 			random_system_planet = {
@@ -1856,8 +1862,9 @@ country_event = {
 				any_planet = { is_planet_class = pc_molten }
 				distance = {
 					source = event_target:capital_location
-					max_distance = 190
-					min_distance = 5
+					use_bypasses = no
+					min_jumps = 1
+					max_jumps = 8
 				}
 			}
 			random_system_planet = {
@@ -1896,8 +1903,9 @@ country_event = {
 				any_planet = { is_planet_class = pc_barren }
 				distance = {
 					source = event_target:capital_location
-					max_distance = 190
-					min_distance = 5
+					use_bypasses = no
+					min_jumps = 1
+					max_jumps = 8
 				}
 			}
 			random_system_planet = {
@@ -1936,8 +1944,9 @@ country_event = {
 				any_planet = { is_planet_class = pc_toxic }
 				distance = {
 					source = event_target:capital_location
-					max_distance = 190
-					min_distance = 5
+					use_bypasses = no
+					min_jumps = 1
+					max_jumps = 8
 				}
 			}
 			random_system_planet = {
@@ -1976,8 +1985,9 @@ country_event = {
 				any_planet = { is_planet_class = pc_frozen }
 				distance = {
 					source = event_target:capital_location
-					max_distance = 190
-					min_distance = 5
+					use_bypasses = no
+					min_jumps = 1
+					max_jumps = 8
 				}
 			}
 			random_system_planet = {
@@ -2138,8 +2148,9 @@ country_event = {
 					any_planet = { is_planet_class = pc_asteroid }
 					distance = {
 						source = event_target:capital_location
-						max_distance = 190
-						min_distance = 5
+						use_bypasses = no
+						min_jumps = 1
+						max_jumps = 8
 					}
 				}
 				random_system_planet = {
@@ -2249,8 +2260,9 @@ country_event = {
 					any_planet = { is_planet_class = pc_molten }
 					distance = {
 						source = event_target:capital_location
-						max_distance = 190
-						min_distance = 5
+						use_bypasses = no
+						min_jumps = 1
+						max_jumps = 8
 					}
 				}
 				random_system_planet = {
@@ -2360,8 +2372,9 @@ country_event = {
 					any_planet = { is_planet_class = pc_barren }
 					distance = {
 						source = event_target:capital_location
-						max_distance = 190
-						min_distance = 5
+						use_bypasses = no
+						min_jumps = 1
+						max_jumps = 8
 					}
 				}
 				random_system_planet = {
@@ -2471,8 +2484,9 @@ country_event = {
 					any_planet = { is_planet_class = pc_toxic }
 					distance = {
 						source = event_target:capital_location
-						max_distance = 190
-						min_distance = 5
+						use_bypasses = no
+						min_jumps = 1
+						max_jumps = 8
 					}
 				}
 				random_system_planet = {
@@ -2582,8 +2596,9 @@ country_event = {
 					any_planet = { is_planet_class = pc_frozen }
 					distance = {
 						source = event_target:capital_location
-						max_distance = 190
-						min_distance = 5
+						use_bypasses = no
+						min_jumps = 1
+						max_jumps = 8
 					}
 				}
 				random_system_planet = {

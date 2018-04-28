@@ -1375,7 +1375,7 @@ country_event = {
 		From = { save_event_target_as = rebel_country }
 		remove_country_flag = slave_revolt_chain_active
 		save_event_target_as = old_owner
-		solar_system = {
+		fromfrom.solar_system = {
 			starbase = {
 				set_owner = event_target:rebel_country
 			}

@@ -16,7 +16,6 @@ trait_hive_mind = {
 	randomized = no
 	modification = no
 	forced_happiness = yes
-	alters_species_identity = yes
 	
 	leader_age_min = 10
 	leader_age_max = 20
@@ -127,8 +126,8 @@ trait_syncretic_proles = {
 	cost = 1
 	opposites = { "trait_intelligent" "trait_erudite" "trait_natural_engineers" "trait_natural_physicists" "trait_natural_sociologists" }
 	initial = no
-	sapient = no
-	modification = no
+	modification = yes
+	species_potential_add = { always = no }
 	icon = "gfx/interface/icons/traits/trait_primitive.dds"
 	allowed_archetypes = { BIOLOGICAL }
 	modifier = {

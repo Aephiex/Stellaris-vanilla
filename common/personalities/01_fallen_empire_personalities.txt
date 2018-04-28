@@ -1,6 +1,6 @@
 fallen_empire_spiritualist = { 
 	aggressiveness = 1.5
-	trade_willingness = 0.5
+	trade_willingness = 0.33
 	bravery = 2.0
 	combat_bravery = 1.25
 	
@@ -40,7 +40,7 @@ fallen_empire_spiritualist = {
 
 fallen_empire_materialist = { 
 	aggressiveness = 1.0
-	trade_willingness = 0.75
+	trade_willingness = 0.5
 	bravery = 2.0
 	combat_bravery = 1.25
 	
@@ -117,7 +117,7 @@ fallen_empire_xenophobe = {
 
 fallen_empire_xenophile = { 
 	aggressiveness = 0.5
-	trade_willingness = 1.0
+	trade_willingness = 0.5
 	bravery = 2.0
 	combat_bravery = 1.25
 	
@@ -155,7 +155,7 @@ fallen_empire_xenophile = {
 
 awakened_fallen_empire_spiritualist = { 
 	aggressiveness = 1.5
-	trade_willingness = 0.5
+	trade_willingness = 0.33
 	bravery = 2.0
 	combat_bravery = 1.25
 	
@@ -193,7 +193,7 @@ awakened_fallen_empire_spiritualist = {
 
 awakened_fallen_empire_materialist = { 
 	aggressiveness = 1.0
-	trade_willingness = 0.75
+	trade_willingness = 0.5
 	bravery = 2.0
 	combat_bravery = 1.25
 	
@@ -270,7 +270,7 @@ awakened_fallen_empire_xenophobe = {
 
 awakened_fallen_empire_xenophile = { 
 	aggressiveness = 0.5
-	trade_willingness = 1.0
+	trade_willingness = 0.5
 	bravery = 2.0
 	combat_bravery = 1.25
 	
@@ -309,7 +309,7 @@ awakened_fallen_empire_xenophile = {
 
 fallen_empire_machine = { 
 	aggressiveness = 1.0
-	trade_willingness = 0.75
+	trade_willingness = 0.5
 	bravery = 2.0
 	combat_bravery = 1.25
 	
@@ -347,7 +347,7 @@ fallen_empire_machine = {
 
 awakened_fallen_empire_machine = { 
 	aggressiveness = 1.0
-	trade_willingness = 0.75
+	trade_willingness = 0.5
 	bravery = 2.0
 	combat_bravery = 1.25
 	

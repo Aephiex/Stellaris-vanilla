@@ -37,8 +37,8 @@ event = {
 						}
 					}
 					random_list = {
-						60 = { }
-						30 = {
+						50 = { }
+						40 = {
 							random_system = {
 								spawn_system = { initializer = "special_init_03" }
 							}
@@ -1050,7 +1050,17 @@ country_event = {
 		random_owned_planet ={
 			limit = { is_capital = yes }
 			change_pc = pc_nuked
+			reroll_deposits = yes
 			reset_start_buildings_and_blockers_post_apoc = yes
+			if = {
+				limit = { root = { has_civic = civic_machine_terminator } }
+				every_tile = {
+					limit = { has_building = building_hydroponics_farm_1 }
+					remove_building = yes
+					set_building = building_power_plant_1
+					clear_deposits = yes
+				}					
+			}		
 		}
 	}
 }

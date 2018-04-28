@@ -88,7 +88,7 @@ strike_craft_component_template = {
 	shield = 0
 	evasion = 0.80
 	
-	speed = 180
+	speed = 400
 	rotation_speed = 0.2
 	acceleration = 0.5
 	

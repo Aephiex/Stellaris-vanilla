@@ -118,6 +118,18 @@ PLANT2 = {
 		gene_warrior_army = {
 			sequential_name = "%O% Hybrid Stalk"
 		}
+
+		occupation_army = {
+			sequential_name = "%O% Occupation Stalk"
+		}
+
+		robotic_occupation_army = {
+			sequential_name = "%O% Iron Occupation Branch"
+		}
+
+		android_occupation_army = {
+			sequential_name = "%O% Steel Occupation Branch"
+		}
 	}
 	
 	planet_names = {

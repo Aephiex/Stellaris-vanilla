@@ -102,6 +102,18 @@ HUM1 = {
 		gene_warrior_army = {
 			sequential_name = "%O% Star Knights"
 		}
+
+		occupation_army = {
+			sequential_name = "%O% Occupation Shield"
+		}
+
+		robotic_occupation_army = {
+			sequential_name = "%O% Robotic Occupiers"
+		}
+
+		android_occupation_army = {
+			sequential_name = "%O% Autonomous Occupiers"
+		}
 	}
 
 	planet_names = {

@@ -108,6 +108,18 @@ MOL4 = {
 		gene_warrior_army = {
 			sequential_name = "%O% Deathbound Germinants"
 		}
+
+		occupation_army = {
+			sequential_name = "%O% Hardshell Occupiers"
+		}
+
+		robotic_occupation_army = {
+			sequential_name = "%O% Defensebot Occupiers"
+		}
+
+		android_occupation_army = {
+			sequential_name = "%O% Defensedroid Occupiers"
+		}
 	}
 
 	planet_names = {

@@ -6,7 +6,7 @@ entity = {
 	default_state = "idle"
 
 	# Will be used initially instead of default_state if set
-	state = { name = "class_change" animation = "class_change" looping = no next_state = "explosion" animation_speed = 2 }
+	state = { name = "class_change" animation = "class_change" looping = no next_state = "explosion" animation_speed = 7.0 }
 	
 	state = { name = "explosion" animation = "explosion" looping = no next_state = "idle"
 		event = { time = 6.5 node = "planet_main" particle = "shattered_planet_explosion_effect" keep_particle = yes trigger_once = yes }

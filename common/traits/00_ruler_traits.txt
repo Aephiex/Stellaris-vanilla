@@ -28,7 +28,7 @@ trait_ruler_corvette_focus = {
 	}
 	leader_trait = yes
 	leader_class = { ruler }
-	prerequisites = { tech_corvettes }
+	prerequisites = { tech_destroyers } # 'corvette focus' is a bit silly when it's the only available ship
 	opposites = { "trait_ruler_destroyer_focus" "trait_ruler_cruiser_focus" "trait_ruler_battleship_focus" }
 }
 
@@ -413,8 +413,21 @@ leader_trait_reformer = {
 	leader_class = { ruler }
 }
 
+leader_trait_ruler_erudite = {
+	cost = 0
+	modification = no
+	icon = "gfx/interface/icons/traits/trait_erudite.dds"
+	modifier = {
+		all_technology_research_speed = 0.05
+	}
+	leader_trait = yes
+	leader_class = { ruler }
+	initial = no
+	randomized = no
+}
+
 leader_trait_ruler_cyborg = {
-	cost = 1
+	cost = 0
 	modification = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_cyborg.dds"
 	leader_trait = yes
@@ -424,12 +437,9 @@ leader_trait_ruler_cyborg = {
 }
 
 leader_trait_ruler_synthetic = {
-	cost = 1
+	cost = 0
 	modification = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_synthetic.dds"
-	leader_potential_add = {
-		NOT = { from = { has_ethic = "ethic_gestalt_consciousness" } }
-	}
 	modifier = {
 		pop_robot_production_output = 0.05
 	}
@@ -443,9 +453,6 @@ leader_trait_ruler_psionic = {
 	cost = 0
 	modification = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_psionic_leader.dds"
-	leader_potential_add = {
-		NOT = { from = { has_ethic = "ethic_gestalt_consciousness" } }
-	}
 	modifier = {
 		pop_government_ethic_attraction = 0.10
 		country_resource_influence_add = 0.5
@@ -461,9 +468,6 @@ leader_trait_ruler_chosen = {
 	modification = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_psionic_chosen_one.dds"
 	immortal_leaders = yes
-	leader_potential_add = {
-		NOT = { from = { has_ethic = "ethic_gestalt_consciousness" } }
-	}
 	modifier = {
 		pop_government_ethic_attraction = 0.20
 		country_resource_influence_add = 1

@@ -660,11 +660,20 @@ slaving_despots = {
 			has_ethic = "ethic_fanatic_pacifist"
 			has_ethic = "ethic_xenophile"
 			has_ethic = "ethic_fanatic_xenophile"			
-		}
+		}	
 	}
 
 	weight_modifier = {
-		weight = 200
+		weight = 1
+		modifier = {
+			factor = 100
+			OR = {
+				has_valid_civic = "civic_slaver_guilds"
+				has_trait = "trait_decadent"
+				has_ethic = "ethic_xenophobe"
+				has_ethic = "ethic_fanatic_xenophobe"			
+			}			
+		}
 	}
 }
 

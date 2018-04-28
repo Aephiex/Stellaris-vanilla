@@ -829,7 +829,7 @@ PixelShader =
 				return vColor;
 			}
 
-			const float TIME_OFFSET = 0.71f;
+			const float TIME_OFFSET = 0.95f;
 
 			float vTex = texCUBE( LavaNoise, vNormal ).r;
 			float vDot = 0.25f + ( 0.25f * dot( vNormal, float3( 0.0f, 1.0f, 0.0f ) ) );

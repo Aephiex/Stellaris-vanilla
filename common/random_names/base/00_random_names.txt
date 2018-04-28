@@ -72,6 +72,7 @@ black_hole_names = {
 	"Ascensions_End"
 	"Quiet_Dark"
 	"Abaddons_Demesne"
+	"Eye_of_Hawking"
 }
 
 asteroid_prefix = {
@@ -320,7 +321,6 @@ star_names = {
 	"Beta_Hydri"
 	"Chi_Draconis"
 	"Delta_Pavonis"
-	"Epsilon_Indi"
 	"Gamma_Draconis"
 	"Lambda_Serpentis"
 	"Omicron_Persei"
@@ -1665,6 +1665,37 @@ star_names = {
 	Majek
 	"Boro_Baba"
 	Kuiper
+	Dristmak
+	Sanach
+	Iresta
+	Kappler
+	Mriik
+	Jangal
+	Baesta
+	Corinth
+	Aethos
+	Unaria
+	Folkel
+	Zom
+	Prythe
+	Halvam
+	Moscot
+	Nietz
+	Yamal
+	Meskeban
+	Fontral
+	Lirril
+	Ibanadar
+	Voldox
+	Prothon
+	Ancastar
+	Xolomon
+	Rizor
+	Gossomir
+	Flestia
+	Trinitar
+	Wymos
+	Immuthin
 }
 
 nebula_names = {

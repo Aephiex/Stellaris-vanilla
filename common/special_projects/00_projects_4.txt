@@ -194,7 +194,7 @@ special_project = {
 
 special_project = {
 	key = "disappearing_pops_project"
-	timelimit = 360
+	timelimit = 1080
 	cost = 100
 	tech_department = society_technology
 	picture = GFX_evt_alien_planet

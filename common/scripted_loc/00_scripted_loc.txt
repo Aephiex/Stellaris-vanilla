@@ -339,3 +339,19 @@ defined_text = {
 		localization_key = tradition_diplomacy
 	}
 }
+
+defined_text = {
+	name = GetTradingHubType
+	text = {
+		trigger = {
+			has_ethic = ethic_gestalt_consciousness
+		}
+		localization_key = sm_trading_hub_gestalt
+	}
+	text = {
+		trigger = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+		}
+		localization_key = sm_trading_hub
+	}
+}

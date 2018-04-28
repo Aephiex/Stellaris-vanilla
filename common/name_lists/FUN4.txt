@@ -97,6 +97,18 @@ FUN4 = {
 		gene_warrior_army = {
 			sequential_name = "%O% Biomorph Force"
 		}
+
+		occupation_army = {
+			sequential_name = "%O% Occupation Force"
+		}
+
+		robotic_occupation_army = {
+			sequential_name = "%O% Mechanized Occupiers"
+		}
+
+		android_occupation_army = {
+			sequential_name = "%O% Synthetic Occupiers"
+		}
 	}
 
 	planet_names = {

@@ -97,6 +97,18 @@ MAM2 = {
 		gene_warrior_army = {
 			sequential_name = "%O% Augmented Vanguard"
 		}
+
+		occupation_army = {
+			sequential_name = "%O% Occupation Regulars"
+		}
+
+		robotic_occupation_army = {
+			sequential_name = "%O% Occupation Droids"
+		}
+
+		android_occupation_army = {
+			sequential_name = "%O% Occupation Legionnaires"
+		}
 	}
 
 	planet_names = {

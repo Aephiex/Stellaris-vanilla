@@ -150,8 +150,11 @@ offworld_trading_company = {
 	
 	potential = {
 		exists = owner
-		owner = { has_technology = tech_space_trading }
-	}		
+		owner = {
+			has_technology = tech_space_trading
+			#NOT = { has_ethic = ethic_gestalt_consciousness }
+		}
+	}	
 	
 	possible = {
 		custom_tooltip = {
@@ -166,6 +169,7 @@ offworld_trading_company = {
 	}
 
 	custom_tooltip = sm_offworld_trading_company_desc_modifier
+
 	show_in_tech = "tech_space_trading"
 	
 	ai_build_at_chokepoint = no
@@ -477,7 +481,7 @@ deep_space_black_site = {
 			fail_text = "requires_colonized_planet"
 			solar_system = {
 				any_planet = {
-					is_colony = yes
+					is_owned_by = from
 				}
 			}
 		}
@@ -779,3 +783,45 @@ command_center = {
 		weight = 10
 	}
 }
+
+#offworld_trading_company_gestalt = {
+#	icon = "GFX_starbase_offworld_trading_company"
+#	construction_days = 360
+#
+#	potential = {
+#		exists = owner
+#		owner = {
+#			has_technology = tech_space_trading
+#			has_ethic = ethic_gestalt_consciousness
+#		}
+#	}		
+#	
+#	possible = {
+#		custom_tooltip = {
+#			fail_text = "requires_starport"
+#			has_starbase_size >= starbase_starport
+#		}
+#		has_starbase_module = trading_hub_gestalt
+#	}
+#
+#	cost = {
+#		minerals = 200
+#	}
+#
+#	custom_tooltip = sm_offworld_trading_company_gestalt_desc_modifier
+#	show_in_tech = "tech_space_trading"
+#	#show_tech_unlock_if = { has_ethic = auth_machine_intelligence }
+#	
+#	ai_build_at_chokepoint = no
+#	ai_build_outside_chokepoint = yes
+#	ai_weight = {
+#		weight = 200
+#		modifier = {
+#			factor = 0
+#			count_starbase_modules = {
+#				type = trading_hub
+#				count < 3
+#			}
+#		}
+#	}
+#}

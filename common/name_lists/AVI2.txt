@@ -103,6 +103,18 @@ AVI2 = {
 		gene_warrior_army = {
 			sequential_name = "%O% Ascension Wing"
 		}
+
+		occupation_army = {
+			sequential_name = "%O% Occupation Wing"
+		}
+
+		robotic_occupation_army = {
+			sequential_name = "%O% Droid Occupation Force"
+		}
+
+		android_occupation_army = {
+			sequential_name = "%O% Nano Occupation Force"
+		}
 	}
 
 	planet_names = {

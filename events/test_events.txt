@@ -21,7 +21,7 @@ fleet_event = {
 				traits = random
 			}
 			create_country = {
-				name = "NAME_Unbidden"
+				name = root.owner
 				type = "extradimensional"
 				species = last_created
 				name_list = "Extradimensional"
@@ -388,5 +388,23 @@ planet_event = {
 
 	immediate = {
 		#spawn_megastructure_destruction_effect = yes
+	}
+}
+
+planet_event = {
+	id = henrik.134
+	hide_window = yes
+
+	trigger = { always = no }
+
+	immediate = {
+		create_message = { 
+			type = BYPASS_EXPLORED
+			localization = BYPASS_EXPLORED_MESSAGE
+			days = 30 
+			target = root
+			variable = { type = name localization = SYSTEM1 scope = root } 
+			variable = { type = name localization = SYSTEM2 scope = root } 
+		}
 	}
 }

@@ -96,6 +96,18 @@ REP3 = {
 		gene_warrior_army = {
 			sequential_name = "%O% Enhanced Legion"
 		}
+
+		occupation_army = {
+			sequential_name = "%O% Occupation Legion"
+		}
+
+		robotic_occupation_army = {
+			sequential_name = "%O% Automated Garrison"
+		}
+
+		android_occupation_army = {
+			sequential_name = "%O% Mimic Garrison"
+		}
 	}
 
 	planet_names = {

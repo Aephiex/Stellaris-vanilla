@@ -96,6 +96,18 @@ PLANT3 = {
 		gene_warrior_army = {
 			sequential_name = "%O% Extremophile Force"
 		}
+
+		occupation_army = {
+			sequential_name = "%O% Bark Garrison"
+		}
+
+		robotic_occupation_army = {
+			sequential_name = "%O% Daffodil Garrison"
+		}
+
+		android_occupation_army = {
+			sequential_name = "%O% Mayflower Garrison"
+		}
 	}
 	
 	planet_names = {

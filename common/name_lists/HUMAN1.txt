@@ -112,6 +112,18 @@ HUMAN1 = {
 			}
 			sequential_name = "%O% Bio-Engineered Squadron"
 		}
+
+		occupation_army = {
+			sequential_name = "%O% Garrison Force"
+		}
+
+		robotic_occupation_army = {
+			sequential_name = "%O% Mechanized Garrison"
+		}
+
+		android_occupation_army = {
+			sequential_name = "%O% Synthetic Garrison"
+		}
 	}
 
 	planet_names = {

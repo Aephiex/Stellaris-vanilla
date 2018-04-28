@@ -14,6 +14,7 @@ country_event = {
 	title = "pirate.1.name"
 	picture = GFX_evt_pirate_armada
 	show_sound = event_space_battle
+	location = event_target:pirate_system
 
 	desc = { # Spiritual
 		text = pirate.1.desc_01
@@ -119,6 +120,7 @@ country_event = {
 						}
 					}
 				}
+				save_event_target_as = pirate_system
 				random_system_planet = {
 					limit = { is_star = no }
 					save_event_target_as = pirate_home
@@ -343,6 +345,16 @@ country_event = {
 		any_country = {
 			is_country_type = default
 			has_country_flag = spawner_of@root
+			exists = capital_scope
+			any_controlled_planet = {
+				OR = {
+					has_mining_station = yes
+					has_research_station = yes
+				}
+				solar_system = {
+					NOT = { is_same_value = prev.prev.capital_scope.solar_system }
+				}
+			}
 		}
 	}
 
@@ -364,7 +376,9 @@ country_event = {
 		save_event_target_as = pirate_band
 		random_owned_ship = {
 			limit = { is_ship_size = pirate_station }
-			save_event_target_as = pirate_home
+			fleet = {
+				orbit = { save_event_target_as = pirate_home } # save actual planet as home
+			}
 		}
 		create_pirate_fleet = yes
 	}
@@ -438,7 +452,6 @@ event = {
 	immediate = {
 		every_country = {
 			limit = {
-				is_ai = no
 				NOT = { has_country_flag = birth_of_piracy }
 			}
 			country_event = { id = pirate.5 }
@@ -499,6 +512,7 @@ country_event = {
 	picture = GFX_evt_pirate_armada
 	show_sound = event_space_battle
 	desc = pirate.6.desc
+	location = event_target:pirate_system
 
 	trigger = {
 		years_passed > 10
@@ -543,6 +557,7 @@ country_event = {
 						}
 					}
 				}
+				save_event_target_as = pirate_system
 				random_system_planet = {
 					limit = { is_star = no }
 					save_event_target_as = pirate_home
@@ -710,6 +725,7 @@ country_event = {
 	picture = GFX_evt_machine_space_battle
 	show_sound = event_space_battle
 	desc = pirate.7.desc
+	location = event_target:pirate_system
 
 	trigger = {
 		years_passed > 10
@@ -754,6 +770,7 @@ country_event = {
 						}
 					}
 				}
+				save_event_target_as = pirate_system
 				random_system_planet = {
 					limit = { is_star = no }
 					save_event_target_as = pirate_home
@@ -1203,54 +1220,55 @@ country_event = {
 	id = pirate.49
 	hide_window = yes
 
-	mean_time_to_happen = {
-		months = 280
-		modifier = {
-			factor = 0.2
-			has_isolated_system = yes
-		}
-		modifier = {
-			factor = 0.9
-			num_starbases > 9
-		}
-		modifier = {
-			factor = 0.9
-			num_starbases > 19
-		}
-		modifier = {
-			factor = 1.4
-			check_variable = {
-				which = "pirates_active"
-				value > 0
-			}
-		}
-		modifier = {
-			factor = 1.6
-			check_variable = {
-				which = "pirates_active"
-				value > 1
-			}
-		}
-		modifier = {
-			factor = 2
-			check_variable = {
-				which = "pirates_active"
-				value > 2
-			}
-		}
-		modifier = {
-			factor = 3
-			check_variable = {
-				which = "pirates_active"
-				value > 3
-			}
-		}
-	}
+	is_triggered_only = yes
+	
+	#mean_time_to_happen = {
+	#	months = 280
+	#	modifier = {
+	#		factor = 0.2
+	#		has_isolated_system = yes
+	#	}
+	#	modifier = {
+	#		factor = 0.9
+	#		num_starbases > 9
+	#	}
+	#	modifier = {
+	#		factor = 0.9
+	#		num_starbases > 19
+	#	}
+	#	modifier = {
+	#		factor = 1.4
+	#		check_variable = {
+	#			which = "pirates_active"
+	#			value > 0
+	#		}
+	#	}
+	#	modifier = {
+	#		factor = 1.6
+	#		check_variable = {
+	#			which = "pirates_active"
+	#			value > 1
+	#		}
+	#	}
+	#	modifier = {
+	#		factor = 2
+	#		check_variable = {
+	#			which = "pirates_active"
+	#			value > 2
+	#		}
+	#	}
+	#	modifier = {
+	#		factor = 3
+	#		check_variable = {
+	#			which = "pirates_active"
+	#			value > 3
+	#		}
+	#	}
+	#}
 
 	trigger = {
 		is_country_type = default
 		has_country_flag = birth_of_piracy
-		NOT = { has_country_flag = had_pirates_spawn }
 		OR = {
 			has_isolated_system = yes
 			has_bordering_system = yes
@@ -1264,7 +1282,6 @@ country_event = {
 	}
 
 	immediate = {
-		set_timed_country_flag = { flag = had_pirates_spawn days = 1800 }
 		if = {
 			limit = { has_isolated_system = yes }
 			random_system_within_border = {

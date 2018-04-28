@@ -42,7 +42,7 @@ ship_design = {
 	required_component="SENSOR_4"
 	required_component="JUMP_DRIVE_1"
 	required_component="COLOSSUS_DARK_MATTER_REACTOR"
-	required_component="SHIP_THRUSTER_4"
+	required_component="COLOSSUS_SHIP_THRUSTER_5"
 	
 	# For special buildable
 	is_special_buildable = yes
@@ -222,7 +222,7 @@ ship_design = {
 	required_component="JUMP_DRIVE_1"
 	required_component="COMBAT_COMPUTER_ARTILLERY_SAPIENT"
 	required_component="TITAN_DARK_MATTER_REACTOR"
-	required_component="SHIP_THRUSTER_4"
+	required_component="TITAN_SHIP_THRUSTER_5"
 	
 	# For special buildable
 	is_special_buildable = yes
@@ -318,7 +318,7 @@ ship_design = {
 	required_component="JUMP_DRIVE_1"
 	required_component="COMBAT_COMPUTER_LINE_SAPIENT"
 	required_component="BATTLESHIP_DARK_MATTER_REACTOR"
-	required_component="SHIP_THRUSTER_4"
+	required_component="BATTLESHIP_SHIP_THRUSTER_5"
 	
 	# For special buildable
 	is_special_buildable = yes
@@ -402,7 +402,7 @@ ship_design = {
 	required_component="JUMP_DRIVE_1"
 	required_component="COMBAT_COMPUTER_PICKET_SAPIENT"
 	required_component="DESTROYER_DARK_MATTER_REACTOR"
-	required_component="SHIP_THRUSTER_4"
+	required_component="DESTROYER_SHIP_THRUSTER_5"
 	
 	# For special buildable
 	is_special_buildable = yes
@@ -513,7 +513,7 @@ ship_design = {
 		}		
 	}
 	required_component="JUMP_DRIVE_1"
-	required_component="SHIP_THRUSTER_4"
+	required_component="SHIP_THRUSTER_5"
 	required_component="SENSOR_4"
 	required_component="CORVETTE_DARK_MATTER_REACTOR"
 	
@@ -545,7 +545,7 @@ ship_design = {
 		}
 	}
 	required_component="JUMP_DRIVE_1"
-	required_component="SHIP_THRUSTER_4"
+	required_component="SHIP_THRUSTER_5"
 	required_component="SENSOR_4"
 	required_component="CORVETTE_DARK_MATTER_REACTOR"
 	
@@ -598,7 +598,7 @@ ship_design = {
 	required_component="SENSOR_4"
 	required_component="JUMP_DRIVE_1"
 	required_component="COLOSSUS_DARK_MATTER_REACTOR"
-	required_component="SHIP_THRUSTER_4"
+	required_component="COLOSSUS_SHIP_THRUSTER_5"
 	
 	# For special buildable
 	is_special_buildable = yes
@@ -778,7 +778,7 @@ ship_design = {
 	required_component="JUMP_DRIVE_1"
 	required_component="COMBAT_COMPUTER_ARTILLERY_SAPIENT"
 	required_component="TITAN_DARK_MATTER_REACTOR"
-	required_component="SHIP_THRUSTER_4"
+	required_component="TITAN_SHIP_THRUSTER_5"
 	
 	# For special buildable
 	is_special_buildable = yes
@@ -874,7 +874,7 @@ ship_design = {
 	required_component="JUMP_DRIVE_1"
 	required_component="COMBAT_COMPUTER_LINE_SAPIENT"
 	required_component="BATTLESHIP_DARK_MATTER_REACTOR"
-	required_component="SHIP_THRUSTER_4"
+	required_component="BATTLESHIP_SHIP_THRUSTER_5"
 	
 	# For special buildable
 	is_special_buildable = yes
@@ -958,7 +958,7 @@ ship_design = {
 	required_component="JUMP_DRIVE_1"
 	required_component="COMBAT_COMPUTER_PICKET_SAPIENT"
 	required_component="DESTROYER_DARK_MATTER_REACTOR"
-	required_component="SHIP_THRUSTER_4"
+	required_component="DESTROYER_SHIP_THRUSTER_5"
 	
 	# For special buildable
 	is_special_buildable = yes
@@ -1073,7 +1073,7 @@ ship_design = {
 		}		
 	}
 	required_component="JUMP_DRIVE_1"
-	required_component="SHIP_THRUSTER_4"
+	required_component="SHIP_THRUSTER_5"
 	required_component="SENSOR_4"
 	required_component="CORVETTE_DARK_MATTER_REACTOR"
 	
@@ -1105,7 +1105,7 @@ ship_design = {
 		}
 	}
 	required_component="JUMP_DRIVE_1"
-	required_component="SHIP_THRUSTER_4"
+	required_component="SHIP_THRUSTER_5"
 	required_component="SENSOR_4"
 	required_component="CORVETTE_DARK_MATTER_REACTOR"
 	
@@ -1158,7 +1158,7 @@ ship_design = {
 	required_component="SENSOR_4"
 	required_component="JUMP_DRIVE_1"
 	required_component="COLOSSUS_DARK_MATTER_REACTOR"
-	required_component="SHIP_THRUSTER_4"
+	required_component="COLOSSUS_SHIP_THRUSTER_5"
 	
 	# For special buildable
 	is_special_buildable = yes
@@ -1339,9 +1339,9 @@ ship_design = {
 	required_component="PSI_JUMP_DRIVE_1"
 	required_component="COMBAT_COMPUTER_ARTILLERY_PRECOG"
 	required_component="TITAN_DARK_MATTER_REACTOR"
-	required_component="SHIP_THRUSTER_4"
+	required_component="TITAN_SHIP_THRUSTER_5"
 	
-	# For special buildable
+	# For special buildable¨
 	is_special_buildable = yes
 	allow_buildable_trigger = is_fallen_empire_spiritualist
 }
@@ -1444,7 +1444,7 @@ ship_design = {
 	required_component="PSI_JUMP_DRIVE_1"
 	required_component="COMBAT_COMPUTER_LINE_PRECOG"
 	required_component="BATTLESHIP_DARK_MATTER_REACTOR"
-	required_component="SHIP_THRUSTER_4"
+	required_component="BATTLESHIP_SHIP_THRUSTER_5"
 	
 	# For special buildable
 	is_special_buildable = yes
@@ -1528,7 +1528,7 @@ ship_design = {
 	required_component="PSI_JUMP_DRIVE_1"
 	required_component="COMBAT_COMPUTER_PICKET_PRECOG"
 	required_component="DESTROYER_DARK_MATTER_REACTOR"	
-	required_component="SHIP_THRUSTER_4"
+	required_component="DESTROYER_SHIP_THRUSTER_5"
 	
 	# For special buildable
 	is_special_buildable = yes
@@ -1643,7 +1643,7 @@ ship_design = {
 		}		
 	}
 	required_component="PSI_JUMP_DRIVE_1"
-	required_component="SHIP_THRUSTER_4"
+	required_component="SHIP_THRUSTER_5"
 	required_component="SENSOR_4"
 	required_component="CORVETTE_DARK_MATTER_REACTOR"
 	
@@ -1675,7 +1675,7 @@ ship_design = {
 		}
 	}
 	required_component="PSI_JUMP_DRIVE_1"
-	required_component="SHIP_THRUSTER_4"
+	required_component="SHIP_THRUSTER_5"
 	required_component="SENSOR_4"
 	required_component="CORVETTE_DARK_MATTER_REACTOR"
 	
@@ -1729,7 +1729,7 @@ ship_design = {
 	required_component="SENSOR_4"
 	required_component="JUMP_DRIVE_1"
 	required_component="COLOSSUS_DARK_MATTER_REACTOR"
-	required_component="SHIP_THRUSTER_4"
+	required_component="COLOSSUS_SHIP_THRUSTER_5"
 	
 	# For special buildable
 	is_special_buildable = yes
@@ -1909,7 +1909,7 @@ ship_design = {
 	required_component="JUMP_DRIVE_1"
 	required_component="COMBAT_COMPUTER_ARTILLERY_ADVANCED"
 	required_component="TITAN_DARK_MATTER_REACTOR"
-	required_component="SHIP_THRUSTER_4"
+	required_component="TITAN_SHIP_THRUSTER_5"
 	
 	# For special buildable
 	is_special_buildable = yes
@@ -2007,7 +2007,7 @@ ship_design = {
 	required_component="JUMP_DRIVE_1"
 	required_component="COMBAT_COMPUTER_LINE_ADVANCED"
 	required_component="BATTLESHIP_DARK_MATTER_REACTOR"
-	required_component="SHIP_THRUSTER_4"
+	required_component="BATTLESHIP_SHIP_THRUSTER_5"
 	
 	# For special buildable
 	is_special_buildable = yes
@@ -2090,7 +2090,7 @@ ship_design = {
 	required_component="SENSOR_4"
 	required_component="JUMP_DRIVE_1"
 	required_component="COMBAT_COMPUTER_PICKET_ADVANCED"
-	required_component="SHIP_THRUSTER_4"
+	required_component="SHIP_THRUSTER_5"
 	
 	# For special buildable
 	is_special_buildable = yes
@@ -2205,7 +2205,7 @@ ship_design = {
 		}	
 	}
 	required_component="JUMP_DRIVE_1"
-	required_component="SHIP_THRUSTER_4"
+	required_component="SHIP_THRUSTER_5"
 	required_component="SENSOR_4"
 	required_component="CORVETTE_DARK_MATTER_REACTOR"
 	
@@ -2237,7 +2237,7 @@ ship_design = {
 		}	
 	}
 	required_component="JUMP_DRIVE_1"
-	required_component="SHIP_THRUSTER_4"
+	required_component="SHIP_THRUSTER_5"
 	required_component="SENSOR_4"
 	required_component="CORVETTE_DARK_MATTER_REACTOR"
 	
@@ -2290,7 +2290,7 @@ ship_design = {
 	required_component="SENSOR_4"
 	required_component="JUMP_DRIVE_1"
 	required_component="COLOSSUS_DARK_MATTER_REACTOR"
-	required_component="SHIP_THRUSTER_4"
+	required_component="COLOSSUS_SHIP_THRUSTER_5"
 	
 	# For special buildable
 	is_special_buildable = yes
@@ -2470,7 +2470,7 @@ ship_design = {
 	required_component="JUMP_DRIVE_1"
 	required_component="COMBAT_COMPUTER_ARTILLERY_ADVANCED"
 	required_component="TITAN_DARK_MATTER_REACTOR"
-	required_component="SHIP_THRUSTER_4"
+	required_component="TITAN_SHIP_THRUSTER_5"
 	
 	# For special buildable
 	is_special_buildable = yes
@@ -2567,7 +2567,7 @@ ship_design = {
 	required_component="JUMP_DRIVE_1"
 	required_component="COMBAT_COMPUTER_LINE_ADVANCED"
 	required_component="BATTLESHIP_DARK_MATTER_REACTOR"
-	required_component="SHIP_THRUSTER_4"
+	required_component="BATTLESHIP_SHIP_THRUSTER_5"
 	
 	# For special buildable
 	is_special_buildable = yes
@@ -2651,7 +2651,7 @@ ship_design = {
 	required_component="JUMP_DRIVE_1"
 	required_component="COMBAT_COMPUTER_PICKET_ADVANCED"
 	required_component="DESTROYER_DARK_MATTER_REACTOR"	
-	required_component="SHIP_THRUSTER_4"
+	required_component="DESTROYER_SHIP_THRUSTER_5"
 	
 	# For special buildable
 	is_special_buildable = yes
@@ -2766,7 +2766,7 @@ ship_design = {
 		}	
 	}
 	required_component="JUMP_DRIVE_1"
-	required_component="SHIP_THRUSTER_4"
+	required_component="SHIP_THRUSTER_5"
 	required_component="SENSOR_4"
 	required_component="CORVETTE_DARK_MATTER_REACTOR"
 	
@@ -2797,7 +2797,7 @@ ship_design = {
 		}	
 	}
 	required_component="JUMP_DRIVE_1"
-	required_component="SHIP_THRUSTER_4"
+	required_component="SHIP_THRUSTER_5"
 	required_component="SENSOR_4"
 	required_component="CORVETTE_DARK_MATTER_REACTOR"
 	
@@ -2898,7 +2898,7 @@ ship_design = {
 	required_component="SENSOR_4"
 	required_component="COMBAT_COMPUTER_LINE_ADVANCED"
 	required_component="BATTLESHIP_ZERO_POINT_REACTOR"
-	required_component="SHIP_THRUSTER_4"
+	required_component="BATTLESHIP_SHIP_THRUSTER_4"
 }
 
 ship_design = {
@@ -2989,7 +2989,7 @@ ship_design = {
 	required_component="SENSOR_4"
 	required_component="COMBAT_COMPUTER_LINE_ADVANCED"
 	required_component="BATTLESHIP_ZERO_POINT_REACTOR"
-	required_component="SHIP_THRUSTER_4"
+	required_component="BATTLESHIP_SHIP_THRUSTER_4"
 }
 
 ship_design = {
@@ -3081,7 +3081,7 @@ ship_design = {
 	required_component="SENSOR_4"
 	required_component="COMBAT_COMPUTER_LINE_ADVANCED"
 	required_component="BATTLESHIP_ZERO_POINT_REACTOR"
-	required_component="SHIP_THRUSTER_4"
+	required_component="BATTLESHIP_SHIP_THRUSTER_4"
 }
 
 ship_design = {
@@ -3160,7 +3160,7 @@ ship_design = {
 	required_component="SENSOR_4"
 	required_component="COMBAT_COMPUTER_PICKET_ADVANCED"
 	required_component="DESTROYER_ZERO_POINT_REACTOR"
-	required_component="SHIP_THRUSTER_4"
+	required_component="DESTROYER_SHIP_THRUSTER_4"
 }
 
 ship_design = {
@@ -3239,7 +3239,7 @@ ship_design = {
 	required_component="SENSOR_4"
 	required_component="COMBAT_COMPUTER_PICKET_ADVANCED"
 	required_component="DESTROYER_ZERO_POINT_REACTOR"
-	required_component="SHIP_THRUSTER_4"
+	required_component="DESTROYER_SHIP_THRUSTER_4"
 }
 
 ship_design = {
@@ -3318,7 +3318,7 @@ ship_design = {
 	required_component="SENSOR_4"
 	required_component="COMBAT_COMPUTER_PICKET_ADVANCED"
 	required_component="DESTROYER_ZERO_POINT_REACTOR"
-	required_component="SHIP_THRUSTER_4"
+	required_component="DESTROYER_SHIP_THRUSTER_4"
 }
 
 ship_design = {
@@ -3417,7 +3417,7 @@ ship_design = {
 	required_component="SENSOR_4"
 	required_component="COMBAT_COMPUTER_LINE_ADVANCED"
 	required_component="BATTLESHIP_ZERO_POINT_REACTOR"
-	required_component="SHIP_THRUSTER_4"
+	required_component="BATTLESHIP_SHIP_THRUSTER_4"
 }
 
 ship_design = {
@@ -3496,5 +3496,5 @@ ship_design = {
 	required_component="SENSOR_4"
 	required_component="COMBAT_COMPUTER_PICKET_ADVANCED"
 	required_component="DESTROYER_ZERO_POINT_REACTOR"
-	required_component="SHIP_THRUSTER_4"
+	required_component="DESTROYER_SHIP_THRUSTER_4"
 }

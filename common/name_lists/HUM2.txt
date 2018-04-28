@@ -96,6 +96,18 @@ HUM2 = {
 		gene_warrior_army = {
 			sequential_name = "%O% Purebloods"
 		}
+
+		occupation_army = {
+			sequential_name = "%O% Occupation Watch"
+		}
+
+		robotic_occupation_army = {
+			sequential_name = "%O% Occupation Drones"
+		}
+
+		android_occupation_army = {
+			sequential_name = "%O% Occupation Droids"
+		}
 	}
 
 	planet_names = {

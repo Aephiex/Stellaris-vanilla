@@ -142,8 +142,9 @@ country_event = {
 				limit = {
 					distance = {
 						source = event_target:capital
-						max_distance = 80
-						min_distance = 5
+						use_bypasses = no
+						min_jumps = 2
+						max_jumps = 6
 					}
 					NOT = {
 						exists = space_owner
@@ -157,8 +158,9 @@ country_event = {
 				limit = {
 					distance = {
 						source = event_target:capital
-						max_distance = 80
-						min_distance = 5
+						use_bypasses = no
+						min_jumps = 2
+						max_jumps = 6
 					}
 					NOT = {
 						exists = space_owner
@@ -173,8 +175,9 @@ country_event = {
 				limit = {
 					distance = {
 						source = event_target:capital
-						max_distance = 80
-						min_distance = 5
+						use_bypasses = no
+						min_jumps = 2
+						max_jumps = 6
 					}
 					NOT = {
 						exists = space_owner
@@ -190,8 +193,9 @@ country_event = {
 				limit = {
 					distance = {
 						source = event_target:capital
-						max_distance = 80
-						min_distance = 5
+						use_bypasses = no
+						min_jumps = 2
+						max_jumps = 6
 					}
 					NOT = {
 						exists = space_owner
@@ -515,13 +519,8 @@ ship_event = {
 				set_country_flag = chasing_ion_trail
 				set_country_flag = probe_salvage_flag
 			}
-			random_system = {
+			closest_system = {
 				limit = {
-					distance = {
-						source = event_target:ion_trail_system
-						max_distance = 30
-						min_distance = 5
-					}
 					NOT = {
 						exists = space_owner
 						has_star_flag = probe_system_1
@@ -2200,7 +2199,7 @@ country_event = {
 	id = country.200
 	title = "country.200.name"
 	desc = "country.200.desc"
-	picture = GFX_evt_big_landing_ship
+	picture = GFX_evt_alien_propaganda
 	show_sound = event_ship_thrusters
 	location = event_target:cultist_ship
 	
@@ -2334,12 +2333,6 @@ ship_event = {
 				flag = cultist_rebels
 			}
 		}
-		#fleet.owner = {
-		#	has_relation_flag = {
-		#		who = root.from.owner
-		#		flag = cultist_rebels
-		#	}
-		#}
 	}
 	
 	immediate = {
@@ -2352,7 +2345,7 @@ country_event = {
 	id = country.202
 	title = "country.202.name"
 	desc = "country.202.desc"
-	picture = GFX_evt_interior_battle
+	picture = GFX_evt_sabotaged_ship
 	show_sound = event_space_battle
 	location = FROM
 	
@@ -2418,7 +2411,7 @@ country_event = {
 	id = country.218
 	title = "country.218.name"
 	desc = "country.218.desc"
-	picture = GFX_evt_interior_battle
+	picture = GFX_evt_sabotaged_ship
 	show_sound = event_space_battle
 	location = FROM
 	
@@ -2446,7 +2439,7 @@ ship_event = {
 	id = country.203
 	title = "country.203.name"
 	desc = "country.203.desc"
-	picture = GFX_evt_hangar_bay
+	picture = GFX_evt_interior_battle
 	show_sound = event_ground_battle
 	
 	is_triggered_only = yes
@@ -2466,42 +2459,57 @@ ship_event = {
 				owner = { save_event_target_as = cult_name }
 				fleet = { destroy_fleet = this }
 			}
-			closest_system = {
+			random_system = {
 				limit = {
+					distance = {
+						source = event_target:capital
+						use_bypasses = no
+						min_jumps = 1
+						max_jumps = 5
+					}
 					NOT = {
+						exists = space_owner
 						has_star_flag = hostile_system
 						is_star_class = sc_black_hole
 					}
-					has_owner = no
 				}
-				min_steps = 10
 				save_event_target_as = cultists_1
 				set_star_flag = cultists_1
 			}
-			closest_system = {
+			random_system = {
 				limit = {
+					distance = {
+						source = event_target:capital
+						use_bypasses = no
+						min_jumps = 1
+						max_jumps = 5
+					}
 					NOT = {
+						exists = space_owner
 						has_star_flag = cultists_1
 						has_star_flag = hostile_system
 						is_star_class = sc_black_hole
 					}
-					has_owner = no
 				}
-				min_steps = 20
 				save_event_target_as = cultists_2
 				set_star_flag = cultists_2
 			}
-			closest_system = {
+			random_system = {
 				limit = {
+					distance = {
+						source = event_target:capital
+						use_bypasses = no
+						min_jumps = 1
+						max_jumps = 5
+					}
 					NOT = {
+						exists = space_owner
 						has_star_flag = cultists_1
 						has_star_flag = cultists_2
 						has_star_flag = hostile_system
 						is_star_class = sc_black_hole
 					}
-					has_owner = no
 				}
-				min_steps = 30
 				save_event_target_as = cultists_3
 				set_star_flag = cultists_3
 			}
@@ -3257,7 +3265,7 @@ country_event = {
 	title = "country.210.name"
 	desc = "country.210.desc"
 	picture = GFX_evt_ship_in_orbit
-	show_sound = event_air_raid_siren # Should be Red Alert
+	show_sound = event_red_alert
 
 	is_triggered_only = yes
 
@@ -3265,13 +3273,8 @@ country_event = {
 		hidden_effect = {
 			set_country_flag = hunting_cult_flagship
 			capital_scope = { save_event_target_as = capital }
-			random_system = {
+			closest_system = {
 				limit = {
-					distance = {
-						source = event_target:capital
-						max_distance = 150
-						min_distance = 5
-					}
 					NOT = { 
 						has_star_flag = hostile_system
 						is_star_class = sc_black_hole
@@ -3611,8 +3614,9 @@ country_event = {
 			}
 			distance = {
 				source = root.capital_scope
-				max_distance = 60
-				min_distance = 5
+				use_bypasses = no
+				min_jumps = 2
+				max_jumps = 5
 			}
 			NOT = { has_star_flag = hostile_system }
 			has_owner = no
@@ -3623,8 +3627,9 @@ country_event = {
 				}
 				distance = {
 					source = root.capital_scope
-					max_distance = 60
-					min_distance = 5
+					use_bypasses = no
+					min_jumps = 2
+					max_jumps = 5
 				}
 				NOR = { 
 					has_star_flag = hostile_system 
@@ -3638,8 +3643,9 @@ country_event = {
 					}
 					distance = {
 						source = root.capital_scope
-						max_distance = 60
-						min_distance = 5
+						use_bypasses = no
+						min_jumps = 2
+						max_jumps = 5
 					}
 					NOR = { 
 						has_star_flag = hostile_system 
@@ -3653,7 +3659,7 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 80
+		months = 1 #80
 	}
 	
 	immediate = {
@@ -3676,8 +3682,9 @@ country_event = {
 					}
 					distance = {
 						source = event_target:capital
-						max_distance = 60
-						min_distance = 5
+						use_bypasses = no
+						min_jumps = 2
+						max_jumps = 5
 					}
 					NOT = { has_star_flag = hostile_system }
 					has_owner = no
@@ -3693,8 +3700,9 @@ country_event = {
 					}
 					distance = {
 						source = event_target:capital
-						max_distance = 60
-						min_distance = 5
+						use_bypasses = no
+						min_jumps = 2
+						max_jumps = 5
 					}
 					NOT = { 
 						has_star_flag = hyacinth_system_1
@@ -3713,8 +3721,9 @@ country_event = {
 					}
 					distance = {
 						source = event_target:capital
-						max_distance = 60
-						min_distance = 5
+						use_bypasses = no
+						min_jumps = 2
+						max_jumps = 5
 					}
 					NOT = { 
 						has_star_flag = hyacinth_system_1

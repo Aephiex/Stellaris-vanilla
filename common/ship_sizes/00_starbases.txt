@@ -12,9 +12,11 @@ starbase_outpost = {
 	modifier = {
 		ship_evasion_mult = -1
 		ship_armor_add = 1000
-		ship_weapon_range_mult = 0.20
-		ship_fire_rate_mult = 0.5
 		starbase_defense_platform_capacity_add = 3
+	}
+	ship_modifier = {
+		ship_fire_rate_mult = 0.50
+		ship_weapon_range_mult = 0.20
 	}
 	max_hitpoints = 5000
 	base_buildtime = 360
@@ -48,7 +50,7 @@ starbase_outpost = {
 	icon_frame = 1
 
 	upkeep_override = {
-		energy = 0
+		energy = 1
 		minerals = 0
 	}
 }
@@ -60,11 +62,13 @@ starbase_starport = {
 	modifier = {
 		ship_evasion_mult = -1
 		ship_armor_add = 2000
-		ship_weapon_range_mult = 0.20
-		ship_fire_rate_mult = 0.5
 		starbase_module_capacity_add = 2
 		starbase_building_capacity_add = 1
 		starbase_defense_platform_capacity_add = 6
+	}
+	ship_modifier = {
+		ship_fire_rate_mult = 0.50
+		ship_weapon_range_mult = 0.20
 	}
 	max_hitpoints = 10000
 	base_buildtime = 360
@@ -100,7 +104,7 @@ starbase_starport = {
 	icon_frame = 2
 
 	upkeep_override = {
-		energy = 1
+		energy = 2
 		minerals = 0
 	}
 }
@@ -112,11 +116,13 @@ starbase_starhold = {
 	modifier = {
 		ship_evasion_mult = -1
 		ship_armor_add = 5000
-		ship_weapon_range_mult = 0.20
-		ship_fire_rate_mult = 0.5
 		starbase_module_capacity_add = 4
 		starbase_building_capacity_add = 2
 		starbase_defense_platform_capacity_add = 9
+	}
+	ship_modifier = {
+		ship_fire_rate_mult = 0.50
+		ship_weapon_range_mult = 0.20
 	}
 	max_hitpoints = 20000
 	base_buildtime = 720
@@ -154,7 +160,7 @@ starbase_starhold = {
 	icon_frame = 3
 
 	upkeep_override = {
-		energy = 2
+		energy = 3
 		minerals = 0
 	}
 }
@@ -166,11 +172,13 @@ starbase_starfortress = {
 	modifier = {
 		ship_evasion_mult = -1
 		ship_armor_add = 10000
-		ship_weapon_range_mult = 0.20
-		ship_fire_rate_mult = 0.5
 		starbase_module_capacity_add = 6
 		starbase_building_capacity_add = 3
 		starbase_defense_platform_capacity_add = 12
+	}
+	ship_modifier = {
+		ship_fire_rate_mult = 0.50
+		ship_weapon_range_mult = 0.20
 	}
 	max_hitpoints = 40000
 	base_buildtime = 1080
@@ -210,7 +218,7 @@ starbase_starfortress = {
 	icon_frame = 4
 
 	upkeep_override = {
-		energy = 3
+		energy = 4
 		minerals = 0
 	}
 }
@@ -222,12 +230,14 @@ starbase_citadel = {
 	modifier = {
 		ship_evasion_mult = -1
 		ship_armor_add = 20000
-		ship_weapon_range_mult = 0.20
-		ship_fire_rate_mult = 0.5
 		starbase_module_capacity_add = 6
 		starbase_building_capacity_add = 4
 		starbase_defense_platform_capacity_add = 15
 	}
+	ship_modifier = {
+		ship_fire_rate_mult = 0.50
+		ship_weapon_range_mult = 0.20
+	}	
 	max_hitpoints = 80000
 	base_buildtime = 1440
 	cost = 7500
@@ -266,7 +276,7 @@ starbase_citadel = {
 	icon_frame = 5
 
 	upkeep_override = {
-		energy = 6
+		energy = 5
 		minerals = 0
 	}
 }
@@ -283,6 +293,8 @@ starbase_swarm = {
 	modifier = {
 		ship_evasion_mult = -1
 		ship_armor_add = 30000
+	}
+	ship_modifier = {
 		ship_weapon_range_mult = 0.20
 	}
 	max_hitpoints = 30000
@@ -320,8 +332,10 @@ starbase_ai = {
 		ship_evasion_mult = -1
 		ship_armor_add = 20000
 		ship_shield_add = 20000
-		ship_weapon_range_mult = 0.20
 	}
+	ship_modifier = {
+		ship_weapon_range_mult = 0.20
+	}	
 	max_hitpoints = 20000
 	base_buildtime = 730
 	cost = 0
@@ -357,6 +371,8 @@ starbase_exd = {
 	modifier = {
 		ship_evasion_mult = -1
 		ship_shield_add = 40000
+	}
+	ship_modifier = {
 		ship_weapon_range_mult = 0.20
 	}
 	max_hitpoints = 20000
@@ -395,6 +411,8 @@ starbase_marauder = {
 		ship_evasion_mult = -1
 		ship_shield_add = 10000
 		ship_armor_add = 10000
+	}
+	ship_modifier = {
 		ship_weapon_range_mult = 0.20
 	}
 	max_hitpoints = 20000
@@ -436,20 +454,22 @@ ion_cannon = {
 	max_hitpoints = 10000
 	modifier = {
 		ship_evasion_mult = -1
+	}
+	ship_modifier = {
 		ship_weapon_range_mult = 0.20
 	}
 	size_multiplier = 8
 	fleet_slot_size = 8
 	combat_size_multiplier = 8
 	section_slots = { "ship" = { locator = "part1" } }
-	is_designable = no
+	is_designable = yes
 	components_add_to_cost = no
 	uses_name_prefix = no
 	takes_name_from_ship_design = yes
 	num_target_locators = 0
 	is_space_station = yes
 	base_buildtime = 1080
-	auto_upgrade = yes
+	auto_upgrade = no
 	
 	enable_default_design = yes	#if yes, countries will have an auto-generated design at start
 	prerequisites = { "tech_titans" }

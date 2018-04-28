@@ -4280,25 +4280,6 @@ ship_event = {
 	}
 }
 
-# Primitive planet found by trading Star Charts
-planet_event = {
-	id = action.33
-	is_triggered_only = yes
-	hide_window = yes
-	
-	trigger = {
-		exists = owner
-		NOT = { exists = fromfrom }
-		owner = { is_country_type = primitive }
-	}
-	
-	immediate = {
-		from = {
-			establish_communications_no_message = root.owner
-		}
-	}
-}
-
 # Aliens Establish Communications
 country_event = {
 	id = action.13
@@ -6449,93 +6430,20 @@ country_event = {
 	}
 }
 
-# Megastructure built
-#country_event = {
-#	id = action.52
-#	hide_window = yes
-#	is_triggered_only = yes
-#	
-#	immediate = {
-#		create_message = {
-#			target = fromfromfrom
-#			type = "MEGASTRUCTURE_BUILT"
-#			localization = "MESSAGE_MEGASTRUCTURE_BUILT"
-#			variable = {
-#				type = name
-#				scope = fromfromfrom
-#				localization = "FLEET"
-#			}
-#			variable = {
-#				type = name
-#				scope = from
-#				localization = "MEGASTRUCTURE"
-#			}
-#			variable = {
-#				type = name
-#				scope = fromfrom
-#				localization = "SYSTEM"
-#			}
-#		}
-#	}	
-#}
-
-# Megastructure upgraded
-#country_event = {
-#	id = action.53
-#	hide_window = yes
-#	is_triggered_only = yes
-#	
-#	immediate = {
-#		create_message = {
-#			target = from
-#			type = "MEGASTRUCTURE_UPGRADED"
-#			localization = "MESSAGE_MEGASTRUCTURE_UPGRADED"
-#			variable = {
-#				type = name
-#				scope = from
-#				localization = "MEGASTRUCTURE"
-#			}
-#			variable = {
-#				type = name
-#				scope = fromfrom
-#				localization = "SYSTEM"
-#			}
-#		}
-#	}	
-#}
-
-# Tradition Discovery - Exploration Journals gain research points.
-ship_event = {
-	id = action.54
+# Tradition Discovery - gain unity on tech unlock
+country_event = {
+	id = action.55
 	hide_window = yes
 	is_triggered_only = yes
 
 	immediate = {
 		if = {
 			limit = {
-				owner = {
-					OR = {
-						has_non_swapped_tradition = tr_discovery_planetary_survey_corps
-						has_swapped_tradition = tr_discovery_planetary_survey_corps_machine
-					}
-				}
+				has_tradition = tr_discovery_faith_in_science
 			}
-			owner = {
-				add_monthly_resource_mult = {
-					resource = physics_research
-					value = 0.1
-					min = 3
-				}
-				add_monthly_resource_mult = {
-					resource = society_research
-					value = 0.1
-					min = 3
-				}
-				add_monthly_resource_mult = {
-					resource = engineering_research
-					value = 0.1
-					min = 3
-				}
+			add_monthly_resource_mult = {
+				resource = unity
+				value = 3
 			}
 		}
 	}
@@ -6688,32 +6596,6 @@ ship_event = {
 #		}
 #	}
 #}
-
-#planet_event = {
-#	id = action.55
-#	hide_window = yes
-#	is_triggered_only = yes
-#
-#	immediate = {
-#		owner = {
-#			if = {
-#				limit = {
-#					has_country_flag = has_colonization_fever
-#					NOT = { has_modifier = colonization_fever}
-#				}		
-#			add_modifier = { modifier = colonization_fever days = 3600 }
-#			}
-#			if = {
-#				limit = {
-#					has_modifier = colonization_fever
-#				}
-#				remove_modifier = "colonization_fever"
-#				add_modifier = { modifier = colonization_fever days = 3600 } 
-#			}
-#		}
-#	}
-#}
-
 
 pop_event = {
 	id = action.58
@@ -7667,6 +7549,12 @@ planet_event = {
 	}
 	
 	immediate = {
+		every_owned_pop = {
+			limit = {
+				is_growing = yes
+			}
+			kill_pop = yes
+		}
 		owner = { 
 			add_static_war_exhaustion = {
 				attacker = from
@@ -7774,6 +7662,11 @@ event = {
 				starbase = {
 					exists = owner
 					owner = {
+						OR = {
+							is_country_type = default
+							is_country_type = fallen_empire
+							is_country_type = awakened_fallen_empire
+						}					
 						NOR = {
 							is_same_value = prevprev.owner
 							is_at_war_with = prevprev.owner
@@ -7866,7 +7759,7 @@ ship_event = {
 	immediate = {
 		add_modifier = {
 			modifier = jump_drive_cooldown
-			days = 120
+			days = 200
 		}
 	}
 }
@@ -7957,6 +7850,90 @@ planet_event = {
 				create_starbase = {
 					size = starbase_outpost
 					owner = root.owner
+				}
+			}
+		}
+	}
+}
+
+# Make sure Swarm-owned planets are Infested and megastructures wiped
+event = {
+	id = action.92
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		any_country = { is_country_type = swarm }
+	}
+
+	immediate = {
+		every_planet = {
+			limit = {
+				exists = owner
+				owner = { is_country_type = swarm }
+				NOT = { is_planet_class = pc_infested }
+			}
+			if = {
+				limit = {
+					OR = {
+						is_planet_class = pc_habitat
+						is_planet_class = pc_ringworld_habitable
+					}
+				}
+				destroy_colony = yes
+				else = { change_pc = pc_infested }
+			}
+		}
+	}
+}
+
+# Make sure Extradimensionals own no planets or megastructures
+event = {
+	id = action.93
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		any_country = {
+			OR = {
+				is_country_type = extradimensional
+				is_country_type = extradimensional_2
+				is_country_type = extradimensional_3
+			}
+		}
+	}
+
+	immediate = {
+		every_planet = {
+			limit = {
+				exists = owner
+				owner = { 
+					OR = {
+						is_country_type = extradimensional
+						is_country_type = extradimensional_2
+						is_country_type = extradimensional_3
+					} 
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						is_planet_class = pc_habitat
+						is_planet_class = pc_ringworld_habitable
+					}
+				}
+				destroy_colony = yes
+				else = {
+					random_list = {
+						50 = { change_pc = pc_barren }
+						50 = { change_pc = pc_barren_cold }
+					}
+					add_modifier = {
+						modifier = "terraforming_candidate"
+						days = -1
+					}
 				}
 			}
 		}

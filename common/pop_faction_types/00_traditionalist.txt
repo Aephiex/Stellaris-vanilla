@@ -403,14 +403,7 @@ traditionalist = {
 
 		trigger = {
 			owner = {
-				OR = {
-					has_tradition = tr_harmony_adopt
-					has_tradition = tr_harmony_the_greater_good
-					has_tradition = tr_harmony_kinship
-					has_tradition = tr_harmony_utopian_dream
-					has_tradition = tr_harmony_bulwark_of_harmony
-					has_tradition = tr_harmony_mind_and_body
-				}
+				has_tradition = "tr_harmony_adopt"
 			}
 		}
 	}

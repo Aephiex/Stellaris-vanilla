@@ -96,6 +96,18 @@ FUN2 = {
 		gene_warrior_army = {
 			sequential_name = "%O% Slime Molds"
 		}
+
+		occupation_army = {
+			sequential_name = "%O% Garrison Agarics"
+		}
+
+		robotic_occupation_army = {
+			sequential_name = "%O% Robotic Garrison"
+		}
+
+		android_occupation_army = {
+			sequential_name = "%O% Synthetic Garrison"
+		}
 	}
 
 	planet_names = {

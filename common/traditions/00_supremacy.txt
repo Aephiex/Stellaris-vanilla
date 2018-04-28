@@ -108,6 +108,7 @@ tr_supremacy_great_game = {
 				has_valid_civic = civic_fanatic_purifiers
 				has_valid_civic = civic_inwards_perfection
 				has_valid_civic = civic_machine_terminator
+				has_valid_civic = civic_machine_assimilator
 				has_valid_civic = civic_hive_devouring_swarm
 			}
 		}
@@ -176,7 +177,7 @@ tr_supremacy_right_of_conquest = {
 	}		
 	
 	tradition_swap = {
-		name = tr_supremacy_natural_order
+		name = tr_supremacy_natural_preeminence
 		inherit_effects = no
 		inherit_icon = yes
 		inherit_name = no
@@ -187,6 +188,7 @@ tr_supremacy_right_of_conquest = {
 			OR = {
 				has_valid_civic = civic_fanatic_purifiers
 				has_valid_civic = civic_machine_terminator
+				has_valid_civic = civic_machine_assimilator
 				has_valid_civic = civic_hive_devouring_swarm
 			}
 		}

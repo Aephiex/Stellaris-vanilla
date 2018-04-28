@@ -3161,7 +3161,7 @@ country_event = {
 		}
 		add_modifier = {
 			modifier = "prethoryn_defeated"
-			days = 360
+			days = 3600
 		}
 		add_monthly_resource_mult = {
 			resource = unity

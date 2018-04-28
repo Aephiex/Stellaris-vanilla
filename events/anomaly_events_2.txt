@@ -117,7 +117,9 @@ ship_event = {
 	
 	is_triggered_only = yes
 
-	immediate = { owner = { country_event = { id = story.6 days = 30 } } }
+	immediate = { 
+		owner = { country_event = { id = story.6 days = 30 } } 
+	}
 			
 	option = {
 		name = "ONSCREEN"
@@ -161,25 +163,6 @@ country_event = {
 
 	immediate = {
 		save_event_target_as = MyCountry
-		if = {
-			limit = {
-				any_system = {
-					distance = {
-						source = FROMFROM
-						max_distance = 50
-						min_distance = 5
-					}
-					any_planet = {
-						is_planet_class = pc_gas_giant
-						is_surveyed = {
-							who = event_target:MyCountry
-							status = no
-						}
-					}
-				}
-			}
-			set_country_flag = itisreal
-		}
 	}
 	
 	picture_event_data = {
@@ -204,57 +187,27 @@ country_event = {
 	option = {
 		name = anomaly.5003.d
 		response_text = anomaly.5003.d.response
-		trigger = { has_country_flag = itisreal }
-		random_planet = {
-			limit = { 
-				is_planet_class = pc_gas_giant
-				is_surveyed = {
-					who = event_target:MyCountry
-					status = no
+		closest_system = {
+			limit = {
+				OR = {
+					has_owner = no
+					owner = { is_same_value = root }
 				}
-				distance = {
-					source = FROMFROM
-					max_distance = 50
-					min_distance = 5
+				any_planet = { is_planet_class = pc_gas_giant }
+			}
+			min_steps = 1
+			random_system_planet = {
+				limit = { is_planet_class = pc_gas_giant }
+				hidden_effect = {
+					set_planet_flag = baldarak
+					save_event_target_as = baldarak_planet
+					orbital_deposit_tile = { clear_deposits = yes }
 				}
-			}
-			hidden_effect = {
-				set_planet_flag = baldarak
-				save_event_target_as = baldarak_planet
-				orbital_deposit_tile = { clear_deposits = yes }
-			}
-			enable_special_project = {
-				name = "GAS_GIANT_RELOCATION"
-				location = this
-				owner = root
-			}
-		}
-	}
-	option = {
-		name = anomaly.5003.d
-		response_text = anomaly.5003.d.response
-		trigger = { NOT = { has_country_flag = itisreal } }
-		random_planet = {
-			limit = { 
-				is_planet_class = pc_gas_giant
-				is_surveyed = {
-					who = event_target:MyCountry
-					status = no
+				enable_special_project = {
+					name = "GAS_GIANT_RELOCATION"
+					location = this
+					owner = root
 				}
-				distance = {
-					source = FROMFROM
-					max_distance = 300
-					min_distance = 50
-				}
-			}
-			hidden_effect = {
-				set_planet_flag = baldarak
-				orbital_deposit_tile = { clear_deposits = yes }
-			}
-			enable_special_project = {
-				name = "GAS_GIANT_RELOCATION"
-				location = this
-				owner = root
 			}
 		}
 	}
@@ -283,6 +236,10 @@ ship_event = {
 			}
 			random_planet = {
 				limit = { has_planet_flag = baldarak }
+				surveyed = {
+					set_surveyed = yes
+					surveyor = root.owner
+				}
 				set_name = "NAME_Baldarak"
 				add_modifier = {
 					modifier = "gas_giant_civ"
@@ -293,7 +250,7 @@ ship_event = {
 		random_planet = {
 			limit = { has_planet_flag = baldarak }
 			orbital_deposit_tile = {
-				add_deposit = d_immense_society_deposit
+				add_deposit = d_enormous1_society_deposit
 			}
 		}
 	}
@@ -387,28 +344,39 @@ country_event = {
 		name = anomaly.5007.a
 		response_text = anomaly.5007.a.response
 		capital_scope = {
-			random_planet = {
-				limit = { 
-					is_planet_class = pc_gas_giant
-					NOT = {
-						has_planet_flag = baldarak 
-						has_planet_flag = tollok_rong
+			closest_system = {
+				limit = {
+					OR = {
+						has_owner = no
+						owner = { is_same_value = root }
 					}
-					distance = {
-						source = PREV
-						max_distance = 50
-						min_distance = 0
+					any_planet = { 
+						is_planet_class = pc_gas_giant
+						NOT = { 
+							has_planet_flag = baldarak 
+							has_planet_flag = tollok_rong
+						}
 					}
 				}
-				hidden_effect = {
-					set_planet_flag = new_baldarak
-					orbital_deposit_tile = { clear_deposits = yes }
-					save_event_target_as = NewBaldarak
-				}
-				enable_special_project = {
-					name = "GAS_GIANT_COLONY"
-					location = event_target:NewBaldarak
-					owner = event_target:MyCountry
+				min_steps = 1
+				random_system_planet = {
+					limit = { 
+						is_planet_class = pc_gas_giant
+						NOT = { 
+							has_planet_flag = baldarak 
+							has_planet_flag = tollok_rong
+						}
+					}
+					hidden_effect = {
+						set_planet_flag = new_baldarak
+						orbital_deposit_tile = { clear_deposits = yes }
+						save_event_target_as = NewBaldarak
+					}
+					enable_special_project = {
+						name = "GAS_GIANT_COLONY"
+						location = event_target:NewBaldarak
+						owner = event_target:MyCountry
+					}
 				}
 			}
 		}
@@ -445,6 +413,10 @@ ship_event = {
 			limit = { has_planet_flag = new_baldarak }
 			hidden_effect = {
 				set_name = "NAME_New_Baldarak"
+				surveyed = {
+					set_surveyed = yes
+					surveyor = root.owner
+				}
 				add_modifier = {
 					modifier = "gas_giant_colony"
 					days = -1

@@ -12,6 +12,7 @@ wg_fe_humiliation = {
 		always = yes
 	}
 	on_accept = {
+		custom_tooltip = wg_humiliation_fe_accept
 		save_event_target_as = fallen_empire_humiliator
 		from = {
 			fallen_empire_humiliate_effect = yes		
@@ -36,6 +37,7 @@ wg_fe_stop_atrocities = {
 		from = { is_valid_target_fe_stop_atrocities = yes }
 	}
 	on_accept = {
+		custom_tooltip = wg_humiliation_fe_accept
 		save_event_target_as = fallen_empire_humiliator
 		from = {
 			fallen_empire_stop_atrocities_effect = yes
@@ -61,6 +63,7 @@ wg_fe_stop_ai = {
 		from = { is_valid_target_fe_stop_ai = yes }
 	}
 	on_accept = {
+		custom_tooltip = wg_humiliation_fe_accept
 		save_event_target_as = fallen_empire_humiliator
 		from = {
 			fallen_empire_stop_ai_effect = yes		
@@ -86,6 +89,7 @@ wg_fe_cleanse_holy_worlds = {
 		from = { is_valid_target_fe_cleanse_holy_worlds = yes }
 	}
 	on_accept = {
+		custom_tooltip = wg_humiliation_fe_accept
 		save_event_target_as = fallen_empire_humiliator
 		from = { 
 			fallen_empire_cleanse_holy_worlds_effect = yes		
@@ -111,6 +115,7 @@ wg_fe_cleanse_border_worlds = {
 		is_neighbor_of = from
 	}
 	on_accept = {
+		custom_tooltip = wg_humiliation_fe_accept
 		save_event_target_as = fallen_empire_humiliator
 		from = { 
 			fallen_empire_cleanse_border_worlds_effect = yes		

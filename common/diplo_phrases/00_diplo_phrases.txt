@@ -5521,7 +5521,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = slaving_despots
-			FROM = { allows_slavery = no }
+			FROM = { allows_slavery = yes }
 			NOT = { is_at_war_with = FROM }
 			is_neutral_to = FROM
 		}
@@ -5532,7 +5532,7 @@ greetings = {
 		}
 		trigger = {
 			has_ai_personality = slaving_despots
-			FROM = { allows_slavery = yes }
+			FROM = { allows_slavery = no }
 			NOT = { is_at_war_with = FROM }
 			is_neutral_to = FROM
 		}

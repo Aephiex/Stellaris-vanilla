@@ -37,13 +37,25 @@ ship_section_template = {
 		locatorname = "root"
 	}
 	component_slot = {
+		name = "MEDIUM_GUN_03"
+		slot_size = medium
+		slot_type = weapon
+		locatorname = "root"
+	}	
+	component_slot = {
 		name = "LARGE_GUN_01"
 		slot_size = large
 		slot_type = weapon
 		locatorname = "root"
 	}
+	component_slot = {
+		name = "LARGE_GUN_02"
+		slot_size = large
+		slot_type = weapon
+		locatorname = "root"
+	}	
 	
-	medium_utility_slots = 6
+	medium_utility_slots = 8
 	aux_utility_slots = 1
 }
 

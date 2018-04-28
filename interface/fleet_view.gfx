@@ -1219,7 +1219,7 @@ spriteTypes = {
 	
 	spriteType = {
 		name = "GFX_delete_template_button"
-		texturefile = "gfx/interface/fleet_view/delete_template_button.dds"
+		texturefile = "gfx/interface/fleet_view/fleet_action_button_destroy_fleet_2.dds"
 		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
 		noOfFrames = 3
 		animation = {
@@ -2127,46 +2127,6 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_fleet_order_button_build_megastructure"
 		texturefile = "gfx/interface/fleet_view/fleet_order_button_build_megastructure.dds"
-		effectFile = "gfx/FX/buttonstate.lua"
-		noOfFrames = 3
-		animation = {
-			animationmaskfile = "gfx/interface/fleet_view/fleet_task_button_mask.dds"
-			animationtexturefile = "gfx/interface/fleet_view/action_button_texture.dds"
-			animationrotation = 180.0
-			animationlooping = yes
-			animationtime = 12.0
-			animationdelay = 0.0
-			animationblendmode = "overlay"       #add, multiply, overlay
-			animationtype = "scrolling"      #scrolling, rotating, pulsing
-			animationrotationoffset = { x = 0.0 y = 0.0 }
-			animationtexturescale = { x = 1.0 y = 1.0 }
-			animationframes = { 1 2 3 }
-		}
-	}
-
-	spriteType = {
-		name = "GFX_fleet_order_button_destroy_planet"
-		texturefile = "gfx/interface/fleet_view/fleet_task_special_project_action.dds"
-		effectFile = "gfx/FX/buttonstate.lua"
-		noOfFrames = 3
-		animation = {
-			animationmaskfile = "gfx/interface/fleet_view/fleet_task_button_mask.dds"
-			animationtexturefile = "gfx/interface/fleet_view/action_button_texture.dds"
-			animationrotation = 180.0
-			animationlooping = yes
-			animationtime = 12.0
-			animationdelay = 0.0
-			animationblendmode = "overlay"       #add, multiply, overlay
-			animationtype = "scrolling"      #scrolling, rotating, pulsing
-			animationrotationoffset = { x = 0.0 y = 0.0 }
-			animationtexturescale = { x = 1.0 y = 1.0 }
-			animationframes = { 1 2 3 }
-		}
-	}
-
-	spriteType = {
-		name = "GFX_fleet_order_button_destroy_planet_selected"
-		texturefile = "gfx/interface/fleet_view/fleet_task_special_project_selected.dds"
 		effectFile = "gfx/FX/buttonstate.lua"
 		noOfFrames = 3
 		animation = {

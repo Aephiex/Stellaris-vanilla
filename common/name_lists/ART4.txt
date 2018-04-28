@@ -98,6 +98,18 @@ ART4 = {
 		gene_warrior_army = {
 			sequential_name = "%O% Gene-Commando Pod"
 		}
+
+		occupation_army = {
+			sequential_name = "%O% Occupation Pod"
+		}
+
+		robotic_occupation_army = {
+			sequential_name = "%O% Occupation Droid Pod"
+		}
+
+		android_occupation_army = {
+			sequential_name = "%O% Occupation Android Pod"
+		}
 	}
 	
 	planet_names = {

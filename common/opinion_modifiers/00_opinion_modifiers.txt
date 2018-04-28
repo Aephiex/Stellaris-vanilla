@@ -1424,7 +1424,7 @@ opinion_declared_rival = {
 # Ally of ally
 opinion_ally_of_ally = {
 	opinion = {
-		base = 15
+		base = 25
 	}
 	
 	unique = yes
@@ -1434,7 +1434,7 @@ opinion_ally_of_ally = {
 # Mutual rival opinion modifier
 opinion_mutual_rival = {
 	opinion = {
-		base = 25
+		base = 50
 	}
 	
 	unique = yes
@@ -1452,7 +1452,7 @@ opinion_mutual_threat = {
 # Allied to rival opinion modifier
 opinion_allied_to_rival = {
 	opinion = {
-		base = -50
+		base = -100
 	}
 	
 	unique = yes
@@ -1461,7 +1461,7 @@ opinion_allied_to_rival = {
 # Rivaling ally
 opinion_rivals_with_ally = {
 	opinion = {
-		base = -50
+		base = -100
 	}
 	
 	unique = yes
@@ -2485,11 +2485,27 @@ opinion_cracked_a_world = {
 	opinion = {
 		base = -100
 	}
+
+	accumulative = yes
+	
+	min = -500
+
+	decay = {
+		base = 1
+	}
 }
 
 opinion_cracked_an_uninhabited_world = {
 	opinion = {
 		base = -30
+	}
+
+	accumulative = yes
+	
+	min = -150
+
+	decay = {
+		base = 1
 	}
 }
 
@@ -2498,11 +2514,27 @@ opinion_cracked_my_world = {
 	opinion = {
 		base = -1000
 	}
+
+	accumulative = yes
+	
+	min = -5000
+
+	decay = {
+		base = 1
+	}
 }
 
 opinion_cracked_my_uninhabited_world = {
 	opinion = {
 		base = -300
+	}
+
+	accumulative = yes
+	
+	min = -1500
+
+	decay = {
+		base = 1
 	}
 }
 
@@ -2510,11 +2542,27 @@ opinion_cracked_a_primitive_world = {
 	opinion = {
 		base = -40
 	}
+
+	accumulative = yes
+	
+	min = -200
+
+	decay = {
+		base = 1
+	}
 }
 
 opinion_cracked_a_primitive_world_phile = {
 	opinion = {
 		base = -60
+	}
+
+	accumulative = yes
+	
+	min = -300
+
+	decay = {
+		base = 1
 	}
 }
 
@@ -2524,11 +2572,27 @@ opinion_swept_a_world = {
 	opinion = {
 		base = -80
 	}
+
+	accumulative = yes
+	
+	min = -400
+
+	decay = {
+		base = 1
+	}
 }
 
 opinion_swept_my_world = {
 	opinion = {
 		base = -800
+	}
+
+	accumulative = yes
+	
+	min = -4000
+
+	decay = {
+		base = 1
 	}
 }
 
@@ -2536,11 +2600,27 @@ opinion_swept_a_primitive_world = {
 	opinion = {
 		base = -40
 	}
+
+	accumulative = yes
+	
+	min = -200
+
+	decay = {
+		base = 1
+	}
 }
 
 opinion_swept_a_primitive_world_phile = {
 	opinion = {
 		base = -60
+	}
+
+	accumulative = yes
+	
+	min = -300
+
+	decay = {
+		base = 1
 	}
 }
 
@@ -2548,11 +2628,27 @@ opinion_assimilated_a_world = {
 	opinion = {
 		base = -60
 	}
+
+	accumulative = yes
+	
+	min = -300
+
+	decay = {
+		base = 1
+	}
 }
 
 opinion_assimilated_my_world = {
 	opinion = {
 		base = -600
+	}
+
+	accumulative = yes
+	
+	min = -3000
+
+	decay = {
+		base = 1
 	}
 }
 
@@ -2560,11 +2656,27 @@ opinion_assimilated_a_primitive_world = {
 	opinion = {
 		base = -40
 	}
+
+	accumulative = yes
+	
+	min = -200
+
+	decay = {
+		base = 1
+	}
 }
 
 opinion_assimilated_a_primitive_world_phile = {
 	opinion = {
 		base = -60
+	}
+
+	accumulative = yes
+	
+	min = -300
+
+	decay = {
+		base = 1
 	}
 }
 
@@ -2572,21 +2684,53 @@ opinion_converted_a_world = {
 	opinion = {
 		base = -40
 	}
+
+	accumulative = yes
+	
+	min = -200
+
+	decay = {
+		base = 1
+	}
 }
 
 opinion_converted_my_world = {
 	opinion = -400
+
+	accumulative = yes
+	
+	min = -2000
+
+	decay = {
+		base = 1
+	}
 }
 
 opinion_shielded_a_world = {
 	opinion = {
 		base = -20
 	}
+
+	accumulative = yes
+	
+	min = -100
+
+	decay = {
+		base = 1
+	}
 }
 
 opinion_shielded_my_world = {
 	opinion = {
 		base = -200
+	}
+
+	accumulative = yes
+	
+	min = -1000
+
+	decay = {
+		base = 1
 	}
 }
 

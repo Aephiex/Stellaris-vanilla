@@ -135,10 +135,12 @@ country_edict = {
 # Hive Mind
 #################
 
+@hiveFood = 500
+
 country_edict = {
 	name = "drone_campaign"
 	length = @campaignDuration
-	cost = { food = 100 }
+	cost = { food = @hiveFood }
 	
 	modifier = {
 		pop_growth_speed = 0.20
@@ -157,7 +159,7 @@ country_edict = {
 country_edict = {
 	name = "learning_campaign"
 	length = @campaignDuration
-	cost = { food = 50 }
+	cost = { food = @hiveFood }
 	
 	modifier = {
 		species_leader_exp_gain = 0.25
@@ -176,7 +178,7 @@ country_edict = {
 country_edict = {
 	name = "war_drone_campaign"
 	length = @campaignDuration
-	cost = { food = 50 }
+	cost = { food = @hiveFood }
 	
 	modifier = {
 		army_damage_mult = 0.15

@@ -95,6 +95,18 @@ HUM4 = {
 		gene_warrior_army = {
 			sequential_name = "%O% Supermen"
 		}
+
+		occupation_army = {
+			sequential_name = "%O% Occupation Sentinels"
+		}
+
+		robotic_occupation_army = {
+			sequential_name = "%O% Metal Sentinels"
+		}
+
+		android_occupation_army = {
+			sequential_name = "%O% Replicant Sentinels"
+		}
 	}
 
 	planet_names = {

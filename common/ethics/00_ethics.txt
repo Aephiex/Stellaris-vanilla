@@ -97,6 +97,7 @@ ethic_authoritarian = {
 			}
 		}
 	}
+	
 	pop_attraction_tag = {
 		desc = POP_ATTRACTION_CONSUMER_GOODS_NEG
 		trigger = {
@@ -222,10 +223,6 @@ ethic_authoritarian = {
 			has_trait = trait_hive_mind
 		}	
 		modifier = {
-			factor = 0.25
-			is_enslaved = yes
-		}
-		modifier = {
 			factor = 1.25
 			has_trait = "trait_decadent"
 		}
@@ -285,7 +282,7 @@ ethic_fanatic_egalitarian = {
 	}	
 	
 	country_modifier = {
-		faction_influence_mult = 0.3
+		faction_influence_mult = 0.5
 		pop_consumer_goods_mult = -0.2
 	}
 	
@@ -310,7 +307,7 @@ ethic_egalitarian = {
 	}		
 	
 	country_modifier = {
-		faction_influence_mult = 0.15
+		faction_influence_mult = 0.25
 		pop_consumer_goods_mult = -0.1
 	}
 
@@ -542,10 +539,6 @@ ethic_egalitarian = {
 				has_citizenship_type = { type = citizenship_caste_system }
 			}	
 		}		
-		modifier = {
-			factor = 4.0
-			is_enslaved = yes
-		}
 		modifier = {
 			factor = 1.5
 			is_enslaved = no
@@ -1308,7 +1301,7 @@ ethic_fanatic_militarist = {
 	}	
 	
 	country_modifier = {
-		army_damage_mult = 0.20
+		country_war_exhaustion_mult = -0.2
 		ship_fire_rate_mult = 0.20
 	}
 	
@@ -1330,7 +1323,7 @@ ethic_militarist = {
 	}		
 	
 	country_modifier = {
-		army_damage_mult = 0.10
+		country_war_exhaustion_mult = -0.1
 		ship_fire_rate_mult = 0.10
 	}
 	
@@ -2483,6 +2476,8 @@ ethic_gestalt_consciousness = {
 	use_for_pops = no
 	
 	country_modifier = {
+		country_war_exhaustion_mult = -0.2
+		country_piracy_risk_mult = -0.33
 		country_resource_influence_add = 1
 		country_core_sector_system_cap = 2
 	}

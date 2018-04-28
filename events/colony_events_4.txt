@@ -113,7 +113,7 @@ planet_event = {
 		}
 		has_ground_combat = no
 		is_occupied_flag = no
-		num_pops > 3
+		num_pops > 0
 		is_capital = no
 		OR = {
 			is_planet_class = pc_continental
@@ -335,8 +335,7 @@ planet_event = {
 		}
 		has_ground_combat = no
 		is_occupied_flag = no
-		num_pops > 4
-		num_pops < 8
+		num_pops > 0
 		is_capital = no
 		NOT = {
 			has_planet_flag = colony_event
@@ -1339,7 +1338,7 @@ planet_event = {
 		}
 		has_ground_combat = no
 		is_occupied_flag = no
-		num_pops > 3
+		num_pops > 0
 		free_building_tiles > 0
 		is_capital = no
 		NOR = {
@@ -1725,7 +1724,7 @@ planet_event = {
 		}
 		has_ground_combat = no
 		is_occupied_flag = no
-		num_pops > 4
+		num_pops > 0
 		is_capital = no
 		NOR = {
 			has_planet_flag = colony_event
@@ -2004,7 +2003,7 @@ planet_event = {
 				}
 			}
 		}
-		num_pops > 4
+		num_pops > 0
 		has_ground_combat = no
 		is_occupied_flag = no
 		exists = leader
@@ -2154,9 +2153,12 @@ planet_event = {
 		sector_controlled = no
 		owner = {
 			is_ai = no
-			NOT = { has_country_flag = colony_infected }
+			NOT = {
+				has_country_flag = colony_infected
+				has_ethic = ethic_gestalt_consciousness
+			}
 		}
-		num_pops > 5
+		num_pops > 0
 		has_ground_combat = no
 		is_occupied_flag = no
 		NOR = {
@@ -2952,6 +2954,8 @@ planet_event = {
 	show_sound = event_red_alert
 	location = root
 
+	mean_time_to_happen = { days = 100 }
+
 	trigger = {
 		has_planet_flag = colony_infected_active
 		NOT = {
@@ -3465,7 +3469,7 @@ planet_event = {
 				has_country_flag = alien_infection_isolated
 			}
 		}
-		num_pops > 1
+		num_pops > 0
 		count_pops = {
 			limit = {
 				OR = {
@@ -3544,7 +3548,7 @@ planet_event = {
 		is_capital = no
 		has_ground_combat = no
 		is_occupied_flag = no
-		num_pops > 10
+		num_pops > 0
 		free_building_tiles > 0
 		any_tile = { has_building = yes	}
 		NOR = {

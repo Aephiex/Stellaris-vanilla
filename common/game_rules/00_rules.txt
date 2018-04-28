@@ -65,6 +65,10 @@ can_add_claim = {
 		NOT = { root = { has_valid_civic = civic_hive_devouring_swarm }	}
 	}	
 	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_ASSIMILATOR
+		NOT = { root = { has_valid_civic = civic_machine_assimilator }	}
+	}	
+	custom_tooltip = {
 		fail_text = CANNOT_ADD_CLAIM_PURIFIERS		 
 		NAND = {
 			exists = owner
@@ -87,25 +91,6 @@ can_add_claim = {
 		}
 	}
 	custom_tooltip = {
-		fail_text = CANNOT_ADD_CLAIM_THEY_COLOSSUS
-		NAND = {
-			exists = owner
-			NOT = { root = { has_ascension_perk = ap_colossus } }
-			owner = { has_ascension_perk = ap_colossus }
-			root = { is_rival = prev.owner }		
-		}
-	}	
-	custom_tooltip = {
-		fail_text = CANNOT_ADD_CLAIM_COLOSSUS
-		OR = {
-			AND = {
-				exists = owner
-				NOT = { root = { is_rival = prev.owner } }
-			}		
-			NOT = { root = { has_ascension_perk = ap_colossus } }
-		}	
-	}
-	custom_tooltip = {
 		fail_text = CANNOT_ADD_CLAIM_THEY_THREAT
 		NAND = {
 			exists = owner
@@ -114,15 +99,63 @@ can_add_claim = {
 					has_valid_civic = civic_hive_devouring_swarm
 					has_valid_civic = civic_fanatic_purifiers
 					has_valid_civic = civic_machine_terminator
+					has_valid_civic = civic_machine_assimilator
 				}
 			}
 			root = {
 				NOR = {
 					has_valid_civic = civic_hive_devouring_swarm
 					has_valid_civic = civic_fanatic_purifiers
-					has_valid_civic = civic_machine_terminator			
+					has_valid_civic = civic_machine_terminator		
+					has_valid_civic = civic_machine_assimilator
 				}
 			}			
+		}
+	}
+}
+
+# Root = taker country
+# This = giver country
+can_get_claim_from_lost_system = {		
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_NOT_VALID_EMPIRE 
+		OR = {
+			is_country_type = default
+			is_country_type = fallen_empire
+			is_country_type = awakened_fallen_empire
+		}
+		root = {
+			OR = {
+				is_country_type = default
+				is_country_type = fallen_empire
+				is_country_type = awakened_fallen_empire
+			}
+		}
+	}	
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_DEVOURING_SWARM
+		NOT = { has_valid_civic = civic_hive_devouring_swarm }
+	}	
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_ASSIMILATOR
+		NOT = { has_valid_civic = civic_machine_assimilator }
+	}	
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_PURIFIERS		 
+		NAND = {
+			has_valid_civic = civic_fanatic_purifiers	
+			NOT = {	is_same_species = root }
+		}
+	}
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_EXTERMINATOR
+		NAND = {
+			has_valid_civic = civic_machine_terminator
+			NOR = {
+				is_same_species = root
+				has_country_flag = synthetic_empire
+				has_authority = auth_machine_intelligence
+			}
 		}
 	}
 }
@@ -139,6 +172,10 @@ species_has_citizenship = {
 #Root = country
 #This = pop
 should_abduct_pop = {
+	planet = { 
+		exists = owner
+		owner = { is_hostile = root }
+	}
 	NAND = {
 		has_citizenship_type = { type = citizenship_purge country = root }
 		NOR = { 
@@ -331,7 +368,7 @@ can_release_vassal = {
 	}
 	custom_tooltip = {
 		fail_text = requires_domination_adopted
-		has_tradition = tr_domination_adopt
+		has_subjugation_req = yes
 	}
 	custom_tooltip = {
 		fail_text = CANNOT_RELEASE_CULTURE_SHOCK
@@ -766,6 +803,7 @@ can_orbital_bombard = {
 				is_country_type = ai_empire
 				is_country_type = cybrex_empire
 				is_country_type = dormant_marauders
+				is_country_type = marauder_raiders
 				is_country_type = ruined_marauders
 				is_country_type = awakened_marauders
 			}
@@ -920,11 +958,12 @@ can_stop_purge_pop_manually = {
 # scope: pop
 can_purge_pop_manually = {
 	custom_tooltip = {
-		fail_text = "ALREADY_BEING_PURGED"	
+		fail_text = "ALREADY_BEING_PURGED"
 		NOT = { has_citizenship_type = { type = citizenship_purge } }
 	}
 	custom_tooltip = {
-		fail_text = "ACTION_CANNOT_PURGE_CITIZEN"	
+		fail_text = "ACTION_CANNOT_PURGE_CITIZEN"
+		exists = owner
 		OR = {
 			is_robot_pop = yes
 			is_sapient = no
@@ -934,7 +973,8 @@ can_purge_pop_manually = {
 		}		
 	}
 	custom_tooltip = {
-		fail_text = "ACTION_CANNOT_PURGE_POLICY"	
+		fail_text = "ACTION_CANNOT_PURGE_POLICY"
+		exists = owner
 		OR = {
 			is_robot_pop = yes
 			AND = {
@@ -946,7 +986,8 @@ can_purge_pop_manually = {
 		}		
 	}	
 	custom_tooltip = {
-		fail_text = "ACTION_DISASSEMBLE_SYNTHETICS"		
+		fail_text = "ACTION_DISASSEMBLE_SYNTHETICS"
+		exists = owner
 		OR = {
 			is_robot_pop = no
 			owner = { has_authority = auth_hive_mind }
@@ -995,6 +1036,7 @@ is_owned_pop = {
 fleet_uses_templates = {
 	is_ship_class = shipclass_military
 	is_designable = yes
+	is_alliance_fleet = no
 }
 
 # this = starbase
@@ -1012,32 +1054,47 @@ can_spawn_debris = {
 
 # this = system
 # root = country
-# Determines if Marauder Horde should restrict (and thus avoid) a system
-horde_should_restrict_system = {
+# Determines if AI-controlled empires should restrict (and thus avoid) a system
+# Used by regular empires, fallen empires & crises
+ai_should_restrict_system = {
 	OR = {
 		AND = {
+			root = { is_country_type = fallen_empire }
 			exists = owner
-			owner = { is_country_type = fallen_empire }
+			owner = { is_country_type = awakened_marauders }
+		}	
+		AND = {
+			root = { is_country_type = awakened_marauders }
+			exists = owner
+			owner = { is_country_type = fallen_empire }	
 		}
-		any_ship_in_system = {
-			exists = owner
-			owner = {
+		AND = {
+			root = { 
 				OR = {
-					is_country_type = guardian_dragon
-					is_country_type = guardian_stellarite
-					is_country_type = guardian_wraith
-					is_country_type = guardian_horror
-					is_country_type = guardian_fortress
-					is_country_type = guardian_dreadnought
-				}
+					is_country_type = fallen_empire
+					is_country_type = awakened_marauders 
+				}				
 			}
-		}
+			any_ship_in_system = {
+				exists = owner
+				owner = {
+					OR = {
+						is_country_type = guardian_dragon
+						is_country_type = guardian_stellarite
+						is_country_type = guardian_wraith
+						is_country_type = guardian_horror
+						is_country_type = guardian_fortress
+						is_country_type = guardian_dreadnought
+					}
+				}
+			}	
+		}		
 	}
 }
 
 # this = country
 can_subjugate_empires = {
-	has_tradition = tr_domination_adopt
+	has_subjugation_req = yes
 }
 
 # THIS = Fleet
@@ -1046,5 +1103,24 @@ can_jump_drive = {
 		any_owned_ship = {
 			NOT = { has_modifier = jump_drive_cooldown }
 		}
+	}
+}
+
+# this = country
+can_have_piracy_risk = {
+	has_country_flag = birth_of_piracy
+	NOT = { has_country_flag = had_pirates_spawn }
+	OR = {
+		has_isolated_system = yes
+		has_bordering_system = yes
+	}
+}
+
+# this = country
+can_spawn_occupation_armies = {
+	OR = {
+		is_country_type = default
+		is_country_type = fallen_empire
+		is_country_type = awakened_fallen_empirefallen_empire
 	}
 }

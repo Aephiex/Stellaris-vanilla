@@ -772,7 +772,7 @@ guiTypes = {
 		instantTextBoxType = {
 				name = "trait_points_lables"
 				font = "malgun_goth_24"
-				position = { x = 20 y = 90 }
+				position = { x = 20 y = 70 }
 				maxWidth = 330
 				text =	 "POINTS_LEFT"
 				format = left
@@ -783,7 +783,7 @@ guiTypes = {
 		instantTextBoxType = {
 				name = "trait_points"
 				font = "malgun_goth_24"
-				position = { x = 340 y = 90 }
+				position = { x = 340 y = 70 }
 				maxWidth = 30
 				text =	 "12"
 				format = left
@@ -794,7 +794,7 @@ guiTypes = {
 		instantTextBoxType = {
 				name = "trait_picks_lables"
 				font = "malgun_goth_24"
-				position = { x = 20 y = 115 }
+				position = { x = 20 y = 95 }
 				maxWidth = 330
 				text =	 "PICKS_LEFT"
 				format = left
@@ -805,7 +805,7 @@ guiTypes = {
 		instantTextBoxType = {
 				name = "trait_picks"
 				font = "malgun_goth_24"
-				position = { x = 340 y = 115 }
+				position = { x = 340 y = 95 }
 				maxWidth = 30
 				text =	 "12"
 				format = left
@@ -816,8 +816,8 @@ guiTypes = {
 		
 		containerWindowType = {
 			name = "details"
-			size = { width = 410 height = 160 }
-			position = { x = 12 y = 150 }
+			size = { width = 410 height = 220 }
+			position = { x = 12 y = 130 }
 			
 				background = {
 					name = "leader_frame"
@@ -839,7 +839,7 @@ guiTypes = {
 			instantTextBoxType = {
 				name = "trait_description"
 				font = "cg_16b"
-				position = { x = 10 y = 40 }
+				position = { x = 10 y = 30 }
 				maxWidth = 395
 				text = ""
 				format = left

@@ -1177,6 +1177,11 @@ spriteTypes = {
 	}
 	
 	spriteType = {
+		name = "GFX_ship_part_thruster_5"
+		texturefile = "gfx/interface/icons/ship_parts/ship_part_thruster_5.dds"
+	}	
+	
+	spriteType = {
 		name = "GFX_ship_part_reactor_booster_1"
 		texturefile = "gfx/interface/icons/ship_parts/ship_part_reactor_booster_1.dds"
 	}

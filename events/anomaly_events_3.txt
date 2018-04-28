@@ -1199,8 +1199,8 @@ ship_event = {
 				}
 				has_access_fleet = root.owner
 			}
-			min_steps = 10
-			max_steps = 80
+			min_steps = 1
+			max_steps = 8
 			set_star_flag = old_gods_system_1@root.owner
 		}
 		closest_system = {
@@ -1214,8 +1214,8 @@ ship_event = {
 				}
 				has_access_fleet = root.owner
 			}
-			min_steps = 20
-			max_steps = 90
+			min_steps = 2
+			max_steps = 9
 			set_star_flag = old_gods_system_2@root.owner
 		}
 		closest_system = {
@@ -1230,8 +1230,8 @@ ship_event = {
 				}
 				has_access_fleet = root.owner
 			}
-			min_steps = 30
-			max_steps = 100
+			min_steps = 3
+			max_steps = 10
 			set_star_flag = old_gods_system_3@root.owner
 		}
 	}
@@ -2485,7 +2485,6 @@ ship_event = {
 	immediate = { from = { orbital_deposit_tile = { clear_deposits = yes } } }
 
 	option = {
-		trigger = { owner = { energy > 199 } }
 		name = anomaly.230.a
 		custom_tooltip = anomaly.230.a.tooltip
 		hidden_effect = {
@@ -2503,7 +2502,7 @@ ship_event = {
 	}
 
 	option = {
-		trigger = { owner = { energy > 199 } }
+		allow = { owner = { energy > 199 } }
 		name = anomaly.230.b
 		custom_tooltip = anomaly.230.b.tooltip
 		owner = { add_energy = -200 }
@@ -2511,24 +2510,6 @@ ship_event = {
 			random_list = {
 				50 = { ship_event = { id = anomaly.231 days = 5 } }
 				50 = { ship_event = { id = anomaly.232 days = 5 } }
-			}
-		}
-	}
-
-	option = {
-		trigger = { owner = { energy < 199 } }
-		name = anomaly.230.c
-		custom_tooltip = anomaly.230.a.tooltip
-		hidden_effect = {
-			from = {
-				orbital_deposit_tile = {
-					add_deposit = d_vast_physics_deposit
-					add_deposit = d_vast_physics_deposit
-				}
-				add_modifier = {
-					modifier = grimacing
-					days = -1
-				}
 			}
 		}
 	}
@@ -3076,6 +3057,7 @@ ship_event = {
 	desc = anomaly.270.desc
 	picture = GFX_evt_asteroid_approaching_planet
 	show_sound = event_default
+	location = from
 
 	is_triggered_only = yes
 

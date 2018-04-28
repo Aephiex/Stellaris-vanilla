@@ -784,12 +784,27 @@ country_event = {
 	immediate = {
 		set_global_flag = vultaum_system_discovered
 		set_country_flag = vultaum_system
-		random_system = {
-			limit = { has_star_flag = precursor_1 }
-			spawn_system = {
-				min_distance = 20
-				max_distance = 50
-				initializer = "vultaumar_system"
+		if = {
+			limit = {
+				any_system_within_border = { has_star_flag = precursor_1 }
+			}
+			random_system_within_border = {
+				limit = { has_star_flag = precursor_1 }
+				spawn_system = {
+					min_distance = 20
+					max_distance = 50
+					initializer = "vultaumar_system"
+				}
+			}
+			else = {
+				random_system = {
+					limit = { has_star_flag = precursor_1 }
+					spawn_system = {
+						min_distance = 20
+						max_distance = 50
+						initializer = "vultaumar_system"
+					}
+				}
 			}
 		}
 		country_event = { id = precursor.100 days = 2 }
@@ -1572,12 +1587,27 @@ country_event = {
 	immediate = {
 		set_global_flag = yuht_system_discovered
 		set_country_flag = yuht_system
-		random_system = {
-			limit = { has_star_flag = precursor_2 }
-			spawn_system = {
-				min_distance = 20
-				max_distance = 50
-				initializer = "yuhtaan_system"
+		if = {
+			limit = {
+				any_system_within_border = { has_star_flag = precursor_2 }
+			}
+			random_system_within_border = {
+				limit = { has_star_flag = precursor_2 }
+				spawn_system = {
+					min_distance = 20
+					max_distance = 50
+					initializer = "yuhtaan_system"
+				}
+			}
+			else = {
+				random_system = {
+					limit = { has_star_flag = precursor_2 }
+					spawn_system = {
+						min_distance = 20
+						max_distance = 50
+						initializer = "yuhtaan_system"
+					}
+				}
 			}
 		}
 		country_event = { id = precursor.600 days = 2 }
@@ -2637,12 +2667,27 @@ country_event = {
 	immediate = {
 		set_global_flag = first_league_discovered
 		set_country_flag = first_league_system
-		random_system = {
-			limit = { has_star_flag = precursor_3 }
-			spawn_system = {
-				min_distance = 20
-				max_distance = 50
-				initializer = "fen_habbanis_system"
+		if = {
+			limit = {
+				any_system_within_border = { has_star_flag = precursor_3 }
+			}
+			random_system_within_border = {
+				limit = { has_star_flag = precursor_3 }
+				spawn_system = {
+					min_distance = 20
+					max_distance = 50
+					initializer = "fen_habbanis_system"
+				}
+			}
+			else = {
+				random_system = {
+					limit = { has_star_flag = precursor_3 }
+					spawn_system = {
+						min_distance = 20
+						max_distance = 50
+						initializer = "fen_habbanis_system"
+					}
+				}
 			}
 		}
 		country_event = { id = precursor.1100 days = 2 }
@@ -3550,12 +3595,27 @@ country_event = {
 	immediate = {
 		set_global_flag = irassia_discovered
 		set_country_flag = irassian_system
-		random_system = {
-			limit = { has_star_flag = precursor_4 }
-			spawn_system = {
-				min_distance = 20
-				max_distance = 50
-				initializer = "irass_system"
+		if = {
+			limit = {
+				any_system_within_border = { has_star_flag = precursor_4 }
+			}
+			random_system_within_border = {
+				limit = { has_star_flag = precursor_4 }
+				spawn_system = {
+					min_distance = 20
+					max_distance = 50
+					initializer = "irass_system"
+				}
+			}
+			else = {
+				random_system = {
+					limit = { has_star_flag = precursor_4 }
+					spawn_system = {
+						min_distance = 20
+						max_distance = 50
+						initializer = "irass_system"
+					}
+				}
 			}
 		}
 		country_event = { id = precursor.1600 days = 2 }
@@ -4451,12 +4511,27 @@ country_event = {
 	immediate = {
 		set_global_flag = cybrex_discovered
 		set_country_flag = cybrex_system
-		random_system = {
-			limit = { has_star_flag = precursor_5 }
-			spawn_system = {
-				min_distance = 20
-				max_distance = 50
-				initializer = "cybrex_system"
+		if = {
+			limit = {
+				any_system_within_border = { has_star_flag = precursor_5 }
+			}
+			random_system_within_border = {
+				limit = { has_star_flag = precursor_5 }
+				spawn_system = {
+					min_distance = 20
+					max_distance = 50
+					initializer = "cybrex_system"
+				}
+			}
+			else = {
+				random_system = {
+					limit = { has_star_flag = precursor_5 }
+					spawn_system = {
+						min_distance = 20
+						max_distance = 50
+						initializer = "cybrex_system"
+					}
+				}
 			}
 		}
 		country_event = { id = precursor.2100 days = 2 }
@@ -4755,7 +4830,7 @@ country_event = {
 	
 	trigger = {
 		is_ai = no
-		mid_game_years_passed > 0
+		years_passed > 50
 		NOR = {
 			has_country_flag = new_precursor
 			has_country_flag = ongoing_precursor_artifact
@@ -4879,6 +4954,10 @@ country_event = {
 		modifier = {
 			factor = 0.66
 			has_ethic = ethic_gestalt_consciousness # Won't get the other events
+		}
+		modifier = {
+			factor = 0.75
+			years_passed > 100
 		}
 	}
 	
@@ -5262,7 +5341,7 @@ country_event = {
 	
 	trigger = {
 		is_ai = no
-		mid_game_years_passed > 0
+		years_passed > 50
 		NOR = {
 			has_country_flag = new_precursor
 			has_country_flag = ongoing_precursor_artifact
@@ -5320,6 +5399,10 @@ country_event = {
 	
 	mean_time_to_happen = {
 		months = 240
+		modifier = {
+			factor = 0.75
+			years_passed > 100
+		}		
 	}
 	
 	immediate = {
@@ -5400,7 +5483,7 @@ country_event = {
 
 	trigger = {
 		is_ai = no
-		mid_game_years_passed > 0
+		years_passed > 50
 		NOR = {
 			has_country_flag = new_precursor
 			has_country_flag = ongoing_precursor_artifact
@@ -5547,6 +5630,10 @@ country_event = {
 	
 	mean_time_to_happen = {
 		months = 240
+		modifier = {
+			factor = 0.75
+			years_passed > 100
+		}		
 	}
 
 	immediate = {
@@ -5834,7 +5921,7 @@ country_event = {
 
 	trigger = {
 		is_ai = no
-		mid_game_years_passed > 0
+		years_passed > 50
 		NOR = {
 			has_country_flag = new_precursor
 			has_country_flag = ongoing_precursor_artifact
@@ -5976,6 +6063,10 @@ country_event = {
 	
 	mean_time_to_happen = {
 		months = 240
+		modifier = {
+			factor = 0.75
+			years_passed > 100
+		}		
 	}
 
 	immediate = {

@@ -609,115 +609,41 @@ country_event = {
 	}		
 }
 
-# TODO [HL] [AUG-14707]: Rework for new war system
-# Victory for one side, neutral observer
-#country_event = {
-#	id = war_in_heaven.5
-#	title = war_in_heaven.5.name
-#	desc = war_in_heaven.5.desc
-#	picture = GFX_evt_fallen_empire_awakes
-#	show_sound = event_alien_signal
-#	location = from
-#	
-#	is_triggered_only = yes
-#	
-#	trigger = {
-#		NOT = { has_country_flag = war_in_heaven_winner }
-#		NOT = { has_country_flag = war_in_heaven_loser }
-#	}
-#
-#	option = {
-#		name = war_in_heaven.5.a	
-#	}
-#}
+# Victory for one side
+country_event = {
+	id = war_in_heaven.5
+	title = war_in_heaven.5.name
+	desc = war_in_heaven.5.desc
+	picture = GFX_evt_fallen_empire_awakes
+	show_sound = event_alien_signal
+	location = from
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_subject = no
+	}
 
-# TODO [HL] [AUG-14707]: Rework for new war system
-# Victory for your side, no planets awarded
-#country_event = {
-#	id = war_in_heaven.6
-#	title = war_in_heaven.6.name
-#	desc = war_in_heaven.6.desc
-#	picture = GFX_evt_fallen_empire_awakes
-#	show_sound = event_alien_signal
-#	location = from
-#	
-#	is_triggered_only = yes
-#	
-#	trigger = {
-#		has_country_flag = war_in_heaven_winner
-#		NOT = { has_country_flag = war_in_heaven_planet_was_given }
-#	}
-#
-#	option = {
-#		name = war_in_heaven.6.a	
-#	}
-#}
+	option = {
+		name = war_in_heaven.5.a	
+	}
+}
 
-# TODO [HL] [AUG-14707]: Rework for new war system
-# Victory for your side, planets awarded
-#country_event = {
-#	id = war_in_heaven.7
-#	title = war_in_heaven.7.name
-#	desc = war_in_heaven.7.desc
-#	picture = GFX_evt_fallen_empire_awakes
-#	show_sound = event_alien_signal
-#	location = from
-#	
-#	is_triggered_only = yes
-#	
-#	trigger = {
-#		has_country_flag = war_in_heaven_winner
-#		has_country_flag = war_in_heaven_planet_was_given
-#	}
-#
-#	option = {
-#		name = war_in_heaven.7.a		
-#	}
-#}
+# Ends in Status Quo
+country_event = {
+	id = war_in_heaven.6
+	title = war_in_heaven.6.name
+	desc = war_in_heaven.6.desc
+	picture = GFX_evt_fallen_empire_awakes
+	show_sound = event_alien_signal
+	location = from
+	
+	is_triggered_only = yes
 
-# TODO [HL] [AUG-14707]: Rework for new war system
-# Victory for your side, no planets awarded
-#country_event = {
-#	id = war_in_heaven.8
-#	title = war_in_heaven.8.name
-#	desc = war_in_heaven.8.desc
-#	picture = GFX_evt_fallen_empire_awakes
-#	show_sound = event_alien_signal
-#	location = from
-#	
-#	is_triggered_only = yes
-#	
-#	trigger = {
-#		has_country_flag = war_in_heaven_loser
-#		NOT = { has_country_flag = war_in_heaven_planet_was_lost }
-#	}
-#
-#	option = {
-#		name = war_in_heaven.8.a		
-#	}
-#}
-
-# TODO [HL] [AUG-14707]: Rework for new war system
-# Defeat for your side, planets lost
-#country_event = {
-#	id = war_in_heaven.9
-#	title = war_in_heaven.9.name
-#	desc = war_in_heaven.9.desc
-#	picture = GFX_evt_fallen_empire_awakes
-#	show_sound = event_alien_signal
-#	location = from
-#	
-#	is_triggered_only = yes
-#	
-#	trigger = {
-#		has_country_flag = war_in_heaven_loser
-#		has_country_flag = war_in_heaven_planet_was_lost
-#	}
-#
-#	option = {
-#		name = war_in_heaven.9.a	
-#	}
-#}
+	option = {
+		name = war_in_heaven.6.a		
+	}
+}
 
 # War in Heaven combatant defeated by nonaligned league
 country_event = {

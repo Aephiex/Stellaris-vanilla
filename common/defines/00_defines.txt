@@ -141,7 +141,7 @@
 		PLANET_TILT_FROM_SUN				 = 0.52  # Tilt away from sun
 		PLANET_RING_TILT_FROM_SUN			 = -0.16
 		PLANET_MAP_ICON_OFFSET				 = 0.6	 # based on planet size
-		PLANET_DISSOLVE_ANIMATION_TIME_SCALE = 10.0  # Larger value => planet dissolve animation lasts longer
+		PLANET_DISSOLVE_ANIMATION_TIME_SCALE = 7.4  # Larger value => planet dissolve animation lasts longer
 
 		MEGASTRUCTURE_MAP_ICON_OFFSET		= 0.06	# based on mega structure size
 
@@ -348,6 +348,8 @@
 		GROWING_POP_ALPHA						= 0.60 # Used in planet view surface tab
 		QUEUED_BUILDING_ALPHA					= 0.60 # Used in planet view surface tab
 		POTENTIAL_ARMY_ALPHA					= 0.45 # Used in planet view army tab
+		
+		HIGH_PIRACY_RISK						= 0.5  # used in alerts
 
 		ANOMALY_VIEW_RISK_LOW					= 0.1	# Color green if < 11%
 		ANOMALY_VIEW_RISK_MEDIUM				= 0.49	# Color yellow if < 50% else red
@@ -398,7 +400,7 @@
 		INGAME_HELP_URL_TGP						= "http://plat.tgp.qq.com/forum/index.html#!/2000011"		
 		
 		TOPBAR_BUTTONS_SHORTCUTS				= { "contacts" "F2" "situation" "F3" "technology" "F4" "empire" "F5" "policies" "F6" "factions" "F7" "traditions" "F8" "expansion_planner" "F9" "ship_designer" "F10"}	# Shortcuts for topbar buttons
-		TOPBAR_BUTTONS_PRIORITY					= { "contacts" "situation" "technology" "empire" "policies" "factions" "claims" "strategic_resource" "species" "leaders" "traditions" "expansion_planner" "ship_designer" }	# The order of topbar buttons
+		TOPBAR_BUTTONS_PRIORITY					= { "contacts" "situation" "technology" "empire" "policies" "factions" "claims" "strategic_resource" "species" "leaders" "traditions" "expansion_planner" "ship_designer" "fleet_manager" }	# The order of topbar buttons
 		TOPBAR_BUTTONS							= 4	# Amount of topbar buttons shown
 		
 		NUM_INDENTATION_SPACES = 4
@@ -422,6 +424,15 @@
 		END_GAME_START_MAX = 800
 		END_GAME_START_MIN = 50
 		START_YEAR_SLIDER_INTERVAL = 25
+		
+		PIRACY_BASE_DEFENSE = 10			# Base anti-piracy score
+		PIRACY_OWNED_SYSTEM_SCORE = 1.5		# Per owned system (anti-piracy)
+		PIRACY_STARBASE_SCORE = 2			# Per upgraded starbase (anti-piracy)			
+		PIRACY_STARBASE_LEVEL_SCORE = 1		# Per upgraded starbase level score (anti-piracy)
+		PIRACY_BASE_SCORE = 0				# Base piracy score
+		PIRACY_LAWLESS_SYSTEM_SCORE = 1		# Per lawless system connected to territory (increases piracy)
+		PIRACY_CUT_OFF_SYSTEM_SCORE = 2		# Per cut-off system inside territory (increases piracy)
+		PIRATE_SPAWN_INTERVAL = 1800		# In days
 		
 		TECH_COST_DEFAULT = 1.0
 		TECH_COST_MIN = 0.25
@@ -512,8 +523,6 @@
 
 		BASE_SURVEY_TIME 		= 20.0				# Base Time In Days for surveying a planet
 
-		PIRATE_TARGET_DIST 		= 80.0				# Target system can't be further away from home system
-
 		LEADER_POOL_SIZE		= 3				# Each leader pool will consist of this many leaders
 		LEADER_POOL_LEAD_TIME	= 10				# Years leaders will remain in the leader pool until replaced
 		LEADER_HIRING_COST 		= 200
@@ -540,8 +549,8 @@
 		LEADER_ADMIRAL_FLEET_COMBAT_EXPERIENCE_SCALE				= 0.5 # Scale factor used when calculating experience gain for Admiral
 		LEADER_ADMIRAL_FLEET_COMBAT_SHIPS_KILLED_CONVERSION			= 0.25 # Scale factor for total number of ships killed after combat when calculating experience gain for Admiral
 
-		LEADER_GENERAL_GROUND_COMBAT_BASE_EXPERIENCE				= 10 # Leader General base experience from ground combat
-		LEADER_GENERAL_GROUND_COMBAT_EXPERIENCE_SCALE				= 0.5 # Scale factor used when calculating experience gain for General
+		LEADER_GENERAL_GROUND_COMBAT_BASE_EXPERIENCE				= 100 # Leader General base experience from ground combat
+		LEADER_GENERAL_GROUND_COMBAT_EXPERIENCE_SCALE				= 2.5 # Scale factor used when calculating experience gain for General
 		LEADER_GENERAL_GROUND_COMBAT_ARMIES_KILLED_CONVERSION		= 0.25 # Scale factor for total number of armies killed after combat when calculating experience gain for General
 
 		LEADER_SCIENTIST_LEADING_RESEARCH_FIELD_EXPERIENCE			= 3.5
@@ -550,7 +559,7 @@
 		LEADER_SCIENTIST_COMPLETED_SPECIAL_PROJECT_EXPERIENCE		= 100	# Experience gained from completing a special project
 		LEADER_SCIENTIST_DEEP_SCAN_EXPERIENCE						= 200	# Experience gained from a deep scan
 		LEADER_SCIENTIST_ASSIST_RESEARCH							= 0.10 	# Experience gained from assisting research per day
-		LEADER_SCIENTIST_ASSIST_RESEARCH_MULT						= 0.125	# Assist Research modifier-mult per skill level (this value times skill level equals modifier)
+		LEADER_SCIENTIST_ASSIST_RESEARCH_MULT						= 0.20	# Assist Research modifier-mult per skill level (this value times skill level equals modifier)
 
 		LEADER_GOVERNOR_BUILDING_OR_TILE_CLEAR_EXPERIENCE			= 0.5 # Scale-value for each completed building-construction or tile-clear multiplied with the resources spent
 		LEADER_GOVERNOR_EDICT_GAIN_EXPERIENCE						= 0.05 # Scale-value for the exp-gain given each month an Edict is active on the planet multiplied with the resources spent
@@ -572,15 +581,18 @@
 		PLANETARY_BUILDING_ADD_FACTOR 	= 20		# Used in the calculation of the planetary building progress
 		ORBITAL_BUILDING_DIV_FACTOR		= 6		# Used in the calculation of the orbital building progress
 
-		WAR_EXHAUSTION_SHIP_KILLED_MULT		  = 2.0		# Multiplier of war exhaustion gained from ships
+		WAR_EXHAUSTION_NAVAL_CAP_ADD		  = 100
+		WAR_EXHAUSTION_SHIP_KILLED_MULT		  = 2.00	# Multiplier of war exhaustion gained from ships
 		WAR_EXHAUSTION_ARMY_KILLED_MULT		  = 0.25	# Multiplier of war exhaustion gained from land battles (armies)
-		WAR_EXHAUSTION_PLANET_DESTRUCTION_DIV = 2.0		# War exhaustion from planets destroyed
-		WAR_EXHAUSTION_SYSTEM_OCCUPATION_MULT = 1.0		# War exhaustion from occupied systems
-		WAR_EXHAUSTION_PASSIVE_GAIN_YEARLY	  = 0.083	# The amount of yearly war exhaustion gained during war while under WAR_EXHAUSTION_PASSIVE_GAIN_CUTOFF
+		WAR_EXHAUSTION_PLANET_DESTRUCTION_MULT = 5.0		# War exhaustion from planets destroyed
+		WAR_EXHAUSTION_PASSIVE_GAIN_YEARLY	  = 0.1		# The amount of yearly war exhaustion gained during war while under WAR_EXHAUSTION_PASSIVE_GAIN_CUTOFF
+		WAR_EXHAUSTION_PASSIVE_WAR_SIZE_DIV	  = 0.1	
 		WAR_EXHAUSTION_PASSIVE_GAIN_CUTOFF	  = 1.0		# At this amount of war exhaustion (excluding occupation) you stop getting war exhaustion passively over time
 		WAR_EXHAUSTION_FROM_UNITS_CUTOFF	  = 1.0		# At this amount of war exhaustion (excluding occupation) you stop gaining war exhaustion from lost units
-		WAR_EXHAUSTION_ENFORCE_STATUS_QUO	  = 1.0		# One side can enforce status quo when the other side is at this level of war exhaustion
-		WAR_EXHAUSTION_HIGH_ALERT			  = 0.75	# Show alert if war exhaustion >= this
+		WAR_EXHAUSTION_HIGH_THRESHOLD		  = 1.0		# Apply negative modifier and show alert if war exhaustion >= this
+		
+		ENFORCE_STATUS_QUO_ENABLED	 		  = yes		# Can status quo be enforced at high WE?
+		ENFORCE_STATUS_QUO_MONTHS			  = 24
 		
 		REBELS_JOIN_DISTANCE_SQRT			= 100.0		# Distance threshold if rebels are to join an already existing rebel.
 		REBELS_POWER_THRESHOLD 				= 0.5 		# A Threshold that controls when rebels think they have a chance Higher = more unwilling
@@ -651,6 +663,7 @@
 		AUTO_DECLINE_DIPLOMACY_DAYS			= 180	# Number of days after which diplomatic action will automatically be declined
 		
 		FEDERATION_FLEET_SIZE				= 0.2	# Federation fleet capacity is this % of all members' fleets
+		FEDERATION_MAX_FLEET_SIZE			= 500
 		
 		MIN_RIVAL_YEARS						= 10	# Years before you can remove an empire as a rival
 		DEFENSIVE_PACT_INFLUENCE_COST  		= 1	# Per defensive pact
@@ -748,7 +761,7 @@
 		COLLATERAL_DAMAGE_BASE_SCALE					= 0.02	# Base amount of planetary damage inflicted from collateral damage
 		COLLATERAL_DAMAGE_DEFENDER_MULT					= 0.50	# Collateral damage from defending units is multiplied by this
 		COLLATERAL_DAMAGE_KILL_POP_CHANCE				= 0.33
-		COLLATERAL_DAMAGE_ADD_BLOCKER_CHANCE			= 0.15
+		COLLATERAL_DAMAGE_ADD_BLOCKER_CHANCE			= 0.33
 		COLLATERAL_DAMAGE_MIN_POPS						= 5
 		COLLATERAL_DAMAGE_MAX_BLOCKERS					= 3
 		COLLATERAL_DAMAGE_MAX_PER_DAY					= 0.25	# Per combat side
@@ -769,7 +782,7 @@
 		PLANET_COMBAT_WIDTH_BASE				= 5 # Maximum number of troops that can fight at the same time
 		PLANET_COMBAT_WIDTH_FROM_SIZE 			= 0.2 # Extra combat width per tile
 		
-		GENERAL_DEATH_CHANCE					= 0.1		# Chance that general dies when an army under command is destroyed (scaled to number of armies)
+		GENERAL_DEATH_CHANCE					= 0.05		# Chance that general dies when an army under command is destroyed (scaled to number of armies)
 
 		MAX_OBSERVATION_STATIONS 				= 8 	#Maximum observation stations per planet
 
@@ -795,18 +808,18 @@
 		TECH_WEIGHT_POTENTIAL_ADD				= 0
 		TECH_RESEARCH_NO_LEADER_PENALTY			= -0.25
 		TECH_COST_MULT_FALLEN_EMPIRE			= 2	# Awakened Empires pay this much more to research techs
-		TECH_COST_MULT_NUM_SYSTEMS				= 0.02 # Each System adds +X% tech cost
+		TECH_COST_MULT_NUM_SYSTEMS				= 0.01 # Each System adds +X% tech cost
 		TECH_COST_MULT_NUM_COLONIES				= 0.05 # Each Planet adds +X% tech cost
 		TECH_COST_FREE_POPS						= 10 # First X pops do not add any tech cost
 		TECH_COST_MULT_NUM_POPS					= 0.0 # Each non-free Pop adds +X% tech cost
 		TECH_WEIGHT_PREVIOUS_OPTION				= 0.5	# If a tech was one of the alternatives last time its weight will be multiplied with TECH_WEIGHT_PREVIOUS_OPTION
 
-		## tradition cost = ( base_cost + ( ( cost_tradition * num_traditions )^traditions_exponential ) + cost_pop*num_pops ) * ( 1 + cost_planet*num_planets )
-		TRADITION_COST_TRADITION				= 6
-		TRADITION_COST_TRADITION_EXP			= 1.639 	# numbers like 1.656 or 1.639	
+		## tradition cost = ( base_cost + ( cost_tradition * num_traditions )^traditions_exponential ) * ( 1 + cost_planet*num_planets + cost_system*num_systems )
+		TRADITION_COST_TRADITION				= 7			# change this value if you want to increase all costs
+		TRADITION_COST_TRADITION_EXP			= 1.639 	# change this value if you want to increase costs at the end
 		TRADITION_COST_MULT_TRADITION_GROUP		= 0.05		# each adopted group adds +X% to total cost	
 		TRADITION_COST_MULT_NUM_COLONIES		= 0.20		# Each Planet adds +X% Tradition cost
-		TRADITION_COST_MULT_NUM_SYSTEMS			= 0.02		# Each System adds +X% Tradition cost	
+		TRADITION_COST_MULT_NUM_SYSTEMS			= 0.01		# Each System adds +X% Tradition cost	
 
 		KEYBOARD_DOUBLE_CLICK_TIME				= 0.5	# Seconds listening to control group double clicks.
 
@@ -867,14 +880,14 @@
 		SUBJECT_INTEGRATION_COST_PER_POP 		= 5 # Integration cost per pop 
 		SUBJECT_INTEGRATION_COST_PER_PLANET		= 50 # Integration cost per planet
 
-		COMMAND_LIMIT_MAX										= 200	# Max value of Command Limit
+		COMMAND_LIMIT_MAX										= 500	# Max value of Command Limit
 		COMMAND_LIMIT_BASE 										= 20	# Base value of Command Limit
 		
-		NAVAL_CAPACITY_MAX										= 1000	# Max value of Naval Capacity
+		NAVAL_CAPACITY_MAX										= 9999	# Max value of Naval Capacity
 		NAVAL_CAPACITY_BASE 									= 20	# Base value of Naval Capacity
 		NAVAL_CAPACITY_POP_MULT									= 0.10	# Mult value of Naval Capacity for each Pop
 		
-		STARBASE_CAPACITY_MAX									= 50	# Max value of Starbase Capacity
+		STARBASE_CAPACITY_MAX									= 999	# Max value of Starbase Capacity
 		STARBASE_CAPACITY_BASE 									= 3		# Base value of Starbase Capacity
 		STARBASE_CAPACITY_SYSTEM_MULT							= 0.05	# Mult value of Starbase Capacity for each owned system	
 		STARBASE_CAPACITY_POP_MULT								= 0.025	# Mult value of Starbase Capacity for each Pop	
@@ -897,6 +910,8 @@
 		GATEWAYS_MIN_DISTANCE	= 200		# Min distance between generated shortcuts and their endpoint
 		GALAXY_GENERATION_GATEWAYS_PERCENTAGE	= 0.05		# percentage of systems that will have a shortcut at game start
 		SCIENCE_SHIP_BASIC_SURVEY_SPEED = 1
+
+		EDICT_MAX_RESOURCE_COST = 1000000
 	}
 
 	NSpecies = {
@@ -961,6 +976,8 @@
 		OUT_OF_COMBAT_SHIELD_REGEN_MULT		= 5.0		# Shields recharge this much faster outside combat
 
 		SHIP_SPEED_SCALE					= 0.045		# Setting this to 1 makes the scripted speed value correspond to units/day
+
+		SHIP_MAX_EVASION					= 0.9		# The maximum evasion value a ship is allowed to have (percent)
 
 		FLEET_MOVE_MAX_DIST_SHIPS			= 10.0		# Max distance that ships are allowed to travel before last ship
 
@@ -1068,7 +1085,7 @@
 	NPop = {
 		MAX_POPS_BASE 						= 10		# Max pops is base multiplied by planet size
 		MIN_CROWDING_TO_MIGRATE				= 1		# Unless planet is this % full, pops won't migrate
-		FORCE_MIGRATION_SPEED_MULT 			= 2
+		FORCE_MIGRATION_SPEED_MULT 			= 1
 		MIGRATION_CROWDING_EFFECT			= 0.25		# How much does crowding affect where pops want to migrate
 		MIGRATE_CROWDING_FORCE_MOVE_EFFECT 	= 0.5	# How large is the crowding effect for pops that being force-moved (multiplier on above value)
 		MIGRATION_SAME_SPECIES_EFFECT		= 1.25		# How much does the species being present on a planet affect chance of migrating there
@@ -1213,7 +1230,7 @@
 		CLAIM_COST_RIVAL_DISCOUNT 			= -0.20		# Claims are ( 1 + this ) much less expensive against rivals
 		
 		TRADITION_COST_RESOURCES			= { "unity" } # Resource for tradition cost
-		TRADITION_COST_AMOUNTS				= { 56 }	# Tradition base cost
+		TRADITION_COST_AMOUNTS				= { 100 }	# Tradition base cost
 	}
 
 	NEngine = {
@@ -1222,6 +1239,8 @@
 
 	NAI = {
 		AI_MAX_DISTANCE = 1000						# AI considers all systems more distant than this to be equally uninteresting
+		
+		AI_POP_MODIFICATION_DISCOUNT = 0.25			# AI pays this much (of base) for gene/robomodding projects
 		
 		MIN_DISTANCE_TO_JUMP = 3					# Target must be at least this many systems away for AI to want to use jump drive
 		AI_JUMP_DRIVE_BRAVERY = 0.33				# AI will not want to jump into systems unless enemy is this much weaker than them, relatively
@@ -1274,7 +1293,7 @@
 		CRISIS_MILITARY_POWER_MULT_DESPERATION = 0.10		# AI willing to engage crisis factions at these odds when down to their last few worlds
 		
 		BOSS_MILITARY_POWER = 40000			# The military power at which AI feels safe to engage a 'boss' creature
-		FALLEN_EMPIRE_AVOID_DISTANCE = 100
+		FALLEN_EMPIRE_FLEET_SIZE = 100		# Fallen empires will have fleets of max this size
 	
 		WAS_HUMAN_MONTHS = 60							# Amount of months that the AI will refrain from making large changes to the empire if it's taking over from a player
 		
@@ -1412,12 +1431,12 @@
 		VASSALIZATION_ACCEPTANCE_PROTECTORATE_MAX = 20		
 		VASSALIZATION_ACCEPTANCE_NUM_POPS = -0.25			# per pop
 		VASSALIZATION_ACCEPTANCE_POWER_DIFFERENCE_MIN = 1.5
-		VASSALIZATION_ACCEPTANCE_POWER_DIFFERENCE_MULT = 10  # for each 1x over min
+		VASSALIZATION_ACCEPTANCE_POWER_DIFFERENCE_MULT = 15  # for each 1x over min
 		VASSALIZATION_ACCEPTANCE_POWER_DIFFERENCE_MAX = 100
 		VASSALIZATION_ACCEPTANCE_ATTITUDE_ALLIANCE = 20
-		VASSALIZATION_ACCEPTANCE_ATTITUDE_COEXIST = 10 
+		VASSALIZATION_ACCEPTANCE_ATTITUDE_COEXIST = 0 
 		VASSALIZATION_ACCEPTANCE_ATTITUDE_ATTACK = -1000 
-		VASSALIZATION_ACCEPTANCE_OTHER_ATTITUDE = -100
+		VASSALIZATION_ACCEPTANCE_OTHER_ATTITUDE = -20
 		VASSALIZATION_ACCEPTANCE_OTHER_THREAT_MULT = 0.2
 		VASSALIZATION_ACCEPTANCE_OTHER_THREAT_MAX = 20
 		VASSALIZATION_ACCEPTANCE_DISTANCE_MULT = -0.5 # per 1 border distance
@@ -1450,8 +1469,8 @@
 		TRADE_VALUE_RESOURCE = 2	# for minerals and energy (scaled by income & need)
 		TRADE_VALUE_RESOURCE_MONTHLY_MULT = 0.5 # value of monthly resources is multiplied by this compared to lump-sum
 		TRADE_VALUE_STRATEGIC_RESOURCE = 1 # for 1 strategic resource (per year)
-		TRADE_VALUE_STRATEGIC_RESOURCE_POP = 0.01 # Extra strategic resource value per pop
-		TRADE_VALUE_STRATEGIC_RESOURCE_MAX_POPS = 400 # Over this, additional pops do not count
+		TRADE_VALUE_STRATEGIC_RESOURCE_POP = 0.002 # Extra strategic resource value per pop
+		TRADE_VALUE_STRATEGIC_RESOURCE_MAX_POPS = 500 # Over this, additional pops do not count
 		TRADE_VALUE_SYSTEM = 5
 		TRADE_VALUE_COLONY = 0.2 # Per pop
 		TRADE_VALUE_SENSOR_CHARTS = 2 # Per new comms
@@ -1605,9 +1624,11 @@
 		PEACE_WAR_EXHAUSTION_FACTOR = 100
 		PEACE_OCCUPATION_FACTOR = 100
 		PEACE_STATUS_QUO_FACTOR = -75
+		PEACE_HIGH_WE_STATUS_QUO_FACTOR = 100
 		PEACE_DEMAND_SURRENDER_FACTOR = -100
-		PEACE_DEFENDING_CLAIM_FACTOR = -10
-		PEACE_DEFENDING_IMPORTANT_CLAIM_FACTOR = -100	# For systems with starbases or planets
+		PEACE_DEFENDING_CLAIM_SYSTEM_FACTOR = -10	# For every system
+		PEACE_DEFENDING_CLAIM_STARBASE_FACTOR = -40	# For systems with upgraded starbases
+		PEACE_DEFENDING_CLAIM_PLANET_FACTOR = -100	# For systems with colonies
 		PEACE_RELATIVE_NAVY_STRENGTH_FACTOR = 50	
 
 		TECH_NEED_MULT_VALUE = 10				# Tech need value will multiplied by this value e.g. when certain diplomacy techs are needed
@@ -1626,9 +1647,9 @@
 		THREAT_TRUCE_MONTHS = 12				# AI will not consider the opponent a threat if this many months are left on a truce
 		FLEET_BALANCE_THREAT = 0.5				# If FleetPower of AI / FleetPower of Enemy is lower than this AI will consider the country a threat
 		ENERGY_MONTHS_FACTOR_WAR = 12			# Energy are supposed to last this many months when used to buy new ships in war
-		ENEMY_FLEET_POWER_MULT = 1.2			# AI will need the the fleet power of the enemy multiplied by this value to become offensive in an offensive war
-		ENEMY_ARMY_POWER_MULT = 1.0				# AI will need the the military power of the enemy multiplied by this value to land armies on planet
-		ENEMY_NEUTRALS_FLEET_POWER_MULT = 2	# AI will need the the fleet power of the enemy multiplied by this value to attack neutrals and space hostiles
+		ENEMY_FLEET_POWER_MULT = 1.2			# AI will need the fleet power of the enemy multiplied by this value to become offensive in an offensive war
+		ENEMY_ARMY_POWER_MULT = 1.0				# AI will need the military power of the enemy multiplied by this value to land armies on planet
+		ENEMY_NEUTRALS_FLEET_POWER_MULT = 2	# AI will need the fleet power of the enemy multiplied by this value to attack neutrals and space hostiles
 		ENEMY_FLEET_POWER_HOME_SYSTEM_MULT = 1.0 # AI will need the fleet power of the enemy multiplied by this value to attack hostiles in own systems
 		PRIO_BASE_FRACTION = 0.80				# Prio base fraction for example if prio is assault arsenal fraction will be set to this value
 
@@ -1692,6 +1713,7 @@
 		MAX_EXPANSION_DISTANCE = 1				# Max number of jumps away AI will build starbases
 		MAX_EXPANSION_DISTANCE_SUBJECT = 1		# Max number of jumps away AI subjects will build starbases
 		EXPANSION_OWN_PRIORITY = 1000			# Priority on rebuilding destroyed starbases in colonized systems
+		EXPANSION_CUT_OFF_SYSTEM_PRIORITY = 10	# Priority on systems cut-off inside own territory
 		EXPANSION_BORDERING_PRIORITY = 100		# How much will AI prioritize bordering systems when building starbases
 		EXPANSION_RESOURCE_PRIORITY = 2			# How much will AI prioritize resource-rich systems when building starbases
 		EXPANSION_COLONY_PRIORITY = 10			# How much will AI prioritize systems with colonizeable worlds when building starbases
@@ -1710,4 +1732,15 @@
 		
 		NO_WARS_FLAG = "ai_no_wars"
 		NO_LEAVE_FED_FLAG = "ai_no_leave_fed"
+
+		EMPIRE_RICH_FACTOR = 0.75				# Empire will consider draining a rich sector unless it is above this % of max
+		SECTOR_RICH_FACTOR = 0.5				# Empire considers a sector rich if this % of max
+
+		EMPIRE_POOR_FACTOR = 0.2				# Empire will consider draining any non poor sector if below this
+		SECTOR_POOR_FACTOR = 0.2				# Empire considers sector poor if below this % of max
+
+		SURRENDER_ACCEPTANCE_HIGHEST = 1		# Display "ready to surrender" in war summary badge
+		SURRENDER_ACCEPTANCE_HIGH = -20			# Display "approaching surrender" in war summary badge
+		SURRENDER_ACCEPTANCE_LOW = -60			# Display "unlikely to surrender" in war summary badge
+		SURRENDER_ACCEPTANCE_LOWEST = -100		# Display "for sure not surrender" in war summary badge
 	}

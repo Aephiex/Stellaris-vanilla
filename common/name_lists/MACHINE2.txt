@@ -105,6 +105,10 @@ MACHINE2 = {
 		clone_army = {
 			sequential_name = "%O% Cybertron Clones"
 		}
+
+		machine_occupation_army = {
+			sequential_name = "%O% Occubots"
+		}
 	}
 		
 	planet_names = {

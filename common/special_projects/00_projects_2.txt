@@ -97,7 +97,7 @@ special_project = {
 	#cost = 0
 	days_to_research = 20
 	tech_department = society_technology
-	timelimit = 720
+	timelimit = 1080
 	picture = GFX_evt_alien_planet
 	icon = "gfx/interface/icons/situation_log/situation_log_quest.dds"
 	
@@ -122,7 +122,7 @@ special_project = {
 	#cost = 200
 	days_to_research = 30
 	tech_department = society_technology
-	timelimit = 720
+	timelimit = 1080
 	picture = GFX_evt_alien_planet
 	icon = "gfx/interface/icons/situation_log/situation_log_quest.dds"
 	
@@ -147,7 +147,7 @@ special_project = {
 	#cost = 400
 	days_to_research = 10
 	tech_department = society_technology
-	timelimit = 400
+	timelimit = 1080
 	picture = GFX_evt_alien_planet
 	icon = "gfx/interface/icons/situation_log/situation_log_quest.dds"
 
@@ -433,7 +433,7 @@ special_project = {
 	#cost = 100
 	days_to_research = 10
 	tech_department = engineering_technology
-	timelimit = 90
+	timelimit = 1080
 	picture = GFX_evt_satellite_in_orbit
 	
 	event_scope = ship_event

@@ -2015,6 +2015,27 @@ building_replicator = {
 		minerals = 500
 	}
 	
+	planet_modifier_with_pop_trigger = {
+		key = building_replicator
+		potential = {  
+			NAND = {
+				has_citizenship_type = { type = citizenship_purge }
+				OR = { 
+					has_purge_type = { type = purge_normal }
+					has_purge_type = { type = purge_processing }
+					has_purge_type = { type = purge_matrix }
+				}
+			}
+			NAND = {
+				has_citizenship_type = { type = citizenship_slavery }
+				OR = { 
+					has_slavery_type = { type = slavery_livestock } 
+					has_slavery_type = { type = slavery_matrix } 
+				}					
+			}
+		}
+	}
+	
 	allow = {
 		if = {
 			limit = {
@@ -2051,7 +2072,7 @@ building_replicator = {
 	}
 	
 	planet_modifier = {
-		static_planet_resource_minerals_add = 30
+		static_planet_resource_minerals_add = 40
 	}
 	
 	required_resources = {
@@ -4498,12 +4519,27 @@ building_stronghold = {
 	
 	planetary_ftl_inhibitor = yes
 	
+	potential = {
+		planet = {
+			NOT = { is_planet_class = pc_habitat }	
+		}
+	}
+	
 	prerequisites = {
 		"tech_planetary_defenses"
 	}
 	
 	cost = {
 		minerals = 300
+	}
+	
+	produced_resource_trigger = {
+		modifier = {		
+			has_valid_civic = civic_citizen_service
+			resources = {
+				unity = 1
+			}
+		}
 	}
 	
 	produced_resources = {
@@ -4527,6 +4563,18 @@ building_stronghold = {
 		modifier = {
 			factor = 0
 			years_passed < 25
+		}
+		modifier = {
+			factor = 0
+			planet = { 
+				unrest < 50
+				sector_controlled = yes 
+				owner = { is_ai = no }
+			}
+			NOR = { 
+				has_building = "building_stronghold" 
+				has_building = "building_fortress"
+			}
 		}
 		modifier = {
 			factor = 0
@@ -4624,12 +4672,28 @@ building_fortress = {
 	
 	planetary_ftl_inhibitor = yes
 	
+	
+	potential = {
+		planet = {
+			NOT = { is_planet_class = pc_habitat }	
+		}
+	}
+	
 	prerequisites = {
 		"tech_global_defense_grid"
 	}
 	
 	cost = {
 		minerals = 500
+	}
+	
+	produced_resource_trigger = {
+		modifier = {		
+			has_valid_civic = civic_citizen_service
+			resources = {
+				unity = 1
+			}
+		}
 	}
 	
 	produced_resources = {
@@ -4683,6 +4747,18 @@ building_fortress = {
 			factor = 0
 			years_passed < 25
 		}
+		modifier = {
+			factor = 0
+			planet = { 
+				unrest < 50
+				sector_controlled = yes 
+				owner = { is_ai = no }
+			}
+			NOR = { 
+				has_building = "building_stronghold" 
+				has_building = "building_fortress"
+			}
+		}		
 		modifier = {
 			factor = 0
 			planet = {

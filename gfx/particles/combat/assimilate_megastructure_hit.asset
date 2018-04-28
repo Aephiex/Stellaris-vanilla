@@ -2,7 +2,7 @@ particle={
 	name="assimilate_laser_megastructure_hit_effect"
 	subsystem={
 		name="beam_end"
-		max_amount=50
+		max_amount=40
 		slave_particles=0
 		emitter_type="point"
 		invert=no
@@ -75,7 +75,7 @@ particle={
 	}
 	subsystem={
 		name="streaks_beam"
-		max_amount=200
+		max_amount=20
 		slave_particles=0
 		emitter_type="box"
 		box_emitter_x={ 0.000 20.000 }
@@ -140,19 +140,6 @@ particle={
 		time="life"
 	}
 	animation={
-		name="halosphere_alpha"
-		start=0.000
-		duration=1.000
-		repeat=no
-		minValue=0.000
-		maxValue=1.000
-		curve={
-			0.000 1.000 0.229 0.508 0.509 1.000 0.753 0.523 1.000 1.000 
-		}
-		op="MUL"
-		time="life"
-	}
-	animation={
 		name="smoke_alpha"
 		start=0.000
 		duration=1.000
@@ -164,20 +151,6 @@ particle={
 		}
 		op="MUL"
 		time="life"
-	}
-	force={
-		type="planar"
-		name="upforce"
-		position={
-			0.000 0.000 20.000 
-		}
-		direction={
-			0.000 0.000 -1.000 
-		}
-		local_force=yes
-		yaw=0.000
-		division=16
-		amount=2.000
 	}
 	force={
 		type="point"

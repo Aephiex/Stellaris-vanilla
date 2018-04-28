@@ -2,7 +2,7 @@ particle={
 	name="shatter_planet_laser_muzzle"
 	subsystem={
 		name="flare_big"
-		max_amount=25
+		max_amount=10
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"
@@ -43,7 +43,7 @@ particle={
 	}
 	subsystem={
 		name="cloud"
-		max_amount=50
+		max_amount=12
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"
@@ -124,7 +124,7 @@ particle={
 	}
 	subsystem={
 		name="fire"
-		max_amount=50
+		max_amount=12
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"

@@ -2,7 +2,7 @@ particle={
 	name="wormhole_idle_file"
 	subsystem={
 		name="darkness_end"
-		max_amount=15
+		max_amount=5
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"
@@ -118,7 +118,7 @@ particle={
 	}
 	subsystem={
 		name="lightning"
-		max_amount=10
+		max_amount=3
 		slave_particles=0
 		sort="depth"
 		emitter_type="sphere"
@@ -158,7 +158,7 @@ particle={
 	}
 	subsystem={
 		name="pillar_middle"
-		max_amount=40
+		max_amount=30
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"
@@ -197,7 +197,7 @@ particle={
 	}
 	subsystem={
 		name="halo_shrink"
-		max_amount=10
+		max_amount=6
 		slave_particles=0
 		sort="depth"
 		emitter_type="box"
@@ -237,7 +237,7 @@ particle={
 	}
 	subsystem={
 		name="outburst_halos"
-		max_amount=100
+		max_amount=80
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"
@@ -279,7 +279,7 @@ particle={
 	}
 	subsystem={
 		name="pillar_middle_orbs"
-		max_amount=40
+		max_amount=15
 		slave_particles=0
 		sort="depth"
 		emitter_type="box"
@@ -363,7 +363,7 @@ particle={
 	}
 	subsystem={
 		name="pillar_base"
-		max_amount=15
+		max_amount=6
 		slave_particles=0
 		sort="depth"
 		emitter_type="point"

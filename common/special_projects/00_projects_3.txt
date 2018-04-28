@@ -62,7 +62,7 @@ special_project = {
 	#cost = 0
 	days_to_research = 30
 	tech_department = society_technology
-	timelimit = 100
+	timelimit = 1080
 	picture = GFX_evt_sapient_AI
 	icon = "gfx/interface/icons/situation_log/situation_log_ai.dds"
 
@@ -184,7 +184,7 @@ special_project = {
 	#cost = 0
 	days_to_research = 60
 	tech_department = engineering_technology
-	timelimit = 365
+	timelimit = 1080
 	picture = GFX_evt_mining_station
 	icon = "gfx/interface/icons/situation_log/situation_log_engineering.dds"
 
@@ -233,7 +233,7 @@ special_project = {
 	#cost = 0
 	days_to_research = 45
 	tech_department = engineering_technology
-	timelimit = 500
+	timelimit = 1080
 	picture = GFX_evt_ship_in_orbit
 	icon = "gfx/interface/icons/situation_log/situation_log_engineering.dds"
 	
@@ -335,7 +335,7 @@ special_project = {
 	#cost = 0
 	days_to_research = 7
 	tech_department = society_technology
-	timelimit = 90
+	timelimit = 1080
 	picture = GFX_evt_ship_under_attack
 	icon = "gfx/interface/icons/situation_log/situation_log_extradimensional.dds"
 
@@ -558,8 +558,8 @@ special_project = {
 	on_success = {
 		root = {
 			random_list = {
-				30 = { planet_event = { id = colony.2006 } } #ship can be used
-				50 = { planet_event = { id = colony.2007 } } #ship can be salvaged
+				50 = { planet_event = { id = colony.2006 } } #ship can be used
+				30 = { planet_event = { id = colony.2007 } } #ship can be salvaged
 				20 = { planet_event = { id = colony.2008 } } #ship cannot be salvaged
 			}
 		}

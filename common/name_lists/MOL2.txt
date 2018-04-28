@@ -97,6 +97,18 @@ MOL2 = {
 		gene_warrior_army = {
 			sequential_name = "%O% Manipulated Troops"
 		}
+
+		occupation_army = {
+			sequential_name = "%O% Shore Occupiers"
+		}
+
+		robotic_occupation_army = {
+			sequential_name = "%O% Mechanica Occupiers"
+		}
+
+		android_occupation_army = {
+			sequential_name = "%O% Replicata Occupiers"
+		}
 	}
 
 	planet_names = {

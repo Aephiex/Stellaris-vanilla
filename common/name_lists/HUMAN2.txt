@@ -70,7 +70,7 @@ HUMAN2 = {
 	
 	army_names = {
 		generic = { 
-			sequential_name = "%O% Colonial Garrison"
+			sequential_name = "%O% Colonial Gendarmerie"
 		}
 
 		assault_army = {
@@ -90,7 +90,7 @@ HUMAN2 = {
 		}
 
 		robotic_defense_army = {
-			sequential_name = "%O% Unmanned Garrison"
+			sequential_name = "%O% Unmanned Gendarmerie"
 		}
 		
 		android_army = {
@@ -98,7 +98,7 @@ HUMAN2 = {
 		}
 
 		android_defense_army = {
-			sequential_name = "%O% Android Garrison"
+			sequential_name = "%O% Android Gendarmerie"
 		}
 		
 		psionic_army = { 
@@ -119,6 +119,18 @@ HUMAN2 = {
 		
 		gene_warrior_army = {
 			sequential_name = "%O% Eugenic Vanguard"
+		}
+
+		occupation_army = {
+			sequential_name = "%O% Occupation Legion"
+		}
+
+		robotic_occupation_army = {
+			sequential_name = "%O% Unmanned Garrison"
+		}
+
+		android_occupation_army = {
+			sequential_name = "%O% Android Garrison"
 		}
 	}
 

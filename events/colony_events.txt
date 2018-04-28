@@ -258,6 +258,10 @@ planet_event = {
 		create_country = {
 			name = "NAME_Rampaging_Forests"
 			type = faction
+			effect = {
+				establish_communications_no_message = root.owner
+				establish_contact = { who = root.owner location = root.solar_system }
+			}
 		}
 		create_species = {
 			name = "NAME_Migrating_Trees"
@@ -269,19 +273,19 @@ planet_event = {
 			name = "NAME_Rampaging_Forest"
 			owner = last_created
 			species = last_created
-			type = "assault_army"
+			type = "tree_army"
 		}
 		create_army = {
 			name = "NAME_Rampaging_Forest"
 			owner = last_created
 			species = last_created
-			type = "assault_army"
+			type = "tree_army"
 		}
 		create_army = {
 			name = "NAME_Rampaging_Forest"
 			owner = last_created
 			species = last_created
-			type = "assault_army"
+			type = "tree_army"
 		}
 	}
 	
@@ -2602,6 +2606,9 @@ planet_event = {
 			create_country = {
 				name = "NAME_Deformed_Creatures"
 				type = faction
+				effect = {
+					establish_communications_no_message = root.owner
+				}
 			}
 			create_army = {
 				name = "NAME_Deformed_Creatures"
@@ -2821,6 +2828,9 @@ planet_event = {
 		create_country = {
 			name = "NAME_Marauding_Creatures"
 			type = faction
+			effect = {
+				establish_communications_no_message = root.owner
+			}
 		}
 		create_army = {
 			name = "NAME_Marauding_Swarms"
@@ -3877,6 +3887,7 @@ planet_event = {
 		is_occupied_flag = no
 		num_pops > 0
 		is_capital = no
+		years_passed < 50
 		NOR = {
 			is_planet_class = pc_habitat
 			is_planet_class = pc_ringworld_habitable

@@ -102,6 +102,18 @@ AVI1 = {
 		gene_warrior_army = {
 			sequential_name = "%O% Death Commando"
 		}
+
+		occupation_army = {
+			sequential_name = "%O% Occupation Wing"
+		}
+
+		robotic_occupation_army = {
+			sequential_name = "%O% Occupation Machines"
+		}
+
+		android_occupation_army = {
+			sequential_name = "%O% Occupation Sentinels"
+		}
 	}
 		
 	planet_names = {

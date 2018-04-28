@@ -2595,7 +2595,10 @@ hostile_init_18 = {
 		}
 		modifier = {
             factor = 0
-            has_star_flag = empire_cluster
+            OR = {
+				has_star_flag = empire_cluster
+				host_has_dlc = "Apocalypse"
+			}
         }
 	}
 

@@ -2,7 +2,7 @@ particle={
 	name="shattered_planet_crack_effect"
 	subsystem={
 		name="glow"
-		max_amount=50
+		max_amount=20
 		slave_particles=0
 		sort="depth"
 		emitter_type="box"
@@ -43,7 +43,7 @@ particle={
 	}
 	subsystem={
 		name="eruption_lines"
-		max_amount=50
+		max_amount=20
 		slave_particles=0
 		sort="depth"
 		emitter_type="box"
@@ -84,7 +84,7 @@ particle={
 	}
 	subsystem={
 		name="eruption_lines_thick"
-		max_amount=50
+		max_amount=30
 		slave_particles=0
 		sort="depth"
 		emitter_type="box"
@@ -125,7 +125,7 @@ particle={
 	}
 	subsystem={
 		name="eruption_fire"
-		max_amount=50
+		max_amount=5
 		slave_particles=0
 		sort="depth"
 		emitter_type="box"

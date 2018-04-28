@@ -5362,11 +5362,15 @@ planet_event = {
 	}
 	
 	mean_time_to_happen = {
-		months = 5000
+		years = 400
 		modifier = {
 			factor = 0.75
 			observation_outpost = { has_mission = specimen_collection }
 		}
+		modifier = {
+			factor = 0.5
+			observation_outpost = { has_mission = native_indoctrination }
+		}		
 	}
 	
 	immediate = {

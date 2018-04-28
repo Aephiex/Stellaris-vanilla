@@ -96,6 +96,18 @@ MAM3 = {
 		gene_warrior_army = {
 			sequential_name = "%O% Gene-Warrior Division"
 		}
+
+		occupation_army = {
+			sequential_name = "%O% Occupation Army"
+		}
+
+		robotic_occupation_army = {
+			sequential_name = "%O% Occupation Robot Army"
+		}
+
+		android_occupation_army = {
+			sequential_name = "%O% Occupation Android Army"
+		}
 	}
 
 	planet_names = {

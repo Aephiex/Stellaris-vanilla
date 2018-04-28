@@ -133,7 +133,7 @@ special_project = {
 	#cost = 0
 	days_to_research = 1
 	tech_department = society_technology
-	timelimit = 360
+	timelimit = 1080
 	picture = GFX_evt_alien_city
 	icon = "gfx/interface/icons/situation_log/situation_log_quest.dds"
 	
@@ -164,7 +164,7 @@ special_project = {
 	#cost = 0
 	days_to_research = 1
 	tech_department = society_technology
-	timelimit = 360
+	timelimit = 1080
 	picture = GFX_evt_alien_city
 	icon = "gfx/interface/icons/situation_log/situation_log_quest.dds"
 	
@@ -191,7 +191,7 @@ special_project = {
 	#cost = 0
 	days_to_research = 1
 	tech_department = society_technology
-	timelimit = 360
+	timelimit = 1080
 	picture = GFX_evt_alien_city
 	icon = "gfx/interface/icons/situation_log/situation_log_quest.dds"
 	

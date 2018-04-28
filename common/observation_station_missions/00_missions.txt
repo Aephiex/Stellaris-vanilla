@@ -84,7 +84,7 @@ native_indoctrination = {
 	}
 	
 	gain = {
-		society_research = 6
+		society_research = 10
 	}
 	
 	#planet_modifier = native_indoctrination

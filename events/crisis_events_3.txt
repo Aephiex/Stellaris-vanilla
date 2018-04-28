@@ -1309,12 +1309,20 @@ country_event = {
 
 	desc = {
 		text = crisis.2037.desc
-		trigger = { NOT = { has_global_flag = first_machine_world_destroyed } }
+		trigger = { 
+			NOT = { has_global_flag = first_machine_world_destroyed } 
+			NOT = {
+				from = { has_planet_flag = destroyed_by_colossus } 
+			}
+		}
 	}
 	desc = {
 		text = crisis.2037.alt.desc
 		trigger = { 
 			has_global_flag = first_machine_world_destroyed
+			NOT = {
+				from = { has_planet_flag = destroyed_by_colossus } 
+			}
 			OR = {
 				NOT = { has_authority = auth_machine_intelligence }
 				AND = {
@@ -1333,6 +1341,24 @@ country_event = {
 			has_global_flag = first_machine_world_destroyed
 			has_authority = auth_machine_intelligence
 			NOT = { has_country_flag = ghost_signal_blocked }
+		}
+	}
+	desc = {
+		text = crisis.2037.alt.cracked.desc
+		trigger = {
+			from = { 
+				has_planet_flag = destroyed_by_colossus
+				has_planet_flag = planet_cracked
+			} 
+		}
+	}
+	desc = {
+		text = crisis.2037.alt.shielded.desc
+		trigger = {
+			from = { 
+				has_planet_flag = destroyed_by_colossus
+				has_planet_flag = planet_shielded
+			} 
 		}
 	}
 
@@ -1367,7 +1393,32 @@ country_event = {
 country_event = {
 	id = crisis.2038
 	title = "crisis.2038.name"
-	desc = "crisis.2038.desc"
+	desc = {
+		text = crisis.2038.desc
+		trigger = { 
+			NOT = {
+				from = { has_planet_flag = destroyed_by_colossus } 
+			}
+		}
+	}
+	desc = {
+		text = crisis.2038.cracker.desc
+		trigger = { 
+			from = { 
+				has_planet_flag = destroyed_by_colossus
+				has_planet_flag = planet_cracked
+			}
+		}
+	}
+	desc = {
+		text = crisis.2038.shield.desc
+		trigger = { 
+			from = { 
+				has_planet_flag = destroyed_by_colossus
+				has_planet_flag = planet_shielded
+			}
+		}
+	}
 	picture = GFX_evt_exploding_planet
 	show_sound = event_super_explosion
 	location = from
@@ -1420,17 +1471,20 @@ planet_event = {
 				remove_point_of_interest = ai_crisis_poi.4
 			}
 		}
-		destroy_colony = yes
-		change_pc = pc_broken
-		reset_planet = yes
-		#set_planet_entity = { entity = "barren_planet_01_destroyed_entity" }
-		orbital_deposit_tile = {
-			hidden_effect = { clear_deposits = yes }
-			add_deposit = d_living_metal_deposit
-			add_deposit = d_vast_mineral_deposit
-			add_deposit = d_vast_energy_deposit
+		if = {
+			limit = {
+				NOT = { has_planet_flag = destroyed_by_colossus }
+			}
+			destroy_colony = yes
+			change_pc = pc_broken
+			reset_planet = yes
+			orbital_deposit_tile = {
+				hidden_effect = { clear_deposits = yes }
+				add_deposit = d_living_metal_deposit
+				add_deposit = d_vast_mineral_deposit
+				add_deposit = d_vast_energy_deposit
+			}
 		}
-
 
 		every_country = {
 			limit = { has_event_chain = "ai_crisis_chain" }
@@ -1741,14 +1795,31 @@ planet_event = {
 	}
 	
 	immediate = {
-		from = { set_country_flag = does_not_compute }
+		from = { save_event_target_as = final_machine_world_destroyer }
+		planet_event = { id = crisis.2046 }
+	}
+}
+
+# Final Machine World Destroyed
+planet_event = {
+	id = crisis.2046
+	hide_window = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		event_target:final_machine_world_destroyer = { set_country_flag = does_not_compute }
 		remove_global_flag = synth_terror
 		remove_global_flag = ai_ghost_signal
 		remove_global_flag = ai_invasion_ongoing
-		destroy_colony = yes
-		change_pc = pc_broken
-		reset_planet = yes
-		#set_planet_entity = { entity = "barren_planet_01_destroyed_entity" }
+		if = {
+			limit = {
+				NOT = { has_planet_flag = destroyed_by_colossus }
+			}
+			destroy_colony = yes
+			change_pc = pc_broken
+			reset_planet = yes
+		}
 		every_country = {
 			limit = { has_notification_modifier = ghost_signal_1 }
 			remove_notification_modifier = ghost_signal_1
@@ -1801,7 +1872,7 @@ planet_event = {
 			destroy_country = yes # Destroy the Contingency
 		}
 
-		FROM = { set_country_flag = final_machine_world_destroyed }
+		event_target:final_machine_world_destroyer = { set_country_flag = final_machine_world_destroyed }
 
 		# Cybrex
 		if = {
@@ -2022,6 +2093,7 @@ pop_event = {
 				has_notification_modifier = ghost_signal_2
 				has_notification_modifier = ghost_signal_1
 			}
+			NOT = { has_country_flag = synthetic_empire }
 		}
 	}
 	

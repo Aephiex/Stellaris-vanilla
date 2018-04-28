@@ -298,4 +298,10 @@ spriteTypes = {
 		name = "GFX_text_ship_stats_special"
 		texturefile = "gfx/interface/icons/ship_stats/special.dds"
 	}
+
+	spriteType = {
+		name = "GFX_text_fleet_status"
+		texturefile = "gfx/interface/outliner/outliner_upgradable_design.dds"
+		noOfFrames = 2
+	}
 }

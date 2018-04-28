@@ -8,6 +8,7 @@
 #  requires_actor_federation_leader, boolean, false by default, if the actor is in a federation, he has to be the leader of it.
 #  requires_recipient_federation_leader, boolean, true by default, if the recipient is in a federation, he has to be the leader of it.
 #  show_decline_to_alliance_members, boolean, false by default, will show your alliance members when you decline a proposal of this type.
+#  should_show_accept_message, decides whether actor gets a response on acceptance (otherwise just on decline)
 #  should_show_auto_accept_message_recipient, boolean, decides if the recipient gets a message showing the diplomatic action.
 #  should_open_auto_accept_message_recipient, boolean, decides if the recipient automatically opens this message.
 #  should_show_auto_accept_message_actor, boolean, decides if the actor gets a reply showing the diplomatic action.
@@ -39,6 +40,7 @@ action_offer_peace = {
 	requires_actor_independence = no
 	requires_recipient_independence = no
 	should_notify_all_communications = yes
+	should_show_accept_message = no
 }
 
 # Dummy action for opening the war overview from the diplomacy view
@@ -169,6 +171,10 @@ action_make_rival = {
 				}
 			}
 		}
+		custom_tooltip = {
+			fail_text = "requires_actor_not_machine_assimilator"
+			NOT = { has_valid_civic = civic_machine_assimilator }
+		}		
 		custom_tooltip = {
 			fail_text = "requires_actor_not_inward_perfection"
 			NOT = { has_valid_civic = civic_inwards_perfection }
@@ -1133,13 +1139,21 @@ action_demand_vassalization = {
 		}
 		custom_tooltip = {
 			fail_text = requires_domination_adopted
-			has_non_swapped_tradition = tr_domination_adopt
+			has_subjugation_req = yes
 		}
 	}
 
 	proposable = {
-		is_neighbor_of = from
-		relative_power = { who = from value >= superior }
+		if = {
+			limit = {
+				hidden_trigger = { from = { is_country_type = awakened_fallen_empire } }
+			}
+			hidden_trigger = { always = yes }
+			else = {
+				is_neighbor_of = from
+				relative_power = { who = from value >= superior }			
+			}
+		}
 		custom_tooltip = grants_subjugation_cb
 	}
 
@@ -1302,8 +1316,12 @@ action_demand_tributary = {
 			}
 		}
 		custom_tooltip = {
+			fail_text = "requires_actor_not_inward_perfection"
+			NOT = { has_valid_civic = civic_inwards_perfection }
+		}
+		custom_tooltip = {
 			fail_text = requires_domination_adopted
-			has_non_swapped_tradition = tr_domination_adopt
+			has_subjugation_req = yes
 		}
 	}
 

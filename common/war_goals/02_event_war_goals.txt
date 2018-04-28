@@ -37,6 +37,25 @@ wg_war_in_heaven = {
 		always = yes
 	}
 	
+	on_accept  = {
+		hidden_effect = {
+			save_event_target_as = WarInHeavenFEOne
+			every_playable_country = {
+				country_event = { id = war_in_heaven.5 }
+			}			
+		}
+	}	
+	
+	on_status_quo = {
+		hidden_effect = {
+			save_event_target_as = WarInHeavenFEOne
+			from = { save_event_target_as = WarInHeavenFETwo }
+			every_playable_country = {
+				country_event = { id = war_in_heaven.6 }
+			}			
+		}
+	}
+	
 	ai_weight = {
 		weight = 100
 	}

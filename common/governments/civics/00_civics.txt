@@ -138,6 +138,7 @@ civic_meritocracy = {
 }
 
 civic_citizen_service = {
+	description = "civic_tooltip_citizen_service_effects"
 	potential = { ethics = { NOT = { value = ethic_gestalt_consciousness } } }
 	possible = {
 		ethics = {
@@ -208,6 +209,7 @@ civic_police_state = {
 	random_weight = { base = 5 }
 	modifier = {
 		planet_unrest_mult = -0.25
+		country_piracy_risk_mult = -0.25
 	}
 }
 
@@ -312,6 +314,7 @@ civic_distinguished_admiralty = {
 	random_weight = { base = 5 }
 	modifier = {
 		admiral_skill_levels = 2
+		country_leader_cap = 2
 	}
 }
 
@@ -328,7 +331,7 @@ civic_free_haven = {
 	}
 	random_weight = { base = 5 }
 	modifier = {
-		planet_migration_all_pull = 0.50
+		planet_migration_xeno_pull = 0.50
 	}
 }
 
@@ -443,8 +446,8 @@ civic_nationalistic_zeal = {
 	}
 	random_weight = { base = 5 }
 	modifier = {
+		country_war_exhaustion_mult = -0.1
 		country_claim_influence_cost_mult = -0.1
-		max_rivalries = 1
 	}
 }
 
@@ -469,8 +472,8 @@ civic_aristocratic_elite = {
 	}
 	random_weight = { base = 5 }
 	modifier = {
-		leader_governor_cost = -0.50
-		country_leader_cap = 4
+		governor_skill_levels = 2
+		country_leader_cap = 2
 	}
 }
 
@@ -545,7 +548,6 @@ civic_syncretic_evolution = {
 		title = civic_syncretic_evolution_secondary_species
 		traits = {
 			trait = trait_syncretic_proles
-			trait = trait_strong
 		}
 	}
 }
@@ -708,7 +710,7 @@ civic_ancient_caches_of_technology = {
 	}
 	random_weight = { base = 5 }
 	modifier = { 
-		pop_resource_output = 0.25	
+		pop_resource_output = 0.5	
 	}
 }
 
@@ -952,12 +954,13 @@ civic_hive_devouring_swarm = {
 	random_weight = { base = 5 }
 	description = "civic_tooltip_devouring_swarm_effects"
 	modifier = {
+		country_starbase_influence_cost_mult = -0.5
 		ship_hull_mult = 0.25
 		ship_hull_regen_add_perc = 0.5
 		ship_armor_regen_add_perc = 0.5
 		army_damage_mult = 0.40
 		category_biology_research_speed_mult = 0.20
-		starbase_shipyard_build_cost_mult = -0.15
+		starbase_shipyard_build_cost_mult = -0.25
 		country_naval_cap_mult = 0.33
 	}
 }
@@ -1013,6 +1016,7 @@ civic_machine_terminator = {
 	}
 	description = civic_tooltip_machine_terminator_effects
 	modifier = {
+		country_starbase_influence_cost_mult = -0.3
 		ship_weapon_damage = 0.25
 		starbase_shipyard_build_cost_mult = -0.15
 		country_naval_cap_mult = 0.33

@@ -255,14 +255,7 @@ totalitarian = {
 
 		trigger = {
 			owner = {
-				OR = {
-					has_tradition = "tr_domination_adopt"
-					has_tradition = "tr_domination_colonial_viceroys"
-					has_tradition = "tr_domination_protection_racket"
-					has_tradition = "tr_domination_star_lords"
-					has_tradition = "tr_domination_fleet_levies"
-					has_tradition = "tr_domination_vassal_acculturation"
-				}
+				has_tradition = "tr_domination_adopt"
 			}
 		}
 	}

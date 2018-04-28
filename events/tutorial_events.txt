@@ -21,6 +21,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		NOT = {
 			has_event_chain = tutorial_1_chain
@@ -94,8 +95,8 @@ ship_event = {
 
 	trigger = {
 		owner = {
-			is_tutorial_level = 2
 			is_ai = no
+			is_tutorial_level = 2
 			has_country_flag = tutorial_1
 		}
 	}
@@ -128,6 +129,7 @@ country_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		is_ai = no
 		any_owned_ship = {
 			has_fleet_order = survey_planet_order
 		}
@@ -154,6 +156,7 @@ ship_event = {
 	trigger = {
 		has_fleet_order = survey_planet_order
 		owner = {
+			is_ai = no
 			is_tutorial_level = 2
 			has_country_flag = tutorial_1
 			NOT = { has_country_flag = tutorial_2 }
@@ -181,6 +184,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		NOT = {
 			has_event_chain = tutorial_2_chain
@@ -218,9 +222,10 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		is_ai = no
 		has_technology = tech_colonization_1
 		is_tutorial_level = 2
-		not = {
+		NOT = {
 			has_country_flag = tutorial_2
 		}
 	}
@@ -239,6 +244,7 @@ country_event = {
 #	is_triggered_only = yes
 #	
 #	trigger = {
+#		is_ai = no
 #		is_tutorial_level = 2
 #		has_technology = tech_colonization_1
 #		has_event_chain = "tutorial_2_chain"
@@ -264,6 +270,7 @@ country_event = {
 #	is_triggered_only = yes
 #	
 #	trigger = {
+#		is_ai = no
 #		last_increased_tech = "tech_space_construction"
 #		has_event_chain = "tutorial_2_chain"
 #		NOT = { has_country_flag = tech_2_researched }
@@ -300,6 +307,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		has_technology = tech_colonization_1
 		has_event_chain = "tutorial_2_chain"
@@ -335,6 +343,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		count_owned_ships = {
 			limit = { is_ship_class = shipclass_constructor }
@@ -365,6 +374,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		count_owned_ships = {
 			limit = { is_ship_class = shipclass_constructor }
@@ -390,6 +400,7 @@ ship_event = {
 	trigger = {
 		is_ship_size = constructor
 		owner = {
+			is_ai = no
 			is_tutorial_level = 2
 			has_event_chain = "tutorial_3_chain"
 		}
@@ -480,6 +491,7 @@ ship_event = {
 	
 	trigger = {
 		owner = {
+			is_ai = no
 			is_tutorial_level = 2
 			NOT = {
 				has_event_chain = "tutorial_4_chain"
@@ -509,6 +521,7 @@ ship_event = {
 	
 	trigger = {
 		owner = {
+			is_ai = no
 			is_tutorial_level = 2
 			has_event_chain = "tutorial_4_chain"
 			#any_owned_ship = { is_ship_size = mining_station }
@@ -603,6 +616,7 @@ ship_event = {
 	
 	trigger = {
 		owner = {
+			is_ai = no
 			is_tutorial_level = 2
 			NOT = {
 				has_event_chain = "tutorial_5_chain"
@@ -631,6 +645,7 @@ ship_event = {
 	
 	trigger = {
 		owner = {
+			is_ai = no
 			is_tutorial_level = 2
 			has_event_chain = "tutorial_5_chain"
 			#any_owned_ship = { is_ship_size = research_station } #removed cause otherwise you need to build 2 before this is triggered
@@ -662,6 +677,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		NOT = {
 			has_event_chain = tutorial_6_chain
@@ -693,6 +709,7 @@ planet_event = {
 	
 	trigger = {
 		owner = {
+			is_ai = no
 			is_tutorial_level = 2
 			NOT = { has_country_flag = tutorial_cleared_early_14 }
 		}
@@ -718,6 +735,7 @@ planet_event = {
 	
 	trigger = {
 		owner = {
+			is_ai = no
 			is_tutorial_level = 2
 			has_event_chain = "tutorial_6_chain"
 		}
@@ -750,6 +768,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		NOT = {
 			has_country_flag = tutorial_cleared_early_16
@@ -778,6 +797,7 @@ planet_event = {
 	
 	trigger = {
 		owner = {
+			is_ai = no
 			is_tutorial_level = 2
 			NOT = { has_country_flag = tutorial_cleared_early_16 }
 		}
@@ -800,6 +820,7 @@ planet_event = {
 	
 	trigger = {
 		owner = {
+			is_ai = no
 			is_tutorial_level = 2
 			has_event_chain = "tutorial_7_chain"
 		}
@@ -828,6 +849,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		NOT = {
 			has_event_chain = tutorial_8_chain
@@ -920,6 +942,7 @@ ship_event = {
 
 	trigger = {
 		owner = {
+			is_ai = no
 			is_tutorial_level = 2
 			NOT = {
 				has_country_flag = tutorial_cleared_early_17
@@ -984,6 +1007,7 @@ country_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		has_event_chain = "tutorial_8_chain"
 		FROM = {
@@ -1037,6 +1061,7 @@ country_event = {
 	is_advisor_event = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		has_event_chain = "tutorial_8_chain"
 		has_completed_event_chain_counter = {
@@ -1077,6 +1102,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		NOT = {
 			has_event_chain = tutorial_9_chain
@@ -1107,6 +1133,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		count_owned_ships = {
 			limit = { is_ship_class = shipclass_science_ship }
@@ -1132,6 +1159,7 @@ ship_event = {
 	trigger = {
 		is_ship_class = shipclass_science_ship
 		owner = {
+			is_ai = no
 			is_tutorial_level = 2
 			has_event_chain = "tutorial_9_chain"
 			count_owned_ships = {
@@ -1166,6 +1194,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		any_owned_ship = {
 			is_ship_class = shipclass_science_ship
@@ -1202,6 +1231,7 @@ country_event = {
 	is_advisor_event = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		has_event_chain = "tutorial_10_chain"
 		count_owned_ships = {
@@ -1286,6 +1316,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		OR = {
 			count_owned_ships = {
@@ -1317,6 +1348,7 @@ ship_event = {
 	trigger = {
 		is_ship_class = shipclass_colonizer
 		owner = {
+			is_ai = no
 			is_tutorial_level = 2
 			has_event_chain = "tutorial_11_chain"
 		}
@@ -1350,6 +1382,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		has_technology = tech_colonization_1
 		NOT = {
@@ -1384,6 +1417,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		any_owned_planet = {
 			is_capital = no
@@ -1408,6 +1442,7 @@ planet_event = {
 	trigger = {
 		exists = owner
 		owner = {
+			is_ai = no
 			is_tutorial_level = 2
 			has_event_chain = "tutorial_12_chain"
 		}
@@ -1442,6 +1477,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		any_owned_planet = {
 			is_capital = no
@@ -1473,6 +1509,7 @@ country_event = {
 	is_advisor_event = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		has_event_chain = "tutorial_13_chain"
 		any_owned_planet = {
@@ -1595,6 +1632,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		NOT = {
 			has_event_chain = tutorial_15_chain
@@ -1615,6 +1653,7 @@ country_event = {
 		custom_tooltip = tutorial_15_tooltip
 	}
 }
+
 # Cleared Early
 country_event = {
 	id = tutorial.330
@@ -1622,6 +1661,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		has_monthly_income = { resource = energy value > 9 }
 		has_monthly_income = { resource = minerals value > 29 }
@@ -1638,6 +1678,7 @@ country_event = {
 	hide_window = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		has_event_chain = "tutorial_15_chain"
 		NOT = { has_country_flag = tutorial_15_minerals_achieved }
@@ -1668,6 +1709,7 @@ country_event = {
 	hide_window = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		has_event_chain = "tutorial_15_chain"
 		has_country_flag = tutorial_15_minerals_achieved
@@ -1694,6 +1736,7 @@ country_event = {
 	hide_window = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		has_event_chain = "tutorial_15_chain"
 		NOT = { has_country_flag = tutorial_15_credits_achieved }
@@ -1724,6 +1767,7 @@ country_event = {
 	hide_window = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		has_event_chain = "tutorial_15_chain"
 		has_country_flag = tutorial_15_credits_achieved
@@ -1755,6 +1799,7 @@ country_event = {
 	is_advisor_event = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		has_event_chain = "tutorial_15_chain"
 		has_completed_event_chain_counter = {
@@ -1792,6 +1837,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		count_owned_ships = {
 			limit = { is_ship_size = corvette }
@@ -1826,6 +1872,7 @@ ship_event = {
 	
 	trigger = {
 		owner = {
+			is_ai = no
 			is_tutorial_level = 2
 			has_event_chain = "tutorial_16_chain" 
 			NOT = { has_country_flag = tutorial_16_corvettes_built }
@@ -1853,6 +1900,7 @@ country_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		has_event_chain = "tutorial_16_chain"
 		NOT = { has_country_flag = tutorial_16_corvettes_built }
@@ -1873,6 +1921,7 @@ country_event = {
 	hide_window = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		has_event_chain = "tutorial_16_chain"
 		NOT = { has_country_flag = tutorial_16_admiral_assigned }
@@ -1910,6 +1959,7 @@ country_event = {
 	is_advisor_event = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		has_event_chain = "tutorial_16_chain"
 		has_completed_event_chain_counter = {
@@ -1948,6 +1998,7 @@ planet_event = {
 	trigger = {
 		exists = owner
 		owner = {
+			is_ai = no
 			is_tutorial_level = 2
 			check_variable = { 
 				which = "num_colonies" 
@@ -2000,6 +2051,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		sectors < 1
 		check_variable = { 
@@ -2032,6 +2084,7 @@ country_event = {
 	is_advisor_event = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		has_event_chain = "tutorial_17_chain"
 		sectors > 0
@@ -2066,6 +2119,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		any_sector = {
 			NOT = { exists = leader }
@@ -2098,6 +2152,7 @@ country_event = {
 	is_advisor_event = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		has_event_chain = "tutorial_18_chain"
 		any_sector = { exists = leader }
@@ -2129,6 +2184,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		NOT = {
 			has_event_chain = tutorial_19_chain
@@ -2156,6 +2212,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		NOT = {
 			has_event_chain = "tutorial_19_chain"
@@ -2179,6 +2236,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		has_event_chain = "tutorial_19_chain"
 	}
@@ -2209,6 +2267,7 @@ ship_event = {
 
 	trigger = {
 		owner = {
+			is_ai = no
 			is_tutorial_level = 2
 			NOT = {
 				has_event_chain = tutorial_20_chain
@@ -2245,6 +2304,7 @@ country_event = {
 	is_advisor_event = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		has_event_chain = "tutorial_20_chain"
 		any_owned_ship = { is_ship_size = observation_station }
@@ -2287,7 +2347,10 @@ ship_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		owner = { is_tutorial_level = 2 }
+		owner = {
+			is_ai = no
+			is_tutorial_level = 2
+		}
 	}
 
 	option = {
@@ -2313,6 +2376,7 @@ ship_event = {
 		}
 	}
 }
+
 ship_event = {
 #Story5
 	id = tutorial.53
@@ -2337,7 +2401,10 @@ ship_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		owner = { is_tutorial_level = 2 }
+		owner = {
+			is_ai = no
+			is_tutorial_level = 2
+		}
 	}
 
 	immediate = { hidden_effect = { owner = { country_event = { id = story.5 days = 30 } } } }
@@ -2378,6 +2445,7 @@ ship_event = {
 		}
 	}
 }
+
 ship_event = {
 	id = tutorial.54
 	title = tutorial.52.name
@@ -2388,7 +2456,10 @@ ship_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		owner = { is_tutorial_level = 2 }
+		owner = {
+			is_ai = no
+			is_tutorial_level = 2
+		}
 	}
 
 	option = {
@@ -2441,6 +2512,7 @@ ship_event = {
 
 	trigger = {
 		owner = {
+			is_ai = no
 			is_tutorial_level = 2
 			NOT = {
 				has_event_chain = tutorial_21_chain
@@ -2524,6 +2596,7 @@ ship_event = {
 		custom_tooltip = tutorial_21_tooltip
 	}
 }
+
 # Start with meantime
 country_event = {
 	id = tutorial.555
@@ -2534,6 +2607,7 @@ country_event = {
 	is_advisor_event = yes
 
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		NOT = {
 			has_event_chain = tutorial_21_chain
@@ -2630,6 +2704,7 @@ ship_event = {
 
 	trigger = {
 		owner = {
+			is_ai = no
 			is_tutorial_level = 2
 			has_event_chain = "tutorial_21_chain"
 			NOT = { has_country_flag = finished_tutorial_21 }
@@ -2663,6 +2738,7 @@ ship_event = {
 		name = OK
 	}
 }
+
 # Finished by having a mining station on a resource before researching the required tech
 country_event = {
 	id = tutorial.560
@@ -2673,6 +2749,7 @@ country_event = {
 	is_advisor_event = yes
 
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		NOT = { has_country_flag = finished_tutorial_21 }
 		capital_scope = {
@@ -2829,6 +2906,10 @@ country_event = {
 	hide_window = yes
 	is_triggered_only = yes
 
+	trigger = {
+		is_ai = no
+	}
+
 	immediate = {
 		end_event_chain = "tutorial_21b_chain"
 	}
@@ -2854,6 +2935,7 @@ country_event = {
 	is_advisor_event = yes
 
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		NOT = {
 			has_event_chain = tutorial_22_chain
@@ -2885,6 +2967,7 @@ country_event = {
 	is_advisor_event = yes
 
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		has_event_chain = tutorial_22_chain
 	}
@@ -2911,6 +2994,7 @@ country_event = {
 	is_advisor_event = yes
 
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		NOT = {
 			has_event_chain = tutorial_23_chain
@@ -2942,6 +3026,7 @@ country_event = {
 	is_advisor_event = yes
 
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		has_event_chain = tutorial_23_chain
 	}
@@ -2967,6 +3052,7 @@ country_event = {
 	is_advisor_event = yes
 
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		has_event_chain = tutorial_23_chain
 	}
@@ -2989,8 +3075,8 @@ country_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		is_tutorial_level = 2
 		is_country_type = default
+		from = { is_tutorial_level = 2 }
 	}
 
 	immediate = {
@@ -3011,6 +3097,7 @@ country_event = {
 	is_advisor_event = yes
 
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		is_country_type = default
 		has_event_chain = tutorial_23_chain
@@ -3025,7 +3112,6 @@ country_event = {
 					}
 				}
 			}
-			break = yes
 			else = { end_event_chain = tutorial_23_chain }
 		}
 	}
@@ -3047,6 +3133,7 @@ country_event = {
 	is_advisor_event = yes
 
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		OR = {
 			last_increased_tech = "tech_gene_tailoring"
@@ -3083,6 +3170,7 @@ country_event = {
 	is_advisor_event = yes
 
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		has_event_chain = tutorial_24_chain
 	}
@@ -3128,6 +3216,7 @@ country_event = {
 	is_advisor_event = yes
 
 	trigger = {
+		is_ai = no
 		is_tutorial_level > 0
 	}
 
@@ -3166,6 +3255,7 @@ country_event = {
 	is_advisor_event = yes
 
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		OR = {
 			last_increased_tech = tech_epigenetic_triggers
@@ -3219,6 +3309,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		NOT = {
 			has_event_chain = tutorial_25_chain
@@ -3247,6 +3338,7 @@ ship_event = {
 	
 	trigger = {
 		owner = {
+			is_ai = no
 			is_tutorial_level = 2
 			NOT = { has_country_flag = tutorial_cleared_early_75 }
 		}
@@ -3269,6 +3361,7 @@ ship_event = {
 	
 	trigger = {
 		owner = {
+			is_ai = no
 			is_tutorial_level = 2
 			has_event_chain = "tutorial_25_chain"
 		}
@@ -3294,6 +3387,7 @@ country_event = {
 	is_advisor_event = yes
 
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 0
 		has_country_flag = tutorial_level_picked
 	}
@@ -3318,6 +3412,7 @@ country_event = {
 	is_advisor_event = yes
 
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 1
 		has_country_flag = tutorial_level_picked
 		NOT = { has_ethic = ethic_gestalt_consciousness }
@@ -3343,6 +3438,7 @@ country_event = {
 	is_advisor_event = yes
 
 	trigger = {
+		is_ai = no
 		is_tutorial_level = 2
 		has_country_flag = tutorial_level_picked
 		NOT = { has_ethic = ethic_gestalt_consciousness }
@@ -3373,6 +3469,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		is_ai = no
 		OR = {
 			is_tutorial_level = 0
 			is_tutorial_level = 1
@@ -3549,6 +3646,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		is_ai = no
 		is_tutorial_level < 1
 		NOT = { has_country_flag = tutorial_level_picked }
 	}

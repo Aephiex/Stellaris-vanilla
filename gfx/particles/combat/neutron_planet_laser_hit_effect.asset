@@ -2,7 +2,7 @@ particle={
 	name="neutron_planet_laser_hit_effect"
 	subsystem={
 		name="magma"
-		max_amount=50
+		max_amount=20
 		slave_particles=0
 		emitter_type="point"
 		invert=no
@@ -72,7 +72,7 @@ particle={
 	}
 	subsystem={
 		name="shockwaves"
-		max_amount=100
+		max_amount=15
 		slave_particles=0
 		emitter_type="point"
 		invert=no
@@ -108,7 +108,7 @@ particle={
 	}
 	subsystem={
 		name="surface_sparks"
-		max_amount=100
+		max_amount=40
 		slave_particles=0
 		emitter_type="point"
 		invert=no
@@ -142,7 +142,7 @@ particle={
 	}
 	subsystem={
 		name="surface_fire"
-		max_amount=100
+		max_amount=15
 		slave_particles=0
 		emitter_type="point"
 		invert=no
@@ -176,7 +176,7 @@ particle={
 	}
 	subsystem={
 		name="beam_end"
-		max_amount=20
+		max_amount=10
 		slave_particles=0
 		emitter_type="point"
 		invert=no

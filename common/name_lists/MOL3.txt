@@ -97,6 +97,18 @@ MOL3 = {
 		gene_warrior_army = {
 			sequential_name = "%O% Bio-Enhanced Brigade"
 		}
+
+		occupation_army = {
+			sequential_name = "%O% Occupation Bastion"
+		}
+
+		robotic_occupation_army = {
+			sequential_name = "%O% Steel Occupiers"
+		}
+
+		android_occupation_army = {
+			sequential_name = "%O% Thought Circuit Occupiers"
+		}
 	}
 
 	planet_names = {

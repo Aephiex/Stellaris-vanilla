@@ -142,7 +142,7 @@ citizenship_assimilation = {
 		hidden_trigger = { exists = from }
 		custom_tooltip = {
 			fail_text = MUST_NOT_BE_DOMINANT_SPECIES
-			NOT = { is_same_species = from }
+			NOT = { is_exact_same_species = from }
 		}
 		custom_tooltip = {
 			fail_text = "lonely_hive_mind_pops_kill_themselves_citizenship"
@@ -514,9 +514,10 @@ citizenship_caste_system = {
 citizenship_caste_system_limited = {
 	token = citizenship_caste_system_limited
 	
-	pop_modifier = {
-		pop_happiness = -0.1
-		pop_consumer_goods_mult = -0.25	
+	# Only applies to the pops that are not enslaved
+	free_pop_modifier = {
+		pop_happiness = -0.05
+		pop_consumer_goods_mult = -0.20	
 	}
 
 	potential = {
@@ -728,15 +729,16 @@ citizenship_purge = {
 				is_same_species = from
 			}
 		}
-		custom_tooltip = {
-			fail_text = same_species_disallowed
-			NOT = { is_same_species = from }
-		}
 		if = { 
 			limit = { is_lonely_hive_mind_pop = yes } 
 			always = yes
 			
 			else = {
+				custom_tooltip = {
+					fail_text = same_species_disallowed
+					NOT = { is_same_species = from }
+				}
+			
 				OR = {
 					custom_tooltip = {
 						#fail_text = default
@@ -834,6 +836,10 @@ citizenship_purge_machine = {
 			has_trait = trait_machine_unit
 			has_trait = trait_mechanical
 		}
+		NAND = {
+			is_lonely_hive_mind_pop = no
+			from = { has_valid_civic = civic_machine_servitor }
+		}
 	}
 
 	allow = {
@@ -841,7 +847,7 @@ citizenship_purge_machine = {
 		custom_tooltip = {
 			fail_text = same_species_disallowed
 			NOT = { is_same_species = from }
-		}
+		}		
 	}
 	ai_will_do = {
 		factor = 0
@@ -2321,22 +2327,30 @@ population_control_yes = {
 
 	allow = {
 		hidden_trigger = { exists = from }
-		custom_tooltip = {
-			fail_text = same_species_disallowed
-			OR = {
-				NOT = { is_same_species = from }
-				from = { has_authority = auth_machine_intelligence }
+		if = { 
+			limit = {
+				has_citizenship_type = { country = from type = citizenship_purge }
 			}
-		}
-		custom_tooltip = {
-			fail_text = empire_xenophile
-			from = {
-				NOR = {
-					has_ethic = ethic_xenophile
-					has_ethic = ethic_fanatic_xenophile
+			always = yes
+			else = {
+				custom_tooltip = {
+					fail_text = same_species_disallowed
+					OR = {
+						NOT = { is_same_species = from }
+						from = { has_authority = auth_machine_intelligence }
+					}
 				}
-			}
-		}	
+				custom_tooltip = {
+					fail_text = empire_xenophile
+					from = {
+						NOR = {
+							has_ethic = ethic_xenophile
+							has_ethic = ethic_fanatic_xenophile
+						}
+					}
+				}		
+			}				
+		}
 	}
 	ai_will_do = {
 		factor = 2
@@ -2399,10 +2413,18 @@ colonization_control_yes = {
 
 	allow = {
 		hidden_trigger = { exists = from }
-		custom_tooltip = {
-			fail_text = same_species_disallowed
-			NOT = { is_same_species = from }
-		}		
+		if = { 
+			limit = {
+				has_citizenship_type = { country = from type = citizenship_purge }
+			}
+			always = yes
+			else = {
+				custom_tooltip = {
+					fail_text = same_species_disallowed
+					NOT = { is_same_species = from }
+				}	
+			}
+		}	
 	}
 
 	ai_will_do = {

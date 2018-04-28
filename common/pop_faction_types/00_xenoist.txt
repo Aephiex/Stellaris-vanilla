@@ -367,14 +367,7 @@ xenoist = {
 
 		trigger = {
 			owner = {
-				OR = {
-					has_tradition = "tr_diplomacy_adopt"
-					has_tradition = "tr_diplomacy_dynamic_ecomorphism"
-					has_tradition = "tr_diplomacy_federal_unity"
-					has_tradition = "tr_diplomacy_the_federation"
-					has_tradition = "tr_diplomacy_entente_coordination"
-					has_tradition = "tr_diplomacy_alien_tourism"
-				}
+				has_tradition = "tr_diplomacy_adopt"
 			}
 		}
 	}

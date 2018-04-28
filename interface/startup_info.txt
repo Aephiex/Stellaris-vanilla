@@ -1,4 +1,4 @@
-﻿Stellaris has changed quite dramatically in 2.0, including a complete overhaul of the way FTL travel works. Overall, you can expect the pace of expansion to be more measured and deliberate, and you now have much greater choice over which star systems you want to control.
+﻿Stellaris has changed quite dramatically in version 2.0, including a complete overhaul of the way FTL travel works. Overall, you can expect the pace of expansion to be more measured and deliberate, and you now have much greater choice over which star systems you want to control.
 
 You will need to use your construction ships to build Starbases that control systems and defend your borders. Starbases can be upgraded with shipyards to construct military fleets, or turned into mighty fortresses able to defend vital choke points and strategically important systems.
 
@@ -12,4 +12,4 @@ We hope you are ready for the Apocalypse!
 
 ---
 
-Due to the size and scope of the changes, saved games from before version 2.0 will not be compatible with version 2.0. If you wish to continue your old save in version 1.9, follow the forum link below and read the thread 'How to revert Stellaris to a previous version'.
+Due to the size and scope of the changes, saved games from previous versions will not be compatible with version 2.0. If you wish to continue your old save in version 1.9, follow the forum link below and read the thread 'How to revert Stellaris to a previous version'.

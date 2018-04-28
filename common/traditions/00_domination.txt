@@ -23,16 +23,12 @@ tr_domination_adopt = {
 
 	tradition_swap = {
 		name = tr_domination_adopt_machine
-		inherit_effects = no
+		inherit_effects = yes
 		inherit_icon = yes
 		inherit_name = no
 		trigger = {			
 			has_authority = auth_machine_intelligence
 			NOT = { has_civic = civic_machine_terminator }
-		}
-
-		modifier = {
-			country_subject_acceptance_add = 20
 		}
 
 		weight = {
@@ -42,16 +38,10 @@ tr_domination_adopt = {
 	
 	ai_weight = {
 		factor = 20		
-		# generally don't pick unless we have subjects
 		modifier = {
 			factor = 0.01
 			NOT = {
-				any_subject = {
-					OR = {
-						is_subject_type = tributary
-						is_subject_type = vassal
-					}
-				}			
+				has_ai_personality_behaviour = subjugator			
 			}
 		}
 		modifier = {
@@ -158,7 +148,7 @@ tr_domination_protection_racket = {
 		has_tradition = tr_domination_colonial_viceroys
 	}
 	modifier = {
-		subject_tribute_mult = 0.125
+		subject_tribute_mult = 0.5
 	}
 	
 	tradition_swap = {
@@ -330,7 +320,7 @@ tr_domination_fleet_levies = {
 	}
 	
 	modifier = {
-		country_vassal_naval_capacity_contribution_mult = 0.50
+		country_vassal_naval_capacity_contribution_mult = 1.00
 	}
 	
 	tradition_swap = {

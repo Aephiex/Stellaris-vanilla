@@ -1,20 +1,16 @@
 tr_expansion_adopt = {
 	
 	modifier = {
-		planet_colony_development_speed_mult = 1.00
+		planet_colony_development_speed_mult = 0.50
 	}
 
 	tradition_swap = {
 		name = tr_expansion_adopt_machine
-		inherit_effects = no
+		inherit_effects = yes
 		inherit_icon = yes
 		inherit_name = no
 		trigger = {
 			has_authority = auth_machine_intelligence
-		}
-
-		modifier = {
-			planet_colony_development_speed_mult = 1.00
 		}
 
 		weight = {
@@ -24,15 +20,11 @@ tr_expansion_adopt = {
 
 	tradition_swap = {
 		name = tr_expansion_adopt_hive
-		inherit_effects = no
+		inherit_effects = yes
 		inherit_icon = yes
 		inherit_name = no
 		trigger = {
 			has_authority = auth_hive_mind
-		}
-
-		modifier = {
-			planet_colony_development_speed_mult = 1.00
 		}
 
 		weight = {
@@ -57,16 +49,11 @@ tr_expansion_finish = {
 
 	tradition_swap = {
 		name = tr_expansion_adopt_machine
-		inherit_effects = no
+		inherit_effects = yes
 		inherit_icon = yes
 		inherit_name = no
 		trigger = {
 			has_authority = auth_machine_intelligence
-		}
-
-		modifier = {
-			country_core_sector_system_cap = 2
-			ascension_perks_add = 1
 		}
 
 		weight = {
@@ -76,16 +63,11 @@ tr_expansion_finish = {
 
 	tradition_swap = {
 		name = tr_expansion_adopt_machine # uses same name and desc
-		inherit_effects = no
+		inherit_effects = yes
 		inherit_icon = yes
 		inherit_name = no
 		trigger = {
 			has_authority = auth_hive_mind
-		}
-
-		modifier = {
-			country_core_sector_system_cap = 2
-			ascension_perks_add = 1
 		}
 
 		weight = {
@@ -258,7 +240,7 @@ tr_expansion_galactic_ambition = {
 	}
 	
 	modifier = {
-		country_starbase_capacity_add = 2
+		country_starbase_upkeep_mult = -0.2
 	}
 
 	tradition_swap = {

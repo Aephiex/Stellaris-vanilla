@@ -80,7 +80,7 @@ unity = {
 	accumulative = yes
 	collect_if_wrong_building = no
 	AI_category = unity
-	base_income = 1
+	base_income = 2
 }
 
 ###########################

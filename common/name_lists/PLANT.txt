@@ -118,6 +118,18 @@ PLANT = {
 		gene_warrior_army = {
 			sequential_name = "%O% Transgenic Wreath"
 		}
+
+		occupation_army = {
+			sequential_name = "%O% Occupation Wreath"
+		}
+
+		robotic_occupation_army = {
+			sequential_name = "%O% Brass Occupation Wreath"
+		}
+
+		android_occupation_army = {
+			sequential_name = "%O% Golden Occupation Wreath"
+		}
 	}
 	
 	planet_names = {

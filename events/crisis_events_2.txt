@@ -892,46 +892,33 @@ country_event = {
 				}
 			}
 			FROM = { save_event_target_as = portal_killer }
-			every_country = {
-				limit = {
-					is_country_type = default
-					has_communications = FROM
+			every_playable_country = {
+				if = {
+					limit = { has_communications = FROM }
+					add_opinion_modifier = {
+						who = FROM
+						modifier = opinion_destroyed_portal
+					}
 				}
-				add_opinion_modifier = {
-					who = FROM
-					modifier = opinion_destroyed_portal
-				}
-			}
-			every_country = {
-				limit = { is_country_type = default }
 				add_modifier = {
 					modifier = "extradimensionals_defeated"
 					days = 360
 				}
-			}
-			every_country = {
-				limit = {
-					#is_ai = no
-					is_country_type = default
-				}
 				country_event = { id = crisis.1013 }
 			}
-			break = yes
-		}
-		if = {
-			limit = {
-				has_global_flag = extradimensional_second_portal
-				NOT = {
-					has_global_flag = extradimensional_second_portal_destroyed
-					has_global_flag = extradimensional_third_portal_destroyed
+			else = {
+				if = {
+					limit = {
+						has_global_flag = extradimensional_second_portal
+						NOT = {
+							has_global_flag = extradimensional_second_portal_destroyed
+							has_global_flag = extradimensional_third_portal_destroyed
+						}
+					}
+					every_playable_country = {
+						country_event = { id = crisis.1016 }
+					}
 				}
-			}
-			every_country = {
-				limit = {
-					#is_ai = no
-					is_country_type = default
-				}
-				country_event = { id = crisis.1016 }
 			}
 		}
 	}

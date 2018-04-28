@@ -111,6 +111,10 @@ MACHINE3 = {
 		clone_army = {
 			sequential_name = "%O% Bio-Curated Clones"
 		}
+
+		machine_occupation_army = {
+			sequential_name = "%O% Occupation Caretaker Squad"
+		}
 	}
 		
 

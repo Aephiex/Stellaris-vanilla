@@ -4,6 +4,7 @@
 
 guardian = {
 	is_space_critter = yes
+	blocks_piracy = yes
 	destroys_starbases = yes
 	ai = {
 		enabled = no
@@ -23,6 +24,7 @@ guardian = {
 
 guardian_dragon = {
 	is_space_critter = yes
+	blocks_piracy = yes
 	destroys_starbases = yes
 	ai = {
 		enabled = no
@@ -42,6 +44,7 @@ guardian_dragon = {
 
 guardian_stellarite = {
 	is_space_critter = yes
+	blocks_piracy = yes
 	destroys_starbases = yes
 	ai = {
 		enabled = no
@@ -61,6 +64,7 @@ guardian_stellarite = {
 
 guardian_wraith = {
 	is_space_critter = yes
+	blocks_piracy = yes
 	destroys_starbases = yes
 	ai = {
 		enabled = no
@@ -81,6 +85,7 @@ guardian_wraith = {
 guardian_hiver = {
 	attack_unarmed_orbital_stations = yes
 	is_space_critter = yes
+	blocks_piracy = yes
 	destroys_starbases = yes
 	ai = {
 		enabled = no
@@ -100,6 +105,7 @@ guardian_hiver = {
 
 guardian_horror = {
 	is_space_critter = yes
+	blocks_piracy = yes
 	destroys_starbases = yes
 	ai = {
 		enabled = no
@@ -119,6 +125,7 @@ guardian_horror = {
 
 guardian_fortress = {
 	is_space_critter = yes
+	blocks_piracy = yes
 	destroys_starbases = yes
 	ai = {
 		enabled = no
@@ -138,6 +145,7 @@ guardian_fortress = {
 
 guardian_dreadnought = {
 	is_space_critter = yes
+	blocks_piracy = yes
 	destroys_starbases = yes
 	ai = {
 		enabled = no
@@ -157,6 +165,8 @@ guardian_dreadnought = {
 
 guardian_sphere = {
 	is_space_critter = yes
+	blocks_piracy = yes
+	blocks_piracy = yes
 	destroys_starbases = yes
 	ai = {
 		enabled = no

@@ -119,6 +119,18 @@ PLANT4 = {
 		gene_warrior_army = {
 			sequential_name = "%O% Stirpes ka Genea"
 		}
+
+		occupation_army = {
+			sequential_name = "%O% Stirpes ka Matea"
+		}
+
+		robotic_occupation_army = {
+			sequential_name = "%R% Matea Sentis"
+		}
+
+		android_occupation_army = {
+			sequential_name = "%R% Stirpes ka Dendro"
+		}
 	}
 	
 	planet_names = {

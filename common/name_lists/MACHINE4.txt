@@ -82,6 +82,10 @@ MACHINE4 = {
 		clone_army = {
 			sequential_name = "%O% Replica Regiment"
 		}
+
+		machine_occupation_army = {
+			sequential_name = "%O% Occupation Assignment"
+		}
 	}
 
 	planet_names = {

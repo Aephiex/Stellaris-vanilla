@@ -426,8 +426,9 @@ country_event = {
 			limit = {
 				distance = {
 					source = event_target:anomaly_planet
-					max_distance = 120
-					min_distance = 1
+					use_bypasses = no
+					min_jumps = 1
+					max_jumps = 8
 				}
 				has_owner = yes
 				owner = {
@@ -808,8 +809,9 @@ ship_event = {
 				limit = {
 					distance = {
 						source = event_target:anomaly_star
-						max_distance = 80
-						min_distance = 40
+						use_bypasses = no
+						min_jumps = 3
+						max_jumps = 8
 					}
 					NOT = {
 						has_star_flag = current_system
@@ -825,8 +827,9 @@ ship_event = {
 				limit = {
 					distance = {
 						source = event_target:anomaly_star
-						max_distance = 80
-						min_distance = 25
+						use_bypasses = no
+						min_jumps = 2
+						max_jumps = 7
 					}
 					NOT = {
 						has_star_flag = current_system
@@ -2691,15 +2694,11 @@ ship_event = {
 	}
 	option = {
 		name = "anomaly.4086.b"
-		custom_tooltip = "anomaly.4086.b.tooltip"
-		hidden_effect = {
-			fromfrom = {
-				owner = {
-					add_modifier = {
-						modifier = army_speed_boost
-						days = -1
-					}
-				}
+		#custom_tooltip = "anomaly.4086.b.tooltip"
+		root.owner = {
+			add_modifier = {
+				modifier = army_speed_boost
+				days = -1
 			}
 		}
 	}
@@ -2742,6 +2741,16 @@ ship_event = {
 		}
 		#Find some available planets
 		owner = {
+			IF = {
+				LIMIT = {
+					NOT = {
+						any_owned_planet = {
+							habitability = { who = event_target:RefugeeAliens value > 0.5 }
+						}
+					}
+				}
+				set_country_flag = uninhabitable_for_refugees
+			}
 			random_owned_planet = {
 				limit = {
 					NOR = {
@@ -3042,6 +3051,20 @@ ship_event = {
 					remove_planet_flag = refugee_planet_4
 				}
 				country_event = { id = anomaly.4091 days = 1 } 
+			}
+		}
+	}
+
+	option = {
+		name = "anomaly.4090.uninhabitable"
+		exclusive_trigger = {
+			owner = {
+				has_country_flag = uninhabitable_for_refugees
+			}
+		}
+		hidden_effect = {
+			owner = {
+				remove_country_flag = uninhabitable_for_refugees
 			}
 		}
 	}

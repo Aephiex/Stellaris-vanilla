@@ -127,6 +127,8 @@ d_rich_mineral_deposit = {
 				OR = {
 					is_planet_class = pc_barren
 					is_planet_class = pc_barren_cold
+					is_planet_class = pc_broken
+					is_planet_class = pc_shattered
 				}
 			}
 		}
@@ -194,6 +196,15 @@ d_vast_mineral_deposit = {
 			}
 		}
 		modifier = {
+			weight = 2
+			planet = {
+				OR = {
+					is_planet_class = pc_broken
+					is_planet_class = pc_shattered
+				}
+			}
+		}		
+		modifier = {
 			factor = 0.5
 			planet = {
 				is_asteroid = yes
@@ -257,6 +268,15 @@ d_immense_mineral_deposit = {
 				is_asteroid = yes
 			}
 		}
+		modifier = {
+			weight = 1
+			planet = {
+				OR = {
+					is_planet_class = pc_broken
+					is_planet_class = pc_shattered
+				}
+			}
+		}			
 		modifier = {
 			factor = 0.5
 			planet = {
@@ -553,7 +573,7 @@ d_rich_energy_deposit = {
 			}
 		}
 		modifier = {
-			weight = 100
+			weight = 50
 			planet = {
 				OR = {
 					is_planet_class = pc_a_star
@@ -564,7 +584,7 @@ d_rich_energy_deposit = {
 					is_planet_class = pc_m_star
 				}
 			}
-		}
+		}			
 		modifier = {
 			weight = 25
 			planet = {
@@ -618,15 +638,9 @@ d_vast_energy_deposit = {
 					is_planet_class = pc_nuked
 				}
 			}
-		}		
+		}
 		modifier = {
-			weight = 10
-			planet = {
-				is_planet_class = pc_gas_giant
-			}
-		}	
-		modifier = {
-			weight = 30
+			weight = 60
 			planet = {
 				OR = {
 					is_planet_class = pc_a_star
@@ -635,7 +649,7 @@ d_vast_energy_deposit = {
 			}
 		}
 		modifier = {
-			weight = 20
+			weight = 40
 			planet = {
 				OR = {
 					is_planet_class = pc_f_star
@@ -644,14 +658,14 @@ d_vast_energy_deposit = {
 			}
 		}	
 		modifier = {
-			weight = 10
+			weight = 20
 			planet = {
 				OR = {
 					is_planet_class = pc_k_star
 					is_planet_class = pc_m_star
 				}
 			}
-		}
+		}		
 		modifier = {
 			factor = 1.5
 			planet = {
@@ -718,9 +732,9 @@ d_immense_energy_deposit = {
 			planet = {
 				is_planet_class = pc_gas_giant
 			}
-		}
+		}	
 		modifier = {
-			weight = 12
+			weight = 30
 			planet = {
 				OR = {
 					is_planet_class = pc_a_star
@@ -729,7 +743,7 @@ d_immense_energy_deposit = {
 			}
 		}
 		modifier = {
-			weight = 6
+			weight = 20
 			planet = {
 				OR = {
 					is_planet_class = pc_f_star
@@ -738,7 +752,7 @@ d_immense_energy_deposit = {
 			}
 		}	
 		modifier = {
-			weight = 3
+			weight = 10
 			planet = {
 				OR = {
 					is_planet_class = pc_k_star
@@ -1833,6 +1847,27 @@ d_enormous2_mineral_deposit = {
 
 d_enormous3_mineral_deposit = {
 	resources = { minerals = 10 }
+	station = shipclass_mining_station
+	orbital_weight = { weight = 0 }
+	drop_weight = { weight = 0 }
+}
+
+d_enormous1_energy_deposit = {
+	resources = { energy = 6 }
+	station = shipclass_mining_station
+	orbital_weight = { weight = 0 }
+	drop_weight = { weight = 0 }
+}
+
+d_enormous2_energy_deposit = {
+	resources = { energy = 8 }
+	station = shipclass_mining_station
+	orbital_weight = { weight = 0 }
+	drop_weight = { weight = 0 }
+}
+
+d_enormous3_energy_deposit = {
+	resources = { energy = 10 }
 	station = shipclass_mining_station
 	orbital_weight = { weight = 0 }
 	drop_weight = { weight = 0 }

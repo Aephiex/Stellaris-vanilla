@@ -97,6 +97,18 @@ FUN1 = {
 		gene_warrior_army = {
 			sequential_name = "%O% Shock Infantry"
 		}
+
+		occupation_army = {
+			sequential_name = "%O% Occupation Contingent"
+		}
+
+		robotic_occupation_army = {
+			sequential_name = "%O% Mechanized Watchers"
+		}
+
+		android_occupation_army = {
+			sequential_name = "%O% Centurion Watchers"
+		}
 	}
 
 	planet_names = {

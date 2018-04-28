@@ -2962,7 +2962,7 @@ country_event = {
 	}
 
 	immediate = {
-		set_country_flag = built_dyson_sphere
+		set_country_flag = finished_dyson_sphere
 		every_relation = {
 			limit = {
 				is_ai = no
@@ -3562,10 +3562,10 @@ country_event = {
 	show_sound = event_mystic_reveal
 	picture = GFX_evt_colony_settlement
 	is_triggered_only = yes
-	location = FromFromFrom
+	location = FromFromFrom.Planet
 
 	option = {
 		name = EXCELLENT
-		set_country_flag = already_built_habitat
+		hidden_effect = { set_country_flag = already_built_habitat }
 	}
 }

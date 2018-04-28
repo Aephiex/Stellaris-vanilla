@@ -167,7 +167,7 @@ special_project = {
 	cost = 0
 	days_to_research = 30
 	tech_department = engineering_technology
-	timelimit = 720
+	timelimit = 1080
 	
 	event_scope = ship_event
 
@@ -189,7 +189,7 @@ special_project = {
 	cost = 0
 	days_to_research = 30
 	tech_department = engineering_technology
-	timelimit = 720
+	timelimit = 1080
 	
 	same_option_group_as = { ENIGMATIC_FORTRESS_1A }
 	
@@ -213,7 +213,7 @@ special_project = {
 	cost = 0
 	days_to_research = 60
 	tech_department = engineering_technology
-	timelimit = 360
+	timelimit = 1080
 	
 	event_scope = ship_event
 
@@ -237,7 +237,7 @@ special_project = {
 	cost = 0
 	days_to_research = 120
 	tech_department = engineering_technology
-	timelimit = 360
+	timelimit = 1080
 	
 	event_scope = ship_event
 
@@ -262,7 +262,7 @@ special_project = {
 	cost = 0
 	days_to_research = 30
 	tech_department = engineering_technology
-	timelimit = 360
+	timelimit = 1080
 	
 	event_scope = ship_event
 
@@ -287,7 +287,7 @@ special_project = {
 	cost = 0
 	days_to_research = 10
 	tech_department = engineering_technology
-	timelimit = 360
+	timelimit = 1080
 	
 	event_scope = ship_event
 
@@ -344,24 +344,12 @@ special_project = {
 		owner = {
 			random_list = {
 				50 = {
-					modifier = {
-						factor = 0.8
-						has_country_flag = technosphere_secrets
-					}
 					country_event = { id = guardian.1061 } #succeeds
 				}
-				50 = {
-					modifier = {
-						factor = 0.1
-						has_country_flag = technosphere_secrets
-					}
+				25 = {
 					country_event = { id = guardian.1062 } #fails
 				}
-				50 = {
-					modifier = {
-						factor = 0
-						NOT = { has_country_flag = technosphere_secrets }
-					}
+				25 = {
 					set_country_flag = technosphere_special
 					country_event = { id = guardian.1062 } #secret awesome stuff
 				}

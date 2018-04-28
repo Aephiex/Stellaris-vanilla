@@ -134,6 +134,10 @@ alerts = {
 	alert_high_war_exhaustion = {
 		category = HIGH
 		sound  = "high_war_exhaustion"
-	}	
+	}
+	alert_high_piracy_risk = {
+		category = MEDIUM
+		sound  = "alert_negative"
+	}		
 	alert_deprecated = { category = disabled }
 }

@@ -463,6 +463,8 @@ gov_martial_dictatorship = {
 	ruler_title_female = RT_IMPERATRIX
 	
 	should_force_rename = yes
+	
+	leader_class = admiral 	# Initial ruler will become this if elected out of office
 
 	election_candidates = {
 		modifier = {
@@ -494,6 +496,8 @@ gov_war_council = {
 	ruler_title_female = RT_WARLORD_FEMALE
 	
 	should_force_rename = yes
+	
+	leader_class = admiral 	# Initial ruler will become this if elected out of office
 
 	election_candidates = {
 		modifier = {
@@ -525,6 +529,8 @@ gov_assembly_of_clans = {
 	ruler_title_female = RT_CLAN_SPEAKER_FEMALE
 	
 	should_force_rename = yes
+	
+	leader_class = admiral 	# Initial ruler will become this if elected out of office
 
 	election_candidates = {
 		modifier = {
@@ -556,6 +562,8 @@ gov_citizen_stratocracy = {
 	ruler_title_female = RT_STRATEGOS_FEMALE
 	
 	should_force_rename = yes
+	
+	leader_class = admiral 	# Initial ruler will become this if elected out of office
 	
 	election_candidates = {
 		modifier = {
@@ -947,6 +955,8 @@ gov_technocratic_dictatorship = {
 	ruler_title_female = RT_OVERSEER_FEMALE
 	
 	should_force_rename = yes
+	
+	leader_class = scientist 	# Initial ruler will become this if elected out of office
 
 	election_candidates = {
 		modifier = {
@@ -975,6 +985,8 @@ gov_science_directorate = {
 	ruler_title_female = RT_DIRECTOR_GENERAL_FEMALE
 	
 	should_force_rename = yes
+	
+	leader_class = scientist 	# Initial ruler will become this if elected out of office
 
 	election_candidates = {
 		modifier = {
@@ -1003,6 +1015,8 @@ gov_rational_consensus = {
 	ruler_title_female = RT_FIRST_SPEAKER_FEMALE
 	
 	should_force_rename = yes
+	
+	leader_class = scientist 	# Initial ruler will become this if elected out of office
 
 	election_candidates = {
 		modifier = {

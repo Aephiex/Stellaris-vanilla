@@ -101,8 +101,22 @@ leader_trait_army_logistician = {
 	leader_class = { general }
 }
 
+leader_trait_general_erudite = {
+	cost = 0
+	modification = no
+	icon = "gfx/interface/icons/traits/trait_erudite.dds"
+	modifier = {
+		army_damage_mult = 0.05
+		army_disengage_chance_mult = 0.10
+	}
+	leader_trait = yes
+	leader_class = { general }
+	initial = no
+	randomized = no
+}
+
 leader_trait_general_cyborg = {
-	cost = 1
+	cost = 0
 	modification = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_cyborg.dds"
 	modifier = {

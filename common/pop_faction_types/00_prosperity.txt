@@ -217,14 +217,7 @@ prosperity = {
 
 		trigger = {
 			owner = {
-				OR = {
-					has_tradition = tr_prosperity_adopt
-					has_tradition = tr_prosperity_sct
-					has_tradition = tr_prosperity_administrative_operations
-					has_tradition = tr_prosperity_fleet_logistical_corps
-					has_tradition = tr_prosperity_trans_stellar_corporations
-					has_tradition = tr_prosperity_pursuit_of_profit
-				}
+				has_tradition = "tr_prosperity_adopt"
 			}
 		}
 	}	
