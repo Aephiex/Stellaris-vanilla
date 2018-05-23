@@ -65,7 +65,7 @@ PixelShader =
 			MipFilter = "Point"
 			AddressU = "Clamp"
 			AddressV = "Clamp"
-		}	
+		}
 	}
 }
 
@@ -75,7 +75,9 @@ VertexStruct VS_INPUT
 	float3 	vNormal      			: TEXCOORD0;
 	float4 	vTangent				: TEXCOORD1;
 	float2 	vUV0					: TEXCOORD2;
+@ifdef PDX_MESH_UV1
 	float2 	vUV1					: TEXCOORD3;
+@endif
 	float3 	vInstanceOffset 		: TEXCOORD4;
 	float4 	vInstanceRotationSize	: TEXCOORD5;
 };
@@ -136,7 +138,11 @@ VertexShader =
 			Out.vPosition = mul( ViewProjectionMatrix, Out.vPosition );
 			
 			Out.vUV0 = v.vUV0;
+#ifdef PDX_MESH_UV1
 			Out.vUV1 = v.vUV1;
+#else
+			Out.vUV1 = v.vUV0;
+#endif
 			return Out;
 		}
 		
@@ -159,17 +165,26 @@ PixelShader =
 			float4 vProperties = tex2D( SpecularMap, In.vUV0 );
 			
 			LightingProperties lightingProperties;
+			float vEmissive = 0.0f;
 			
 		#ifndef PDX_LEGACY_BLINN_PHONG
 			float4 vNormalMap = tex2D( NormalMap, In.vUV0 );
 			float3 vNormalSample =  UnpackRRxGNormal(vNormalMap);
 			
 			lightingProperties._Glossiness = vProperties.a;
+			
+			#ifdef EMISSIVE
+				vEmissive = vNormalMap.b;
+			#endif
 		#else
 			float3 vNormalSample = UnpackNormal( NormalMap, In.vUV0 );
 			
 			lightingProperties._SpecularColor = vec3(vProperties.a);
 			lightingProperties._Glossiness = SPECULAR_WIDTH;
+			#ifdef EMISSIVE
+				float4 vNormalMap = tex2D( NormalMap, In.vUV0 );
+				vEmissive = vNormalMap.b;
+			#endif
 		#endif
 		
 			lightingProperties._NonLinearGlossiness = GetNonLinearGlossiness(lightingProperties._Glossiness);
@@ -206,9 +221,8 @@ PixelShader =
 			specularLight += reflectiveColor * FresnelGlossy(lightingProperties._SpecularColor, -vEyeDir, lightingProperties._Normal, lightingProperties._Glossiness);
 		#endif
 			vColor = ComposeLight(lightingProperties, 1.0f, diffuseLight, specularLight);
-				
-			//float alpha = vDiffuse.a;
-			return float4(vColor, 0);
+		
+			return float4(vColor, vDiffuse.a * vEmissive);
 		}	
 	]]
 }
@@ -223,4 +237,11 @@ Effect Asteroid
 {
 	VertexShader = "AsteroidVertexShader"
 	PixelShader = "AsteroidPixelShader"
+}
+
+Effect AsteroidEmissive
+{
+	VertexShader = "AsteroidVertexShader"
+	PixelShader = "AsteroidPixelShader"
+	Defines = { "EMISSIVE" }
 }

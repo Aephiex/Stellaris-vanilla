@@ -156,7 +156,9 @@ VertexStruct VS_INPUT_PDXMESHSTANDARD
 	float3 vNormal      	: TEXCOORD0;
 	float4 vTangent			: TEXCOORD1;
 	float2 vUV0				: TEXCOORD2;
+@ifdef PDX_MESH_UV1
 	float2 vUV1				: TEXCOORD3;
+@endif
 };
 
 VertexStruct VS_INPUT_PDXMESHSTANDARD_SKINNED
@@ -165,7 +167,9 @@ VertexStruct VS_INPUT_PDXMESHSTANDARD_SKINNED
 	float3 vNormal      	: TEXCOORD0;
 	float4 vTangent			: TEXCOORD1;
 	float2 vUV0				: TEXCOORD2;
+@ifdef PDX_MESH_UV1
 	float2 vUV1				: TEXCOORD3;
+@endif
 	uint4 vBoneIndex 		: TEXCOORD4;
 	float3 vBoneWeight		: TEXCOORD5;
 };
@@ -492,7 +496,11 @@ VertexShader =
 			Out.vPosition = mul( ViewProjectionMatrix, Out.vPosition );
 
 			Out.vUV0 = v.vUV0;
+#ifdef PDX_MESH_UV1
 			Out.vUV1 = v.vUV1;
+#else
+			Out.vUV1 = v.vUV0;
+#endif
 
 			return Out;
 		}
@@ -521,7 +529,11 @@ VertexShader =
 			Out.vPosition = mul( ViewProjectionMatrix, Out.vPosition );
 
 			Out.vUV0 = v.vUV0;
+#ifdef PDX_MESH_UV1
 			Out.vUV1 = v.vUV1;
+#else
+			Out.vUV1 = v.vUV0;
+#endif
 
 			return Out;
 		}
@@ -574,7 +586,11 @@ VertexShader =
 			Out.vBitangent = normalize( mul( CastTo3x3(WorldMatrix), normalize( vSkinnedBitangent ) ) );
 
 			Out.vUV0 = v.vUV0;
+#ifdef PDX_MESH_UV1
 			Out.vUV1 = v.vUV1;
+#else
+			Out.vUV1 = v.vUV0;
+#endif
 
 			return Out;
 		}
@@ -605,7 +621,11 @@ VertexShader =
 			Out.vPosition = mul( ViewProjectionMatrix, Out.vPosition );
 
 			Out.vUV0 = v.vUV0;
+#ifdef PDX_MESH_UV1
 			Out.vUV1 = v.vUV1;
+#else
+			Out.vUV1 = v.vUV0;
+#endif
 
 			return Out;
 		}
@@ -658,7 +678,11 @@ VertexShader =
 			Out.vBitangent = normalize( mul( CastTo3x3(WorldMatrix), normalize( vSkinnedBitangent ) ) );
 
 			Out.vUV0 = v.vUV0;
+#ifdef PDX_MESH_UV1
 			Out.vUV1 = v.vUV1;
+#else
+			Out.vUV1 = v.vUV0;
+#endif
 
 			return Out;
 		}
@@ -2513,6 +2537,62 @@ Effect AlphaBlend_00ConstructionAlphaBlendSkinned
 	defines = { BLEND_TO_DIFFUSE_ALPHA }
 }
 
+
+
+Effect AlphaBlendNoDepth_00
+{
+	VertexShader = "VertexPdxMeshStandard"
+	PixelShader = "PixelPdxMeshShip"
+	BlendState = "BlendStateAlphaBlend";
+	Defines = { "NO_ALPHA_MULTIPLIED_EMISSIVE" }
+	DepthStencilState = "DepthStencilNoZWrite"
+}
+
+Effect AlphaBlendNoDepth_00Skinned
+{
+	VertexShader = "VertexPdxMeshStandardSkinned"
+	PixelShader = "PixelPdxMeshShip"
+	BlendState = "BlendStateAlphaBlend";
+	Defines = { "NO_ALPHA_MULTIPLIED_EMISSIVE" }
+	DepthStencilState = "DepthStencilNoZWrite"
+}
+
+Effect AlphaBlendNoDepth_00Construction
+{
+	VertexShader = "VertexPdxMeshStandard"
+	#PixelShader = "PixelConstructionOpaque"
+	PixelShader = "PixelConstruction"
+	DepthStencilState = "DepthStencilNoZWrite"
+	BlendState = "BlendStateAlphaBlend"
+	Defines = { BLEND_TO_DIFFUSE_ALPHA CONSTRUCTION_DONE }
+}
+Effect AlphaBlendNoDepth_00ConstructionAlphaBlend
+{
+	VertexShader = "VertexPdxMeshStandard"
+	PixelShader = "PixelConstruction"
+	DepthStencilState = "DepthStencilNoZWrite"
+	BlendState = "BlendStateAlphaBlend"
+	defines = { BLEND_TO_DIFFUSE_ALPHA }
+}
+Effect AlphaBlendNoDepth_00ConstructionSkinned
+{
+	VertexShader = "VertexPdxMeshStandard"
+	#PixelShader = "PixelConstructionOpaque"
+	PixelShader = "PixelConstruction"
+	DepthStencilState = "DepthStencilNoZWrite"
+	BlendState = "BlendStateAlphaBlend"
+	defines = { BLEND_TO_DIFFUSE_ALPHA CONSTRUCTION_DONE }
+}
+Effect AlphaBlendNoDepth_00ConstructionAlphaBlendSkinned
+{
+	VertexShader = "VertexPdxMeshStandard"
+	PixelShader = "PixelConstruction"
+	DepthStencilState = "DepthStencilNoZWrite"
+	BlendState = "BlendStateAlphaBlend"
+	defines = { BLEND_TO_DIFFUSE_ALPHA }
+}
+
+
 Effect PdxMeshTerraAlphaTest
 {
 	VertexShader = "VertexPdxMeshStandard"
@@ -2865,6 +2945,19 @@ Effect AlphaBlend_00Shadow
 }
 
 Effect AlphaBlend_00SkinnedShadow
+{
+	VertexShader = "VertexPdxMeshStandardSkinnedShadow"
+	PixelShader = "PixelPdxMeshStandardShadow"
+	Defines = { "IS_SHADOW" }
+}
+Effect AlphaBlendNoDepth_00Shadow
+{
+	VertexShader = "VertexPdxMeshStandardShadow"
+	PixelShader = "PixelPdxMeshStandardShadow"
+	Defines = { "IS_SHADOW" }
+}
+
+Effect AlphaBlendNoDepth_00SkinnedShadow
 {
 	VertexShader = "VertexPdxMeshStandardSkinnedShadow"
 	PixelShader = "PixelPdxMeshStandardShadow"

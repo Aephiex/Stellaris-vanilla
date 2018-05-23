@@ -35,15 +35,19 @@ DepthStencilState DepthStencilState
 
 VertexStruct VS_INPUT
 {
-    float3 vPosition  : POSITION;
-	float  vAccess : TEXCOORD0;
+	float3 vPosition  		: POSITION;
+	float4 vPrimaryColor		: COLOR0;
+	float4 vSecondaryColor 	: COLOR1;
 };
 
 VertexStruct VS_OUTPUT
 {
-    float4  vPosition 	: PDX_POSITION;
-	float2	vPos 		: TEXCOORD0;
-	float	vAccess		: TEXCOORD1;
+	float4  vPosition 		: PDX_POSITION;
+	float2  vPos 			: TEXCOORD0;
+	float3  vPrimaryColor	: TEXCOORD1;
+	float3  vSecondaryColor	: TEXCOORD2;
+	float	vPrimaryColorFactor		: TEXCOORD3;
+	float   vSecondaryColorFactor	: TEXCOORD4;
 };
 
 VertexShader =
@@ -55,8 +59,11 @@ VertexShader =
 		{ 
 			VS_OUTPUT Out;
 			Out.vPos = v.vPosition.xz;
-			Out.vPosition  	= mul( ViewProjectionMatrix, float4( v.vPosition, 1.0 ) );	
-			Out.vAccess = v.vAccess;
+			Out.vPosition  	= mul( ViewProjectionMatrix, float4( v.vPosition, 1.0 ) );
+			Out.vPrimaryColor = v.vPrimaryColor.rgb;
+			Out.vSecondaryColor = v.vSecondaryColor.rgb;
+			Out.vPrimaryColorFactor = v.vPrimaryColor.a;
+			Out.vSecondaryColorFactor = v.vSecondaryColor.a;
 			return Out;
 		}
 		
@@ -71,11 +78,11 @@ PixelShader =
 		{
 			float fMinAlpha = 0.05f;
 			float fAlpha = 0.25f;
-			float4 vHasAccess = float4( HSVtoRGB( float3( 3.25, 1.0, 1.5 ) ), fAlpha );
-			float4 vNoAccess = float4( HSVtoRGB( float3( 0.1, 1.0, 0.9 ) ), fAlpha );
-			float4 vColor = lerp( vNoAccess, vHasAccess, saturate( pow( v.vAccess, 15 ) ) );
+			float4 vPrimColor = float4( v.vPrimaryColor, fAlpha );
+			float4 vSecColor = float4( v.vSecondaryColor, fAlpha );
+			float4 vColor = lerp( vSecColor, vPrimColor, saturate( pow( v.vPrimaryColorFactor, 15 ) ) );
 			vColor = ApplyTerraIncognita( vColor, v.vPos, 5.f, TerraIncognitaTexture );
-			vColor.a = lerp( fMinAlpha, fAlpha, CalcTerraIncognitaValue( v.vPos, TerraIncognitaTexture ) );
+			vColor.a = lerp( fMinAlpha * saturate( pow( v.vSecondaryColorFactor, 8 ) ), fAlpha, CalcTerraIncognitaValue( v.vPos, TerraIncognitaTexture ) );
 			return vColor;
 		}
 		
