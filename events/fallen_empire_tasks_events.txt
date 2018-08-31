@@ -178,10 +178,10 @@ country_event = {
 						if = {
 							limit = { mid_game_years_passed >= 0 }
 							set_country_flag = fe_gift_resources_large 
-							else = {
-								set_country_flag = fe_gift_resources_small
-							}
 						}									
+						else = {
+							set_country_flag = fe_gift_resources_small
+						}
 					}
 					20 = { set_country_flag = fe_gift_databanks }
 					15 = { set_country_flag = fe_gift_rare_tech }
@@ -189,18 +189,18 @@ country_event = {
 						if = {
 							limit = { mid_game_years_passed >= 0 }
 							set_country_flag = fe_gift_escorts 
-							else = {
-								set_country_flag = fe_gift_resources_large 
-							}
 						}					
+						else = {
+							set_country_flag = fe_gift_resources_large 
+						}
 					}
 					5 = { 
 						if = {
 							limit = { mid_game_years_passed >= 0 }
 							set_country_flag = fe_gift_battlecruiser 
-							else = {
-								set_country_flag = fe_gift_resources_large
-							}
+						}
+						else = {
+							set_country_flag = fe_gift_resources_large
 						}
 					}						
 				}			
@@ -682,9 +682,9 @@ country_event = {
 				}
 			}
 			custom_tooltip = fallen_empire_enigmatic_tooltip
-			else = {
-				custom_tooltip = fallen_empire_unhappy_tooltip
-			}
+		}
+		else = {
+			custom_tooltip = fallen_empire_unhappy_tooltip
 		}
 		hidden_effect = {
 			remove_country_flag = fe_gift_escorts
@@ -1087,6 +1087,7 @@ country_event = {
 			NOT = { has_opinion_modifier = { who = prev modifier = opinion_majorly_failed_fallen_empire_task } }
 			
 			any_country = {
+				is_country_type = default
 				root = { is_rival = prev }
 				allows_purge = yes
 				
@@ -1111,6 +1112,7 @@ country_event = {
 				NOT = { has_opinion_modifier = { who = prev modifier = opinion_refused_fallen_empire_task } }
 				
 				any_country = {
+					is_country_type = default
 					root = { is_rival = prev }
 					allows_purge = yes
 					
@@ -1121,6 +1123,7 @@ country_event = {
 			
 			random_country = {	
 				limit = {
+					is_country_type = default
 					root = { is_rival = prev }
 					allows_purge = yes
 					
@@ -1490,6 +1493,7 @@ country_event = {
 			factor = 0.5
 			
 			any_country = {
+				is_country_type = default
 				root = { is_rival = prev }
 				OR = {
 					has_policy_flag = ai_full_rights
@@ -1505,6 +1509,7 @@ country_event = {
 			factor = 0.5
 			
 			any_country = {
+				is_country_type = default
 				root = { is_rival = prev }
 				OR = {
 					has_policy_flag = ai_full_rights
@@ -1550,6 +1555,7 @@ country_event = {
 			NOT = { has_opinion_modifier = { who = prev modifier = opinion_majorly_failed_fallen_empire_task } }
 			
 			any_country = {
+				is_country_type = default	
 				root = { is_rival = prev }
 				OR = {
 					has_policy_flag = ai_full_rights
@@ -1590,6 +1596,7 @@ country_event = {
 			
 			random_country = {	
 				limit = {
+					is_country_type = default
 					root = { is_rival = prev }
 					OR = {
 						has_policy_flag = ai_full_rights
