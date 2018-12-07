@@ -28,11 +28,16 @@ spriteTypes = {
 		name = "GFX_outliner_options_button"
 		textureFile = "gfx/interface/buttons/outliner_options_button.dds"
 	}
+
+	spriteType = {
+		name = "GFX_outliner_unobserve_button"
+		textureFile = "gfx/interface/buttons/outliner_unobserve_button.dds"
+	}
 	
 	spriteType = {
 		name = "GFX_outliner_status"
 		texturefile = "gfx/interface/outliner/outliner_entity_status.dds"
-		noOfFrames = 5
+		noOfFrames = 8
 	}	
 	
 	spriteType = {
@@ -70,7 +75,7 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_fleet_status_icon"
 		texturefile = "gfx/interface/outliner/outliner_ship_status_icons.dds"
-		noOfFrames = 23
+		noOfFrames = 24
 	}
 	
 	corneredTileSpriteType = {
@@ -214,6 +219,12 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_outliner_fleet_status"
 		textureFile = "gfx/interface/outliner/outliner_upgradable_design.dds"
+		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_outliner_war_vs"
+		textureFile = "gfx/interface/outliner/outliner_war_vs.dds"
 		noOfFrames = 2
 	}
 }

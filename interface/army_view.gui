@@ -364,6 +364,13 @@ guiTypes = {
 				spriteType = "GFX_tiles_dark_area_cut_8"
 				position = { x = 0 y =0 }
 			}
+				
+			iconType = {
+				name = "unknown_leader"
+				spriteType = "GFX_unknown_leader"
+				position = { x = 8 y = 8 }
+				alwaysTransparent = yes
+			}			
 
 			instantTextBoxType={
 				name = "no_leader_assign_desc"
@@ -401,7 +408,7 @@ guiTypes = {
 				name = "leader_type_bg"
 				quadTextureSprite = "GFX_leader_bg_admiral"
 				position = { x = 8 y = 8 }
-				scale = 0.225
+				scale = 0.225§
 				alwaystransparent = yes
 			}
 
@@ -427,13 +434,6 @@ guiTypes = {
 					alwaysTransparent = yes
 					position = { x = -45 y = -12 }
 				}
-			}
-			
-			iconType = {
-				name = "unknown_leader"
-				spriteType = "GFX_unknown_leader"
-				position = { x = 8 y = 8 }
-				alwaysTransparent = yes
 			}
 			
 			containerWindowType = {

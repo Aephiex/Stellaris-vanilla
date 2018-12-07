@@ -145,6 +145,18 @@ spriteTypes = {
 		texturefile = "gfx/interface/icons/ascension_perks/ap_voidborn.dds"
 		alwaystransparent = yes
 	}
+	
+	spriteType = {
+		name = "GFX_ap_hive_worlds"
+		texturefile = "gfx/interface/icons/ascension_perks/ap_hive_worlds.dds"
+		alwaystransparent = yes
+	}	
+	
+	spriteType = {
+		name = "GFX_ap_universal_transactions"
+		texturefile = "gfx/interface/icons/ascension_perks/ap_universal_transactions.dds"
+		alwaystransparent = yes
+	}	
 
 	spriteType = {
 		name = "GFX_ap_the_circle_of_life"
@@ -197,6 +209,36 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_ap_transcendent_learning"
 		texturefile = "gfx/interface/icons/ascension_perks/ap_transcendent_learning.dds"
+		alwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_ap_galactic_wonders_utopia"
+		texturefile = "gfx/interface/icons/ascension_perks/ap_galactic_wonders.dds"
+		alwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_ap_galactic_wonders_megacorp"
+		texturefile = "gfx/interface/icons/ascension_perks/ap_galactic_wonders.dds"
+		alwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_ap_galactic_wonders_utopia_and_megacorp"
+		texturefile = "gfx/interface/icons/ascension_perks/ap_galactic_wonders.dds"
+		alwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_ap_xeno_compatibility"
+		texturefile = "gfx/interface/icons/ascension_perks/ap_xeno_compatibility.dds"
+		alwaystransparent = yes
+	}
+	
+	spriteType = {
+		name = "GFX_ap_arcology_project"
+		texturefile = "gfx/interface/icons/ascension_perks/ap_arcology_project.dds"
 		alwaystransparent = yes
 	}
 }

@@ -376,6 +376,8 @@ entity = {
 	}	
 }
 
+entity = { name = "fallen_empire_03_sponsored_colonizer_entity" clone = "fallen_empire_03_colonizer_entity" }
+
 entity = {
 	name = "fallen_empire_03_colony_ship_entity"
 	pdxmesh = "fallen_empire_03_civilian_mesh"

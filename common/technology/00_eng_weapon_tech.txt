@@ -547,49 +547,10 @@ tech_autocannons_3 = {
 
 tech_flak_batteries_1 = {
 	area = engineering
-	cost = @tier1cost3
-	tier = 1
+	tier = 0
 	category = { propulsion }
 	ai_update_type = military	
-	prerequisites = { "tech_mass_drivers_2" }
-	weight = @tier1weight3
-	
-	weight_modifier = {
-		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
-		}
-		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = physics
-				has_trait = "leader_trait_expertise_propulsion"
-			}
-		}	
-	}
-	
-	ai_weight = {
-		factor = 2		#weapons are good
-		modifier = {
-			factor = 1.25
-			has_ethic = ethic_militarist
-		}
-		modifier = {
-			factor = 1.5
-			has_ethic = ethic_fanatic_militarist
-		}
-		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = physics
-				has_trait = "leader_trait_expertise_propulsion"
-			}
-		}
-	}
+	start_tech = yes
 }
 
 tech_flak_batteries_2 = {

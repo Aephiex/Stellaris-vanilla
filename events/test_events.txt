@@ -17,141 +17,57 @@ planet_event = {
 }
 
 planet_event = {
-	id = henrik.24
-	hide_window = yes
-	trigger = { always = no }
+    id = henrik.32
+    hide_window = yes
 
-	immediate = {
-		solar_system = {
-			random_system_planet = {
-				save_global_event_target_as = destruction_target
-			}
-		}
-		create_fleet = {
-			name = "NAME_mardak_vol_haters_colossus"
-			settings = {
-				spawn_debris = no
-				is_boss = yes
-			}
-			effect = {
-				set_owner = event_target:colossus_owner
-				create_ship = {
-					name = "Mardak Crusher"
-					design = "NAME_mardak_vol_haters_colossus"
-					graphical_culture = "mammalian_01"
-				}
-				set_location = {
-					target = event_target:destruction_target
-					distance = 200
-					angle = 150
-				}
-				set_fleet_stance = passive
-				set_aggro_range_measure_from = self
-				set_aggro_range = 20
-				queue_actions = {
-					destroy_planet = {
-						skip_rules = yes
-						target = event_target:destruction_target
-					}
-				}
-			}
-		}
-	}
+    trigger = { always = no }
+
+    immediate = {
+       add_planet_devastation = 1
+    }
 }
-
-#########################################
-#
-# Dee's Test Events
-#
-#########################################
-
-namespace = dee
-
 
 planet_event = {
-	id = dee.1
-	hide_window = yes
-	trigger = { always = no }
+    id = henrik.33
+    hide_window = yes
 
-	immediate = {
-		solar_system = {
-			create_country = {
-				name = "NAME_Tiyanki_Space_Whale_Ancient"
-				type = guardian_elderly_tiyanki
-				flag = {
-					icon = {
-						category = "zoological"
-						file = "flag_zoological_17.dds"
-					}
-					background = {
-						category = "backgrounds"
-						file = "00_solid.dds"
-					}
-					colors = {
-						"blue"
-						"blue"
-						"null"
-						"null"
-					}
-				}
-			}
-			last_created_country = {
-				if = {
-					limit = { NOT = { has_modifier = elderly_tiyanki_power } }
-					add_modifier = { modifier = elderly_tiyanki_power days = -1 }
-				}					
-				guardian_difficulty = yes
-				save_global_event_target_as = elderly_tiyanki_country
-			}
-			random_system_planet = {
-				limit = { is_star = no }
-				save_event_target_as = new_location
-			}
-			random_system_planet = {
-				limit = { is_star = yes }
-				save_event_target_as = start_point
-				event_target:elderly_tiyanki_country = {
-					create_fleet = {
-						name = "NAME_Elderly_Tiyanki"
-						settings = {
-							spawn_debris = no
-							is_boss = yes
-						}
-						effect = {
-							set_owner = event_target:elderly_tiyanki_country
-							create_ship = {
-								name = "NAME_Elder"
-								design = "NAME_Progenitor"
-							}
-							set_location = event_target:start_point
-							set_fleet_stance = aggressive
-							set_aggro_range_measure_from = self
-							set_aggro_range = 50
-							save_global_event_target_as = elderly_tiyanki_fleet
-							auto_move_to_planet = {
-								target = event_target:new_location
-								clear_auto_move_on_arrival = no		# distar.136 sets a new auto 	move target
-							}
-						}
-					}
-				}
-			}
-		}
-	}
+    trigger = { always = no }
+
+    immediate = {
+       add_planet_devastation = -100
+    }
 }
-
 
 planet_event = {
-	id = dee.2
+	id = henrik.1
 	hide_window = yes
-	trigger = { always = no }
 
+	trigger = { always = no }
+	
 	immediate = {
-		set_planet_entity = {
-			picture = pc_junkheap
-		}
+		set_deposit = random
 	}
 }
+
+#event = {
+#	id = henrik.11
+#	hide_window = yes
+#
+#	trigger = { always = no }
+#	
+#	immediate = {
+#		random_country = {
+#			weights = {
+#				base = 1
+#				modifier = {
+#					is_ai = no
+#					add = 5
+#				}
+#			}
+#			add_resource = { influence = 5 }
+#		}
+#	}
+#}
 
 #########################################
 #
@@ -183,14 +99,11 @@ planet_event = {
 		change_pc = pc_egg_cracked
 		destroy_colony = yes
 		clear_deposits = yes
-		orbital_deposit_tile = {
-			clear_deposits = yes
-			add_deposit = d_immense_society_deposit
-			add_deposit = d_immense_society_deposit
-			add_deposit = d_immense_society_deposit
-			add_deposit = d_immense_society_deposit
-			add_deposit = d_immense_society_deposit
-  		}
+		add_deposit = d_society_4
+		add_deposit = d_society_4
+		add_deposit = d_society_4
+		add_deposit = d_society_4
+		add_deposit = d_society_4
 
 		remove_modifier = seismological_phenomena_2
 		solar_system = {
@@ -231,7 +144,6 @@ planet_event = {
 						days = -1
 					}
 				}
-				guardian_difficulty = yes
 				save_global_event_target_as = hatchling_country
 				set_country_flag = hatchling_country
 				if = {
@@ -380,6 +292,41 @@ country_event = {
 	}
 }
 
+# on_crossing_border test
+#fleet_event = {
+#	id = henrik.45
+#	hide_window = yes
+#	is_triggered_only = yes
+#
+#	trigger = { owner = { is_ai = no } }
+#
+#	immediate = {
+#		if = {
+#			limit = {
+#				from = { exists = space_owner }
+#				fromfrom = { NOT = { exists = space_owner } }
+#			}
+#			set_name = "Exited Borders"
+#		}
+#		else_if = {
+#			limit = {
+#				from = { NOT = { exists = space_owner } }
+#				fromfrom = { exists = space_owner }
+#			}
+#			set_name = "Entered Borders"
+#		}
+#		else_if = {
+#			limit = {
+#				from = { exists = space_owner }
+#				fromfrom = { exists = space_owner }
+#			}
+#			set_name = "Crossed Borders"
+#		}
+#		else = {
+#			set_name = "Error'd!"
+#		}
+#	}
+#}
 
 country_event = {
 	id = henrik.50
@@ -423,6 +370,278 @@ country_event = {
 					set_location = prev
 				}
 			}
+		}
+	}
+}
+
+country_event = {
+	id = henrik.54
+	title = PROJECT_COMPLETE
+	desc = {
+		trigger = {
+			hidden:owner = {
+				switch = {
+					trigger = has_country_flag
+					flag1 = { text = "flag1" }
+					flag2 = {
+						if = {
+							limit = { has_country_flag = flag3 }
+							text = "flag 2 and 3"
+						}
+						else = { text = "else only 2" }
+					}
+					default = { text = noflag }
+				}
+			}
+		}
+	}
+	picture = GFX_evt_star_yellow
+	show_sound = event_solar_fusion
+
+	trigger = { always = no }
+
+	option = {
+		name = "add/remove flag1"
+		if = {
+			limit = { NOT = { has_country_flag = flag1 } }
+			set_country_flag = flag1
+		}
+		else = {
+			remove_country_flag = flag1
+		}
+	}
+
+	option = {
+		name = "add/remove flag2"
+		if = {
+			limit = { NOT = { has_country_flag = flag2 } }
+			set_country_flag = flag2
+		}
+		else = {
+			remove_country_flag = flag2
+		}
+	}
+
+	option = {
+		name = "add/remove flag3"
+		if = {
+			limit = { NOT = { has_country_flag = flag3 } }
+			set_country_flag = flag3
+		}
+		else = {
+			remove_country_flag = flag3
+		}
+	}
+}
+
+country_event = {
+	id = henrik.55
+	title = PROJECT_COMPLETE
+	desc = PROJECT_COMPLETE
+	picture = GFX_evt_star_yellow
+	show_sound = event_solar_fusion
+
+	trigger = { always = no }
+
+	option = {
+		name = "have more AND less than 3 pops (impossible)"
+		allow = {
+			count_owned_pops = {
+				limit = { always = yes }
+				count < 3
+				count > 3
+			}
+		}
+	}
+
+	option = {
+		name = "have less than 3 pops"
+		allow = {
+			count_owned_pops = {
+				limit = { always = yes }
+				count < 3
+			}
+		}
+	}
+
+	option = {
+		name = "have more than 3 pops"
+		allow = {
+			count_owned_pops = {
+				limit = { always = yes }
+				count > 3
+			}
+		}
+	}
+}
+
+#country_event = {
+#	id = henrik.100
+#	hide_window = yes
+#
+#	trigger = {
+#		is_country_type = default
+#		NOT = { has_country_flag = observe_test }
+#	}
+#		
+#	mean_time_to_happen = {
+#		months = 1
+#	}
+#
+#	immediate = {
+#		set_country_flag = observe_test
+#		observer_event = { id = henrik.101 }
+#	}
+#}
+#
+#observer_event = {
+#	id = henrik.101
+#	title = "TEST"
+#	desc = "THIS IS AN OBSERVER EVENT"
+#
+#	is_triggered_only = yes
+#
+#	option = {
+#		name = OK
+#	}
+#}
+
+country_event = {
+	id = henrik.102
+	hide_window = yes
+
+	trigger = { always = no }
+
+	immediate = {
+		add_modifier = {
+			modifier = strategic_coordination_center_modifier
+			days = -1
+		}
+	}
+}
+
+country_event = {
+	id = henrik.103
+	hide_window = yes
+
+	trigger = { always = no }
+
+	immediate = {
+		random_list = {
+			1 = { give_technology = { tech = tech_akx_worm_1 } }
+			1 = { give_technology = { tech = tech_akx_worm_2 } }
+		}
+	}
+}
+
+country_event = {
+	id = henrik.104
+	hide_window = yes
+
+	trigger = { always = no }
+
+	immediate = {
+		set_global_flag = galactic_market_founded
+		country_event = { id = henrik.106 days = 2 }
+	}
+}
+
+country_event = {
+	id = henrik.106
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = has_market_access
+		enable_galactic_market = yes
+		enable_on_market = energy
+		enable_on_market = minerals
+		enable_on_market = food
+		enable_on_market = consumer_goods
+		enable_on_market = alloys
+		add_modifier = {
+			modifier = galactic_market_founder
+			days = -1
+		}
+		set_market_leader = yes # Update who owns the market station
+
+		capital_scope.star = {
+			create_ambient_object = {
+				type = galactic_market_station
+				location = this
+			}
+			last_created_ambient_object = {
+				save_global_event_target_as = galactic_market_station
+				set_ambient_object_flag = galactic_market_station_flag
+				set_location = {
+					target = root.capital_scope.star
+					angle = random
+					distance = 40
+				}
+			}
+		}
+		every_playable_country = {
+			limit = {
+				has_communications = root
+				NOT = { is_same_value = root }
+				is_homicidal = no
+			}
+			country_event = { id = action.101 }
+		}
+	}
+}
+
+country_event = {
+	id = henrik.105
+	hide_window = yes
+
+	trigger = { always = no }
+
+	immediate = {
+		set_country_flag = has_market_access
+		enable_galactic_market = yes
+	}
+}
+
+country_event = {
+	id = henrik.107
+	hide_window = yes
+
+	trigger = { always = no }
+
+	immediate = {
+		capital_scope = {
+			save_global_event_target_as = market_founder_planet
+		}
+	}
+}
+
+country_event = {
+	id = henrik.108
+	hide_window = yes
+	trigger = { always = no }
+
+	immediate = {
+		random_playable_country = {
+			limit = {
+				NOT = { is_same_value = root }
+			}
+			every_owned_pop = {
+				pop_event = { id = refugees.4 }
+			}
+		}
+	}
+}
+
+country_event = {
+	id = henrik.109
+	hide_window = yes
+	trigger = { always = no }
+
+	immediate = {
+		every_owned_pop = {
+			pop_event = { id = refugees.4 }
 		}
 	}
 }

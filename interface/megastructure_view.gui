@@ -1,7 +1,7 @@
 guiTypes = {
 	containerWindowType = {
 		name = "megastructure_view"
-		position = { x = 4 y = -512 }
+		position = { x = 36 y = -512 }
 		size = { width = 560 height = 472 }
 		orientation = lower_left
 		upsound = click
@@ -127,17 +127,39 @@ guiTypes = {
 			font = "cg_16b"
 			position = { x = 25 y = 260 }
 			maxWidth = 520
-			maxHeight = 100
+			maxHeight = 75
 			fixedSize = yes
 			#alwaysTransparent = yes
 			text = ""
+			format = left
+		}
+		instantTextBoxType = {
+			name = "effects_header"
+			font = "cg_16b"
+			position = { x = 25 y = 325 }
+			maxWidth = 520
+			maxHeight = 18
+			fixedSize = yes
+			#alwaysTransparent = yes
+			text = "EFFECTS"
+			format = left
+		}
+		instantTextBoxType = {
+			name = "effects_desc"
+			font = "cg_16b"
+			position = { x=25 y=338 }
+			maxWidth = 520
+			maxHeight = 50
+			fixedSize = yes
+			#alwaysTransparent = yes
+			text = "EFFECTS"
 			format = left
 		}
 		
 		instantTextBoxType = {
 			name = "production_header"
 			font = "cg_16b"
-			position = { x = 128 y = 300 }
+			position = { x = 0 y = 370 }
 			maxWidth = 316
 			maxHeight = 30
 			fixedSize = yes
@@ -148,7 +170,7 @@ guiTypes = {
 		
 		gridBoxType = {
 			name = "production"
-			position = { x = 128 y = 321 }
+			position = { x = 0 y = 400 }
 			size = { width = 316 height = 30 }
 			slotSize = { width = 77 height = 20 }
 			max_slots_horizontal = 3
@@ -158,7 +180,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "maintenance_header"
 			font = "cg_16b"
-			position = { x = 380 y = 300 }
+			position = { x = 325 y = 370 }
 			maxWidth = 166
 			maxHeight = 30
 			fixedSize = yes
@@ -168,9 +190,9 @@ guiTypes = {
 		}
 		gridBoxType = {
 			name = "maintenance"
-			position = { x = 390 y = 321 }
+			position = { x = 350 y = 400 }
 			size = { width = 120 height = 30 }
-			slotSize = { width = 50 height = 20 }
+			slotSize = { width = 77 height = 20 }
 			max_slots_horizontal = 3
 			format = CENTERED_UP
 		}

@@ -298,7 +298,7 @@ npc_warship_01 = {
 	collision_radius = 7
 	modifier = {
 		ship_evasion_add = 2
-		ship_upkeep_mult = -1
+		ships_upkeep_mult = -1
 		ship_weapon_damage = 2
 		ship_shield_mult = 3
 		ship_armor_add = 5000
@@ -454,7 +454,7 @@ space_dragon_baby = {
 	collision_radius = 7
 	modifier = {
 		ship_evasion_add = 25
-		ship_upkeep_mult = -1
+		ships_upkeep_mult = -1
 	}
 	max_hitpoints = 10000
 	size_multiplier = 16

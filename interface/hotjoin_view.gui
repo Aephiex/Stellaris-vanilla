@@ -10,7 +10,7 @@ guiTypes = {
 		
 	containerWindowType = {
 		name = "country_selection_view"
-		size = { width = 400 height = 540 }
+		size = { width = 800 height = 740 }
 		orientation = center
 		origo = center
 		
@@ -45,7 +45,7 @@ guiTypes = {
 		smoothListBoxType = {
 			name = "selectable_countries"
 			position = { x = 17 y = 40 }
-			size = { x = 355 y = 432 }
+			size = { x = 755 y = 632 }
 			scrollbartype = "standardlistbox_slider"
 			autohide_scrollbar = no
 		}
@@ -67,23 +67,42 @@ guiTypes = {
 					
 	containerWindowType = {
 		name = "country_selection_entry"
-		size = { width = 360 height = 68 }
+		size = { width = 760 height = 93 }
 		
 		buttonType = {
 			name = "background"
 			quadTextureSprite = "GFX_hotjoinview_country_entry"
-			size = { x = 360 y = 68 }
+			size = { x = 760 y = 93 }
 			orientation = "UPPER_LEFT"
+		}
+
+		iconType = {
+			name = "country"
+			position = { x = 10 y = 12 }
+			spriteType = "GFX_empire_flag_64"
+			alwaysTransparent = yes
 		}
 		
 		instantTextBoxType = {
 			name = "country_name"
 			font = "cg_16b"
 			text = "DEFACTO_COUNTRY_NAME"
-			position = { x = 0 y = 10 }
+			position = { x = 100 y = 10 }
 			maxWidth = 360
 			maxHeight = 20
-			format = center
+			format = left
+			alwaysTransparent = yes
+			#text_color_code = "E"
+		}
+
+		instantTextBoxType = {
+			name = "government"
+			font = "cg_16b"
+			text = ""
+			position = { x = 100 y = 25 }
+			maxWidth = 360
+			maxHeight = 20
+			format = left
 			alwaysTransparent = yes
 			#text_color_code = "E"
 		}
@@ -92,12 +111,26 @@ guiTypes = {
 			name = "species_name"
 			font = "cg_16b"
 			text = "DEFACTO_SPECIES_NAME"
-			position = { x = 0 y = 25 }
+			position = { x = 100 y = 40 }
 			maxWidth = 360
 			maxHeight = 20
-			format = center
+			format = left
 			alwaysTransparent = yes
 			text_color_code = "E"
+		}
+
+		instantTextBoxType = {
+			name = "alliance"
+			font = "cg_16b"
+			text = ""
+			position = { x = 100 y = 55 }
+			maxWidth = 300
+			maxHeight = 20
+			fixedSize = yes
+			orientation = "UPPER_LEFT"
+			format = left
+			text_color_code = "B"
+			alwaysTransparent = yes
 		}
 		
 		instantTextBoxType = {
@@ -106,8 +139,8 @@ guiTypes = {
 			text = "SELECT_COUNTRY"
 			maxWidth = 350
 			maxHeight = 20
-			format = center
-			position = { x = 0 y = 40 }
+			format = left
+			position = { x = 100 y = 70 }
 			alwaysTransparent = yes
 		}
 		
@@ -118,11 +151,176 @@ guiTypes = {
 			pdx_tooltip = "PREVIOUSLY_PLAYED_TOOLTIP"
 			frame = 2
 		}
+
+		iconType = {
+			name = "fighting"
+			position = { x = 410 y = 17 }
+			scale = 0.5
+			quadTextureSprite = "GFX_outliner_war_vs"
+			alwaysTransparent = no
+		}
+
+		iconType = {
+			name = "war_status_icon"
+			position = { x = 400 y = 19 }
+			scale = 0.6
+			quadTextureSprite = "GFX_diplomacy_status_war"
+			alwaysTransparent = no
+		}
+
+		instantTextBoxType = {
+			name = "might"
+			font = "cg_16b"
+			text = "MIGHT"
+			position = { x = 450 y = 10 }
+			maxWidth = 90
+			maxHeight = 20
+			fixedSize = yes
+			orientation = "UPPER_LEFT"
+			format = left
+			alwaysTransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "fleet_power"
+			font = "cg_16b"
+			text = ""
+			position = { x = 450 y = 25 }
+			maxWidth = 90
+			maxHeight = 20
+			fixedSize = yes
+			orientation = "UPPER_LEFT"
+			format = left
+			alwaysTransparent = yes
+			text_color_code = "Y"
+		}
+
+		instantTextBoxType = {
+			name = "tech_level"
+			font = "cg_16b"
+			text = ""
+			position = { x = 450 y = 40 }
+			maxWidth = 90
+			maxHeight = 20
+			fixedSize = yes
+			orientation = "UPPER_LEFT"
+			format = left
+			alwaysTransparent = yes
+			text_color_code = "Y"
+		}
+
+		instantTextBoxType = {
+			name = "systems"
+			font = "cg_16b"
+			text = "SYS"
+			position = { x = 550 y = 10 }
+			maxWidth = 90
+			maxHeight = 20
+			fixedSize = yes
+			orientation = "UPPER_LEFT"
+			format = left
+			alwaysTransparent = yes
+			text_color_code = "Y"
+		}
+
+		instantTextBoxType = {
+			name = "colonies"
+			font = "cg_16b"
+			text = "COLONIES"
+			position = { x = 550 y = 25 }
+			maxWidth = 90
+			maxHeight = 20
+			fixedSize = yes
+			orientation = "UPPER_LEFT"
+			format = left
+			alwaysTransparent = yes
+			text_color_code = "Y"
+		}
+
+		instantTextBoxType = {
+			name = "pops"
+			font = "cg_16b"
+			text = "POPS"
+			position = { x = 550 y = 40 }
+			maxWidth = 90
+			maxHeight = 20
+			fixedSize = yes
+			orientation = "UPPER_LEFT"
+			format = left
+			alwaysTransparent = yes
+			text_color_code = "Y"
+		}
+
+
+		instantTextBoxType = {
+			name = "energy"
+			font = "cg_16b"
+			text = ""
+			position = { x = 650 y = 10 }
+			maxWidth = 90
+			maxHeight = 20
+			fixedSize = yes
+			orientation = "UPPER_LEFT"
+			format = left
+			alwaysTransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "minerals"
+			font = "cg_16b"
+			text = ""
+			position = { x = 650 y = 25 }
+			maxWidth = 90
+			maxHeight = 20
+			fixedSize = yes
+			orientation = "UPPER_LEFT"
+			format = left
+			alwaysTransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "food"
+			font = "cg_16b"
+			text = ""
+			position = { x = 650 y = 40 }
+			maxWidth = 90
+			maxHeight = 20
+			fixedSize = yes
+			orientation = "UPPER_LEFT"
+			format = left
+			alwaysTransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "influence"
+			font = "cg_16b"
+			text = ""
+			position = { x = 650 y = 55 }
+			maxWidth = 90
+			maxHeight = 20
+			fixedSize = yes
+			orientation = "UPPER_LEFT"
+			format = left
+			alwaysTransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "unity"
+			font = "cg_16b"
+			text = ""
+			position = { x = 650 y = 70 }
+			maxWidth = 90
+			maxHeight = 20
+			fixedSize = yes
+			orientation = "UPPER_LEFT"
+			format = left
+			alwaysTransparent = yes
+		}
 	}
 	
 	containerWindowType = {
 		name = "country_selection_special_entry"
-		size = { width = 360 height = 68 }
+		size = { width = 760 height = 88 }
 		
 		containerWindowType = {
 			name = "observer"
@@ -138,10 +336,10 @@ guiTypes = {
 				name = "label"
 				font = "cg_16b"
 				text = "OBSERVER_MODE"
-				position = { x = 0 y = 8 }
+				position = { x = 100 y = 8 }
 				maxWidth = 360
 				maxHeight = 50
-				format = center
+				format = left
 				vertical_alignment = center
 				alwaysTransparent = yes
 				text_color_code = "H"

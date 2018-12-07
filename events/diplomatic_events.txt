@@ -106,7 +106,7 @@ country_event = {
 	# Demand nothing
 	option = {
 		name = diplomatic.2.c
-		add_influence = -50
+		add_resource = { influence = -50 }
 	}
 }
 
@@ -193,7 +193,7 @@ country_event = {
 	
 	option = {
 		name = diplomatic.5.a
-		add_influence = 25
+		add_resource = { influence = 25 }
 		event_target:broadcasted_insult_fleet = {
 			exile_leader_as = insulting_admiral
 		}
@@ -213,7 +213,7 @@ country_event = {
 	
 	option = {
 		name = diplomatic.6.a
-		add_influence = 25
+		add_resource = { influence = 25 }
 		event_target:broadcasted_insult_fleet = {
 			kill_leader = { show_notification = no }
 		}
@@ -387,7 +387,7 @@ country_event = {
 
 	option = {
 		name = diplomatic.10.b
-		add_influence = -50
+		add_resource = { influence = -50 }
 	}
 }
 
@@ -445,7 +445,7 @@ country_event = {
 
 	option = {
 		name = diplomatic.12.b
-		add_influence = -50
+		add_resource = { influence = -50 }
 	}
 
 	option = {
@@ -459,7 +459,7 @@ country_event = {
 			location = FROMFROM.capital_scope
 			owner = root
 		}
-		add_influence = -20
+		add_resource = { influence = -20 }
 	}
 }
 
@@ -716,8 +716,7 @@ country_event = {
 					limit = {
 						NOR = {
 							has_ethic = ethic_xenophile
-							pop_has_trait = trait_robotic_1
-							pop_has_trait = trait_robotic_2
+							pop_has_trait = trait_mechanical
 						}
 					}
 					pop_change_ethic = ethic_xenophile
@@ -734,8 +733,7 @@ country_event = {
 					limit = {
 						NOR = {
 							has_ethic = ethic_xenophile
-							pop_has_trait = trait_robotic_1
-							pop_has_trait = trait_robotic_2
+							pop_has_trait = trait_mechanical
 						}
 					}
 					pop_change_ethic = ethic_xenophile
@@ -752,8 +750,7 @@ country_event = {
 					limit = {
 						NOR = {
 							has_ethic = ethic_xenophile
-							pop_has_trait = trait_robotic_1
-							pop_has_trait = trait_robotic_2
+							pop_has_trait = trait_mechanical
 						}
 					}
 					pop_change_ethic = ethic_xenophile

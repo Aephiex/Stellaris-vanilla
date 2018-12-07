@@ -97,6 +97,7 @@ fleet_event = {
 			}
 			save_global_event_target_as = horizonsignal_system
 		}
+		owner = { observer_event = { id = observer.70 } }
 	}
 
 	option = {
@@ -1029,7 +1030,6 @@ country_event = {
 			limit = {
 				has_technology = tech_genome_mapping
 			}
-			break = yes
 		}
 		else = {
 			if = {
@@ -2325,7 +2325,6 @@ country_event = {
 			limit = {
 				has_technology = tech_akx_worm_2
 			}
-			break = yes
 		}
 		else = {
 			if = {
@@ -2374,7 +2373,6 @@ country_event = {
 			limit = {
 				has_technology = tech_akx_worm_2
 			}
-			break = yes
 		}
 		else = {
 			if = {
@@ -2644,45 +2642,22 @@ planet_event = {
 
 	immediate = {
 		save_global_event_target_as = waiting_world
-		while = {
-			count = 2
-			random_tile = {
-				limit = {
-					has_building = no
-					has_blocker = no
-					#has_deposit = no
-				}
-				set_building = building_worm_farm
-				set_ruined = yes
-			}
-			random_tile = {
-				limit = {
-					has_building = no
-					has_blocker = no
-					#has_deposit = no
-				}
-				set_building = building_worm_mine
-				set_ruined = yes
-			}
-		}
+		add_deposit = d_mothballed_facilities
 	}
 
 	option = {
 		name = akx.9500.a
-		trigger = {
+		allow = {
 			owner = {
-				minerals > 100
+				resource_stockpile_compare = { resource = minerals value >= 100 }
 			}
 		}
-		owner = { add_minerals = -100 }
+		owner = { add_resource = { minerals = -100 } }
+		random_deposit = {
+			limit = { is_deposit_type = d_mothballed_facilities }
+			clear_blocker = yes
+		}
 		hidden_effect = {
-			every_tile = {
-				limit = {
-					has_building = yes
-					is_ruined = yes
-				}
-				set_ruined = no
-			}
 			planet_event = { id = akx.9510 days = 360 }
 		}
 	}
@@ -2690,7 +2665,10 @@ planet_event = {
 	option = {
 		name = akx.9500.b
 		custom_tooltip = akx.9500.b.tooltip
-		hidden_effect = { planet_event = { id = akx.9505 } }
+		hidden_effect = {
+			remove_deposit = d_mothballed_facilities
+			planet_event = { id = akx.9505 }
+		}
 	}
 }
 
@@ -2704,18 +2682,10 @@ planet_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		every_tile = {
-			limit = {
-				OR = {
-					has_building = building_worm_mine
-					has_building = building_worm_farm
-				}
-			}
-			remove_building = yes
-		}
 	}
 
 	after = {
+		tooltip = { remove_deposit = d_mothballed_facilities }
 		add_modifier = {
 			modifier = waiting_world_ruins
 			days = -1
@@ -2771,26 +2741,21 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		free_pop_tiles > 1
+		#free_housing > 0
 	}
 
 	immediate = {
-		if = {
+		random_owned_pop = {
 			limit = {
-				free_pop_tiles > 1
+				exists = planet
+				planet = { is_same_value = root }
 			}
-			random_owned_pop = {
-				limit = {
-					exists = planet
-					planet = { is_same_value = root }
-				}
-				root = {
-					best_tile_for_pop = {
-						create_pop = { 
-							species = prevprev
-						}
-					}
-				}
+			save_event_target_as = waiting_world_species
+		}
+		while = {
+			count = 3
+			create_pop = { 
+				species = event_target:waiting_world_species
 			}
 		}
 	}
@@ -2821,38 +2786,27 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		free_pop_tiles > 1
+		#free_housing > 0
 	}
 
 	immediate = {
-		if = {
+		random_owned_pop = {
 			limit = {
-				free_pop_tiles > 1
+				exists = planet
+				planet = { is_same_value = root }
 			}
-			random_owned_pop = {
-				limit = {
-					exists = planet
-					planet = { is_same_value = root }
-				}
-				root = {
-					best_tile_for_pop = {
-						create_pop = { 
-							species = prevprev
-						}
-					}
-					best_tile_for_pop = {
-						create_pop = { 
-							species = prevprev
-						}
-					}
-				}
+			save_event_target_as = waiting_world_species
+		}
+		while = {
+			count = 5
+			create_pop = { 
+				species = event_target:waiting_world_species
 			}
 		}
 	}
 
 	option = {
 		name = akx.9525.a
-		#custom_tooltip = akx.9510.a.tooltip
 		hidden_effect = {
 			planet_event = { id = akx.9505 }
 		}
@@ -2880,23 +2834,10 @@ planet_event = {
 	is_triggered_only = yes
 
 	after = {
-		hidden_effect = {
-			every_tile = {
-				if = {
-					limit = {
-						has_building = yes
-					}
-					remove_building = yes
-				}
-				if = {
-					limit = { has_growing_pop = yes }
-					kill_pop = yes
-				}
-			}
-			every_owned_pop = {
-				kill_pop = yes
-			}
+		every_owned_pop = {
+			kill_pop = yes
 		}
+		remove_all_buildings = yes
 	}
 
 	option = {
@@ -2948,7 +2889,7 @@ ship_event = {
 				limit = {
 					has_technology = tech_akx_worm_1
 				}
-				break = yes
+				# nothing
 			}
 			else = {
 				if = {
@@ -3079,17 +3020,13 @@ planet_event = {
 	}
 
 	after = {
-		every_tile = {
-			if = {
-				limit = { has_building = yes }
-				remove_building = yes
-			}
-			if = {
-				limit = { has_growing_pop = yes }
+		hidden_effect = {
+			every_owned_pop = {
 				kill_pop = yes
 			}
+			remove_all_buildings = yes
+			destroy_colony = yes
 		}
-		destroy_colony = yes
 	}
 
 	option = {
@@ -3140,7 +3077,7 @@ planet_event = {
 				limit = {
 					has_technology = tech_akx_worm_1
 				}
-				break = yes
+				# nothing
 			}
 			else = {
 				if = {
@@ -3231,13 +3168,15 @@ fleet_event = {
 		name = akx.9600.c
 		allow = {
 			owner = {
-				energy > 800
-				minerals > 800
+				resource_stockpile_compare = { resource = energy value >= 800 }
+				resource_stockpile_compare = { resource = minerals value >= 800 }
 			}
 		}
 		owner = {
-			add_energy = -800
-			add_minerals = -800
+			add_resource = {
+				energy = -800
+				minerals = -800
+			}
 		}
 		hidden_effect = {
 			fleet_event = { id = akx.9620 }
@@ -3317,13 +3256,15 @@ fleet_event = {
 		name = akx.9600.c
 		allow = {
 			owner = {
-				energy > 800
-				minerals > 800
+				resource_stockpile_compare = { resource = energy value >= 800 }
+				resource_stockpile_compare = { resource = minerals value >= 800 }
 			}
 		}
 		owner = {
-			add_energy = -800
-			add_minerals = -800
+			add_resource = {
+				energy = -800
+				minerals = -800
+			}
 		}
 		hidden_effect = {
 			fleet_event = { id = akx.9620 }
@@ -3396,13 +3337,15 @@ fleet_event = {
 		name = akx.9600.c
 		allow = {
 			owner = {
-				energy > 800
-				minerals > 800
+				resource_stockpile_compare = { resource = energy value >= 800 }
+				resource_stockpile_compare = { resource = minerals value >= 800 }
 			}
 		}
 		owner = {
-			add_energy = -800
-			add_minerals = -800
+			add_resource = {
+				energy = -800
+				minerals = -800
+			}
 		}
 		hidden_effect = {
 			fleet_event = { id = akx.9620 }
@@ -3468,13 +3411,15 @@ fleet_event = {
 		name = akx.9610.a
 		allow = {
 			owner = {
-				energy > 800
-				minerals > 800
+				resource_stockpile_compare = { resource = energy value >= 800 }
+				resource_stockpile_compare = { resource = minerals value >= 800 }
 			}
 		}
 		owner = {
-			add_energy = -800
-			add_minerals = -800
+			add_resource = {
+				energy = -800
+				minerals = -800
+			}
 		}
 		hidden_effect = {
 			fleet_event = { id = akx.9620 }
@@ -3530,9 +3475,7 @@ fleet_event = {
 			}
 		}
 		event_target:hole_pets = {
-			orbital_deposit_tile = {
-				add_deposit = d_worm_deposit
-			}
+			add_deposit = d_society_10
 		}
 	}
 }
@@ -3557,12 +3500,10 @@ planet_event = {
 			has_event_chain = WORM_CHAIN_1
 			NOT = { has_country_flag = alignment_built }
 		}
-		from = {
-			has_building = building_akx_worm_3
-		}
+		has_building = building_akx_worm_3
 	}
 
-	immediate = {
+	immediate = { 
 		owner = {
 			set_country_flag = alignment_built
 		}
@@ -3641,9 +3582,10 @@ planet_event = {
 							days = -1
 						}
 						establish_communications_no_message = root.owner
+						establish_contact = { who = root.owner location = root }
 						save_global_event_target_as = worm_enemy
 						create_fleet = {
-							name = "TIME IS SIGHT GRAVITY IS DESIRE"
+							name = "NAME_TIME_IS_SIGHT_GRAVITY_IS_DESIRE"
 							settings = { spawn_debris = no }
 							effect = {
 								set_owner = event_target:worm_enemy
@@ -3663,6 +3605,7 @@ planet_event = {
 					}
 				}
 			}
+			owner = { observer_event = { id = observer.72 } }
 		}
 	}
 }
@@ -3684,7 +3627,6 @@ planet_event = {
 			every_system_planet = {
 				limit = {
 					NOR = {
-						is_asteroid = yes
 						is_planet_class = pc_gas_giant
 						is_planet_class = pc_ringworld_habitable
 						is_planet_class = pc_ringworld_habitable_damaged
@@ -3693,9 +3635,10 @@ planet_event = {
 						is_planet_class = pc_ringworld_seam
 						is_planet_class = pc_ringworld_seam_damaged
 						is_planet_class = pc_habitat
+						is_planet_class = pc_asteroid
+						is_planet_class = pc_ice_asteroid
 						is_star = yes
 					}
-					planet_size > 9
 					planet_size < 26
 				}
 				every_owned_pop = {
@@ -3704,153 +3647,63 @@ planet_event = {
 						is_sapient = yes
 					}
 					if = {
-						limit = {
-							NOT = { has_trait = trait_natural_physicists }
+						limit = { NOT = { has_trait = trait_natural_physicists } }
+						# remove opposite traits
+						if = {
+							limit = { has_trait = trait_natural_engineers }
+							modify_species = {
+								species = this
+								remove_trait = trait_natural_engineers
+							}
 						}
+						if = {
+							limit = { has_trait = trait_natural_sociologists }
+							modify_species = {
+								species = this
+								remove_trait = trait_natural_sociologists
+							}
+						}
+						if = {
+							limit = { has_trait = trait_nerve_stapled }
+							modify_species = {
+								species = this
+								remove_trait = trait_nerve_stapled
+							}
+						}
+						# add trait
 						modify_species = {
 							species = this
 							add_trait = trait_natural_physicists
 						}
 					}
 					if = {
-						limit = {
-							NOT = { has_trait = trait_repugnant }
+						limit = { NOT = { has_trait = trait_repugnant } }
+						# remove opposite traits
+						if = {
+							limit = { has_trait = trait_charismatic }
+							modify_species = {
+								species = this
+								remove_trait = trait_charismatic
+							}
 						}
 						modify_species = {
 							species = this
 							add_trait = trait_repugnant
 						}
 					}
-					if = {
-						limit = {
-							has_trait = trait_pc_nuked_preference
-						}
-						modify_species = {
-							species = this
-							remove_trait = trait_pc_nuked_preference
-						}
-					}
-					if = {
-						limit = {
-							has_trait = trait_pc_desert_preference
-						}
-						modify_species = {
-							species = this
-							remove_trait = trait_pc_desert_preference
-						}
-					}
-					if = {
-						limit = {
-							has_trait = trait_pc_arid_preference
-						}
-						modify_species = {
-							species = this
-							remove_trait = trait_pc_arid_preference
-						}
-					}
-					if = {
-						limit = {
-							has_trait = trait_pc_savannah_preference
-						}
-						modify_species = {
-							species = this
-							remove_trait = trait_pc_savannah_preference
-						}
-					}
-					if = {
-						limit = {
-							has_trait = trait_pc_tropical_preference
-						}
-						modify_species = {
-							species = this
-							remove_trait = trait_pc_tropical_preference
-						}
-					}
-					if = {
-						limit = {
-							has_trait = trait_pc_ocean_preference
-						}
-						modify_species = {
-							species = this
-							remove_trait = trait_pc_ocean_preference
-						}
-					}
-					if = {
-						limit = {
-							has_trait = trait_pc_arctic_preference
-						}
-						modify_species = {
-							species = this
-							remove_trait = trait_pc_arctic_preference
-						}
-					}
-					if = {
-						limit = {
-							has_trait = trait_pc_tundra_preference
-						}
-						modify_species = {
-							species = this
-							remove_trait = trait_pc_tundra_preference
-						}
-					}
-					if = {
-						limit = {
-							has_trait = trait_pc_alpine_preference
-						}
-						modify_species = {
-							species = this
-							remove_trait = trait_pc_alpine_preference
-						}
-					}
-					if = {
-						limit = {
-							has_trait = trait_pc_continental_preference
-						}
-						modify_species = {
-							species = this
-							remove_trait = trait_pc_continental_preference
-						}
-					}
-					if = {
-						limit = {
-							has_trait = trait_pc_ai_preference
-						}
-						modify_species = {
-							species = this
-							remove_trait = trait_pc_ai_preference
-						}
-					}
-					if = {
-						limit = {
-							has_trait = trait_pc_gaia_preference
-						}
-						modify_species = {
-							species = this
-							remove_trait = trait_pc_gaia_preference
-						}
-					}
-					if = {
-						limit = {
-							has_trait = trait_pc_ringworld_habitable_preference
-						}
-						modify_species = {
-							species = this
-							remove_trait = trait_pc_ringworld_habitable_preference
-						}
-					}
 					modify_species = {
 						species = this
-						add_trait = trait_pc_nuked_preference
+						ideal_planet_class = pc_nuked
 					}
 				}
 				change_pc = pc_nuked
 			}
 			random_system_planet = {
 				limit = { is_star = yes }
-				# explosion ambient object
 				change_pc = pc_black_hole
 			}
 		}
+		owner = { observer_event = { id = observer.71 } }
 	}
 
 	after = {

@@ -2,7 +2,7 @@
 #
 # Anomaly Events
 #
-# Written by Henrik Eklund
+# Written by Henrik Thyrwall
 #
 ############################
 
@@ -56,7 +56,8 @@ ship_event = {
 	
 	is_triggered_only = yes
 
-	immediate = { 
+	immediate = {
+		from = { save_event_target_as = primitive_planet }
 		owner = { country_event = { id = story.6 days = 30 } } 
 	}
 			
@@ -141,6 +142,7 @@ country_event = {
 				hidden_effect = {
 					set_planet_flag = baldarak
 					save_event_target_as = baldarak_planet
+					clear_deposits = yes
 				}
 				enable_special_project = {
 					name = "GAS_GIANT_RELOCATION"
@@ -184,7 +186,7 @@ ship_event = {
 					modifier = "gas_giant_civ"
 					days = -1
 				}
-				orbital_deposit_tile = { clear_deposits = yes }
+				clear_deposits = yes
 				if = {
 					limit = { has_mining_station = yes }
 					random_mining_station = { dismantle = yes }
@@ -193,9 +195,7 @@ ship_event = {
 		}
 		random_planet = {
 			limit = { has_planet_flag = baldarak }
-			orbital_deposit_tile = {
-				add_deposit = d_enormous1_society_deposit
-			}
+			set_deposit = d_society_5
 		}
 	}
 }
@@ -314,6 +314,7 @@ country_event = {
 					}
 					hidden_effect = {
 						set_planet_flag = new_baldarak
+						clear_deposits = yes
 						save_event_target_as = NewBaldarak
 					}
 					enable_special_project = {
@@ -365,15 +366,13 @@ ship_event = {
 					modifier = "gas_giant_colony"
 					days = -1
 				}
-				orbital_deposit_tile = { clear_deposits = yes }
+				clear_deposits = yes
 				if = {
 					limit = { has_mining_station = yes }
 					random_mining_station = { dismantle = yes }
 				}
 			}
-			orbital_deposit_tile = {
-				add_deposit = d_immense_society_deposit
-			}	
+			set_deposit = d_society_3
 		}
 	}
 }

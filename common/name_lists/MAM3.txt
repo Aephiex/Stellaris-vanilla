@@ -77,14 +77,6 @@ MAM3 = {
 			sequential_name = "%O% Robot Garrison"
 		}
 		
-		android_army = {
-			sequential_name = "%O% Android Division"
-		}
-
-		android_defense_army = {
-			sequential_name = "%O% Android Garrison"
-		}
-		
 		psionic_army = { 
 			sequential_name = "%O% Psionic Army"
 		}
@@ -105,8 +97,14 @@ MAM3 = {
 			sequential_name = "%O% Occupation Robot Army"
 		}
 
-		android_occupation_army = {
-			sequential_name = "%O% Occupation Android Army"
+		primitive_army = {
+			sequential_name = "Primitive Army %C%"
+		}
+		industrial_army = {
+			sequential_name = "Industrial Army %C%"
+		}
+		postatomic_army = {
+			sequential_name = "Post-Atomic Army %C%"
 		}
 	}
 

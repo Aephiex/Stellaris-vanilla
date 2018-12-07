@@ -1,7 +1,7 @@
 tr_expansion_adopt = {
 	
 	modifier = {
-		planet_colony_development_speed_mult = 0.50
+		planet_colony_development_speed_mult = 0.25
 	}
 
 	tradition_swap = {
@@ -10,7 +10,7 @@ tr_expansion_adopt = {
 		inherit_icon = yes
 		inherit_name = no
 		trigger = {
-			has_authority = auth_machine_intelligence
+			is_machine_empire = yes
 		}
 
 		weight = {
@@ -24,7 +24,7 @@ tr_expansion_adopt = {
 		inherit_icon = yes
 		inherit_name = no
 		trigger = {
-			has_authority = auth_hive_mind
+			is_hive_empire = yes
 		}
 
 		weight = {
@@ -43,50 +43,23 @@ tr_expansion_adopt = {
 
 tr_expansion_finish = {
 	modifier = {
-		country_core_sector_system_cap = 2
+		planet_non_artificial_max_districts_add = 1
 		ascension_perks_add = 1
-	}
-
-	tradition_swap = {
-		name = tr_expansion_adopt_machine
-		inherit_effects = yes
-		inherit_icon = yes
-		inherit_name = no
-		trigger = {
-			has_authority = auth_machine_intelligence
-		}
-
-		weight = {
-			factor = 1
-		}
-	}
-
-	tradition_swap = {
-		name = tr_expansion_adopt_machine # uses same name and desc
-		inherit_effects = yes
-		inherit_icon = yes
-		inherit_name = no
-		trigger = {
-			has_authority = auth_hive_mind
-		}
-
-		weight = {
-			factor = 1
-		}
 	}
 }
 
 tr_expansion_colonization_fever = {
+	modifier = {
+		colony_start_num_pops_add = 1
+	}
 	
-	#implementation done in buildings.txt
-
 	tradition_swap = {
 		name = tr_expansion_colonization_fever_machine
 		inherit_effects = yes
 		inherit_icon = yes
 		inherit_name = no
 		trigger = {
-			has_authority = auth_machine_intelligence
+			is_machine_empire = yes
 		}
 
 		weight = {
@@ -100,7 +73,7 @@ tr_expansion_colonization_fever = {
 		inherit_icon = yes
 		inherit_name = no
 		trigger = {			
-			has_authority = auth_hive_mind
+			is_hive_empire = yes
 		}
 
 		weight = {
@@ -114,20 +87,23 @@ tr_expansion_colonization_fever = {
 }
 
 tr_expansion_a_new_life = {
+	modifier = {
+		pop_growth_speed = 0.10
+	}
 	possible = {
 		has_tradition = tr_expansion_colonization_fever
-	}
-	modifier = {
-		colony_start_num_pops_add = 1
 	}
 
 	tradition_swap = {
 		name = tr_expansion_a_new_life_machine
-		inherit_effects = yes
+		inherit_effects = no
 		inherit_icon = yes
 		inherit_name = no
 		trigger = {
-			has_authority = auth_machine_intelligence
+			is_machine_empire = yes
+		}
+		modifier = {
+			planet_pop_assembly_mult = 0.10
 		}
 
 		weight = {
@@ -141,7 +117,7 @@ tr_expansion_a_new_life = {
 		inherit_icon = yes
 		inherit_name = no
 		trigger = {
-			has_authority = auth_hive_mind
+			is_hive_empire = yes
 		}
 
 		weight = {
@@ -156,11 +132,11 @@ tr_expansion_a_new_life = {
 
 tr_expansion_courier_network = {
 	possible = {
-		has_tradition = tr_expansion_colonization_fever
+		has_tradition = tr_expansion_reach_for_the_stars
 	}
 	
 	modifier = {
-		tradition_cost_num_colonies_mult = -0.20
+		country_admin_cap_add = 20
 	}
 
 	tradition_swap = {
@@ -169,7 +145,7 @@ tr_expansion_courier_network = {
 		inherit_icon = yes
 		inherit_name = no
 		trigger = {
-			has_authority = auth_machine_intelligence
+			is_machine_empire = yes
 		}
 
 		weight = {
@@ -183,7 +159,7 @@ tr_expansion_courier_network = {
 		inherit_icon = yes
 		inherit_name = no
 		trigger = {
-			has_authority = auth_hive_mind
+			is_hive_empire = yes
 		}
 
 		weight = {
@@ -207,7 +183,7 @@ tr_expansion_reach_for_the_stars = {
 		inherit_icon = yes
 		inherit_name = no
 		trigger = {			
-			has_authority = auth_machine_intelligence
+			is_machine_empire = yes
 		}
 
 		weight = {
@@ -221,7 +197,7 @@ tr_expansion_reach_for_the_stars = {
 		inherit_icon = yes
 		inherit_name = no
 		trigger = {
-			has_authority = auth_hive_mind
+			is_hive_empire = yes
 		}
 
 		weight = {
@@ -240,7 +216,7 @@ tr_expansion_galactic_ambition = {
 	}
 	
 	modifier = {
-		country_starbase_upkeep_mult = -0.2
+		starbases_upkeep_mult = -0.2
 	}
 
 	tradition_swap = {
@@ -249,7 +225,7 @@ tr_expansion_galactic_ambition = {
 		inherit_icon = yes
 		inherit_name = no
 		trigger = {			
-			has_authority = auth_machine_intelligence
+			is_machine_empire = yes
 		}
 
 		weight = {
@@ -263,7 +239,7 @@ tr_expansion_galactic_ambition = {
 		inherit_icon = yes
 		inherit_name = no
 		trigger = {
-			has_authority = auth_hive_mind
+			is_hive_empire = yes
 		}
 
 		weight = {

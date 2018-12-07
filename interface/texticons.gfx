@@ -63,6 +63,11 @@ spriteTypes = {
 		name = "GFX_text_army_ship"
 		texturefile = "gfx/interface/icons/text_icons/text_icon_military_transport.dds"
 	}
+	
+	spriteType = {
+		name = "GFX_text_defense_army"
+		texturefile = "gfx/interface/icons/text_icons/text_icon_defense_army.dds"
+	}
 
 	### ship class icons ###
 
@@ -180,15 +185,70 @@ spriteTypes = {
 	}
 	
 	spriteType = {
+		name = "GFX_text_planet"
+		textureFile = "gfx/interface/icons/text_icons/text_icon_planet.dds"
+	}	
+	
+	spriteType = {
+		name = "GFX_text_housing"
+		textureFile = "gfx/interface/icons/text_icons/tooltip_housing.dds"
+	}
+	
+	spriteType = {
 		name = "GFX_text_pop"
 		textureFile = "gfx/interface/icons/text_icons/icon_text_pop.dds"
 	}
 	
 	spriteType = {
 		name = "GFX_text_pops"
-		textureFile = "gfx/interface/icons/text_icons/tooltip_pop.dds"
+		textureFile = "gfx/interface/icons/text_icons/icon_text_pop.dds"
 	}
+	
+	spriteType = {
+		name = "GFX_text_job"
+		textureFile = "gfx/interface/icons/text_icons/tooltip_job.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_text_unemployment"
+		textureFile = "gfx/interface/icons/text_icons/unemployed.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_text_economy"
+		textureFile = "gfx/interface/icons/text_icons/tooltip_economy.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_text_trade_value"
+		textureFile = "gfx/interface/icons/text_icons/trade_value.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_text_amenities"
+		textureFile = "gfx/interface/icons/text_icons/tooltip_amenities.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_text_amenities_no_happiness"
+		textureFile = "gfx/interface/icons/text_icons/tooltip_amenities_no_happiness.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_text_political_power"
+		textureFile = "gfx/interface/icons/text_icons/tooltip_political_power.dds"
+	}	
 
+	spriteType = {
+		name = "GFX_text_stability"
+		textureFile = "gfx/interface/icons/text_icons/tooltip_stability.dds"
+	}		
+
+	spriteType = {
+		name = "GFX_text_crime"
+		textureFile = "gfx/interface/icons/text_icons/tooltip_crime.dds"
+	}		
+	
 	spriteType = {
 		name = "GFX_text_blocker"
 		texturefile = "gfx/interface/icons/text_icons/text_icon_tile_blocker.dds"
@@ -202,6 +262,26 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_text_building"
 		textureFile = "gfx/interface/icons/text_icons/tooltip_building.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_text_decision"
+		textureFile = "gfx/interface/icons/text_icons/tooltip_decision.dds"
+	}	
+	
+	spriteType = {
+		name = "GFX_text_upgrade"
+		textureFile = "gfx/interface/icons/text_icons/tooltip_upgrade.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_text_repair"
+		textureFile = "gfx/interface/icons/text_icons/tooltip_repair.dds"
+	}	
+	
+	spriteType = {
+		name = "GFX_text_district"
+		textureFile = "gfx/interface/icons/text_icons/tooltip_district.dds"
 	}
 	
 	spriteType = {
@@ -278,6 +358,11 @@ spriteTypes = {
 		name = "GFX_text_ship_stats_shield"
 		texturefile = "gfx/interface/icons/ship_stats/shield.dds"
 	}
+	
+	spriteType = {
+		name = "GFX_text_ship_stats_piracy_supression"
+		texturefile = "gfx/interface/icons/ship_stats/piracy_suppression.dds"
+	}
 
 	spriteType = {
 		name = "GFX_text_ship_stats_evasion"
@@ -303,5 +388,31 @@ spriteTypes = {
 		name = "GFX_text_fleet_status"
 		texturefile = "gfx/interface/outliner/outliner_upgradable_design.dds"
 		noOfFrames = 2
+	}
+
+	spriteType = {
+		name = "GFX_text_colonies"
+		texturefile = "gfx/interface/icons/text_icons/text_icon_colony_ship.dds"
+	}
+
+	spriteType = {
+		name = "GFX_text_systems"
+		texturefile = "gfx/interface/icons/text_icons/text_icon_system.dds"
+	}
+
+	spriteType = {
+		name = "GFX_text_science"
+		textureFile = "gfx/interface/icons/text_icons/text_icon_science_ship.dds"
+	}
+	
+	# misc
+	spriteType = {
+		name = "GFX_text_trade_protection"
+		textureFile = "gfx/interface/icons/text_icons/trade_protection.dds"
+	}
+
+	spriteType = {
+		name = "GFX_text_slavery"
+		textureFile = "gfx/interface/icons/text_icons/slavery.dds"
 	}
 }

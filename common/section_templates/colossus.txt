@@ -16,6 +16,8 @@ ship_section_template = {
 	small_utility_slots = 0
 	medium_utility_slots = 0
 	large_utility_slots = 6
-	
-	cost = 20000
+
+	resources = {
+		category = ship_sections
+	}
 }

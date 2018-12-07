@@ -2,7 +2,7 @@
 #
 # Crisis Events III
 #
-# Written by Henrik Eklund and Miranda van den Brink
+# Written by Henrik Thyrwall and Miranda van den Brink
 #
 ############################
 
@@ -90,6 +90,7 @@ country_event = {
 		set_global_flag = ai_ghost_signal
 		endgame_telemetry = ai_revolt
 
+		observer_event = { id = observer.41 }
 		# The Ghost Signal
 		every_country = {
 			limit = { is_country_type = default }
@@ -182,9 +183,9 @@ country_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		owner = { has_technology = tech_synthetic_workers }
 		any_owned_pop = { 
-			has_trait = "trait_robotic_3" 
-			is_growing = no
+			has_trait = "trait_mechanical" 
 		} 
 	}
 	
@@ -192,8 +193,7 @@ country_event = {
 		random_owned_planet = {
 			limit = {
 				any_pop = { 
-					has_trait = "trait_robotic_3"
-					is_growing = no
+					has_trait = "trait_mechanical"
 				}
 			}
 			random_list = {
@@ -249,9 +249,9 @@ country_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		owner = { has_technology = tech_synthetic_workers }
 		any_owned_pop = { 
-			has_trait = "trait_robotic_3" 
-			is_growing = no
+			has_trait = "trait_mechanical" 
 		} 
 	}
 	
@@ -259,8 +259,7 @@ country_event = {
 		random_owned_planet = {
 			limit = {
 				any_pop = { 
-					has_trait = "trait_robotic_3" 
-					is_growing = no
+					has_trait = "trait_mechanical" 
 				}
 			}
 			random_list = {
@@ -294,7 +293,6 @@ country_event = {
 		text = crisis.2010.desc.b
 	}
 	picture = GFX_evt_glitchy_matrix
-	
 	show_sound = event_alien_signal
 	
 	is_triggered_only = yes
@@ -323,8 +321,7 @@ planet_event = {
 		name = crisis.2100.a
 		random_pop = {
 			limit = {
-				has_trait = "trait_robotic_3" 
-				is_growing = no
+				has_trait = "trait_mechanical" 
 			}
  			kill_pop = yes
 		}
@@ -347,8 +344,7 @@ planet_event = {
 		name = crisis.2103.a
 		random_pop = {
 			limit = {
-				has_trait = "trait_robotic_3" 
-				is_growing = no
+				has_trait = "trait_mechanical" 
 			}
  			kill_pop = yes
 		}
@@ -414,8 +410,7 @@ planet_event = {
 		name = crisis.2101.a
 		random_pop = {
 			limit = {
-				has_trait = "trait_robotic_3" 
-				is_growing = no
+				has_trait = "trait_mechanical" 
 			}
  			kill_pop = yes
 		}
@@ -437,8 +432,7 @@ planet_event = {
 		name = crisis.2102.a
 		random_pop = {
 			limit = {
-				has_trait = "trait_robotic_3" 
-				is_growing = no
+				has_trait = "trait_mechanical" 
 			}
  			kill_pop = yes
 		}
@@ -449,7 +443,6 @@ planet_event = {
 country_event = {
 	id = crisis.2020
 	title = "crisis.2020.name"
-	#desc = "crisis.2020.desc"
 	desc = {
 		trigger = {
 			NOT = {
@@ -474,6 +467,10 @@ country_event = {
 	show_sound = event_robo
 	
 	is_triggered_only = yes
+
+	immediate = {
+		observer_event = { id = observer.42 }
+	}
 	
 	option = {
 		name = crisis.2020.a
@@ -500,6 +497,10 @@ country_event = {
 	show_sound = event_robo
 	
 	is_triggered_only = yes
+
+	immediate = {
+		observer_event = { id = observer.43 }
+	}
 	
 	option = {
 		name = crisis.2021.a
@@ -529,6 +530,7 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
+		observer_event = { id = observer.44 }
 		end_event_chain = "ghost_signal_chain"	
 		begin_event_chain = {
 			event_chain = "ai_crisis_chain"
@@ -546,7 +548,7 @@ country_event = {
 				limit = {
 					OR = {
 						AND = {
-							has_trait = "trait_robotic_3"
+							has_trait = "trait_mechanical"
 							NOT = {
 								root = { has_country_flag = synthetic_empire }
 							}
@@ -554,7 +556,7 @@ country_event = {
 						# Synthetically Ascended Empires
 						AND = {
 							root = { has_country_flag = synthetic_empire }
-							has_trait = trait_robotic_3
+							has_trait = trait_mechanical
 							NOT = {
 								is_same_species = root.species
 							}
@@ -708,7 +710,6 @@ planet_event = {
 			portrait = "hum_robot_red"
 			traits = {
 				trait = "trait_mechanical"
-				trait = "trait_robotic_2"
 			}
 		}
 		last_created_species = { save_global_event_target_as = custodian_bot }
@@ -773,6 +774,7 @@ planet_event = {
 		create_ai_planet_defense = yes
 		create_ai_fleet = yes
 		create_ai_fleet = yes
+		random_country = { observer_event = { id = observer.45 } }
 		every_country = {
 			limit = { is_ai = no }
 			country_event = { id = crisis.2030 }
@@ -837,6 +839,7 @@ planet_event = {
 		create_ai_planet_defense = yes
 		create_ai_fleet = yes
 		create_ai_fleet = yes
+		random_country = { observer_event = { id = observer.46 } }
 		every_country = {
 			limit = { is_ai = no }
 			country_event = { id = crisis.2031 }
@@ -886,6 +889,7 @@ planet_event = {
 		create_ai_planet_defense = yes
 		create_ai_fleet = yes
 		create_ai_fleet = yes
+		random_playable_country = { observer_event = { id = observer.47 } }
 		every_country = {
 			limit = { is_ai = no }
 			country_event = { id = crisis.2032 }
@@ -934,6 +938,7 @@ planet_event = {
 		create_ai_planet_defense = yes
 		create_ai_fleet = yes
 		create_ai_fleet = yes
+		random_country = { observer_event = { id = observer.48 } }
 		every_country = {
 			limit = { is_ai = no }
 			country_event = { id = crisis.2033 }
@@ -1166,6 +1171,7 @@ country_event = {
 			}
 			create_contingency_starbase = yes
 		}
+		observer_event = { id = observer.49 }
 		every_country = {
 			limit = { is_ai = no }
 			country_event = { id = crisis.2036 }
@@ -1358,6 +1364,7 @@ planet_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		planet_devastation >= 100
 		is_planet_class = pc_ai
 		NOT = { has_planet_flag = machine_lair }
 	}
@@ -1398,12 +1405,10 @@ planet_event = {
 			destroy_colony = yes
 			change_pc = pc_broken
 			reset_planet = yes
-			orbital_deposit_tile = {
-				hidden_effect = { clear_deposits = yes }
-				add_deposit = d_living_metal_deposit
-				add_deposit = d_vast_mineral_deposit
-				add_deposit = d_vast_energy_deposit
-			}
+			hidden_effect = { clear_deposits = yes }
+			add_deposit = d_living_metal_deposit
+			add_deposit = d_minerals_3
+			add_deposit = d_energy_3
 		}
 
 		every_country = {
@@ -1463,6 +1468,7 @@ planet_event = {
 						add_modifier = { modifier = "ship_ghost_signal_4" days = -1 }
 					}
 				}
+				observer_event = { id = observer.50 }
 				every_country = {
 					limit = { is_ai = no }
 					country_event = { id = crisis.2037 }
@@ -1515,7 +1521,7 @@ planet_event = {
 					limit = { has_special_project = AI_CRISIS_PROJECT }
 					abort_special_project = { type = AI_CRISIS_PROJECT }
 				}
-					
+				observer_event = { id = observer.50 }
 				every_country = {
 					limit = { is_ai = no }
 					country_event = { id = crisis.2037 }
@@ -1548,6 +1554,7 @@ planet_event = {
 						add_modifier = { modifier = "ship_ghost_signal_2" days = -1 }
 					}
 				}
+				observer_event = { id = observer.50 }
 				every_country = {
 					limit = { is_ai = no }
 					country_event = { id = crisis.2037 }
@@ -1579,6 +1586,7 @@ planet_event = {
 						add_modifier = { modifier = "ship_ghost_signal_1" days = -1 }
 					}
 				}
+				observer_event = { id = observer.50 }
 				country_event = { id = crisis.2035 }
 				break = yes
 			}
@@ -1601,7 +1609,8 @@ country_event = {
 		FROMFROM = {
 			add_threat = { who = root amount = 2 }
 			set_controller = root
-			purge = yes
+			#TODO [CD] replace with assigning to purge job
+			#purge = yes
 		}
 	}
 }
@@ -1658,38 +1667,32 @@ planet_event = {
 	immediate = {
 		controller = { save_event_target_as = contingency }
 		set_owner = controller
-		best_tile_for_pop = {
-			create_pop = { species = event_target:custodian_bot }
-		}
-		best_tile_for_pop = {
-			create_pop = { species = event_target:custodian_bot }
-		}
-		best_tile_for_pop = {
-			create_pop = { species = event_target:custodian_bot }
+		create_pop = { species = event_target:custodian_bot }
+		create_pop = { species = event_target:custodian_bot }
+		create_pop = { species = event_target:custodian_bot }
+		create_army = {
+			owner = event_target:contingency
+			type = "robotic_defense_army"
 		}
 		create_army = {
 			owner = event_target:contingency
-			type = "android_defense_army"
+			type = "robotic_defense_army"
 		}
 		create_army = {
 			owner = event_target:contingency
-			type = "android_defense_army"
+			type = "robotic_defense_army"
 		}
 		create_army = {
 			owner = event_target:contingency
-			type = "android_defense_army"
+			type = "robotic_defense_army"
 		}
 		create_army = {
 			owner = event_target:contingency
-			type = "android_defense_army"
+			type = "robotic_defense_army"
 		}
 		create_army = {
 			owner = event_target:contingency
-			type = "android_defense_army"
-		}
-		create_army = {
-			owner = event_target:contingency
-			type = "android_defense_army"
+			type = "robotic_defense_army"
 		}
 		every_country = {
 			limit = { has_event_chain = "ai_crisis_chain" }
@@ -1710,11 +1713,13 @@ planet_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+		planet_devastation >= 100
 		is_planet_class = pc_ai
 		has_planet_flag = machine_lair
 	}
 	
 	immediate = {
+		stop_crisis_sound = yes
 		from = { save_event_target_as = final_machine_world_destroyer }
 		planet_event = { id = crisis.2046 }
 	}
@@ -1766,6 +1771,7 @@ planet_event = {
 			limit = { has_modifier = unity_reduction_crisis_2204 }
 			remove_modifier = unity_reduction_crisis_2204
 		}
+		random_country = { observer_event = { id = observer.51 } }
 		every_country = {
 			limit = {
 				OR = {
@@ -1788,7 +1794,10 @@ planet_event = {
 		}
 		random_country = {
 			limit = { is_country_type = ai_empire }
-			every_controlled_planet = { purge = no } # Stop purging any occupied worlds
+			every_controlled_planet = { 
+				#TODO [CD] replace with assigning to purge job
+				#purge = no
+			} # Stop purging any occupied worlds
 			destroy_country = yes # Destroy the Contingency
 		}
 
@@ -1836,7 +1845,8 @@ country_event = {
 	
 	immediate = {
 		FROMFROM = {
-			purge = no
+			#TODO [CD] replace with assigning to purge job
+			#purge = no
 		}
 	}
 }
@@ -1936,7 +1946,7 @@ planet_event = {
 			limit = {
 				owner = {
 					count_armies = {
-						limit = { army_type = android_army }
+						limit = { army_type = robotic_army }
 						count > 140
 					}
 				}
@@ -1998,51 +2008,55 @@ planet_event = {
 }
 
 # New Synth gets signal modifier
-pop_event = {
+planet_event = {
 	id = crisis.2055
 	hide_window = yes
 	
 	is_triggered_only = yes
 
 	trigger = {
-		has_trait = "trait_robotic_3" 
-		owner = {
-			OR = {
-				has_notification_modifier = ghost_signal_5
-				has_notification_modifier = ghost_signal_4
-				has_notification_modifier = ghost_signal_3
-				has_notification_modifier = ghost_signal_2
-				has_notification_modifier = ghost_signal_1
+		fromfrom = {
+			has_trait = "trait_mechanical" 
+			owner = {
+				OR = {
+					has_notification_modifier = ghost_signal_5
+					has_notification_modifier = ghost_signal_4
+					has_notification_modifier = ghost_signal_3
+					has_notification_modifier = ghost_signal_2
+					has_notification_modifier = ghost_signal_1
+				}
+				NOT = { has_country_flag = synthetic_empire }
 			}
-			NOT = { has_country_flag = synthetic_empire }
 		}
 	}
 	
 	immediate = {
-		if = {
-			limit = { owner = { has_notification_modifier = ghost_signal_5 } }
-			add_modifier = { modifier = "pop_ghost_signal_5" days = -1 }
-			break = yes
-		}
-		if = {
-			limit = { owner = { has_notification_modifier = ghost_signal_4 } }
-			add_modifier = { modifier = "pop_ghost_signal_4" days = -1 }
-			break = yes
-		}
-		if = {
-			limit = { owner = { has_notification_modifier = ghost_signal_3 } }
-			add_modifier = { modifier = "pop_ghost_signal_3" days = -1 }
-			break = yes
-		}
-		if = {
-			limit = { owner = { has_notification_modifier = ghost_signal_2 } }
-			add_modifier = { modifier = "pop_ghost_signal_2" days = -1 }
-			break = yes
-		}
-		if = {
-			limit = { owner = { has_notification_modifier = ghost_signal_1 } }
-			add_modifier = { modifier = "pop_ghost_signal_1" days = -1 }
-			break = yes
+		fromfrom = {
+			if = {
+				limit = { owner = { has_notification_modifier = ghost_signal_5 } }
+				add_modifier = { modifier = "pop_ghost_signal_5" days = -1 }
+				break = yes
+			}
+			if = {
+				limit = { owner = { has_notification_modifier = ghost_signal_4 } }
+				add_modifier = { modifier = "pop_ghost_signal_4" days = -1 }
+				break = yes
+			}
+			if = {
+				limit = { owner = { has_notification_modifier = ghost_signal_3 } }
+				add_modifier = { modifier = "pop_ghost_signal_3" days = -1 }
+				break = yes
+			}
+			if = {
+				limit = { owner = { has_notification_modifier = ghost_signal_2 } }
+				add_modifier = { modifier = "pop_ghost_signal_2" days = -1 }
+				break = yes
+			}
+			if = {
+				limit = { owner = { has_notification_modifier = ghost_signal_1 } }
+				add_modifier = { modifier = "pop_ghost_signal_1" days = -1 }
+				break = yes
+			}
 		}
 	}
 }
@@ -2210,32 +2224,36 @@ ship_event = {
 }
 
 # New Machine Empire Pop gets signal modifier
-pop_event = {
+planet_event = {
 	id = crisis.2312
 	hide_window = yes
 	
 	is_triggered_only = yes
 
 	trigger = {
-		has_trait = trait_machine_unit
-		owner = {
-			OR = {
-				has_notification_modifier = "ghost_signal_5_machine"
-				has_notification_modifier = "ghost_signal_4_machine"
+		fromfrom = {
+			has_trait = trait_machine_unit
+			owner = {
+				OR = {
+					has_notification_modifier = "ghost_signal_5_machine"
+					has_notification_modifier = "ghost_signal_4_machine"
+				}
 			}
 		}
 	}
 	
 	immediate = {
-		if = {
-			limit = { owner = { has_notification_modifier = "ghost_signal_5_machine" } }
-			add_modifier = { modifier = "pop_ghost_signal_5_machine" days = -1 }
-			break = yes
-		}
-		if = {
-			limit = { owner = { has_notification_modifier = "ghost_signal_4_machine" } }
-			add_modifier = { modifier = "pop_ghost_signal_4_machine" days = -1 }
-			break = yes
+		fromfrom = {
+			if = {
+				limit = { owner = { has_notification_modifier = "ghost_signal_5_machine" } }
+				add_modifier = { modifier = "pop_ghost_signal_5_machine" days = -1 }
+				break = yes
+			}
+			if = {
+				limit = { owner = { has_notification_modifier = "ghost_signal_4_machine" } }
+				add_modifier = { modifier = "pop_ghost_signal_4_machine" days = -1 }
+				break = yes
+			}
 		}
 	}
 }
@@ -2674,17 +2692,9 @@ country_event = {
 			has_country_flag = machine_power_failure
 		}
 		any_owned_planet = {
-			any_tile = {
-				OR = {
-					has_building = building_power_plant_1
-					has_building = building_power_plant_2
-					has_building = building_power_plant_3
-					has_building = building_power_plant_4
-					has_building = building_power_plant_5
-					has_building = betharian_power_plant
-					has_building = building_power_hub_1
-					has_building = building_power_hub_2
-				}
+			num_districts = {
+				type = district_generator
+				value > 3
 			}
 		}
 	}
@@ -2695,35 +2705,15 @@ country_event = {
 			count = 3
 			random_owned_planet = {
 				limit = {
-					any_tile = {
-						OR = {
-							has_building = building_power_plant_1
-							has_building = building_power_plant_2
-							has_building = building_power_plant_3
-							has_building = building_power_plant_4
-							has_building = building_power_plant_5
-							has_building = betharian_power_plant
-							has_building = building_power_hub_1
-							has_building = building_power_hub_2
-						}
+					num_districts = {
+						type = district_generator
+						value > 3
 					}
+					NOT = { has_modifier = contingency_sabotage }
 				}
-				random_tile = {
-					limit = {
-						OR = {
-							has_building = building_power_plant_1
-							has_building = building_power_plant_2
-							has_building = building_power_plant_3
-							has_building = building_power_plant_4
-							has_building = building_power_plant_5
-							has_building = betharian_power_plant
-							has_building = building_power_hub_1
-							has_building = building_power_hub_2
-						}
-						is_ruined = no
-					}
-					set_ruined = yes
-					kill_pop = yes
+				add_modifier = {
+					modifier = "contingency_sabotage"
+					days = 1800
 				}
 			}
 		}
@@ -2731,7 +2721,7 @@ country_event = {
 	
 	option = {
 		name = crisis.2304.a
-		custom_tooltip = machine_power_failure
+		custom_tooltip = machine_power_failure_2
 	}
 }
 
@@ -2750,19 +2740,6 @@ country_event = {
 		NOT = {
 			has_country_flag = machine_mineral_failure
 		}
-		any_owned_planet = {
-			any_tile = {
-				OR = {
-					has_building = building_mining_network_1
-					has_building = building_mining_network_2
-					has_building = building_mining_network_3
-					has_building = building_mining_network_4
-					has_building = building_mining_network_5
-					has_building = building_mineral_processing_plant_1
-					has_building = building_mineral_processing_plant_2
-				}
-			}
-		}
 	}
 
 	immediate = {
@@ -2771,7 +2748,6 @@ country_event = {
 	
 	option = {
 		name = crisis.2305.a
-		#custom_tooltip = machine_power_failure
 	}
 }
 
@@ -2790,14 +2766,7 @@ country_event = {
 	trigger = {
 		any_owned_planet = {
 			controller = { is_same_value = root }
-			any_tile = {
-				has_building = yes
-				is_ruined = no
-				exists = pop
-				pop = {
-					has_trait = trait_machine_unit
-				}
-			}
+			any_owned_pop = { has_trait = trait_machine_unit }
 		}
 		NOT = { has_country_flag = potentially_corrupted_units }
 	}
@@ -2855,14 +2824,7 @@ country_event = {
 	trigger = {
 		any_owned_planet = {
 			controller = { is_same_value = root }
-			any_tile = {
-				has_building = yes
-				is_ruined = no
-				exists = pop 
-				pop = {
-					has_trait = trait_machine_unit
-				}
-			}
+			any_owned_pop = { has_trait = trait_machine_unit }
 		}
 	}
 
@@ -2870,66 +2832,21 @@ country_event = {
 		while = {
 			count = 4
 			random_owned_planet = {
-				limit = {
-					controller = { is_same_value = root }
-					any_tile = {
-						has_building = yes
-						is_ruined = no
-						exists = pop 
-						pop = {
-							has_trait = trait_machine_unit
-						}
-					}
+				limit = { 
+					any_owned_pop = { has_trait = trait_machine_unit } 
 				}
-				random_tile = {
-					limit = {
-						exists = pop
-						has_building = yes 
-						pop = {
-							has_trait = trait_machine_unit
-						}
-						is_ruined = no
-					}
-					set_ruined = yes
+				random_owned_pop = {
+					limit = { has_trait = trait_machine_unit }
 					kill_pop = yes
 				}
+				add_planet_devastation = 10
 			}
 		}
 	}
 	
 	option = {
 		name = crisis.2309.a
-		custom_tooltip = crisis.2309.tooltip
-		tooltip = {
-			while = {
-			count = 4
-				random_owned_planet = {
-					limit = {
-						controller = { is_same_value = root }
-						any_tile = {
-							has_building = yes
-							is_ruined = no
-							exists = pop 
-							pop = {
-								has_trait = trait_machine_unit
-							}
-						}
-					}
-					random_tile = {
-						limit = {
-							exists = pop
-							has_building = yes 
-							pop = {
-								has_trait = trait_machine_unit
-							}
-							is_ruined = no
-						}
-						set_ruined = yes
-						kill_pop = yes
-					}	
-				}
-			}
-		}
+		custom_tooltip = crisis.2309.tooltip_2
 	}
 }
 
@@ -3129,66 +3046,16 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		any_tile = {
-			has_building = yes
-			has_grown_pop = yes
-			NOT = { 
-				OR = {
-					has_building = "building_capital_1"
-					has_building = "building_capital_2"
-					has_building = "building_capital_3"
-				}
-			}
-		}
 		has_ground_combat = no
 	}
-
-	immediate = {
-		random_tile = {
-			limit = { 
-				has_building = yes
-				has_grown_pop = yes
-				NOT = { 
-					OR = {
-						has_building = "building_capital_1"
-						has_building = "building_capital_2"
-						has_building = "building_capital_3"
-					}
-				}
-			}
-			kill_pop = yes
-			set_ruined = yes
+	
+	option = {
+		name = crisis.2091.a
+		while = {
+			count = 3
+			random_owned_pop = { kill_pop = yes }
 		}
-		random_tile = {
-			limit = { 
-				has_building = yes
-				has_grown_pop = yes
-				NOT = { 
-					OR = {
-						has_building = "building_capital_1"
-						has_building = "building_capital_2"
-						has_building = "building_capital_3"
-					}
-				}
-			}
-			kill_pop = yes
-			set_ruined = yes
-		}
-		random_tile = {
-			limit = { 
-				has_building = yes
-				has_grown_pop = yes
-				NOT = { 
-					OR = {
-						has_building = "building_capital_1"
-						has_building = "building_capital_2"
-						has_building = "building_capital_3"
-					}
-				}
-			}
-			kill_pop = yes
-			set_ruined = yes
-		}
+		add_planet_devastation = 20
 		owner = {
 			if = {
 				limit = {
@@ -3197,24 +3064,6 @@ planet_event = {
 				add_modifier = {
 					modifier = unity_reduction_crisis_2204
 					days = 1800
-				}
-			}
-		}
-	}
-	
-	option = {
-		name = crisis.2091.a
-		custom_tooltip = synth_bombing_tooltip
-		owner = {
-			if = {
-				limit = {
-					NOT = { has_modifier = unity_reduction_crisis_2204 }
-				}
-				tooltip = {
-					add_modifier = {
-						modifier = unity_reduction_crisis_2204
-						days = 1800
-					}
 				}
 			}
 		}
@@ -3629,6 +3478,7 @@ country_event = {
 				initializer = "cybrex_beta"
 			}
 		}
+		observer_event = { id = observer.52 }
 		every_country = {
 			limit = { is_country_type = default }
 			country_event = { id = crisis.2401 days = 2 }
@@ -3778,6 +3628,7 @@ country_event = {
 	}
 	
 	immediate = {
+		observer_event = { id = observer.53 }
 		every_country = {
 			limit = { is_country_type = default }
 			country_event = { id = crisis.2405 }
@@ -3825,6 +3676,7 @@ country_event = {
 	
 	immediate = {
 		set_global_flag = cybrex_departed
+		observer_event = { id = observer.54 }
 		every_country = {
 			limit = { is_country_type = default }
 			country_event = { id = crisis.2407 }
@@ -3834,7 +3686,7 @@ country_event = {
 			every_owned_pop = { kill_pop = yes }
 			every_owned_fleet = { delete_fleet = this }
 			every_controlled_planet = {
-				every_tile = { remove_building = yes }
+				remove_all_buildings = yes
 			}
 			every_controlled_planet = {
 				limit = { is_planet_class = pc_cybrex }
@@ -3906,7 +3758,7 @@ country_event = {
 			save_event_target_as = contingency
 		}
 		create_leader = {
-			type = admiral
+			class = admiral
 			species = owner_main_species
 			name = random
 			skill = 5
@@ -3971,7 +3823,7 @@ country_event = {
 			save_event_target_as = contingency
 		}
 		create_leader = {
-			type = admiral
+			class = admiral
 			species = owner_main_species
 			name = random
 			skill = 5
@@ -4115,6 +3967,7 @@ country_event = {
 						set_owner = root
 					}
 					settings = {
+						can_change_composition = no
 						uses_naval_capacity = no
 						can_disband = no
 					}
@@ -4177,6 +4030,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		planet_devastation >= 100
 		is_planet_class = pc_cybrex
 	}
 	
@@ -4197,6 +4051,7 @@ planet_event = {
 	trigger = {
 		exists = owner
 		owner = { is_country_type = ai_empire }
+		planet_devastation >= 100
 		NOT = { is_planet_class = pc_ai }
 		has_ground_combat = no
 		from = { is_country_type = cybrex_empire }

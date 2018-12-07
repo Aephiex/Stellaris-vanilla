@@ -1,5 +1,5 @@
 ﻿
-#Stellaris: Distant Stars Game Team
+#Stellaris: MegaCorp Game Team
 --------
 ##EVP Creative Direction
 
@@ -9,7 +9,7 @@ Johan Andersson
 
 Martin Anward
 
-##Project Leads
+##Producers
 
 Aziz Faghihinejad
 Jamie Wood
@@ -18,6 +18,7 @@ Jamie Wood
 
 Martin Anward
 Daniel Moregård
+Markus Veit
 
 ##Technical Lead
 
@@ -26,19 +27,20 @@ Gwenael Tranvouez
 ##Programmers
 
 Carl Carenvall
-Hampus Liljekvist
+Zack Holmgren
 Emelie Nordstrand Lindgren
 Ilya Nikitin
 Gustav Palmqvist
 Lysann Schlegel
+Magne Skjæran
 
 ##Content Designers
 
+David Ballantyne
 Miranda van den Brink
-Linus Dilén
-Henrik Eklund
 Dee Majek
 Maximilian Olbers
+Henrik Thyrwall
 
 ##UX Designer
 
@@ -67,7 +69,8 @@ Johan Lundqvist
 
 ##Additional Art
 
-Emma Jonsson
+Mattias Larsson
+Flavio Verna
 N-iX
 
 ##Animation & Effects
@@ -80,32 +83,24 @@ Felix Gladitz
 
 ##QA Team Lead - Central
 
-Filippa Gannholm
+Filippa Gannholm Kirsten
 
 ##Embedded QA
 
-Sebastian Borg
-Aziz Faghihinejad
 Eva Mayer
 Markus Veit
 
-##Community QA
-
-Carsten 't Mannetje
-
 ##QA Testers
 
-Linus Dilén
-Joshua Evans
+Ewan Cowhig Croft
 Joseph Gardener
 Markus Grebe
 Tegan Harris
-Eva Mayer
+Anna Johansson
 Jesper Norberg
 William Riggott
-Daniel Sjöberg
-Daniel Teige
 Albin Wallin
+Andreas Witzén
 
 ##QLOC QA Project Manager
 
@@ -114,7 +109,13 @@ Maciej Grabowski
 ## QLOC QA Team Leaders
 
 Karolina Jagnyziak
+Justyna Janicka
 Marcin Jankowski
+
+## QLOC QA Testers (Dedicated)
+
+Maciej Gutkowski
+Olga Kowaluk
 
 ## QLOC QA Testers (Core)
 
@@ -127,12 +128,13 @@ Gabriel Urban
 
 ## QLOC QA Testers (Additional)
 
-Abel Perez Abalde
-Sofiane Boukoffa
-Filip Gutowski
-Tomasz Lisek
+Maciej Bartnik
+Dominik Jastrzebski
+Jedrzej Korpak
 Jakub Potapczyk
-Michal Wagrocki
+Piotr Szafranowski
+Stanislaw Szczerbik
+Bartlomiej Wyciszkiewicz
 
 ##Audio Director
 
@@ -142,9 +144,37 @@ Björn Iversen
 
 Franco Freda
 
+##Sound Designer
+
+David Schlein-Andersen
+
 ##Composer
 
 Meyer
+
+##Voice Recording Studio
+
+SIDE UK
+
+##VO Project Manager
+
+Craig Holanhan
+
+##VO Director
+
+Kate Saxon
+
+##The Worker
+
+Kola Krauze
+
+##Slick Corporation
+
+Christina Cole
+
+##Ruthless Conglomerate
+
+Eric Meyers
 
 ##The Voice of VIR
 
@@ -166,6 +196,32 @@ Dylan Skoda
 Francesco Teruzzi
 Matthew Walsh
 Djordje Zivanovic
+
+##Product Owner
+
+Bevan Davies
+
+##Product Marketing Manager
+
+Sebastian Forsström
+
+##Partner Account Manager
+
+Fang Chen
+
+##Analytics
+
+Kayle Sneed
+
+##User Researchers
+
+Henrik Edlund
+Hanna Löhman
+Jean-Luc Potte
+
+##Community Manager
+
+Dale Emasiri
 
 ##Chief Dad Joke Officer
 
@@ -238,11 +294,12 @@ Jonas Wickerström
 
 ##Lead Content Designer
 
-Henrik Eklund
+Henrik Thyrwall
 
 ##Content Designers
 
 David Ballantyne
+Linus Dilén
 Niclas Karlsson
 Drikus Kuiper
 Dee Majek
@@ -288,6 +345,7 @@ Aline Gladh
 
 Frida Eriksson
 Anton Hultdin
+Emma Jonsson
 Kentaro Kanamoto
 Timor Khanagov
 Ylva Ljungqvist
@@ -344,6 +402,7 @@ Markus Veit
 Arthur Bialecki
 Niall Bird
 Sebastian Borg
+Linus Dilén
 Joshua Evans
 Matthew Frary
 Carmille Gidfors
@@ -372,6 +431,33 @@ Alexander Lundström
 ##Community QA
 
 Carsten 't Mannetje
+
+##QLOC QA Project Manager
+
+Maciej Grabowski
+
+## QLOC QA Team Leaders
+
+Karolina Jagnyziak
+Marcin Jankowski
+
+## QLOC QA Testers (Core)
+
+Bartosz Maciejewski
+Oskar Nowak
+Uros Rudolf
+Jan Starosz
+Maksymilian Szczepanczyk
+Gabriel Urban
+
+## QLOC QA Testers (Additional)
+
+Abel Perez Abalde
+Sofiane Boukoffa
+Filip Gutowski
+Tomasz Lisek
+Jakub Potapczyk
+Michal Wagrocki
 
 ##Audio Director
 
@@ -516,7 +602,7 @@ Mario Lasan
 
 ##QA
 
-Filippa Gannholm
+Filippa Gannholm Kirsten
 Jake Leiper-Ritchie
 Zeke Lugmair
 Jesper Norberg
@@ -861,7 +947,8 @@ Matthijs Hoving
 ##Localization
 
 Brazilian Portuguese - S&H Entertainment Localization
-French - Nicolas Fouqué
+Chinese - Tencent
+French - Nicolas Fouqué, Xavier Zimmermann
 German - Kai Bagehorn
 Polish - QLOC
 Russian - The Most Games

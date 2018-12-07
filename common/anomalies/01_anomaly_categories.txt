@@ -406,10 +406,10 @@ HBL_MUSIC_1_CAT = {
 			modifier = {
 				add = 1
 				owner = {
-					has_technology = tech_biolab_1
+					has_technology = tech_society_1
 					NOT = {
 						has_country_flag = HBL_MUSIC_1_FLAG
-						has_technology = tech_biolab_2
+						has_technology = tech_society_2
 					}
 				}
 			}
@@ -600,7 +600,7 @@ BARR_BASE_CAT = {
 		}
 		modifier = {
 			factor = 0
-			owner = {
+			from.owner = {
 				has_ethic = ethic_gestalt_consciousness
 			}
 		}
@@ -845,8 +845,9 @@ ATM_ANOMALY_CAT = {
 			is_star = no
 			is_ringworld = no
 			habitable_planet = no
-			NOT = {
+			NOR = {
 				is_planet_class = pc_gas_giant
+				is_planet_class = pc_nuked
 			}
 		}
 	}
@@ -1311,7 +1312,7 @@ GEN_DESERT_CAT = {
 					}
 				}
 				owner = {
-					energy > 49
+					resource_stockpile_compare = { resource = energy value >= 50 }
 				}
 			}
 			anomaly_event = anomaly.3035

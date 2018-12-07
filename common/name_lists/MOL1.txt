@@ -1,5 +1,5 @@
 ﻿### Molluscoid 1
-### Created by Henrik Eklund
+### Created by Henrik Thyrwall
 
 MOL1 = {
 	ship_names = {
@@ -77,14 +77,6 @@ MOL1 = {
 			sequential_name = "%O% Cephalodroid Guard"
 		}
 		
-		android_army = {
-			sequential_name = "%O% Spirit Shells"
-		}
-
-		android_defense_army = {
-			sequential_name = "%O% Spirit Guard"
-		}
-		
 		psionic_army = { 
 			sequential_name = "%O% Psychic Phalanx"
 		}
@@ -105,8 +97,14 @@ MOL1 = {
 			sequential_name = "%O% Occupation Oephalodroids"
 		}
 
-		android_occupation_army = {
-			sequential_name = "%O% Occupation Spirit Guard"
+		primitive_army = {
+			sequential_name = "Primitive Army %C%"
+		}
+		industrial_army = {
+			sequential_name = "Industrial Army %C%"
+		}
+		postatomic_army = {
+			sequential_name = "Post-Atomic Army %C%"
 		}
 	}
 

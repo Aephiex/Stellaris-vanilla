@@ -29,6 +29,13 @@ spriteTypes = {
 		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
 	}
 	
+	spriteType = {
+		name = "GFX_main_close_button_caravaneer"
+		texturefile = "gfx/interface/buttons/close_button_caravaneer.dds"
+		noOfFrames = 3
+		effectFile = "gfx/FX/buttonstate_onlydisable.lua"
+	}
+	
 	### MISC
 	
 	spriteType = {

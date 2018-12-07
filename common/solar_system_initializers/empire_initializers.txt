@@ -77,15 +77,12 @@ random_empire_init_01 = {
 		class = ideal_planet_class
 		orbit_angle = { min = 90 max = 270 }
 		size = { min = 16 max = 20 }
-		tile_blockers = none
+		deposit_blockers = none
 		modifiers = none
-
-		init_effect = {
-			prevent_anomaly = yes
-		}
 		
 		init_effect = {
-			generate_start_buildings_and_blockers = yes			
+			generate_empire_home_planet = yes			
+			prevent_anomaly = yes
 		}
 		
 		change_orbit = @base_moon_distance
@@ -131,10 +128,12 @@ random_empire_init_01 = {
 	}
 	
 	neighbor_system = {
+		trigger = { num_guaranteed_colonies >= 2 }
 		distance = { min = 10 max = @distance }
 		initializer = "neighbor_t1"
 	}
 	neighbor_system = {
+		trigger = { num_guaranteed_colonies >= 1 }
 		distance = { min = 10 max = @distance }	
 		initializer = "neighbor_t1_first_colony"
 	}
@@ -181,15 +180,12 @@ random_empire_init_02 = {
 		orbit_distance = 0
 		orbit_angle = { min = 90 max = 270 }
 		size = { min = 16 max = 20 }
-		tile_blockers = none
+		deposit_blockers = none
 		modifiers = none
-
-		init_effect = {
-			prevent_anomaly = yes
-		}
 		
 		init_effect = {
-			generate_start_buildings_and_blockers = yes		
+			generate_empire_home_planet = yes		
+			prevent_anomaly = yes
 		}
 		
 		change_orbit = @base_moon_distance
@@ -266,10 +262,12 @@ random_empire_init_02 = {
 	}
 	
 	neighbor_system = {
+		trigger = { num_guaranteed_colonies >= 2 }
 		distance = { min = 10 max = @distance }	
 		initializer = "neighbor_t1"
 	}
 	neighbor_system = {
+		trigger = { num_guaranteed_colonies >= 1 }
 		distance = { min = 10 max = @distance }	
 		initializer = "neighbor_t1_first_colony"
 	}
@@ -371,15 +369,12 @@ random_empire_init_03 = {
 			orbit_distance = 10
 			orbit_angle = { min = 90 max = 270 }
 			size = { min = 16 max = 20 }
-			tile_blockers = none
+			deposit_blockers = none
 			modifiers = none
-
-			init_effect = {
-				prevent_anomaly = yes
-			}
 		
 			init_effect = {
-				generate_start_buildings_and_blockers = yes		
+				generate_empire_home_planet = yes		
+				prevent_anomaly = yes
 			}
 		}
 	}
@@ -415,10 +410,12 @@ random_empire_init_03 = {
 	}
 	
 	neighbor_system = {
+		trigger = { num_guaranteed_colonies >= 2 }
 		distance = { min = 10 max = @distance }		
 		initializer = "neighbor_t1"
 	}
 	neighbor_system = {
+		trigger = { num_guaranteed_colonies >= 1 }
 		distance = { min = 10 max = @distance }		
 		initializer = "neighbor_t1_first_colony"
 	}
@@ -468,15 +465,12 @@ random_empire_init_04 = {
 		class = ideal_planet_class
 		orbit_angle = { min = 90 max = 270 }
 		size = { min = 16 max = 20 }
-		tile_blockers = none
+		deposit_blockers = none
 		modifiers = none
-
-		init_effect = {
-			prevent_anomaly = yes
-		}
 		
 		init_effect = {
-			generate_start_buildings_and_blockers = yes			
+			generate_empire_home_planet = yes			
+			prevent_anomaly = yes
 		}
 
 		change_orbit = @base_moon_distance
@@ -520,11 +514,13 @@ random_empire_init_04 = {
 	}
 	
 	neighbor_system = {
-		distance = { min = 10 max = @distance }		
+		trigger = { num_guaranteed_colonies >= 2 }
+		distance = { min = 10 max = @distance }	
 		initializer = "neighbor_t1"
 	}
 	neighbor_system = {
-		distance = { min = 10 max = @distance }		
+		trigger = { num_guaranteed_colonies >= 1 }
+		distance = { min = 10 max = @distance }			
 		initializer = "neighbor_t1_first_colony"
 	}
 }
@@ -624,15 +620,12 @@ random_empire_init_05 = {
 		class = ideal_planet_class
 		orbit_angle = { min = 90 max = 270 }
 		size = { min = 16 max = 20 }
-		tile_blockers = none
+		deposit_blockers = none
 		modifiers = none
-
-		init_effect = {
-			prevent_anomaly = yes
-		}
 		
 		init_effect = {
-			generate_start_buildings_and_blockers = yes			
+			generate_empire_home_planet = yes			
+			prevent_anomaly = yes
 		}
 
 		change_orbit = @base_moon_distance
@@ -662,10 +655,12 @@ random_empire_init_05 = {
 	}
 
 	neighbor_system = {
+		trigger = { num_guaranteed_colonies >= 2 }
 		distance = { min = 10 max = @distance }		
 		initializer = "neighbor_t1"
 	}
 	neighbor_system = {
+		trigger = { num_guaranteed_colonies >= 1 }
 		distance = { min = 10 max = @distance }		
 		initializer = "neighbor_t1_first_colony"
 	}
@@ -723,15 +718,12 @@ random_empire_init_06 = {
 		class = ideal_planet_class
 		orbit_angle = { min = 90 max = 270 }
 		size = { min = 16 max = 20 }
-		tile_blockers = none
+		deposit_blockers = none
 		modifiers = none
-
-		init_effect = {
-			prevent_anomaly = yes
-		}
 		
 		init_effect = {
-			generate_start_buildings_and_blockers = yes			
+			generate_empire_home_planet = yes			
+			prevent_anomaly = yes
 		}
 
 		change_orbit = @base_moon_distance
@@ -775,10 +767,12 @@ random_empire_init_06 = {
 	}
 	
 	neighbor_system = {
+		trigger = { num_guaranteed_colonies >= 2 }
 		distance = { min = 10 max = @distance }		
 		initializer = "neighbor_t1"
 	}
 	neighbor_system = {
+		trigger = { num_guaranteed_colonies >= 1 }
 		distance = { min = 10 max = @distance }		
 		initializer = "neighbor_t1_first_colony"
 	}
@@ -871,8 +865,7 @@ neighbor_t1_first_colony = {
 	planet = {
 		count = 1
 		orbit_distance = 25
-		class = ideal_planet_class
-		tile_blockers = none
+		class = ideal_design_class
 		modifiers = none
 		anomaly = none
 		orbit_angle = { min = 90 max = 270 }
@@ -881,36 +874,6 @@ neighbor_t1_first_colony = {
 		init_effect = {
 			set_planet_flag = prescripted_ideal		# used by code, do not remove
 		}
-		init_effect = {
-			random_tile = {
-				limit = { has_blocker = no has_building = no }
-				set_blocker = random
-			}
-		}
-		init_effect = {
-			random_tile = {
-				limit = { has_blocker = no has_building = no }
-				set_blocker = random
-			}
-		}
-		init_effect = {
-			random_tile = {
-				limit = { has_blocker = no has_building = no }
-				set_blocker = random
-			}
-		}
-		init_effect = {
-			random_tile = {
-				limit = { has_blocker = no has_building = no }
-				set_blocker = random
-			}
-		}
-		init_effect = {
-			random_tile = {
-				limit = { has_blocker = no has_building = no }
-				set_blocker = random
-			}
-		}	
 	}
 	
 	planet = {
@@ -1017,7 +980,7 @@ neighbor_t2_second_colony = {
 	planet = {
 		count = 1
 		orbit_distance = 25
-		class = ideal_planet_class
+		class = ideal_design_class
 		orbit_angle = { min = 90 max = 270 }
 		size = { min = 14 max = 24 }
 		

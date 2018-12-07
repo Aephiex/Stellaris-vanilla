@@ -7,7 +7,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_reactor_booster_1"
 	icon_frame = 1
 	power = 20
-	cost = 5
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = 5
+		}
+	}
 	
 	prerequisites = { "tech_reactor_boosters_1" }
 	component_set = "REACTOR_BOOSTER_1"
@@ -24,7 +29,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_reactor_booster_2"
 	icon_frame = 1
 	power = 50
-	cost = 10
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = 10
+		}
+	}
 	
 	prerequisites = { "tech_reactor_boosters_2" }
 	component_set = "REACTOR_BOOSTER_2"
@@ -41,7 +51,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_reactor_booster_3"
 	icon_frame = 1
 	power = 100
-	cost = 15
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = 15
+		}
+	}
 	
 	prerequisites = { "tech_reactor_boosters_3" }
 	component_set = "REACTOR_BOOSTER_3"
@@ -61,7 +76,13 @@ utility_component_template = {
 	icon = "GFX_ship_part_shield_recharger"
 	icon_frame = 1
 	power = -20
-	cost = 10
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = 10
+			exotic_gases = 1
+		}
+	}
 	
 	prerequisites = { "tech_shield_rechargers_1" }
 	component_set = "SHIELD_BOOSTER"
@@ -75,6 +96,12 @@ utility_component_template = {
 		modifier = {
 			factor = 2.0
 			is_preferred_weapons = weapon_type_energy
+			has_monthly_income = { resource = exotic_gases value > 0 }
+		}
+
+		modifier = {
+			factor = 0
+			has_monthly_income = { resource = exotic_gases value <= 0 }
 		}
 	}
 }
@@ -89,7 +116,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_auto_repair"
 	icon_frame = 1
 	power = 0
-	cost = 20
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = 20
+		}
+	}
 
 	modifier = {
 		ship_hull_regen_add_static = 1
@@ -118,9 +150,14 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_default"
 	icon_frame = 1
 	power = -10
-	cost = 10
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = 10
+		}
+	}
 
-	modifier = {
+	ship_modifier = {
 		ship_accuracy_add = 5
 	}
 	

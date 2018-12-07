@@ -5,8 +5,7 @@
 # Sets the edict-cost for all edicts with this variable
 @ambitionDuration = 3600
 
-country_edict = {
-	name = "scientific_revolution"
+scientific_revolution = {
 	length = @ambitionDuration
 	
 	is_ambition = yes 		# Costs Unity scaled to tradition cost
@@ -17,7 +16,7 @@ country_edict = {
 	}
 	
 	potential = {
-		has_technology = tech_ascension_theory_apoc
+		has_technology = tech_ascension_theory
 	}
 	
 	ai_weight = {
@@ -25,8 +24,7 @@ country_edict = {
 	}
 }
 
-country_edict = {
-	name = "desperate_measures"
+desperate_measures = {
 	length = @ambitionDuration
 	
 	is_ambition = yes 		# Costs Unity scaled to tradition cost
@@ -37,7 +35,7 @@ country_edict = {
 	}	
 	
 	potential = {
-		has_technology = tech_ascension_theory_apoc
+		has_technology = tech_ascension_theory
 	}
 	
 	ai_weight = {
@@ -45,8 +43,7 @@ country_edict = {
 	}
 }
 
-country_edict = {
-	name = "fortress_proclamation"
+fortress_proclamation = {
 	length = @ambitionDuration
 	
 	is_ambition = yes 		# Costs Unity scaled to tradition cost
@@ -57,7 +54,7 @@ country_edict = {
 	}	
 	
 	potential = {
-		has_technology = tech_ascension_theory_apoc
+		has_technology = tech_ascension_theory
 	}
 	
 	ai_weight = {
@@ -65,8 +62,7 @@ country_edict = {
 	}
 }
 
-country_edict = {
-	name = "architectural_renaissance"
+architectural_renaissance = {
 	length = @ambitionDuration
 	
 	is_ambition = yes 		# Costs Unity scaled to tradition cost
@@ -77,7 +73,7 @@ country_edict = {
 	}	
 	
 	potential = {
-		has_technology = tech_ascension_theory_apoc
+		has_technology = tech_ascension_theory
 	}
 	
 	allow = {
@@ -89,8 +85,7 @@ country_edict = {
 	}
 }
 
-country_edict = {
-	name = "hearts_and_minds"
+hearts_and_minds = {
 	length = @ambitionDuration
 	
 	is_ambition = yes 		# Costs Unity scaled to tradition cost
@@ -101,7 +96,7 @@ country_edict = {
 	}	
 	
 	potential = {
-		has_technology = tech_ascension_theory_apoc
+		has_technology = tech_ascension_theory
 		NOT = { has_ethic = ethic_gestalt_consciousness }
 	}
 	
@@ -110,18 +105,17 @@ country_edict = {
 	}
 }
 
-country_edict = {
-	name = "omnifarious_acquisition"
+omnifarious_acquisition = {
 	length = @ambitionDuration
 	
 	is_ambition = yes 		# Costs Unity scaled to tradition cost
 	
 	modifier = {
-		country_resource_minerals_mult = 0.33
+		country_minerals_produces_mult = 0.33
 	}	
 	
 	potential = {
-		has_technology = tech_ascension_theory_apoc
+		has_technology = tech_ascension_theory
 	}
 	
 	ai_weight = {
@@ -129,19 +123,18 @@ country_edict = {
 	}
 }
 
-country_edict = {
-	name = "grand_fleet"
+grand_fleet = {
 	length = @ambitionDuration
 	
 	is_ambition = yes 		# Costs Unity scaled to tradition cost
 	
 	modifier = {
 		country_naval_cap_mult = 0.20
-		ship_upkeep_mult = -0.20
+		ships_upkeep_mult = -0.20
 	}	
 	
 	potential = {
-		has_technology = tech_ascension_theory_apoc
+		has_technology = tech_ascension_theory
 	}
 	
 	ai_weight = {
@@ -149,18 +142,17 @@ country_edict = {
 	}
 }
 
-country_edict = {
-	name = "will_to_power"
+will_to_power = {
 	length = @ambitionDuration
 	
 	is_ambition = yes 		# Costs Unity scaled to tradition cost
 	
 	modifier = {
-		country_resource_influence_add = 5
+		country_base_influence_produces_add = 5
 	}	
 	
 	potential = {
-		has_technology = tech_ascension_theory_apoc
+		has_technology = tech_ascension_theory
 	}
 	
 	ai_weight = {

@@ -43,8 +43,7 @@ pirate_corvette = {
 	num_target_locators = 0
 	is_space_station = no
 	icon_frame = 2
-	
-	has_mineral_upkeep = yes
+
 	class = shipclass_military
 	is_designable = no
 
@@ -71,8 +70,7 @@ pirate_destroyer = {
 	num_target_locators = 0
 	icon_frame = 3
 	is_space_station = no
-	
-	has_mineral_upkeep = yes
+
 	class = shipclass_military
 	is_designable = no
 	
@@ -100,7 +98,6 @@ pirate_cruiser = {
 	icon_frame = 3
 	is_space_station = no
 	
-	has_mineral_upkeep = yes
 	class = shipclass_military
 	is_designable = no
 	
@@ -117,7 +114,7 @@ pirate_station = {
 	modifier = {
 		ship_evasion_mult = -1
 		ship_armor_add = 35
-		ship_upkeep_mult = -0.25
+		ships_upkeep_mult = -0.25
 	}
 	ship_modifier = {
 		ship_weapon_range_mult = 0.20

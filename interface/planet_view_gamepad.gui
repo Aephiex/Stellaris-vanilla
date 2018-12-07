@@ -2007,7 +2007,7 @@ guiTypes = {
 
 		iconType = {
 			name = "tile_background"
-			spriteType = "GFX_tile_background"
+			spriteType = "GFX_planet_background"
 			position = { x = 1 y = 1 }
 		}
 
@@ -2054,14 +2054,14 @@ guiTypes = {
 		iconType = {
 			name = "tile_blocker"
 			position = { x = 1 y = 1 }
-			spriteType = "GFX_tile_frame_blocker"
+			spriteType = "GFX_planet_background_frame_blocker"
 			alwaysTransparent = yes
 		}
 
 		iconType = {
 			name = "tile_blocker_clearable"
 			position = { x = 1 y = 1 }
-			spriteType = "GFX_tile_frame_blocker_clearable"
+			spriteType = "GFX_planet_background_frame_blocker"
 			alwaysTransparent = yes
 		}
 
@@ -2082,7 +2082,7 @@ guiTypes = {
 
 		iconType = {
 			name = "tile_frame"
-			spriteType = "GFX_tile_frame"
+			spriteType = "GFX_planet_background_frame"
 			alwaysTransparent = yes
 		}
 
@@ -2123,7 +2123,7 @@ guiTypes = {
 
 		#iconType = {
 		#	name = "tile_selected_frame"
-		#	spriteType = "GFX_tile_frame_selected"
+		#	spriteType = "GFX_planet_background_frame_selected"
 		#	alwaysTransparent = yes
 		#	position = { x = -13 y = -13 }
 		#}
@@ -2144,7 +2144,7 @@ guiTypes = {
 			#size = { width = 120 height = 120 }
 			background = {
 				name = "selected_bg"
-				spriteType = "GFX_tile_frame_selected"
+				spriteType = "GFX_planet_background_frame_selected"
 				alwaysTransparent = yes
 			}
 		}			
@@ -2603,21 +2603,21 @@ guiTypes = {
 		# Envrionment background
 		iconType = {
 			name = "icon"
-			spriteType = "GFX_tile_background"
+			spriteType = "GFX_planet_background"
 			position = { x = 18 y = 34 }
 		}
 
 		iconType = {
 			name = "tile_blocker_clearable"
 			position = { x = 18 y = 34 }
-			spriteType = "GFX_tile_frame_blocker_clearable"
+			spriteType = "GFX_planet_background_frame_blocker"
 			alwaysTransparent = yes
 		}
 
 		iconType = {
 			name = "tile_blocker"
 			position = { x = 18 y = 34 }
-			spriteType = "GFX_tile_frame_blocker"
+			spriteType = "GFX_planet_background_frame_blocker"
 			alwaysTransparent = yes
 		}
 
@@ -2640,7 +2640,7 @@ guiTypes = {
 
 		iconType = {
 			name = "frame"
-			spriteType = "GFX_tile_frame"
+			spriteType = "GFX_planet_background_frame"
 			position = { x = 17 y = 33 }
 			alwaysTransparent = yes
 		}
@@ -3527,7 +3527,7 @@ guiTypes = {
 
 		iconType = {
 			name = "frame"
-			spriteType = "GFX_tile_frame"
+			spriteType = "GFX_planet_background_frame"
 			position = { x = 17 y = 33 }
 			alwaysTransparent = yes
 		}
@@ -3637,7 +3637,7 @@ guiTypes = {
 
 		iconType = {
 			name = "frame"
-			spriteType = "GFX_tile_frame"
+			spriteType = "GFX_planet_background_frame"
 			position = { x = 17 y = 33 }
 			alwaysTransparent = yes
 		}
@@ -3745,21 +3745,21 @@ guiTypes = {
 
 			iconType = {
 				name = "blocker"
-				spriteType = "GFX_tile_background"
+				spriteType = "GFX_planet_background"
 				position = { x = 18 y = 34 }
 			}
 
 			iconType = {
 				name = "tile_blocker"
 				position = { x = 18 y = 34 }
-				spriteType = "GFX_tile_frame_blocker"
+				spriteType = "GFX_planet_background_frame_blocker"
 				alwaysTransparent = yes
 			}
 
 			iconType = {
 				name = "tile_blocker_clearable"
 				position = { x = 18 y = 34 }
-				spriteType = "GFX_tile_frame_blocker_clearable"
+				spriteType = "GFX_planet_background_frame_blocker"
 				alwaysTransparent = yes
 			}
 
@@ -4127,21 +4127,21 @@ guiTypes = {
 
 			iconType = {
 				name = "blocker"
-				spriteType = "GFX_tile_background"
+				spriteType = "GFX_planet_background"
 				position = { x = 18 y = 54 }
 			}
 
 			iconType = {
 				name = "tile_blocker"
 				position = { x = 18 y = 54 }
-				spriteType = "GFX_tile_frame_blocker"
+				spriteType = "GFX_planet_background_frame_blocker"
 				alwaysTransparent = yes
 			}
 
 			iconType = {
 				name = "tile_blocker_clearable"
 				position = { x = 18 y = 54 }
-				spriteType = "GFX_tile_frame_blocker_clearable"
+				spriteType = "GFX_planet_background_frame_blocker"
 				alwaysTransparent = yes
 			}
 
@@ -5542,11 +5542,6 @@ guiTypes = {
 				position = { x = 2 y = 2 }
 				quadTextureSprite = "GFX_army_attachment"
 				alwaysTransparent = yes
-			}
-			
-			iconType = {
-				name = "lock"
-				spriteType = "GFX_army_attachment_slot_lock"
 			}
 		}
 	}

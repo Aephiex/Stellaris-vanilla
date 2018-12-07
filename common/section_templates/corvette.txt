@@ -1,3 +1,5 @@
+@section_cost = 30
+
 ship_section_template = {
 	key = "CORVETTE_MID_M1S1"
 	ship_size = corvette
@@ -36,7 +38,12 @@ ship_section_template = {
 	small_utility_slots = 3
 	aux_utility_slots = 1
 	
-	cost = 60
+	resources = {
+		category = ship_sections
+		cost = {
+			alloys = @section_cost
+		}
+	}
 }
 
 ship_section_template = {
@@ -86,7 +93,12 @@ ship_section_template = {
 		}		
 	}
 	
-	cost = 60
+	resources = {
+		category = ship_sections
+		cost = {
+			alloys = @section_cost
+		}
+	}
 }
 
 ship_section_template = {
@@ -96,8 +108,6 @@ ship_section_template = {
 	should_draw_components = yes
 	entity = "corvette_S3_entity"
 	icon = "GFX_ship_part_core_mid"
-	
-	prerequisites = { tech_pd_tracking_1 tech_pd_tracking_2 tech_pd_tracking_3 tech_flak_batteries_1 tech_flak_batteries_2 tech_flak_batteries_3 }
 	
 	ai_weight = {
 		modifier = {
@@ -144,7 +154,12 @@ ship_section_template = {
 	small_utility_slots = 3
 	aux_utility_slots = 1
 	
-	cost = 60
+	resources = {
+		category = ship_sections
+		cost = {
+			alloys = @section_cost
+		}
+	}
 }
 
 #ship_section_template = {

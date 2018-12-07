@@ -1,5 +1,5 @@
 ﻿### Fungoid 1
-### Created by Henrik Eklund
+### Created by Henrik Thyrwall
 
 FUN1 = {
 	ship_names = {
@@ -78,14 +78,6 @@ FUN1 = {
 			sequential_name = "%O% Mechanized Defenders"
 		}
 		
-		android_army = {
-			sequential_name = "%O% Centurion Section"
-		}
-
-		android_defense_army = {
-			sequential_name = "%O% Centurion Defense Section"
-		}
-		
 		psionic_army = {
 			sequential_name = "The Chosen %R%"
 		}
@@ -106,8 +98,14 @@ FUN1 = {
 			sequential_name = "%O% Mechanized Watchers"
 		}
 
-		android_occupation_army = {
-			sequential_name = "%O% Centurion Watchers"
+		primitive_army = {
+			sequential_name = "Primitive Army %C%"
+		}
+		industrial_army = {
+			sequential_name = "Industrial Army %C%"
+		}
+		postatomic_army = {
+			sequential_name = "Post-Atomic Army %C%"
 		}
 	}
 

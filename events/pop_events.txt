@@ -2,7 +2,7 @@
 #
 # Pop Events
 #
-# Written by Henrik Eklund
+# Written by Henrik Thyrwall
 #
 ############################
 

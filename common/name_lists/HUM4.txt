@@ -76,14 +76,6 @@ HUM4 = {
 			sequential_name = "%O% Metal Defenders"
 		}
 		
-		android_army = {
-			sequential_name = "%O% Murder Replicants"
-		}
-
-		android_defense_army = {
-			sequential_name = "%O% Autonomous Guardians"
-		}
-		
 		psionic_army = { 
 			sequential_name = "%O% Mind-Preyers"
 		}
@@ -104,8 +96,14 @@ HUM4 = {
 			sequential_name = "%O% Metal Sentinels"
 		}
 
-		android_occupation_army = {
-			sequential_name = "%O% Replicant Sentinels"
+		primitive_army = {
+			sequential_name = "Primitive Army %C%"
+		}
+		industrial_army = {
+			sequential_name = "Industrial Army %C%"
+		}
+		postatomic_army = {
+			sequential_name = "Post-Atomic Army %C%"
 		}
 	}
 

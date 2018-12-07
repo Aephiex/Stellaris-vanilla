@@ -411,6 +411,8 @@ entity = {
 	state = { name = "death"		state_time = 9 }
 }
 
+entity = { name = "swarm_01_sponsored_colonizer_entity" clone = "swarm_01_colonizer_entity" }
+
 entity = {
 	name = "swarm_01_colony_ship_swarm_entity"
 	pdxmesh = "swarm_01_civilian_mesh"

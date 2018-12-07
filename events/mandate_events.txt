@@ -56,6 +56,15 @@ country_event = {
 			has_event_chain = mandate_slaver_chain
 			has_event_chain = mandate_xenopurge_chain
 			has_event_chain = mandate_nationalist_chain
+			has_event_chain = mandate_monthly_energy_chain
+			has_event_chain = mandate_monthly_minerals_chain
+			has_event_chain = mandate_monthly_food_chain
+			has_event_chain = mandate_monthly_alloys_chain
+			has_event_chain = mandate_monthly_consumer_goods_chain
+			has_event_chain = mandate_district_city_chain
+			has_event_chain = mandate_district_generator_chain
+			has_event_chain = mandate_district_mining_chain
+			has_event_chain = mandate_district_farming_chain
 		}
 	}
 
@@ -106,6 +115,34 @@ country_event = {
 			mandate_nationalist_chain = {
 				end_event_chain = mandate_nationalist_chain
 			}
+
+			mandate_monthly_energy_chain = {
+				end_event_chain = mandate_monthly_energy_chain
+			}
+
+			mandate_monthly_minerals_chain = {
+				end_event_chain = mandate_monthly_minerals_chain
+			}
+
+			mandate_monthly_alloys_chain = {
+				end_event_chain = mandate_monthly_alloys_chain
+			}
+
+			mandate_monthly_food_chain = {
+				end_event_chain = mandate_monthly_food_chain
+			}
+
+			mandate_monthly_consumer_goods_chain = {
+				end_event_chain = mandate_monthly_consumer_goods_chain
+			}
+
+			mandate_district_city_chain = { end_event_chain = mandate_district_city_chain }
+
+			mandate_district_generator_chain = { end_event_chain = mandate_district_generator_chain }
+
+			mandate_district_mining_chain = { end_event_chain = mandate_district_mining_chain }
+
+			mandate_district_farming_chain = { end_event_chain = mandate_district_farming_chain }
 		}
 	}
 
@@ -582,5 +619,321 @@ country_event = {
 
 	option = {
 		name = OK
+	}
+}
+
+############################
+# Economics events
+# id 170
+############################
+
+# Mandate fulfilled
+country_event = {
+	id = mandate.170
+	title = mandate.170.title
+	desc = mandate.170.desc
+	picture = GFX_evt_financial_instruments
+	show_sound = event_default
+	hide_window = no
+
+	is_triggered_only = yes
+
+	immediate = {
+		log = ".170 active"
+		switch = {
+			trigger = has_event_chain
+			mandate_monthly_energy_chain = { 			end_event_chain = mandate_monthly_energy_chain }
+			mandate_monthly_minerals_chain = { 			end_event_chain = mandate_monthly_minerals_chain }
+			mandate_monthly_alloys_chain = { 			end_event_chain = mandate_monthly_alloys_chain }
+			mandate_monthly_food_chain = { 				end_event_chain = mandate_monthly_food_chain }
+			mandate_monthly_consumer_goods_chain = { 	end_event_chain = mandate_monthly_consumer_goods_chain }
+		}
+	}
+
+	option = {
+		name = OK
+		add_monthly_resource_mult = {
+			resource = unity
+			value = @unityreward
+			min = @unitymin
+			max = @unitymax
+		}
+	}
+}
+
+# Port
+country_event = {
+	id = mandate.171
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						has_event_chain = mandate_monthly_energy_chain
+						has_monthly_income = { resource = energy value >= 20 }
+					}
+					AND = {
+						has_event_chain = mandate_monthly_minerals_chain
+						has_monthly_income = { resource = minerals value >= 30 }
+					}
+					AND = {
+						has_event_chain = mandate_monthly_food_chain
+						has_monthly_income = { resource = food value >= 15 }
+					}
+					AND = {
+						has_event_chain = mandate_monthly_alloys_chain
+						has_monthly_income = { resource = alloys value >= 12 }
+					}
+					AND = {
+						has_event_chain = mandate_monthly_consumer_goods_chain
+						has_monthly_income = { resource = consumer_goods value >= 6 }
+					}
+				}
+			}
+			country_event = { id = mandate.170 }
+		}
+		else = {
+			country_event = { id = mandate.2 }
+		}
+	}
+}
+
+############################
+# District events
+# id 180
+############################
+
+# District built
+planet_event = {
+	id = mandate.180
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		owner = {
+			OR = {
+				has_event_chain = mandate_district_city_chain
+				has_event_chain = mandate_district_generator_chain
+				has_event_chain = mandate_district_mining_chain
+				has_event_chain = mandate_district_farming_chain
+			}
+		}
+	}
+
+	immediate = {
+		switch = {
+			trigger = last_district_changed
+			district_city = {
+				owner = {
+					if = {
+						limit = { has_event_chain = mandate_district_city_chain }
+						add_event_chain_counter = { 
+							event_chain = "mandate_district_city_chain" 
+							counter = "built_district"
+							amount = 1
+						}
+					}
+				}
+			}
+			district_generator = {
+				owner = {
+					if = {
+						limit = { has_event_chain = mandate_district_generator_chain }
+						add_event_chain_counter = { 
+							event_chain = "mandate_district_generator_chain" 
+							counter = "built_district"
+							amount = 1
+						}
+					}
+				}
+			}
+			district_mining = {
+				owner = {
+					if = {
+						limit = { has_event_chain = mandate_district_mining_chain }
+						add_event_chain_counter = { 
+							event_chain = "mandate_district_mining_chain" 
+							counter = "built_district"
+							amount = 1
+						}
+					}
+				}
+			}
+			district_farming = {
+				owner = {
+					if = {
+						limit = { has_event_chain = mandate_district_farming_chain }
+						add_event_chain_counter = { 
+							event_chain = "mandate_district_farming_chain" 
+							counter = "built_district"
+							amount = 1
+						}
+					}
+				}
+			}
+			default = {}
+		}
+	}
+}
+
+# District demolished
+planet_event = {
+	id = mandate.181
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		owner = {
+			OR = {
+				has_event_chain = mandate_district_city_chain
+				has_event_chain = mandate_district_generator_chain
+				has_event_chain = mandate_district_mining_chain
+				has_event_chain = mandate_district_farming_chain
+			}
+		}
+	}
+
+	immediate = {
+		switch = {
+			trigger = last_district_changed
+			district_city = {
+				owner = {
+					if = {
+						limit = { has_event_chain = mandate_district_city_chain }
+						add_event_chain_counter = { 
+							event_chain = "mandate_district_city_chain" 
+							counter = "built_district"
+							amount = -1
+						}
+					}
+				}
+			}
+			district_generator = {
+				owner = {
+					if = {
+						limit = { has_event_chain = mandate_district_generator_chain }
+						add_event_chain_counter = { 
+							event_chain = "mandate_district_generator_chain" 
+							counter = "built_district"
+							amount = -1
+						}
+					}
+				}
+			}
+			district_mining = {
+				owner = {
+					if = {
+						limit = { has_event_chain = mandate_district_mining_chain }
+						add_event_chain_counter = { 
+							event_chain = "mandate_district_mining_chain" 
+							counter = "built_district"
+							amount = -1
+						}
+					}
+				}
+			}
+			district_farming = {
+				owner = {
+					if = {
+						limit = { has_event_chain = mandate_district_farming_chain }
+						add_event_chain_counter = { 
+							event_chain = "mandate_district_farming_chain" 
+							counter = "built_district"
+							amount = -1
+						}
+					}
+				}
+			}
+			default = {}
+		}
+	}
+}
+
+country_event = {
+	id = mandate.185
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						has_event_chain = mandate_district_city_chain
+						has_completed_event_chain_counter = {
+							event_chain = mandate_district_city_chain
+							counter = built_district
+						}
+					}
+					AND = {
+						has_event_chain = mandate_district_generator_chain
+						has_completed_event_chain_counter = {
+							event_chain = mandate_district_generator_chain
+							counter = built_district
+						}
+					}
+					AND = {
+						has_event_chain = mandate_district_mining_chain
+						has_completed_event_chain_counter = {
+							event_chain = mandate_district_mining_chain
+							counter = built_district
+						}
+					}
+					AND = {
+						has_event_chain = mandate_district_farming_chain
+						has_completed_event_chain_counter = {
+							event_chain = mandate_district_farming_chain
+							counter = built_district
+						}
+					}
+				}
+			}
+			country_event = { id = mandate.186 }
+		}
+		else = {
+			country_event = { id = mandate.2 }
+		}
+	}
+}
+
+# Mandate fulfilled
+country_event = {
+	id = mandate.186
+	title = mandate.186.title
+	desc = mandate.186.desc
+	picture = GFX_evt_throne_room
+	show_sound = event_default
+
+	is_triggered_only = yes
+
+	immediate = {
+		switch = {
+			trigger = has_event_chain
+			mandate_district_city_chain = {
+				end_event_chain = mandate_district_city_chain
+			}
+			mandate_district_generator_chain = {
+				end_event_chain = mandate_district_generator_chain
+			}
+			mandate_district_mining_chain = {
+				end_event_chain = mandate_district_mining_chain
+			}
+			mandate_district_farming_chain = {
+				end_event_chain = mandate_district_farming_chain
+			}
+		}
+	}
+
+	option = {
+		name = OK
+		add_monthly_resource_mult = {
+			resource = unity
+			value = @unityreward
+			min = @unitymin
+			max = @unitymax
+		}
 	}
 }

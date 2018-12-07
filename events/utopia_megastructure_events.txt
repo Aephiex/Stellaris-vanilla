@@ -615,7 +615,7 @@ country_event = {
 				modifier = "ring_world_halted"
 			}
 		}
-		add_minerals = 500
+		add_resource = { minerals = 500 }
 	}
 
 	option = {
@@ -930,7 +930,7 @@ country_event = {
 		name = utopia.31.b
 
 		trigger = {
-			energy > 1000
+			resource_stockpile_compare = { resource = energy value >= 1000 }
 		}
 
 		ai_chance = {
@@ -940,7 +940,7 @@ country_event = {
 			from = { country_event = { id = utopia.35 days = 7 } }
 		}
 
-		add_energy = -1000
+		add_resource = { energy = -1000 }
 	}
 # Don't Apologize
 	option = {
@@ -1001,7 +1001,7 @@ country_event = {
 		name = utopia.32.a
 
 		trigger = {
-			energy > 1000
+			resource_stockpile_compare = { resource = energy value >= 1000 }
 		}
 
 		ai_chance = {
@@ -1010,7 +1010,7 @@ country_event = {
 		hidden_effect = {
 			from = { country_event = { id = utopia.35 days = 5 } } 
 		}
-		add_energy = -1000
+		add_resource = { energy = -1000 }
 	}
 
 # Apologize but don't give credits
@@ -1200,7 +1200,7 @@ country_event = {
 	location = from.capital_scope
 
 	immediate = { event_target:dyson_sphere_neighbor = {
-			add_energy = 1000
+			add_resource = { energy = 1000 }
 		}
 	}
 
@@ -1556,12 +1556,10 @@ country_event = {
 		name = utopia.51.a
 
 		trigger = {
-			OR = {
-			energy > 999
-			}
+			resource_stockpile_compare = { resource = energy value >= 1000 }
 		}
 
-		add_energy = -1000
+		add_resource = { energy = -1000 }
 		hidden_effect = {
 			set_global_flag = utopia_51
 		}
@@ -1571,7 +1569,7 @@ country_event = {
 	option = {
 		name = utopia.51.b
 		trigger = {
-			energy > 999
+			resource_stockpile_compare = { resource = energy value >= 1000 }
 		}
 		hidden_effect = {
 			if = {
@@ -1596,7 +1594,7 @@ country_event = {
 	option = {
 		name = utopia.51.c
 		trigger = {
-			energy < 1000
+			resource_stockpile_compare = { resource = energy value < 1000 }
 		}
 		hidden_effect = {
 			if = {
@@ -1638,16 +1636,16 @@ country_event = {
 	option = {
 		name = utopia.54.b
 		trigger = {
-			energy > 499
+			resource_stockpile_compare = { resource = energy value >= 500 }
 		}
-		add_energy = -500
+		add_resource = { energy = -500 }
 		hidden_effect = { country_event = { id = utopia.55 days = 60 random = 20 } }	
 	}
 
 	option = {
 		name = utopia.54.c
 		trigger = {
-			energy < 500
+			resource_stockpile_compare = { resource = energy value < 500 }
 		}
 	}
 }
@@ -2144,14 +2142,14 @@ country_event = {
 	option = {
 		name = utopia.60.a
 		trigger = {
-			energy < 1000
+			resource_stockpile_compare = { resource = energy value < 1000 }
 		}
 	}
 
 	option = {
 		name = utopia.60.b
 		trigger = {
-			energy > 999
+			resource_stockpile_compare = { resource = energy value >= 1000 }
 		}
 		add_modifier = {
 			modifier = research_utopia_60
@@ -2163,7 +2161,7 @@ country_event = {
 	option = {
 		name = utopia.60.c
 		trigger = {
-			energy > 999
+			resource_stockpile_compare = { resource = energy value >= 1000 }
 		}
 	}
 }
@@ -2882,13 +2880,13 @@ country_event = {
 
 	immediate = {
 		set_country_flag = finished_dyson_sphere
-		every_relation = {
-			limit = {
-				is_ai = no
-				has_communications = root
-			}
-			country_event = { id = utopia.4010 }
-		}
+		#every_relation = {
+		#	limit = {
+		#		is_ai = no
+		#		has_communications = root
+		#	}
+		#	country_event = { id = utopia.4010 }
+		#}
 	}
 	
 	option = {
@@ -2896,19 +2894,93 @@ country_event = {
 	}
 }
 
-# Neighbor notification
+# Alert Messages for intermediate steps
 country_event = {
-	id = utopia.4010
-	title = utopia.4010.name
-	desc = utopia.4010.desc
-	picture = GFX_evt_dyson_sphere
-	show_sound = event_mega_structure_other_empire_build_complete
-	location = FROMFROMFROM
-
+	id = utopia.4006
+	hide_window = yes
 	is_triggered_only = yes
 
-	option = {
-		name = OK
+	trigger = {
+		from = {
+			OR = {
+				is_megastructure_type = ring_world_1
+				is_megastructure_type = ring_world_3_intermediate
+				is_megastructure_type = dyson_sphere_0
+				is_megastructure_type = dyson_sphere_3
+				is_megastructure_type = dyson_sphere_4
+				is_megastructure_type = spy_orb_0
+				is_megastructure_type = spy_orb_2
+				is_megastructure_type = spy_orb_3
+				is_megastructure_type = think_tank_0
+				is_megastructure_type = matter_decompressor_0
+				is_megastructure_type = strategic_coordination_center_0
+				is_megastructure_type = mega_art_installation_0
+				is_megastructure_type = interstellar_assembly_0
+			}
+		}
+	}
+
+	immediate = {
+		create_message = {
+			type = MEGASTRUCTURE_UPGRADED
+			localization = MESSAGE_MEGASTRUCTURE_UPGRADED
+			days = 30
+			target = from # the Go To
+			variable = {
+				type = name
+				localization = MEGASTRUCTURE
+				scope = from
+			}
+			variable = {
+				type = name
+				localization = SYSTEM
+				scope = fromfrom
+			}
+		}
+	}
+}
+
+# Alert Messages for initial step
+country_event = {
+	id = utopia.4007
+	hide_window = yes
+	is_triggered_only = yes
+
+	#title = utopia.4010.name
+	#desc = utopia.4010.desc
+	#picture = GFX_evt_dyson_sphere
+	#show_sound = event_mega_structure_other_empire_build_complete
+	#location = FROMFROM
+
+	trigger = {
+		from = {
+			OR = {
+				is_megastructure_type = gateway_0
+				is_megastructure_type = matter_decompressor_0
+				is_megastructure_type = strategic_coordination_center_0
+				is_megastructure_type = mega_art_installation_0
+				is_megastructure_type = interstellar_assembly_0
+			}
+		}
+	}
+
+	immediate = {
+		create_message = {
+			type = MEGASTRUCTURE_BUILT
+			localization = MESSAGE_MEGASTRUCTURE_BUILT
+			days = 30
+			target = from # the Go To
+			variable = {
+				type = name
+				localization = MEGASTRUCTURE
+				scope = from
+			}
+			variable = {
+				type = name
+				localization = SYSTEM
+				scope = fromfrom
+			}
+		}
 	}
 }
 

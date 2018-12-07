@@ -21,7 +21,16 @@ weapon_component_template = {
 	
 	component_set = "MINING_DRONE_LASER_1"
 	prerequisites = { "tech_mining_drone_weapon_1" }
-	cost = @critter_cost_value
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @s_t2_cost
+		}		
+		upkeep = {
+			energy = @s_t2_upkeep_energy
+			alloys = @s_t2_upkeep_alloys
+		}
+	}
 }
 
 weapon_component_template = {
@@ -38,7 +47,16 @@ weapon_component_template = {
 	
 	component_set = "MINING_DRONE_LASER_1"
 	prerequisites = { "tech_mining_drone_weapon_1" }
-	cost = @critter_cost_value
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @m_t2_cost
+		}		
+		upkeep = {
+			energy = @m_t2_upkeep_energy
+			alloys = @m_t2_upkeep_alloys
+		}
+	}
 }
 
 ### Drone home base fighter
@@ -47,7 +65,6 @@ strike_craft_component_template = {
 	key = "DRONE_STRIKE_CRAFT"
 	size = LARGE
 	entity = "ancient_corvette_hull_entity"
-	cost = 0
 	power = 0
 	hidden = yes
 	

@@ -16,17 +16,20 @@ think_tank_0 = {
 	entity_offset = { x = @entity_x y = @entity_y }
 
 	build_time = 1800
-	build_cost = {
-		minerals = 10000
-		influence = 300
-	}
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 5000
+			influence = 300
+		}
 
-	maintenance = {
-		energy = 25
+		upkeep = {
+			energy = 25
+		}
 	}
 	
 	potential = {
-		has_ascension_perk = ap_galactic_wonders
+		has_gw_think_tank = yes
 	}
 	
 	possible = {
@@ -99,7 +102,8 @@ think_tank_0 = {
 
 		modifier = {
 			factor = 0.1
-			any_neighbor_system = { 
+			any_neighbor_system = {
+				exists = owner
 				NOT = { 
 					owner = { is_same_value = from } 
 				}
@@ -141,22 +145,25 @@ think_tank_1 = {
 	}
 
 	build_time = 2400
-	build_cost = {
-		minerals = 30000
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 12500
+		}
+
+		upkeep = {
+			energy = 25
+		}
+
+		produces = {
+			society_research = @stage_1_research_bonus
+			engineering_research = @stage_1_research_bonus
+			physics_research = @stage_1_research_bonus
+		}
 	}
 	
 	possible = {
-		from = { has_ascension_perk = ap_galactic_wonders }
-	}
-
-	monthly_production = {
-		society_research = @stage_1_research_bonus
-		engineering_research = @stage_1_research_bonus
-		physics_research = @stage_1_research_bonus
-	}
-
-	maintenance = {
-		energy = 50
+		from = { has_gw_think_tank = yes }
 	}
 }
 
@@ -173,22 +180,25 @@ think_tank_2 = {
 	}
 
 	build_time = 2400
-	build_cost = {
-		minerals = 30000
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 12500
+		}
+
+		upkeep = {
+			energy = 50
+		}
+
+		produces = {
+			society_research = @stage_2_research_bonus
+			engineering_research = @stage_2_research_bonus
+			physics_research = @stage_2_research_bonus
+		}
 	}
 	
 	possible = {
-		from = { has_ascension_perk = ap_galactic_wonders }
-	}
-	
-	monthly_production = {
-		society_research = @stage_2_research_bonus
-		engineering_research = @stage_2_research_bonus
-		physics_research = @stage_2_research_bonus
-	}
-
-	maintenance = {
-		energy = 75
+		from = { has_gw_think_tank = yes }
 	}
 }
 
@@ -205,22 +215,25 @@ think_tank_3 = {
 	}
 
 	build_time = 2400
-	build_cost = {
-		minerals = 30000
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 15000
+		}
+
+		upkeep = {
+			energy = 75
+		}
+
+		produces = {
+			society_research = @stage_3_research_bonus
+			engineering_research = @stage_3_research_bonus
+			physics_research = @stage_3_research_bonus
+		}
 	}
 	
 	possible = {
-		from = { has_ascension_perk = ap_galactic_wonders }
-	}
-	
-	monthly_production = {
-		society_research = @stage_3_research_bonus
-		engineering_research = @stage_3_research_bonus
-		physics_research = @stage_3_research_bonus
-	}
-
-	maintenance = {
-		energy = 100
+		from = { has_gw_think_tank = yes }
 	}
 }
 
@@ -241,15 +254,17 @@ think_tank_4 = {
 	}
 
 	build_time = 20
-	
-	monthly_production = {
-		society_research = @stage_4_research_bonus
-		engineering_research = @stage_4_research_bonus
-		physics_research = @stage_4_research_bonus
-	}
+	resources = {
+		category = megastructures
+		upkeep = {
+			energy = 100
+		}
 
-	maintenance = {
-		energy = 100
+		produces = {
+			society_research = @stage_4_research_bonus
+			engineering_research = @stage_4_research_bonus
+			physics_research = @stage_4_research_bonus
+		}
 	}
 }
 
@@ -279,18 +294,21 @@ think_tank_restored = {
 		think_tank_ruined
 	}
 	build_time = 4800
-	build_cost = {
-		minerals = 30000
-	}
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 15000
+		}
 
-	monthly_production = {
-		society_research = @stage_3_research_bonus
-		engineering_research = @stage_3_research_bonus
-		physics_research = @stage_3_research_bonus
-	}
-	
-	maintenance = {
-		energy = 100
+		upkeep = {
+			energy = 100
+		}
+
+		produces = {
+			society_research = @stage_3_research_bonus
+			engineering_research = @stage_3_research_bonus
+			physics_research = @stage_3_research_bonus
+		}
 	}
 
 	possible = {

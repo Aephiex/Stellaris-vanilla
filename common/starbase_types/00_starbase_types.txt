@@ -2,7 +2,7 @@
 #from = player
 
 # Shipyard
-stb_shipyard = {
+sshipyard = {
 	potential = {
 		has_starbase_size > starbase_outpost
 		count_starbase_modules = {
@@ -113,7 +113,7 @@ stb_shipyard = {
 }
 
 # Anchorage
-stb_anchorage = {
+sanchorage = {
 	potential = {
 		has_starbase_size > starbase_outpost
 		count_starbase_modules = {
@@ -167,7 +167,7 @@ stb_anchorage = {
 		}
 		
 		ratio = {
-			base = 0.15
+			base = 0.45
 			modifier = {
 				add = 0.05
 				exists = owner
@@ -220,7 +220,7 @@ stb_anchorage = {
 }
 
 # Trading Hub
-stb_trading_hub = {
+strading_hub = {
 	potential = {
 		has_starbase_size > starbase_outpost
 		count_starbase_modules = {
@@ -276,7 +276,7 @@ stb_trading_hub = {
 		}
 		
 		ratio = {
-			base = 0.45
+			base = 0.3
 			modifier = {
 				add = 0.05
 				exists = owner
@@ -329,7 +329,7 @@ stb_trading_hub = {
 }
 
 # Fortress System
-stb_fortress = {
+sfortress = {
 	potential = {
 		has_starbase_size > starbase_outpost
 		OR = {
@@ -536,7 +536,7 @@ stb_fortress = {
 }
 
 # Trading Hub - Gestalts
-stb_trading_hub_gestalt = {
+strading_hub_gestalt = {
 	potential = {
 		has_starbase_size > starbase_outpost
 		count_starbase_modules = {

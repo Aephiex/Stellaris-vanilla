@@ -138,10 +138,5 @@ guiTypes = {
 			quadTextureSprite = "GFX_army_attachment"
 			alwaysTransparent = yes
 		}
-		
-		iconType = {
-			name = "lock"
-			spriteType = "GFX_army_attachment_slot_lock"
-		}
 	}
 }

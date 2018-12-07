@@ -6,7 +6,7 @@
 # Defense Armies
 defense_army = {
 	defensive = yes
-	is_building_spawned = yes
+	is_pop_spawned = yes
 	health = 1.25
 	damage = 1.50
 	morale = 1.25
@@ -17,14 +17,13 @@ defense_army = {
 	potential = {
 		from = {
 			NOR = {
-				has_trait = "trait_robotic_1"
-				has_trait = "trait_robotic_2"
-				has_trait = "trait_robotic_3"
+				has_trait = "trait_mechanical"
 				has_trait = "trait_machine_unit"
 				is_sapient = no
 			}
 		}
 		owner = {
+			is_primitive = no
 			OR = {
 				NOT = { has_authority = auth_machine_intelligence }
 				has_valid_civic = civic_machine_assimilator
@@ -36,7 +35,7 @@ defense_army = {
 # Robotic Armies
 robotic_defense_army = {
 	defensive = yes
-	is_building_spawned = yes
+	is_pop_spawned = yes
 	damage = 1.00
 	health = 1.25
 	morale_damage = 1.00
@@ -48,10 +47,7 @@ robotic_defense_army = {
 
 	potential = {
 		from = { 
-			OR = {
-				has_trait = "trait_robotic_1"
-				has_trait = "trait_robotic_2" 
-			}
+			has_trait = "trait_mechanical"
 		}
 		owner = {
 			NOT = { has_authority = auth_machine_intelligence }
@@ -63,35 +59,10 @@ robotic_defense_army = {
 	}
 }
 
-# Synthetic Armies
-android_defense_army = {
-	defensive = yes
-	is_building_spawned = yes
-	damage = 1.25
-	health = 1.25
-	has_morale = no
-	morale_damage = 1.00
-	collateral_damage = 0.0
-	war_exhaustion = 0.0 # No WE from defense armies
-	icon_frame = 4
-	has_species = yes
-
-	potential = {
-		from = { has_trait = "trait_robotic_3" }
-		owner = {
-			NOT = { has_authority = auth_machine_intelligence }
-		}
-	}
-
-	allow = {
-		owner = { NOT = { has_policy_flag = ai_outlawed } }
-	}
-}
-
 ### Machine Empire Armies
 machine_defense = {
 	defensive = yes
-	is_building_spawned = yes
+	is_pop_spawned = yes
 	health = 1.10
 	damage = 1.10
 	has_morale = no

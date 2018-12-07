@@ -412,11 +412,11 @@ message_type = {
 }
 
 message_type = {
-	key = "TRADE_DEAL_END_CANCELLED"
+	key = "TRADE_DEAL_END_CANCELED"
 	icon = "GFX_message_trade_deal_canceled"
 	icon_frame = 1
 
-	name = "MESSAGE_TRADE_DEAL_END_CANCELLED_TITLE"
+	name = "MESSAGE_TRADE_DEAL_END_CANCELED_TITLE"
 	sound = "diplomatic_notification"
 	ping = "ping_notification_yellow"
 }
@@ -749,6 +749,27 @@ message_type = {
 }
 
 message_type = {
+	key = "DIPLO_ACTION_FORM_COMMERCIAL_PACT"
+	icon = "GFX_message_form_commercial_pact"
+	icon_frame = 1
+
+	name = "MESSAGE_FORM_COMMERCIAL_PACT_TITLE"
+	sound = "diplomatic_notification"
+	ping = "ping_notification_green"
+}
+
+message_type = {
+	key = "DIPLO_ACTION_FORM_RESEARCH_AGREEMENT"
+	icon = "GFX_message_form_research_agreement"
+	icon_frame = 1
+
+	name = "MESSAGE_FORM_RESEARCH_AGREEMENT_TITLE"
+	sound = "diplomatic_notification"
+	ping = "ping_notification_green"
+}
+
+
+message_type = {
 	key = "DIPLO_ACTION_FORM_MIGRATION_PACT"
 	icon = "GFX_message_form_migration_pact"
 	icon_frame = 1
@@ -774,6 +795,26 @@ message_type = {
 	icon_frame = 1
 
 	name = "MESSAGE_BREAK_NON_AGGRESSION_PACT_TITLE"
+	sound = "diplomatic_notification"
+	ping = "ping_notification_yellow"
+}
+
+message_type = {
+	key = "DIPLO_ACTION_BREAK_COMMERCIAL_PACT"
+	icon = "GFX_message_break_commercial_pact"
+	icon_frame = 1
+
+	name = "MESSAGE_BREAK_COMMERCIAL_PACT_TITLE"
+	sound = "diplomatic_notification"
+	ping = "ping_notification_yellow"
+}
+
+message_type = {
+	key = "DIPLO_ACTION_BREAK_RESEARCH_AGREEMENT"
+	icon = "GFX_message_break_research_agreement"
+	icon_frame = 1
+
+	name = "MESSAGE_BREAK_RESEARCH_AGREEMENT_TITLE"
 	sound = "diplomatic_notification"
 	ping = "ping_notification_yellow"
 }
@@ -848,6 +889,17 @@ message_type = {
 	ping = "ping_notification_yellow"
 }
 
+
+message_type = {
+	key = "DIPLO_ACTION_DEMAND_SUBSIDIARY"
+	icon = "GFX_message_demand_vassalization"
+	icon_frame = 1
+
+	name = "MESSAGE_DEMAND_SUBSIDIARY_TITLE"
+	sound = "diplomatic_notification"
+	ping = "ping_notification_yellow"
+}
+
 message_type = {
 	key = "DIPLO_ACTION_DEMAND_THRALL"
 	icon = "GFX_message_demand_vassalization"
@@ -894,6 +946,16 @@ message_type = {
 	icon_frame = 1
 
 	name = "MESSAGE_DEMAND_SIGNATORY_TITLE"
+	sound = "diplomatic_notification"
+	ping = "ping_notification_yellow"
+}
+
+message_type = {
+	key = "DIPLO_ACTION_ASK_TO_BECOME_SUBSIDIARY"
+	icon = "GFX_message_vassalization_request"
+	icon_frame = 1
+
+	name = "MESSAGE_ASK_TO_BECOME_SUBSIDIARY_TITLE"
 	sound = "diplomatic_notification"
 	ping = "ping_notification_yellow"
 }
@@ -1206,11 +1268,11 @@ message_type = {
 }
 
 message_type = {
-	key = "AUTO_EXPLORE_CANCELLED_MESSAGE_TYPE"
-	icon = "GFX_message_auto_explore_cancelled"
+	key = "AUTO_EXPLORE_CANCELED_MESSAGE_TYPE"
+	icon = "GFX_message_auto_explore_canceled"
 	icon_frame = 1
 
-	name = "AUTO_EXPLORE_CANCELLED_MESSAGE_TYPE_TITLE"
+	name = "AUTO_EXPLORE_CANCELED_MESSAGE_TYPE_TITLE"
 	sound = "notification"
 	ping = "ping_notification_red"
 }
@@ -1236,6 +1298,17 @@ message_type = {
 }
 
 message_type = {
+	key = "ALIEN_MEGASTRUCTURE_BUILT"
+	icon = "GFX_message_megastructure_built"
+	icon_frame = 1
+
+	name = "MESSAGE_ALIEN_MEGASTRUCTURE_BUILT_TITLE"
+	#sound = "notification"
+	sound = event_mega_structure_other_empire_build_complete
+	ping = "ping_notification_yellow"
+}
+
+message_type = {
 	key = "SUBJECT_INTEGRATION_COMPLETE"
 	icon = "GFX_message_started_integration"
 	icon_frame = 1
@@ -1246,11 +1319,11 @@ message_type = {
 }
 
 message_type = {
-	key = "FLEET_BUILD_ORDER_CANCELLED_MESSAGE_TYPE"
-	icon = "GFX_message_auto_explore_cancelled"
+	key = "FLEET_BUILD_ORDER_CANCELED_MESSAGE_TYPE"
+	icon = "GFX_message_auto_explore_canceled"
 	icon_frame = 1
 
-	name = "FLEET_BUILD_ORDER_CANCELLED_MESSAGE_TYPE_TITLE"
+	name = "FLEET_BUILD_ORDER_CANCELED_MESSAGE_TYPE_TITLE"
 	sound = "notification"
 	ping = "ping_notification_red"
 }
@@ -1361,6 +1434,106 @@ message_type = {
 	icon_frame = 1
 
 	name = "MESSAGE_SR_INFORMED_TITLE"
+	sound = "notification"
+	ping = "ping_notification_green"
+}
+
+message_type = {
+	key = MESSAGE_TYPE_PLANET_PROSPECTED
+	icon = "GFX_message_event_generic"
+	icon_frame = 1
+
+	name = "MESSAGE_PLANET_PROSPECTED_TITLE"
+	sound = "notification"
+	ping = "ping_notification_green"
+}
+
+message_type = {
+	key = MESSAGE_TYPE_POP_ABDUCTED
+	icon = "GFX_message_founder_species_put_on_market"
+	icon_frame = 1
+
+	name = "MESSAGE_POP_ABDUCTED_TITLE"
+	sound = "notification"
+	ping = "ping_notification_green"
+}
+
+message_type = {
+	key = MESSAGE_TYPE_POP_ABDUCTED_FROM_US
+	icon = "GFX_message_founder_species_put_on_market"
+	icon_frame = 1
+
+	name = "MESSAGE_POP_ABDUCTED_TITLE"
+	sound = "notification"
+	ping = "ping_notification_red"
+}
+
+message_type = {
+	key = MESSAGE_TYPE_REFUGEES_ARRIVED
+	icon = "GFX_message_refugees_arrived"
+	icon_frame = 1
+
+	name = "MESSAGE_REFUGEES_ARRIVED_TITLE"
+	sound = "notification"
+	ping = "ping_notification_green"
+}
+
+message_type = {
+	key = MESSAGE_TYPE_LOST_MARKET_STATION
+	icon = "GFX_message_event_generic"
+	icon_frame = 1
+
+	name = "MESSAGE_LOST_MARKET_STATION_TITLE"
+	sound = "notification"
+	ping = "ping_notification_red"
+}
+
+message_type = {
+	key = MESSAGE_TYPE_GALPULSE
+	icon = "GFX_message_event_generic"
+	icon_frame = 1
+
+	name = "MESSAGE_GALPULSE"
+	sound = "notification"
+	ping = "ping_notification_green"
+}
+
+message_type = {
+	key = MESSAGE_TYPE_NEW_BRANCH_OFFICE
+	icon = "GFX_message_event_generic"
+	icon_frame = 1
+
+	name = "MESSAGE_NEW_BRANCH_OFFICE_TITLE"
+	sound = "notification"
+	ping = "ping_notification_green"
+}
+
+message_type = {
+	key = MESSAGE_TYPE_CLOSED_BRANCH_OFFICE
+	icon = "GFX_message_event_generic"
+	icon_frame = 1
+
+	name = "MESSAGE_CLOSED_BRANCH_OFFICE_TITLE"
+	sound = "notification"
+	ping = "ping_notification_green"
+}
+
+message_type = {
+	key = MESSAGE_TYPE_FOUNDER_SPECIES_PUT_ON_MARKET
+	icon = "GFX_message_founder_species_put_on_market"
+	icon_frame = 1
+
+	name = "MESSAGE_FOUNDER_SPECIES_PUT_ON_MARKET_TITLE"
+	sound = "notification"
+	ping = "ping_notification_green"
+}
+
+message_type = {
+	key = MESSAGE_TYPE_SLAVE_SOLD_ON_MARKET
+	icon = "GFX_message_founder_species_put_on_market"
+	icon_frame = 1
+
+	name = "MESSAGE_SLAVE_SOLD_ON_MARKET_TITLE"
 	sound = "notification"
 	ping = "ping_notification_green"
 }

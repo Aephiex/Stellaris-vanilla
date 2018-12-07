@@ -2,7 +2,7 @@
 #
 # Marauder Events
 #
-# Written by Henrik Eklund
+# Written by Henrik Thyrwall
 #
 ############################
 
@@ -266,6 +266,7 @@ country_event = {
 				country_event = { id = marauder.6 days = 100 random = 50 }
 			}
 		}
+		else = { destroy_country = yes }
 		set_country_type = ruined_marauders # Kill diplomacy
 	}	
 }
@@ -298,6 +299,7 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
+		from = { set_country_flag = marauder_vengeance_begun }
 		random_owned_planet = {
 			solar_system = { 
 				save_event_target_as = attacked_system
@@ -322,7 +324,7 @@ country_event = {
 				limit = { from = { has_country_flag = merc_fleet_1_hired } }
 				from = {
 					create_leader = {
-						type = admiral
+						class = admiral
 						species = owner_main_species
 						name = random
 						skill = 3
@@ -362,7 +364,7 @@ country_event = {
 				limit = { from = { has_country_flag = merc_fleet_2_hired } }
 				from = {
 					create_leader = {
-						type = admiral
+						class = admiral
 						species = owner_main_species
 						name = random
 						skill = 3
@@ -403,7 +405,7 @@ country_event = {
 				limit = { from = { has_country_flag = merc_fleet_3_hired } }
 				from = {
 					create_leader = {
-						type = admiral
+						class = admiral
 						species = owner_main_species
 						name = random
 						skill = 3
@@ -449,7 +451,7 @@ country_event = {
 				limit = { from = { has_country_flag = merc_fleet_1_hired } }
 				from = {
 					create_leader = {
-						type = admiral
+						class = admiral
 						species = owner_main_species
 						name = random
 						skill = 3
@@ -489,7 +491,7 @@ country_event = {
 				limit = { from = { has_country_flag = merc_fleet_2_hired } }
 				from = {
 					create_leader = {
-						type = admiral
+						class = admiral
 						species = owner_main_species
 						name = random
 						skill = 3
@@ -529,7 +531,7 @@ country_event = {
 				limit = { from = { has_country_flag = merc_fleet_3_hired } }
 				from = {
 					create_leader = {
-						type = admiral
+						class = admiral
 						species = owner_main_species
 						name = random
 						skill = 3
@@ -575,7 +577,7 @@ country_event = {
 				limit = { from = { has_country_flag = merc_fleet_1_hired } }
 				from = {
 					create_leader = {
-						type = admiral
+						class = admiral
 						species = owner_main_species
 						name = random
 						skill = 3
@@ -615,7 +617,7 @@ country_event = {
 				limit = { from = { has_country_flag = merc_fleet_2_hired } }
 				from = {
 					create_leader = {
-						type = admiral
+						class = admiral
 						species = owner_main_species
 						name = random
 						skill = 3
@@ -655,7 +657,7 @@ country_event = {
 				limit = { from = { has_country_flag = merc_fleet_3_hired } }
 				from = {
 					create_leader = {
-						type = admiral
+						class = admiral
 						species = owner_main_species
 						name = random
 						skill = 3
@@ -766,10 +768,7 @@ country_event = {
 		has_policy_flag = refugees_allowed
 		any_owned_planet = {
 			habitability = { who = event_target:marauder_species value > 0.4 }
-			any_tile = {
-				has_blocker = no
-				has_pop = no
-			}
+			#free_housing > 0
 		}
 	}
 
@@ -779,11 +778,23 @@ country_event = {
 				random_owned_planet = {
 					limit = {
 						habitability = { who = root value > 0.4 }
-						any_tile = {
-							has_blocker = no
-							has_pop = no
-						}					
+						#free_housing > 0					
 					}
+					weights = {
+                        base = 1
+                        modifier = { 
+                            add = 5
+                            free_housing > 0
+                        }
+                        modifier = { 
+                            add = 10
+                            free_housing > 1
+                        }
+						modifier = { 
+                            mult  = 2
+                            habitability = { who = root value > 0.6 }
+                        }
+                    }
 					create_pop = {
 						species = event_target:marauder_species
 						ethos = {
@@ -811,6 +822,26 @@ planet_event = {
 
 	option = {
 		name = marauder.10.a
+	}
+}
+
+# Marauders Destroyed after Vengeance
+country_event = {
+	id = marauder.14
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_country_type = dormant_marauders
+		has_country_flag = marauder_vengeance_begun
+		count_owned_ships = {
+			count = 0
+		}
+	}
+
+	immediate = {
+		destroy_country = yes
 	}
 }
 
@@ -2048,9 +2079,9 @@ country_event = {
 			event_target:current_marauder_diplomacy = { has_country_flag = marauder_1 }
 		}
 		allow = { 
-			energy >= @raidallow
+			resource_stockpile_compare = { resource = energy value >= @raidallow }
 		}
-		add_energy = @raidcost
+		add_resource = { energy = @raidcost }
 		response_text = marauder.32.1.a.response
 		custom_tooltip = hire_raid
 		hidden_effect = {
@@ -2066,9 +2097,9 @@ country_event = {
 			event_target:current_marauder_diplomacy = { has_country_flag = marauder_2 }
 		}
 		allow = { 
-			energy >= @raidallow
+			resource_stockpile_compare = { resource = energy value >= @raidallow }
 		}
-		add_energy = @raidcost
+		add_resource = { energy = @raidcost }
 		response_text = marauder.32.2.a.response
 		custom_tooltip = hire_raid
 		hidden_effect = {
@@ -2084,9 +2115,9 @@ country_event = {
 			event_target:current_marauder_diplomacy = { has_country_flag = marauder_3 }
 		}
 		allow = { 
-			energy >= @raidallow
+			resource_stockpile_compare = { resource = energy value >= @raidallow }
 		}
-		add_energy = @raidcost
+		add_resource = { energy = @raidcost }
 		response_text = marauder.32.3.a.response
 		custom_tooltip = hire_raid
 		hidden_effect = {
@@ -2204,7 +2235,7 @@ country_event = {
 				}
 			}
 			create_leader = {
-				type = admiral
+				class = admiral
 				species = event_target:marauder_species
 				name = random
 				skill = 3
@@ -2329,12 +2360,12 @@ country_event = {
 			NOT = { event_target:current_marauder_diplomacy = { has_country_flag = merc_fleet_1_hired } }
 		}
 		allow = { 
-			energy >= @largemercallow
+			resource_stockpile_compare = { resource = energy value >= @largemercallow }
 			hidden_trigger = {
 				NOT = { event_target:current_marauder_diplomacy = { has_country_flag = merc_fleet_1_hired } }
 			}
 		}
-		add_energy = @largemerccost
+		add_resource = { energy = @largemerccost }
 		custom_tooltip = voidborn_hire
 		hidden_effect = {
 			event_target:current_marauder_diplomacy = { set_country_flag = merc_fleet_1_hired }
@@ -2371,12 +2402,12 @@ country_event = {
 			NOT = { event_target:current_marauder_diplomacy = { has_country_flag = merc_fleet_2_hired } }
 		}
 		allow = { 
-			energy >= @mediummercallow
+			resource_stockpile_compare = { resource = energy value >= @mediummercallow }
 			hidden_trigger = {
 				NOT = { event_target:current_marauder_diplomacy = { has_country_flag = merc_fleet_2_hired } }
 			}
 		}
-		add_energy = @mediummerccost
+		add_resource = { energy = @mediummerccost }
 		custom_tooltip = star_riders_hire
 		hidden_effect = {
 			event_target:current_marauder_diplomacy = { set_country_flag = merc_fleet_2_hired }
@@ -2413,12 +2444,12 @@ country_event = {
 			NOT = { event_target:current_marauder_diplomacy = { has_country_flag = merc_fleet_3_hired } }
 		}
 		allow = { 
-			energy >= @smallmercallow
+			resource_stockpile_compare = { resource = energy value >= smallmercallow }
 			hidden_trigger = {
 				NOT = { event_target:current_marauder_diplomacy = { has_country_flag = merc_fleet_3_hired } }
 			}
 		}
-		add_energy = @smallmerccost
+		add_resource = { energy = @smallmerccost }
 		custom_tooltip = storm_wing_hire
 		hidden_effect = {
 			event_target:current_marauder_diplomacy = { set_country_flag = merc_fleet_3_hired }
@@ -2455,12 +2486,12 @@ country_event = {
 			NOT = { event_target:current_marauder_diplomacy = { has_country_flag = merc_fleet_1_hired } }
 		}
 		allow = { 
-			energy >= @largemercallow
+			resource_stockpile_compare = { resource = energy value >= @largemercallow }
 			hidden_trigger = {
 				NOT = { event_target:current_marauder_diplomacy = { has_country_flag = merc_fleet_1_hired } }
 			}
 		}
-		add_energy = @largemerccost
+		add_resource = { energy = @largemerccost }
 		custom_tooltip = voidborn_hire
 		hidden_effect = {
 			event_target:current_marauder_diplomacy = { set_country_flag = merc_fleet_1_hired }
@@ -2497,12 +2528,12 @@ country_event = {
 			NOT = { event_target:current_marauder_diplomacy = { has_country_flag = merc_fleet_2_hired } }
 		}
 		allow = { 
-			energy >= @mediummercallow
+			resource_stockpile_compare = { resource = energy value >= mediummercallow }
 			hidden_trigger = {
 				NOT = { event_target:current_marauder_diplomacy = { has_country_flag = merc_fleet_2_hired } }
 			}
 		}
-		add_energy = @mediummerccost
+		add_resource = { energy = @mediummerccost }
 		custom_tooltip = star_riders_hire
 		hidden_effect = {
 			event_target:current_marauder_diplomacy = { set_country_flag = merc_fleet_2_hired }
@@ -2539,12 +2570,12 @@ country_event = {
 			NOT = { event_target:current_marauder_diplomacy = { has_country_flag = merc_fleet_3_hired } }
 		}
 		allow = { 
-			energy >= @smallmercallow
+			resource_stockpile_compare = { resource = energy value >= @smallmercallow }
 			hidden_trigger = {
 				NOT = { event_target:current_marauder_diplomacy = { has_country_flag = merc_fleet_3_hired } }
 			}
 		}
-		add_energy = @smallmerccost
+		add_resource = { energy = @smallmerccost }
 		custom_tooltip = storm_wing_hire
 		hidden_effect = {
 			event_target:current_marauder_diplomacy = { set_country_flag = merc_fleet_3_hired }
@@ -2581,12 +2612,12 @@ country_event = {
 			NOT = { event_target:current_marauder_diplomacy = { has_country_flag = merc_fleet_1_hired } }
 		}
 		allow = { 
-			energy >= @largemercallow
+			resource_stockpile_compare = { resource = energy value >= @largemercallow }
 			hidden_trigger = {
 				NOT = { event_target:current_marauder_diplomacy = { has_country_flag = merc_fleet_1_hired } }
 			}
 		}
-		add_energy = @largemerccost
+		add_resource = { energy = @largemerccost }
 		custom_tooltip = voidborn_hire
 		hidden_effect = {
 			event_target:current_marauder_diplomacy = { set_country_flag = merc_fleet_1_hired }
@@ -2623,12 +2654,12 @@ country_event = {
 			NOT = { event_target:current_marauder_diplomacy = { has_country_flag = merc_fleet_2_hired } }
 		}
 		allow = { 
-			energy >= @mediummercallow
+			resource_stockpile_compare = { resource = energy value >= @mediummercallow }
 			hidden_trigger = {
 				NOT = { event_target:current_marauder_diplomacy = { has_country_flag = merc_fleet_2_hired } }
 			}
 		}
-		add_energy = @mediummerccost
+		add_resource = { energy = @mediummerccost }
 		custom_tooltip = star_riders_hire
 		hidden_effect = {
 			event_target:current_marauder_diplomacy = { set_country_flag = merc_fleet_2_hired }
@@ -2665,12 +2696,12 @@ country_event = {
 			NOT = { event_target:current_marauder_diplomacy = { has_country_flag = merc_fleet_3_hired } }
 		}
 		allow = { 
-			energy >= @smallmercallow
+			resource_stockpile_compare = { resource = energy value >= @smallmercallow }
 			hidden_trigger = {
 				NOT = { event_target:current_marauder_diplomacy = { has_country_flag = merc_fleet_3_hired } }
 			}
 		}
-		add_energy = @smallmerccost
+		add_resource = { energy = @smallmerccost }
 		custom_tooltip = storm_wing_hire
 		hidden_effect = {
 			event_target:current_marauder_diplomacy = { set_country_flag = merc_fleet_3_hired }
@@ -2900,14 +2931,13 @@ country_event = {
 			event_target:current_marauder_diplomacy = { has_country_flag = marauder_1 }
 		}
 		allow = {
-			free_leader_slots > 0
-			energy >= @leaderallow
+			resource_stockpile_compare = { resource = energy value >= @leaderallow }
 		}
-		add_energy = @leadercost
+		add_resource = { energy = @leadercost }
 		custom_tooltip = hire_admiral_merc
 		hidden_effect = {
 			create_leader = {
-				type = admiral
+				class = admiral
 				species = event_target:marauder_species
 				name = random
 				event_leader = yes
@@ -2946,14 +2976,13 @@ country_event = {
 			event_target:current_marauder_diplomacy = { has_country_flag = marauder_1 }
 		}
 		allow = {
-			free_leader_slots > 0
-			energy >= @leaderallow
+			resource_stockpile_compare = { resource = energy value >= @leaderallow }
 		}
-		add_energy = @leadercost
+		add_resource = { energy = @leadercost }
 		custom_tooltip = hire_general_merc
 		hidden_effect = {
 			create_leader = {
-				type = general
+				class = general
 				species = event_target:marauder_species
 				name = random
 				event_leader = yes
@@ -2995,14 +3024,13 @@ country_event = {
 			event_target:current_marauder_diplomacy = { has_country_flag = marauder_2 }
 		}
 		allow = {
-			free_leader_slots > 0
-			energy >= @leaderallow
+			resource_stockpile_compare = { resource = energy value >= @leaderallow }
 		}
-		add_energy = @leadercost
+		add_resource = { energy = @leadercost }
 		custom_tooltip = hire_admiral_merc
 		hidden_effect = {
 			create_leader = {
-				type = admiral
+				class = admiral
 				species = event_target:marauder_species
 				name = random
 				event_leader = yes
@@ -3041,14 +3069,13 @@ country_event = {
 			event_target:current_marauder_diplomacy = { has_country_flag = marauder_2 }
 		}
 		allow = {
-			free_leader_slots > 0
-			energy >= @leaderallow
+			resource_stockpile_compare = { resource = energy value >= @leaderallow }
 		}
-		add_energy = @leadercost
+		add_resource = { energy = @leadercost }
 		custom_tooltip = hire_general_merc
 		hidden_effect = {
 			create_leader = {
-				type = general
+				class = general
 				species = event_target:marauder_species
 				name = random
 				event_leader = yes
@@ -3090,14 +3117,13 @@ country_event = {
 			event_target:current_marauder_diplomacy = { has_country_flag = marauder_3 }
 		}
 		allow = {
-			free_leader_slots > 0
-			energy >= @leaderallow
+			resource_stockpile_compare = { resource = energy value >= @leaderallow }
 		}
-		add_energy = @leadercost
+		add_resource = { energy = @leadercost }
 		custom_tooltip = hire_admiral_merc
 		hidden_effect = {
 			create_leader = {
-				type = admiral
+				class = admiral
 				species = event_target:marauder_species
 				name = random
 				event_leader = yes
@@ -3136,14 +3162,13 @@ country_event = {
 			event_target:current_marauder_diplomacy = { has_country_flag = marauder_3 }
 		}
 		allow = {
-			free_leader_slots > 0
-			energy >= @leaderallow
+			resource_stockpile_compare = { resource = energy value >= @leaderallow }
 		}
-		add_energy = @leadercost
+		add_resource = { energy = @leadercost }
 		custom_tooltip = hire_general_merc
 		hidden_effect = {
 			create_leader = {
-				type = general
+				class = general
 				species = event_target:marauder_species
 				name = random
 				event_leader = yes
@@ -3201,7 +3226,7 @@ fleet_event = {
 
 	option = { # Extend contract 1
 		name = marauder.50.a
-		allow = { owner = { energy >= @largemercallow } }
+		allow = { owner = { resource_stockpile_compare = { resource = energy value >= @largemercallow } } }
 		trigger = {
 			OR = {
 				has_fleet_flag = armada_of_the_voidborn
@@ -3209,14 +3234,14 @@ fleet_event = {
 				has_fleet_flag = her_chosen_champions
 			}
 		}
-		owner = { add_energy = @largemerccost }
+		owner = { add_resource = { energy = @largemerccost } }
 		hidden_effect = {
 			fleet_event = { id = marauder.50 days = 1800 }
 		}
 	}
 	option = { # Extend contract 2
 		name = marauder.50.a
-		allow = { owner = { energy >= @mediummercallow } }
+		allow = { owner = { resource_stockpile_compare = { resource = energy value >= @mediummercallow } } }
 		trigger = {
 			OR = {
 				has_fleet_flag = star_rider_flotilla
@@ -3224,14 +3249,14 @@ fleet_event = {
 				has_fleet_flag = order_of_eternal_night
 			}
 		}
-		owner = { add_energy = @mediummerccost }
+		owner = { add_resource = { energy = @mediummerccost } }
 		hidden_effect = {
 			fleet_event = { id = marauder.50 days = 1800 }
 		}
 	}
 	option = { # Extend contract 3
 		name = marauder.50.a
-		allow = { owner = { energy >= @smallmercallow } }
+		allow = { owner = { resource_stockpile_compare = { resource = energy value >= @smallmercallow } } }
 		trigger = {
 			OR = {
 				has_fleet_flag = first_storm_wing
@@ -3239,7 +3264,7 @@ fleet_event = {
 				has_fleet_flag = twilight_congregation
 			}
 		}
-		owner = { add_energy = @smallmerccost }
+		owner = { add_resource = { energy = @smallmerccost } }
 		hidden_effect = {
 			fleet_event = { id = marauder.50 days = 1800 }
 		}
@@ -3725,7 +3750,7 @@ country_event = {
 
 			# Armada of the Voidborn
 			create_leader = {
-				type = admiral
+				class = admiral
 				species = owner_main_species
 				name = random
 				skill = 3
@@ -3756,7 +3781,7 @@ country_event = {
 
 			# Star Rider Flotilla
 			create_leader = {
-				type = admiral
+				class = admiral
 				species = owner_main_species
 				name = random
 				skill = 3
@@ -3787,7 +3812,7 @@ country_event = {
 
 			# First Storm Wing
 			create_leader = {
-				type = admiral
+				class = admiral
 				species = owner_main_species
 				name = random
 				skill = 3
@@ -3824,7 +3849,7 @@ country_event = {
 
 			# 234th Dwamak-Bashers
 			create_leader = {
-				type = admiral
+				class = admiral
 				species = owner_main_species
 				name = random
 				skill = 3
@@ -3855,7 +3880,7 @@ country_event = {
 
 			# Unhinged Screamer Flotilla
 			create_leader = {
-				type = admiral
+				class = admiral
 				species = owner_main_species
 				name = random
 				skill = 3
@@ -3886,7 +3911,7 @@ country_event = {
 
 			# Frenzied Volunteer Squadron
 			create_leader = {
-				type = admiral
+				class = admiral
 				species = owner_main_species
 				name = random
 				skill = 3
@@ -3923,7 +3948,7 @@ country_event = {
 
 			# Her Chosen Champions
 			create_leader = {
-				type = admiral
+				class = admiral
 				species = owner_main_species
 				name = random
 				skill = 3
@@ -3954,7 +3979,7 @@ country_event = {
 
 			# Order of Eternal Night
 			create_leader = {
-				type = admiral
+				class = admiral
 				species = owner_main_species
 				name = random
 				skill = 3
@@ -3985,7 +4010,7 @@ country_event = {
 
 			# Twilight Congregation
 			create_leader = {
-				type = admiral
+				class = admiral
 				species = owner_main_species
 				name = random
 				skill = 3
@@ -4068,6 +4093,7 @@ event = {
 						set_country_flag = mercenaries_available_1
 						save_event_target_as = marauder_mercenary_country
 					}
+					observer_event = { id = observer.24 }
 					every_country = {
 						limit = { 
 							is_ai = no 
@@ -4097,6 +4123,7 @@ event = {
 						set_country_flag = mercenaries_available_2
 						save_event_target_as = marauder_mercenary_country
 					}
+					observer_event = { id = observer.25 }
 					every_country = {
 						limit = { 
 							is_ai = no
@@ -4126,6 +4153,7 @@ event = {
 						set_country_flag = mercenaries_available_3
 						save_event_target_as = marauder_mercenary_country
 					}
+					observer_event = { id = observer.26 }
 					every_country = {
 						limit = { 
 							is_ai = no
@@ -4490,7 +4518,7 @@ country_event = {
 				}
 			}
 			create_leader = {
-				type = admiral
+				class = admiral
 				species = event_target:marauder_species
 				name = random
 				skill = 3
@@ -5013,12 +5041,12 @@ country_event = {
 		hidden_effect = {
 			remove_country_flag = raid_target_of@event_target:marauder_country
 			remove_country_flag = under_marauder_attack
-			remove_country_flag = marauder_tribute_1@event_target:marauder_country
-			remove_country_flag = marauder_tribute_2@event_target:marauder_country
-			remove_country_flag = marauder_tribute_3@event_target:marauder_country
-			remove_country_flag = marauder_tribute_4@event_target:marauder_country
-			remove_country_flag = marauder_tribute_5@event_target:marauder_country
-			remove_country_flag = marauder_tribute_6@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_1@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_2@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_3@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_4@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_5@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_6@event_target:marauder_country
 			remove_relation_flag = {
 				who = event_target:marauder_country
 				flag = current_target
@@ -5049,12 +5077,12 @@ country_event = {
 		hidden_effect = {
 			remove_country_flag = raid_target_of@event_target:marauder_country
 			remove_country_flag = under_marauder_attack
-			remove_country_flag = marauder_tribute_1@event_target:marauder_country
-			remove_country_flag = marauder_tribute_2@event_target:marauder_country
-			remove_country_flag = marauder_tribute_3@event_target:marauder_country
-			remove_country_flag = marauder_tribute_4@event_target:marauder_country
-			remove_country_flag = marauder_tribute_5@event_target:marauder_country
-			remove_country_flag = marauder_tribute_6@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_1@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_2@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_3@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_4@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_5@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_6@event_target:marauder_country
 			remove_relation_flag = {
 				who = event_target:marauder_country
 				flag = current_target
@@ -5085,12 +5113,12 @@ country_event = {
 		hidden_effect = {
 			remove_country_flag = raid_target_of@event_target:marauder_country
 			remove_country_flag = under_marauder_attack
-			remove_country_flag = marauder_tribute_1@event_target:marauder_country
-			remove_country_flag = marauder_tribute_2@event_target:marauder_country
-			remove_country_flag = marauder_tribute_3@event_target:marauder_country
-			remove_country_flag = marauder_tribute_4@event_target:marauder_country
-			remove_country_flag = marauder_tribute_5@event_target:marauder_country
-			remove_country_flag = marauder_tribute_6@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_1@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_2@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_3@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_4@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_5@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_6@event_target:marauder_country
 			remove_relation_flag = {
 				who = event_target:marauder_country
 				flag = current_target
@@ -5138,12 +5166,12 @@ country_event = {
 		hidden_effect = {
 			remove_country_flag = raid_target_of@event_target:marauder_country
 			remove_country_flag = under_marauder_attack
-			remove_country_flag = marauder_tribute_1@event_target:marauder_country
-			remove_country_flag = marauder_tribute_2@event_target:marauder_country
-			remove_country_flag = marauder_tribute_3@event_target:marauder_country
-			remove_country_flag = marauder_tribute_4@event_target:marauder_country
-			remove_country_flag = marauder_tribute_5@event_target:marauder_country
-			remove_country_flag = marauder_tribute_6@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_1@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_2@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_3@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_4@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_5@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_6@event_target:marauder_country
 			remove_relation_flag = {
 				who = event_target:marauder_country
 				flag = current_target
@@ -5174,12 +5202,12 @@ country_event = {
 		hidden_effect = {
 			remove_country_flag = raid_target_of@event_target:marauder_country
 			remove_country_flag = under_marauder_attack
-			remove_country_flag = marauder_tribute_1@event_target:marauder_country
-			remove_country_flag = marauder_tribute_2@event_target:marauder_country
-			remove_country_flag = marauder_tribute_3@event_target:marauder_country
-			remove_country_flag = marauder_tribute_4@event_target:marauder_country
-			remove_country_flag = marauder_tribute_5@event_target:marauder_country
-			remove_country_flag = marauder_tribute_6@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_1@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_2@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_3@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_4@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_5@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_6@event_target:marauder_country
 			remove_relation_flag = {
 				who = event_target:marauder_country
 				flag = current_target
@@ -5210,12 +5238,12 @@ country_event = {
 		hidden_effect = {
 			remove_country_flag = raid_target_of@event_target:marauder_country
 			remove_country_flag = under_marauder_attack
-			remove_country_flag = marauder_tribute_1@event_target:marauder_country
-			remove_country_flag = marauder_tribute_2@event_target:marauder_country
-			remove_country_flag = marauder_tribute_3@event_target:marauder_country
-			remove_country_flag = marauder_tribute_4@event_target:marauder_country
-			remove_country_flag = marauder_tribute_5@event_target:marauder_country
-			remove_country_flag = marauder_tribute_6@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_1@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_2@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_3@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_4@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_5@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_6@event_target:marauder_country
 			remove_relation_flag = {
 				who = event_target:marauder_country
 				flag = current_target
@@ -5248,12 +5276,12 @@ country_event = {
 		hidden_effect = {
 			remove_country_flag = raid_target_of@event_target:marauder_country
 			remove_country_flag = under_marauder_attack
-			remove_country_flag = marauder_tribute_1@event_target:marauder_country
-			remove_country_flag = marauder_tribute_2@event_target:marauder_country
-			remove_country_flag = marauder_tribute_3@event_target:marauder_country
-			remove_country_flag = marauder_tribute_4@event_target:marauder_country
-			remove_country_flag = marauder_tribute_5@event_target:marauder_country
-			remove_country_flag = marauder_tribute_6@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_1@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_2@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_3@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_4@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_5@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_6@event_target:marauder_country
 			remove_relation_flag = {
 				who = event_target:marauder_country
 				flag = current_target
@@ -5284,12 +5312,12 @@ country_event = {
 		hidden_effect = {
 			remove_country_flag = raid_target_of@event_target:marauder_country
 			remove_country_flag = under_marauder_attack
-			remove_country_flag = marauder_tribute_1@event_target:marauder_country
-			remove_country_flag = marauder_tribute_2@event_target:marauder_country
-			remove_country_flag = marauder_tribute_3@event_target:marauder_country
-			remove_country_flag = marauder_tribute_4@event_target:marauder_country
-			remove_country_flag = marauder_tribute_5@event_target:marauder_country
-			remove_country_flag = marauder_tribute_6@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_1@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_2@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_3@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_4@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_5@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_6@event_target:marauder_country
 			remove_relation_flag = {
 				who = event_target:marauder_country
 				flag = current_target
@@ -5320,12 +5348,12 @@ country_event = {
 		hidden_effect = {
 			remove_country_flag = raid_target_of@event_target:marauder_country
 			remove_country_flag = under_marauder_attack
-			remove_country_flag = marauder_tribute_1@event_target:marauder_country
-			remove_country_flag = marauder_tribute_2@event_target:marauder_country
-			remove_country_flag = marauder_tribute_3@event_target:marauder_country
-			remove_country_flag = marauder_tribute_4@event_target:marauder_country
-			remove_country_flag = marauder_tribute_5@event_target:marauder_country
-			remove_country_flag = marauder_tribute_6@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_1@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_2@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_3@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_4@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_5@event_target:marauder_country
+			#remove_country_flag = marauder_tribute_6@event_target:marauder_country
 			remove_relation_flag = {
 				who = event_target:marauder_country
 				flag = current_target
@@ -5358,6 +5386,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		planet_devastation >= 15
 		from = { is_country_type = marauder_raiders }
 		owner = {
 			OR = {
@@ -5443,44 +5472,51 @@ planet_event = {
 		owner = {
 			if = {
 				limit = { has_country_flag = marauder_tribute_1@event_target:marauder_country }
-				add_energy = -200
-				add_minerals = -200
-				add_food = -50
-				break = yes
+				add_resource = {
+					energy = -200
+					minerals = -200
+					food = -50
+				}
 			}
-			if = {
+			else_if = {
 				limit = { has_country_flag = marauder_tribute_2@event_target:marauder_country }
-				add_energy = -300
-				add_minerals = -300
-				add_food = -100
-				break = yes
+				add_resource = {
+					energy = -300
+					minerals = -300
+					food = -100
+				}
 			}
-			if = {
+			else_if = {
 				limit = { has_country_flag = marauder_tribute_3@event_target:marauder_country }
-				add_energy = -500
-				add_minerals = -500
-				add_food = -150
-				break = yes
+				add_resource = {
+					energy = -500
+					minerals = -500
+					food = -150
+				}
 			}
-			if = {
+			else_if = {
 				limit = { has_country_flag = marauder_tribute_4@event_target:marauder_country }
-				add_energy = -700
-				add_minerals = -700
-				add_food = -200
-				break = yes
+				add_resource = {
+					energy = -700
+					minerals = -700
+					food = -200
+				}
 			}
-			if = {
+			else_if = {
 				limit = { has_country_flag = marauder_tribute_5@event_target:marauder_country }
-				add_energy = -900
-				add_minerals = -900
-				add_food = -250
-				break = yes
+				add_resource = {
+					energy = -900
+					minerals = -900
+					food = -250
+				}
 			}
-			if = {
+			else_if = {
 				limit = { has_country_flag = marauder_tribute_6@event_target:marauder_country }
-				add_energy = -1100
-				add_minerals = -1100
-				add_food = -300
+				add_resource = {
+					energy = -1100
+					minerals = -1100
+					food = -300
+				}
 			}
 		}
 	}
@@ -5542,44 +5578,52 @@ planet_event = {
 		owner = {
 			if = {
 				limit = { has_country_flag = marauder_tribute_1@event_target:marauder_country }
-				add_energy = -200
-				add_minerals = -200
-				add_food = -50
-				break = yes
+				add_resource = {
+					energy = -200
+					minerals = -200
+					food = -50
+				}
 			}
-			if = {
+			else_if = {
 				limit = { has_country_flag = marauder_tribute_2@event_target:marauder_country }
-				add_energy = -300
-				add_minerals = -300
-				add_food = -100
-				break = yes
+				add_resource = {
+					energy = -300
+					minerals = -300
+					food = -100
+				}
 			}
-			if = {
+			else_if = {
 				limit = { has_country_flag = marauder_tribute_3@event_target:marauder_country }
-				add_energy = -500
-				add_minerals = -500
-				add_food = -150
-				break = yes
+				add_resource = {
+					energy = -500
+					minerals = -500
+					food = -150
+				}
 			}
-			if = {
+			else_if = {
 				limit = { has_country_flag = marauder_tribute_4@event_target:marauder_country }
-				add_energy = -700
-				add_minerals = -700
-				add_food = -200
-				break = yes
+				add_resource = {
+					energy = -700
+					minerals = -700
+					food = -200
+				}
 			}
-			if = {
+			else_if = {
 				limit = { has_country_flag = marauder_tribute_5@event_target:marauder_country }
-				add_energy = -900
-				add_minerals = -900
-				add_food = -250
+				add_resource = {
+					energy = -900
+					minerals = -900
+					food = -250
+				}
 				break = yes
 			}
-			if = {
+			else_if = {
 				limit = { has_country_flag = marauder_tribute_6@event_target:marauder_country }
-				add_energy = -1100
-				add_minerals = -1100
-				add_food = -300
+				add_resource = {
+					energy = -1100
+					minerals = -1100
+					food = -300
+				}
 			}
 		}
 	}
@@ -5602,7 +5646,6 @@ planet_event = {
 			limit = {
 				is_robot_pop = no
 				is_sapient = yes
-				is_growing = no
 			}
 			kill_pop = yes
 		}
@@ -5610,7 +5653,6 @@ planet_event = {
 			limit = {
 				is_robot_pop = no
 				is_sapient = yes
-				is_growing = no
 			}
 			kill_pop = yes
 		}
@@ -5618,7 +5660,6 @@ planet_event = {
 			limit = {
 				is_robot_pop = no
 				is_sapient = yes
-				is_growing = no
 			}
 			kill_pop = yes
 		}
@@ -5626,7 +5667,6 @@ planet_event = {
 			limit = {
 				is_robot_pop = no
 				is_sapient = yes
-				is_growing = no
 			}
 			kill_pop = yes
 		}
@@ -5649,44 +5689,51 @@ planet_event = {
 	owner = {
 			if = {
 				limit = { has_country_flag = marauder_tribute_1@event_target:marauder_country }
-				add_energy = -200
-				add_minerals = -200
-				add_food = -50
-				break = yes
+				add_resource = {
+					energy = -200
+					minerals = -200
+					food = -50
+				}
 			}
-			if = {
+			else_if = {
 				limit = { has_country_flag = marauder_tribute_2@event_target:marauder_country }
-				add_energy = -300
-				add_minerals = -300
-				add_food = -100
-				break = yes
+				add_resource = {
+					energy = -300
+					minerals = -300
+					food = -100
+				}
 			}
-			if = {
+			else_if = {
 				limit = { has_country_flag = marauder_tribute_3@event_target:marauder_country }
-				add_energy = -500
-				add_minerals = -500
-				add_food = -150
-				break = yes
+				add_resource = {
+					energy = -500
+					minerals = -500
+					food = -150
+				}
 			}
-			if = {
+			else_if = {
 				limit = { has_country_flag = marauder_tribute_4@event_target:marauder_country }
-				add_energy = -700
-				add_minerals = -700
-				add_food = -200
-				break = yes
+				add_resource = {
+					energy = -700
+					minerals = -700
+					food = -200
+				}
 			}
-			if = {
+			else_if = {
 				limit = { has_country_flag = marauder_tribute_5@event_target:marauder_country }
-				add_energy = -900
-				add_minerals = -900
-				add_food = -250
-				break = yes
+				add_resource = {
+					energy = -900
+					minerals = -900
+					food = -250
+				}
 			}
-			if = {
+			else_if = {
 				limit = { has_country_flag = marauder_tribute_6@event_target:marauder_country }
-				add_energy = -1100
-				add_minerals = -1100
-				add_food = -300
+				add_resource = {
+					energy = -1100
+					minerals = -1100
+					food = -300
+				}
 			}
 		}
 	}	
@@ -6376,7 +6423,7 @@ event = {
 					has_country_flag = target_of_hired_ai_raid
 				}
 			}
-			energy > 5000
+			resource_stockpile_compare = { resource = energy value >= 5000 }
 			any_relation = { 
 				is_country_type = dormant_marauders 
 				has_communications = prev
@@ -6405,7 +6452,7 @@ event = {
 						has_country_flag = target_of_hired_ai_raid
 					}
 				}
-				energy > 5000
+				resource_stockpile_compare = { resource = energy value >= 5000 }
 				any_relation = { 
 					is_country_type = dormant_marauders 
 					has_communications = prev
@@ -6447,11 +6494,11 @@ event = {
 				#		any_relation = { 
 				#			prev = { is_rival = prev }
 				#		}
-				#		energy > 5000
+				#		resource_stockpile_compare = { resource = energy value >= 5000 }
 				#	}
 				#	save_event_target_as = hired_marauders
 				event_target:hired_marauders = {
-					add_energy = @raidcost
+					add_resource = { energy = @raidcost }
 					random_relation = {
 						limit = { 
 							prev = { is_rival = prev }
@@ -6551,7 +6598,7 @@ event = {
 						}
 					}
 					create_leader = {
-						type = admiral
+						class = admiral
 						species = event_target:marauder_species
 						name = random
 						skill = 3
@@ -6649,7 +6696,7 @@ event = {
 				has_valid_civic = civic_machine_terminator
 				has_country_flag = ai_hired_mercs
 			}
-			energy > 6000
+			resource_stockpile_compare = { resource = energy value >= 6000 }
 			is_at_war = yes
 			any_war = {
 				any_war_participant = {
@@ -6717,7 +6764,7 @@ event = {
 					has_valid_civic = civic_machine_terminator
 					has_country_flag = ai_hired_mercs
 				}
-				energy > 6000
+				resource_stockpile_compare = { resource = energy value >= 6000 }
 				is_at_war = yes
 				any_war = {
 					any_war_participant = {
@@ -6906,7 +6953,7 @@ event = {
 					modifier = {
 						factor = 0
 						event_target:marauder_merc_country = { has_country_flag = merc_fleet_1_hired }
-						event_target:mercenary_hirer = { energy < 12000 }
+						event_target:mercenary_hirer = { resource_stockpile_compare = { resource = energy value < 12000 } }
 					}
 				}
 				# Medium Fleet
@@ -6993,7 +7040,7 @@ event = {
 					modifier = {
 						factor = 0
 						event_target:marauder_merc_country = { has_country_flag = merc_fleet_2_hired }
-						event_target:mercenary_hirer = { energy < 9000 }
+						event_target:mercenary_hirer = { resource_stockpile_compare = { resource = energy value < 9000 } }
 					}
 				}
 				# Small Fleet
@@ -7278,7 +7325,7 @@ country_event = {
 
 		### Ruler Khan
 		create_leader = {
-			type = ruler
+			class = ruler
 			species = owner_main_species
 			name = random
 			skill = 10
@@ -7297,7 +7344,7 @@ country_event = {
 		### Admiral Khan
 		clone_leader = {
 			target = event_target:great_khan_ruler
-			type = admiral
+			class = admiral
 			skill = 10
 			traits = {
 				trait = leader_trait_great_khan
@@ -7324,6 +7371,7 @@ country_event = {
 			limit = {
 				NOT = { has_global_flag = horde_triggered }
 			}
+			observer_event = { id = observer.13 }
 			every_country = {
 				limit = { is_ai = no }
 				establish_communications_no_message = root
@@ -7331,6 +7379,7 @@ country_event = {
 			}
 		}
 		else = {
+			observer_event = { id = observer.18 }
 			every_country = {
 				limit = { is_ai = no }
 				establish_communications_no_message = root
@@ -7525,99 +7574,59 @@ country_event = {
 			}
 			# Create Marauder Pops
 			if = {
-				limit = { free_pop_tiles < 1 }
+				limit = { free_housing < 1 }
 				random_pop = { 
-					limit = {
-						is_growing = no
-						is_being_purged = no
-					}
-					purge = yes 
+					kill_pop = yes 
 				}
 				random_pop = { 
-					limit = {
-						is_growing = no
-						is_being_purged = no
-					}
-					purge = yes 
+					kill_pop = yes 
 				}
 				random_pop = { 
-					limit = {
-						is_growing = no
-						is_being_purged = no
-					}
-					purge = yes 
+					kill_pop = yes 
 				}
 				random_pop = { 
-					limit = {
-						is_growing = no
-						is_being_purged = no
-					}
 					kill_pop = yes
 				}
-				best_tile_for_pop = { create_pop = { species = root.species } }
+				create_pop = { species = root.species }
 			}
 			if = {
-				limit = { free_pop_tiles = 1 }
+				limit = { free_housing = 1 }
 				random_pop = { 
-					limit = {
-						is_growing = no
-						is_being_purged = no
-					}
-					purge = yes 
+					kill_pop = yes
 				}
 				random_pop = { 
-					limit = {
-						is_growing = no
-						is_being_purged = no
-					}
-					purge = yes 
+					kill_pop = yes 
 				}
 				random_pop = { 
-					limit = {
-						is_growing = no
-						is_being_purged = no
-					}
-					purge = yes 
+					kill_pop = yes
 				}
-				best_tile_for_pop = { create_pop = { species = root.species } }
+				create_pop = { species = root.species }
 			}
 			if = {
 				limit = { 
-					free_pop_tiles > 1
-					free_pop_tiles < 6 
+					free_housing > 5
+					free_housing < 6 
 				}
 				random_pop = { 
-					limit = {
-						is_growing = no
-						is_being_purged = no
-					}
-					purge = yes 
+					kill_pop = yes
 				}
 				random_pop = { 
-					limit = {
-						is_growing = no
-						is_being_purged = no
-					}
-					purge = yes 
+					kill_pop = yes
 				}
 				random_pop = { 
-					limit = {
-						is_growing = no
-						is_being_purged = no
-					}
-					purge = yes 
+					kill_pop = yes
 				}
-				best_tile_for_pop = { create_pop = { species = root.species } }
-				best_tile_for_pop = { create_pop = { species = root.species } }
+				create_pop = { species = root.species }
+				create_pop = { species = root.species }
 			}
 			if = {
-				limit = { free_pop_tiles > 5 }
-				best_tile_for_pop = { create_pop = { species = root.species } }
-				best_tile_for_pop = { create_pop = { species = root.species } }
-				best_tile_for_pop = { create_pop = { species = root.species } }
-				best_tile_for_pop = { create_pop = { species = root.species } }
-				best_tile_for_pop = { create_pop = { species = root.species } }
-				best_tile_for_pop = { create_pop = { species = root.species } }
+				limit = { free_housing > 5 }
+				create_pop = { species = root.species }
+				create_pop = { species = root.species }
+				create_pop = { species = root.species }
+				create_pop = { species = root.species }
+				create_pop = { species = root.species }
+				create_pop = { species = root.species }
 			}
 			# Flip Starbase ownership or create a new one
 			if = {
@@ -7689,6 +7698,7 @@ country_event = {
 				exile_leader_as = exiled_khan
 			}
 		}
+		observer_event = { id = observer.14 }
 		every_country = {
 			limit = { is_ai = no }
 			country_event = { id = marauder.506 }
@@ -7724,6 +7734,7 @@ country_event = {
 		create_marauder_fleet = yes
 		create_marauder_armies = yes
 		create_marauder_armies = yes
+		observer_event = { id = observer.15 }
 		every_country = {
 			limit = { is_ai = no }
 			country_event = { id = marauder.508 }
@@ -7809,6 +7820,7 @@ country_event = {
 		fromfrom = {
 			solar_system = { save_event_target_as = khan_death_system }
 		}
+		observer_event = { id = observer.16 }
 		every_country = {
 			limit = { is_ai = no }
 			country_event = { id = marauder.510 }
@@ -7880,6 +7892,7 @@ country_event = {
 			10 = { set_country_flag = khan_dead_assassin }
 			10 = { set_country_flag = khan_dead_concubine }
 		}
+		observer_event = { id = observer.17 }
 		every_country = {
 			limit = { is_ai = no }
 			country_event = { id = marauder.513 }
@@ -7943,10 +7956,12 @@ country_event = {
 	immediate = {
 		set_global_flag = great_khan_dead
 		set_country_flag = khan_dead_age
+		observer_event = { id = observer.17 }
 		every_country = {
 			limit = { is_ai = no }
 			country_event = { id = marauder.513 }
 		}
+		country_event = { id = marauder.600 days = 200 random = 100 }
 		event_target:great_khan_ruler = {
 			kill_leader = { show_notification = no }
 		}
@@ -8539,6 +8554,7 @@ country_event = {
 		hidden_effect = {
 			set_timed_country_flag = { flag = rebellion_cooldown days = 360 } # Can't rebel for a year after submitting.
 			save_event_target_as = new_satrapy
+			observer_event = { id = observer.19 }
 			every_country = {
 				limit = { 
 					is_ai = no
@@ -8838,6 +8854,7 @@ country_event = {
         		set_friendly = yes
         	}
         }
+        observer_event = { id = observer.19 }
         every_country = {
 			limit = { 
 				is_ai = no
@@ -8997,6 +9014,7 @@ country_event = {
 			create_third_diadochi = yes
 			create_fourth_diadochi = yes
 
+			observer_event = { id = observer.20 }
 			every_country = {
 				limit = { is_ai = no }
 				country_event = { id = marauder.620 }
@@ -9020,6 +9038,7 @@ country_event = {
 			create_third_diadochi = yes
 			create_fourth_diadochi = yes
 
+			observer_event = { id = observer.20 }
 			every_country = {
 				limit = { is_ai = no }
 				country_event = { id = marauder.620 }
@@ -9081,10 +9100,12 @@ country_event = {
 			}
 		}
 		event_target:new_khanate = {
-			add_minerals = 20000
-			add_energy = 20000
-			add_food = 2000
-			add_influence = 1000
+			add_resource = {
+				minerals = 20000
+				energy = 20000
+				food = 2000
+				influence = 1000
+			}
 			copy_techs_from = { target = root }
 			every_owned_starbase = {
 				set_starbase_size = starbase_outpost
@@ -9177,6 +9198,7 @@ country_event = {
 			limit = { has_modifier = satrapy_of_horde }
 			remove_modifier = "satrapy_of_horde"
 		}
+		observer_event = { id = observer.22 }
 		every_country = {
 			limit = { is_ai = no }
 			country_event = { id = marauder.640 }
@@ -9234,10 +9256,12 @@ country_event = {
 			}
 		}
 		event_target:new_khanate = {
-			add_minerals = 20000
-			add_energy = 20000
-			add_food = 2000
-			add_influence = 1000
+			add_resource = {
+				minerals = 20000
+				energy = 20000
+				food = 2000
+				influence = 1000
+			}
 			copy_techs_from = { target = root }
 			every_owned_starbase = {
 				set_starbase_size = starbase_outpost
@@ -9325,6 +9349,7 @@ country_event = {
 				who = none
 			}
 		}
+		observer_event = { id = observer.23 }
 		every_country = {
 			limit = { 
 				NOT = { is_subject_type = satrapy }
@@ -9422,6 +9447,7 @@ country_event = {
 			remove_modifier = "satrapy_of_horde"
 			country_event = { id = marauder.670 days = 10 }
 		}
+		observer_event = { id = observer.21 }
 		every_country = {
 			limit = { is_ai = no }
 			country_event = { id = marauder.630}
@@ -9669,18 +9695,27 @@ country_event = {
 						has_policy_flag = refugees_allowed
 						any_owned_planet = {
 							habitability = { who = event_target:marauder_neighbor_species value > 0.4 }
-							any_tile = {
-								has_blocker = no
-								has_pop = no
-							}
+							#free_housing > 0
 						}
 					}
 					random_owned_planet = {
 						limit = {
 							habitability = { who = event_target:marauder_neighbor_species value > 0.4 }
-							any_tile = {
-								has_blocker = no
-								has_pop = no
+							#free_housing > 0
+						}
+						weights = {
+							base = 1
+							modifier = { 
+								add = 5
+								free_housing > 0
+							}
+							modifier = { 
+								add = 10
+								free_housing > 1
+							}
+							modifier = { 
+								mult = 2
+								habitability = { who = event_target:marauder_neighbor_species value > 0.6 }
 							}
 						}
 						create_pop = {
@@ -9818,7 +9853,7 @@ country_event = {
 			}
 		}
 		create_leader = {
-			type = admiral
+			class = admiral
 			species = event_target:marauder_neighbor_species
 			name = random
 			skill = 4
@@ -9846,22 +9881,24 @@ country_event = {
 		trigger = {
 			has_valid_civic = civic_machine_terminator
 		}
-		add_influence = 50
+		add_resource = { influence = 50 }
 	}
 	option = {
 		name = marauder.703.d
 		trigger = {
 			has_valid_civic = civic_hive_devouring_swarm
 		}
-		add_food = 1
-		add_influence = 50
+		add_resource = {
+			food = 1
+			influence = 50
+		}
 	}
 	option = {
 		name = marauder.703.e
 		trigger = {
 			has_valid_civic = civic_fanatic_purifiers
 		}
-		add_influence = 50
+		add_resource = { influence = 50 }
 	}
 }
 
@@ -9924,7 +9961,7 @@ country_event = {
 	}
 	option = {
 		name = marauder.704.b
-		add_minerals = 200
+		add_resource = { minerals = 200 }
 	}
 }
 
@@ -9948,8 +9985,10 @@ country_event = {
 
 	option = {
 		name = EXCELLENT
-		add_minerals = 300
-		add_energy = 300
+		add_resource = {
+			minerals = 300
+			energy = 300
+		}
 	}
 }
 
@@ -9973,7 +10012,7 @@ country_event = {
 
 	option = {
 		name = marauder.706.a
-		add_minerals = 400
+		add_resource = { minerals = 400 }
 	}
 }
 
@@ -9997,6 +10036,6 @@ country_event = {
 
 	option = {
 		name = marauder.707.a
-		add_energy = 400
+		add_resource = { energy = 400 }
 	}
 }

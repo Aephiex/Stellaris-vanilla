@@ -104,6 +104,11 @@ wormhole = {
 	prerequisites = {
 		tech_wormhole_stabilization
 	}
+	
+	potential = {
+		always = yes
+	}
+	
 	country_can_use = {
 		custom_tooltip = {
 			fail_text = NATURAL_WORMHOLE_COUNTRY_CANNOT_USE
@@ -173,4 +178,3 @@ lgate = {
 		}
 	}
 }
-

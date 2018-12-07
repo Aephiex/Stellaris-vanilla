@@ -29,6 +29,11 @@ spriteTypes = {
 		textureFile = "gfx/interface/main/select_species_random_bg.dds"
 	}		
 	
+	spriteType = {
+		name = "GFX_species_observe"
+		textureFile = "gfx/interface/main/select_species_observe_bg.dds"
+	}		
+	
 #	spriteType = {
 #		name = "GFX_species_unselected_bg"
 #		textureFile = "gfx/interface/main/unselected_portrait.dds"

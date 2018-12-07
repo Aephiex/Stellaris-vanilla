@@ -88,6 +88,7 @@ country_event = {
 			}
 			country_event = { id = fallen_empires_awakening.2 }
 		}
+		observer_event = { id = observer.73 }
 
 		# Fragged a holy world
 		if = {
@@ -174,6 +175,9 @@ country_event = {
 	option = {
 		name = fallen_empires_awakening.2.a
 	}
+	option = {
+		name = fallen_empires_awakening.2.b
+	}
 }
 
 country_event = {
@@ -196,10 +200,10 @@ country_event = {
 		}
 
 		# Changing country type resets resources, so give them full stores
-		add_minerals = 50000
-		add_energy = 50000
-		add_food = 5000
-		add_influence = 1000
+		add_resource = { minerals = 50000 }
+		add_resource = { energy = 50000 }
+		add_resource = { food = 5000 }
+		add_resource = { influence = 1000 }
 
 		# Add some more fleet
 		country_event = { id = fallen_empires.13 }
@@ -277,6 +281,7 @@ country_event = {
 			}
 			country_event = { id = fallen_empires_awakening.5 }
 		}
+		observer_event = { id = observer.74 }
 	}
 }
 

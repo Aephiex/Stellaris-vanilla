@@ -6,15 +6,10 @@
 @count = 8
 @regen = 0.13
 
-@cost1 = 40
-@cost2 = 50
-@cost3 = 60
-@cost4 = 70
-
 @power1 = -20
-@power2 = -30
-@power3 = -40
-@power4 = -50
+@power2 = -34
+@power3 = -45
+@power4 = -59
 
 strike_craft_component_template = {
 	key = "LARGE_SCOUT_HANGAR_1"
@@ -24,7 +19,16 @@ strike_craft_component_template = {
 	weapon_type = point_defence
 	projectile_gfx = "scout_laser_1"
 	power = @power1
-	cost = @cost1
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @l_t1_cost
+		}
+		upkeep = {
+			energy = @l_t1_upkeep_energy
+			alloys = @l_t1_upkeep_alloys
+		}
+	}
 	
 	count = @count
 	regeneration_per_day = @regen
@@ -61,7 +65,16 @@ strike_craft_component_template = {
 	size = LARGE
 	entity = "bomber_entity"
 	power = @power2
-	cost = @cost2
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @l_t1_cost
+		}
+		upkeep = {
+			energy = @l_t3_upkeep_energy
+			alloys = @l_t3_upkeep_alloys
+		}
+	}
 		
 	count = @count
 	regeneration_per_day = @regen
@@ -103,7 +116,16 @@ strike_craft_component_template = {
 	size = LARGE
 	entity = "bomber_entity"
 	power = @power3
-	cost = @cost3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @l_t4_cost
+		}
+		upkeep = {
+			energy = @l_t4_upkeep_energy
+			alloys = @l_t4_upkeep_alloys
+		}
+	}
 		
 	count = @count
 	regeneration_per_day = @regen
@@ -145,7 +167,16 @@ strike_craft_component_template = {
 	size = LARGE
 	entity = "bomber_entity"
 	power = @power4
-	cost = @cost4
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @l_t5_cost
+		}
+		upkeep = {
+			energy = @l_t5_upkeep_energy
+			alloys = @l_t5_upkeep_alloys
+		}
+	}
 		
 	count = @count
 	regeneration_per_day = @regen

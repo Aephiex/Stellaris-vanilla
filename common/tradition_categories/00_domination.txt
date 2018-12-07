@@ -3,16 +3,15 @@ tradition_domination = {
 	finish_bonus = "tr_domination_finish"
 	traditions = {
 		"tr_domination_colonial_viceroys"
-		"tr_domination_protection_racket"
-		"tr_domination_star_lords"
-		"tr_domination_fleet_levies"
-		"tr_domination_vassal_acculturation"
+		"tr_domination_imperious_architecture"
+		"tr_domination_judgment_corps"
+		"tr_domination_workplace_motivators"
+		"tr_domination_grand_council"
 	}
 	tradition_swap = {
 		name = tradition_domination_machine
 		trigger = {
 			has_authority = auth_machine_intelligence
-			NOT = { has_civic = civic_machine_terminator }
 		}
 		weight = {
 			factor = 1
@@ -22,24 +21,9 @@ tradition_domination = {
 		name = tradition_domination_hive
 		trigger = {
 			has_authority = auth_hive_mind
-			NOT = { has_civic = civic_hive_devouring_swarm }
 		}
 		weight = {
 			factor = 1
 		}		
-	}
-	tradition_swap = {
-		name = tradition_purity
-		trigger = {
-			OR = {
-				has_civic = civic_fanatic_purifiers
-				has_civic = civic_hive_devouring_swarm
-				has_civic = civic_inwards_perfection
-				has_civic = civic_machine_terminator
-			}
-		}
-		weight = {
-			factor = 1
-		}
 	}
 }

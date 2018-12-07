@@ -39,12 +39,12 @@ colossus_victim = {
 
 # Player Holy World
 holy_player_planet = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_holy_planet.dds"
+	icon = "gfx/interface/icons/planet_modifiers/pm_consecrated_worlds.dds"
 	icon_frame = 1
 	# doesn't do anything
 }
 
 # Player Holy World owner
 has_holy_player_planet = {
-	country_resource_unity_mult = 0.1
+	country_unity_produces_mult = 0.1
 }

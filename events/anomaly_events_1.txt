@@ -2,7 +2,7 @@
 #
 # Anomaly Events
 #
-# Written by Henrik Eklund
+# Written by Henrik Thyrwall
 #
 ############################
 
@@ -23,7 +23,7 @@ ship_event = {
 	is_triggered_only = yes
 			
 	immediate = {
-		from = { orbital_deposit_tile = { clear_deposits = yes } }
+		from = { clear_deposits = yes }
 	}
 
 	option = {
@@ -37,9 +37,7 @@ ship_event = {
 			}
 		}
 		FROM = { 
-			orbital_deposit_tile = {
-				add_deposit = d_vast_society_deposit
-			}
+			set_deposit = d_society_3
 		}
 	}
 }
@@ -83,7 +81,7 @@ ship_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		from = { orbital_deposit_tile = { clear_deposits = yes }}
+		from = { clear_deposits = yes }
 		owner = { country_event = { id = story.2 days = 30 } }
 	}
 	
@@ -98,9 +96,7 @@ ship_event = {
 			}
 		}
 		FROM = { 
-			orbital_deposit_tile = { 
-				add_deposit = d_vast_society_deposit
-			}
+			set_deposit = d_society_3
 		}
 	}
 }
@@ -141,7 +137,7 @@ ship_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		from = { orbital_deposit_tile = { clear_deposits = yes } }
+		from = { clear_deposits = yes }
 		owner = { country_event = { id = story.5 days = 30 } }
 	}
 	
@@ -156,9 +152,7 @@ ship_event = {
 			}
 		}
 		FROM = { 
-			orbital_deposit_tile = { 
-				add_deposit = d_vast_engineering_deposit
-			}
+			set_deposit = d_engineering_3
 		}
 	}
 }
@@ -175,7 +169,7 @@ ship_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		from = { orbital_deposit_tile = { clear_deposits = yes }}
+		from = { clear_deposits = yes }
 		owner = { country_event = { id = story.5 days = 30 } }
 	}
 	
@@ -190,9 +184,7 @@ ship_event = {
 			}
 		}
 		FROM = { 
-			orbital_deposit_tile = { 
-				add_deposit = d_vast_mineral_deposit
-			}
+			set_deposit = d_minerals_3
 		}
 		owner = {
 			pop_lcluster_event = yes
@@ -267,11 +259,9 @@ ship_event = {
 				NOT = { any_planet_within_border = { is_same_value = event_target:MiningPlanet } }
 			}
 			from = {
-				orbital_deposit_tile = {
-					has_resource = {
-						type = minerals
-						amount > 0
-					}
+				has_resource = {
+					type = minerals
+					amount > 0
 				}
 			}
 		}
@@ -291,11 +281,9 @@ ship_event = {
 				NOT = { any_planet_within_border = { is_same_value = event_target:MiningPlanet } }
 			}
 			from = {
-				orbital_deposit_tile = {
-					has_resource = {
-						type = energy
-						amount > 0
-					}
+				has_resource = {
+					type = energy
+					amount > 0
 				}
 			}
 		}
@@ -334,7 +322,7 @@ ship_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		from = { orbital_deposit_tile = { clear_deposits = yes } }
+		from = { clear_deposits = yes }
 		owner = { country_event = { id = story.3 days = 30 } }
 	}
 	
@@ -349,9 +337,7 @@ ship_event = {
 			}
 		}
 		FROM = { 
-			orbital_deposit_tile = { 
-				add_deposit = d_vast_physics_deposit
-			}
+			set_deposit = d_physics_3
 		}
 	}
 }
@@ -368,15 +354,13 @@ ship_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		from = { orbital_deposit_tile = { clear_deposits = yes } }
+		from = { clear_deposits = yes }
 	}
 	
 	option = {
 		name = anomaly.55.a
 		FROM = { 
-			orbital_deposit_tile = { 
-				add_deposit = d_vast_mineral_deposit
-			}
+			set_deposit = d_minerals_3
 		}
 	}
 }
@@ -417,7 +401,7 @@ ship_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		from = { orbital_deposit_tile = { clear_deposits = yes } }
+		from = { clear_deposits = yes }
 		owner = { country_event = { id = story.5 days = 30 } }
 	}
 	
@@ -432,9 +416,7 @@ ship_event = {
 			}
 		}
 		FROM = { 
-			orbital_deposit_tile = { 
-				add_deposit = d_vast_mineral_deposit
-			}
+			set_deposit = d_minerals_3
 		}
 	}
 }
@@ -451,7 +433,7 @@ ship_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		from = { orbital_deposit_tile = { clear_deposits = yes } }
+		from = { clear_deposits = yes }
 		owner = { country_event = { id = story.2 days = 30 } }
 	}
 	
@@ -466,9 +448,7 @@ ship_event = {
 			}
 		}
 		FROM = { 
-			orbital_deposit_tile = { 
-				add_deposit = d_vast_society_deposit
-			}
+			set_deposit = d_society_3
 		}
 	}
 }
@@ -537,7 +517,7 @@ ship_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		from = { orbital_deposit_tile = { clear_deposits = yes } }
+		from = { clear_deposits = yes }
 		owner = { country_event = { id = story.5 days = 30 } }
 	}
 	
@@ -552,9 +532,7 @@ ship_event = {
 			}
 		}
 		FROM = { 
-			orbital_deposit_tile = { 
-				add_deposit = d_vast_engineering_deposit
-			}
+			set_deposit = d_engineering_3
 		}
 	}
 }
@@ -571,7 +549,7 @@ ship_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		from = { orbital_deposit_tile = { clear_deposits = yes } }
+		from = { clear_deposits = yes }
 		owner = { country_event = { id = story.5 days = 30 } }
 	}
 	
@@ -585,10 +563,8 @@ ship_event = {
 				}
 			}
 		}
-		FROM = { 
-			orbital_deposit_tile = { 
-				add_deposit = d_vast_mineral_deposit
-			}
+		FROM = {  
+			set_deposit = d_minerals_3
 		}
 	}
 }
@@ -631,7 +607,7 @@ ship_event = {
 	is_triggered_only = yes
 	
 	immediate = {
-		from = { orbital_deposit_tile = { clear_deposits = yes } }
+		from = { clear_deposits = yes }
 	}
 
 	option = {
@@ -645,9 +621,7 @@ ship_event = {
 			}
 		}
 		FROM = { 
-			orbital_deposit_tile = { 
-				add_deposit = d_vast_physics_deposit
-			}
+			set_deposit = d_physics_3
 		}
 	}
 }
@@ -688,7 +662,7 @@ ship_event = {
 	is_triggered_only = yes
 	
 	immediate = {
-		from = { orbital_deposit_tile = { clear_deposits = yes } }
+		from = { clear_deposits = yes }
 	}
 
 	option = {
@@ -702,9 +676,7 @@ ship_event = {
 			}
 		}
 		FROM = { 
-			orbital_deposit_tile = { 
-				add_deposit = d_vast_energy_deposit
-			}
+			set_deposit = d_energy_3
 		}
 	}
 }
@@ -721,7 +693,7 @@ ship_event = {
 	is_triggered_only = yes
 	
 	immediate = {
-		from = { orbital_deposit_tile = { clear_deposits = yes } }
+		from = { clear_deposits = yes }
 	}
 
 	option = {
@@ -735,9 +707,7 @@ ship_event = {
 			}
 		}
 		FROM = { 
-			orbital_deposit_tile = { 
-				add_deposit = d_vast_mineral_deposit
-			}
+			set_deposit = d_minerals_3
 		}
 	}
 }
@@ -778,7 +748,7 @@ ship_event = {
 	is_triggered_only = yes
 	
 	immediate = {
-		from = { orbital_deposit_tile = { clear_deposits = yes } }
+		from = { clear_deposits = yes }
 	}
 
 	option = {
@@ -792,7 +762,7 @@ ship_event = {
 			}
 		}
 		FROM = { 
-			orbital_deposit_tile = { add_deposit = d_vast_physics_deposit }
+			set_deposit = d_physics_3
 		}
 	}
 }
@@ -885,7 +855,7 @@ ship_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		from = { orbital_deposit_tile = { clear_deposits = yes } }
+		from = { clear_deposits = yes }
 		owner = { country_event = { id = story.5 days = 30 } }
 	}
 	
@@ -900,9 +870,7 @@ ship_event = {
 			}
 		}
 		FROM = { 
-			orbital_deposit_tile = { 
-				add_deposit = d_vast_society_deposit
-			}
+			set_deposit = d_society_3
 		}
 	}
 }
@@ -971,7 +939,7 @@ ship_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		from = { orbital_deposit_tile = { clear_deposits = yes } }
+		from = { clear_deposits = yes }
 		owner = { country_event = { id = story.5 days = 30 } }
 	}
 	
@@ -986,9 +954,7 @@ ship_event = {
 			}
 		}
 		FROM = { 
-			orbital_deposit_tile = { 
-				add_deposit = d_vast_engineering_deposit
-			}
+			set_deposit = d_engineering_3
 		}
 	}
 }
@@ -1005,7 +971,7 @@ ship_event = {
 	is_triggered_only = yes
 	
 	immediate = {
-		from = { orbital_deposit_tile = { clear_deposits = yes } }
+		from = { clear_deposits = yes }
 		owner = { country_event = { id = story.5 days = 30 } }
 	}
 
@@ -1020,10 +986,8 @@ ship_event = {
 			}
 		}
 		FROM = { 
-			orbital_deposit_tile = { 
-				add_deposit = d_rich_society_deposit
-				add_deposit = d_rich_engineering_deposit
-			}
+			add_deposit = d_society_2
+			add_deposit = d_engineering_2
 		}
 	}
 }
@@ -1040,7 +1004,7 @@ ship_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		from = { orbital_deposit_tile = { clear_deposits = yes } }
+		from = { clear_deposits = yes }
 		owner = { country_event = { id = story.5 days = 30 } }
 	}
 	
@@ -1055,10 +1019,8 @@ ship_event = {
 			}
 		}
 		FROM = { 
-			orbital_deposit_tile = { 
-				add_deposit = d_rich_society_deposit
-				add_deposit = d_rich_physics_deposit
-			}
+			add_deposit = d_society_2
+			add_deposit = d_physics_2
 		}
 	}
 }
@@ -1075,7 +1037,7 @@ ship_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		from = { orbital_deposit_tile = { clear_deposits = yes } }
+		from = { clear_deposits = yes }
 		owner = { country_event = { id = story.5 days = 2 } }
 	}
 	
@@ -1090,9 +1052,7 @@ ship_event = {
 			}
 		}
 		FROM = { 
-			orbital_deposit_tile = { 
-				add_deposit = d_vast_society_deposit
-			}
+			set_deposit = d_society_3
 		}
 	}
 }
@@ -1109,7 +1069,7 @@ ship_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		from = { orbital_deposit_tile = { clear_deposits = yes } }
+		from = { clear_deposits = yes }
 		owner = { country_event = { id = story.2 days = 30 } }
 	}
 	
@@ -1124,9 +1084,7 @@ ship_event = {
 			}
 		}
 		FROM = { 
-			orbital_deposit_tile = { 
-				add_deposit = d_vast_mineral_deposit
-			}
+			set_deposit = d_minerals_3
 		}
 	}
 }
@@ -1164,16 +1122,14 @@ ship_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		from = { orbital_deposit_tile = { clear_deposits = yes } }
+		from = { clear_deposits = yes }
 		owner = { country_event = { id = story.5 days = 30 } }
 	}
 	
 	option = {
 		name = FASCINATING
 		FROM = { 
-			orbital_deposit_tile = { 
-				add_deposit = d_immense_mineral_deposit
-			}
+			set_deposit = d_minerals_4
 		}
 	}
 }
@@ -1216,7 +1172,7 @@ ship_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		from = { orbital_deposit_tile = { clear_deposits = yes } }
+		from = { clear_deposits = yes }
 		owner = { country_event = { id = story.1 days = 30 } }
 	}
 	
@@ -1231,9 +1187,7 @@ ship_event = {
 			}
 		}
 		FROM = { 
-			orbital_deposit_tile = { 
-				add_deposit = d_vast_society_deposit
-			}
+			set_deposit = d_society_3
 			enable_special_project = {
 				name = "SEA_EXPEDITION_PROJECT"
 				location = this
@@ -1275,10 +1229,7 @@ ship_event = {
 			}
 		}
 		FROMFROM = {
-			orbital_deposit_tile = {
-				hidden_effect = { clear_deposits = yes }
-				add_deposit = d_living_metal_deposit
-			}
+			set_deposit = d_living_metal_deposit
 		}
 		owner = {
 			if = {
@@ -1327,7 +1278,7 @@ ship_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		from = { orbital_deposit_tile = { clear_deposits = yes } }
+		from = { clear_deposits = yes }
 		owner = { country_event = { id = story.2 days = 30 } }
 	}
 	
@@ -1377,10 +1328,8 @@ ship_event = {
 			}
 		}
 		FROMFROM = { 
-			orbital_deposit_tile = { 
-				add_deposit = d_vast_society_deposit
-				add_deposit = d_vast_engineering_deposit
-			}
+			add_deposit = d_society_3
+			add_deposit = d_engineering_3
 		}
 		leader = { add_experience = 200 }
 	}
@@ -1424,7 +1373,7 @@ ship_event = {
 	is_triggered_only = yes
 	
 	immediate = {
-		from = { orbital_deposit_tile = { clear_deposits = yes }}
+		from = { clear_deposits = yes }
 		owner = { country_event = { id = story.5 days = 30 } }
 	}
 
@@ -1462,9 +1411,7 @@ ship_event = {
 			}
 		}
 		FROMFROM = { 
-			orbital_deposit_tile = { 
-				add_deposit = d_vast_engineering_deposit
-			}
+			set_deposit = d_engineering_3
 		}
 		leader = { add_experience = 200 }
 		owner = {
@@ -1501,9 +1448,7 @@ ship_event = {
 			}
 		}
 		FROMFROM = { 
-			orbital_deposit_tile = { 
-				add_deposit = d_vast_engineering_deposit
-			}
+			set_deposit = d_engineering_3
 		}
 		leader = { add_experience = 200 }
 	}
@@ -1522,7 +1467,7 @@ ship_event = {
 	is_triggered_only = yes
 
 	immediate = { 
-		from = { orbital_deposit_tile = { clear_deposits = yes }}
+		from = { clear_deposits = yes }
 		owner = { country_event = { id = story.5 days = 30 } }
 	}
 	
@@ -1584,11 +1529,9 @@ ship_event = {
 			}
 		}
 		FROMFROM = { 
-			orbital_deposit_tile = { 
-				add_deposit = d_rich_society_deposit
-				add_deposit = d_rich_engineering_deposit
-				add_deposit = d_rich_physics_deposit
-			}
+			add_deposit = d_society_2
+			add_deposit = d_engineering_2
+			add_deposit = d_physics_2
 		}
 		leader = { add_experience = 200 }
 	}
@@ -1731,7 +1674,7 @@ ship_event = {
 	option = {
 		name = "anomaly.2560.b"
 		owner = {
-			add_influence = 50
+			add_resource = { influence = 50 }
 		}
 	}
 }
@@ -1891,15 +1834,11 @@ ship_event = {
 		name = FASCINATING
 		hidden_effect = {
 			from = {
-				orbital_deposit_tile = {
-					clear_deposits = yes
-				}
+				clear_deposits = yes
 			}
 		}
 		from = {
-			orbital_deposit_tile = {
-				add_deposit = d_living_metal_deposit
-			}
+			set_deposit = d_living_metal_deposit
 		}
 		owner = {
 			if = {

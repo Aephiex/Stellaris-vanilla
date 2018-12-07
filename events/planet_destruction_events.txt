@@ -242,10 +242,7 @@ planet_event = {
 		every_owned_pop = {
 			kill_pop = yes
 		}
-		every_tile = {
-			limit = { has_building = yes }
-			remove_building = yes
-		}
+		remove_all_buildings = yes
 		# destroy habitats and ringworlds
 		if = {
 			limit = {
@@ -265,26 +262,24 @@ planet_event = {
 			limit = { habitable_planet = yes }
 			change_pc = pc_shattered
 			clear_deposits = yes
-			orbital_deposit_tile = {
-				random_list = {
-					1 = {
-						add_deposit = d_immense_mineral_deposit
-						add_deposit = d_immense_mineral_deposit
-						add_deposit = d_immense_mineral_deposit
-						add_deposit = d_immense_mineral_deposit
-					}
-					1 = {
-						add_deposit = d_immense_mineral_deposit
-						add_deposit = d_immense_mineral_deposit
-						add_deposit = d_immense_mineral_deposit
-					}
-					1 = {
-						add_deposit = d_immense_mineral_deposit
-						add_deposit = d_immense_mineral_deposit
-					}
-					1 = {
-						add_deposit = d_immense_mineral_deposit
-					}
+			random_list = {
+				1 = {
+					add_deposit = d_minerals_4
+					add_deposit = d_minerals_4
+					add_deposit = d_minerals_4
+					add_deposit = d_minerals_4
+				}
+				1 = {
+					add_deposit = d_minerals_4
+					add_deposit = d_minerals_4
+					add_deposit = d_minerals_4
+				}
+				1 = {
+					add_deposit = d_minerals_4
+					add_deposit = d_minerals_4
+				}
+				1 = {
+					add_deposit = d_minerals_4
 				}
 			}
 		}
@@ -630,13 +625,11 @@ planet_event = {
 				inherit_entity = yes
 			}
 		}
-		orbital_deposit_tile = {
-			clear_deposits = yes
-			add_deposit = d_vast_society_deposit
-			add_deposit = d_vast_society_deposit
-			add_deposit = d_vast_society_deposit
-			add_deposit = d_society_deposit
-		}
+		clear_deposits = yes
+		add_deposit = d_society_3
+		add_deposit = d_society_3
+		add_deposit = d_society_3
+		add_deposit = d_society_1
 	}
 }
 

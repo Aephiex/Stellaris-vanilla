@@ -127,7 +127,7 @@ guardians_artist_init_01 = {
 						}
 					}
 					create_leader = {
-						type = ruler
+						class = ruler
 						species = prev
 						name = random
 						skill = 5
@@ -157,7 +157,7 @@ guardians_artist_init_01 = {
 							}
 						}
 						create_leader = {
-							type = ruler
+							class = ruler
 							species = prev
 							name = random
 							skill = 5
@@ -311,7 +311,7 @@ guardians_artist_init_02 = {
 						}
 					}
 					create_leader = {
-						type = ruler
+						class = ruler
 						species = prev
 						name = random
 						skill = 5
@@ -341,7 +341,7 @@ guardians_artist_init_02 = {
 							}
 						}
 						create_leader = {
-							type = ruler
+							class = ruler
 							species = prev
 							name = random
 							skill = 5
@@ -494,7 +494,7 @@ guardians_artist_init_03 = {
 						}
 					}
 					create_leader = {
-						type = ruler
+						class = ruler
 						species = prev
 						name = random
 						skill = 5
@@ -524,7 +524,7 @@ guardians_artist_init_03 = {
 							}
 						}
 						create_leader = {
-							type = ruler
+							class = ruler
 							species = prev
 							name = random
 							skill = 5
@@ -660,7 +660,7 @@ guardians_curator_init_01 = {
 						}
 					}
 					create_leader = {
-						type = ruler
+						class = ruler
 						species = prev
 						name = random
 						skill = 5
@@ -812,7 +812,7 @@ guardians_curator_init_02 = {
 						}
 					}
 					create_leader = {
-						type = ruler
+						class = ruler
 						species = prev
 						name = random
 						skill = 5
@@ -954,7 +954,7 @@ guardians_curator_init_03 = {
 						}
 					}
 					create_leader = {
-						type = ruler
+						class = ruler
 						species = prev
 						name = random
 						skill = 5
@@ -1143,7 +1143,7 @@ guardians_trader_init_01 = {
 						}
 					}
 					create_leader = {
-						type = ruler
+						class = ruler
 						species = prev
 						name = random
 						skill = 5
@@ -1282,7 +1282,7 @@ guardians_trader_init_02 = {
 						}
 					}
 					create_leader = {
-						type = ruler
+						class = ruler
 						species = prev
 						name = random
 						skill = 5
@@ -1421,7 +1421,7 @@ guardians_trader_init_03 = {
 						}
 					}
 					create_leader = {
-						type = ruler
+						class = ruler
 						species = prev
 						name = random
 						skill = 5
@@ -1584,10 +1584,7 @@ guardians_init_dragon = {
 			set_planet_flag = hoard_planet
 			save_global_event_target_as = guardian_dragon_planet
 			prevent_anomaly = yes
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_guardian_dragon_hoard
-			}
+			set_deposit = d_guardian_dragon_hoard
 
 			create_country = {
 				name = "NAME_Voidwyrm"
@@ -1610,7 +1607,6 @@ guardians_init_dragon = {
 				}
 			}
 			last_created_country = {
-				guardian_difficulty = yes
 				save_global_event_target_as = guardian_dragon_country
 				set_country_flag = dragon_country
 			}
@@ -1829,7 +1825,6 @@ guardians_init_dreadnought = {
 						days = -1
 					}
 				}					
-				guardian_difficulty = yes
 				save_global_event_target_as = automated_dreadnought_country
 				set_country_flag = automated_dreadnought_country
 			}
@@ -1999,24 +1994,6 @@ guardians_init_dreadnought = {
 		has_ring = no
 		flags = { patrol_3 }
 		
-		init_effect = {
-			random_tile = {
-				limit = { has_blocker = no has_building = no }
-				set_blocker = "tb_city_ruins"
-				set_deposit = d_vast_engineering_deposit					
-			}
-			random_tile = {
-				limit = { has_blocker = no has_building = no }
-				set_blocker = "tb_city_ruins"
-				set_deposit = d_vast_society_deposit				
-			}
-			random_tile = {
-				limit = { has_blocker = no has_building = no }
-				set_blocker = "tb_city_ruins"
-				set_deposit = d_vast_physics_deposit					
-			}
-		}
-		
 		change_orbit = @base_moon_distance
 		
 		moon = {
@@ -2035,24 +2012,6 @@ guardians_init_dreadnought = {
 		size = 20
 		has_ring = yes
 		flags = { patrol_4 }
-		
-		init_effect = {
-			random_tile = {
-				limit = { has_blocker = no has_building = no }
-				set_blocker = "tb_city_ruins"
-				set_deposit = d_vast_engineering_deposit					
-			}
-			random_tile = {
-				limit = { has_blocker = no has_building = no }
-				set_blocker = "tb_city_ruins"
-				set_deposit = d_vast_society_deposit				
-			}
-			random_tile = {
-				limit = { has_blocker = no has_building = no }
-				set_blocker = "tb_city_ruins"
-				set_deposit = d_vast_physics_deposit					
-			}
-		}
 	}
 	
 	planet = {
@@ -2237,9 +2196,7 @@ guardians_init_hive = {
 		
 		init_effect = {
 			prevent_anomaly = yes
-			orbital_deposit_tile = {
-				add_deposit = d_guardian_hiver_asteroid_1
-			}
+			set_deposit = d_minerals_6
 		}
 	}
 	planet = {
@@ -2250,9 +2207,7 @@ guardians_init_hive = {
 		
 		init_effect = {
 			prevent_anomaly = yes
-			orbital_deposit_tile = {
-				add_deposit = d_guardian_hiver_asteroid_2
-			}
+			set_deposit = d_minerals_8
 		}
 	}
 	planet = {
@@ -2263,9 +2218,7 @@ guardians_init_hive = {
 		
 		init_effect = {
 			prevent_anomaly = yes
-			orbital_deposit_tile = {
-				add_deposit = d_guardian_hiver_asteroid_1
-			}
+			set_deposit = d_minerals_6
 		}
 	}
 	planet = {
@@ -2276,9 +2229,7 @@ guardians_init_hive = {
 		
 		init_effect = {
 			prevent_anomaly = yes
-			orbital_deposit_tile = {
-				add_deposit = d_guardian_hiver_asteroid_2
-			}
+			set_deposit = d_minerals_8
 		}
 	}
 	planet = {
@@ -2289,9 +2240,7 @@ guardians_init_hive = {
 		
 		init_effect = {
 			prevent_anomaly = yes
-			orbital_deposit_tile = {
-				add_deposit = d_guardian_hiver_asteroid_1
-			}
+			set_deposit = d_minerals_6
 		}
 	}
 	
@@ -2354,7 +2303,7 @@ guardians_init_technosphere = {
 			limit = {
 				is_star = yes
 			}
-			orbital_deposit_tile = { clear_deposits = yes }
+			clear_deposits = yes
 			create_country = {
 				name = "NAME_Infinity_Machine"
 				type = guardian_sphere
@@ -2376,7 +2325,6 @@ guardians_init_technosphere = {
 				}
 			}
 			last_created_country = {
-				guardian_difficulty = yes
 				save_global_event_target_as = guardian_technosphere_country
 				if = {
 					limit = {
@@ -2481,7 +2429,6 @@ guardians_init_fortress = {
 						}
 					}
 					effect = {
-						guardian_difficulty = yes
 						save_global_event_target_as = fortress_country
 						set_country_flag = fortress_country					
 						if = {

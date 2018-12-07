@@ -2,7 +2,7 @@
 #
 # Progress Events
 #
-# Written by Henrik Eklund
+# Written by Henrik Thyrwall
 #
 ############################
 
@@ -46,7 +46,7 @@ namespace = progress
 #	option = {
 #		name = "progress.1.a"
 #		end_event_chain = "survey_home_system"
-#		add_physics_research = 200
+#		add_resource = { physics_research = 200 }
 #		hidden_effect = {
 #			country_event = { id = progress.8 days = 20 random = 5 }
 #		}
@@ -144,9 +144,7 @@ ship_event = {
 				if = {
 					limit = {
 						from = {
-							any_tile = {
-								has_blocker = "tb_dangerous_wildlife"
-							}
+							has_deposit = d_dangerous_wildlife_blocker
 						}
 					}
 					country_event = { id = story.3 days = 30 }
@@ -155,9 +153,7 @@ ship_event = {
 					limit = {
 						from = {
 							NOT = {
-								any_tile = {
-									has_blocker = "tb_dangerous_wildlife"
-								}
+								has_deposit = d_dangerous_wildlife_blocker
 							}
 						}
 					}
@@ -193,9 +189,7 @@ ship_event = {
 				if = {
 					limit = {
 						from = {
-							any_tile = {
-								has_blocker = "tb_dangerous_wildlife"
-							}
+							has_deposit = d_dangerous_wildlife_blocker
 						}
 					}
 					country_event = { id = story.3 days = 30 }
@@ -204,9 +198,7 @@ ship_event = {
 					limit = {
 						from = {
 							NOT = {
-								any_tile = {
-									has_blocker = "tb_dangerous_wildlife"
-								}
+								has_deposit = d_dangerous_wildlife_blocker
 							}
 						}
 					}
@@ -231,9 +223,7 @@ ship_event = {
 				if = {
 					limit = {
 						from = {
-							any_tile = {
-								has_blocker = "tb_dangerous_wildlife"
-							}
+							has_deposit = d_dangerous_wildlife_blocker
 						}
 					}
 					country_event = { id = story.3 days = 30 }
@@ -242,9 +232,7 @@ ship_event = {
 					limit = {
 						from = {
 							NOT = {
-								any_tile = {
-									has_blocker = "tb_dangerous_wildlife"
-								}
+								has_deposit = d_dangerous_wildlife_blocker
 							}
 						}
 					}
@@ -269,9 +257,7 @@ ship_event = {
 				if = {
 					limit = {
 						from = {
-							any_tile = {
-								has_blocker = "tb_dangerous_wildlife"
-							}
+							has_deposit = d_dangerous_wildlife_blocker
 						}
 					}
 					country_event = { id = story.3 days = 30 }
@@ -280,9 +266,7 @@ ship_event = {
 					limit = {
 						from = {
 							NOT = {
-								any_tile = {
-									has_blocker = "tb_dangerous_wildlife"
-								}
+								has_deposit = d_dangerous_wildlife_blocker
 							}
 						}
 					}
@@ -307,9 +291,7 @@ ship_event = {
 				if = {
 					limit = {
 						from = {
-							any_tile = {
-								has_blocker = "tb_dangerous_wildlife"
-							}
+							has_deposit = d_dangerous_wildlife_blocker
 						}
 					}
 					country_event = { id = story.3 days = 30 }
@@ -318,9 +300,7 @@ ship_event = {
 					limit = {
 						from = {
 							NOT = {
-								any_tile = {
-									has_blocker = "tb_dangerous_wildlife"
-								}
+								has_deposit = d_dangerous_wildlife_blocker
 							}
 						}
 					}

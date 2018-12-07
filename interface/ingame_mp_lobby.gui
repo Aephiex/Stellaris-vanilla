@@ -3,7 +3,7 @@ guiTypes = {
 		name = "ingame_mp_lobby"
 		size = { width = 470 height = 640 }
 		
-		show_position = { x = 5 y = -40 }
+		show_position = { x = 35 y = -40 }
 		hide_position = { x = -560 y = -40 }
 		orientation = lower_left
 		origo = lower_left
@@ -330,4 +330,51 @@ guiTypes = {
 			alwaysTransparent = yes
 		}
 	}
+
+	containerWindowType = {
+		name = "persistent_chat"
+		position = { x = 48 y = 800 }
+		size = { width = 1280 height = 200 }
+	}
+
+	containerWindowType = {
+		name = "persistent_chat_entry"
+		size = { width = 1280 height = 20 }
+
+		instantTextBoxType = {
+			name = "channel"
+			position = { x = 0 y = 0 }
+			font = "cg_16b"
+			borderSize = { x = 0 y = 0 }	
+			maxWidth = 75
+			maxHeight = 18
+			fixedSize = yes
+			alwaysTransparent = yes
+			text = "Channel"
+		}
+
+
+		instantTextBoxType = {
+			name = "user"
+			position = { x = 80 y = 0 }
+			font = "cg_16b"
+			borderSize = { x = 0 y = 0 }	
+			maxWidth = 75
+			maxHeight = 18
+			fixedSize = yes
+			alwaysTransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "message"
+			position = { x = 160 y = 0 }
+			font = "cg_16b"
+			borderSize = { x = 0 y = 0 }	
+			maxWidth = 1235
+			maxHeight = 18
+			fixedSize = yes
+			alwaysTransparent = yes
+		}
+	}
+	
 }

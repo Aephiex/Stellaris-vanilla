@@ -19,7 +19,7 @@ planet_event = {
 		controller = { is_same_value = root.owner }
 		has_ground_combat = no
 		has_orbital_bombardment = no
-		unrest > @unrestlevel2
+		planet_stability < @stabilitylevel2
 		NOR = {
 			has_planet_flag = recent_unrest_event
 			OR = {
@@ -43,11 +43,11 @@ planet_event = {
 		years = 50
 		modifier = {
 			factor = 0.8
-			unrest > @unrestlevel2
+			planet_stability < @stabilitylevel2
 		}	
 		modifier = {
 			factor = 0.8
-			unrest > @unrestlevel3
+			planet_stability < @stabilitylevel1
 		}
 	}
 
@@ -93,7 +93,7 @@ planet_event = {
 		exists = controller
 		controller = { is_same_value = root.owner }
 		has_planet_flag = unrest_terror
-		unrest > @unrestlevel2
+		planet_stability < @stabilitylevel2
 		has_ground_combat = no
 		has_orbital_bombardment = no
 	}
@@ -102,11 +102,11 @@ planet_event = {
 		years = 50
 		modifier = {
 			factor = 0.8
-			unrest > @unrestlevel2
+			planet_stability < @stabilitylevel2
 		}	
 		modifier = {
 			factor = 0.8
-			unrest > @unrestlevel3
+			planet_stability < @stabilitylevel1
 		}
 		modifier = {
 			factor = 0.8
@@ -155,8 +155,8 @@ planet_event = {
 		}
 		exists = controller
 		controller = { is_same_value = root.owner }
-		unrest > @unrestlevel2
-		unrest < @unrestlevel3
+		planet_stability < @stabilitylevel2
+		planet_stability >= @stabilitylevel1
 		NOR = {
 			has_planet_flag = recent_unrest_event
 			OR = {
@@ -180,11 +180,11 @@ planet_event = {
 		years = 50
 		modifier = {
 			factor = 0.8
-			unrest > @unrestlevel2
+			planet_stability < @stabilitylevel2
 		}	
 		modifier = {
 			factor = 0.8
-			unrest > @unrestlevel3
+			planet_stability < @stabilitylevel1
 		}
 	}
 
@@ -228,7 +228,7 @@ planet_event = {
 		}
 		exists = controller
 		controller = { is_same_value = root.owner }
-		unrest > @unrestlevel2
+		planet_stability < @stabilitylevel2
 		NOR = {
 			has_planet_flag = recent_unrest_event
 			OR = {
@@ -252,11 +252,11 @@ planet_event = {
 		years = 50
 		modifier = {
 			factor = 0.8
-			unrest > @unrestlevel2
+			planet_stability < @stabilitylevel2
 		}	
 		modifier = {
 			factor = 0.8
-			unrest > @unrestlevel3
+			planet_stability < @stabilitylevel1
 		}
 	}
 
@@ -300,7 +300,7 @@ planet_event = {
 		}
 		exists = controller
 		controller = { is_same_value = root.owner }
-		unrest > @unrestlevel2
+		planet_stability < @stabilitylevel2
 		NOR = {
 			has_planet_flag = recent_unrest_event
 			OR = {
@@ -324,11 +324,11 @@ planet_event = {
 		years = 50
 		modifier = {
 			factor = 0.8
-			unrest > @unrestlevel2
+			planet_stability < @stabilitylevel2
 		}	
 		modifier = {
 			factor = 0.8
-			unrest > @unrestlevel3
+			planet_stability < @stabilitylevel1
 		}
 	}
 
@@ -372,7 +372,7 @@ planet_event = {
 		}
 		exists = controller
 		controller = { is_same_value = root.owner }
-		unrest > @unrestlevel2
+		planet_stability < @stabilitylevel2
 		NOR = {
 			has_planet_flag = recent_unrest_event
 			OR = {
@@ -405,11 +405,11 @@ planet_event = {
 		years = 50
 		modifier = {
 			factor = 0.8
-			unrest > @unrestlevel2
+			planet_stability < @stabilitylevel2
 		}	
 		modifier = {
 			factor = 0.8
-			unrest > @unrestlevel3
+			planet_stability < @stabilitylevel1
 		}
 	}
 
@@ -451,7 +451,7 @@ planet_event = {
 		}
 		exists = controller
 		controller = { is_same_value = root.owner }
-		unrest > @unrestlevel2
+		planet_stability < @stabilitylevel2
 		NOR = {
 			has_planet_flag = recent_unrest_event
 			OR = {
@@ -475,11 +475,11 @@ planet_event = {
 		years = 50
 		modifier = {
 			factor = 0.8
-			unrest > @unrestlevel2
+			planet_stability < @stabilitylevel2
 		}	
 		modifier = {
 			factor = 0.8
-			unrest > @unrestlevel3
+			planet_stability < @stabilitylevel1
 		}
 	}
 
@@ -523,7 +523,7 @@ planet_event = {
 		}
 		exists = controller
 		controller = { is_same_value = root.owner }
-		unrest > @unrestlevel2
+		planet_stability < @stabilitylevel2
 
 		any_owned_pop = {
 			NOT = {
@@ -556,11 +556,11 @@ planet_event = {
 		years = 50
 		modifier = {
 			factor = 0.8
-			unrest > @unrestlevel2
+			planet_stability < @stabilitylevel2
 		}	
 		modifier = {
 			factor = 0.8
-			unrest > @unrestlevel3
+			planet_stability < @stabilitylevel1
 		}
 	}
 
@@ -604,7 +604,7 @@ planet_event = {
 		}
 		exists = controller
 controller = { is_same_value = root.owner }
-		unrest > @unrestlevel2
+		planet_stability < @stabilitylevel2
 		NOR = {
 			has_planet_flag = recent_unrest_event
 			OR = {
@@ -628,11 +628,11 @@ controller = { is_same_value = root.owner }
 		years = 50
 		modifier = {
 			factor = 0.8
-			unrest > @unrestlevel2
+			planet_stability < @stabilitylevel2
 		}	
 		modifier = {
 			factor = 0.8
-			unrest > @unrestlevel3
+			planet_stability < @stabilitylevel1
 		}
 	}
 
@@ -678,7 +678,7 @@ planet_event = {
 		}
 		exists = controller
 controller = { is_same_value = root.owner }
-		unrest > @unrestlevel2
+		planet_stability < @stabilitylevel2
 		NOR = {
 			has_planet_flag = recent_unrest_event
 			OR = {
@@ -702,11 +702,11 @@ controller = { is_same_value = root.owner }
 		years = 50
 		modifier = {
 			factor = 0.8
-			unrest > @unrestlevel2
+			planet_stability < @stabilitylevel2
 		}	
 		modifier = {
 			factor = 0.8
-			unrest > @unrestlevel3
+			planet_stability < @stabilitylevel1
 		}
 	}
 
@@ -750,7 +750,7 @@ planet_event = {
 		}
 		exists = controller
 controller = { is_same_value = root.owner }
-		unrest > @unrestlevel2
+		planet_stability < @stabilitylevel2
 		NOR = {
 			has_planet_flag = recent_unrest_event
 			OR = {
@@ -774,11 +774,11 @@ controller = { is_same_value = root.owner }
 		years = 50
 		modifier = {
 			factor = 0.8
-			unrest > @unrestlevel2
+			planet_stability < @stabilitylevel2
 		}	
 		modifier = {
 			factor = 0.8
-			unrest > @unrestlevel3
+			planet_stability < @stabilitylevel1
 		}
 	}
 
@@ -820,7 +820,7 @@ planet_event = {
 		owner = { is_country_type = default }
 		exists = controller
 controller = { is_same_value = root.owner }
-		unrest > @unrestlevel1
+		planet_stability < @stabilitylevel3
 		has_ground_combat = no
 		has_orbital_bombardment = no
  		any_owned_pop = {
@@ -885,7 +885,7 @@ controller = { is_same_value = root.owner }
 		# Fire Resistance
 		if = {
 			limit = {
-				unrest > @unrestlevel2
+				planet_stability < @stabilitylevel2
  				any_owned_pop = {
 					not = { has_trait = trait_mechanical }
 					is_sapient = yes
@@ -902,7 +902,7 @@ controller = { is_same_value = root.owner }
 		# Fire Riots
 		if = {
 			limit = {
-				unrest > @unrestlevel3
+				planet_stability < @stabilitylevel1
  				any_owned_pop = {
  					not = { has_trait = trait_mechanical }
 					is_sapient = yes
@@ -919,7 +919,7 @@ controller = { is_same_value = root.owner }
 		# Fire Revolt
 		if = {
 			limit = {
-				unrest > @unrestlevel3
+				planet_stability < @stabilitylevel1
 				check_variable = {
 					which = unrest_50
 					value > 36
@@ -953,8 +953,8 @@ planet_event = {
 		exists = owner
 		owner = { is_country_type = default }
 		exists = controller
-controller = { is_same_value = root.owner }
-		unrest > @unrestlevel2
+		controller = { is_same_value = root.owner }
+		planet_stability < @stabilitylevel2
  		any_owned_pop = {
 			not = { has_trait = trait_mechanical }
 			is_sapient = yes
@@ -974,20 +974,12 @@ controller = { is_same_value = root.owner }
 			limit = {
 				exists = owner
 				owner = { is_country_type = default }
-				unrest > @unrestlevel2
+				planet_stability < @stabilitylevel2
 				has_modifier = adding_unrest_slaves
  				any_owned_pop = {
 					not = { has_trait = trait_mechanical }
 					is_sapient = yes
 					is_enslaved = yes
-				}
- 				any_tile = {
-					has_building = yes
-					is_ruined = no
-					exists = pop 
-					pop = {
-						is_enslaved = yes
-					}
 				}
 			}
 			random_list = {
@@ -1018,20 +1010,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		while = {
-			count = 3
-			random_tile = {
-				limit = {
-					has_building = yes
-					is_ruined = no
-					exists = pop 
-					pop = {
-						is_enslaved = yes
-					}
-				}
-				set_ruined = yes
-			}	
-		}
+		add_planet_devastation = 30
 		set_timed_planet_flag = {
 			flag = recent_unrest_event
 			days = 720
@@ -1043,9 +1022,11 @@ planet_event = {
 	}
 	option = {
 		name = unrest.156.a
+		tooltip = { add_planet_devastation = 30 }
 	}
 	option = {
 		name = unrest.156.b
+		tooltip = { add_planet_devastation = 30 }
 	}
 }
 # Resistance: hunger strike 
@@ -1110,7 +1091,7 @@ planet_event = {
 		owner = { is_country_type = default }
 		exists = controller
 controller = { is_same_value = root.owner }
-		unrest > @unrestlevel3
+		planet_stability < @stabilitylevel1
  		any_owned_pop = {
 			is_enslaved = yes
 		}
@@ -1172,7 +1153,7 @@ planet_event = {
 		owner = { is_country_type = default }
 		exists = controller
 controller = { is_same_value = root.owner }
-		unrest > @unrestlevel3
+		planet_stability < @stabilitylevel1
 		has_planet_flag = slave_riots
  		any_owned_pop = {
 			is_enslaved = yes
@@ -1240,7 +1221,7 @@ controller = { is_same_value = root.owner }
 					}
 				}
 				create_leader = {
-					type = ruler
+					class = ruler
 					species = owner_main_species
 					name = random
 					skill = 2
@@ -1468,6 +1449,10 @@ country_event = {
 		room = event_target:rebel_country.ruler
 	}
 
+	trigger =  {
+		exists = event_target:old_owner
+	}
+
 	immediate = {
 		save_event_target_as = new_owner
 	}
@@ -1646,7 +1631,7 @@ event = {
 			has_country_flag = slave_revolt_chain_active
 			any_owned_planet = {
 				has_planet_flag = slave_revolt_chain_active
-				unrest < @unrestlevel1
+				planet_stability >= @stabilitylevel3
 				NOR = {
 					has_modifier = slave_hunger_strike
 					has_modifier = adding_unrest_slaves
@@ -1663,7 +1648,7 @@ event = {
 				has_country_flag = slave_revolt_chain_active
 				any_owned_planet = {
 					has_planet_flag = slave_revolt_chain_active
-					unrest < @unrestlevel1
+					planet_stability >= @stabilitylevel3
 					NOR = {
 						has_modifier = slave_hunger_strike
 						has_modifier = adding_unrest_slaves
@@ -1675,7 +1660,7 @@ event = {
 				limit = {
 					AND = {
 						has_planet_flag = slave_revolt_chain_active
-						unrest < @unrestlevel1
+						planet_stability >= @stabilitylevel3
 						NOR = {
 							has_modifier = slave_hunger_strike
 							has_modifier = adding_unrest_slaves
@@ -1725,7 +1710,7 @@ event = {
 				#has_planet_flag = slave_riots
 				OR = {
 					has_planet_flag = unrest_50_variable_set
-					unrest > @unrestlevel2
+					planet_stability < @stabilitylevel2
 				}
 			}
 		}
@@ -1734,16 +1719,17 @@ event = {
 	immediate = {
 		every_planet = {
 			limit = {
+				is_colony = yes
 				OR = {
 					#has_planet_flag = slave_riots
 					has_planet_flag = unrest_50_variable_set
-					unrest > @unrestlevel2
+					planet_stability < @stabilitylevel2
 				}
 			}
 			if = {
 				limit = {
 					NOT = { has_planet_flag = unrest_50_variable_set }
-					unrest > @unrestlevel2
+					planet_stability < @stabilitylevel2
 				}
 				set_planet_flag = unrest_50_variable_set
 				set_variable = {
@@ -1754,7 +1740,7 @@ event = {
 			else_if = {
 				limit = {
 					has_planet_flag = unrest_50_variable_set
-					unrest > @unrestlevel2
+					planet_stability < @stabilitylevel2
 				}
 				change_variable = {
 					which = unrest_50
@@ -1764,7 +1750,7 @@ event = {
 			else_if = {
 				limit = {
 					has_planet_flag = unrest_50_variable_set
-					unrest < @unrestlevel2
+					planet_stability >= @stabilitylevel2
 				}
 				set_variable = {
 					which = unrest_50
@@ -1817,7 +1803,7 @@ planet_event = {
 
 	mean_time_to_happen = { months = 600 }
 	trigger = {
-		unrest > 80
+		planet_stability < @stabilitylevel1
 		check_variable = {
 			which = unrest_50
 			value > 36
@@ -1985,7 +1971,7 @@ country_event = {
 			}
 		}
 		create_leader = {
-			type = ruler
+			class = ruler
 			species = owner_main_species
 			name = random
 			skill = 2
@@ -2084,6 +2070,10 @@ country_event = {
 
 	is_triggered_only = yes
 
+	trigger = {
+		exists = event_target:rebelled_against
+	}
+
 	option = {
 		name = unrest.4220.b
 		ai_chance = {
@@ -2107,12 +2097,6 @@ country_event = {
 		}
 		fromfrom = {
 			set_owner = root
-			hidden_effect = {
-				if = {
-					limit = { has_modifier = capital }
-					remove_modifier = capital
-				}
-			}
 		}
 	}
 

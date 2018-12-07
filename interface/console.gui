@@ -4,7 +4,7 @@ guiTypes =
 		name = "console_wnd"
 		#backGround =""
 		
-		position = { x=5 y=100 }
+		position = { x=30 y=100 }
 		
 		#show_position = { x=5 y=100 }
 		#hide_position = { x = -700 y = 100 }

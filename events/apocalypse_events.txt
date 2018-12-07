@@ -68,7 +68,7 @@ ship_event = {
 			owner = { has_country_flag = encountered_first_gateway }
 		}
 	}
-	picture = GFX_evt_drifting_gateway
+	picture = GFX_evt_l-gateway
 	show_sound = event_radio_chatter
 	location = FROM
 	
@@ -590,6 +590,7 @@ country_event = {
 				}
 				country_event = { id = apoc.130 } # colossus researched notification
 			}
+			observer_event = { id = observer.69 }
 		}
 	}
 }
@@ -632,206 +633,6 @@ country_event = {
 		name = apoc.130.a.pacif
 		trigger = {
 			is_pacifist = yes
-		}
-	}
-}
-
-country_event = {
-	id = apoc.199
-	hide_window = yes
-
-	is_triggered_only = yes
-
-	immediate = {
-		if = {
-			limit = {
-				any_planet_within_border = {
-					is_planet_class = pc_gaia
-					is_colony = no
-					has_modifier = "holy_planet"
-					NOT = { has_colony_progress > 0 }
-				}
-			}
-			random_planet_within_border = {
-				limit = {
-					is_planet_class = pc_gaia
-					is_colony = no
-					has_modifier = "holy_planet"
-					NOT = { has_colony_progress > 0 }
-				}
-				save_event_target_as = holy_target
-			}
-			country_event = { id = apoc.200 }
-		}	
-		else_if = {
-			limit = {
-				any_planet_within_border = {
-					is_planet_class = pc_gaia
-					is_colony = no
-					NOT = { has_modifier = "holy_planet" }
-					NOT = { has_colony_progress > 0 }
-				}
-			}
-			random_planet_within_border = {
-				limit = {
-					is_planet_class = pc_gaia
-					is_colony = no
-					NOT = { has_modifier = "holy_planet" }
-					NOT = { has_colony_progress > 0 }
-				}
-				save_event_target_as = holy_target
-			}
-			country_event = { id = apoc.200 }			
-		}
-		else = { country_event = { id = apoc.201 } }
-	}
-}
-
-# Make World Holy
-country_event = {
-	id = apoc.200
-	title = apoc.200.name
-	desc = apoc.200.desc
-	picture = GFX_evt_unity_symbol
-	show_sound = event_mystic_reveal
-	location = event_target:holy_target
-
-	is_triggered_only = yes
-
-	immediate = {
-		if = {
-			limit = {
-				event_target:holy_target = {
-					has_modifier = holy_planet
-				}
-				any_country = {
-					is_country_type = fallen_empire
-					has_ai_personality_behaviour = holy_planets
-				}
-			}
-			random_country = {
-				limit = {
-					is_country_type = fallen_empire
-					has_ai_personality_behaviour = holy_planets
-				}
-				save_event_target_as = holy_world_respectee
-			}
-			set_country_flag = respects_holy_world_flag
-		}
-	}
-
-	option = { # respects holy world also
-		trigger = { has_country_flag = respects_holy_world_flag }
-		name = apoc.200.a
-		add_modifier = {
-			modifier = has_holy_player_planet
-			days = -1
-		}
-		event_target:holy_target = {
-			custom_tooltip = apoc.200.a.tooltip 
-			hidden_effect = {
-				add_modifier = {
-					modifier = holy_player_planet
-					days = -1
-				}
-			}
-		}
-		event_target:holy_world_respectee = {
-			add_opinion_modifier = {
-				who = root
-				modifier = opinion_worships_our_holy_world
-			}
-		}
-	}
-
-	option = { # hallow this world
-		trigger = { NOT = { has_country_flag = respects_holy_world_flag } }
-		name = apoc.200.a
-		add_modifier = {
-			modifier = has_holy_player_planet
-			days = -1
-		}
-		event_target:holy_target = {
-			custom_tooltip = apoc.200.a.tooltip 
-			hidden_effect = {
-				add_modifier = {
-					modifier = holy_player_planet
-					days = -1
-				}
-			}
-		}
-	}
-	
-	after = {
-		remove_country_flag = search_for_holy_world
-	}
-}
-
-# Did not find a world to make holy
-country_event = {
-	id = apoc.201
-	title = apoc.201.name
-	desc = apoc.201.desc
-	picture = GFX_evt_throne_room
-	location = capital_scope
-
-	is_triggered_only = yes
-
-	option = {
-		name = UNFORTUNATE
-		custom_tooltip = apoc.201.a.tooltip
-		hidden_effect = {
-			add_influence = 300
-		}
-	}
-	
-	after = {
-		remove_country_flag = search_for_holy_world
-	}
-}
-
-# Lost holy world
-# fired by on_planet_transfer and on_colonization_started
-# planet_transfer might not work because:
-# a) planet is not technically owned
-# b) old owner is not retained;
-# let us hope it is fired early before ownership updated?
-# TODO TEMP [DM] revisit and get coder confirmation on this
-# ideally we want an "on system/starbase ownership flipped" on-action
-planet_event = {
-	id = apoc.202
-	hide_window = yes
-
-	is_triggered_only = yes
-
-	trigger = {
-		has_modifier = holy_player_planet
-	}
-
-	immediate = {
-		remove_modifier = holy_player_planet
-		space_owner = { remove_modifier = has_holy_player_planet }
-		if = {
-			limit = {
-				any_country = {
-					has_opinion_modifier = {
-						who = root.space_owner
-						modifier = opinion_worships_our_holy_world
-					}
-				}
-			}
-			random_country = {
-				limit = {
-					has_opinion_modifier = {
-						who = root.space_owner
-						modifier = opinion_worships_our_holy_world
-					}
-				}
-				remove_opinion_modifier = {
-					who = root.space_owner
-					modifier = opinion_worships_our_holy_world
-				}
-			}
 		}
 	}
 }

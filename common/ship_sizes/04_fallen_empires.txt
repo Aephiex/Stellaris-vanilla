@@ -53,11 +53,16 @@ massive_ship_fallen_empire = {
 	icon_frame = 7
 	
 	combat_disengage_chance = 0.5
-	
-	cost = 10000
+
+	resources = {
+		category = ships
+		cost = {
+			alloys = 10000
+		}
+	}
+
 	base_buildtime = 1800
 	
-	has_mineral_upkeep = yes
 	class = shipclass_military
 	construction_type = starbase_shipyard
 	is_designable = no
@@ -85,11 +90,16 @@ large_ship_fallen_empire = {
 	icon_frame = 5
 	
 	combat_disengage_chance = 1.0
-	
-	cost = 2000
+
+	resources = {
+		category = ships
+		cost = {
+			alloys = 2000
+		}
+	}
+
 	base_buildtime = 600
 	
-	has_mineral_upkeep = yes
 	class = shipclass_military
 	construction_type = starbase_shipyard
 	is_designable = no
@@ -117,11 +127,16 @@ small_ship_fallen_empire = {
 	is_space_station = no
 	
 	combat_disengage_chance = 1.5
-	
-	cost = 500
+
+	resources = {
+		category = ships
+		cost = {
+			alloys = 500
+		}
+	}
+
 	base_buildtime = 200
 	
-	has_mineral_upkeep = yes
 	class = shipclass_military
 	construction_type = starbase_shipyard
 	is_designable = no
@@ -137,7 +152,7 @@ military_station_small_fallen_empire = {
 		ship_evasion_mult = -1
 		ship_hull_regen_add_perc = 0.5
 		ship_armor_regen_add_perc = 0.5
-		ship_upkeep_mult = -0.25
+		ships_upkeep_mult = -0.25
 	}
 	ship_modifier = {
 		ship_weapon_range_mult = 0.20
@@ -156,8 +171,14 @@ military_station_small_fallen_empire = {
 	
 	uses_name_prefix = no
 	takes_name_from_ship_design = yes
-	
-	cost = 1000
+
+	resources = {
+		category = ships
+		cost = {
+			alloys = 1000
+		}
+	}
+
 	base_buildtime = 365
 	
 	class = shipclass_military_station
@@ -174,7 +195,7 @@ military_station_large_fallen_empire = {
 	acceleration = 10
 	modifier = {
 		ship_evasion_mult = -1
-		ship_upkeep_mult = -0.25
+		ships_upkeep_mult = -0.25
 	}
 	ship_modifier = {
 		ship_weapon_range_mult = 0.20
@@ -192,8 +213,14 @@ military_station_large_fallen_empire = {
 	
 	uses_name_prefix = no
 	takes_name_from_ship_design = yes
-	
-	cost = 5000
+
+	resources = {
+		category = ships
+		cost = {
+			alloys = 5000
+		}
+	}
+
 	base_buildtime = 730
 	is_listed = no
 	

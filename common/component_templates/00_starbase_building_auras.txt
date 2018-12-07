@@ -5,7 +5,6 @@ utility_component_template = {
 	icon = "GFX_ship_part_empty_ftl_drive"
 	icon_frame = 1
 	power = 0
-	cost = 0
 	
 	class_restriction = { shipclass_starbase }
 	component_set = "ftl_inhibitor"
@@ -22,7 +21,6 @@ utility_component_template = {
 	icon = "GFX_ship_part_aura_snare"
 	icon_frame = 1
 	power = 0
-	cost = 0
 
 	class_restriction = { shipclass_starbase }
 	prerequisites = { "tech_ftl_inhibitor" }
@@ -62,7 +60,6 @@ utility_component_template = {
 	icon = "GFX_ship_part_aura_snare"
 	icon_frame = 1
 	power = 0
-	cost = 0
 
 	class_restriction = { shipclass_starbase }
 
@@ -95,7 +92,6 @@ utility_component_template = {
 	icon = "GFX_ship_part_aura_snare"
 	icon_frame = 1
 	power = 0
-	cost = 0
 
 	class_restriction = { shipclass_starbase }
 
@@ -127,7 +123,6 @@ utility_component_template = {
 	icon = "GFX_ship_part_aura_snare"
 	icon_frame = 1
 	power = 0
-	cost = 0
 
 	class_restriction = { shipclass_starbase }
 
@@ -159,7 +154,6 @@ utility_component_template = {
 	icon = "GFX_ship_part_aura_snare"
 	icon_frame = 1
 	power = 0
-	cost = 0
 
 	class_restriction = { shipclass_starbase }
 

@@ -46,10 +46,7 @@ hostile_init_01 = {
 
 		init_effect = { 
 			prevent_anomaly = yes
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_enormous2_physics_deposit
-			}
+			set_deposit = d_physics_8
 		}
 	}
 	
@@ -1398,10 +1395,7 @@ hostile_init_08 = {
 		create_cloud_country = yes
 		random_system_planet = {
 			limit = { is_star = yes }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_rich_energy_deposit
-			}
+			set_deposit = d_energy_2
 			event_target:cloud_country = {
 				if = {
 					limit = {
@@ -1486,10 +1480,7 @@ hostile_init_09 = {
 		random_system_planet = {
 			limit = { is_star = yes }
 			save_event_target_as = voidhome_star
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_enormous3_physics_deposit
-			}
+			set_deposit = d_physics_10
 			event_target:cloud_country = {
 				save_event_target_as = voidhome_owner
 				create_fleet = {
@@ -1879,10 +1870,7 @@ hostile_init_12 = {
 				is_star = no
 				NOT = { is_planet_class = pc_gas_giant }
 			}
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_immense_mineral_deposit
-			}
+			set_deposit = d_minerals_4
 			event_target:drone_country = {
 				save_event_target_as = mining_drones
 				create_fleet = {
@@ -2000,10 +1988,7 @@ hostile_init_12_mining_drones = {
 				is_star = no
 				NOT = { is_planet_class = pc_gas_giant }
 			}
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_enormous1_mineral_deposit
-			}
+			set_deposit = d_minerals_8
 			event_target:drone_country = {
 				save_event_target_as = mining_drones
 				create_fleet = {
@@ -2128,10 +2113,7 @@ hostile_init_12_drone_destroyer = {
 		create_drone_country = yes
 		random_system_planet = {
 			limit = { has_deposit_for = shipclass_mining_station }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_enormous1_mineral_deposit
-			}
+			set_deposit = d_minerals_8
 			event_target:drone_country = {
 				save_event_target_as = mining_drones
 				create_fleet = {
@@ -2344,10 +2326,7 @@ hostile_init_13 = {
 		create_drone_country = yes
 		random_system_planet = {
 			limit = { has_deposit_for = shipclass_mining_station }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_immense_mineral_deposit
-			}
+			set_deposit = d_minerals_8
 			event_target:drone_country = {
 				create_fleet = {
 					name = "NAME_Ancient_Mining_Drones"
@@ -2489,10 +2468,7 @@ hostile_init_14 = {
 					NOT = { exists = event_target:ore_grinder }
 				}
 				set_planet_flag = ore_grinder_planet
-				orbital_deposit_tile = {
-					clear_deposits = yes
-					add_deposit = d_enormous3_mineral_deposit
-				}
+				set_deposit = d_minerals_10
 				create_fleet = {
 					name = "NAME_Central_Processing"
 					effect = {
@@ -2690,10 +2666,7 @@ hostile_init_18 = {
 
 		init_effect = {
 			prevent_anomaly = yes
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_immense_energy_deposit
-			}
+			set_deposit = d_energy_4
 			create_pirate_country = yes
 			event_target:pirate_country = {
 				if = {
@@ -2826,10 +2799,7 @@ hostile_init_18 = {
 
 		init_effect = {
 			prevent_anomaly = yes
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_enormous3_mineral_deposit
-			}
+			set_deposit = d_minerals_10
 		}
 	}
 	planet = {
@@ -2839,10 +2809,7 @@ hostile_init_18 = {
 
 		init_effect = {
 			prevent_anomaly = yes
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_enormous2_mineral_deposit
-			}
+			set_deposit = d_minerals_8
 		}
 	}
 }

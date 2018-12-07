@@ -1,7 +1,7 @@
 
 tr_discovery_adopt = {
 	modifier = {
-		ship_anomaly_generation_chance_mult = 0.20
+		ship_anomaly_research_speed_mult = 0.20
 	}
 
 	tradition_swap = {
@@ -10,7 +10,7 @@ tr_discovery_adopt = {
 		#inherit_icon = no
 		inherit_name = no
 		trigger = {
-			has_authority = auth_machine_intelligence
+			is_machine_empire = yes
 		}
 
 		weight = {
@@ -24,7 +24,7 @@ tr_discovery_adopt = {
 		#inherit_icon = no
 		inherit_name = no
 		trigger = {
-			has_authority = auth_hive_mind
+			is_hive_empire = yes
 		}
 
 		weight = {
@@ -54,34 +54,6 @@ tr_discovery_finish = {
 		all_technology_research_speed = 0.10
 		ascension_perks_add = 1
 	}
-
-	tradition_swap = {
-		name = tr_discovery_finish_machine
-		inherit_effects = yes
-		inherit_icon = yes
-		inherit_name = no
-		trigger = {
-			has_authority = auth_machine_intelligence
-		}
-
-		weight = {
-			factor = 1
-		}
-	}
-
-	tradition_swap = {
-		name = tr_discovery_finish_hive
-		inherit_effects = yes
-		inherit_icon = yes
-		inherit_name = no
-		trigger = {
-			has_authority = auth_hive_mind
-		}
-
-		weight = {
-			factor = 1
-		}
-	}
 }
 
 tr_discovery_to_boldly_go = {
@@ -96,7 +68,7 @@ tr_discovery_to_boldly_go = {
 		inherit_icon = yes
 		inherit_name = no
 		trigger = {
-			has_authority = auth_machine_intelligence
+			is_machine_empire = yes
 		}
 
 		weight = {
@@ -110,7 +82,7 @@ tr_discovery_to_boldly_go = {
 		inherit_icon = yes
 		inherit_name = no
 		trigger = {
-			has_authority = auth_hive_mind
+			is_hive_empire = yes
 		}
 
 		weight = {
@@ -126,10 +98,10 @@ tr_discovery_to_boldly_go = {
 tr_discovery_databank_uplinks = {
 	possible = {
 		has_tradition = tr_discovery_to_boldly_go
-	}
-
-	on_enabled = {
-		give_technology = { message = no tech = tech_databank_uplinks }
+	}	
+	
+	modifier = {
+		station_researchers_produces_mult = 0.10
 	}
 	
 	ai_weight = {
@@ -139,7 +111,8 @@ tr_discovery_databank_uplinks = {
 
 tr_discovery_science_division = {
 	modifier = {
-		num_tech_alternatives_add = 1
+		num_tech_alternatives_add = 1		
+		scientist_skill_levels = 2
 	}
 
 	tradition_swap = {
@@ -148,7 +121,7 @@ tr_discovery_science_division = {
 		inherit_icon = yes
 		inherit_name = no
 		trigger = {
-			has_authority = auth_machine_intelligence
+			is_machine_empire = yes
 		}
 
 		weight = {
@@ -162,7 +135,7 @@ tr_discovery_science_division = {
 		inherit_icon = yes
 		inherit_name = no
 		trigger = {
-			has_authority = auth_hive_mind
+			is_hive_empire = yes
 		}
 
 		weight = {
@@ -182,6 +155,7 @@ tr_discovery_polytechnic_education = {
 	
 	modifier = {
 		species_leader_exp_gain = 0.25
+		leader_skill_levels = 1
 	}
 
 	tradition_swap = {
@@ -190,7 +164,7 @@ tr_discovery_polytechnic_education = {
 		inherit_icon = yes
 		inherit_name = no
 		trigger = {
-			has_authority = auth_machine_intelligence
+			is_machine_empire = yes
 		}
 
 		weight = {
@@ -204,7 +178,7 @@ tr_discovery_polytechnic_education = {
 		inherit_icon = yes
 		inherit_name = no
 		trigger = {
-			has_authority = auth_hive_mind
+			is_hive_empire = yes
 		}
 
 		weight = {
@@ -221,9 +195,10 @@ tr_discovery_faith_in_science = {
 	possible = {
 		has_tradition = tr_discovery_polytechnic_education
 	}
-	on_enabled = {
-		set_country_flag = faith_in_science
-	}
+	
+	modifier = {
+		planet_researchers_upkeep_mult = -0.20
+	}	
 
 	tradition_swap = {
 		name = tr_discovery_faith_in_science_machine
@@ -231,9 +206,8 @@ tr_discovery_faith_in_science = {
 		inherit_icon = yes
 		inherit_name = no
 		trigger = {
-			has_authority = auth_machine_intelligence
+			is_machine_empire = yes
 		}
-
 		weight = {
 			factor = 1
 		}
@@ -245,9 +219,8 @@ tr_discovery_faith_in_science = {
 		inherit_icon = yes
 		inherit_name = no
 		trigger = {
-			has_authority = auth_hive_mind
+			is_hive_empire = yes
 		}
-
 		weight = {
 			factor = 1
 		}

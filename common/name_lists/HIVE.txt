@@ -95,15 +95,7 @@ HIVE = {
 		robotic_defense_army = {
 			sequential_name = "%O% Robotic Defense Drones"
 		}
-		
-		android_army = {
-			sequential_name = "%O% Droid Warrior Drones"
-		}
-
-		android_defense_army = {
-			sequential_name = "%O% Droid Defense Drones"
-		}
-		
+	
 		psionic_army = { 
 			sequential_name = "%O% Psi Warrior Drones"
 		}
@@ -114,6 +106,16 @@ HIVE = {
 		
 		gene_warrior_army = {
 			sequential_name = "%O% Enhanced Warrior Drones"
+		}
+
+		primitive_army = {
+			sequential_name = "Primitive Army %C%"
+		}
+		industrial_army = {
+			sequential_name = "Industrial Army %C%"
+		}
+		postatomic_army = {
+			sequential_name = "Post-Atomic Army %C%"
 		}
 	}
 

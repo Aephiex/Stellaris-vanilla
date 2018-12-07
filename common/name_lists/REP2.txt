@@ -76,14 +76,6 @@ REP2 = {
 			sequential_name = "%O% Defensive Constructs"
 		}
 		
-		android_army = {
-			sequential_name = "%O% Battle Androids"
-		}
-
-		android_defense_army = {
-			sequential_name = "%O% Defensive Androids"
-		}
-		
 		psionic_army = { 
 			sequential_name = "%O% Cosmic Weavers"
 		}
@@ -104,8 +96,14 @@ REP2 = {
 			sequential_name = "%O% Construct Garrison"
 		}
 
-		android_occupation_army = {
-			sequential_name = "%O% Android Garrison"
+		primitive_army = {
+			sequential_name = "Primitive Army %C%"
+		}
+		industrial_army = {
+			sequential_name = "Industrial Army %C%"
+		}
+		postatomic_army = {
+			sequential_name = "Post-Atomic Army %C%"
 		}
 	}
 

@@ -41,10 +41,26 @@ pop_event = {
 				root = {
 					has_citizenship_type = { type = citizenship_purge country = prev }
 					NOT = { has_purge_type = { type = purge_displacement country = prev } }
+					prev = { is_gestalt = no }
 				}
 			}
 		}
-	}	
+	}
+	desc = {
+		text = refugees.1.desc.2.b
+		trigger = {
+			event_target:RefugeeEscapedPlanet = {
+				is_under_crisis_bombardment = no
+			}		
+			event_target:RefugeeEscapedFrom = { 
+				root = {
+					has_citizenship_type = { type = citizenship_purge country = prev }
+					NOT = { has_purge_type = { type = purge_displacement country = prev } }
+					prev = { is_gestalt = yes }
+				}
+			}
+		}
+	}		
 	desc = {
 		text = refugees.1.desc.3
 		trigger = {
@@ -61,87 +77,52 @@ pop_event = {
 	}
 }
 
-# Pops being displaced or purged are randomly removed over time
+# Refugees Arrive (species already present in empire)
 pop_event = {
 	id = refugees.2
 	title = OK
 	desc = OK
 	
 	hide_window = yes
-	
-	trigger = {
-		exists = owner
-		owner = { is_country_type = default }
-		planet = { is_controlled_by = owner }	
-		is_robot_pop = no
-		OR = {
-			pop_can_live_on_planet = no
-			has_citizenship_type = { type = citizenship_purge }
-		}
-	}
-	
-	mean_time_to_happen = {
-		years = 50
-		modifier = {
-			factor = 2
-			is_pre_sapient_livestock = yes
-		}		
-		modifier = {
-			factor = 2
-			has_purge_type = { type = purge_neutering }
-		}
-		modifier = {
-			factor = 0.25
-			has_purge_type = { type = purge_displacement }
-		}
-		modifier = {
-			factor = 0.25
-			has_purge_type = { type = purge_normal }
-		}		
-		modifier = {
-			factor = 0.1
-			pop_can_live_on_planet = no
-			planet = { is_planet_class = pc_machine }
-		}
-	}
-	
+	is_triggered_only = yes
+
 	immediate = {
-		kill_pop = yes
+		create_message = {
+			type = MESSAGE_TYPE_REFUGEES_ARRIVED
+			localization = MESSAGE_REFUGEES_ARRIVED
+			days = 30
+			target = event_target:RefugeeEscapedPlanet # the Go To
+			variable = {
+				type = name
+				localization = SPECIES
+				scope = root.species
+			}
+			variable = {
+				type = name
+				localization = PLANET
+				scope = root.planet
+			}
+			variable = {
+				type = name
+				localization = COUNTRY
+				scope = event_target:RefugeeEscapedFrom
+			}
+		}	
+
 	}
 }
 
-# Pop escapes purges into welcoming arms of refugee-takers
-pop_event = {
+# Pop is made refugee (triggered)
+planet_event = {
 	id = refugees.3
 	title = OK
 	desc = OK
 	
 	hide_window = yes
-	
-	trigger = {
-		exists = owner
-		owner = { is_country_type = default }
-		planet = { is_controlled_by = owner }
-		OR = {
-			AND = {
-				has_citizenship_type = { type = citizenship_purge }
-				NOT = { has_purge_type = { type = purge_displacement } }		
-			}
-			planet = { is_under_crisis_bombardment = yes }
-		}	
-		is_valid_refugee_pop = yes
-	}
-	
-	mean_time_to_happen = {
-		years = 50
-		modifier = {
-			factor = 0.1
-			planet = { is_under_crisis_bombardment = yes }
-		}		
-	}
-	
+	is_triggered_only = yes
+
 	immediate = {
-		refugee_pop_effect = yes
+		fromfrom = { pop_event = { id = refugees.4 } }
 	}
 }
 
@@ -157,8 +138,37 @@ pop_event = {
 	immediate = {
 		if = {
 			limit = { is_valid_refugee_pop = yes }
+			save_event_target_as = refugee_pop #Must be saved for refugee_pop_effect to work
 			refugee_pop_effect = yes
 		}		
 		else = { kill_pop = yes }
+	}
+}
+
+# Pop escapes crisis, fleeing to another empire
+planet_event = {
+	id = refugees.5
+	title = OK
+	desc = OK
+	
+	hide_window = yes
+	
+	trigger = {
+		exists = owner
+		owner = { is_country_type = default }
+		is_controlled_by = owner
+		is_under_crisis_bombardment = yes	
+	}
+	
+	mean_time_to_happen = {
+		months = 3		
+	}
+	
+	immediate = {
+		random_pop = {
+			limit = { is_valid_refugee_pop = yes }
+			save_event_target_as = refugee_pop #Must be saved for refugee_pop_effect to work
+			refugee_pop_effect = yes
+		}		
 	}
 }

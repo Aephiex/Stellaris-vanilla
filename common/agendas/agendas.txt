@@ -61,7 +61,7 @@ agenda_naval_focus = {
 	
 	modifier = {
 		starbase_shipyard_build_cost_mult = -0.10
-		ship_upkeep_mult = -0.05
+		ships_upkeep_mult = -0.05
 		starbase_shipyard_build_speed_mult = 0.20
 	}
 }
@@ -72,7 +72,7 @@ agenda_industrial = {
 	}
 	
 	modifier = {
-		tile_resource_minerals_mult = 0.10
+		planet_jobs_minerals_produces_mult = 0.10
 	}
 }
 
@@ -112,7 +112,7 @@ agenda_finanical = {
 	}
 	
 	modifier = {
-		tile_resource_energy_mult = 0.10
+		planet_jobs_energy_produces_mult = 0.10
 	}
 }
 
@@ -188,7 +188,7 @@ agenda_national_purity = { # Reduced immigration attraction, influence bonus
 
 	modifier = {
 		pop_ethic_xenophobe_attraction_mult = 0.20
-		country_resource_influence_mult = 0.10
+		country_influence_produces_mult = 0.10
 	}
 }
 
@@ -235,13 +235,13 @@ agenda_import_export = {
 	}
 
 	modifier = {
-		tile_resource_food_mult = 0.10
-		country_trade_attractiveness = 0.05
+		country_trade_fee = -0.05
+		trade_value_mult = 0.05
 	}
 }
 
 agenda_native_privilege = {
-# Xenophobe ethics attraction, reduced unrest
+	# Xenophobe ethics attraction, reduced unrest
 	weight_modifier = {
 		weight = 100
 		modifier = {
@@ -272,10 +272,10 @@ agenda_native_privilege = {
 			}
 		}
 	}
-
+ 
 	modifier = {
 		pop_ethic_xenophobe_attraction_mult = 0.20
-		country_unrest_unhappy_pop_effect_mult = -0.10
+		pop_citizen_happiness = 0.05
 	}
 }
 
@@ -323,7 +323,7 @@ agenda_slave_optimization = {
 	}
 
 	modifier = {
-		pop_slave_resource_output = 0.10
+		planet_jobs_slave_produces_mult = 0.10		
 	}
 }
 
@@ -344,7 +344,7 @@ agenda_selective_nostalgia = { # Unity production modifier
 	}
 
 	modifier = {
-		tile_resource_unity_mult = 0.10
+		planet_jobs_unity_produces_mult = 0.10
 	}
 }
 
@@ -395,6 +395,5 @@ agenda_null = {
 	}
 	
 	modifier = {
-		pop_other_species_happiness = 0.05
 	}
 }

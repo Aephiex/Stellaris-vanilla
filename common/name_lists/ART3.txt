@@ -77,14 +77,6 @@ ART3 = {
 			sequential_name = "%O% Robo-Emplacements"
 		}
 		
-		android_army = {
-			sequential_name = "%O% Construct Cast"
-		}
-		
-		android_defense_army = {
-			sequential_name = "%O% Construct Bulwark"
-		}
-		
 		psionic_army = {
 			sequential_name = "%O% Sorcerers"
 		}
@@ -105,8 +97,14 @@ ART3 = {
 			sequential_name = "%O% Occupation Robo-Ticks"
 		}
 
-		android_occupation_army = {
-			sequential_name = "%O% Construct Occupation Cast"
+		primitive_army = {
+			sequential_name = "Primitive Army %C%"
+		}
+		industrial_army = {
+			sequential_name = "Industrial Army %C%"
+		}
+		postatomic_army = {
+			sequential_name = "Post-Atomic Army %C%"
 		}
 	}
 	

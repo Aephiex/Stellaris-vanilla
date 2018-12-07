@@ -5,14 +5,17 @@
 #	country_modifier = "propaganda"
 #	planet_modifier = "propaganda"
 #
-#	cost = {
-#		energy = 1
-#		society_research = 1
-#		influence = 2
-#	}
+#	resources = {
+#		category = station_observer_missions
+#		upkeep = {
+#			energy = 1
+#			society_research = 1
+#			influence = 2
+#		}
 #
-#	gain = {
-#		society_research = 6
+#		produces = {
+#			society_research = 6
+#		}
 #	}
 #
 #	monthly_progress = 0.04
@@ -37,10 +40,13 @@ passive_observation = {
 	icon = "GFX_fleet_task_passive_observation"
 	small_icon = 1
 
-	gain = {
-		society_research = 8
+	resources = {
+		category = station_observer_missions
+		produces = {
+			society_research = 8
+		}
 	}
-	
+
 	ai_weight = {
 		weight = 1
 	}
@@ -51,8 +57,11 @@ specimen_collection = {
 	icon = "GFX_fleet_task_specimen_collection"
 	small_icon = 2
 
-	gain = {
-		society_research = 10
+	resources = {
+		category = station_observer_missions
+		produces = {
+			society_research = 10
+		}
 	}
 
 	potential = {
@@ -78,13 +87,16 @@ native_indoctrination = {
 	potential = {
 		host_has_dlc = "Utopia"
 	}
+
+	resources = {
+		category = station_observer_missions
+		upkeep = {
+			energy = 3
+		}
 	
-	cost = {
-		energy = 3
-	}
-	
-	gain = {
-		society_research = 10
+		produces = {
+			society_research = 10
+		}
 	}
 	
 	#planet_modifier = native_indoctrination
@@ -124,9 +136,12 @@ technological_enlightenment_0 = {
 	icon = "GFX_fleet_task_technological_enlightenment_action"
 	small_icon = 3
 
-	cost = {
-		society_research = @enlighten_soc_cost
-		energy = @enlighten_nrg_cost
+	resources = {
+		category = station_observer_missions
+		upkeep = {
+			society_research = @enlighten_soc_cost
+			energy = @enlighten_nrg_cost
+		}
 	}
 
 	monthly_progress = 0.001
@@ -170,9 +185,12 @@ technological_enlightenment_1 = {
 	icon = "GFX_fleet_task_technological_enlightenment_action"
 	small_icon = 3
 
-	cost = {
-		society_research = @enlighten_soc_cost
-		energy = @enlighten_nrg_cost
+	resources = {
+		category = station_observer_missions
+		upkeep = {
+			society_research = @enlighten_soc_cost
+			energy = @enlighten_nrg_cost
+		}
 	}
 
 	monthly_progress = 0.002
@@ -211,9 +229,12 @@ technological_enlightenment_2 = {
 	icon = "GFX_fleet_task_technological_enlightenment_action"
 	small_icon = 3
 
-	cost = {
-		society_research = @enlighten_soc_cost
-		energy = @enlighten_nrg_cost
+	resources = {
+		category = station_observer_missions
+		upkeep = {
+			society_research = @enlighten_soc_cost
+			energy = @enlighten_nrg_cost
+		}
 	}
 
 	monthly_progress = 0.003
@@ -252,9 +273,12 @@ technological_enlightenment_3 = {
 	icon = "GFX_fleet_task_technological_enlightenment_action"
 	small_icon = 3
 	
-	cost = {
-		society_research = @enlighten_soc_cost
-		energy = @enlighten_nrg_cost
+	resources = {
+		category = station_observer_missions
+		upkeep = {
+			society_research = @enlighten_soc_cost
+			energy = @enlighten_nrg_cost
+		}
 	}
 
 	monthly_progress = 0.004
@@ -293,9 +317,12 @@ technological_enlightenment_4 = {
 	icon = "GFX_fleet_task_technological_enlightenment_action"
 	small_icon = 3
 	
-	cost = {
-		society_research = @enlighten_soc_cost
-		energy = @enlighten_nrg_cost
+	resources = {
+		category = station_observer_missions
+		upkeep = {
+			society_research = @enlighten_soc_cost
+			energy = @enlighten_nrg_cost
+		}
 	}
 
 	monthly_progress = 0.005
@@ -334,9 +361,12 @@ technological_enlightenment_5 = {
 	icon = "GFX_fleet_task_technological_enlightenment_action"
 	small_icon = 3
 	
-	cost = {
-		society_research = @enlighten_soc_cost
-		energy = @enlighten_nrg_cost
+	resources = {
+		category = station_observer_missions
+		upkeep = {
+			society_research = @enlighten_soc_cost
+			energy = @enlighten_nrg_cost
+		}
 	}
 
 	monthly_progress = 0.01
@@ -373,7 +403,7 @@ technological_enlightenment_5 = {
 		}
 		modifier = {
 			factor = 0
-			energy < 2000
+			resource_stockpile_compare = { resource = energy value < 2000 }
 		}
 	}
 }
@@ -383,9 +413,12 @@ technological_enlightenment_6 = {
 	icon = "GFX_fleet_task_technological_enlightenment_action"
 	small_icon = 3
 	
-	cost = {
-		society_research = @enlighten_soc_cost
-		energy = @enlighten_nrg_cost
+	resources = {
+		category = station_observer_missions
+		upkeep = {
+			society_research = @enlighten_soc_cost
+			energy = @enlighten_nrg_cost
+		}
 	}
 
 	monthly_progress = 0.015
@@ -422,7 +455,7 @@ technological_enlightenment_6 = {
 		}
 		modifier = {
 			factor = 0
-			energy < 1500
+			resource_stockpile_compare = { resource = energy value < 1500 }
 		}
 	}
 }
@@ -432,9 +465,12 @@ technological_enlightenment_7 = {
 	icon = "GFX_fleet_task_technological_enlightenment_action"
 	small_icon = 3
 	
-	cost = {
-		society_research = @enlighten_soc_cost
-		energy = @enlighten_nrg_cost
+	resources = {
+		category = station_observer_missions
+		upkeep = {
+			society_research = @enlighten_soc_cost
+			energy = @enlighten_nrg_cost
+		}
 	}
 
 	monthly_progress = 0.02
@@ -471,7 +507,7 @@ technological_enlightenment_7 = {
 		}
 		modifier = {
 			factor = 0
-			energy < 1000
+			resource_stockpile_compare = { resource = energy value < 1000 }
 		}
 	}
 }
@@ -481,9 +517,12 @@ technological_enlightenment_8 = {
 	icon = "GFX_fleet_task_technological_enlightenment_action"
 	small_icon = 3
 	
-	cost = {
-		society_research = @enlighten_soc_cost
-		energy = @enlighten_nrg_cost
+	resources = {
+		category = station_observer_missions
+		upkeep = {
+			society_research = @enlighten_soc_cost
+			energy = @enlighten_nrg_cost
+		}
 	}
 
 	monthly_progress = 0.025
@@ -520,7 +559,7 @@ technological_enlightenment_8 = {
 		}
 		modifier = {
 			factor = 0
-			energy < 1000
+			resource_stockpile_compare = { resource = energy value < 1000 }
 		}
 	}
 }
@@ -530,9 +569,12 @@ technological_enlightenment_9 = {
 	icon = "GFX_fleet_task_technological_enlightenment_action"
 	small_icon = 3
 	
-	cost = {
-		society_research = @enlighten_soc_cost
-		energy = @enlighten_nrg_cost
+	resources = {
+		category = station_observer_missions
+		upkeep = {
+			society_research = @enlighten_soc_cost
+			energy = @enlighten_nrg_cost
+		}
 	}
 
 	monthly_progress = 0.025
@@ -569,7 +611,7 @@ technological_enlightenment_9 = {
 		}
 		modifier = {
 			factor = 0
-			energy < 1000
+			resource_stockpile_compare = { resource = energy value < 1000 }
 		}
 	}
 }
@@ -579,9 +621,12 @@ covert_infiltration = {
 	icon = "GFX_fleet_task_covert_infiltration_action"
 	small_icon = 4
 	
-	cost = {
-		society_research = @enlighten_soc_cost
-		energy = @enlighten_nrg_cost
+	resources = {
+		category = station_observer_missions
+		upkeep = {
+			society_research = @enlighten_soc_cost
+			energy = @enlighten_nrg_cost
+		}
 	}
 
 	monthly_progress = 0.02
@@ -623,7 +668,7 @@ covert_infiltration = {
 		}
 		modifier = {
 			factor = 0
-			energy < 1000
+			resource_stockpile_compare = { resource = energy value < 1000 }
 		}
 	}
 }

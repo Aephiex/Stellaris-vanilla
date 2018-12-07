@@ -1,21 +1,28 @@
 tech_akx_worm_1 = {
 	area = physics
 	start_tech = no
-	cost = @horizontechcost
+	cost = @horizontechcost1
 	is_rare = yes
 	tier = @horizontechtier
 	category = { field_manipulation }
 	prerequisites = { }
-	weight = 0
+	weight = 60 # allows tech to show after research_all_technologies
 	
 	ai_weight = {
 		factor = 0
 	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			always = yes
+		}
+	}
 	
 	prereqfor_desc = {
-		component = {
-			title = "TECH_UNLOCK_AKX_WORM_3_TITLE"
-			desc = "TECH_UNLOCK_AKX_WORM_3_DESC"
+		custom = {
+			title = "tech_akx_worm_partial_custom"
+			desc = "tech_akx_worm_partial_custom_desc"
 		}
 	}
 }
@@ -23,21 +30,28 @@ tech_akx_worm_1 = {
 tech_akx_worm_2 = {
 	area = society
 	start_tech = no
-	cost = @horizontechcost
+	cost = @horizontechcost1
 	is_rare = yes
 	tier = @horizontechtier
 	category = { statecraft }	
 	prerequisites = { }
-	weight = 0
+	weight = 60
 	
 	ai_weight = {
 		factor = 0
 	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			always = yes
+		}
+	}
 	
 	prereqfor_desc = {
-		component = {
-			title = "TECH_UNLOCK_AKX_WORM_3_TITLE"
-			desc = "TECH_UNLOCK_AKX_WORM_3_DESC"
+		custom = {
+			title = "tech_akx_worm_partial_custom"
+			desc = "tech_akx_worm_partial_custom_desc"
 		}
 	}
 }
@@ -45,29 +59,14 @@ tech_akx_worm_2 = {
 tech_akx_worm_3 = {
 	area = physics
 	start_tech = no
-	cost = @horizontechcost
+	cost = @horizontechcost2
 	is_rare = yes
 	tier = @horizontechtier
 	category = { particles }	
 	prerequisites = { "tech_akx_worm_1" "tech_akx_worm_2" }
 	weight = 60
 	
-	#weight_modifier = {
-	#	modifier = {
-	#		add = 60
-	#		has_technology = tech_akx_worm_1
-	#		has_technology = tech_akx_worm_2
-	#	}
-	#}
-	
 	ai_weight = {
 		factor = 0
-	}
-	
-	prereqfor_desc = {
-		component = {
-			title = "TECH_UNLOCK_AKX_WORM_3_TITLE"
-			desc = "TECH_UNLOCK_AKX_WORM_3_DESC"
-		}
 	}
 }

@@ -1,5 +1,5 @@
 ﻿### Mammalian 2
-### Created by Henrik Eklund
+### Created by Henrik Thyrwall
 
 MAM2 = {
 	ship_names = {
@@ -78,14 +78,6 @@ MAM2 = {
 			sequential_name = "%O% Defensive Droid Legion"
 		}
 		
-		android_army = {
-			sequential_name = "%O% Silver Legionnaires"
-		}
-
-		android_defense_army = {
-			sequential_name = "%O% Silver Guard"
-		}
-		
 		psionic_army = { 
 			sequential_name = "%O% Psionic Cadre"
 		}
@@ -106,8 +98,14 @@ MAM2 = {
 			sequential_name = "%O% Occupation Droids"
 		}
 
-		android_occupation_army = {
-			sequential_name = "%O% Occupation Legionnaires"
+		primitive_army = {
+			sequential_name = "Primitive Army %C%"
+		}
+		industrial_army = {
+			sequential_name = "Industrial Army %C%"
+		}
+		postatomic_army = {
+			sequential_name = "Post-Atomic Army %C%"
 		}
 	}
 

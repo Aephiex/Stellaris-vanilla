@@ -40,7 +40,7 @@ marauder_corvette = {
 	modifier = {
 		ship_armor_add = 3
 		ship_evasion_add = 60
-		ship_upkeep_mult = -1
+		ships_upkeep_mult = -1
 	}
 	max_hitpoints = 350
 	size_multiplier = 1
@@ -69,7 +69,7 @@ marauder_destroyer = {
 	modifier = {
 		ship_evasion_add = 25
 		ship_armor_add = 15
-		ship_upkeep_mult = -1
+		ships_upkeep_mult = -1
 	}
 	max_hitpoints = 700
 	size_multiplier = 2
@@ -98,7 +98,7 @@ marauder_cruiser = {
 	modifier = {
 		ship_evasion_add = 10
 		ship_armor_add = 34
-		ship_upkeep_mult = -1
+		ships_upkeep_mult = -1
 	}
 	max_hitpoints = 2000
 	size_multiplier = 4
@@ -128,7 +128,7 @@ marauder_galleon = {
 	collision_radius = 7
 	modifier = {
 		ship_evasion_add = 35
-		ship_upkeep_mult = -1
+		ships_upkeep_mult = -1
 	}
 	max_hitpoints = 40000
 	size_multiplier = 8
@@ -153,7 +153,7 @@ marauder_station = {
 		ship_evasion_mult = -1
 		ship_armor_add = 35
 		ship_weapon_range_mult = 0.20
-		ship_upkeep_mult = -1
+		ships_upkeep_mult = -1
 	}
 	max_hitpoints = 2000
 	size_multiplier = 4
@@ -179,7 +179,7 @@ marauder_void_dwelling = {
 	modifier = {
 		ship_evasion_mult = -1
 		ship_armor_add = 11
-		ship_upkeep_mult = -1
+		ships_upkeep_mult = -1
 	}
 	max_hitpoints = 8000
 	size_multiplier = 8

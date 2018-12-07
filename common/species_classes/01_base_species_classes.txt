@@ -61,6 +61,8 @@ MAM = {
 	
 	graphical_culture = mammalian_01
 	move_pop_sound_effect = "moving_pop_confirmation"
+
+	resources = {}
 }
 
 REP = {
@@ -103,6 +105,8 @@ REP = {
 
 	graphical_culture = reptilian_01
 	move_pop_sound_effect = "reptilian_pops_move"
+
+	resources = {}
 }
 
 AVI = {
@@ -161,6 +165,8 @@ AVI = {
 
 	graphical_culture = avian_01
 	move_pop_sound_effect = "avian_pops_move"
+
+	resources = {}
 }
 
 ART = {
@@ -228,6 +234,8 @@ ART = {
 	
 	graphical_culture = arthropoid_01
 	move_pop_sound_effect = "arthopoid_pops_move"
+
+	resources = {}
 }
 
 MOL = {
@@ -334,6 +342,8 @@ FUN = {
 
 	graphical_culture = fungoid_01
 	move_pop_sound_effect = "fungoid_pops_move"
+
+	resources = {}
 }
 
 PLANT = {
@@ -364,4 +374,6 @@ PLANT = {
 	}
 
 	graphical_culture = plantoid_01
+
+	resources = {}
 }

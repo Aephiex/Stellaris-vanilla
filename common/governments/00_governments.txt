@@ -256,8 +256,16 @@ gov_megachurch = {
 	}
 
 	possible = {
-		has_valid_civic = civic_corporate_dominion
-		has_valid_civic = civic_exalted_priesthood
+		OR = {
+			AND = {
+				has_valid_civic = civic_corporate_dominion
+				has_valid_civic = civic_exalted_priesthood
+			}
+			AND = {
+				has_authority = auth_corporate
+				has_valid_civic = civic_gospel_of_the_masses
+			}
+		}
 	}
 
 	weight = {
@@ -1157,18 +1165,23 @@ gov_megacorporation = {
 	}
 
 	possible = {
-		has_authority = auth_oligarchic
 		OR = {
-			has_ethic = ethic_authoritarian
-			has_ethic = ethic_fanatic_authoritarian
-			NOR = {
-				has_ethic = ethic_egalitarian
-				has_ethic = ethic_fanatic_egalitarian
-				has_ethic = ethic_pacifist
-				has_ethic = ethic_fanatic_pacifist
-			}			
+			AND = {
+				has_authority = auth_oligarchic
+				OR = {
+					has_ethic = ethic_authoritarian
+					has_ethic = ethic_fanatic_authoritarian
+					NOR = {
+						has_ethic = ethic_egalitarian
+						has_ethic = ethic_fanatic_egalitarian
+						has_ethic = ethic_pacifist
+						has_ethic = ethic_fanatic_pacifist
+					}			
+				}
+				has_valid_civic = civic_corporate_dominion
+			}
+			has_authority = auth_corporate
 		}
-		has_valid_civic = civic_corporate_dominion
 	}
 
 	weight = {
@@ -1195,25 +1208,90 @@ gov_trade_league = {
 	}
 
 	possible = {
-		has_authority = auth_oligarchic
-		NOR = {
-			has_ethic = ethic_authoritarian
-			has_ethic = ethic_fanatic_authoritarian		
-		}
 		OR = {
-			has_ethic = ethic_egalitarian
-			has_ethic = ethic_fanatic_egalitarian
-			has_ethic = ethic_pacifist
-			has_ethic = ethic_fanatic_pacifist
-		}		
-		has_valid_civic = civic_corporate_dominion
+			AND = {
+				has_authority = auth_oligarchic
+				NOR = {
+					has_ethic = ethic_authoritarian
+					has_ethic = ethic_fanatic_authoritarian		
+				}
+				OR = {
+					has_ethic = ethic_egalitarian
+					has_ethic = ethic_fanatic_egalitarian
+					has_ethic = ethic_pacifist
+					has_ethic = ethic_fanatic_pacifist
+				}		
+				has_valid_civic = civic_corporate_dominion
+			}
+			AND = {
+				has_authority = auth_corporate
+				OR = {
+					has_valid_civic = civic_free_traders
+					has_valid_civic = civic_trading_posts
+				}
+			}
+		}
 	}
 
 	weight = {
-		base = 700
+		base = 1200
 	}
 }
 
+# Criminal Syndicate
+gov_criminal_syndicate = {
+	ruler_title = RT_OLIGARCH
+	
+	should_force_rename = yes
+
+	election_candidates = {
+		modifier = {
+			add = 100
+			leader_class = ruler
+		}
+		modifier = {
+			add = 10
+			leader_class = governor
+		}
+	}
+
+	possible = {
+		has_authority = auth_corporate
+		has_valid_civic = civic_criminal_heritage
+	}
+
+	weight = {
+		base = 1700
+	}
+}
+
+# Subversive Cult
+gov_subversive_cult = {
+	ruler_title = RT_ORACLE
+	
+	should_force_rename = yes
+
+	election_candidates = {
+		modifier = {
+			add = 100
+			leader_class = ruler
+		}
+		modifier = {
+			add = 10
+			leader_class = governor
+		}
+	}
+
+	possible = {
+		has_authority = auth_corporate
+		has_valid_civic = civic_criminal_heritage
+		has_valid_civic = civic_gospel_of_the_masses
+	}
+
+	weight = {
+		base = 3000
+	}
+}
 
 # Enlightened Monarchy
 gov_enlightened_monarchy = {
@@ -1251,6 +1329,21 @@ gov_elective_monarchy = {
 
 	weight = {
 		base = 800
+	}
+}
+
+# Communal Parity
+gov_communal_parity = {
+	ruler_title = RT_PRESIDING_SPEAKING
+	
+	should_force_rename = yes
+
+	possible = {
+		has_valid_civic = civic_shared_burden
+	}
+
+	weight = {
+		base = 10000
 	}
 }
 

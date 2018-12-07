@@ -46,7 +46,6 @@ space_cloud = {
 	icon_frame = 12
 	class = shipclass_military
 	is_designable = no
-	cost = 600
 }
 
 # Space Amoeba

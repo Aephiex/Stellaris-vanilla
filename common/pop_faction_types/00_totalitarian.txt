@@ -9,6 +9,13 @@ totalitarian = {
 	unique = yes
 	support_multiplier = 1
 	
+	resources = {
+		category = pop_factions
+		produces = {
+			influence = 2
+		}		
+	}
+
 	is_potential = {
 		years_passed > 10
 		has_encountered_other_species = yes
@@ -77,7 +84,7 @@ totalitarian = {
 		unfulfilled_title = "TOTALITARIAN_NO_AUTOCRACY"
 		desc = "TOTALITARIAN_AUTOCRACY_DESC"
 
-		fulfilled_effect = 5
+		fulfilled_effect = 10
 
 		potential = {
 			exists = owner
@@ -101,7 +108,7 @@ totalitarian = {
 		unfulfilled_title = "TOTALITARIAN_NO_DEMOCRACY"
 		desc = "TOTALITARIAN_DEMOCRACY_DESC"
 
-		unfulfilled_effect = -15
+		unfulfilled_effect = -25
 
 		potential = {
 			exists = owner
@@ -125,8 +132,8 @@ totalitarian = {
 		unfulfilled_title = "TOTALITARIAN_NO_STRATIFICATION"
 		desc = "TOTALITARIAN_STRATIFICATION_DESC"
 
-		fulfilled_effect = 5
-		unfulfilled_effect = -10
+		fulfilled_effect = 10
+		unfulfilled_effect = -20
 
 		potential = {
 			exists = owner
@@ -134,47 +141,14 @@ totalitarian = {
 
 		trigger = {
 			owner = {
-				OR = {
+				NOT = {
 					any_owned_pop = {
-						OR = {
-							has_citizenship_type = {
-								country = root.owner
-								type = citizenship_caste_system
-							}
-							has_citizenship_type = {
-								country = root.owner
-								type = citizenship_caste_system_limited
-							}
+						NOR = {
+							has_living_standard = { type = living_standard_stratified }
+							has_citizenship_type = { type = citizenship_slavery }
+							has_citizenship_type = { type = citizenship_purge }
 						}
-					}
-					AND = {
-						any_owned_pop = {
-							has_citizenship_type = {
-								country = root.owner
-								type = citizenship_full
-							}
-						}
-						any_owned_pop = {
-							NOT = {
-								has_citizenship_type = {
-									country = root.owner
-									type = citizenship_full
-								}
-							}
-						}
-					}
-					any_owned_pop = {
-						has_citizenship_type = {
-							country = root.owner
-							type = citizenship_slavery
-						}
-					}
-					any_owned_pop = {
-						has_citizenship_type = {
-							country = root.owner
-							type = citizenship_purge
-						}
-					}
+					}				
 				}
 			}
 		}
@@ -185,7 +159,7 @@ totalitarian = {
 		unfulfilled_title = "TOTALITARIAN_NO_ELITISM"
 		desc = "TOTALITARIAN_ELITISM_DESC"
 
-		fulfilled_effect = 3
+		fulfilled_effect = 5
 		unfulfilled_effect = -5
 
 		potential = {
@@ -209,63 +183,11 @@ totalitarian = {
 	}
 
 	demand = {
-		title = "TOTALITARIAN_GOVERNORS"
-		unfulfilled_title = "TOTALITARIAN_FEW_GOVERNORS"
-		desc = "TOTALITARIAN_GOVERNORS_DESC"
-
-		fulfilled_effect = 2
-		unfulfilled_effect = -5
-
-		potential = {
-			exists = owner
-			owner = {
-				any_sector = {
-					is_core_sector = no
-				}
-			}
-		}
-
-		trigger = {
-			owner = {
-				NOT = {
-					any_sector = {
-						is_core_sector = no
-						NOT = { exists = leader }
-					}
-				}
-			}
-		}
-	}
-
-	demand = {
-		title = "TOTALITARIAN_DOMINATION"
-		unfulfilled_title = "TOTALITARIAN_NO_DOMINATION"
-		desc = "TOTALITARIAN_DOMINATION_DESC"
-
-		fulfilled_effect = 2
-		unfulfilled_effect = -5
-
-		potential = {
-			exists = owner
-			owner = {
-				has_any_tradition_unlocked = yes
-			}
-		}
-
-
-		trigger = {
-			owner = {
-				has_tradition = "tr_domination_adopt"
-			}
-		}
-	}
-
-	demand = {
 		title = "TOTALITARIAN_EXTRANATIONAL_AUTHORITY"
 		unfulfilled_title = "TOTALITARIAN_NO_EXTRANATIONAL_AUTHORITY"
 		desc = "TOTALITARIAN_EXTRANATIONAL_AUTHORITY_DESC"
 
-		fulfilled_effect = 5
+		fulfilled_effect = 10
 
 		potential = {
 			exists = owner

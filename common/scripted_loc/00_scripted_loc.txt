@@ -215,6 +215,28 @@ defined_text = { # Country scope
 	}
 }
 
+defined_text = { # Country scope
+	name = GetBrainName
+	text = {
+		trigger = {
+			has_authority = auth_machine_intelligence
+		}
+		localization_key = getbrainname_machine
+	}
+	text = {
+		trigger = {
+			has_authority = auth_hive_mind
+		}
+		localization_key = getbrainname_hive
+	}
+	text = {	# fallback if not Gestalt Consciousness
+		trigger = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+		}
+		localization_key = getbrainname_error
+	}
+}
+
 defined_text = { # Must be scoped to country when called
     name = GetMonsterOnShipDesc
     text = {
@@ -385,5 +407,27 @@ defined_text = {
 			has_planet_flag = is_time_loop_world
 		}
 		localization_key = pc_time_loop_world_desc
+	}
+}
+
+defined_text = {
+	name = GetWormTechPartialFullTitle
+	text = {
+		trigger = {
+			NOR = {
+				has_technology = tech_akx_worm_1
+				has_technology = tech_akx_worm_2
+			}
+		}
+		localization_key = tech_akx_worm_partial_custom
+	}
+	text = {
+		trigger = {
+			OR = {
+				has_technology = tech_akx_worm_1
+				has_technology = tech_akx_worm_2
+			}
+		}
+		localization_key = tech_akx_worm_full_custom
 	}
 }

@@ -49,7 +49,6 @@ pc_habitat_shielded = {
 	#entity = "orbital_habitat_shielded" # TEMP TODO [MO]
 	#overlay_entity = "habitat_shield_effect_entity" # TEMP TODO [MO]
 	picture = pc_habitat
-	outliner_planet_type = special
 	icon_frame = 22
 	entity_scale = 1.0
 	enable_tilt = no

@@ -1620,6 +1620,8 @@ entity = {
 	}
 }
 
+entity = { name = "arthropoid_01_sponsored_colonizer_entity" clone = "arthropoid_01_colonizer_entity" }
+
 entity = {
 	name = "arthropoid_01_colony_ship_entity"
 	pdxmesh = "arthropoid_01_colony_mesh"

@@ -26,6 +26,12 @@ weapon_component_template = {
 	tags = { weapon_type_explosive }
 	ai_tags = { weapon_role_artillery }
 	ai_tag_weight = 0
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = 65
+		}
+	}
 }
 
 ### Projectiles
@@ -43,8 +49,13 @@ weapon_component_template = {
 	projectile_gfx = "scourge_projectile_weapon"
 	tags = { weapon_type_kinetic }
 	ai_tags = { weapon_role_anti_shield }
-	
-	cost = @critter_cost_value
+
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @critter_cost_value
+		}
+	}
 }
 
 # Small Projectile
@@ -61,7 +72,12 @@ weapon_component_template = {
 	tags = { weapon_type_kinetic }
 	ai_tags = { weapon_role_anti_shield }
 	
-	cost = @critter_cost_value
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @critter_cost_value
+		}
+	}
 }
 
 ### Strike Craft
@@ -71,7 +87,13 @@ strike_craft_component_template = {
 	key = "SWARM_STRIKE_CRAFT"
 	size = LARGE
 	entity = "swarm_01_fighter_entity"
-	cost = 100
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = 100
+		}
+	}
+
 	power = -80
 
 	count = 10

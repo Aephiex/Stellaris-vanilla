@@ -9,6 +9,13 @@ traditionalist = {
 	unique = yes
 	support_multiplier = 1
 	
+	resources = {
+		category = pop_factions
+		produces = {
+			influence = 2
+		}		
+	}
+
 	is_potential = {
 		years_passed > 10
 		has_encountered_other_species = yes
@@ -63,11 +70,7 @@ traditionalist = {
 		modifier = {
 			factor = 0
 			species = {
-				OR = {
-					has_trait = "trait_robotic_1"
-					has_trait = "trait_robotic_2"
-					has_trait = "trait_robotic_3"
-				}			
+				has_trait = "trait_mechanical"		
 			}			
 		}
 
@@ -86,9 +89,6 @@ traditionalist = {
 		
 		potential = {
 			exists = owner
-			owner = {
-				can_set_robot_policy = yes			
-			}
 		}
 		
 		trigger = {
@@ -109,6 +109,7 @@ traditionalist = {
 			exists = owner
 			owner = {
 				can_set_ai_policy = yes
+				NOT = { has_policy_flag = ai_full_rights }
 			}
 		}
 
@@ -130,6 +131,7 @@ traditionalist = {
 			exists = owner
 			owner = {
 				can_set_ai_policy = yes
+				has_policy_flag = ai_full_rights
 			}
 		}
 
@@ -173,7 +175,10 @@ traditionalist = {
 			exists = owner
 			owner = {
 				has_surveyed_class = pc_nuked
-				NOT = { has_civic = civic_post_apocalyptic }
+				NOR = {
+					has_civic = civic_post_apocalyptic
+					has_country_flag = worm_tomb_ending
+				}
 			}
 		}
 
@@ -203,38 +208,20 @@ traditionalist = {
 			exists = owner
 			owner = {
 				has_surveyed_class = pc_gaia
+				has_ascension_perk = ap_consecrated_worlds
 			}
 		}
 
 		trigger = {
 			owner = {
-				has_modifier = has_holy_player_planet
-			}
-		}
-	}
-
-	demand = { # "TRADITIONALIST_UNBLISSED"
-		title = "TRADITIONALIST_UNBLISSED"
-		unfulfilled_title = "TRADITIONALIST_BLISSED"
-		desc = "TRADITIONALIST_UNBLISSED_DESC"
-
-		unfulfilled_effect = -5
-
-		potential = {
-			exists = owner
-			owner = {
-				has_technology = tech_subdermal_stimulation
-			}
-		}
-
-		trigger = {
-			owner = {
-				NOT = {
-					any_owned_pop = {
-						has_living_standard = {
-							country = root.owner
-							type = chemical_bliss
-						}
+				any_planet_within_border = {
+					is_planet_class = pc_gaia
+					is_colony = no
+					OR = {
+						has_modifier = consecrated_quality_1
+						has_modifier = consecrated_quality_2
+						has_modifier = consecrated_quality_3
+						has_modifier = consecrated_quality_4
 					}
 				}
 			}
@@ -294,7 +281,7 @@ traditionalist = {
 		unfulfilled_title = "TRADITIONALIST_FEW_SPIRITUALIST_POPS"
 		desc = "TRADITIONALIST_SPIRITUALIST_POPS_DESC"
 
-		fulfilled_effect = 5
+		fulfilled_effect = 10
 
 		potential = {
 			exists = owner
@@ -382,28 +369,6 @@ traditionalist = {
 		trigger = {
 			owner = {
 				has_country_flag = negative_shroud_outcome
-			}
-		}
-	}
-
-	demand = {
-		title = "TRADITIONALIST_HARMONY"
-		unfulfilled_title = "TRADITIONALIST_NO_HARMONY"
-		desc = "TRADITIONALIST_HARMONY_DESC"
-
-		fulfilled_effect = 2
-		unfulfilled_effect = -5
-
-		potential = {
-			exists = owner
-			owner = {
-				has_any_tradition_unlocked = yes
-			}
-		}
-
-		trigger = {
-			owner = {
-				has_tradition = "tr_harmony_adopt"
 			}
 		}
 	}

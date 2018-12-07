@@ -1,5 +1,5 @@
 ﻿### Avian 1
-### Created by Henrik Eklund
+### Created by Henrik Thyrwall
 
 AVI1 = {
 	ship_names = {
@@ -82,14 +82,6 @@ AVI1 = {
 		robotic_defense_army = {
 			sequential_name = "%O% Machine Sentinels"
 		}
-
-		android_army = {
-			sequential_name = "%O% Cybernetic Shock Army"
-		}
-		
-		android_defense_army = {
-			sequential_name = "%O% Cybernetic Sentinels"
-		}
 		
 		psionic_army = { 
 			sequential_name = "Telepathic Order %R%"
@@ -111,8 +103,14 @@ AVI1 = {
 			sequential_name = "%O% Occupation Machines"
 		}
 
-		android_occupation_army = {
-			sequential_name = "%O% Occupation Sentinels"
+		primitive_army = {
+			sequential_name = "Primitive Army %C%"
+		}
+		industrial_army = {
+			sequential_name = "Industrial Army %C%"
+		}
+		postatomic_army = {
+			sequential_name = "Post-Atomic Army %C%"
 		}
 	}
 		

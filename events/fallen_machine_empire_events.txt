@@ -47,9 +47,9 @@ country_event = {
 		}		
 
 		# Changing country type resets resources, so give them full stores
-		add_minerals = 20000
-		add_energy = 5000
-		add_influence = 1000
+		add_resource = { minerals = 20000 }
+		add_resource = { energy = 5000 }
+		add_resource = { influence = 1000 }
 
 		# Add some more fleet
 		country_event = { id = fallen_empires.13 }
@@ -610,8 +610,7 @@ country_event = {
 		any_owned_planet = {
 			num_pops > 1
 			any_owned_pop = {
-				has_trait = trait_machine_unit
-				is_growing = no			
+				has_trait = trait_machine_unit		
 			}
 		}	
 		
@@ -633,7 +632,6 @@ country_event = {
 				num_pops > 1
 				any_owned_pop = {
 					has_trait = trait_machine_unit
-					is_growing = no
 				}
 			}
 			save_event_target_as = FallenEmpireTaskPlanet
@@ -688,7 +686,6 @@ country_event = {
 				random_pop = {
 					limit = {
 						has_trait = trait_machine_unit
-						is_growing = no
 					}
 					kill_pop = yes
 				}
@@ -697,9 +694,13 @@ country_event = {
 				random_pop = {
 					limit = {
 						has_trait = trait_machine_unit
-						is_growing = no
+					}				
+					event_target:FallenEmpireTaskPlanetTarget = {
+						create_pop = {
+							species = prev
+						}
 					}
-					resettle_pop = { pop = this planet = event_target:FallenEmpireTaskPlanetTarget }
+					kill_pop = yes
 				}
 			}	
 		}	

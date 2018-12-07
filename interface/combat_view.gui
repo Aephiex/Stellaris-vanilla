@@ -41,7 +41,7 @@ guiTypes = {
 	containerWindowType = {
 		name = "combat_view"
 		size = { width = 560 height = 568 }
-		position = { x = 6 y = -42 }
+		position = { x = 35 y = -42 }
 		orientation = lower_left
 		origo = lower_left
 		moveable = no

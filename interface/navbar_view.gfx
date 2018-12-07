@@ -48,8 +48,14 @@ spriteTypes = {
 	}
 
 	spriteType = {
-		name = "GFX_navbar_icons_policies_and_edicts"
-		texturefile = "gfx/interface/icons/navbar_icons_policies_and_edicts.dds"
+		name = "GFX_navbar_icons_policies"
+		texturefile = "gfx/interface/icons/navbar_icons_edicts.dds"
+		noOfFrames = 2
+	}
+	
+	spriteType = {
+		name = "GFX_navbar_icons_edicts"
+		texturefile = "gfx/interface/icons/navbar_icons_policies.dds"
 		noOfFrames = 2
 	}
 

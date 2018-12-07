@@ -101,15 +101,10 @@ ConstantBuffer( StarPins, 0, 0 )	#Star pins
 ConstantBuffer( SectorBorders, 0, 0 )	#Sector borders
 {
 	float4x4	ViewProjectionMatrix;
-	float3		vCamPos;
+	float3	vCamPos;
 	float		vCamZoom;
-	float4		SectorColor;
-	float		vPlayerID;
-	float		vBorderIDTextureSize;
-	float		vSelected;
-	float		vTime;
-	float2		vBoundsMin;
-	float2		vBoundsMax;
+	float2	vBoundsMin;
+	float2	vBoundsMax;
 }
 
 ConstantBuffer( CountrySdfBorders, 0, 0 ) #SDF borders
@@ -245,11 +240,10 @@ PixelShader =
 		float4 main( VS_OUTPUT_SECTOR v ) : PDX_COLOR
 		{
 			float vDist = tex2D( BorderSDF, v.vUV ).a;
-			
 			float vDistance = min( v.vDistance/64.0f, 0.5f - vDist );
-			clip( vDistance - 0.0001f );	
+			clip( vDistance - 0.0001f );
 					
-			float vThickness = 0.005f + vSelected * 0.01f + ( vCamZoom / 70000.f );
+			float vThickness = 0.005f + ( vCamZoom / 70000.f );
 			float vInvThickness = 1.f / vThickness;
 			
 			//1 - ( (x - 0.25) * 4 ) ^ 2
@@ -262,13 +256,7 @@ PixelShader =
 			vValue = saturate( vValue );
 			
 			float3 vColor = float3( 1.f, 1.f, 1.f );
-			float3 Selected = float3( 1.f, 1.f, 1.0f );
-			
-			vValue += vSelected * ( sin( vTime * 3 ) * 0.15f + 0.15f );
-			
-			vColor = lerp( vColor, Selected, vSelected );
-			
-			return float4( vColor * vValue, vValue * 0.75f );
+			return float4( vColor * vValue, vValue * 0.75f  + 0.8f);
 		}
 	]]
 }

@@ -98,6 +98,10 @@ spriteTypes = {
 		textureFile = "gfx/interface/frontend/gamesetup_randomize_image.dds"
 	}
 	spriteType = {
+		name = "GFX_gamesetup_observe_image"
+		textureFile = "gfx/interface/frontend/gamesetup_observe_image.dds"
+	}
+	spriteType = {
 		name = "GFX_gamesetup_create_new_image"
 		textureFile = "gfx/interface/frontend/gamesetup_create_new_image.dds"
 	}
@@ -167,6 +171,10 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_select_random"
 		texturefile = "gfx/interface/frontend/select_random.dds"
+	}	
+	spriteType = {
+		name = "GFX_select_observe"
+		texturefile = "gfx/interface/frontend/select_observe.dds"
 	}	
 	spriteType = {
 		name = "GFX_selection_planet"

@@ -79,97 +79,6 @@ opinion_is_subject = {
 	}
 }
 
-# Repugnant
-opinion_repugnant_species = {
-	opinion = {
-		base = 0
-		modifier = {
-			add = -25
-			FROM = {
-				OR = {
-					is_country_type = default
-					is_country_type = fallen_empire
-					is_country_type = awakened_fallen_empire
-				}
-				exists = ruler
-				ruler = {
-					species = {
-						has_trait = "trait_repugnant"
-					}
-					NOT = { is_same_species = root }
-				}	
-			}
-			OR = {
-				is_country_type = default
-				is_country_type = fallen_empire
-				is_country_type = awakened_fallen_empire
-			}
-			NOT = {
-				AND = {
-					exists = ruler
-					ruler = {
-						species = {
-							has_trait = "trait_repugnant"
-						}
-						NOT = { is_same_species = root }
-					}
-				}
-			}
-		}
-		modifier = {
-			add = -10
-			FROM = {
-				OR = {
-					is_country_type = default
-					is_country_type = fallen_empire
-					is_country_type = awakened_fallen_empire
-				}
-				exists = ruler
-				ruler = {
-					species = {
-						has_trait = "trait_repugnant"
-					}
-					NOT = { is_same_species = root }
-				}	
-			}
-			OR = {
-				is_country_type = default
-				is_country_type = fallen_empire
-				is_country_type = awakened_fallen_empire
-			}
-			exists = ruler		
-			ruler = {
-				species = {
-					has_trait = "trait_repugnant"
-				}
-				NOT = { is_same_species = root }
-			}				
-		}
-	}
-}
-
-
- 
-# Charismatic
-opinion_charismatic_species = {
-	opinion = {
-		base = 0
-		modifier = {
-			add = 25
-			FROM = {
-				exists = ruler
-				ruler = {
-					species = {
-						OR = {
-							has_trait = "trait_charismatic"
-						}
-					}
-				}			
-			}
-		}		
-	}
-}
-
 # Opinions of Interference Policy
 opinion_policy_interference = {
 	opinion = {
@@ -838,21 +747,17 @@ opinion_xenophage = {
 	opinion = {
 		base = 0
 		modifier = {
-			add = -50
+			add = -25
 			NOR = {
 				has_ethic = "ethic_xenophobe"
 				has_ethic = "ethic_fanatic_xenophobe"
-			}
-			OR = {
-				has_ethic = "ethic_egalitarian"
-				has_ethic = "ethic_fanatic_egalitarian"
-				has_ethic = "ethic_xenophile"
-				has_ethic = "ethic_fanatic_xenophile"
-			}		
+				has_ethic = "ethic_authoritarian"
+				has_ethic = "ethic_fanatic_authoritarian"
+			}	
 			NOT = { is_country_type = fallen_empire }
 		}
 		modifier = {
-			add = -50
+			add = -25
 			OR = {
 				has_ethic = "ethic_xenophile"
 				has_ethic = "ethic_fanatic_xenophile"
@@ -867,7 +772,10 @@ opinion_xenophage = {
 						is_sapient = yes
 						OR = {
 							AND = {
-								has_citizenship_type = { country = from type = citizenship_purge }
+								OR = {
+									has_citizenship_type = { country = from type = citizenship_purge_machine }
+									has_citizenship_type = { country = from type = citizenship_purge }
+								}
 								OR = {
 									has_purge_type = { country = from type = purge_processing }		
 									has_purge_type = { country = from type = purge_matrix }	
@@ -920,7 +828,7 @@ opinion_biophage = {
 					any_owned_pop_species = {
 						OR = {
 							AND = {
-								has_citizenship_type = { country = from type = citizenship_purge }
+								has_citizenship_type = { country = from type = citizenship_purge_machine }
 								has_purge_type = { country = from type = purge_matrix }					
 							}
 							AND = {
@@ -1156,6 +1064,32 @@ opinion_broke_alliance = {
 opinion_broke_defensive_pact = {
 	opinion = {
 		base = -100
+	}
+
+	accumulative = yes
+
+	decay = {
+		base = 2
+	}
+}
+
+# They left our research agreement
+opinion_broke_research_agreement = {
+	opinion = {
+		base = -25
+	}
+
+	accumulative = yes
+
+	decay = {
+		base = 2
+	}
+}
+
+# They left our commercial agreement
+opinion_broke_commercial_pact = {
+	opinion = {
+		base = -25
 	}
 
 	accumulative = yes
@@ -2285,7 +2219,7 @@ opinion_maneuvers_conciliatory = {
 	}
 }
 
-opinion_maneuvers_cancelled = {
+opinion_maneuvers_canceled = {
 	opinion = {
 		base = 40
 	}
@@ -2761,20 +2695,6 @@ triggered_opinion_tr_versatility_universal_compatibility = {
 		has_authority = auth_machine_intelligence
 		FROM = {
 			has_swapped_tradition = tr_versatility_universal_compatibility
-		}
-	}
-
-	opinion = {
-		base = 20 # remember to update the tradition's tooltip
-	}
-}
-
-triggered_opinion_tr_domination_star_lords = {
-	trigger = {
-		exists = overlord
-		overlord = { is_same_value = FROM }
-		FROM = {
-			has_non_swapped_tradition = tr_domination_star_lords
 		}
 	}
 
@@ -3332,97 +3252,6 @@ triggered_exterminators_opinion_of_machines = {
 	}
 }
 
-# Emotion Emulators ( Machine Empire version of charismatic 
-
-triggered_opinion_robot_emotion_emulators = {
-	trigger = {
-		FROM = {
-			exists = ruler
-			ruler = {
-				species = {
-					has_trait = "trait_robot_emotion_emulators"
-				}
-			}			
-		}
-	}
-	opinion = {
-		base = 25
-	}
-}
-
-# Uncanny ( Machine Empire version of repugnant )
-triggered_opinion_robot_uncanny = {
-	trigger = {
-		FROM = {
-			OR = {
-				is_country_type = default
-				is_country_type = fallen_empire
-				is_country_type = awakened_fallen_empire
-			}
-			exists = ruler
-			ruler = {
-				species = {
-					has_trait = "trait_robot_uncanny"
-				}
-				NOT = { is_same_species = root }
-			}	
-		}
-		OR = {
-			is_country_type = default
-			is_country_type = fallen_empire
-			is_country_type = awakened_fallen_empire
-		}
-		NOT = {
-			AND = {
-				exists = ruler
-				ruler = {
-					species = {
-						has_trait = "trait_robot_uncanny"
-					}
-					NOT = { is_same_species = root }
-				}
-			}
-		}
-	}
-	opinion = {
-		base = -25
-	}
-}
-
-triggered_opinion_robot_a_little_uncanny = {
-	trigger = {
-		FROM = {
-			OR = {
-				is_country_type = default
-				is_country_type = fallen_empire
-				is_country_type = awakened_fallen_empire
-			}
-			exists = ruler
-			ruler = {
-				species = {
-					has_trait = "trait_robot_uncanny"
-				}
-				NOT = { is_same_species = root }
-			}	
-		}
-		OR = {
-			is_country_type = default
-			is_country_type = fallen_empire
-			is_country_type = awakened_fallen_empire
-		}
-		exists = ruler		
-		ruler = {
-			species = {
-				has_trait = "trait_robot_uncanny"
-			}
-			NOT = { is_same_species = root }
-		}			
-	}
-	opinion = {
-		base = -10
-	}
-}
-
 triggered_opinion_barbaric_despoilers = {
 	trigger = {
 		is_country_type = default
@@ -3492,5 +3321,64 @@ triggered_fe_opinion_barbaric_despoilers = {
 	}
 	opinion = {
 		base = -40
+	}
+}
+
+triggered_opinion_galatron_holder = {
+	trigger = {
+		is_gestalt = no
+		FROM = {
+			has_modifier = galatron_modifier
+			NOT = { has_closed_borders = prev }
+		}
+	}
+
+	opinion = {
+		base = 25
+	}
+}
+
+triggered_opinion_galatron_denier = {
+	trigger = {
+		is_gestalt = no
+		FROM = {
+			has_modifier = galatron_modifier
+			has_closed_borders = prev
+		}
+	}
+
+	opinion = {
+		base = -50
+	}
+}
+
+triggered_opinion_crime_corp = {
+	trigger = {
+		is_gestalt = no
+		is_megacorp = no
+		FROM = {
+			is_criminal_syndicate = yes
+		}
+	}
+
+	opinion = {
+		base = -25
+	}
+}
+
+opinion_crime_corp_branch_offices = {
+	min = -200	
+	block_triggered = yes # stops modifier from automatically triggering when trigger evaluates to true
+	
+	trigger = {
+		is_gestalt = no
+		is_megacorp = no
+		FROM = {
+			is_criminal_syndicate = yes
+		}
+	}	
+	
+	opinion = {
+		base = -10
 	}
 }

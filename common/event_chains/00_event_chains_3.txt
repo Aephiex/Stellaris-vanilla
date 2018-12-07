@@ -8,3 +8,9 @@ star_power_chain = {
 		}
 	}
 }
+
+market_founding_chain = {
+	picture = GFX_evt_financial_instruments
+	icon = "gfx/interface/icons/situation_log/situation_log_quest.dds"
+}
+

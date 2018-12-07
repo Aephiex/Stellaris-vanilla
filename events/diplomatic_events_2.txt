@@ -1,7 +1,7 @@
 #################################
 #
 # Diplomatic Events
-# by Henrik Eklund
+# by Henrik Thyrwall
 #
 #################################
 
@@ -230,13 +230,13 @@ country_event = {
 			}
 		}
 		add_modifier = {
-			modifier = "maneuvers_cancelled"
+			modifier = "maneuvers_canceled"
 			days = 1800
 		}
 	}
 }
 
-# Maneuvers Cancelled (Time)
+# Maneuvers Canceled (Time)
 country_event = {
 	id = diplomatic.1001
 	title = "diplomatic.1001.name"
@@ -251,7 +251,7 @@ country_event = {
 	}
 }
 
-# Maneuvers Cancelled (War)
+# Maneuvers Canceled (War)
 #country_event = {
 #	id = diplomatic.1002
 #	title = "diplomatic.1001.name"
@@ -528,7 +528,7 @@ country_event = {
 		random_list = {
 			25 = {
 				create_leader = {
-					type = admiral
+					class = admiral
 					species = owner_main_species
 					name = random
 					skill = 2
@@ -544,7 +544,7 @@ country_event = {
 			}
 			25 = {
 				create_leader = {
-					type = admiral
+					class = admiral
 					species = owner_main_species
 					name = random
 					skill = 2
@@ -560,7 +560,7 @@ country_event = {
 			}
 			25 = {
 				create_leader = {
-					type = admiral
+					class = admiral
 					species = owner_main_species
 					name = random
 					skill = 2
@@ -576,7 +576,7 @@ country_event = {
 			}
 			25 = {
 				create_leader = {
-					type = admiral
+					class = admiral
 					species = owner_main_species
 					name = random
 					skill = 2
@@ -775,7 +775,7 @@ country_event = {
 	}
 	option = {
 		name = diplomatic.1021.b
-		custom_tooltip = exercise_diplomatic_cancelled
+		custom_tooltip = exercise_diplomatic_canceled
 		ai_chance = {
 			factor = 100
 			modifier = {
@@ -808,7 +808,7 @@ country_event = {
 			}
 		}
 		add_modifier = {
-			modifier = "maneuvers_cancelled"
+			modifier = "maneuvers_canceled"
 			days = 1800
 		}
 		hidden_effect = {
@@ -883,7 +883,7 @@ country_event = {
 	}
 }
 
-# Response to Protest (Maneuvers Cancelled)
+# Response to Protest (Maneuvers Canceled)
 country_event = {
 	id = diplomatic.1023
 	title = TRANSMISSION
@@ -899,9 +899,9 @@ country_event = {
 	}
 	
 	immediate = {
-		add_opinion_modifier = { who = from modifier = opinion_maneuvers_cancelled }
+		add_opinion_modifier = { who = from modifier = opinion_maneuvers_canceled }
 		from = { 
-			add_opinion_modifier = { who = root modifier = opinion_maneuvers_cancelled } 
+			add_opinion_modifier = { who = root modifier = opinion_maneuvers_canceled } 
 		}
 	}
 	

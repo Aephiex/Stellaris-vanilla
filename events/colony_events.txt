@@ -2,7 +2,7 @@
 #
 # Colony Events
 #
-# Written by Henrik Eklund
+# Written by Henrik Thyrwall
 #
 ############################
 
@@ -44,40 +44,11 @@ planet_event = {
 	}
 
 	is_triggered_only = yes
-	#mean_time_to_happen = {
-	#	months = 640
-	#}
 	
 	immediate = {
 		set_global_flag = migrating_forests_global
 		set_planet_flag = colony_event
-		random_tile = {
-			limit = { 
-				has_blocker = no
-				has_grown_pop = no
-				has_building = no
-				has_building_construction = no
-			}
-			set_blocker = "tb_wandering_forests"
-		}
-		random_tile = {
-			limit = { 
-				has_blocker = no
-				has_grown_pop = no
-				has_building = no
-				has_building_construction = no
-			}
-			set_blocker = "tb_wandering_forests"
-		}
-		random_tile = {
-			limit = { 
-				has_blocker = no
-				has_grown_pop = no
-				has_building = no
-				has_building_construction = no
-			}
-			set_blocker = "tb_wandering_forests"
-		}
+		add_deposit = d_migrating_forests
 		add_modifier = {
 			modifier = "migrating_forests"
 			days = -1
@@ -86,6 +57,9 @@ planet_event = {
 	
 	option = {
 		name = colony.1.a
+		tooltip = { 
+			add_deposit = d_migrating_forests
+		}
 		begin_event_chain = {
 			event_chain = "migrating_forests_chain"
 			target = ROOT
@@ -117,25 +91,13 @@ planet_event = {
 	option = {
 		name = EXCELLENT
 		remove_modifier = "migrating_forests"
-		custom_tooltip = colony.2.a.tooltip
+		remove_deposit = d_migrating_forests
+		add_deposit = d_migrating_forest_reserve
 		hidden_effect = {
 			set_planet_flag = forest_pheremones
 			add_modifier = {
 				modifier = "migrating_forests_2"
 				days = -1
-			}
-			every_tile = {
-				limit = { has_blocker = "tb_wandering_forests" }
-				remove_blocker = yes
-			}
-			random_tile = {
-				limit = { 
-					has_blocker = no
-					has_grown_pop = no
-					has_building = no
-					has_building_construction = no
-				}
-				set_blocker = "tb_wandering_forest_reserve"
 			}
 		}
 	}
@@ -157,10 +119,7 @@ planet_event = {
 		set_planet_flag = burned_forests
 		remove_modifier = "migrating_forests"
 		hidden_effect = {
-			every_tile = {
-				limit = { has_blocker = "tb_wandering_forests" }
-				remove_blocker = yes
-			}
+			remove_deposit = d_migrating_forests
 		}
 	}
 }
@@ -513,31 +472,14 @@ planet_event = {
 	}
 	
 	immediate = {
-		random_tile = {
-			limit = {
-				has_blocker = "tb_wandering_forests" 
-				any_neighboring_tile = {
-					has_blocker = no
-					has_grown_pop = no
-					has_building = no
-					has_building_construction = no
-				}
-			}
-			remove_blocker = yes
-			random_neighboring_tile = {
-				limit = {
-					has_blocker = no
-					has_grown_pop = no
-					has_building = no
-					has_building_construction = no
-				}
-				set_blocker = "tb_wandering_forests"
-			}
-		}
+		add_planet_devastation = 10
 	}
 	
 	option = {
 		name = PECULIAR
+		tooltip = {
+			add_planet_devastation = 10
+		}
 	}
 }
 
@@ -556,7 +498,7 @@ planet_event = {
 		original_owner = yes
 		is_homeworld = no
 		owner = { is_ai = no }
-		owner = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+		#owner = { NOT = { has_ethic = ethic_gestalt_consciousness } }
 		has_ground_combat = no
 		is_occupied_flag = no
 		num_pops > 0
@@ -577,6 +519,9 @@ planet_event = {
 		set_global_flag = seismic_disturbance_global
 		set_planet_flag = seismic_disturbance
 		set_planet_flag = colony_event
+		add_deposit = d_underground_farm_blocked
+		add_deposit = d_underground_mine_blocked
+		add_deposit = d_underground_generator_blocked
 	}
 	
 	option = {
@@ -586,15 +531,30 @@ planet_event = {
 			target = ROOT
 		}
 		enable_special_project = {
-			name = "SEISMIC_DISTURBANCE_1_PROJECT"
+			name = "SEISMIC_DISTURBANCE_1_PROJECT" #Establish Communications
 			location = this
 			owner = root
 		}
 		enable_special_project = {
-			name = "SEISMIC_DISTURBANCE_2_PROJECT"
+			name = "SEISMIC_DISTURBANCE_2_PROJECT" #Preemptive Strike
 			location = this
 			owner = root
 		}
+		
+	}
+	option = {
+		name = distar.216.a.exter
+		exclusive_trigger = { owner = { is_homicidal = yes } }
+		begin_event_chain = {
+			event_chain = "subterranean_civilization_chain"
+			target = ROOT
+		}
+		enable_special_project = {
+			name = "SEISMIC_DISTURBANCE_2_PROJECT" #Preemptive Strike
+			location = this
+			owner = root
+		}
+		
 	}
 }
 
@@ -663,7 +623,7 @@ planet_event = {
 	}
 }
 
-# Special Project Completed 2
+# Special Project Completed 2 or 3
 planet_event = {
 	id = colony.52
 	title = "PROJECT_COMPLETE"
@@ -677,10 +637,21 @@ planet_event = {
 	immediate = {
 		set_planet_flag = seismic_disturbance_destroyed
 		remove_planet_flag = seismic_disturbance_war
+		
+		remove_deposit = d_underground_farm_blocked
+		remove_deposit = d_underground_mine_blocked
+		remove_deposit = d_underground_generator_blocked
+		
+		add_deposit = d_underground_farm_dead
+		add_deposit = d_underground_mine_dead
+		add_deposit = d_underground_generator_dead
+		
+		remove_deposit = d_underground_contact_zone
 	}		
 	
 	option = {
 		name = colony.52.a
+		custom_tooltip = underground_expansion_tooltip
 	}
 }
 
@@ -714,7 +685,10 @@ country_event = {
 				modifier = "subterranean_civilization"
 				days = -1
 			}
+			add_deposit = d_underground_contact_zone
+			#set_planet_flag = trade_size_increase
 		}
+		custom_tooltip = underground_expansion_tooltip
 	}
 	option = {
 		name = colony.53.c
@@ -743,7 +717,7 @@ planet_event = {
 		set_planet_flag = subterranean_invasion_planet
 		event_target:subterranean_nation = {
 			create_leader = {
-				type = general
+				class = general
 				species = owner_main_species
 				name = random
 				skill = 3
@@ -885,7 +859,7 @@ country_event = {
 	option = {
 		name = colony.56.a
 		enable_special_project = {
-			name = "SEISMIC_DISTURBANCE_3_PROJECT"
+			name = "SEISMIC_DISTURBANCE_3_PROJECT" #Destroy them
 			location = FROMFROM
 			owner = ROOT
 		}
@@ -963,24 +937,8 @@ country_event = {
 			set_owner = event_target:subterranean_empire
 			random_pop = { kill_pop = yes }
 			random_pop = { kill_pop = yes }
-			best_tile_for_pop = {
-				create_pop = { species = owner_main_species }
-			}
-			best_tile_for_pop = {
-				create_pop = { species = owner_main_species }
-			}
-			if = {
-				limit = {
-					any_tile = { has_building = "building_colony_shelter" }
-				}
-				random_tile = {
-					limit = {
-						has_building = "building_colony_shelter"
-					}
-					remove_building = yes
-					set_building = "building_capital_1"
-				}
-			}
+			create_pop = { species = owner_main_species }
+			create_pop = { species = owner_main_species }
 			create_army = {
 				name = "NAME_Loot-Equipped_Army"
 				owner = event_target:subterranean_empire
@@ -1085,7 +1043,7 @@ planet_event = {
 			save_event_target_as = subterranean_nation
 			owner_species = { save_event_target_as = subterranean_species }
 			create_leader = {
-				type = general
+				class = general
 				species = event_target:subterranean_species
 				name = random
 				skill = 3
@@ -1255,15 +1213,7 @@ planet_event = {
 	
 	option = {
 		name = colony.61.a
-		random_tile = {
-			limit = {
-				has_blocker = no
-				has_grown_pop = no
-				has_building = no
-				has_building_construction = no
-			}
-			set_blocker = "tb_sinkhole_subterraneans"
-		}
+		add_deposit = d_sinkhole_subterraneans
 		random_planet_army = { remove_army = yes }
 	}
 }
@@ -1285,17 +1235,6 @@ planet_event = {
 		is_homeworld = no
 		has_ground_combat = no
 		num_pops > 0
-		any_tile = {
-			AND = {
-				has_building = yes
-				NOR = { 
-					has_building = "building_colony_shelter"
-					has_building = "building_capital_1"
-					has_building = "building_capital_2"
-					has_building = "building_capital_3"
-				}
-			}
-		}
 	}
 	
 	mean_time_to_happen = {
@@ -1304,22 +1243,13 @@ planet_event = {
 	
 	immediate = {
 		set_planet_flag = seismic_disturbance_raid
+		add_planet_devastation = 10
 	}		
 	
 	option = {
 		name = colony.62.a
-		random_tile = {
-			limit = { 
-				has_building = yes
-				is_ruined = no
-				NOR = { 
-					has_building = "building_colony_shelter"
-					has_building = "building_capital_1"
-					has_building = "building_capital_2"
-					has_building = "building_capital_3"
-				}
-			}
-			set_ruined = yes #remove_building = yes
+		tooltip = {
+			add_planet_devastation = 10
 		}
 	}
 }
@@ -1353,13 +1283,9 @@ planet_event = {
 	
 	option = {
 		name = colony.63.a
-		random_tile = {
-			limit = { 
-				has_grown_pop = yes
-				has_building = no
-			}
-			set_blocker = "tb_sinkhole_subterraneans"
-		}
+		add_planet_devastation = 10
+		random_owned_pop = { kill_pop = yes }
+		add_deposit = d_sinkhole_subterraneans
 	}
 }
 
@@ -1406,24 +1332,20 @@ planet_event = {
 	option = {
 		name = colony.64.b
 		trigger = {
-			free_pop_tiles > 1
-			owner = { allows_slavery = yes }
+			#free_housing > 5
+			owner = { OR = { is_authoritarian = yes is_xenophobe = yes } }
 		}
 		hidden_effect = {
-			best_tile_for_pop = {
-				create_pop = {
-					species = event_target:subterranean_species
-					ethos = {
-						ethic = "ethic_spiritualist"			
-					}
+			create_pop = {
+				species = event_target:subterranean_species
+				ethos = {
+					ethic = "ethic_spiritualist"			
 				}
 			}
-			best_tile_for_pop = {
-				create_pop = {
-					species = event_target:subterranean_species
-					ethos = {
-						ethic = "ethic_spiritualist"		
-					}
+			create_pop = {
+				species = event_target:subterranean_species
+				ethos = {
+					ethic = "ethic_spiritualist"		
 				}
 			}
 			last_created_pop = { set_citizenship_type = { type = citizenship_slavery cooldown = yes } }
@@ -1443,13 +1365,13 @@ planet_event = {
 	trigger = {
 		has_planet_flag = seismic_disturbance_destroyed
 		NOT = { has_planet_flag = seismic_disturbance_expansion }
-		has_any_strategic_resource = no
+		#has_any_strategic_resource = no
 		has_owner = yes
 		original_owner = yes
 		is_homeworld = no
 		has_ground_combat = no
 		num_pops > 0
-		planet_size < 25
+		#planet_size < 25
 	}
 	
 	mean_time_to_happen = {
@@ -1466,7 +1388,7 @@ planet_event = {
 			modifier = "subterranean_expansion"
 			days = -1
 		}
-		change_planet_size = +1
+		#change_planet_size = +1
 	}
 }
 
@@ -1577,21 +1499,14 @@ planet_event = {
 	
 	immediate = {
 		set_planet_flag = seismic_disturbance_quake
+		add_planet_devastation = 10
 		
 	}
 	
 	option = {
 		name = UNFORTUNATE
-		random_tile = {
-			limit = { 
-				NOR = { 
-					has_building = "building_colony_shelter"
-					has_building = "building_capital_1"
-					has_building = "building_capital_2"
-					has_building = "building_capital_3"
-				}
-			}
-			set_blocker = "tb_sinkhole_subterraneans"
+		tooltip = {
+			add_planet_devastation = 10
 		}
 	}
 }
@@ -1625,11 +1540,13 @@ planet_event = {
 	
 	option = {
 		name = colony.69.a
-		trigger = {
-			owner = { energy > 99 }
+		allow = {
+			owner = {
+				resource_stockpile_compare = { resource = food value >= 50 }
+			}
 		}
 		owner = {
-			add_energy = -100
+			add_resource = { food = -50 }
 		}
 		hidden_effect = {
 			change_variable = { 
@@ -1712,7 +1629,7 @@ planet_event = {
 		is_homeworld = no
 		has_ground_combat = no
 		num_pops > 0
-		free_pop_tiles > 0
+		#free_housing > 0
 	}
 	
 	mean_time_to_happen = {
@@ -1733,7 +1650,7 @@ planet_event = {
 	option = {
 		name = colony.71.a
 		trigger = {
-			free_pop_tiles > 0
+			#free_housing > 0
 		}
 		create_pop = {
 			species = event_target:subterranean_species
@@ -1830,22 +1747,13 @@ planet_event = {
 	
 	immediate = {
 		set_planet_flag = seismic_disturbance_quake2
+		add_planet_devastation = 10
 	}
 	
 	option = {
 		name = colony.73.a
-		hidden_effect = {
-			random_tile = {
-				limit = {
-					NOR = {
-						has_building = "building_colony_shelter"
-						has_building = "building_capital_1"
-						has_building = "building_capital_2"
-						has_building = "building_capital_3"
-					}
-				}
-				set_blocker = "tb_sinkhole_subterraneans"
-			}
+		tooltip = {
+			add_planet_devastation = 10
 		}
 		every_owned_pop = {
 			add_modifier = {
@@ -1856,18 +1764,10 @@ planet_event = {
 	}
 	option = {
 		name = colony.73.b
+		tooltip = {
+			add_planet_devastation = 10
+		}
 		hidden_effect = {
-			random_tile = {
-				limit = {
-					NOR = {
-						has_building = "building_colony_shelter"
-						has_building = "building_capital_1"
-						has_building = "building_capital_2"
-						has_building = "building_capital_3"
-					}
-				}
-				set_blocker = "tb_sinkhole_subterraneans"
-			}
 			change_variable = {
 				which = "angry_subterraneans"
 				value = 1
@@ -2082,10 +1982,7 @@ planet_event = {
 	}
 	
 	is_triggered_only = yes
-	#mean_time_to_happen = {
-	#	months = 640
-	#}
-	
+
 	immediate = {
 		set_planet_flag = abandoned_terraforming_planet
 		set_planet_flag = colony_event
@@ -2185,22 +2082,13 @@ planet_event = {
 	
 	immediate = {
 		set_planet_flag = terraforming_unstable_weather
+		add_planet_devastation = 10
 	}
 	
 	option = {
 		name = UNFORTUNATE
-		random_tile = {
-			limit = {
-				has_building = yes
-				is_ruined = no
-				NOR = {
-					has_building = "building_colony_shelter"
-					has_building = "building_capital_1"
-					has_building = "building_capital_2"
-					has_building = "building_capital_3"
-				}
-			}
-			set_ruined = yes #remove_building = yes
+		tooltip = {
+			add_planet_devastation = 10
 		}
 	}
 }
@@ -2248,10 +2136,10 @@ planet_event = {
 				limit = { is_robot_pop = no }
 				count < 9
 			}
-			owner = { energy > 149.9 }
+			owner = { resource_stockpile_compare = { resource = energy value >= 150 } }
 		}
 		owner = {
-			add_energy = -150
+			add_resource = { energy = -150 }
 		}
 	}
 	option = {
@@ -2267,10 +2155,10 @@ planet_event = {
 					count < 17
 				}
 			}
-			owner = { energy > 374.9 }
+			owner = { resource_stockpile_compare = { resource = energy value >= 375 } }
 		}
 		owner = {
-			add_energy = -375
+			add_resource = { energy = -375 }
 		}
 	}
 	option = {
@@ -2280,10 +2168,10 @@ planet_event = {
 				limit = { is_robot_pop = no }
 				count > 16
 			}
-			owner = { energy > 649.9 }
+			owner = { resource_stockpile_compare = { resource = energy value >= 650 } }
 		}
 		owner = {
-			add_energy = -600
+			add_resource = { energy = -600 }
 		}
 	}
 }
@@ -2620,9 +2508,7 @@ planet_event = {
 			modifier = "ammonia_biosphere"
 			days = -1
 		}
-		orbital_deposit_tile = { 
-			add_deposit = d_vast_society_deposit
-		}
+		set_deposit = d_society_3
 		hidden_effect = {
 			remove_modifier = "abandoned_terraforming"
 		}
@@ -2656,13 +2542,7 @@ country_event = {
 	option = {
 		name = EXCELLENT
 		FROMFROM = {
-			random_tile = {
-				limit = {
-					has_blocker = no
-					has_building = no
-				}
-				set_building = "building_mutant_landfill"
-			}
+			add_deposit = d_mutant_landfill
 		}
 	}
 }
@@ -2814,7 +2694,10 @@ country_event = {
 		FROMFROM = {
 			set_planet_flag = terraforming_mutants_won
 			remove_planet_flag = terraforming_mutants_invade_planet
-			purge = yes
+			every_owned_pop = {
+				set_pop_flag = event_purge
+				unemploy_pop = yes
+			}
 		}
 	}
 	
@@ -2828,7 +2711,7 @@ country_event = {
 	id = colony.114
 	title = "colony.114.name"
 	desc = "colony.114.desc"
-	picture = GFX_evt_ground_combat
+	picture = GFX_evt_victorious_army
 	show_sound = event_ground_battle
 	location = FROMFROM
 	
@@ -2845,7 +2728,11 @@ country_event = {
 			set_planet_flag = terraforming_mutants_defeated
 			remove_planet_flag = terraforming_mutants_won
 			set_owner = ROOT
-			purge = no
+			every_owned_pop = {
+				remove_pop_flag = event_purge
+				unemploy_pop = yes
+			}
+
 			every_owned_pop = {
 				remove_modifier = "pop_recently_conquered"
 				add_modifier = {
@@ -2921,7 +2808,7 @@ planet_event = {
 	id = colony.151
 	title = "PROJECT_COMPLETE"
 	desc = "colony.151.desc"
-	picture = GFX_evt_archaeological_dig
+	picture = GFX_evt_derelict_interior
 	show_sound = event_airlock
 	location = ROOT
 	
@@ -2929,13 +2816,7 @@ planet_event = {
 	
 	option = {
 		name = INTERESTING
-		random_tile = {
-			limit = {
-				has_blocker = no
-				has_building = no
-			}
-			set_building = "building_vault"
-		}
+		add_deposit = d_underground_vault
 	}
 }
 
@@ -2944,7 +2825,7 @@ planet_event = {
 	id = colony.152
 	title = "PROJECT_COMPLETE"
 	desc = "colony.152.desc"
-	picture = GFX_evt_throne_room
+	picture = GFX_evt_derelict_interior
 	show_sound = event_airlock
 	location = ROOT
 	
@@ -2952,16 +2833,7 @@ planet_event = {
 	
 	option = {
 		name = colony.152.a
-		trigger = {
-			free_pop_tiles > 0
-		}
-		random_tile = {
-			limit = {
-				has_blocker = no
-				has_building = no
-			}
-			set_building = "building_vault_2"
-		}
+		add_deposit = d_underground_vault_2
 		create_species = {
 			name = random
 			class = random_non_machine
@@ -2969,87 +2841,40 @@ planet_event = {
 			traits = random
 			homeworld = root
 		}
-		random_tile = {
-			limit = {
-				has_blocker = no
-				has_grown_pop = no
-				has_growing_pop = no
-			}
-			create_pop = {
-				species = last_created
-			}
+
+		create_pop = {
+			species = last_created
 		}
-		random_tile = {
-			limit = {
-				has_blocker = no
-				has_grown_pop = no
-				has_growing_pop = no
-			}
-			create_pop = {
-				species = last_created
-			}
+		create_pop = {
+			species = last_created
 		}
-		random_tile = {
-			limit = {
-				has_blocker = no
-				has_grown_pop = no
-				has_growing_pop = no
-			}
-			create_pop = {
-				species = last_created
-			}
+		create_pop = {
+			species = last_created
 		}
 	}
 	option = {
 		name = colony.152.b
 		trigger = {
-			free_pop_tiles > 0
 			owner = {
-				allows_slavery = yes
+				OR = { is_xenophobe = yes is_authoritarian = yes }
 			}
 		}
-		random_tile = {
-			limit = {
-				has_blocker = no
-				has_building = no
-			}
-			set_building = "building_vault_2"
-		}
+		add_deposit = d_underground_vault_2
 		create_species = {
 			name = random
 			class = random_non_machine
 			portrait = random
 			traits = random
 		}
-		random_tile = {
-			limit = {
-				has_blocker = no
-				has_grown_pop = no
-				has_growing_pop = no
-			}
-			create_pop = {
-				species = last_created
-			}
+
+		create_pop = {
+			species = last_created
 		}
-		random_tile = {
-			limit = {
-				has_blocker = no
-				has_grown_pop = no
-				has_growing_pop = no
-			}
-			create_pop = {
-				species = last_created
-			}
+		create_pop = {
+			species = last_created
 		}
-		random_tile = {
-			limit = {
-				has_blocker = no
-				has_grown_pop = no
-				has_growing_pop = no
-			}
-			create_pop = {
-				species = last_created
-			}
+		create_pop = {
+			species = last_created
 		}
 		last_created_pop = { set_citizenship_type = { type = citizenship_slavery cooldown = yes } }
 	}
@@ -3083,20 +2908,28 @@ planet_event = {
 		create_country = {
 			name = "NAME_Mutant_Horrors"
 			type = faction
+			auto_delete = yes
+			effect = {
+				establish_communications_no_message = root.owner
+				establish_contact = { who = root.owner location = root.solar_system }
+			}
+		}
+		last_created_country = {
+			save_global_event_target_as = mutant_horror_country
 		}
 		create_army = {
 			name = "NAME_Mutant_Horrors"
-			owner = last_created
+			owner = event_target:mutant_horror_country
 			type = "mutant_army"
 		}
 		create_army = {
 			name = "NAME_Mutant_Horrors"
-			owner = last_created
+			owner = event_target:mutant_horror_country
 			type = "mutant_army"
 		}
 		create_army = {
 			name = "NAME_Mutant_Horrors"
-			owner = last_created
+			owner = event_target:mutant_horror_country
 			type = "mutant_army"
 		}
 	}
@@ -3126,7 +2959,10 @@ country_event = {
 		FROMFROM = {
 			remove_planet_flag = vault_mutants_invade_planet
 			set_planet_flag = vault_mutants_won
-			purge = yes
+			every_owned_pop = {
+				set_pop_flag = event_purge
+				unemploy_pop = yes
+			}
 		}
 	}
 	
@@ -3140,7 +2976,7 @@ country_event = {
 	id = colony.158
 	title = "colony.114.name"
 	desc = "colony.114.desc"
-	picture = GFX_evt_ground_combat
+	picture = GFX_evt_victorious_army
 	show_sound = event_ground_battle
 	location = FROMFROM
 	
@@ -3156,7 +2992,10 @@ country_event = {
 		FROMFROM = {
 			remove_planet_flag = vault_mutants_won
 			set_owner = ROOT
-			purge = no
+			every_owned_pop = {
+				remove_pop_flag = event_purge
+				unemploy_pop = yes
+			}
 			every_owned_pop = {
 				remove_modifier = "pop_recently_conquered"
 				add_modifier = {
@@ -3248,16 +3087,10 @@ planet_event = {
 	
 	is_triggered_only = yes
 	
-	immediate = {
-		random_tile = {
-			limit = { has_grown_pop = yes }
-			kill_pop = yes
-			set_blocker = "tb_bomb_crater"
-		}
-	}
-	
 	option = {
 		name = colony.157.a
+		random_owned_pop = { kill_pop = yes }
+		add_planet_devastation = 20
 	}
 }
 
@@ -3289,19 +3122,9 @@ planet_event = {
 		is_occupied_flag = no
 		num_pops > 0
 		is_capital = no
-		any_tile = {
-			AND = {
-				has_blocker = no
-				has_building = no
-				has_building_construction = no
-			}
-		}
 	}
 	
 	is_triggered_only = yes
-	#mean_time_to_happen = {
-	#	months = 240
-	#}
 	
 	immediate = {
 		set_planet_flag = wasteland_particle_accelerator
@@ -3309,13 +3132,7 @@ planet_event = {
 	
 	option = {
 		name = FASCINATING
-		random_tile = {
-			limit = { 
-				has_blocker = no 
-				has_building = no
-			}
-			set_building = "building_particle_accelerator"
-		}
+		add_deposit = d_ancient_particle_accelerator
 	}
 }
 
@@ -3496,10 +3313,8 @@ planet_event = {
 		num_pops > 0
 		is_capital = no
 		any_pop = {
-			species = {
-				pops_have_happiness = yes
-			}
 			NOT = {
+				pop_has_trait = trait_mechanical
 				OR = {
 					has_ethic = "ethic_pacifist"
 					has_ethic = "ethic_fanatic_pacifist"
@@ -3538,8 +3353,7 @@ planet_event = {
 			limit = {
 				NOR = {
 					has_ethic = "ethic_pacifist"
-					pop_has_trait = trait_robotic_1
-					pop_has_trait = trait_robotic_2
+					pop_has_trait = trait_mechanical
 				}
 			}
 			pop_change_ethic = ethic_pacifist
@@ -3548,8 +3362,7 @@ planet_event = {
 			limit = {
 				NOR = {
 					has_ethic = "ethic_pacifist"
-					pop_has_trait = trait_robotic_1
-					pop_has_trait = trait_robotic_2
+					pop_has_trait = trait_mechanical
 				}
 			}
 			pop_change_ethic = ethic_pacifist
@@ -3558,8 +3371,7 @@ planet_event = {
 			limit = {
 				NOR = {
 					has_ethic = "ethic_pacifist"
-					pop_has_trait = trait_robotic_1
-					pop_has_trait = trait_robotic_2
+					pop_has_trait = trait_mechanical
 				}
 			}
 			pop_change_ethic = ethic_pacifist
@@ -3580,8 +3392,7 @@ planet_event = {
 			limit = {
 				NOR = {
 					has_ethic = "ethic_pacifist"
-					pop_has_trait = trait_robotic_1
-					pop_has_trait = trait_robotic_2
+					pop_has_trait = trait_mechanical
 				}
 			}
 			pop_change_ethic = ethic_pacifist
@@ -3590,8 +3401,7 @@ planet_event = {
 			limit = {
 				NOR = {
 					has_ethic = "ethic_pacifist"
-					pop_has_trait = trait_robotic_1
-					pop_has_trait = trait_robotic_2
+					pop_has_trait = trait_mechanical
 				}
 			}
 			pop_change_ethic = ethic_pacifist
@@ -3600,8 +3410,7 @@ planet_event = {
 			limit = {
 				NOR = {
 					has_ethic = "ethic_pacifist"
-					pop_has_trait = trait_robotic_1
-					pop_has_trait = trait_robotic_2
+					pop_has_trait = trait_mechanical
 				}
 			}
 			pop_change_ethic = ethic_pacifist
@@ -3622,8 +3431,7 @@ planet_event = {
 			limit = {
 				NOR = {
 					has_ethic = "ethic_pacifist"
-					pop_has_trait = trait_robotic_1
-					pop_has_trait = trait_robotic_2
+					pop_has_trait = trait_mechanical
 				}
 			}
 			pop_change_ethic = ethic_pacifist
@@ -3632,8 +3440,7 @@ planet_event = {
 			limit = {
 				NOR = {
 					has_ethic = "ethic_pacifist"
-					pop_has_trait = trait_robotic_1
-					pop_has_trait = trait_robotic_2
+					pop_has_trait = trait_mechanical
 				}
 			}
 			pop_change_ethic = ethic_pacifist
@@ -3642,8 +3449,7 @@ planet_event = {
 			limit = {
 				NOR = {
 					has_ethic = "ethic_pacifist"
-					pop_has_trait = trait_robotic_1
-					pop_has_trait = trait_robotic_2
+					pop_has_trait = trait_mechanical
 				}
 			}
 			pop_change_ethic = ethic_pacifist
@@ -3737,10 +3543,7 @@ planet_event = {
 	
 	option = {
 		name = colony.171.a
-		random_tile = {
-			limit = { has_blocker = no }
-			set_blocker = "tb_crater"
-		}
+		add_deposit = d_crater
 	}
 }
 
@@ -4072,10 +3875,7 @@ planet_event = {
 		remove_global_flag = asteroid_sighted_global
 		remove_planet_flag = asteroid_sighted
 		set_planet_flag = asteroid_collision
-		random_tile = {
-			limit = { has_blocker = no }
-			set_blocker = "tb_crater"
-		}
+		add_deposit = d_crater
 		owner = { end_event_chain = "asteroid_sighted_chain" }
 	}
 	

@@ -80,7 +80,7 @@ guiTypes = {
 		}
 
 		containerWindowType = {
-			name = "ships_black_box"
+			name = "economy_power_black_box"
 			size = { width = 272 height = 27 }
 			position = { x = 140 y = 95 }
 
@@ -91,90 +91,19 @@ guiTypes = {
 		}
 
 		instantTextBoxType={
-			name = "leader_ships"
+			name = "leader_economy_power"
 			font = "cg_16b"
-			text = "FEDERATION_VIEW_LEADER_SHIPS"
+			text = "FEDERATION_VIEW_LEADER_ECONOMY_POWER"
 			position = { x = 150 y = 100 }
-			maxwidth = 60
+			maxwidth = 150
 		}
 
 		instantTextBoxType={
-			name = "leader_ships_val"
+			name = "leader_economy_power_val"
 			font = "cg_16b"
 			position = { x = 350 y = 100 }
 			maxwidth = 50
 			format = right
-		}
-
-		containerWindowType = {
-			name = "armies_black_box"
-			size = { width = 272 height = 27 }
-			position = { x = 140 y = 130 }
-
-			background = {
-				name = "armies_black_box_tile"
-				spriteType = "GFX_black_box_bg"
-			}
-		}
-
-		instantTextBoxType={
-			name = "leader_armies"
-			font = "cg_16b"
-			text = "FEDERATION_VIEW_LEADER_ARMIES"
-			position = { x = 150 y = 135 }
-			maxwidth = 60
-		}
-
-		instantTextBoxType={
-			name = "leader_armies_val"
-			font = "cg_16b"
-			position = { x = 350 y = 135 }
-			maxwidth = 50
-			format = right
-		}
-		
-		instantTextBoxType={
-			name = "no_next_election"
-			font = "cg_16b"
-			text = "FEDERATION_VIEW_NO_NEXT_ROTATION"
-			position = { x = 142 y = 180 }
-			maxwidth = 300
-			text_color_code = "E"
-			pdx_tooltip = "FEDERATION_VIEW_NO_NEXT_ROTATION_DESC"
-		}		
-
-		instantTextBoxType={
-			name = "next_election_desc"
-			font = "cg_16b"
-			text = "FEDERATION_VIEW_NEXT_ROTATION"
-			position = { x = 142 y = 170 }
-			maxwidth = 300
-			text_color_code = "E"
-		}
-
-		instantTextBoxType={
-			name = "next_election_val"
-			font = "cg_16b"
-			position = { x = 265 y = 170 }
-			maxwidth = 300
-		}
-
-		instantTextBoxType={
-			name = "next_president_desc"
-			font = "cg_16b"
-			text = "FEDERATION_VIEW_NEXT_PRESIDENT"
-			position = { x = 142 y = 190 }
-			maxwidth = 300
-			text_color_code = "E"
-		}
-
-		instantTextBoxType={
-			name = "next_president_val"
-			font = "cg_16b"
-			position = { x = 265 y = 190 }
-			maxwidth = 300
-			maxheight = 33
-			fixedSize = yes
 		}
 
 		containerWindowType = {
@@ -200,46 +129,46 @@ guiTypes = {
 					position = { x = 1 y = 205 }
 					Orientation = UPPER_LEFT
 					pdx_tooltip = "ALLIANCE_AND_FEDERATION_VIEW_SORT_NAME"
+				}				
+
+				buttonType={
+					name = "economy_power_button"
+					font = "cg_16b"
+					spriteType = "GFX_button_75_24"
+					buttonText = "ALLIANCE_AND_FEDERATION_VIEW_ECONOMY_POWER"
+					position = { x = 274 y = @sort_button_height }
+					Orientation = UPPER_LEFT
+					pdx_tooltip = "ALLIANCE_AND_FEDERATION_VIEW_SORT_ECONOMY_POWER"
+				}
+
+				buttonType={
+					name = "fleet_power_button"
+					font = "cg_16b"
+					spriteType = "GFX_button_75_24"
+					buttonText = "ALLIANCE_AND_FEDERATION_VIEW_FLEET_POWER"
+					position = { x = 354 y = @sort_button_height }
+					Orientation = UPPER_LEFT
+					pdx_tooltip = "ALLIANCE_AND_FEDERATION_VIEW_SORT_FLEET_POWER"
+				}
+
+				buttonType={
+					name = "technology_power_button"
+					font = "cg_16b"
+					spriteType = "GFX_button_75_24"
+					buttonText = "ALLIANCE_AND_FEDERATION_VIEW_TECHNOLOGY_POWER"
+					position = { x = 434 y = @sort_button_height }
+					Orientation = UPPER_LEFT
+					pdx_tooltip = "ALLIANCE_AND_FEDERATION_VIEW_SORT_TECHNOLOGY_POWER"
 				}
 
 				buttonType={
 					name = "opinion_button"
 					font = "cg_16b"
-					spriteType = "GFX_button_75_24"
+					spriteType = "GFX_button_95_24"
 					buttonText = "ALLIANCE_AND_FEDERATION_VIEW_OPINION"
-					position = { x = 274 y = @sort_button_height }
-					Orientation = UPPER_LEFT
-					pdx_tooltip = "ALLIANCE_AND_FEDERATION_VIEW_SORT_OPINION"
-				}
-
-				buttonType={
-					name = "ships_button"
-					font = "cg_16b"
-					spriteType = "GFX_button_75_24"
-					buttonText = "ALLIANCE_AND_FEDERATION_VIEW_SHIPS"
-					position = { x = 354 y = @sort_button_height }
-					Orientation = UPPER_LEFT
-					pdx_tooltip = "ALLIANCE_AND_FEDERATION_VIEW_SORT_SHIPS"
-				}
-
-				buttonType={
-					name = "armies_button"
-					font = "cg_16b"
-					spriteType = "GFX_button_75_24"
-					buttonText = "ALLIANCE_AND_FEDERATION_VIEW_ARMIES"
-					position = { x = 434 y = @sort_button_height }
-					Orientation = UPPER_LEFT
-					pdx_tooltip = "ALLIANCE_AND_FEDERATION_VIEW_SORT_ARMIES"
-				}
-
-				buttonType={
-					name = "planets_button"
-					font = "cg_16b"
-					spriteType = "GFX_button_75_24"
-					buttonText = "ALLIANCE_AND_FEDERATION_VIEW_PLANETS"
 					position = { x = 514 y = @sort_button_height }
 					Orientation = UPPER_LEFT
-					pdx_tooltip = "ALLIANCE_AND_FEDERATION_VIEW_SORT_PLANETS"
+					pdx_tooltip = "ALLIANCE_AND_FEDERATION_VIEW_SORT_OPINION"
 				}
 			}
 
@@ -490,16 +419,15 @@ guiTypes = {
 		}
 
 		instantTextBoxType={
-			name = "their_opinion"
+			name = "economy_power_amount"
 			font = "cg_16b"
-			text = "-"
-			maxWidth = 40
-			position = { x = 305 y = @entry_info_height }
+			maxWidth = 30
+			position = { x = 310 y = @entry_info_height }
 			format = center
 		}
 
 		instantTextBoxType={
-			name = "ship_amount"
+			name = "fleet_power_amount"
 			font = "cg_16b"
 			maxWidth = 30
 			position = { x = 390 y = @entry_info_height }
@@ -507,17 +435,18 @@ guiTypes = {
 		}
 
 		instantTextBoxType={
-			name = "armies_amount"
+			name = "technology_power_amount"
 			font = "cg_16b"
 			maxWidth = 30
 			position = { x = 470 y = @entry_info_height }
 			format = center
 		}
-
+		
 		instantTextBoxType={
-			name = "planets_amount"
+			name = "their_opinion"
 			font = "cg_16b"
-			maxWidth = 30
+			text = "-"
+			maxWidth = 40
 			position = { x = 550 y = @entry_info_height }
 			format = center
 		}

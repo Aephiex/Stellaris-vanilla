@@ -98,6 +98,11 @@ spriteTypes = {
 		name = "GFX_fleet_capacity_icon"
 		texturefile = "gfx/interface/icons/fleet_capacity_icon.dds"
 	}
+	
+	spriteType = {
+		name = "GFX_research_icon"
+		texturefile = "gfx/interface/icons/research_icon.dds"
+	}
 
 	spriteType = {
 		name = "GFX_trade_cat_credits"
@@ -231,6 +236,12 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_dot_red_icon"
 		texturefile = "gfx/interface/icons/dot_red.dds"
+	}
+
+	spriteType = {
+		name = "GFX_dot_red_green_icon"
+		texturefile = "gfx/interface/icons/dot_red_green.dds"
+		noOfFrames = 2
 	}
 	
 	spriteType = {
@@ -785,6 +796,26 @@ spriteTypes = {
 	}
 	
 	spriteType = {
+		name = "GFX_message_form_commercial_pact"
+		texturefile = "gfx/interface/icons/message/message_form_commercial_pact.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_message_break_commercial_pact"
+		texturefile = "gfx/interface/icons/message/message_break_commercial_pact.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_message_form_research_agreement"
+		texturefile = "gfx/interface/icons/message/message_form_research_agreement.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_message_break_research_agreement"
+		texturefile = "gfx/interface/icons/message/message_break_research_agreement.dds"
+	}
+	
+	spriteType = {
 		name = "GFX_message_guarantee_independence"
 		texturefile = "gfx/interface/icons/message/message_guarantee_independence.dds"
 	}
@@ -850,8 +881,8 @@ spriteTypes = {
 	}	
 
 	spriteType = {
-		name = "GFX_message_auto_explore_cancelled"
-		texturefile = "gfx/interface/icons/message/message_auto_explore_cancelled.dds"
+		name = "GFX_message_auto_explore_canceled"
+		texturefile = "gfx/interface/icons/message/message_auto_explore_canceled.dds"
 	}
 	
 #	spriteType = {
@@ -1671,6 +1702,11 @@ spriteTypes = {
 		texturefile = "gfx/interface/icons/ship_parts/ship_part_subspace_navigation.dds"
 	}
 
+	spriteType = {
+		name = "GFX_ship_part_orbital_trash_dispersal"
+		texturefile = "gfx/interface/icons/ship_parts/ship_part_orbital_trash_dispersal.dds"
+	}
+
 	## Spaceport Modules ##
 
 	spriteType = {
@@ -1757,16 +1793,6 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_spaceport_module_cruiser_assembly_yard"
 		texturefile = "gfx/interface/icons/modules/spaceport_module_cruiser_assembly_yard.dds"
-	}
-	
-	spriteType = {
-		name = "GFX_spaceport_module_neutronium_forge"
-		texturefile = "gfx/interface/icons/modules/spaceport_module_neutronium_forge.dds"
-	}
-	
-	spriteType = {
-		name = "GFX_neutronium_fission_plant"
-		texturefile = "gfx/interface/icons/modules/spaceport_module_neutronium_fission_plant.dds"
 	}
 	
 	spriteType = {
@@ -1901,13 +1927,13 @@ spriteTypes = {
 	# Sector type icons
 	
 		spriteType = {
-		name = "GFX_sector_type_balanced"
+		name = "GFX_sector_focus_type_balanced"
 		texturefile = "gfx/interface/buttons/sector_balanced.dds"
 		noOfFrames = 3
 	}
 
 	spriteType = {
-		name = "GFX_sector_type_balanced_selected"
+		name = "GFX_sector_focus_type_balanced_selected"
 		texturefile = "gfx/interface/buttons/sector_balanced_selected.dds"
 	}
 	
@@ -1924,59 +1950,103 @@ spriteTypes = {
 	}
 
 	spriteType = {
-		name = "GFX_sector_type_military"
-		texturefile = "gfx/interface/buttons/sector_military.dds"
-		noOfFrames = 3
-	}
-
-	spriteType = {
-		name = "GFX_sector_type_military_selected"
-		texturefile = "gfx/interface/buttons/sector_military_selected.dds"
-	}
-
-	spriteType = {
-		name = "GFX_sector_type_industrial"
-		texturefile = "gfx/interface/buttons/sector_industrial.dds"
-		noOfFrames = 3
-	}
-
-	spriteType = {
-		name = "GFX_sector_type_industrial_selected"
-		texturefile = "gfx/interface/buttons/sector_industrial_selected.dds"
-	}
-
-	spriteType = {
-		name = "GFX_sector_type_research"
-		texturefile = "gfx/interface/buttons/sector_research.dds"
-		noOfFrames = 3
-	}
-
-	spriteType = {
-		name = "GFX_sector_type_research_selected"
-		texturefile = "gfx/interface/buttons/sector_research_selected.dds"
-	}
-
-
-	spriteType = {
-		name = "GFX_sector_type_financial"
-		texturefile = "gfx/interface/buttons/sector_financial.dds"
-		noOfFrames = 3
-	}
-
-	spriteType = {
-		name = "GFX_sector_type_financial_selected"
-		texturefile = "gfx/interface/buttons/sector_financial_selected.dds"
-	}
-	
-	spriteType = {
-		name = "GFX_sector_type_agricultural"
+		name = "GFX_sector_production_focus"
 		texturefile = "gfx/interface/buttons/sector_agricultural_focus.dds"
 		noOfFrames = 3
 	}
 
 	spriteType = {
-		name = "GFX_sector_type_agricultural_selected"
+		name = "GFX_sector_production_focus_selected"
 		texturefile = "gfx/interface/buttons/sector_agricultural_focus_selected.dds"
+	}
+
+	spriteType = {
+		name = "GFX_sector_focus_type_military"
+		texturefile = "gfx/interface/buttons/sector_military.dds"
+		noOfFrames = 3
+	}
+
+	spriteType = {
+		name = "GFX_sector_focus_type_military_selected"
+		texturefile = "gfx/interface/buttons/sector_military_selected.dds"
+	}
+
+	spriteType = {
+		name = "GFX_sector_focus_type_manufacturing"
+		texturefile = "gfx/interface/buttons/sector_industrial.dds"
+		noOfFrames = 3
+	}
+
+	spriteType = {
+		name = "GFX_sector_focus_type_manufacturing_selected"
+		texturefile = "gfx/interface/buttons/sector_industrial_selected.dds"
+	}
+
+	spriteType = {
+		name = "GFX_sector_focus_type_industrial"
+		texturefile = "gfx/interface/buttons/sector_industrial.dds"
+		noOfFrames = 3
+	}
+
+	spriteType = {
+		name = "GFX_sector_focus_type_industrial_selected"
+		texturefile = "gfx/interface/buttons/sector_industrial_selected.dds"
+	}
+
+	spriteType = {
+		name = "GFX_sector_focus_type_research"
+		texturefile = "gfx/interface/buttons/sector_research.dds"
+		noOfFrames = 3
+	}
+
+	spriteType = {
+		name = "GFX_sector_focus_type_research_selected"
+		texturefile = "gfx/interface/buttons/sector_research_selected.dds"
+	}
+
+
+	spriteType = {
+		name = "GFX_sector_focus_type_financial"
+		texturefile = "gfx/interface/buttons/sector_financial.dds"
+		noOfFrames = 3
+	}
+
+	spriteType = {
+		name = "GFX_sector_focus_type_financial_selected"
+		texturefile = "gfx/interface/buttons/sector_financial_selected.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_sector_focus_type_agricultural"
+		texturefile = "gfx/interface/buttons/sector_agricultural_focus.dds"
+		noOfFrames = 3
+	}
+
+	spriteType = {
+		name = "GFX_sector_focus_type_agricultural_selected"
+		texturefile = "gfx/interface/buttons/sector_agricultural_focus_selected.dds"
+	}	
+
+	spriteType = {
+		name = "GFX_sector_focus_type_production"
+		texturefile = "gfx/interface/buttons/sector_agricultural_focus.dds"
+		noOfFrames = 3
+	}
+
+	spriteType = {
+		name = "GFX_sector_focus_type_production_selected"
+		texturefile = "gfx/interface/buttons/sector_agricultural_focus_selected.dds"
+	}
+
+	spriteType = {
+		name = "GFX_sector_focus_type_disabled"
+		texturefile = "gfx/interface/buttons/sector_no_focus.dds"
+		noOfFrames = 3
+	}
+
+	spriteType = {
+		name = "GFX_sector_focus_type_disabled_selected"
+		texturefile = "gfx/interface/buttons/sector_no_focus_selected.dds"
 	}	
 
 	spriteType = {
@@ -2058,6 +2128,15 @@ spriteTypes = {
 		name = "GFX_message_mia_jump_aborted"
 		texturefile = "gfx/interface/icons/message/message_mia_jump_aborted.dds"
 	}
+	spriteType = {
+		name = "GFX_message_founder_species_put_on_market"
+		texturefile = "gfx/interface/icons/message/message_founder_species_put_on_market.dds"
+	}
+	spriteType = {
+		name = "GFX_message_refugees_arrived"
+		texturefile = "gfx/interface/icons/message/message_refugees_arrived.dds"
+	}
+	
 
 	### DLCs ###
 

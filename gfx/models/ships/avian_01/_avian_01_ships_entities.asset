@@ -1612,6 +1612,8 @@ entity = {
 	}
 }
 
+entity = { name = "avian_01_sponsored_colonizer_entity" clone = "avian_01_colonizer_entity" }
+
 entity = {
 	name = "avian_01_colony_ship_entity"
 	pdxmesh = "avian_01_colony_mesh"

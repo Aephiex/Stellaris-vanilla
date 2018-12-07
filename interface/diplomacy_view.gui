@@ -606,7 +606,7 @@ guiTypes = {
 			instantTextBoxType={
 				name = "action_title"
 				font = "cg_16b"
-				position = { x = 24 y = -6 }
+				position = { x = 24 y = -10 }
 				maxWidth = 920
 				maxHeight = 20
 				fixedSize = yes
@@ -618,9 +618,9 @@ guiTypes = {
 			instantTextBoxType={
 				name = "action_desc"
 				font = "cg_16b"
-				position = { x = 24 y = 14 }
+				position = { x = 24 y = 10 }
 				maxWidth = 920
-				maxHeight = 60
+				maxHeight = 80
 				fixedSize = yes
 				Orientation = "UPPER_LEFT"
 				format = left

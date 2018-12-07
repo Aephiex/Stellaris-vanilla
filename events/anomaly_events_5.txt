@@ -25,9 +25,6 @@ ship_event = {
 
 	immediate = {
 		hidden_effect = {
-			from = {
-				orbital_deposit_tile = { clear_deposits = yes }
-			}
 			owner = {
 				country_event = { id = story.5 days = 30 }
 			}
@@ -46,27 +43,8 @@ ship_event = {
 					modifier = "acid_jungles"
 					days = -1
 				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-					}
-					set_blocker = tb_noxious_swamp
-				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-					}
-					set_blocker = tb_noxious_swamp
-				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-					}
-					set_blocker = tb_noxious_swamp
-				}
-				orbital_deposit_tile = {
-					add_deposit = d_vast_society_deposit
-				}
+				add_deposit = d_noxious_swamp
+				add_deposit = d_noxious_swamp
 			}
 		}
 
@@ -91,7 +69,7 @@ ship_event = {
 				country_event = { id = story.1 days = 30 }
 			}
 			from = {
-				orbital_deposit_tile = { clear_deposits = yes }
+				clear_deposits = yes
 			}
 		}
 	}
@@ -105,10 +83,7 @@ ship_event = {
 					modifier = "ex_planet"
 					days = -1
 				}
-				orbital_deposit_tile = {
-					add_deposit = d_rich_mineral_deposit
-					add_deposit = d_vast_mineral_deposit
-				}
+				add_deposit = d_alloys_3
 			}
 		}
 	}
@@ -152,9 +127,6 @@ ship_event = {
 	}
 	option = {
 		name = NOTIME
-		owner = {
-			add_influence = 50
-		}
 	}
 }
 
@@ -177,9 +149,9 @@ ship_event = {
 		owner = {
 			add_monthly_resource_mult = {
 				resource = society_research
-				value = @tier3researchreward
-				min = @tier3researchmin
-				max = @tier3researchmax
+				value = @tier1researchreward
+				min = @tier1researchmin
+				max = @tier1researchmax
 			}
 		}
 		hidden_effect = {
@@ -520,10 +492,7 @@ ship_event = {
 	
 	is_triggered_only = yes
 
-	immediate = {
-		from = { orbital_deposit_tile = { clear_deposits = yes } }
-		owner = { country_event = { id = story.5 days = 30 } }
-	}
+	immediate = { owner = { country_event = { id = story.5 days = 30 } } }
 
 	option = {
 		trigger = {
@@ -537,9 +506,7 @@ ship_event = {
 					modifier = "ship_graveyard"
 					days = -1
 				}
-				orbital_deposit_tile = {
-					add_deposit = d_vast_mineral_deposit
-				}
+				add_deposit = d_alloys_2
 			}
 		}
 		owner = {
@@ -560,9 +527,7 @@ ship_event = {
 					modifier = "ship_graveyard"
 					days = -1
 				}
-				orbital_deposit_tile = {
-					add_deposit = d_vast_mineral_deposit
-				}
+				add_deposit = d_alloys_2
 			}
 			owner = {
 				pop_lcluster_event = yes
@@ -638,14 +603,6 @@ ship_event = {
 
 	is_triggered_only = yes
 
-	trigger = {
-		owner = {
-			NOT = {
-				has_country_flag = ai_admiral_found
-			}
-		}
-	}
-
 	immediate = {
 		hidden_effect = {
 			owner = {
@@ -674,9 +631,7 @@ ship_event = {
 					modifier = "ai_fleet"
 					days = -1
 				}
-				orbital_deposit_tile = {
-					add_deposit = d_vast_engineering_deposit
-				}
+				add_deposit = d_engineering_3
 			}
 		}
 	}
@@ -702,7 +657,7 @@ ship_event = {
 				traits = random
 			}
 			create_leader = {
-				type = admiral
+				class = admiral
 				species = last_created
 				name = "NAME_0101010111"
 				skill = 3
@@ -731,14 +686,6 @@ ship_event = {
 	location = FROM
 	
 	is_triggered_only = yes
-
-	trigger = {
-		owner = {
-			NOT = {
-				has_technology = tech_zero_point_power
-			}
-		}
-	}
 
 	option = {
 		name = "anomaly.4035.a"
@@ -814,9 +761,6 @@ ship_event = {
 	}
 	option = {
 		name = NOTIME
-		owner = {
-			add_influence = 50
-		}
 	}
 }
 #TRIGGERED WHEN ENTERING ONE OF THE POI SYSTEMS
@@ -1198,8 +1142,6 @@ ship_event = {
 	
 	is_triggered_only = yes
 
-	immediate = { from = { orbital_deposit_tile = { clear_deposits = yes } } }
-
 	option = {
 		name = CURIOUS
 		custom_tooltip = "anomaly.4040.a.tooltip"
@@ -1209,45 +1151,10 @@ ship_event = {
 					modifier = "irradiated_wasteland"
 					days = -1
 				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-					}
-					set_blocker = tb_radioactive_wasteland
-				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-					}
-					set_blocker = tb_radioactive_wasteland
-				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-					}
-					set_blocker = tb_radioactive_wasteland
-				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-					}
-					set_blocker = tb_radioactive_wasteland
-				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-					}
-					set_blocker = tb_radioactive_wasteland
-				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-					}
-					set_blocker = tb_radioactive_wasteland
-				}
-				orbital_deposit_tile = {
-					add_deposit = d_immense_physics_deposit
-				}
+				add_deposit = d_radioactive_wasteland
+				add_deposit = d_radioactive_wasteland
+				add_deposit = d_radioactive_wasteland
+				add_deposit = d_physics_4
 			}
 		}
 	}
@@ -1263,8 +1170,6 @@ ship_event = {
 	location = FROM
 	
 	is_triggered_only = yes
-	
-	immediate = { from = { orbital_deposit_tile = { clear_deposits = yes } } }
 
 	option = {
 		trigger = {
@@ -1318,12 +1223,9 @@ ship_event = {
 	immediate = {
 		hidden_effect = { owner = { country_event = { id = story.4 days = 30 } } }
 		fromfrom = {
+			add_deposit = d_ancient_one
 			add_modifier = {
 				modifier = "hostile_environment"
-				days = -1
-			}
-			add_modifier = {
-				modifier = "ancient_one"
 				days = -1
 			}
 		}
@@ -1422,20 +1324,17 @@ ship_event = {
 		name = "anomaly.4046.b"
 		hidden_effect = {
 			fromfrom = {
-				remove_modifier = "ancient_one"
+				remove_deposit = d_ancient_one
 			}
 			ship_event = { id = anomaly.4048}
 		}
 	}
 	option = { #leave it alone
 		name = "anomaly.4046.c"
-		custom_tooltip = "anomaly.4046.c.tooltip"
+		custom_tooltip = "anomaly.4046.c.tooltip_new"
 		hidden_effect = {
 			fromfrom = {
-				orbital_deposit_tile = {
-					add_deposit = d_immense_society_deposit
-					add_deposit = d_society_deposit
-				}
+				add_deposit = d_ancient_one
 			}
 		}
 	}
@@ -1452,16 +1351,13 @@ ship_event = {
 
 	option = {
 		name = anomaly.4047.a
-		custom_tooltip = "anomaly.4047.a.tooltip"
+		custom_tooltip = "anomaly.4047.a.tooltip_new"
 		hidden_effect = {
 			FROM = {
 				fromfrom = {
-					orbital_deposit_tile = {
-						add_deposit = d_immense_society_deposit
-						add_deposit = d_society_deposit
-					}
+					add_deposit = d_ancient_one
 				}
-			}
+			} 
 		}
 	}
 }
@@ -1490,10 +1386,7 @@ ship_event = {
 		hidden_effect = {
 			FROM = {
 				fromfrom = {
-					orbital_deposit_tile = {
-						add_deposit = d_immense_society_deposit
-						add_deposit = d_society_deposit
-					}
+					add_deposit = d_society_4
 				}
 			}
 		}
@@ -1874,9 +1767,7 @@ ship_event = {
 		hidden_effect = {
 			FROM = {
 				fromfrom = {
-					orbital_deposit_tile = {
-						add_deposit = d_vast_society_deposit
-					}
+					add_deposit = d_society_3
 				}
 			}
 		}
@@ -1894,7 +1785,7 @@ ship_event = {
 
 	is_triggered_only = yes
 
-	immediate = { from = { orbital_deposit_tile = { clear_deposits = yes } } }
+	immediate = { from = { clear_deposits = yes } }
 
 	option = {
 		name = anomaly.4055.a
@@ -1902,7 +1793,7 @@ ship_event = {
 		hidden_effect = {
 			owner = {
 				create_leader = {
-					type = scientist
+					class = scientist
 					species = owner_main_species
 					name = random
 				}
@@ -1919,10 +1810,8 @@ ship_event = {
 				}
 			}
 			FROM = {
-				orbital_deposit_tile = {
-					add_deposit = d_immense_mineral_deposit
-					add_deposit = d_rich_mineral_deposit
-				}
+				add_deposit = d_minerals_4
+				add_deposit = d_minerals_2
 			}
 		}
 	}
@@ -1937,10 +1826,8 @@ ship_event = {
 				}
 			}
 			FROM = {
-				orbital_deposit_tile = {
-					add_deposit = d_immense_mineral_deposit
-					add_deposit = d_rich_mineral_deposit
-				}
+				add_deposit = d_minerals_4
+				add_deposit = d_minerals_2
 			}
 		}
 	}	
@@ -2065,8 +1952,8 @@ ship_event = {
 						if = {
 							limit = { has_authority = auth_machine_intelligence }
 							text = anomaly.4062.desc.mach
-							else = { text = anomaly.4062.desc }
 						}
+						else = { text = anomaly.4062.desc }
 					}
 					default = { text = anomaly.4062.desc }
 				}
@@ -2159,7 +2046,7 @@ ship_event = {
 			hidden:owner = {
 				switch = {
 					trigger = has_technology
-					tech_mining_network_3 = { text = anomaly.4066.res.desc }
+					tech_mining_2 = { text = anomaly.4066.res.desc }
 					default = { text = anomaly.4066.upg.desc }
 				}
 			}
@@ -2176,24 +2063,24 @@ ship_event = {
 		trigger = {
 			owner = {
 				NOT = {
-					has_technology = tech_mining_network_2
+					has_technology = tech_mining_1
 				}
 			}
 		}
 		owner = {
 			if = {
 				limit = {
-					has_tech_option = tech_mining_network_2
+					has_tech_option = tech_mining_1
 				}
 				add_tech_progress = {
-					tech = tech_mining_network_2
+					tech = tech_mining_1
 					progress = 0.5
 				}
 			}
 			else = {
-				add_research_option = tech_mining_network_2
+				add_research_option = tech_mining_1
 				add_tech_progress = {
-					tech = tech_mining_network_2
+					tech = tech_mining_1
 					progress = 0.25
 				}
 			}
@@ -2203,26 +2090,26 @@ ship_event = {
 		name = EXCELLENT
 		trigger = {
 			owner = {
-				has_technology = tech_mining_network_2
+				has_technology = tech_mining_1
 				NOT = {
-					has_technology = tech_mining_network_3
+					has_technology = tech_mining_2
 				}
 			}
 		}
 		owner = {
 			if = {
 				limit = {
-					has_tech_option = tech_mining_network_3
+					has_tech_option = tech_mining_2
 				}
 				add_tech_progress = {
-					tech = tech_mining_network_3
+					tech = tech_mining_2
 					progress = 0.4
 				}
 			}
 			else = {
-				add_research_option = tech_mining_network_3
+				add_research_option = tech_mining_2
 				add_tech_progress = {
-					tech = tech_mining_network_3
+					tech = tech_mining_2
 					progress = 0.2
 				}
 			}
@@ -2233,15 +2120,13 @@ ship_event = {
 		custom_tooltip = "anomaly.4066.b.tooltip"
 		trigger = {
 			owner = {
-				has_technology = tech_mining_network_3
+				has_technology = tech_mining_2
 			}
 		}
 		from = {
 			fromfrom = {
 				hidden_effect = {
-					orbital_deposit_tile = {
-						add_deposit = d_immense_mineral_deposit
-					}
+					add_deposit = d_minerals_4
 				}
 			}
 		}
@@ -2282,12 +2167,6 @@ ship_event = {
 
 	is_triggered_only = yes
 
-	trigger = {
-		owner = {
-			NOT = { has_policy_flag = interference_passive }
-		}
-	}
-
 	immediate = { hidden_effect = { owner = { country_event = { id = story.1 days = 30 } } } }
 
 	option = {
@@ -2295,7 +2174,7 @@ ship_event = {
 		custom_tooltip = "anomaly.4075.a.tooltip"
 		hidden_effect = {
 			owner = {
-				country_event = {id = anomaly.4076 days = 5}
+				country_event = {id = anomaly.4076 days = 30 }
 			}
 		}
 	}
@@ -2311,7 +2190,7 @@ ship_event = {
 		}
 		hidden_effect = {
 			owner = {
-				country_event = {id = anomaly.4077 days = 5}
+				country_event = {id = anomaly.4077 days = 30 }
 			}
 		}
 	}
@@ -2665,665 +2544,6 @@ ship_event = {
 	}
 }
 
-### Refugees #############################################################################################
-#story8
-#ship_event = {
-#	id = anomaly.4090
-#	title = "anomaly.4090.name"
-#	desc = "anomaly.4090.desc"
-#	picture = GFX_evt_ship_in_orbit
-#	show_sound = event_ship_thrusters
-#	location = from
-#
-#	is_triggered_only = yes
-#
-#	immediate = {
-#		owner = {
-#			set_country_flag = me
-#			save_event_target_as = me
-#		}
-#		from = {
-#			save_event_target_as = anomaly_planet
-#		}
-#		create_country = {
-#			name = "NAME_Refugees"
-#			type = faction
-#			auto_delete = yes
-#		}
-#		create_species = {
-#			name = random
-#			class = random_non_machine
-#			portrait = random
-#			traits = random
-#			homeworld = from
-#		}
-#		last_created_species = {
-#			save_event_target_as = RefugeeAliens
-#		}
-#		#Find some available planets
-#		owner = {
-#			random_owned_planet = {
-#				limit = {
-#					NOR = {
-#						free_pop_tiles < 1
-#						has_planet_flag = refugee_planet_2
-#						has_planet_flag = refugee_planet_3
-#						has_planet_flag = refugee_planet_4
-#					}
-#					habitability = { who = event_target:RefugeeAliens value > 0.5 }
-#				}
-#				save_event_target_as = refugee_planet_1
-#				set_planet_flag = refugee_planet_1
-#				owner = {
-#					set_country_flag = has_space_for_refugees
-#				}
-#			}
-#			random_owned_planet = {
-#				limit = {
-#					NOR = {
-#						free_pop_tiles < 1
-#						has_planet_flag = refugee_planet_1
-#						has_planet_flag = refugee_planet_3
-#						has_planet_flag = refugee_planet_4
-#					}
-#					habitability = { who = event_target:RefugeeAliens value > 0.5 }
-#				}
-#				save_event_target_as = refugee_planet_2
-#				set_planet_flag = refugee_planet_2
-#				owner = {
-#					set_country_flag = has_space_for_refugees
-#				}
-#			}
-#			random_owned_planet = {
-#				limit = {
-#					NOR = {
-#						free_pop_tiles < 1
-#						has_planet_flag = refugee_planet_1
-#						has_planet_flag = refugee_planet_2
-#						has_planet_flag = refugee_planet_4
-#					}
-#					habitability = { who = event_target:RefugeeAliens value > 0.5 }
-#				}
-#				save_event_target_as = refugee_planet_3
-#				set_planet_flag = refugee_planet_3
-#				owner = {
-#					set_country_flag = has_space_for_refugees
-#				}
-#			}
-#			random_owned_planet = {
-#				limit = {
-#					NOR = {
-#						free_pop_tiles < 1
-#						has_planet_flag = refugee_planet_1
-#						has_planet_flag = refugee_planet_2
-#						has_planet_flag = refugee_planet_3
-#					}
-#					habitability = { who = event_target:RefugeeAliens value > 0.5 }
-#				}
-#				save_event_target_as = refugee_planet_4
-#				set_planet_flag = refugee_planet_4
-#				owner = {
-#					set_country_flag = has_space_for_refugees
-#				}
-#			}
-#		}
-#	}
-#
-#	option = {
-#		name = "anomaly.4090.a"
-#		trigger = {
-#			exists = event_target:refugee_planet_1
-#			event_target:refugee_planet_1 = {
-#				exists = owner
-#				owner = { is_same_value = root.owner }
-#			}
-#		}
-#		allow = {
-#			exists = event_target:refugee_planet_1
-#			event_target:refugee_planet_1 = {
-#				exists = owner
-#				owner = { is_same_value = root.owner }
-#			}
-#		}
-#		event_target:refugee_planet_1 = {
-#			random_tile = {
-#				limit = {
-#					AND = {
-#						has_grown_pop = no
-#						has_growing_pop = no
-#					 	has_blocker = no
-#					}
-#				}
-#				create_pop = {
-#					species = event_target:RefugeeAliens
-#					ethos = {
-#						ethic = "ethic_egalitarian"			
-#					}
-#				}
-#			}
-#		}
-#		owner = {
-#			remove_country_flag = has_space_for_refugees
-#			every_owned_planet = {
-#				remove_planet_flag = refugee_planet_1
-#				remove_planet_flag = refugee_planet_2
-#				remove_planet_flag = refugee_planet_3
-#				remove_planet_flag = refugee_planet_4
-#			}
-#		}
-#	}
-#	option = {
-#		name = "anomaly.4090.b"
-#		trigger = {
-#			exists = event_target:refugee_planet_2
-#			event_target:refugee_planet_2 = {
-#				exists = owner
-#				owner = { is_same_value = root.owner }
-#			}
-#		}
-#		allow = {
-#			exists = event_target:refugee_planet_2
-#			event_target:refugee_planet_2 = {
-#				exists = owner
-#				owner = { is_same_value = root.owner }
-#			}
-#		}
-#		event_target:refugee_planet_2 = {
-#			random_tile = {
-#				limit = {
-#					AND = {
-#						has_grown_pop = no
-#						has_growing_pop = no
-#					 	has_blocker = no
-#					}
-#				}
-#				create_pop = {
-#					species = event_target:RefugeeAliens
-#					ethos = {
-#						ethic = "ethic_egalitarian"			
-#					}
-#				}
-#			}
-#		}
-#		owner = {
-#			remove_country_flag = has_space_for_refugees
-#			every_owned_planet = {
-#				remove_planet_flag = refugee_planet_1
-#				remove_planet_flag = refugee_planet_2
-#				remove_planet_flag = refugee_planet_3
-#				remove_planet_flag = refugee_planet_4
-#			}
-#		}
-#	}
-#	option = {
-#		name = "anomaly.4090.c"
-#		trigger = {
-#			exists = event_target:refugee_planet_3
-#			event_target:refugee_planet_3 = {
-#				exists = owner
-#				owner = { is_same_value = root.owner }
-#			}
-#		}
-#		allow = {
-#			exists = event_target:refugee_planet_3
-#			event_target:refugee_planet_3 = {
-#				exists = owner
-#				owner = { is_same_value = root.owner }
-#			}
-#		}
-#		event_target:refugee_planet_3 = {
-#			random_tile = {
-#				limit = {
-#					AND = {
-#						has_grown_pop = no
-#						has_growing_pop = no
-#					 	has_blocker = no
-#					}
-#				}
-#				create_pop = {
-#					species = event_target:RefugeeAliens
-#					ethos = {
-#						ethic = "ethic_egalitarian"			
-#					}
-#				}
-#			}
-#		}
-#		owner = {
-#			remove_country_flag = has_space_for_refugees
-#			every_owned_planet = {
-#				remove_planet_flag = refugee_planet_1
-#				remove_planet_flag = refugee_planet_2
-#				remove_planet_flag = refugee_planet_3
-#				remove_planet_flag = refugee_planet_4
-#			}
-#		}
-#	}
-#	option = {
-#		name = "anomaly.4090.d"
-#		trigger = {
-#			exists = event_target:refugee_planet_4
-#			event_target:refugee_planet_4 = {
-#				exists = owner
-#				owner = { is_same_value = root.owner }
-#			}
-#		}
-#		allow = {
-#			exists = event_target:refugee_planet_4
-#			event_target:refugee_planet_4 = {
-#				exists = owner
-#				owner = { is_same_value = root.owner }
-#			}
-#		}
-#		event_target:refugee_planet_4 = {
-#			random_tile = {
-#				limit = {
-#					AND = {
-#						has_grown_pop = no
-#						has_growing_pop = no
-#					 	has_blocker = no
-#					}
-#				}
-#				create_pop = {
-#					species = event_target:RefugeeAliens
-#					ethos = {
-#						ethic = "ethic_egalitarian"			
-#					}
-#				}
-#			}
-#		}
-#		owner = {
-#			remove_country_flag = has_space_for_refugees
-#			every_owned_planet = {
-#				remove_planet_flag = refugee_planet_1
-#				remove_planet_flag = refugee_planet_2
-#				remove_planet_flag = refugee_planet_3
-#				remove_planet_flag = refugee_planet_4
-#			}
-#		}
-#	}
-#	option = {
-#		name = "anomaly.4090.e"
-#		trigger = {
-#			owner = {
-#				NOT = { has_country_flag = has_space_for_refugees }
-#			}
-#		}
-#		hidden_effect = {
-#			owner = {
-#				every_owned_planet = {
-#					remove_planet_flag = refugee_planet_1
-#					remove_planet_flag = refugee_planet_2
-#					remove_planet_flag = refugee_planet_3
-#					remove_planet_flag = refugee_planet_4
-#				}
-#				country_event = { id = anomaly.4091 days = 1 } 
-#			}
-#		}
-#	}
-#	option = {
-#		name = "anomaly.4090.f"
-#		trigger = {
-#			owner = {
-#				has_country_flag = has_space_for_refugees
-#				NOR = {
-#					has_ethic = "ethic_xenophobe"
-#					has_ethic = "ethic_fanatic_xenophobe"
-#				}
-#			}
-#		}
-#		hidden_effect = {
-#			owner = {
-#				every_owned_planet = {
-#					remove_planet_flag = refugee_planet_1
-#					remove_planet_flag = refugee_planet_2
-#					remove_planet_flag = refugee_planet_3
-#					remove_planet_flag = refugee_planet_4
-#				}
-#				country_event = { id = anomaly.4091 days = 1 } 
-#			}
-#		}
-#	}
-#	option = {
-#		name = "anomaly.4090.g"
-#		trigger = {
-#			owner = {
-#				OR = {
-#					has_ethic = "ethic_xenophobe"
-#					has_ethic = "ethic_fanatic_xenophobe"
-#				}
-#			}
-#		}
-#		hidden_effect = {
-#			owner = {
-#				every_owned_planet = {
-#					remove_planet_flag = refugee_planet_1
-#					remove_planet_flag = refugee_planet_2
-#					remove_planet_flag = refugee_planet_3
-#					remove_planet_flag = refugee_planet_4
-#				}
-#				country_event = { id = anomaly.4091 days = 1 } 
-#			}
-#		}
-#	}
-#}
-#country_event = {
-#	id = anomaly.4091
-#	hide_window = yes
-#	is_triggered_only = yes
-#
-#	immediate = {
-#		fromfrom = {
-#			closest_system = {
-#				limit = {
-#					has_owner = no
-#					is_surveyed = {
-#						who = root
-#						status = no
-#					}
-#					NOT = {
-#						any_country = { intel_level = { level > low system = prev } }
-#					}
-#					any_planet = {
-#						habitable_planet = yes
-#					}
-#				}
-#				min_steps = 0
-#				max_steps = 15
-#				random_planet = {
-#					limit = {
-#						has_owner = no
-#						habitable_planet = yes
-#					}
-#				#fromfrom = {
-#					save_event_target_as = RefugeeAliensPlanet
-#					set_planet_flag = refugee_planet
-#					create_species = {
-#						name = random
-#						class = random_non_machine
-#						portrait = random
-#						traits = random
-#						homeworld = event_target:RefugeeAliensPlanet
-#					}
-#					last_created_species = {
-#						save_event_target_as = RefugeeAliens
-#					}
-#					create_country = {
-#						name = random
-#						type = default
-#						ethos = {
-#							ethic = "ethic_fanatic_xenophile"
-#							ethic = "ethic_militarist"
-#						}
-#						authority = random
-#						civics = random
-#						species = event_target:RefugeeAliens
-#						flag = random
-#					}
-#					last_created_country = {
-#						save_event_target_as = RefugeeCountry
-#						set_relation_flag = {
-#							who = root
-#							flag = AbandonedRefugees
-#						}
-#					}
-#					random_tile = {
-#						limit = {
-#							AND = {
-#								has_grown_pop = no
-#								has_growing_pop = no
-#							 	has_blocker = no
-#							}
-#						}
-#						create_pop = {
-#							species = event_target:RefugeeAliens
-#						}
-#					}
-#					random_tile = {
-#						limit = {
-#							AND = {
-#								has_grown_pop = no
-#								has_growing_pop = no
-#							 	has_blocker = no
-#							}
-#						}
-#						create_pop = {
-#							species = event_target:RefugeeAliens
-#						}
-#					}
-#					random_tile = {
-#						limit = { has_blocker = no has_building = no }
-#						set_building = "building_capital_1"
-#						random_neighboring_tile = {
-#							limit = { has_blocker = no has_building = no }
-#							set_building = "building_hydroponics_farm_1"
-#						}
-#					}
-#					solar_system = {
-#						if = {
-#							limit = { exists = starbase }
-#							# nothin'
-#							else = {
-#								create_starbase = {
-#									size = starbase_outpost
-#									owner = event_target:RefugeeAliens
-#								}
-#							}
-#						}
-#					}
-#				}
-#			}
-#		}
-#	}
-#}
-#country_event = {
-#	id = anomaly.4092
-#	hide_window = yes
-#	is_triggered_only = yes
-#
-#	trigger = {
-#		#is_ai = no
-#		from = {
-#			has_relation_flag = { who = root flag = AbandonedRefugees }
-#		}
-#	}
-#
-#	immediate = {
-#		country_event = { id = anomaly.4093	}
-#	}
-#}
-#country_event = {
-#	id = anomaly.4093
-#	title = "anomaly.4093.name"
-#	desc = "anomaly.4093.desc"
-#	
-#	is_triggered_only = yes
-#	
-#	immediate = {
-#		random_planet = {
-#			limit = {
-#				has_planet_flag = refugee_planet
-#			}
-#			save_event_target_as = RefugeeAliensPlanet
-#			owner = {
-#				save_event_target_as = RefugeeAliensNation
-#			}
-#		}
-#	}
-#
-#	diplomatic = yes
-#	
-#	picture_event_data = {
-#		portrait = event_target:RefugeeAliensNation
-#		planet_background = event_target:RefugeeAliensPlanet
-#		graphical_culture = event_target:RefugeeAliensPlanet
-#		city_level = event_target:RefugeeAliensPlanet
-#		room = event_target:RefugeeAliensNation.ruler
-#	}
-#	
-#	option = {
-#		name = anomaly.4093.a
-#		trigger = {
-#			OR = {
-#				has_ethic = ethic_fanatic_xenophile
-#				has_ethic = ethic_xenophile
-#			}
-#			NOT = {
-#				has_country_flag = refugees_insult
-#				has_country_flag = refugees_apology
-#				has_country_flag = refugees_neutral
-#			}
-#		}
-#		hidden_effect = {
-#			set_country_flag = refugees_apology
-#			country_event = { id = anomaly.4094 }
-#		}
-#	}
-#	option = {
-#		name = anomaly.4093.b
-#		trigger = {
-#			OR = {
-#				has_ethic = ethic_fanatic_egalitarian
-#				has_ethic = ethic_egalitarian
-#			}
-#			NOT = {
-#				has_country_flag = refugees_insult
-#				has_country_flag = refugees_apology
-#				has_country_flag = refugees_neutral
-#			}
-#		}
-#		hidden_effect = {
-#			set_country_flag = refugees_insult
-#			country_event = { id = anomaly.4094 }
-#		}
-#	}
-#	option = {
-#		name = anomaly.4093.c
-#		trigger = {
-#			NOT = {
-#				has_country_flag = refugees_insult
-#				has_country_flag = refugees_apology
-#				has_country_flag = refugees_neutral
-#			}
-#		}
-#		hidden_effect = {
-#			set_country_flag = refugees_neutral
-#			country_event = { id = anomaly.4094 }
-#		}
-#	}
-#	option = {
-#		name = anomaly.4093.d
-#		trigger = {
-#			OR = {
-#				has_ethic = ethic_fanatic_xenophobe
-#				has_ethic = ethic_xenophobe
-#			}
-#			NOT = {
-#				has_country_flag = refugees_insult
-#				has_country_flag = refugees_apology
-#				has_country_flag = refugees_neutral
-#			}
-#		}
-#		hidden_effect = {
-#			set_country_flag = refugees_insult_xeno
-#			country_event = { id = anomaly.4094 }
-#		}
-#	}
-#}
-#country_event = {
-#	id = anomaly.4094
-#	title = "anomaly.4093.name"
-#	desc = {
-#		trigger = {
-#			switch = {
-#				trigger = has_country_flag
-#				refugees_neutral = { text = anomaly.4094.neutral.desc }
-#				refugees_apology = { text = anomaly.4094.apology.desc }
-#				refugees_insult = { text = anomaly.4094.insult.desc }
-#				refugees_insult_xeno = { text = anomaly.4094.xenophobe.desc }
-#				default = { text = "OK" }
-#			}
-#		}
-#	}
-#	
-#	is_triggered_only = yes
-#	
-#	immediate = {
-#		random_planet = {
-#			limit = {
-#				has_planet_flag = refugee_planet
-#			}
-#			remove_planet_flag = refugee_planet
-#		}
-#	}
-#
-#	diplomatic = yes
-#	
-#	picture_event_data = {
-#		portrait = event_target:RefugeeAliensNation
-#		planet_background = event_target:RefugeeAliensPlanet
-#		graphical_culture = event_target:RefugeeAliensPlanet
-#		city_level = event_target:RefugeeAliensPlanet
-#		room = event_target:RefugeeAliensNation.ruler
-#	}
-#	
-#	option = {
-#		name = anomaly.4094.a
-#		trigger = {
-#			has_country_flag = refugees_apology
-#		}
-#		hidden_effect = {
-#			remove_country_flag = has_space_for_refugees
-#			remove_country_flag = refugees_apology
-#			remove_country_flag = refugees_insult
-#			remove_country_flag = refugees_neutral
-#		}
-#		event_target:RefugeeAliensNation = {
-#			add_opinion_modifier = {
-#				who = from
-#				modifier = opinion_abandoned_apology
-#			}
-#		}
-#	}
-#	option = {
-#		name = anomaly.4094.a
-#		trigger = {
-#			OR = {
-#				has_country_flag = refugees_insult
-#				has_country_flag = refugees_insult_xeno
-#			}
-#		}
-#		hidden_effect = {
-#			remove_country_flag = has_space_for_refugees
-#			remove_country_flag = refugees_apology
-#			remove_country_flag = refugees_insult
-#			remove_country_flag = refugees_neutral
-#		}
-#		event_target:RefugeeAliensNation = {
-#			add_opinion_modifier = {
-#				who = from
-#				modifier = opinion_abandoned_insult
-#			}
-#		}
-#	}
-#	option = {
-#		name = anomaly.4094.a
-#		trigger = {
-#			has_country_flag = refugees_neutral
-#		}
-#		hidden_effect = {
-#			remove_country_flag = has_space_for_refugees
-#			remove_country_flag = refugees_apology
-#			remove_country_flag = refugees_insult
-#			remove_country_flag = refugees_neutral
-#		}
-#		event_target:RefugeeAliensNation = {
-#			add_opinion_modifier = {
-#				who = from
-#				modifier = opinion_abandoned
-#			}
-#		}
-#	}
-#}
 ### Lush Planet #############################################################################################
 ship_event = {
 	id = anomaly.4095
@@ -3880,7 +3100,7 @@ ship_event = {
 		hidden_effect = {
 			owner = { country_event = { id = story.5 days = 30 } }
 		}
-		from = { orbital_deposit_tile = { clear_deposits = yes } }
+		from = { clear_deposits = yes }
 	}
 
 	option = {
@@ -3893,10 +3113,8 @@ ship_event = {
 		custom_tooltip = "anomaly.4105.a.tooltip"
 		hidden_effect = {
 			from = {
-				orbital_deposit_tile = {
-					add_deposit = d_immense_engineering_deposit
-					add_deposit = d_rich_engineering_deposit
-				}
+				add_deposit = d_engineering_4
+				add_deposit = d_engineering_2
 				add_modifier = {
 					modifier = fallen_robots
 					days = -1
@@ -3918,10 +3136,8 @@ ship_event = {
 				set_country_flag = edict_renewable_energy
 			}
 			from = {
-				orbital_deposit_tile = {
-					add_deposit = d_immense_engineering_deposit
-					add_deposit = d_rich_engineering_deposit
-				}
+				add_deposit = d_engineering_4
+				add_deposit = d_engineering_2
 				add_modifier = {
 					modifier = fallen_robots
 					days = -1
@@ -3943,10 +3159,8 @@ ship_event = {
 				set_country_flag = edict_renewable_energy
 			}
 			from = {
-				orbital_deposit_tile = {
-					add_deposit = d_immense_engineering_deposit
-					add_deposit = d_rich_engineering_deposit
-				}
+				add_deposit = d_engineering_4
+				add_deposit = d_engineering_2
 				add_modifier = {
 					modifier = fallen_robots
 					days = -1
@@ -3997,46 +3211,10 @@ ship_event = {
 					days = -1
 				}
 
-				orbital_deposit_tile = {
-					add_deposit = d_immense_engineering_deposit
-				}
+				add_deposit = d_engineering_4
 
-				random_tile = {
-					limit = {
-						has_blocker = no
-					}
-					set_blocker = tb_bomb_crater
-				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-					}
-					set_blocker = tb_bomb_crater
-				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-					}
-					set_blocker = tb_city_ruins
-				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-					}
-					set_blocker = tb_city_ruins
-				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-					}
-					set_blocker = tb_city_ruins
-				}
-				#random_tile = {
-				#	limit = {
-				#		has_blocker = no
-				#	}
-				#	set_building = building_robotics_assembly_plant
-				#}
+				add_deposit = d_bomb_crater
+				add_deposit = d_city_ruins
 			}
 		}
 	}
@@ -4098,8 +3276,6 @@ ship_event = {
 
 	is_triggered_only = yes
 
-	immediate = { from = { orbital_deposit_tile = { clear_deposits = yes } } }
-
 	option = {
 		trigger = {
 			leader = {
@@ -4117,40 +3293,8 @@ ship_event = {
 					modifier = liquid_sands
 					days = -1
 				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-					}
-					set_blocker = tb_quicksand_basin
-				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-					}
-					set_blocker = tb_quicksand_basin
-				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-					}
-					set_blocker = tb_quicksand_basin
-				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-					}
-					set_blocker = tb_quicksand_basin
-				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-					}
-					set_blocker = tb_quicksand_basin
-				}
-				orbital_deposit_tile = {
-					add_deposit = d_vast_physics_deposit
-					add_deposit = d_vast_physics_deposit
-				}
+				add_deposit = d_quicksand_basin
+				add_deposit = d_quicksand_basin
 			}
 		}
 	}
@@ -4175,51 +3319,9 @@ ship_event = {
 					modifier = liquid_sands
 					days = -1
 				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-					}
-					set_blocker = tb_quicksand_basin
-				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-					}
-					set_blocker = tb_quicksand_basin
-				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-					}
-					set_blocker = tb_quicksand_basin
-				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-					}
-					set_blocker = tb_quicksand_basin
-				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-					}
-					set_blocker = tb_quicksand_basin
-				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-					}
-					set_blocker = tb_quicksand_basin
-				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-					}
-					set_blocker = tb_quicksand_basin
-				}
-				orbital_deposit_tile = {
-					add_deposit = d_vast_physics_deposit
-				}
+				add_deposit = d_quicksand_basin
+				add_deposit = d_quicksand_basin
+				add_deposit = d_quicksand_basin
 			}
 		}
 	}
@@ -4424,8 +3526,8 @@ ship_event = {
 	}
 }
 
-### Repurpose Mining Station #############################################################################
-#story5
+#### Repurpose Mining Station #############################################################################
+##story5
 #ship_event = {
 #	id = anomaly.4125
 #	title = "anomaly.4125.name"
@@ -4454,7 +3556,7 @@ ship_event = {
 #	immediate = {
 #		hidden_effect = {
 #			owner = { country_event = { id = story.5 days = 30 } }
-#			from = { orbital_deposit_tile = { clear_deposits = yes } }
+#			from = { clear_deposits = yes }
 #		}
 #	}
 #
@@ -4468,9 +3570,7 @@ ship_event = {
 #		custom_tooltip = "anomaly.4125.a.tooltip"
 #		hidden_effect = {
 #			from = {
-#				orbital_deposit_tile = {
-#					add_deposit = d_immense_energy_deposit
-#				}
+#				add_deposit = d_energy_4
 #				create_mining_station = {
 #					owner = ROOT
 #				}
@@ -4491,9 +3591,7 @@ ship_event = {
 #		custom_tooltip = "anomaly.4125.b.tooltip"
 #		hidden_effect = {
 #			from = {
-#				orbital_deposit_tile = {
-#					add_deposit = d_immense_energy_deposit
-#				}
+#				add_deposit = d_energy_4
 #				create_mining_station = {
 #					owner = ROOT
 #				}
@@ -4637,14 +3735,6 @@ ship_event = {
 
 	is_triggered_only = yes
 
-	trigger = {
-		owner = {
-			NOT = {
-				has_country_flag = masters_writings_politics_found
-			}
-		}
-	}
-
 	immediate = {
 		hidden_effect = { owner = { country_event = { id = story.5 days = 30 } } }
 		owner = {
@@ -4735,15 +3825,6 @@ ship_event = {
 	trackable = yes
 
 	is_triggered_only = yes
-
-	trigger = {
-		owner = {
-			NOR = {
-				has_country_flag = masters_writings_philosophy_found
-				has_country_flag = anomaly_140_triggered
-			}
-		}
-	}
 
 	immediate = {
 		hidden_effect = { owner = { country_event = { id = story.5 days = 30 } } }
@@ -4837,14 +3918,6 @@ ship_event = {
 	trackable = yes
 
 	is_triggered_only = yes
-
-	trigger = {
-		owner = {
-			NOT = {
-				has_country_flag = masters_writings_diplomacy_found
-			}
-		}
-	}
 
 	immediate = {
 		hidden_effect = { owner = { country_event = { id = story.5 days = 30 } } }	
@@ -5482,7 +4555,7 @@ country_event = {
 	option = {
 		name = EXCELLENT
 		create_leader = {
-			type = general
+			class = general
 			species = event_target:AlienWarriorSpecies
 			name = "NAME_Majula_the_Bearer"
 			skill = 5
@@ -5648,14 +4721,6 @@ ship_event = {
 	
 	is_triggered_only = yes
 
-	trigger = {
-		owner = {
-			NOT = {
-				has_country_flag = masters_writings_war_found
-			}
-		}
-	}
-
 	immediate = {
 		owner = {
 			set_country_flag = masters_writings_war_found
@@ -5683,15 +4748,9 @@ ship_event = {
 		owner = {
 			add_monthly_resource_mult = {
 				resource = energy
-				value = @tier2materialreward
-				min = @tier2materialmin
-				max = @tier2materialmax
-			}
-			add_monthly_resource_mult = {
-				resource = minerals
-				value = @tier2materialreward
-				min = @tier2materialmin
-				max = @tier2materialmax
+				value = @tier3materialreward
+				min = @tier3materialmin
+				max = @tier3materialmax
 			}
 		}
 	}
@@ -5796,9 +4855,8 @@ ship_event = {
 					modifier = gas_rich_planet
 					days = -1
 				}
-				orbital_deposit_tile = {
-					clear_deposits = yes
-				}
+				add_deposit = d_frozen_gas_lake
+				add_deposit = d_frozen_gas_lake
 			}
 			root = {
 				owner = {
@@ -5811,41 +4869,39 @@ ship_event = {
 		name = anomaly.4170.a
 		custom_tooltip = anomaly.4170.a.tooltip
 	}
-	option = {
-		trigger = {
-			owner = {
-				NOT = {
-					has_ethic = ethic_fanatic_materialist
-				}
-			}
-		}
-		name = anomaly.4170.b
-		custom_tooltip = anomaly.4170.b.tooltip
-		hidden_effect = {
-			root = {
-				owner = {
-					remove_country_flag = limited_modifier_gas_rich_planet
-					add_monthly_resource_mult = {
-						resource = influence
-						value = @tier1influencereward
-						min = @tier1influencemin
-						max = @tier1influencemax
-					}
-				}
-			}
-			from = {
-				remove_modifier = gas_rich_planet
-				add_modifier = {
-					modifier = gas_responsible_mining
-					days = -1
-				}
-				orbital_deposit_tile = {
-					add_deposit = d_immense_energy_deposit
-					add_deposit = d_energy_deposit
-				}
-			}
-		}
-	}
+	#option = {
+	#	trigger = {
+	#		owner = {
+	#			NOT = {
+	#				has_ethic = ethic_fanatic_materialist
+	#			}
+	#		}
+	#	}
+	#	name = anomaly.4170.b
+	#	custom_tooltip = anomaly.4170.b.tooltip
+	#	hidden_effect = {
+	#		root = {
+	#			owner = {
+	#				remove_country_flag = limited_modifier_gas_rich_planet
+	#				add_monthly_resource_mult = {
+	#					resource = influence
+	#					value = @tier1influencereward
+	#					min = @tier1influencemin
+	#					max = @tier1influencemax
+	#				}
+	#			}
+	#		}
+	#		from = {
+	#			remove_modifier = gas_rich_planet
+	#			add_modifier = {
+	#				modifier = gas_responsible_mining
+	#				days = -1
+	#			}
+	#			add_deposit = d_frozen_gas_lake
+	#			add_deposit = d_geothermal_vent
+	#		}
+	#	}
+	#}
 }
 #Hidden effect event triggered on colonization
 planet_event = {

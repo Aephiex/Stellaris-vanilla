@@ -16,7 +16,7 @@ guiTypes = {
 
 		orientation = LOWER_LEFT
 		origo = LOWER_LEFT
-		show_position = { x = 4 y = -30 }
+		show_position = { x = 35 y = -30 }
 		hide_position = { x = -475 y = -30 }
 		animation_time = 200
 		animation_type = decelerated
@@ -432,13 +432,12 @@ guiTypes = {
 				name = "cost_and_gains"
 				font = "cg_16b"
 				position = { x = 10 y = 50 }
-				maxWidth = 430
+				maxWidth = 250
 				maxHeight = 40
 				fixedSize = yes
 				format = left
 				text = "YES"
 				text_color_code = "E"
-				alwaysTransparent = yes
 			}
 		}
 
@@ -788,6 +787,17 @@ guiTypes = {
 			instantTextBoxType = {
 				name = "shield_points"
 				position = { x = 135 y = @status_y }
+				font = "cg_16b"
+				text = "100%"
+				maxWidth = @status_text_width_small
+				maxHeight = @status_text_height
+				fixedSize = yes
+				format = left
+			}
+			
+			instantTextBoxType = {
+				name = "piracy_suppression"
+				position = { x = 200 y = @status_y }
 				font = "cg_16b"
 				text = "100%"
 				maxWidth = @status_text_width_small

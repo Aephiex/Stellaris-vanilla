@@ -72,7 +72,8 @@ planet = {
 	city = {							#L01
 		orientation = lower_left
 		position = { x = 172 y = 77 }
-		pop = 4
+		min_pop = 4
+		max_pop = 4
 	}
     
 	environment = {						#L02
@@ -83,7 +84,8 @@ planet = {
 	city = {							#L02
 		orientation = lower_left
 		position = { x = 172 y = 57 }
-		pop = 1
+		min_pop = 1
+		max_pop = 4
 	}
     
 	environment = {						#L03
@@ -94,7 +96,8 @@ planet = {
 	city = {							#L03
 		orientation = lower_left
 		position = { x = 40 y = 33 }
-		pop = 2
+		min_pop = 2
+		max_pop = 4
 	}
 	
 	environment = {						#L04
@@ -106,13 +109,21 @@ planet = {
 	city = {							#L04
 		orientation = lower_right
 		position = { x = 0 y = 0 }
-		pop = 3
+		min_pop = 3
+		max_pop = 4
 	}
     
 	city = {							#L05
 		orientation = lower_left
 		position = { x = 98 y = 0 }
-		pop = 0
+		min_pop = 0
+		max_pop = 4
+	}
+	
+	city = {							#L06
+		orientation = lower_right
+		position = { x = 0 y = 0 }
+		min_pop = 5
 	}
 }
 

@@ -18,4 +18,24 @@ spriteTypes = {
 		name = "GFX_megastructure_think_tank_background"
 		textureFile = "gfx/interface/planetview/think_tank.dds"
 	}
+	
+	spriteType = {
+		name = "GFX_megastructure_matter_decompressor_background"
+		textureFile = "gfx/interface/planetview/matter_decompressor.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_megastructure_strategic_coordination_center_background"
+		textureFile = "gfx/interface/planetview/strategic_coordination_center.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_megastructure_interstellar_assembly_background"
+		textureFile = "gfx/interface/planetview/interstellar_assembly.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_mega_art_installation_background"
+		textureFile = "gfx/interface/planetview/mega_art_installation.dds"
+	}
 }

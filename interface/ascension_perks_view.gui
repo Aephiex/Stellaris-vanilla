@@ -141,7 +141,7 @@ guiTypes = {
 			font = "malgun_goth_24"
 			text = "NAME"
 			position = { x = 78 y = 0 }
-			maxWidth = 200
+			maxWidth = 280
 			maxHeight = 20
 			fixedSize = yes
 			format = left

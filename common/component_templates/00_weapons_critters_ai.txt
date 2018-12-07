@@ -14,7 +14,12 @@ strike_craft_component_template = {
 	key = "AI_STRIKE_CRAFT"
 	size = LARGE
 	entity = "ai_01_fighter_entity"
-	cost = 60
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = 60
+		}
+	}
 	power = -60
 	hidden = yes
 

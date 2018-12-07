@@ -8,6 +8,7 @@ guardian_scavenger_bot = {
 	is_space_critter = yes
 	blocks_piracy = yes
 	destroys_starbases = yes
+	observable = no
 	ai = {
 		enabled = no
 	}
@@ -29,6 +30,7 @@ guardian_elderly_tiyanki = {
 	is_space_critter = yes
 	blocks_piracy = yes
 	destroys_starbases = yes
+	observable = no
 	ai = {
 		enabled = no
 	}
@@ -49,6 +51,7 @@ ldragon_country = {
 	scaled_difficulty_bonuses = 0.5	# scales to setting
 	is_space_critter = yes
 	government = no
+	observable = no
 	ai = {
 		enabled = no
 	}
@@ -68,6 +71,7 @@ guardian_hatchling = {
 	scaled_difficulty_bonuses = 0.5	# scales to setting
 	is_space_critter = yes
 	destroys_starbases = yes
+	observable = no
 	ai = {
 		enabled = no
 	}
@@ -100,7 +104,8 @@ prikki = {
 	ship_disengagement = yes
 	army_disengagement = yes
 	relations = yes
-	
+	observable = no
+
 	ai = {
 		enabled = yes
 		declare_war = yes
@@ -283,24 +288,6 @@ prikki = {
 				}
 			}
 			
-			android_army = {
-				fraction = {
-					factor = 100
-					modifier = {
-						factor = 0
-						OR = {
-							has_authority = auth_machine_intelligence
-							has_technology = tech_telepathy
-							has_technology = tech_gene_seed_purification	
-							NAND = {
-								has_ai_personality_behaviour = robot_liberator
-								has_technology = tech_synthetic_workers
-							}							
-						}
-					}
-				}
-			}
-			
 			clone_army = {
 				fraction = {
 					factor = 100
@@ -403,5 +390,19 @@ prikki = {
 		standard_pop_factions_module = {}
 		standard_expansion_module = {}
 		standard_species_rights_module = {}
+	}
+
+	resources = {
+		category = country_base
+		produces = {
+			energy = 10
+			minerals = 10
+			physics_research = 10
+			society_research = 10
+			engineering_research = 10
+			influence = 3
+			unity = 2
+			alloys = 5
+		}
 	}
 }

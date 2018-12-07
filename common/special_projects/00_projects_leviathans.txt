@@ -3,7 +3,7 @@ special_project = {
 	key = "INVESTIGATE_ENCLAVE"
 	picture = GFX_evt_star_chart
 	icon = "gfx/interface/icons/situation_log/situation_log_radar.dds"
-	cost = 60
+	cost = 500
 	tech_department = society_technology
 	days_to_research = 0
 	location = no
@@ -113,7 +113,7 @@ special_project = {
 # Automated Dreadnought Project
 special_project = {
 	key = "DISABLED_DREADNOUGHT_PROJECT"
-	cost = 10000
+	cost = 50000
 	#days_to_research = 360
 	tech_department = engineering_technology
 	picture = GFX_evt_automated_dreadnought
@@ -425,7 +425,7 @@ special_project = {
 # Dragon Incubation
 special_project = {
 	key = "DRAGON_INCUBATION_PROJECT"
-	cost = 5000
+	cost = 50000
 	tech_department = society_technology
 	timelimit = 1800
 	

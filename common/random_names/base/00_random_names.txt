@@ -72,6 +72,7 @@ black_hole_names = {
 	"Quiet_Dark"
 	"Abaddons_Demesne"
 	"Eye_of_Hawking"
+	"Eye_of_Bal"
 }
 
 asteroid_prefix = {
@@ -1761,6 +1762,9 @@ star_names = {
 	Immuthin
 	Rhodan
 	Mayer
+	Jezemei
+	Seb
+	"Il_Ya"
 }
 
 nebula_names = {

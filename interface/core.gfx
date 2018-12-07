@@ -22,9 +22,16 @@ spriteTypes = {
 		name = "gfx_transparency_button"
 		texturefile = "gfx/interface/tiles/invisible.tga"
 		size= {x=3 y=3 }
-		borderSize = { x=1 y=1 }
 		alwaystransparent = no
 	}	
+
+	corneredTileSpriteType = {
+		name = "gfx_transparency_button_2"
+		texturefile = "gfx/interface/tiles/invisible_button.dds"
+		borderSize = { x=1 y=1 }
+		alwaystransparent = no
+		noOfFrames = 3
+	}
 
 	corneredTileSpriteType = {
 		name = "GFX_button_light"
@@ -193,7 +200,12 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_diplomacy_portrait_frame_curator"
 		textureFile = "gfx/interface/diplomacy/diplomacy_portrait_frame_curator.dds"
-	}		
+	}
+
+	spriteType = {
+		name = "GFX_diplomacy_portrait_frame_caravaneer"
+		textureFile = "gfx/interface/diplomacy/diplomacy_portrait_frame_caravaneer.dds"
+	}	
 	
 	spriteType = {
 		name = "GFX_diplomacy_portrait_shadow_frame"

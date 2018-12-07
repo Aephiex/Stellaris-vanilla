@@ -46,14 +46,18 @@ tech_robomodding = {
 	}
 	
 	modifier = {
-		ROBOT_species_trait_points_add = 1
+		ROBOT_species_trait_points_add = 2
 	}
 	
 	potential = {
 		NOT = { has_ethic = "ethic_gestalt_consciousness" }
 	}
 
-	weight_modifier = {			
+	weight_modifier = {		
+		modifier = {
+			factor = 0
+			has_policy_flag = robots_outlawed
+		}			
 		modifier = {
 			factor = 1.25
 			research_leader = {
@@ -105,6 +109,10 @@ tech_robomodding_points_1 = {
 	}	
 	
 	weight_modifier = {
+		modifier = {
+			factor = 0
+			has_policy_flag = robots_outlawed
+		}	
 		modifier = {
 			factor = 2
 			has_valid_civic = civic_mechanists
@@ -164,6 +172,10 @@ tech_robomodding_points_2 = {
 	weight_modifier = {
 		factor = 0.5
 		modifier = {
+			factor = 0
+			has_policy_flag = robots_outlawed
+		}
+		modifier = {
 			factor = 2
 			has_valid_civic = civic_mechanists
 		}
@@ -220,57 +232,6 @@ tech_robomodding_points_2 = {
 }
 
 ### Machine Empire Techs
-
-# Probability Theory
-tech_probability_theory = {
-	cost = @tier4cost3
-	area = society
-	tier = 4
-	category = { biology }	
-	prerequisites = { "tech_galactic_administration" }
-	weight = @tier4weight3
-	is_rare = yes
-	
-	# unlocks Probability Engine empire wonder
-	
-	potential = {
-		has_authority = auth_machine_intelligence
-	}	
-
-	weight_modifier = {
-		factor = 0.5
-		modifier = {
-			factor = 0.25
-			NOR = {
-				research_leader = {
-					area = society
-					has_trait = "leader_trait_expertise_biology"
-				}
-				research_leader = {
-					area = society
-					has_trait = "leader_trait_curator"
-				}
-			}
-		}
-		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = society
-				has_trait = "leader_trait_expertise_biology"
-			}
-		}
-	}
-	
-	ai_weight = {
-		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = society
-				has_trait = "leader_trait_expertise_biology"
-			}
-		}
-	}
-}
 
 # Binary Motivators
 tech_binary_motivators = {
@@ -469,39 +430,30 @@ tech_biomechanics = {
 	}
 }
 
-tech_singularity_core = {
-	area = physics
-	tier = 4
-	cost = @tier4cost3
-	category = { field_manipulation }
-	prerequisites = { "tech_physics_lab_1" "tech_galactic_administration" }
-	weight = @tier4weight3
-	is_rare = yes
+
+# Micro Replicators
+tech_micro_replicators = {
+	cost = @tier2cost2
+	area = engineering
+	tier = 2
+	category = { industry }	
+	weight = @tier2weight2
+	
+	modifier = {
+		pop_assembly_speed = 0.10
+	}
 	
 	potential = {
 		has_authority = auth_machine_intelligence
-	}	
+	}
 	
 	weight_modifier = {
-		factor = 0.5
-		modifier = {
-			factor = 0.25
-			NOR = {
-				research_leader = {
-					area = physics
-					has_trait = "leader_trait_expertise_field_manipulation"
-				}
-				research_leader = {
-					area = physics
-					has_trait = "leader_trait_curator"
-				}
-			}
-		}
+		factor = 1.5 
 		modifier = {
 			factor = 1.25
 			research_leader = {
-				area = physics
-				has_trait = "leader_trait_expertise_field_manipulation"
+				area = society
+				has_trait = "leader_trait_expertise_industry"
 			}
 		}
 	}
@@ -510,67 +462,48 @@ tech_singularity_core = {
 		modifier = {
 			factor = 1.25
 			research_leader = {
-				area = physics
-				has_trait = "leader_trait_expertise_field_manipulation"
-			}
-		}
-	}
-}
-
-#Replacing Frontier Health
-tech_modular_components = {
-	cost = @tier1cost2
-	area = society
-	tier = 1
-	category = { statecraft }
-	prerequisites = { "tech_colonization_1" }
-	weight = @tier2weight1
-	
-	potential = {
-		has_authority = auth_machine_intelligence
-	}	
-	
-	weight_modifier = {
-		factor = 2
-		modifier = {
-			factor = 1.25
-			research_leader = {
 				area = society
-				has_trait = "leader_trait_expertise_statecraft"
+				has_trait = "leader_trait_expertise_industry"
 			}
-		}
-		modifier = {
-			factor = 0
-			NOT = { has_authority = auth_machine_intelligence }
 		}
 	}
 }
 
-#Replacing Frontier Hospital
-tech_intelligent_factories = {
-	cost = @tier2cost3
-	area = society
-	tier = 2
-	category = { statecraft }
-	prerequisites = { "tech_modular_components" "tech_colonial_centralization" }
-	weight = @tier2weight3
+# Self-Assembling Components
+tech_self_assembling_components = {
+	cost = @tier3cost3
+	area = engineering
+	tier = 3
+	category = { industry }	
+	weight = @tier3weight3
+	prerequisites = { "tech_micro_replicators" }
+	
+	modifier = {
+		pop_assembly_speed = 0.10
+	}
 	
 	potential = {
 		has_authority = auth_machine_intelligence
 	}
 	
 	weight_modifier = {
-		factor = 2
+		factor = 1.5 
 		modifier = {
 			factor = 1.25
 			research_leader = {
 				area = society
-				has_trait = "leader_trait_expertise_statecraft"
+				has_trait = "leader_trait_expertise_industry"
 			}
 		}
+	}
+	
+	ai_weight = {
 		modifier = {
-			factor = 0
-			NOT = { has_authority = auth_machine_intelligence }
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_industry"
+			}
 		}
 	}
 }

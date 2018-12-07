@@ -3,649 +3,7 @@
 ### FALLEN EMPIRE HOME SYSTEMS
 
 # Home System I
-fallen_1_1 = {
-	usage = fallen_empire_init
-	name = "NAME_Beacon_of_Infinity"
-	class = "sc_g"
-
-	planet = {
-		class = star
-		orbit_distance = 0
-	}
-
-	change_orbit = 45
-
-	planet = {
-		class = "pc_ringworld_habitable"
-		name = "NAME_Palatial_District"
-		orbit_angle = 30
-		orbit_distance = 0
-		tile_blockers = none
-		modifiers = none
-
-		init_effect = {
-
-			create_cluster = {
-				id = fe1_cluster
-				radius = 80
-				center = this.solar_system
-			}
-
-			set_planet_flag = fallen_empire_world
-			prevent_anomaly = yes
-			set_owner = root
-			set_controller = root
-			set_capital = yes
-			random_tile = {
-				limit = { has_building = no has_blocker = no num_adjacent_tiles > 3 }
-				set_building = "building_capital_3"
-				set_deposit = d_energy_deposit
-				create_pop = {
-					species = owner_main_species
-				}
-			}
-			while = {
-				count = 4
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_dark_matter_power_plant"
-					set_deposit = d_energy_deposit
-					create_pop = {
-						species = owner_main_species
-					}
-				}
-			}
-			while = {
-				count = 2
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_ancient_archives"
-					set_deposit = d_physics_deposit
-					create_pop = {
-						species = owner_main_species
-					}
-				}
-			}
-			while = {
-				count = 2
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_ancient_archives"
-					set_deposit = d_society_deposit
-					create_pop = {
-						species = owner_main_species
-					}
-				}
-			}
-			while = {
-				count = 2
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_ancient_archives"
-					set_deposit = d_engineering_deposit
-					create_pop = {
-						species = owner_main_species
-					}
-				}
-			}
-			while = {
-				count = 4
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_ancient_factory"
-					set_deposit = d_mineral_deposit
-					build_pop = {
-						name = buildable_robot_pop_3
-					}
-				}
-			}
-			while = {
-				count = 4
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_fortress"
-					clear_deposits = yes
-					build_pop = {
-						name = buildable_robot_pop_3
-					}
-				}
-			}
-			every_tile = {
-				limit = { has_building = no has_blocker = no has_pop = no }
-				set_blocker = tb_ancient_ruins
-			}
-			while = {
-				count = 15
-				create_army = {
-					name = random
-					owner = ROOT
-					species = ROOT
-					type = "android_army"
-				}
-			}
-			create_fallen_empire_starting_navy = yes
-		}
-	}
-	planet = {
-		class = "pc_ringworld_tech"
-		name = "NAME_Ring_Section_B"
-		orbit_angle = 30
-		orbit_distance = 0
-	}
-	planet = {
-		class = "pc_ringworld_seam"
-		name = "NAME_Ring_Section_C"
-		orbit_angle = 30
-		orbit_distance = 0
-	}
-	planet = {
-		class = "pc_ringworld_habitable"
-		name = "NAME_Trade_District"
-		orbit_angle = 30
-		orbit_distance = 0
-		tile_blockers = none
-		modifiers = none
-
-		init_effect = {
-			set_planet_flag = fallen_empire_world
-			prevent_anomaly = yes
-			set_owner = ROOT
-			while = {
-				count = 10
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_dark_matter_power_plant"
-					set_deposit = d_energy_deposit
-				}
-			}			
-			while = {
-				count = 10
-				create_pop = {
-					species = owner_main_species
-				}
-			}
-			while = {
-				count = 2
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_fortress"
-					clear_deposits = yes
-					build_pop = {
-						name = buildable_robot_pop_3
-					}
-				}
-			}			
-			every_tile = {
-				limit = { has_building = no has_blocker = no has_pop = no }
-				set_blocker = tb_ancient_ruins
-			}
-		}
-	}
-	planet = {
-		class = "pc_ringworld_tech"
-		name = "NAME_Ring_Section_E"
-		orbit_angle = 30
-		orbit_distance = 0
-	}
-	planet = {
-		class = "pc_ringworld_seam"
-		name = "NAME_Ring_Section_F"
-		orbit_angle = 30
-		orbit_distance = 0
-	}
-	planet = {
-		class = "pc_ringworld_habitable"
-		name = "NAME_Industrial_District"
-		orbit_angle = 30
-		orbit_distance = 0
-		tile_blockers = none
-		modifiers = none
-
-		init_effect = {
-			set_planet_flag = fallen_empire_world
-			prevent_anomaly = yes
-			set_owner = ROOT
-			while = {
-				count = 10
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_ancient_factory"
-					set_deposit = d_mineral_deposit
-				}
-			}
-			while = {
-				count = 10
-				build_pop = {
-					name = buildable_robot_pop_3
-				}
-			}
-			while = {
-				count = 2
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_fortress"
-					clear_deposits = yes
-					build_pop = {
-						name = buildable_robot_pop_3
-					}
-				}
-			}			
-			every_tile = {
-				limit = { has_building = no has_blocker = no has_pop = no }
-				set_blocker = tb_ancient_ruins
-			}
-		}
-	}
-	planet = {
-		class = "pc_ringworld_tech"
-		name = "NAME_Ring_Section_H"
-		orbit_angle = 30
-		orbit_distance = 0
-	}
-	planet = {
-		class = "pc_ringworld_seam"
-		name = "NAME_Ring_Section_I"
-		orbit_angle = 30
-		orbit_distance = 0
-	}
-	planet = {
-		class = "pc_ringworld_habitable"
-		name = "NAME_Agrarian_District"
-		orbit_angle = 30
-		orbit_distance = 0
-		tile_blockers = none
-		modifiers = none
-
-		init_effect = {
-			set_planet_flag = fallen_empire_world
-			prevent_anomaly = yes
-			set_owner = ROOT
-			while = {
-				count = 6
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_agri_processing_complex"
-					set_deposit = d_farmland_deposit
-				}
-			}
-			while = {
-				count = 6
-				build_pop = {
-					name = buildable_robot_pop_3
-				}
-			}
-			while = {
-				count = 2
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_fortress"
-					clear_deposits = yes
-					build_pop = {
-						name = buildable_robot_pop_3
-					}
-				}
-			}			
-			every_tile = {
-				limit = { has_building = no has_blocker = no has_pop = no }
-				set_blocker = tb_ancient_ruins
-			}
-		}
-	}
-	planet = {
-		class = "pc_ringworld_tech"
-		name = "NAME_Ring_Section_K"
-		orbit_angle = 30
-		orbit_distance = 0
-	}
-	planet = {
-		class = "pc_ringworld_seam"
-		name = "NAME_Ring_Section_L"
-		orbit_angle = 30
-		orbit_distance = 0
-	}
-
-	neighbor_system = {
-		distance = { min = 0 max = 50 }
-		initializer = "fallen_1_1_2"
-	}
-	neighbor_system = {
-		distance = { min = 0 max = 50 }
-		initializer = "fallen_1_1_3"
-	}
-
-	init_effect = {
-		create_fe_home_citadel = yes
-	}
-}
-
-fallen_1_1_2 = {
-	class = "sc_g"
-	name = "NAME_Beacon_of_Stability"
-
-	planet = {
-		class = star
-		orbit_distance = 0
-		orbit_angle = 0
-
-		init_effect = {
-			create_ambient_object = {
-				type = "large_debris_object"
-				entity_offset_height = { min = -0 max = -25 }
-				location = this
-			}
-			last_created_ambient_object = {
-				set_location = {
-					target = prev
-					distance = 45
-					angle = 90
-				}
-			}
-			create_ambient_object = {
-				type = "large_debris_object"
-				entity_offset_height = { min = -0 max = -25 }
-				location = this
-			}
-			last_created_ambient_object = {
-				set_location = {
-					target = prev
-					distance = 45
-					angle = 145
-				}
-			}
-			create_ambient_object = {
-				type = "large_debris_object"
-				entity_offset_height = { min = -0 max = -25 }
-				location = this
-			}
-			last_created_ambient_object = {
-				set_location = {
-					target = prev
-					distance = 45
-					angle = 210
-				}
-			}
-		}
-	}
-
-	change_orbit = 45
-
-	planet = {
-		class = "pc_ringworld_seam"
-		name = "NAME_Ring_Section_C"
-		orbit_angle = -30
-		orbit_distance = 0
-	}
-	planet = {
-		class = "pc_ringworld_habitable"
-		name = "NAME_Eternal_Bastion"
-		orbit_angle = 30
-		orbit_distance = 0
-		tile_blockers = none
-		modifiers = none
-
-		init_effect = {
-			set_planet_flag = fallen_empire_world
-			prevent_anomaly = yes
-			set_owner = ROOT
-			random_tile = {
-				limit = { has_building = no has_blocker = no num_adjacent_tiles > 3 }
-				set_building = "building_capital_2"
-				set_deposit = d_energy_deposit
-				create_pop = {
-					species = owner_main_species
-				}
-			}
-			random_tile = {
-				limit = { has_building = no has_blocker = no }
-				set_building = "building_agri_processing_complex"
-				set_deposit = d_farmland_deposit
-				build_pop = {
-					name = buildable_robot_pop_3
-				}
-			}
-			while = {
-				count = 4
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_ancient_factory"
-					set_deposit = d_mineral_deposit
-					build_pop = {
-						name = buildable_robot_pop_3
-					}
-				}
-			}
-			while = {
-				count = 3
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_dark_matter_power_plant"
-					set_deposit = d_mineral_deposit
-					create_pop = {
-						species = owner_main_species
-					}
-				}
-			}
-			while = {
-				count = 5
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_fortress"
-					clear_deposits = yes
-					build_pop = {
-						name = buildable_robot_pop_3
-					}
-				}
-			}	
-			random_tile = {
-				limit = { has_building = no has_blocker = no }
-				set_building = "building_planetary_shield_generator"
-				clear_deposits = yes
-				create_pop = {
-					species = owner_main_species
-				}			
-			}					
-			every_tile = {
-				limit = { has_building = no has_blocker = no has_pop = no }
-				set_blocker = tb_ancient_ruins
-			}
-		}
-	}
-	planet = {
-		class = "pc_ringworld_tech"
-		name = "NAME_Ring_Section_E"
-		orbit_angle = 30
-		orbit_distance = 0
-	}
-
-	init_effect = {
-		spawn_megastructure = {
-			type = "ring_world_ruined"
-			orbit_angle = 90
-			orbit_distance = 45
-			location = planet
-		}
-		spawn_megastructure = {
-			type = "ring_world_ruined"
-			orbit_angle = 180
-			orbit_distance = 45
-			location = planet
-		}
-		spawn_megastructure = {
-			type = "ring_world_ruined"
-			orbit_angle = 270
-			orbit_distance = 45
-			location = planet
-		}
-
-		create_fe_citadel = yes
-	}
-}
-
-fallen_1_1_3 = {
-	class = "sc_g"
-	name = "NAME_Beacon_of_Perpetuity"
-
-	planet = {
-		class = star
-		orbit_distance = 0
-	}
-
-	change_orbit = 45
-
-	planet = {
-		class = "pc_ringworld_habitable_damaged"
-		name = "NAME_Ring_Segment_A"
-		orbit_angle = 30
-		orbit_distance = 0
-
-		init_effect = {
-			create_ambient_object = {
-				type = "large_debris_object"
-				location = THIS
-			}
-		}
-	}
-	planet = {
-		class = "pc_ringworld_tech_damaged"
-		name = "NAME_Ring_Segment_B"
-		orbit_angle = 30
-		orbit_distance = 0
-	}
-	planet = {
-		class = "pc_ringworld_seam_damaged"
-		name = "NAME_Ring_Segment_C"
-		orbit_angle = 30
-		orbit_distance = 0
-
-		init_effect = {
-			create_ambient_object = {
-				type = "medium_debris_01_object"
-				location = THIS
-			}
-		}
-	}
-	planet = {
-		class = "pc_ringworld_habitable_damaged"
-		name = "NAME_Ring_Segment_D"
-		orbit_angle = 30
-		orbit_distance = 0
-	}
-	planet = {
-		class = "pc_ringworld_tech_damaged"
-		name = "NAME_Ring_Segment_E"
-		orbit_angle = 30
-		orbit_distance = 0
-
-		init_effect = {
-			create_ambient_object = {
-				type = "small_debris_object"
-				location = THIS
-			}
-		}
-	}
-	planet = {
-		class = "pc_ringworld_seam_damaged"
-		name = "NAME_Ring_Segment_F"
-		orbit_angle = 30
-		orbit_distance = 0
-	}
-	planet = {
-		class = "pc_ringworld_habitable_damaged"
-		name = "NAME_Ring_Section_G"
-		orbit_angle = 30
-		orbit_distance = 0
-
-		init_effect = {
-			create_ambient_object = {
-				type = "medium_debris_02_object"
-				location = THIS
-			}
-		}
-	}
-	planet = {
-		class = "pc_ringworld_tech_damaged"
-		name = "NAME_Ring_Segment_H"
-		orbit_angle = 30
-		orbit_distance = 0
-	}
-	planet = {
-		class = "pc_ringworld_seam_damaged"
-		name = "NAME_Ring_Segment_I"
-		orbit_angle = 30
-		orbit_distance = 0
-
-		init_effect = {
-			create_ambient_object = {
-				type = "large_debris_object"
-				location = THIS
-			}
-		}
-	}
-	planet = {
-		class = "pc_ringworld_habitable_damaged"
-		name = "NAME_Ring_Segment_J"
-		orbit_angle = 30
-		orbit_distance = 0
-	}
-	planet = {
-		class = "pc_ringworld_tech_damaged"
-		name = "NAME_Ring_Segment_K"
-		orbit_angle = 30
-		orbit_distance = 0
-
-		init_effect = {
-			create_ambient_object = {
-				type = "small_debris_object"
-				location = THIS
-			}
-		}
-	}
-	planet = {
-		class = "pc_ringworld_seam_damaged"
-		name = "NAME_Ring_Segment_L"
-		orbit_angle = 30
-		orbit_distance = 0
-	}
-
-	init_effect = {
-		create_ambient_object = {
-			type = "large_debris_object"
-			location = solar_system
-		}
-		create_ambient_object = {
-			type = "large_debris_object"
-			location = solar_system
-		}
-		create_ambient_object = {
-			type = "medium_debris_01_object"
-			location = solar_system
-		}
-		create_ambient_object = {
-			type = "medium_debris_01_object"
-			location = solar_system
-		}
-		create_ambient_object = {
-			type = "medium_debris_02_object"
-			location = solar_system
-		}
-		create_ambient_object = {
-			type = "medium_debris_02_object"
-			location = solar_system
-		}
-		create_ambient_object = {
-			type = "small_debris_object"
-			location = solar_system
-		}
-		create_ambient_object = {
-			type = "small_debris_object"
-			location = solar_system
-		}
-	}
-}
-
-
-# Home System I - II
-fallen_1_2 = {
+fallen_1 = {
 	usage = fallen_empire_init
 	class = "rl_standard_stars"
 	asteroid_belt = {
@@ -674,10 +32,10 @@ fallen_1_2 = {
 	planet = {
 		name = "NAME_Great_Nexus"
 		orbit_distance = 15
-		class = pc_gaia
+		class = pc_city
 		orbit_angle = { min = 90 max = 270 }
-		size = 25
-		tile_blockers = none
+		size = 20
+		deposit_blockers = none
 		modifiers = none
 		has_ring = no
 
@@ -693,7 +51,6 @@ fallen_1_2 = {
 		}
 
 		init_effect = {
-
 			create_cluster = {
 				id = fe1_cluster
 				radius = 120
@@ -705,68 +62,63 @@ fallen_1_2 = {
 			set_owner = root
 			set_controller = root
 			set_capital = yes
-			random_tile = {
-				limit = { has_building = no has_blocker = no num_adjacent_tiles > 3 }
-				set_building = "building_capital_3"
-				set_deposit = d_energy_deposit
+
+			add_building = building_ancient_palace
+			add_building = building_fe_stronghold
+			add_building = building_fe_stronghold
+			add_building = building_affluence_center
+			add_building = building_affluence_center
+			add_building = building_nourishment_center
+			add_building = building_nourishment_center
+			add_building = building_class_4_singularity
+			add_building = building_class_4_singularity
+			add_building = building_class_4_singularity
+			add_building = building_dimensional_fabricator
+			add_building = building_dimensional_fabricator
+			add_building = building_dimensional_fabricator
+			add_building = building_nano_forge
+			add_building = building_nano_forge
+			add_building = building_nano_forge
+			while = {
+				count = 20
+				add_district = district_arcology_housing
+			}
+			while = {
+				count = 94
 				create_pop = {
 					species = owner_main_species
 				}
 			}
-			while = {
-				count = 4
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_agri_processing_complex"
-					set_deposit = d_farmland_deposit
-					create_pop = {
-						species = owner_main_species
-					}
+			root = {
+				set_policy = {
+					policy = artificial_intelligence_policy
+					option = ai_servitude
+					cooldown = no
+				}
+				set_policy = {
+					policy = robot_pop_policy
+					option = robot_pops_allowed
+					cooldown = no
 				}
 			}
+			root = { create_fe_servant_robots = yes }
+			last_created_species = { save_event_target_as = fe_servants }
 			while = {
-				count = 9
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_dark_matter_power_plant"
-					set_deposit = d_energy_deposit
-					create_pop = {
-						species = owner_main_species
-					}
-				}
-			}
-			while = {
-				count = 8
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_ancient_factory"
-					set_deposit = d_mineral_deposit
-					build_pop = {
-						name = buildable_robot_pop_3
-					}
-				}
-			}
-			while = {
-				count = 3
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_fortress"
-					clear_deposits = yes
-					build_pop = {
-						name = buildable_robot_pop_3
-					}
-				}
-			}			
-			while = {
-				count = 15
-				create_army = {
-					name = random
-					owner = ROOT
-					species = ROOT
-					type = "android_army"
+				count = 94
+				create_pop = {
+					species = event_target:fe_servants
 				}
 			}
 			create_fallen_empire_starting_navy = yes
+			while = {
+				count = 20
+				create_army = {
+					name = random
+					owner = root
+					species = root
+					type = "robotic_army"
+				}
+			}			
 		}
 	}
 
@@ -806,7 +158,7 @@ fallen_1_2 = {
 
 	neighbor_system = {
 		distance = { min = 0 max = 50 }
-		initializer = "fallen_1_2_2"
+		initializer = "fallen_1_2"
 	}
 	neighbor_system = {
 		distance = { min = 0 max = 50 }
@@ -822,7 +174,7 @@ fallen_1_2 = {
 	}
 }
 
-fallen_1_2_2 = {
+fallen_1_2 = {
 	usage = fallen_empire_init
 	class = "rl_standard_stars"
 	asteroid_belt = {
@@ -855,85 +207,47 @@ fallen_1_2_2 = {
 		class = pc_gaia
 		orbit_angle = { min = 90 max = 270 }
 		size = 15
-		tile_blockers = none
+		deposit_blockers = none
 		modifiers = none
 		has_ring = no
 
 		init_effect = {
 			set_planet_flag = fallen_empire_world
 			prevent_anomaly = yes
-			set_owner = ROOT
-			random_tile = {
-				limit = { has_building = no has_blocker = no num_adjacent_tiles > 3 }
-				set_building = "building_capital_2"
-				set_deposit = d_energy_deposit
+			set_owner = root
+			set_controller = root			
+		
+			add_building = building_ancient_palace
+			add_building = building_master_archive
+			add_building = building_fe_stronghold
+			add_building = building_fe_dome
+			add_building = building_fe_dome
+			add_building = building_class_4_singularity
+			add_building = building_class_4_singularity
+			add_building = building_affluence_center
+			add_building = building_affluence_center
+			add_building = building_nourishment_center
+			add_building = building_nourishment_center
+			add_building = building_dimensional_fabricator
+			add_building = building_dimensional_fabricator			
+			add_building = building_nano_forge
+			add_building = building_nano_forge			
+			while = {
+				count = 15
+				add_district = district_city
+			}
+			while = {
+				count = 35
 				create_pop = {
 					species = owner_main_species
 				}
 			}
 			while = {
-				count = 3
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_dark_matter_power_plant"
-					set_deposit = d_energy_deposit
-					create_pop = {
-						species = owner_main_species
-					}
+				count = 35
+				create_pop = {
+					species = event_target:fe_servants
 				}
 			}
-			while = {
-				count = 4
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_ancient_factory"
-					set_deposit = d_mineral_deposit
-					build_pop = {
-						name = buildable_robot_pop_3
-					}
-				}
-			}
-			while = {
-				count = 2
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_ancient_archives"
-					set_deposit = d_physics_deposit
-					create_pop = {
-						species = owner_main_species
-					}
-				}
-			}
-			while = {
-				count = 2
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_ancient_archives"
-					set_deposit = d_society_deposit
-					create_pop = {
-						species = owner_main_species
-					}
-				}
-			}
-			while = {
-				count = 2
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_ancient_archives"
-					set_deposit = d_engineering_deposit
-					create_pop = {
-						species = owner_main_species
-					}
-				}
-			}
-			random_tile = {
-				limit = { has_building = no has_blocker = no }
-				set_building = "building_fortress"
-				clear_deposits = yes
-				build_pop = {
-					name = buildable_robot_pop_3
-				}
-			}		
 		}
 	}
 
@@ -1022,8 +336,8 @@ fallen_2 = {
 		orbit_distance = 20
 		class = pc_gaia
 		orbit_angle = { min = 90 max = 270 }
-		size = 25
-		tile_blockers = none
+		size = 30
+		deposit_blockers = none
 		modifiers = none
 
 		init_effect = {
@@ -1039,64 +353,51 @@ fallen_2 = {
 			set_owner = root
 			set_controller = root
 			set_capital = yes
+
+			add_building = building_ancient_palace
+			add_building = building_fe_dome
+			add_building = building_fe_dome
+			add_building = building_fe_dome
+			add_building = building_fe_dome
+			add_building = building_fe_dome
+			add_building = building_fe_dome
+			add_building = building_fe_dome
+			add_building = building_fe_stronghold
+			add_building = building_fe_stronghold
+			add_building = building_dimensional_fabricator			
+			add_building = building_class_4_singularity
+			add_building = building_class_4_singularity
+			add_building = building_nano_forge
+			add_building = building_nano_forge	
+			add_building = building_nano_forge
 			while = {
-				count = 25
+				count = 14
+				add_district = district_city
+			}
+			while = {
+				count = 8 
+				add_district = district_mining
+			}
+			while = {
+				count = 8
+				add_district = district_farming
+			}
+			while = {
+				count = 115
 				create_pop = {
 					species = owner_main_species
 				}
 			}
-			random_tile = {
-				limit = { has_building = no has_blocker = no num_adjacent_tiles > 3 }
-				set_building = "building_capital_3"
-				set_deposit = d_energy_deposit
-			}
+			create_fallen_empire_starting_navy = yes
 			while = {
-				count = 2
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_agri_processing_complex"
-					set_deposit = d_farmland_deposit
-				}
-			}
-			while = {
-				count = 13
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_dark_matter_power_plant"
-					set_deposit = d_energy_deposit
-				}
-			}
-			while = {
-				count = 5
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_ancient_factory"
-					set_deposit = d_mineral_deposit
-				}
-			}
-			while = {
-				count = 3
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_fortress"
-					clear_deposits = yes
-				}
-			}
-			random_tile = {
-				limit = { has_building = no has_blocker = no }
-				set_building = "building_planetary_shield_generator"
-				clear_deposits = yes
-			}			
-			while = {
-				count = 15
+				count = 20
 				create_army = {
 					name = random
-					owner = ROOT
-					species = ROOT
+					owner = root
+					species = root
 					type = "psionic_army"
 				}
-			}
-			create_fallen_empire_starting_navy = yes
+			}			
 		}
 
 		change_orbit = @base_moon_distance
@@ -1117,51 +418,48 @@ fallen_2 = {
 		orbit_distance = 30
 		class = pc_gaia
 		orbit_angle = { min = 90 max = 270 }
-		size = 15
-		tile_blockers = none
+		size = 22
+		deposit_blockers = none
 		modifiers = none
 
 		init_effect = {
 			set_planet_flag = fallen_empire_world
 			prevent_anomaly = yes
-			set_owner = ROOT
+			set_owner = root
+			set_controller = root			
+		
+			add_building = building_ancient_palace
+			add_building = building_empyrean_shrine
+			add_building = building_fe_dome
+			add_building = building_fe_dome
+			add_building = building_fe_dome
+			add_building = building_fe_dome
+			add_building = building_fe_dome
+			add_building = building_nano_forge
+			add_building = building_fe_stronghold
+			add_building = building_fe_stronghold
+			add_building = building_class_4_singularity
+			add_building = building_class_4_singularity	
+			add_building = building_nano_forge
+			add_building = building_nano_forge
 			while = {
-				count = 15
+				count = 12
+				add_district = district_city
+			}
+			while = {
+				count = 5
+				add_district = district_mining
+			}
+			while = {
+				count = 5
+				add_district = district_farming
+			}			
+			while = {
+				count = 68
 				create_pop = {
 					species = owner_main_species
 				}
 			}
-			random_tile = {
-				limit = { has_building = no has_blocker = no num_adjacent_tiles > 3 }
-				set_building = "building_capital_2"
-				set_deposit = d_energy_deposit
-			}
-			random_tile = {
-				limit = { has_building = no has_blocker = no }
-				set_building = "building_agri_processing_complex"
-				set_deposit = d_farmland_deposit
-			}
-			while = {
-				count = 6
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_dark_matter_power_plant"
-					set_deposit = d_energy_deposit
-				}
-			}
-			while = {
-				count = 6
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_ancient_factory"
-					set_deposit = d_mineral_deposit
-				}
-			}
-			random_tile = {
-				limit = { has_building = no has_blocker = no }
-				set_building = "building_fortress"
-				clear_deposits = yes
-			}			
 		}
 	}
 
@@ -1275,7 +573,7 @@ fallen_3 = {
 			size = 20
 			orbit_distance = 5
 			orbit_angle = 20
-			tile_blockers = none
+			deposit_blockers = none
 			modifiers = none
 
 			init_effect = {
@@ -1291,59 +589,64 @@ fallen_3 = {
 				set_owner = root
 				set_controller = root
 				set_capital = yes
+
+				add_building = building_ancient_palace
+				add_building = building_fe_dome
+				add_building = building_fe_dome
+				add_building = building_fe_stronghold
+				add_building = building_fe_stronghold
+				add_building = building_affluence_center
+				add_building = building_affluence_center
+				add_building = building_nourishment_center
+				add_building = building_class_4_singularity
+				add_building = building_class_4_singularity
+				add_building = building_class_4_singularity
+				add_building = building_dimensional_fabricator
+				add_building = building_dimensional_fabricator
+				add_building = building_nano_forge
+				add_building = building_nano_forge
+				add_building = building_nano_forge
 				while = {
 					count = 20
+					add_district = district_city
+				}
+				while = {
+					count = 52
 					create_pop = {
 						species = owner_main_species
 					}
 				}
-				random_tile = {
-					limit = { has_building = no has_blocker = no num_adjacent_tiles > 3 }
-					set_building = "building_capital_3"
-					set_deposit = d_energy_deposit
-				}
-				while = {
-					count = 2
-					random_tile = {
-						limit = { has_building = no has_blocker = no }
-						set_building = "building_agri_processing_complex"
-						set_deposit = d_farmland_deposit
+				root = {
+					set_policy = {
+						policy = artificial_intelligence_policy
+						option = ai_outlawed
+						cooldown = no
+					}
+					set_policy = {
+						policy = robot_pop_policy
+						option = robot_pops_allowed
+						cooldown = no
 					}
 				}
+				root = { create_fe_servant_robots = yes }
+				last_created_species = { save_event_target_as = fe_servants }
 				while = {
-					count = 6
-					random_tile = {
-						limit = { has_building = no has_blocker = no }
-						set_building = "building_ancient_factory"
-						set_deposit = d_mineral_deposit
-					}
-				}
-				while = {
-					count = 10
-					random_tile = {
-						limit = { has_building = no has_blocker = no }
-						set_building = "building_dark_matter_power_plant"
-						set_deposit = d_energy_deposit
-					}
-				}
-				while = {
-					count = 2
-					random_tile = {
-						limit = { has_building = no has_blocker = no }
-						set_building = "building_fortress"
-						clear_deposits = yes
-					}
-				}				
-				while = {
-					count = 15
-					create_army = {
-						name = random
-						owner = ROOT
-						species = ROOT
-						type = "gene_warrior_army"
+					count = 52
+					create_pop = {
+						species = event_target:fe_servants
 					}
 				}
 				create_fallen_empire_starting_navy = yes
+				
+				while = {
+					count = 20
+					create_army = {
+						name = random
+						owner = root
+						species = root
+						type = "gene_warrior_army"
+					}
+				}
 			}
 		}
 
@@ -1363,48 +666,37 @@ fallen_3 = {
 			size = 10
 			orbit_distance = 8
 			orbit_angle = 10
-			tile_blockers = none
+			deposit_blockers = none
 			modifiers = none
 
 			init_effect = {
 				set_planet_flag = fallen_empire_world
 				prevent_anomaly = yes
-				set_owner = ROOT
-				random_tile = {
-					limit = { has_building = no has_blocker = no num_adjacent_tiles > 3 }
-					set_building = "building_capital_2"
-					set_deposit = d_energy_deposit
-				}
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_agri_processing_complex"
-					set_deposit = d_farmland_deposit
-				}
-				while = {
-					count = 5
-					random_tile = {
-						limit = { has_building = no has_blocker = no }
-						set_building = "building_ancient_factory"
-						set_deposit = d_mineral_deposit
-					}
-				}
-				while = {
-					count = 2
-					random_tile = {
-						limit = { has_building = no has_blocker = no }
-						set_building = "building_dark_matter_power_plant"
-						set_deposit = d_energy_deposit
-					}
-				}
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_fortress"
-					clear_deposits = yes
-				}					
+				set_owner = root
+				set_controller = root			
+			
+				add_building = building_ancient_palace
+				add_building = building_fe_stronghold
+				add_building = building_fe_dome
+				add_building = building_dimensional_fabricator
+				add_building = building_dimensional_fabricator
+				add_building = building_nano_forge
+				add_building = building_nano_forge
+				add_building = building_nano_forge
 				while = {
 					count = 10
+					add_district = district_city
+				}
+				while = {
+					count = 18
 					create_pop = {
 						species = owner_main_species
+					}
+				}
+				while = {
+					count = 18
+					create_pop = {
+						species = event_target:fe_servants
 					}
 				}
 			}
@@ -1416,48 +708,40 @@ fallen_3 = {
 			size = 12
 			orbit_distance = 5
 			orbit_angle = 190
-			tile_blockers = none
+			deposit_blockers = none
 			modifiers = none
 
 			init_effect = {
 				set_planet_flag = fallen_empire_world
 				prevent_anomaly = yes
-				set_owner = ROOT
-				random_tile = {
-					limit = { has_building = no has_blocker = no num_adjacent_tiles > 3 }
-					set_building = "building_capital_2"
-					set_deposit = d_energy_deposit
-				}
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_agri_processing_complex"
-					set_deposit = d_farmland_deposit
-				}
-				while = {
-					count = 6
-					random_tile = {
-						limit = { has_building = no has_blocker = no }
-						set_building = "building_ancient_factory"
-						set_deposit = d_mineral_deposit
-					}
-				}
-				while = {
-					count = 3
-					random_tile = {
-						limit = { has_building = no has_blocker = no }
-						set_building = "building_dark_matter_power_plant"
-						set_deposit = d_energy_deposit
-					}
-				}
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_fortress"
-					clear_deposits = yes
-				}					
+				set_owner = root
+				set_controller = root			
+			
+				add_building = building_ancient_palace
+				add_building = building_fe_stronghold
+				add_building = building_fe_dome
+				add_building = building_fe_dome
+				add_building = building_class_4_singularity
+				add_building = building_class_4_singularity
+				add_building = building_affluence_center
+				add_building = building_affluence_center
+				add_building = building_affluence_center
+				add_building = building_nourishment_center
+				add_building = building_nourishment_center
 				while = {
 					count = 12
+					add_district = district_city
+				}
+				while = {
+					count = 27
 					create_pop = {
 						species = owner_main_species
+					}
+				}
+				while = {
+					count = 27
+					create_pop = {
+						species = event_target:fe_servants
 					}
 				}
 			}
@@ -1531,7 +815,7 @@ fallen_4 = {
 		class = pc_gaia
 		orbit_angle = { min = 90 max = 270 }
 		size = 25
-		tile_blockers = none
+		deposit_blockers = none
 		modifiers = none
 		has_ring = no
 
@@ -1547,122 +831,97 @@ fallen_4 = {
 			set_owner = root
 			set_controller = root
 			set_capital = yes
+	
+			add_building = building_ancient_palace
+			add_building = building_fe_stronghold
+			add_building = building_fe_stronghold
+			add_building = building_affluence_center
+			add_building = building_affluence_center
+			add_building = building_affluence_center
+			add_building = building_nourishment_center
+			add_building = building_nourishment_center
+			add_building = building_class_4_singularity
+			add_building = building_class_4_singularity
+			add_building = building_class_4_singularity
+			add_building = building_dimensional_fabricator
+			add_building = building_dimensional_fabricator
+			add_building = building_nano_forge
+			add_building = building_nano_forge
+			add_building = building_nano_forge
 			while = {
 				count = 25
+				add_district = district_city
+			}
+			while = {
+				count = 62
 				create_pop = {
 					species = owner_main_species
 				}
 			}
-			random_tile = {
-				limit = { has_building = no has_blocker = no num_adjacent_tiles > 3 }
-				set_building = "building_capital_3"
-				set_deposit = d_energy_deposit
-			}
-			random_tile = {
-				limit = { has_building = no has_blocker = no }
-				set_building = "building_agri_processing_complex"
-				set_deposit = d_farmland_deposit
-			}
+			root = { create_fe_servant_species = yes }
+			last_created_species = { save_event_target_as = fe_servants }
 			while = {
-				count = 8
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_dark_matter_power_plant"
-					set_deposit = d_energy_deposit
-				}
-			}
-			while = {
-				count = 10
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_ancient_factory"
-					set_deposit = d_mineral_deposit
-				}
-			}
-			while = {
-				count = 4
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_fortress"
-					clear_deposits = yes
-				}
-			}
-			random_tile = {
-				limit = { has_building = no has_blocker = no }
-				set_building = "building_planetary_shield_generator"
-				clear_deposits = yes
-			}				
-			while = {
-				count = 15
-				create_army = {
-					name = random
-					owner = ROOT
-					species = ROOT
-					type = "xenomorph_army"
+				count = 62
+				create_pop = {
+					species = event_target:fe_servants
 				}
 			}
 			create_fallen_empire_starting_navy = yes
+			
+			while = {
+				count = 20
+				create_army = {
+					name = random
+					owner = root
+					species = root
+					type = "xenomorph_army"
+				}
+			}			
 		}
 
 		moon = {
 			name = "NAME_Boundary"
 			class = "pc_gaia"
-			size = 15
+			size = 12
 			orbit_distance = 14
 			orbit_angle = 10
-			tile_blockers = none
+			deposit_blockers = none
 			modifiers = none
 
 			init_effect = {
 				set_planet_flag = fallen_empire_world
 				prevent_anomaly = yes
-				set_owner = ROOT
-				random_tile = {
-					limit = { has_building = no has_blocker = no num_adjacent_tiles > 3 }
-					set_building = "building_capital_2"
-					set_deposit = d_energy_deposit
+				set_owner = root
+				set_controller = root			
+			
+				add_building = building_ancient_palace
+				add_building = building_fe_stronghold
+				add_building = building_fe_stronghold
+				add_building = building_affluence_center
+				add_building = building_nourishment_center
+				add_building = building_nourishment_center
+				add_building = building_class_4_singularity
+				add_building = building_class_4_singularity				
+				add_building = building_dimensional_fabricator
+				add_building = building_dimensional_fabricator
+				add_building = building_dimensional_fabricator
+				add_building = building_nano_forge
+				add_building = building_nano_forge
+				add_building = building_nano_forge
+				while = {
+					count = 12
+					add_district = district_city
 				}
 				while = {
-					count = 2
-					random_tile = {
-						limit = { has_building = no has_blocker = no }
-						set_building = "building_agri_processing_complex"
-						set_deposit = d_farmland_deposit
-					}
-				}
-				while = {
-					count = 4
-					random_tile = {
-						limit = { has_building = no has_blocker = no }
-						set_building = "building_dark_matter_power_plant"
-						set_deposit = d_energy_deposit
-					}
-				}
-				while = {
-					count = 5
-					random_tile = {
-						limit = { has_building = no has_blocker = no }
-						set_building = "building_ancient_factory"
-						set_deposit = d_mineral_deposit
-					}
-				}
-				while = {
-					count = 2
-					random_tile = {
-						limit = { has_building = no has_blocker = no }
-						set_building = "building_fortress"
-						clear_deposits = yes
-					}
-				}
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_planetary_shield_generator"
-					clear_deposits = yes
-				}					
-				while = {
-					count = 15
+					count = 33
 					create_pop = {
 						species = owner_main_species
+					}
+				}
+				while = {
+					count = 33
+					create_pop = {
+						species = event_target:fe_servants
 					}
 				}
 			}
@@ -1777,54 +1036,15 @@ fallen_col_1 = {
 		class = ideal_planet_class
 		orbit_angle = { min = 90 max = 270 }
 		size = 16
-		tile_blockers = none
+		deposit_blockers = none
 		modifiers = none
 
 		init_effect = {
-			set_planet_flag = fallen_empire_world
-			prevent_anomaly = yes
-			set_owner = ROOT
-			random_tile = {
-				limit = { has_building = no has_blocker = no num_adjacent_tiles > 3 }
-				set_building = "building_capital_2"
-				set_deposit = d_energy_deposit
+			if = {
+				limit = { root = { is_fallen_empire_spiritualist = no } }
+				create_fe_fringe_colony = yes
 			}
-			random_tile = {
-				limit = {
-					has_building = no
-					has_blocker = no
-				}
-				set_building = "building_hydroponics_farm_4"
-				set_deposit = d_farmland_deposit
-			}
-			while = {
-				count = 3
-				random_tile = {
-					limit = {
-						has_building = no
-						has_blocker = no
-					}
-					set_building = "building_power_plant_4"
-					set_deposit = d_energy_deposit
-				}
-			}
-			while = {
-				count = 2
-				random_tile = {
-					limit = {
-						has_building = no
-						has_blocker = no
-					}
-					set_building = "building_mining_network_4"
-					set_deposit = d_mineral_deposit
-				}
-			}
-			while = {
-				count = 7
-				create_pop = {
-					species = owner_main_species
-				}
-			}
+			else = { create_fe_spiritualist_fringe_colony = yes }
 		}
 
 		change_orbit = @base_moon_distance
@@ -1899,54 +1119,15 @@ fallen_col_2 = {
 		orbit_distance = 0
 		orbit_angle = { min = 90 max = 270 }
 		size = { min = 16 max = 16 }
-		tile_blockers = none
+		deposit_blockers = none
 		modifiers = none
 
 		init_effect = {
-			set_planet_flag = fallen_empire_world
-			prevent_anomaly = yes
-			set_owner = ROOT
-			random_tile = {
-				limit = { has_building = no has_blocker = no num_adjacent_tiles > 3 }
-				set_building = "building_capital_2"
-				set_deposit = d_energy_deposit
+			if = {
+				limit = { root = { is_fallen_empire_spiritualist = no } }
+				create_fe_fringe_colony = yes
 			}
-			random_tile = {
-				limit = {
-					has_building = no
-					has_blocker = no
-				}
-				set_building = "building_hydroponics_farm_4"
-				set_deposit = d_farmland_deposit
-			}
-			while = {
-				count = 3
-				random_tile = {
-					limit = {
-						has_building = no
-						has_blocker = no
-					}
-					set_building = "building_power_plant_4"
-					set_deposit = d_energy_deposit
-				}
-			}
-			while = {
-				count = 2
-				random_tile = {
-					limit = {
-						has_building = no
-						has_blocker = no
-					}
-					set_building = "building_mining_network_4"
-					set_deposit = d_mineral_deposit
-				}
-			}
-			while = {
-				count = 7
-				create_pop = {
-					species = owner_main_species
-				}
-			}
+			else = { create_fe_spiritualist_fringe_colony = yes }
 		}
 
 		change_orbit = @base_moon_distance
@@ -2065,58 +1246,11 @@ fallen_orbitals_1 = {
 				}
 				is_colony = no
 			}
-			set_planet_flag = fallen_empire_world
-			clear_blockers = yes
-			prevent_anomaly = yes
-			set_owner = ROOT
-			random_tile = {
-				limit = { has_building = no has_blocker = no num_adjacent_tiles > 3 }
-				set_building = "building_capital_2"
-				set_deposit = d_energy_deposit
+			if = {
+				limit = { root = { is_fallen_empire_spiritualist = no } }
+				create_fe_fringe_colony = yes
 			}
-			random_tile = {
-				limit = {
-					has_building = no
-					has_blocker = no
-				}
-				set_building = "building_hydroponics_farm_4"
-				set_deposit = d_farmland_deposit
-			}
-			while = {
-				count = 3
-				random_tile = {
-					limit = {
-						has_building = no
-						has_blocker = no
-					}
-					set_building = "building_power_plant_4"
-					set_deposit = d_energy_deposit
-				}
-			}
-			while = {
-				count = 2
-				random_tile = {
-					limit = {
-						has_building = no
-						has_blocker = no
-					}
-					set_building = "building_mining_network_4"
-					set_deposit = d_mineral_deposit
-				}
-			}
-			while = {
-				count = 7
-				random_tile = {
-					limit = {
-						has_blocker = no
-						has_grown_pop = no
-						has_growing_pop = no
-					}
-					create_pop = {
-						species = owner_main_species
-					}
-				}
-			}
+			else = { create_fe_spiritualist_fringe_colony = yes }
 		}
 	
 		if = {
@@ -2200,58 +1334,11 @@ fallen_orbitals_2 = {
 				}
 				is_colony = no
 			}
-			set_planet_flag = fallen_empire_world
-			clear_blockers = yes
-			prevent_anomaly = yes
-			set_owner = ROOT
-			random_tile = {
-				limit = { has_building = no has_blocker = no num_adjacent_tiles > 3 }
-				set_building = "building_capital_2"
-				set_deposit = d_energy_deposit
+			if = {
+				limit = { root = { is_fallen_empire_spiritualist = no } }
+				create_fe_fringe_colony = yes
 			}
-			random_tile = {
-				limit = {
-					has_building = no
-					has_blocker = no
-				}
-				set_building = "building_hydroponics_farm_4"
-				set_deposit = d_farmland_deposit
-			}
-			while = {
-				count = 3
-				random_tile = {
-					limit = {
-						has_building = no
-						has_blocker = no
-					}
-					set_building = "building_power_plant_4"
-					set_deposit = d_energy_deposit
-				}
-			}
-			while = {
-				count = 4
-				random_tile = {
-					limit = {
-						has_building = no
-						has_blocker = no
-					}
-					set_building = "building_mining_network_4"
-					set_deposit = d_mineral_deposit
-				}
-			}
-			while = {
-				count = 7
-				random_tile = {
-					limit = {
-						has_blocker = no
-						has_grown_pop = no
-						has_growing_pop = no
-					}
-					create_pop = {
-						species = owner_main_species
-					}
-				}
-			}
+			else = { create_fe_spiritualist_fringe_colony = yes }
 		}
 
 		if = {
@@ -2618,16 +1705,12 @@ fallen_holy_01 = {
 		orbit_angle = { min = 90 max = 270 }
 		size = 18
 		name = "NAME_Walled_Garden"
-		tile_blockers = none
+		deposit_blockers = none
 		init_effect = {
 			prevent_anomaly = yes
 			add_modifier = {
 				modifier = "holy_planet"
 				days = -1
-			}
-			random_tile = {
-				limit = { is_orbital_tile = yes }
-				clear_deposits = yes
 			}
 		}
 	}
@@ -2702,16 +1785,12 @@ fallen_holy_02 = {
 		orbit_angle = { min = 90 max = 270 }
 		size = 14
 		name = "NAME_Emerald_Mausoleum"
-		tile_blockers = none
+		deposit_blockers = none
 		init_effect = {
 			prevent_anomaly = yes
 			add_modifier = {
 				modifier = "holy_planet"
 				days = -1
-			}
-			random_tile = {
-				limit = { is_orbital_tile = yes }
-				clear_deposits = yes
 			}
 		}
 	}
@@ -2765,7 +1844,7 @@ fallen_holy_03 = {
 		orbit_distance = 10
 		class = "pc_gaia"
 		name = "NAME_Pristine_Jewel"
-		tile_blockers = none
+		deposit_blockers = none
 		orbit_angle = { min = 90 max = 270 }
 		size = 10
 
@@ -2774,10 +1853,6 @@ fallen_holy_03 = {
 			add_modifier = {
 				modifier = "holy_planet"
 				days = -1
-			}
-			random_tile = {
-				limit = { is_orbital_tile = yes }
-				clear_deposits = yes
 			}
 		}
 	}
@@ -2846,7 +1921,7 @@ fallen_holy_04 = {
 		orbit_distance = 10
 		class = "pc_gaia"
 		name = "NAME_Prophets_Retreat"
-		tile_blockers = none
+		deposit_blockers = none
 		orbit_angle = { min = 90 max = 270 }
 		size = 25
 
@@ -2855,10 +1930,6 @@ fallen_holy_04 = {
 			add_modifier = {
 				modifier = "holy_planet"
 				days = -1
-			}
-			random_tile = {
-				limit = { is_orbital_tile = yes }
-				clear_deposits = yes
 			}
 		}
 	}
@@ -2923,7 +1994,7 @@ fallen_xeno_zoo = {
 
 		orbit_angle = 60
 		orbit_distance = 0
-		tile_blockers = none
+		deposit_blockers = none
 		modifiers = none
 
 		init_effect = {
@@ -2931,52 +2002,26 @@ fallen_xeno_zoo = {
 			prevent_anomaly = yes
 			set_owner = ROOT
 			set_planet_flag = fe_the_preserve
+			add_building = building_fe_xeno_zoo
+			
+			while = {
+				count = 2
+				create_pop = {
+					species = owner_main_species
+				}
+			}	
 
-			create_species = {
-				name = random
-				class = random_non_machine
-				portrait = random
-				traits = random
-			}
-			random_tile = {
-				limit = { has_building = no has_pop = no has_blocker = no }
+			while = {
+				count = 5
+				create_species = {
+					name = random
+					class = random_non_machine
+					portrait = random
+					traits = random
+				}
 				create_pop = {
 					species = last_created_species
-				}
-				set_building = "building_fe_xeno_zoo"
-			}
-
-			create_species = {
-				name = random
-				class = random_non_machine
-				portrait = random
-				traits = random
-			}
-			random_tile = {
-				limit = { has_building = no has_pop = no has_blocker = no }
-				create_pop = {
-					species = last_created_species
-				}
-				set_building = "building_fe_xeno_zoo"
-			}
-
-			create_species = {
-				name = random
-				class = random_non_machine
-				portrait = random
-				traits = random
-			}
-			random_tile = {
-				limit = { has_building = no has_pop = no has_blocker = no }
-				create_pop = {
-					species = last_created_species
-				}
-				set_building = "building_fe_xeno_zoo"
-			}
-
-			every_tile = {
-				limit = { has_building = no has_pop = no }
-				set_blocker = tb_xeno_preserve
+				}				
 			}
 		}
 	}
@@ -3025,7 +2070,7 @@ fallen_machine = {
 		name = "NAME_Alpha_Complex"
 		orbit_angle = 30
 		orbit_distance = 0
-		tile_blockers = none
+		deposit_blockers = none
 		modifiers = none
 
 		init_effect = {
@@ -3041,61 +2086,45 @@ fallen_machine = {
 			set_owner = root
 			set_controller = root
 			set_capital = yes
+
+			add_building = building_ancient_control_center
+			add_building = building_nourishment_center
+			add_building = building_nourishment_center	
+			add_building = building_nourishment_center	
+			add_building = building_ancient_cryo_chamber
+			add_building = building_ancient_cryo_chamber
+			add_building = building_ancient_cryo_chamber
+			add_building = building_ancient_cryo_chamber
+			add_building = building_ancient_cryo_chamber
+			add_building = building_ancient_cryo_chamber
+			add_building = building_ancient_cryo_chamber
+			add_building = building_ancient_cryo_chamber
+			add_building = building_ancient_cryo_chamber
+			add_building = building_ancient_cryo_chamber
+			add_building = building_ancient_cryo_chamber	
+			add_building = building_ancient_cryo_chamber	
+			
 			while = {
-				count = 4
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_agri_processing_complex"
-					set_deposit = d_farmland_deposit
-					create_pop = {
-						species = owner_main_species
-					}
-				}
+				count = 50
+				add_district = district_nexus
 			}
 			while = {
-				count = 4
-				random_tile = {
-					limit = { has_building = no has_blocker = no has_pop = no }
-					set_building = "building_dark_matter_power_plant"
-					set_deposit = d_energy_deposit
-					create_pop = {
-						species = owner_main_species
-					}
-				}
-			}
-			while = {
-				count = 2
-				random_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_fortress"
-					clear_deposits = yes
-					create_pop = {
-						species = owner_main_species
-					}					
-				}
-			}
-			random_tile = {
-				limit = { has_building = no has_blocker = no }
-				set_building = "building_planetary_shield_generator"
-				clear_deposits = yes
+				count = 105
 				create_pop = {
 					species = owner_main_species
-				}				
-			}				
-			every_tile = {
-				limit = { has_building = no has_blocker = no has_pop = no }
-				set_blocker = tb_ancient_cryo_chambers
-			}
+				}
+			}	
+			create_fallen_empire_starting_navy = yes
+			
 			while = {
-				count = 15
+				count = 20
 				create_army = {
 					name = random
-					owner = ROOT
-					species = ROOT
+					owner = root
+					species = root
 					type = "machine_assault_2"
 				}
-			}
-			create_fallen_empire_starting_navy = yes
+			}			
 		}
 	}
 	planet = {
@@ -3115,29 +2144,36 @@ fallen_machine = {
 		name = "NAME_Production_Unit"
 		orbit_angle = 30
 		orbit_distance = 0
-		tile_blockers = none
+		deposit_blockers = none
 		modifiers = none
 
 		init_effect = {
 			set_planet_flag = fallen_empire_world
 			prevent_anomaly = yes
 			set_owner = ROOT
-			random_tile = {
-				limit = { has_building = no has_blocker = no }
-				set_building = "building_fortress"
-				clear_deposits = yes
-				create_pop = {
-					species = owner_main_species
-				}					
-			}		
-			every_tile = {
-				limit = { has_building = no has_blocker = no has_pop = no }
-				set_building = "building_ancient_factory"
-				set_deposit = d_energy_deposit
+			
+			add_building = building_ancient_control_center
+			add_building = building_dimensional_fabricator
+			add_building = building_dimensional_fabricator
+			add_building = building_dimensional_fabricator
+			add_building = building_dimensional_fabricator
+			add_building = building_dimensional_fabricator
+			add_building = building_nano_forge
+			add_building = building_nano_forge
+			add_building = building_nano_forge			
+			add_building = building_nano_forge
+			add_building = building_nano_forge
+			
+			while = {
+				count = 25
+				add_district = district_nexus
+			}
+			while = {
+				count = 50
 				create_pop = {
 					species = owner_main_species
 				}
-			}
+			}	
 		}
 	}
 	planet = {
@@ -3157,29 +2193,30 @@ fallen_machine = {
 		name = "NAME_Processing_Unit"
 		orbit_angle = 30
 		orbit_distance = 0
-		tile_blockers = none
+		deposit_blockers = none
 		modifiers = none
 
 		init_effect = {
 			set_planet_flag = fallen_empire_world
 			prevent_anomaly = yes
 			set_owner = ROOT
-			random_tile = {
-				limit = { has_building = no has_blocker = no }
-				set_building = "building_fortress"
-				clear_deposits = yes
-				create_pop = {
-					species = owner_main_species
-				}					
-			}			
-			every_tile = {
-				limit = { has_building = no has_blocker = no has_pop = no }
-				set_building = "building_dark_matter_power_plant"
-				set_deposit = d_energy_deposit
+			
+			add_building = building_ancient_control_center
+			add_building = building_class_4_singularity
+			add_building = building_class_4_singularity
+			add_building = building_class_4_singularity
+			add_building = building_class_4_singularity
+			
+			while = {
+				count = 25
+				add_district = district_nexus
+			}
+			while = {
+				count = 22
 				create_pop = {
 					species = owner_main_species
 				}
-			}
+			}	
 		}
 	}
 

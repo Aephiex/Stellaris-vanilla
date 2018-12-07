@@ -258,6 +258,18 @@ spriteTypes = {
 	}
 
 	spriteType = {
+		name = "GFX_trade_route_management_status"
+		textureFile = "gfx/interface/system/trade_route_management_mapicons.dds"
+		noOfFrames = 6
+	}
+
+	spriteType = {
+		name = "GFX_trade_route_management_status_new"
+		textureFile = "gfx/interface/system/trade_route_management_mapicons_new.dds"
+		noOfFrames = 6
+	}
+
+	spriteType = {
 		name = "GFX_claim_management_status"
 		textureFile = "gfx/interface/system/claim_management_mapicons.dds"
 		noOfFrames = 5
@@ -321,5 +333,29 @@ spriteTypes = {
 		size = { x = 10 y = 22 }
 		effectFile = "gfx/FX/progress.lua"
 		horizontal = no
+	}
+
+	spriteType = {
+		name = "GFX_piracy_icon"
+		textureFile = "gfx/interface/icons/piracy_icon.dds"
+		noOfFrames = 2
+	}
+	
+	spriteType = {
+		name = "GFX_trade_protection_icon"
+		textureFile = "gfx/interface/icons/trade route icons/trade_protection_icon.dds"
+		noOfFrames = 2
+	}
+	
+	spriteType = {
+		name = "GFX_trade_collection_icon"
+		textureFile = "gfx/interface/icons/trade route icons/trade_collection_icon.dds"
+		noOfFrames = 2
+	}
+	
+	spriteType = {
+		name = "GFX_trade_piracy_icon"
+		textureFile = "gfx/interface/icons/trade route icons/trade_piracy_icon.dds"
+		noOfFrames = 2
 	}
 }

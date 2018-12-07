@@ -3,7 +3,7 @@
 #
 # Shroud Events
 #
-# Written by Henrik Eklund
+# Written by Henrik Thyrwall
 #
 ############################
 
@@ -133,94 +133,13 @@ country_event = {
 
 	option = {
 		name = "utopia.3000.a"
-		custom_tooltip = "venture.shroud.tooltip"
+		#custom_tooltip = "venture.shroud.tooltip"
 		allow = {
-			hidden_trigger = {
-				OR = {
-					AND = {
-						has_country_strategic_resource = {
-							type = sr_zro
-							amount = 0
-						}
-						energy > @shroudreq1
-					}
-					AND = {
-						has_country_strategic_resource = {
-							type = sr_zro
-							amount = 1
-						}
-						energy > @shroudreq2
-					}
-					AND = {
-						has_country_strategic_resource = {
-							type = sr_zro
-							amount = 2
-						}
-						energy > @shroudreq3
-					}
-					AND = {
-						has_country_strategic_resource = {
-							type = sr_zro
-							amount = 3
-						}
-						energy > @shroudreq4
-					}
-					AND = {
-						has_country_strategic_resource = {
-							type = sr_zro
-							amount > 3
-						}
-						energy > @shroudreq5
-					}
-				}
-			}
+			resource_stockpile_compare = { resource = energy value >= 1000 }
 		}
 
-		if = {
-			limit = {
-				has_country_strategic_resource = {
-					type = sr_zro
-					amount = 0
-				}
-			}
-			add_energy = @shroudcost1
-		}
-		if = {
-			limit = {
-				has_country_strategic_resource = {
-					type = sr_zro
-					amount = 1
-				}
-			}
-			add_energy = @shroudcost2
-		}
-		if = {
-			limit = {
-				has_country_strategic_resource = {
-					type = sr_zro
-					amount = 2
-				}
-			}
-			add_energy = @shroudcost3
-		}
-		if = {
-			limit = {
-				has_country_strategic_resource = {
-					type = sr_zro
-					amount = 3
-				}
-			}
-			add_energy = @shroudcost4
-		}
-		if = {
-			limit = {
-				has_country_strategic_resource = {
-					type = sr_zro
-					amount > 3
-				}
-			}
-			add_energy = @shroudcost5
-		}
+
+		add_resource = { energy = -1000 }
 
 		hidden_effect = {
 			random_list = {
@@ -629,7 +548,7 @@ country_event = {
 				set_aggro_range = 300
 			}
 		}
-
+		observer_event = { id = observer.68 }
 		last_created_fleet = { # Despawn if enough time passes without being destroyed
 			fleet_event = { id = utopia.3025 days = 3600 }
 		}
@@ -4532,7 +4451,6 @@ country_event = {
 			2 = { 
 				if = {
 					limit = {
-						is_multiplayer = no 
 						NOT = { has_global_flag = end_of_the_cycle }
 					}
 					country_event = { id = utopia.3308 }  # The End of the Cycle - extremely rare
@@ -4887,10 +4805,12 @@ country_event = {
 		set_global_flag = end_of_the_cycle_complete
 		set_country_flag = end_of_the_cycle_reckoning
 		clear_resources = yes
-		add_minerals = 1000
-		add_energy = 500
-		add_food = 100
-		add_influence = 100
+		add_resource = {
+			minerals = 1000
+			energy = 500
+			food = 100
+			influence = 100
+		}
 		
 		if = {
 			limit = { NOT = { exists = event_target:shroud_country } }
@@ -4940,15 +4860,13 @@ country_event = {
 				}
 				any_planet = {
 					has_owner = no
-					is_colonizable = yes
-					habitability = { who = root.species value > 0.2 }				
+					is_colonizable = yes				
 				}
 			}
 			random_planet = {
 				limit = {
 					has_owner = no
 					is_colonizable = yes
-					habitability = { who = root.species value > 0.2 }
 				}	
 				root = { set_country_flag = exile_world }
 				set_planet_flag = exile_planet
@@ -4960,15 +4878,13 @@ country_event = {
 				root = { NOT = { has_country_flag = exile_world } }
 				any_planet = {
 					has_owner = no
-					is_colonizable = yes
-					habitability = { who = root.species value > 0.2 }				
+					is_colonizable = yes				
 				}
 			}
 			random_planet = {
 				limit = {
 					has_owner = no
 					is_colonizable = yes
-					habitability = { who = root.species value > 0.2 }
 				}	
 				root = { set_country_flag = exile_world }
 				save_event_target_as = exile_world
@@ -4983,42 +4899,24 @@ country_event = {
 					ethos = owner
 				}		
 				set_name = "NAME_Exile"
-				random_tile = {
-					limit = {
-						has_blocker = no
-						has_building = no
-						has_grown_pop = no
+				add_district = district_city
+				add_district = district_city
+				add_district = district_farming
+				add_district = district_mining
+				add_district = district_generator
+				add_building = building_capital
+				add_building = building_research_lab_1
+				add_building = building_foundry_1
+				add_building = building_factory_1
+				while = {
+					limit = { 
+						num_pops < 8
+						free_housing > 0
 					}
-					set_deposit = d_energy_deposit					
-					set_building = "building_power_plant_1"
 					create_pop = {
 						species = owner
 					}
 				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-						has_building = no
-						has_grown_pop = no
-					}
-					set_deposit = d_mineral_deposit		
-					set_building = "building_mining_network_1"
-					create_pop = {
-						species = owner
-					}
-				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-						has_building = no
-						has_grown_pop = no
-					}
-					set_building = "building_hydroponics_farm_1"
-					set_deposit = d_farmland_deposit	
-					create_pop = {
-						species = owner
-					}
-				}					
 			}
 		}
 		kill_leader = {
@@ -5037,7 +4935,7 @@ country_event = {
 		if = {
 			limit = { has_country_flag = exile_world }		
 			create_leader = {
-				type = ruler
+				class = ruler
 				species = root.owner_species
 				name = random
 				skill = 5
@@ -5160,7 +5058,7 @@ country_event = {
 						root = { 
 							check_variable = {
 								which = "end_power"
-								value < 200
+								value < 500
 							}
 						}
 					}
@@ -5174,7 +5072,7 @@ country_event = {
 						root = { 
 							check_variable = {
 								which = "end_power"
-								value < 400
+								value < 1000
 							}
 						}
 					}
@@ -5188,7 +5086,7 @@ country_event = {
 						root = { 
 							check_variable = {
 								which = "end_power"
-								value < 600
+								value < 2500
 							}
 						}
 					}
@@ -5202,7 +5100,7 @@ country_event = {
 						root = { 
 							check_variable = {
 								which = "end_power"
-								value < 800
+								value < 5000
 							}
 						}
 					}

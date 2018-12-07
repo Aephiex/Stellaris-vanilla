@@ -1,6 +1,6 @@
 ﻿### Avian 2
 ### Created by Maximilian Olbers
-### Based on a template by Henrik Eklund
+### Based on a template by Henrik Thyrwall
 
 AVI2 = {
 	ship_names = {
@@ -84,14 +84,6 @@ AVI2 = {
 			sequential_name = "%O% Droid Defenses"
 		}
 		
-		android_army = {
-			sequential_name = "%O% Nano Force"
-		}
-		
-		android_defense_army = {
-			sequential_name = "%O% Nano Defenses"
-		}
-		
 		psionic_army = { 
 			sequential_name = "%O% Psi Wing"
 		}
@@ -112,8 +104,14 @@ AVI2 = {
 			sequential_name = "%O% Droid Occupation Force"
 		}
 
-		android_occupation_army = {
-			sequential_name = "%O% Nano Occupation Force"
+		primitive_army = {
+			sequential_name = "Primitive Army %C%"
+		}
+		industrial_army = {
+			sequential_name = "Industrial Army %C%"
+		}
+		postatomic_army = {
+			sequential_name = "Post-Atomic Army %C%"
 		}
 	}
 

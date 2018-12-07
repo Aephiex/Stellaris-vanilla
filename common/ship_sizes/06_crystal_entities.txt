@@ -81,7 +81,6 @@ crystal_ship_large_blue = {
 	icon_frame = 12
 	class = shipclass_military
 	is_designable = no
-	cost = 300
 }
 # Small Crystal Ship - Green
 crystal_ship_small_green = {
@@ -142,7 +141,6 @@ crystal_ship_large_green = {
 	icon_frame = 12
 	class = shipclass_military
 	is_designable = no
-	cost = 300
 }
 
 # Small Crystal Ship - Yellow
@@ -204,7 +202,6 @@ crystal_ship_large_yellow = {
 	icon_frame = 12
 	class = shipclass_military
 	is_designable = no
-	cost = 300
 }
 
 # Small Crystal Ship - Red
@@ -266,7 +263,6 @@ crystal_ship_large_red = {
 	icon_frame = 12
 	class = shipclass_military
 	is_designable = no
-	cost = 300
 }
 # Small Crystal Ship - Blue - ELITE
 crystal_ship_small_blue_elite = {
@@ -327,7 +323,6 @@ crystal_ship_large_blue_elite = {
 	icon_frame = 12
 	class = shipclass_military
 	is_designable = no
-	cost = 300
 }
 # Small Crystal Ship - Green - ELITE
 crystal_ship_small_green_elite = {
@@ -388,7 +383,6 @@ crystal_ship_large_green_elite = {
 	icon_frame = 12
 	class = shipclass_military
 	is_designable = no
-	cost = 300
 }
 
 # Small Crystal Ship - Yellow - ELITE
@@ -450,7 +444,6 @@ crystal_ship_large_yellow_elite = {
 	icon_frame = 12
 	class = shipclass_military
 	is_designable = no
-	cost = 300
 }
 
 # Small Crystal Ship - Red - ELITE
@@ -512,7 +505,6 @@ crystal_ship_large_red_elite = {
 	icon_frame = 12
 	class = shipclass_military
 	is_designable = no
-	cost = 300
 }
 
 crystal_station_large = {
@@ -524,7 +516,7 @@ crystal_station_large = {
 	modifier = {
 		ship_evasion_mult = -1
 		ship_armor_add = 5000
-		ship_upkeep_mult = -0.25
+		ships_upkeep_mult = -0.25
 	}
 	max_hitpoints = 40000
 	combat_size_multiplier = 20

@@ -1030,7 +1030,7 @@ guiTypes  = {
 
 		iconType = {
 			name = "icon"
-			spriteType = "GFX_tile_frame_blocker"
+			spriteType = "GFX_planet_background_frame_blocker"
 			position = { x = 0 y = 0 }
 			scale = 0.5
 		}				

@@ -11,12 +11,19 @@ assault_army = {
 	collateral_damage = 1.00
 	war_exhaustion = 1.00
 	time = 90
-	maintenance = 1.0
 	icon_frame = 2
 	prerequisites = { "tech_assault_armies" }
-	cost = {
-		minerals = 100
+	resources = {
+		category = armies
+		cost = {
+			minerals = 100
+		}
+
+		upkeep = {
+			energy = 1
+		}
 	}
+
 	show_tech_unlock_if = { 
 		OR = {
 			NOT = { has_authority = auth_machine_intelligence }
@@ -26,9 +33,7 @@ assault_army = {
 	potential = {
 		from = {
 			NOR = {
-				has_trait = "trait_robotic_1"
-				has_trait = "trait_robotic_2"
-				has_trait = "trait_robotic_3"
+				has_trait = "trait_mechanical"
 				has_trait = "trait_machine_unit"
 				is_sapient = no
 			}
@@ -51,29 +56,34 @@ slave_army = {
 	collateral_damage = 1.50
 	war_exhaustion = 0.50
 	time = 60
-	maintenance = 0.50
 	icon_frame = 10
-	
-	cost = {
-		minerals = 50
+
+	resources = {
+		category = armies
+		cost = {
+			minerals = 50
+		}
+
+		upkeep = {
+			energy = 0.5
+		}
 	}
-	
+
 	prerequisites = { "tech_neural_implants" }
 	
 	allow = {
-		has_building = "building_slave_processing"
+		any_owned_pop = { is_pop_category = slave }
 	}
 	potential = {
 		from = {
 			NOR = {
-				has_trait = "trait_robotic_1"
-				has_trait = "trait_robotic_2"
-				has_trait = "trait_robotic_3"
+				has_trait = "trait_mechanical"
 				has_trait = "trait_machine_unit"
 				is_sapient = no
 			}
 		}
 		owner = {
+			has_policy_flag = slavery_allowed
 			NOT = { has_authority = auth_machine_intelligence }
 		}
 	}
@@ -87,27 +97,28 @@ clone_army = {
 	collateral_damage = 1.25
 	war_exhaustion = 0.50
 	time = 30
-	maintenance = 0.75
 	icon_frame = 7
 	pop_limited = no
-	
-	cost = {
-		minerals = 75
+
+	resources = {
+		category = armies
+		cost = {
+			minerals = 75
+		}
+
+		upkeep = {
+			energy = 0.75
+		}
 	}
-	
+
 	prerequisites = { "tech_gene_banks" }
 	
 	show_tech_unlock_if = { NOT = { has_authority = auth_machine_intelligence } }
 	
-	allow = {
-		has_building = "building_clone_vats"
-	}
 	potential = {
 		from = {
 			NOR = {
-				has_trait = "trait_robotic_1"
-				has_trait = "trait_robotic_2"
-				has_trait = "trait_robotic_3"
+				has_trait = "trait_mechanical"
 				has_trait = "trait_machine_unit"
 				is_sapient = no
 			}
@@ -127,16 +138,22 @@ robotic_army = {
 	war_exhaustion = 0.50
 	has_morale = no
 	time = 90
-	maintenance = 1.5
 	icon_frame = 4
 	has_species = yes
-	
-	cost = {
-		minerals = 150
+
+	resources = {
+		category = armies
+		cost = {
+			minerals = 150
+		}
+
+		upkeep = {
+			energy = 1.5
+		}
 	}
 
 	potential = {
-		from = { has_trait = "trait_robotic_2" }
+		from = { has_trait = "trait_mechanical" }
 		owner = {
 			NOT = { has_authority = auth_machine_intelligence }
 		}
@@ -149,37 +166,6 @@ robotic_army = {
 	}
 }
 
-# Synthetic Armies
-android_army = {
-	damage = 2.00
-	health = 2.50
-	has_morale = no
-	morale_damage = 1.25
-	collateral_damage = 1.5
-	war_exhaustion = 0.75
-	time = 120
-	maintenance = 2.50
-	icon_frame = 4
-	has_species = yes
-	
-	cost = {
-		minerals = 250
-	}
-
-	potential = {
-		from = { has_trait = "trait_robotic_3" }
-		owner = {
-			NOT = { has_authority = auth_machine_intelligence }
-		}
-	}
-	
-	prerequisites = { "tech_synthetic_workers" }
-
-	allow = {
-		owner = { NOT = { has_policy_flag = ai_outlawed } }
-	}
-}
-
 # Psionic Armies
 psionic_army = {
 	damage = 2.0
@@ -189,13 +175,19 @@ psionic_army = {
 	collateral_damage = 0.5
 	war_exhaustion = 3.0
 	time = 120
-	maintenance = 2.5
 	icon_frame = 9
-	
-	cost = {
-		minerals = 250
+
+	resources = {
+		category = armies
+		cost = {
+			minerals = 250
+		}
+
+		upkeep = {
+			energy = 2.5
+		}
 	}
-	
+
 	prerequisites = { "tech_telepathy" }
 	potential = {
 		from = {
@@ -207,9 +199,7 @@ psionic_army = {
 				}
 			}
 			NOR = {
-				has_trait = "trait_robotic_1"
-				has_trait = "trait_robotic_2"
-				has_trait = "trait_robotic_3"
+				has_trait = "trait_mechanical"
 				has_trait = "trait_machine_unit"
 				is_sapient = no
 			}
@@ -229,12 +219,18 @@ xenomorph_army = {
 	health = 2.0
 	has_morale = no
 	time = 100
-	maintenance = 2.0
 	icon_frame = 8
 	has_species = no
-	
-	cost = {
-		minerals = 200
+
+	resources = {
+		category = armies
+		cost = {
+			minerals = 200
+		}
+
+		upkeep = {
+			energy = 2
+		}
 	}
 
 	potential = {
@@ -255,20 +251,24 @@ gene_warrior_army = {
 	collateral_damage = 0.75
 	war_exhaustion = 3.0
 	time = 150
-	maintenance = 3.0
 	icon_frame = 6
-	
-	cost = {
-		minerals = 300
+
+	resources = {
+		category = armies
+		cost = {
+			minerals = 300
+		}
+
+		upkeep = {
+			energy = 3
+		}
 	}
-	
+
 	prerequisites = { "tech_gene_seed_purification" }
 	potential = {
 		from = {
 			NOR = {
-				has_trait = "trait_robotic_1"
-				has_trait = "trait_robotic_2"
-				has_trait = "trait_robotic_3"
+				has_trait = "trait_mechanical"
 				has_trait = "trait_machine_unit"
 				is_sapient = no
 			}
@@ -290,12 +290,19 @@ machine_assault_1 = {
 	collateral_damage = 2.0
 	war_exhaustion = 0.5
 	time = 90
-	maintenance = 1.0
 	has_species = yes
 
 	icon_frame = 11
-	cost = {
-		minerals = 100
+
+	resources = {
+		category = armies
+		cost = {
+			minerals = 100
+		}
+
+		upkeep = {
+			energy = 1
+		}
 	}
 
 	potential = {
@@ -319,12 +326,19 @@ machine_assault_2 = {
 	collateral_damage = 2.0
 	war_exhaustion = 1.0
 	time = 120
-	maintenance = 2.0
 	has_species = yes
 
 	icon_frame = 11
-	cost = {
-		minerals = 200
+
+	resources = {
+		category = armies
+		cost = {
+			minerals = 200
+		}
+
+		upkeep = {
+			energy = 2
+		}
 	}
 
 	potential = {
@@ -346,12 +360,19 @@ machine_assault_3 = {
 	collateral_damage = 4.0
 	war_exhaustion = 4.0
 	time = 500
-	maintenance = 8.0
 	has_species = no
 
 	icon_frame = 11
-	cost = {
-		minerals = 800
+
+	resources = {
+		category = armies
+		cost = {
+			minerals = 800
+		}
+
+		upkeep = {
+			energy = 8
+		}
 	}
 
 	potential = {

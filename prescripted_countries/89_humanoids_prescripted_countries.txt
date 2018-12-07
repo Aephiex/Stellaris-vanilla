@@ -1,8 +1,10 @@
 voor = {
-	name = "Voor Technocracy"
+	name = "VOOR"
 	adjective = "PRESCRIPTED_adjective_voor"
 	spawn_enabled = yes # yes / no / always
 	ignore_portrait_duplication = yes
+	
+	playable = has_humanoids # scripted_triggers
 	
 	ship_prefix = "PRESCRIPTED_ship_prefix_voor"
 	
@@ -14,6 +16,7 @@ voor = {
 		adjective = "PRESCRIPTED_species_adjective_voor"
 		name_list = "HUM2"
 		trait = "trait_quick_learners"
+		trait = "trait_talented"
 		trait = "trait_adaptive"
 		trait = "trait_repugnant"
 	}
@@ -60,5 +63,6 @@ voor = {
 		hair = 0
 		clothes = 3
 		ruler_title = "PRESCRIPTED_ruler_title_voor"
+		leader_class = ruler
 	}
 }

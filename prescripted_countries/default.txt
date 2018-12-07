@@ -45,5 +45,6 @@ default = {
 		texture = 0
 		hair = 0
 		clothes = 4
+		leader_class = ruler
 	}
 }

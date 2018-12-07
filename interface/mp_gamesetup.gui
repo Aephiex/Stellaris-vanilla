@@ -1041,11 +1041,85 @@ guiTypes = {
 						}
 					}
 				}
+				
+				containerWindowType = {
+					name = "victory"
+					position = { x = 0 y = 480 }
+					size={ width=@SettingEntrySizeX height=@SettingEntrySizeY }
+					
+					instantTextBoxType = {
+						name = "victory_label"
+						position = { x = 10 y = 5 }
+						font = "cg_16b"
+						maxWidth = 204
+						maxHeight = 52	
+						#alwaysTransparent = yes
+						orientation = "UPPER_LEFT"
+						text = "FE_VICTORY"
+						pdx_tooltip = "FE_VICTORY_TOOLTIP"
+					}
+					
+					instantTextBoxType = {
+						name = "pick_amount_value"
+						position = { x = -10 y = 5 }
+						font = "cg_16b"
+						maxWidth = 204
+						maxHeight = 52
+						format = right
+						alwaysTransparent = yes
+						orientation = "UPPER_LEFT"
+						text = "5"
+					}
+			
+					scrollbarType = {
+						name = "amount_slider"	
+						slider = "scrollbar_SliderButton"
+						track= "scrollbar_TrackButton"
+						leftbutton = "scrollbar_upButton"
+						rightbutton = "scrollbar_downButton"
+						size = { x = 204 y = 30 }
+						position = { x = 195 y = 0 }
+						priority = 100			
+						borderSize = { x = 16 y = 16 }	
+						maxValue = 100
+						minValue = 0
+						stepSize = 1
+						startValue = 20
+						horizontal = 1
+						
+						guiButtonType = {
+							name = "scrollbar_SliderButton"	
+							quadTextureSprite = "GFX_settings_scroll_drager"
+							tooltip = ""
+							tooltipText =""	
+							delayedTooltipText = ""
+							position = { x = 30 y = 0 }
+						}
+						
+						guiButtonType = {
+							name = "scrollbar_TrackButton"
+							quadTextureSprite = "scrollbar_background"
+							position = { x = 30 y = 20 }
+						}
+						
+						guiButtonType = {
+							name = "scrollbar_upButton"
+							quadTextureSprite = "scrollbar_leftbutton"
+							position = { x = 30 y = 0 }
+						}
+						
+						guiButtonType = {
+							name = "scrollbar_downButton"
+							quadTextureSprite = "scrollbar_rightbutton"
+							position = { x = 30 y = 120 }
+						}
+					}
+				}				
 
 				# Difficulty
 				containerWindowType = {
 					name = "difficulty"
-					position = { x = 0 y = 480 }
+					position = { x = 0 y = 520 }
 					size={ width=@SettingEntrySizeX height=@SettingEntrySizeY }
 
 					instantTextBoxType = {
@@ -1100,7 +1174,7 @@ guiTypes = {
 				# Scaling Difficulty
 				containerWindowType = {
 					name = "scaling_difficulty"
-					position = { x = 0 y = 520 }
+					position = { x = 0 y = 560 }
 					size={ width=@SettingEntrySizeX height=@SettingEntrySizeY }
 
 					instantTextBoxType = {
@@ -1155,7 +1229,7 @@ guiTypes = {
 				# Aggressiveness
 				containerWindowType = {
 					name = "aggressiveness"
-					position = { x = 0 y = 560 }
+					position = { x = 0 y = 600 }
 					size={ width=@SettingEntrySizeX height=@SettingEntrySizeY }
 
 					instantTextBoxType = {
@@ -1210,7 +1284,7 @@ guiTypes = {
 				# Advanced empires near player
 				containerWindowType = {
 					name = "advanced_near_player"
-					position = { x = 0 y = 600 }
+					position = { x = 0 y = 640 }
 					size={ width=@SettingEntrySizeX height=@SettingEntrySizeY }
 
 					instantTextBoxType = {
@@ -1265,7 +1339,7 @@ guiTypes = {
 				# Player positions
 				containerWindowType = {
 					name = "pick_player_locations"
-					position = { x = 0 y = 640 }
+					position = { x = 0 y = 680 }
 					size={ width=@SettingEntrySizeX height=@SettingEntrySizeY }
 
 					instantTextBoxType = {
@@ -1319,7 +1393,7 @@ guiTypes = {
 				### Number of hyperlanes generated
 				containerWindowType = {
 					name = "hyperlanes"
-					position = { x = 0 y = 680 }
+					position = { x = 0 y = 720 }
 					size={ width=@SettingEntrySizeX height=@SettingEntrySizeY }
 
 					instantTextBoxType = {
@@ -1393,7 +1467,7 @@ guiTypes = {
 				### Pregenerated Gateways
 				containerWindowType = {
 					name = "gateways"
-					position = { x = 0 y = 720 }
+					position = { x = 0 y = 760 }
 					size={ width=@SettingEntrySizeX height=@SettingEntrySizeY }
 
 					instantTextBoxType = {
@@ -1468,7 +1542,7 @@ guiTypes = {
 				### Number of natural wormhole pairs generated
 				containerWindowType = {
 					name = "wormholes"
-					position = { x = 0 y = 760 }
+					position = { x = 0 y = 800 }
 					size={ width=@SettingEntrySizeX height=@SettingEntrySizeY }
 
 					instantTextBoxType = {
@@ -1536,6 +1610,80 @@ guiTypes = {
 							name = "scrollbar_downButton"
 							quadTextureSprite = "scrollbar_rightbutton"
 							position = { x=30 y =0}
+						}
+					}
+				}	
+
+				containerWindowType = {
+					name = "guaranteed_colonies"
+					position = { x = 0 y = 840 }
+					size={ width=@SettingEntrySizeX height=@SettingEntrySizeY }
+					
+					instantTextBoxType = {
+						name = "guaranteed_colonies_label"
+						position = { x = 10 y = 5 }
+						font = "cg_16b"
+						maxWidth = 204
+						maxHeight = 52	
+						#alwaysTransparent = yes
+						orientation = "UPPER_LEFT"
+						text = "FE_GUARANTEED_COLONIES"
+						pdx_tooltip = "FE_GUARANTEED_COLONIES_TOOLTIP"
+					}
+					
+					instantTextBoxType = {
+						name = "pick_amount_value"
+						position = { x = -10 y = 5 }
+						font = "cg_16b"
+						maxWidth = 204
+						maxHeight = 52
+						format = right
+						alwaysTransparent = yes
+						orientation = "UPPER_LEFT"
+						text = "5"
+					}
+			
+					scrollbarType = {
+						name = "amount_slider"	
+						slider = "scrollbar_SliderButton"
+						track= "scrollbar_TrackButton"
+						leftbutton = "scrollbar_upButton"
+						rightbutton = "scrollbar_downButton"
+						size = { x = 204 y = 30 }
+						position = { x = 195 y = 0 }
+						priority = 100			
+						borderSize = { x = 16 y = 16 }	
+						maxValue = 100
+						minValue = 0
+						stepSize = 1
+						startValue = 20
+						horizontal = 1
+						
+						guiButtonType = {
+							name = "scrollbar_SliderButton"	
+							quadTextureSprite = "GFX_settings_scroll_drager"
+							tooltip = ""
+							tooltipText =""	
+							delayedTooltipText = ""
+							position = { x = 30 y = 0 }
+						}
+						
+						guiButtonType = {
+							name = "scrollbar_TrackButton"
+							quadTextureSprite = "scrollbar_background"
+							position = { x = 30 y = 20 }
+						}
+						
+						guiButtonType = {
+							name = "scrollbar_upButton"
+							quadTextureSprite = "scrollbar_leftbutton"
+							position = { x = 30 y = 0 }
+						}
+						
+						guiButtonType = {
+							name = "scrollbar_downButton"
+							quadTextureSprite = "scrollbar_rightbutton"
+							position = { x = 30 y = 120 }
 						}
 					}
 				}				
@@ -1665,6 +1813,13 @@ guiTypes = {
 		iconType = {
 			name = "random_selected"
 			spriteType = "GFX_species_random"
+			position = { x = 5 y = 5 }
+			scale = 0.4
+		}
+		
+		iconType = {
+			name = "observe_selected"
+			spriteType = "GFX_species_observe"
 			position = { x = 5 y = 5 }
 			scale = 0.4
 		}

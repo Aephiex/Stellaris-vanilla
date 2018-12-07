@@ -67,7 +67,6 @@ example_initializer = {
 		has_ring = no
 		
 		modifier = "pm_dangerous_wildlife"	#planet modifier
-		resource = "sr_alien_pets"			#strategic resource on this planet
 		anomaly = "IRASSIA"				#anomaly on this planet
 		
 		home_planet = yes					#this is a valid home planet for empires and fallen empires

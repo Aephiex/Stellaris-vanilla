@@ -207,7 +207,7 @@ ambient_object = {
 	show_name = no
 }
 
-# EventShip 3 (Battleship - Judgement)
+# EventShip 3 (Battleship - Judgment)
 ambient_object = {
 	name = "eventship_03_object"
 	entity = "eventship_03_entity"

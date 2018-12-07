@@ -1,5 +1,5 @@
 ﻿### Humanoid 1
-### Created by Henrik Eklund
+### Created by Henrik Thyrwall
 
 HUM1 = {
 	ship_names = {
@@ -83,14 +83,6 @@ HUM1 = {
 			sequential_name = "%O% Robotic Protectors"
 		}
 		
-		android_army = {
-			sequential_name = "%O% Autonomous Hunters"
-		}
-
-		android_defense_army = {
-			sequential_name = "%O% Autonomous Guardians"
-		}
-		
 		psionic_army = { 
 			sequential_name = "%O% Warlock Company"
 		}
@@ -111,8 +103,14 @@ HUM1 = {
 			sequential_name = "%O% Robotic Occupiers"
 		}
 
-		android_occupation_army = {
-			sequential_name = "%O% Autonomous Occupiers"
+		primitive_army = {
+			sequential_name = "Primitive Army %C%"
+		}
+		industrial_army = {
+			sequential_name = "Industrial Army %C%"
+		}
+		postatomic_army = {
+			sequential_name = "Post-Atomic Army %C%"
 		}
 	}
 

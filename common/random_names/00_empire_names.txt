@@ -1189,24 +1189,43 @@ empire_name_parts_list = {
 empire_name_parts_list = {
 	key = "oligarchic_corp"
 	parts = {
-		"Conglomerate" = 1
-		"Cartel" = 1
-		"Corporation" = 1
+		"Conglomerate" = 2
+		"Corporation" = 4
 		"Corporate Union" = 1
 		"Corporate Alliance" = 1
 		"Corporate Holdings" = 1
 		"Star Conglomerate" = 1
-		"Enterprises" = 1
+		"Enterprises" = 2
 		"Partnership" = 1
 		"Stellar Industries" = 1
-		"Combine" = 1
-		"Company" = 1
+		"Company" = 2
 		"Consumer Products" = 1
 		"StarCorp" = 1
 		"Synergetics" = 1
 		"Incorporated" = 1
 		"Manufacturing" = 1
 		"Systems" = 1
+		"Multistellar" = 1
+		"Concern" = 1
+		"TransStellar" = 1
+		"Industries" = 1
+		"Dynamics" = 1
+		"Intersolar" = 1
+	}
+}
+
+# Communal Parity
+empire_name_parts_list = {
+	key = "communal_parity"
+	parts = {
+		Commune = 6
+		Cooperative = 6
+		"People's Republic" = 6
+		"People's Union" = 3
+		"Communal State" = 3
+		"Solidarity" = 3
+		"Parity" = 1
+		"Aggregate" = 1
 	}
 }
 
@@ -1234,9 +1253,6 @@ empire_name_parts_list = {
 empire_name_parts_list = {
 	key = "trade_league"
 	parts = {
-		"Syndicate" = 1
-		"Consortium" = 1
-		"Cartel" = 1
 		"Mercantile Union" = 1
 		"Commerce Guild" = 1
 		"Commerce League" = 1
@@ -1248,18 +1264,57 @@ empire_name_parts_list = {
 		"Trading Coalition" = 1
 		"Bonded Merchants" = 1
 		"Shipping Alliance" = 1
+		"Trade Association" = 1
 	}
 }
+
+# Criminal Syndicate
+empire_name_parts_list = {
+	key = "monopolistic_syndicate"
+	parts = {
+		"Syndicate" = 6
+		"Consortium" = 2
+		"Cartel" = 4
+		"Combine" = 2
+		"Monopoly" = 3
+		"Concern" = 1
+	}
+}
+
+# Subversive Cult 1
+empire_name_parts_list = {
+	key = "subversive_cult_1"
+	parts = {
+		"Cult" = 1
+		"Chosen" = 1
+		"Sect" = 1
+		"Fellowship" = 1
+	}
+}
+
+# Subversive Cult 2
+empire_name_parts_list = {
+	key = "subversive_cult_2"
+	parts = {
+		"Chosen" = 1
+		"Fellowship" = 1
+		"Prophets" = 1
+		"Trueborn" = 1
+		"Messengers" = 1
+		"Pilgrims" = 1
+	}
+}
+
 
 # Bandit Kingdom
 empire_name_parts_list = {
 	key = "bandit_kingdom"
 	parts = {
 		"Despoilers" = 1
-		"Cartel" = 1
 		"Triad" = 1
-		"Syndicate" = 1
 		"Cabal" = 1
+		"Clique" = 1
+		"Coterie" = 1
 	}
 }
 
@@ -4600,6 +4655,120 @@ empire_name_format = {
 	noun = "[This.GetSpeciesName]"
 	prefix_format = "[This.GetSpeciesName] <trade_league>"
 	# Human Empire
+}
+
+# Criminal Syndicate
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 5
+			has_government = "gov_criminal_syndicate"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.monopolistic_syndicate.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <monopolistic_syndicate>"
+	# Human Empire
+}
+
+# Subversive Cult 1
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 5
+			has_government = "gov_subversive_cult"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.subversive_cult.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <subversive_cult_1>"
+	# Human Cult
+}
+
+# Subversive Cult 2
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 5
+			has_government = "gov_subversive_cult"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.subversive_cult.2"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <subversive_cult_2>"
+	# Prophets of Earth
+}
+
+# Communal Parity 1
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1
+			has_government = "gov_communal_parity"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.communal_parity.1"
+	noun = "[This.Capital.GetName]"
+	prefix_format = "[This.Capital.GetName] <imperial_celestial>"
+	# People's Republic of Earth
+}
+
+# Communal Parity 2
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1
+			has_government = "gov_communal_parity"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.communal_parity.2"
+	noun = "[This.Capital.GetName]"
+	prefix_format = "[This.Capital.GetName] <imperial_celestial>"
+	# People's Republic of Sol
+}
+
+# Communal Parity 3
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 5
+			has_government = "gov_communal_parity"
+			is_pirate = no
+			is_primitive = no
+			NOT = { is_country_type = fallen_empire }
+			NOT = { is_country_type = awakened_fallen_empire }
+		}
+	}
+	format = "format.communal_parity.3"
+	noun = "[This.Capital.GetName]"
+	prefix_format = "[This.Capital.GetName] <imperial_celestial>"
+	# Human People's Republic
 }
 
 # Bandit Kingdom

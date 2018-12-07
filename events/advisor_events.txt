@@ -2,7 +2,7 @@
 #
 # Advisor Events
 #
-# Written by Henrik Eklund
+# Written by Henrik Thyrwall
 #
 ############################
 
@@ -394,7 +394,7 @@ country_event = {
 		custom_tooltip = no_tutorial
 		trigger = { NOT = { has_country_flag = recycled_vir } }
 		hidden_effect = {
-			add_minerals = 2
+			add_resource = { minerals = 2 }
 			set_tutorial_level = none
 			set_country_flag = tutorial_level_picked
 			capital_scope = {

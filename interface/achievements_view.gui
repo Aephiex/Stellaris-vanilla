@@ -35,7 +35,7 @@ guiTypes = {
 		iconType = {
 			name = "achievement_icon"
 			position = { x = 18 y = 34 }
-			spriteType = "GFX_tile_frame_blocker_clearable"
+			spriteType = "GFX_planet_background_frame_blocker"
 		}
 		
 		instantTextBoxType = {

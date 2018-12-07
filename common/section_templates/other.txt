@@ -1,3 +1,5 @@
+@section_cost = 30
+
 ###########################
 ## Civilian Stations
 ###########################
@@ -16,9 +18,9 @@ ship_section_template = {
 	icon = "GFX_ship_part_core_mid"
 }
 
-###########################
-## Military Station
-###########################
+##################
+# Defensive Platform
+##################
 
 ship_section_template = {
 	key = "LIGHT_MILITARY_STATION_SECTION"
@@ -66,8 +68,13 @@ ship_section_template = {
 	
 	medium_utility_slots = 3
 	aux_utility_slots = 1
-	
-	cost = 0
+
+	resources = {
+		category = ship_sections
+		cost = {
+			alloys = @section_cost
+		}
+	}
 	
 	ai_weight = {
 		factor = 1
@@ -91,8 +98,6 @@ ship_section_template = {
 	
 	entity = "military_station_section_light_entity"
 	icon = "GFX_ship_part_core_mid"
-	
-	prerequisites = { tech_pd_tracking_1 tech_pd_tracking_2 tech_pd_tracking_3 tech_flak_batteries_1 tech_flak_batteries_2 tech_flak_batteries_3 }
 	
 	component_slot = {
 		name = "SMALL_GUN_01"
@@ -127,7 +132,12 @@ ship_section_template = {
 	medium_utility_slots = 3
 	aux_utility_slots = 1
 	
-	cost = 0
+	resources = {
+		category = ship_sections
+		cost = {
+			alloys = @section_cost
+		}
+	}
 	
 	ai_weight = {
 		factor = 1
@@ -165,7 +175,12 @@ ship_section_template = {
 	medium_utility_slots = 3
 	aux_utility_slots = 1
 	
-	cost = 0
+	resources = {
+		category = ship_sections
+		cost = {
+			alloys = @section_cost
+		}
+	}
 	
 	ai_weight = {
 		factor = 1
@@ -211,7 +226,12 @@ ship_section_template = {
 	medium_utility_slots = 3
 	aux_utility_slots = 1
 	
-	cost = 0
+	resources = {
+		category = ship_sections
+		cost = {
+			alloys = @section_cost
+		}
+	}
 	
 	ai_weight = {
 		factor = 1
@@ -247,7 +267,12 @@ ship_section_template = {
 	medium_utility_slots = 3
 	aux_utility_slots = 1
 	
-	cost = 0
+	resources = {
+		category = ship_sections
+		cost = {
+			alloys = @section_cost
+		}
+	}
 	
 	ai_weight = {
 		factor = 1
@@ -291,7 +316,12 @@ ship_section_template = {
 		}		
 	}	
 
-	cost = 0
+	resources = {
+		category = ship_sections
+		cost = {
+			alloys = @section_cost
+		}
+	}
 }
 
 ship_section_template = {
@@ -306,8 +336,6 @@ ship_section_template = {
 	
 	entity = "military_station_section_light_entity"
 	icon = "GFX_ship_part_core_mid"
-	
-	prerequisites = { tech_pd_tracking_1 tech_pd_tracking_2 tech_pd_tracking_3 tech_flak_batteries_1 tech_flak_batteries_2 tech_flak_batteries_3 }
 	
 	component_slot = {
 		name = "SMALL_GUN_01"

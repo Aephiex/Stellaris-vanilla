@@ -9,9 +9,12 @@ gateway_0 = {
 															# if this option is active, the placement_rules will be completely ignored
 	show_galactic_map_icon = no
 	build_time = 1080
-	build_cost = {
-		minerals = 10000
-		influence = 100
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 5000
+			influence = 100
+		}
 	}
 	construction_blocks_others = no
 
@@ -62,7 +65,7 @@ gateway_0 = {
 		modifier = {
 			factor = 0
 			starbase = { NOT = { has_starbase_size >= starbase_starfortress } }
-		}	
+		}
 
 		modifier = {
 			factor = 0
@@ -105,9 +108,12 @@ gateway_final = {
 		gateway_0
 	}
 	build_time = 1800
-	build_cost = {
-		minerals = 15000
-		energy = 10000
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 5000
+			energy = 10000
+		}
 	}
 	construction_blocks_others = no
 	bypass_type = gateway
@@ -166,9 +172,12 @@ gateway_restored = {
 		gateway_ruined
 	}
 	build_time = 720
-	build_cost = {
-		minerals = 5000
-		energy = 10000
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 5000
+			energy = 10000
+		}
 	}
 	construction_blocks_others = no
 	bypass_type = gateway

@@ -461,7 +461,8 @@ country_event = {
 				add_ruler_trait = leader_trait_ruler_cyborg
 			}
 		}
-		
+
+		observer_event = { id = observer.55 }
 		every_country = {
 			limit = {
 				is_ai = no
@@ -726,7 +727,10 @@ country_event = {
 	is_triggered_only = yes
 	
 	immediate = {
-		set_country_flag = synthetic_empire	
+		set_country_flag = synthetic_empire
+		
+		give_technology = { tech = tech_bio_reactor message = no }
+		
 		create_species = {
 			is_mod = yes
 			name = this
@@ -736,24 +740,7 @@ country_event = {
 			portrait = "default_robot"
 			traits = {
 				trait = "trait_mechanical"
-				trait = "trait_robotic_3"
 			}
-			
-			new_pop_resource_requirement = {
-				type = robot_food
-				value = 30
-			}
-			pops_auto_growth = 1.0
-			
-			pops_can_be_colonizers = yes
-			pops_can_migrate = yes
-			pops_can_reproduce = no
-			pops_can_join_factions = yes
-			pop_maintenance = 1
-			can_generate_leaders = yes
-			pops_can_be_slaves = yes
-			pops_have_happiness = yes
-			pop_ethics = random	#can also be pop_ethics = { some_ethic some_other_ethic etc }
 			
 			effect = {
 				if = { limit = { host_has_dlc = "Synthetic Dawn Story Pack" }
@@ -787,28 +774,6 @@ country_event = {
 				}
 			}
 			change_species = event_target:new_robotic_species
-			tile = {
-				if = {
-					limit = { has_building = building_hydroponics_farm_1 }
-					set_building = building_power_plant_1
-				}
-				if = {
-					limit = { has_building = building_hydroponics_farm_2 }
-					set_building = building_power_plant_2
-				}
-				if = {
-					limit = { has_building = building_hydroponics_farm_3 }
-					set_building = building_power_plant_3
-				}
-				if = {
-					limit = { has_building = building_hydroponics_farm_4 }
-					set_building = building_power_plant_4
-				}		
-				if = {
-					limit = { has_building = building_hydroponics_farm_5 }
-					set_building = building_power_plant_5
-				}
-			}
 		}
 
 		every_owned_ship = {
@@ -832,7 +797,7 @@ country_event = {
 			}
 			modify_army = {
 				name = random
-				type = "android_army"
+				type = "robotic_army"
 				species = event_target:new_robotic_species
 			}
 		}
@@ -848,7 +813,7 @@ country_event = {
 			}
 			modify_army = {
 				name = random
-				type = "android_defense_army"
+				type = "robotic_defense_army"
 				species = event_target:new_robotic_species
 			}
 		}
@@ -893,7 +858,7 @@ country_event = {
 		
 		every_owned_leader = {
 			limit = {
-				species = { has_trait = trait_robotic_3 }
+				species = { has_trait = trait_mechanical }
 				NOR = {
 					has_trait = leader_trait_admiral_synthetic
 					has_trait = leader_trait_general_synthetic
@@ -939,7 +904,7 @@ country_event = {
 		}
 		every_pool_leader = {
 			limit = {
-				species = { has_trait = trait_robotic_3 }
+				species = { has_trait = trait_mechanical }
 				NOR = {
 					has_trait = leader_trait_admiral_synthetic
 					has_trait = leader_trait_general_synthetic
@@ -984,6 +949,7 @@ country_event = {
 			}
 		}
 		
+		observer_event = { id = observer.4 }
 		every_country = {
 			limit = { 
 				is_ai = no 
@@ -1185,7 +1151,7 @@ country_event = {
 
 	trigger = {
 		from = {
-			species = { has_trait = trait_robotic_3 }
+			species = { has_trait = trait_mechanical }
 		}
 	}
 
@@ -1233,7 +1199,7 @@ country_event = {
 
 	trigger = {
 		from = {
-			species = { has_trait = trait_robotic_3 }
+			species = { has_trait = trait_mechanical }
 			NOR = {
 				has_trait = leader_trait_admiral_synthetic
 				has_trait = leader_trait_general_synthetic
@@ -1294,6 +1260,7 @@ country_event = {
 				add_trait = trait_latent_psionic
 			}
 		}
+		observer_event = { id = observer.5 }
 		every_country = {
 			limit = { 
 				is_ai = no
@@ -1650,6 +1617,7 @@ country_event = {
 					}
 				}
 			}
+			observer_event = { id = observer.6 }
 			every_country = {
 				limit = { 
 					is_ai = no
@@ -1873,10 +1841,46 @@ planet_event = {
 	trigger = {
 		is_planet_class = pc_habitat
 		owner = { has_ascension_perk = ap_master_builders }
-		planet_size < 15
+		NOT = { has_modifier = master_builders_habitats }
 	}	
 	
 	immediate = {
-		set_planet_size = 15
+		add_modifier = {
+			modifier = master_builders_habitats
+			days = -1
+		}
+	}
+}
+
+# Master Builders - Habitats
+event = {
+	id = utopia.2660
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		any_playable_country = { has_ascension_perk = ap_master_builders }
+	}
+
+	immediate = {
+		every_playable_country = {
+			limit = {
+				has_ascension_perk = ap_master_builders
+				any_owned_planet = {
+					is_planet_class = pc_habitat
+					NOT = { has_modifier = master_builders_habitats }
+				}
+			}
+			every_owned_planet = {
+				limit = {
+					is_planet_class = pc_habitat
+					NOT = { has_modifier = master_builders_habitats }
+				}
+				add_modifier = {
+					modifier = master_builders_habitats
+					days = -1
+				}
+			}
+		}
 	}
 }

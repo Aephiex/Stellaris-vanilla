@@ -114,12 +114,13 @@ GEN_OLD_WAR_CAT = {
 	
 	on_success = {
 		1 = anomaly.4020
-		0 = {
+		1 = {
 			modifier = {
-				add = 1
+				factor = 0
 				owner = {
-					NOT = {
+					OR = {
 						has_ethic = ethic_gestalt_consciousness
+						has_country_flag = masters_writings_war_found
 					}
 				}
 			}
@@ -174,11 +175,24 @@ DES_BURIED_CAT = {
 	max_once = yes
 	
 	on_success = {
-		1 = anomaly.4030
 		1 = {
 			modifier = {
 				factor = 0
-				owner = { has_ethic = ethic_gestalt_consciousness }
+				owner = {
+					has_country_flag = ai_admiral_found
+				}
+			}
+			anomaly_event = anomaly.4030
+		}
+		1 = {
+			modifier = {
+				factor = 0
+				owner = {
+					OR = {
+						has_ethic = ethic_gestalt_consciousness
+						has_country_flag = masters_writings_politics_found
+					}
+				}
 			}
 			anomaly_event = anomaly.4135
 		}
@@ -209,7 +223,15 @@ SUN_RAYS_CAT = {
 	max_once = yes
 	
 	on_success = {
-		1 = anomaly.4035
+		1 = {
+			modifier = {
+				factor = 0
+				owner = {
+					has_technology = tech_zero_point_power
+				}
+			}
+			anomaly_event = anomaly.4035
+		}
 		1 = anomaly.4040
 	}
 	
@@ -259,7 +281,6 @@ COLD_RESEARCH_CAT = {
 			add = 3
 			OR = {
 				is_planet_class = pc_frozen
-				is_planet_class = pc_tundra
 				is_planet_class = pc_barren_cold
 			}
 		}
@@ -273,7 +294,13 @@ COLD_RESEARCH_CAT = {
 			}
 			anomaly_event = anomaly.4055
 		}
-		1 = anomaly.4075
+		1 = {
+			modifier = {
+				factor = 0
+				owner = { has_policy_flag = interference_passive }
+			}
+			anomaly_event = anomaly.4075
+		}
 		1 = {
 			modifier = {
 				factor = 0
@@ -284,7 +311,13 @@ COLD_RESEARCH_CAT = {
 		1 = {
 			modifier = {
 				factor = 0
-				owner = { has_ethic = ethic_gestalt_consciousness }
+				owner = {
+					OR = {
+						has_ethic = ethic_gestalt_consciousness
+						has_country_flag = masters_writings_philosophy_found
+						has_country_flag = anomaly_140_triggered
+					}
+				}
 			}
 			anomaly_event = anomaly.4140
 		}
@@ -463,7 +496,13 @@ CON_BIOLOGY_CAT = {
 			anomaly_event = anomaly.4100
 		}
 		1 = anomaly.4115
-		1 = anomaly.4150
+		1 = {
+			modifier = {
+				factor = 0
+				owner = { has_country_flag = masters_writings_diplomacy_found }
+			}
+			anomaly_event = anomaly.4150
+		}
 	}
 	
 	#on_fail = {

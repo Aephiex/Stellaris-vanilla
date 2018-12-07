@@ -2,7 +2,7 @@
 special_project = {
 	key = "FLESH_IS_WEAK_PROJECT"
 	cost = {
-		base = 1000
+		base = 500
 		scaled_modifier = {
 			limit = {
 			}
@@ -76,7 +76,7 @@ special_project = {
 # Breaching the Shroud
 special_project = {
 	key = "BREACHING_SHROUD_PROJECT"
-	cost = 5000
+	cost = 50000
 	tech_department = society_technology
 	picture = GFX_evt_psionics
 	location = no

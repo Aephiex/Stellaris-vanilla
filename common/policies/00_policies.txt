@@ -246,70 +246,6 @@ war_doctrine = {
 	}
 }
 
-	
-
-food_stockpiling = {
-	potential = {
-		OR = {
-			NOT = { has_authority = auth_machine_intelligence }
-			has_civic = civic_machine_servitor
-		}
-	}
-	
-	option = {
-		name = "food_stockpiling_1"
-		
-		policy_flags = {}
-		modifier = {
-			max_food = 200
-		}
-		
-		AI_weight = {
-			factor = 10
-			modifier = {
-				factor = 0
-				OR = {
-					num_pops >= 50
-					NOT = { is_country_type = default }
-				}				
-			}
-		}
-	}	
-	
-	option = {
-		name = "food_stockpiling_2"
-		
-		policy_flags = {}
-		modifier = {
-			max_food = 1000
-		}
-		
-		AI_weight = {
-			factor = 5
-			modifier = {
-				factor = 0
-				OR = {
-					num_pops >= 200
-					NOT = { is_country_type = default }
-				}	
-			}
-		}
-	}
-	
-	option = {
-		name = "food_stockpiling_3"
-		
-		policy_flags = {}
-		modifier = {
-			max_food = 5000
-		}
-		
-		AI_weight = {
-			factor = 1
-		}
-	}
-}
-
 orbital_bombardment = {
 
 	potential = {
@@ -391,7 +327,6 @@ interference = {
 		}
 		
 		on_enabled = {
-			# custom_tooltip = "policy_allow_slavery_effect_disable"
 		}
 		
 		valid = {
@@ -648,7 +583,7 @@ leader_enhancement = {
 		modifier = {
 			leader_skill_levels = 1
 			leader_age = 10
-			leader_cost = 0.5
+			leaders_cost_mult = 0.5
 		}
 		
 		valid = {
@@ -678,7 +613,7 @@ leader_enhancement = {
 		modifier = {
 			leader_skill_levels = 2
 			leader_age = 20
-			leader_cost = 1
+			leaders_cost_mult = 1
 		}
 		
 		valid = {
@@ -732,14 +667,16 @@ first_contact_protocol = {
 		
 		valid = {
 			OR = {
+				has_ethic = ethic_gestalt_consciousness
 				has_ethic = ethic_xenophobe
 				has_ethic = ethic_fanatic_xenophobe
 				has_ethic = ethic_militarist
 				has_ethic = ethic_fanatic_militarist
-				NOR = {
-					has_ethic = ethic_fanatic_xenophile
-					has_ethic = ethic_fanatic_pacifist
-				}
+			}
+			NOR = {
+				has_ethic = ethic_fanatic_xenophile
+				has_ethic = ethic_pacifist
+				has_ethic = ethic_fanatic_pacifist
 			}
 		}
 		
@@ -818,6 +755,230 @@ border_policy = {
 			}			
 		}
 	}
+}
+
+food_policy = {
+	potential = {	
+		OR = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+			has_valid_civic = civic_machine_servitor
+		}
+	}
+
+	option = {
+		name = "food_policy_rationing"
+		
+		modifier = {
+			planet_pops_organics_food_upkeep_mult = -0.25
+			pop_growth_speed = -0.1
+			biological_pop_happiness = -0.1
+		}
+		
+		AI_weight = {
+			factor = 0
+		}
+	}
+	
+	option = {
+		name = "food_policy_normal"
+		
+		modifier = {}
+		
+		AI_weight = {
+			factor = 1
+		}
+	}
+
+	option = {
+		name = "food_policy_generous"
+		
+		modifier = {
+			planet_pops_organics_food_upkeep_mult = 0.25
+			biological_pop_happiness = 0.05
+			pop_growth_speed = 0.10
+		}
+		
+		AI_weight = {
+			factor = 0
+		}
+	}		
+}
+
+
+food_policy_gestalt = {
+	potential = {	
+		has_ethic = ethic_gestalt_consciousness
+		NOT = { has_authority = auth_machine_intelligence }
+	}
+
+	option = {
+		name = "food_policy_gestalt_rationing"
+		
+		modifier = {
+			planet_pops_organics_food_upkeep_mult = -0.25
+			pop_growth_speed = -0.15
+		}
+		
+		AI_weight = {
+			factor = 0
+		}
+	}
+	
+	option = {
+		name = "food_policy_gestalt_normal"
+		
+		modifier = {}
+		
+		AI_weight = {
+			factor = 1
+		}
+	}
+
+	option = {
+		name = "food_policy_gestalt_generous"
+		
+		modifier = {
+			planet_pops_organics_food_upkeep_mult = 0.5
+			pop_growth_speed = 0.33
+		}
+		
+		AI_weight = {
+			factor = 0
+		}
+	}		
+}
+
+
+economic_policy = {
+	potential = {	
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+	}
+
+	option = {
+		name = "economic_policy_civilian"
+		
+		modifier = {
+			country_consumer_goods_produces_mult = 0.15
+			country_alloys_produces_mult = -0.25
+		}
+		
+		AI_weight = {
+			factor = 0
+		}
+	}
+
+	option = {
+		name = "economic_policy_balanced"
+		
+		modifier = {}
+		
+		AI_weight = {
+			factor = 1
+		}
+	}	
+	
+	option = {
+		name = "economic_policy_military"
+		
+		modifier = {
+			country_consumer_goods_produces_mult = -0.25
+			country_alloys_produces_mult = 0.15
+		}
+		
+		AI_weight = {
+			factor = 2
+			modifier = {
+				factor = 0
+				is_authoritarian = no
+			}
+		}
+	}		
+}
+
+trade_policy = {
+	potential = {	
+		NOT = { has_ethic = ethic_gestalt_consciousness }
+	}
+
+	option = {
+		name = "trade_policy_default"
+		
+		AI_weight = {
+			factor = 1
+		}
+	}
+
+	option = {
+		name = "trade_policy_consumer_goods"
+		
+		policy_flags = {
+			trade_conversion_consumer_goods
+		}
+		
+		modifier = {}
+		
+		AI_weight = {
+			factor = 0	
+		}
+	}	
+	
+	option = {
+		name = "trade_policy_unity"
+		
+		policy_flags = {
+			trade_conversion_unity
+		}		
+		
+		modifier = {
+		}
+		
+		AI_weight = {
+			factor = 0
+		}
+	}		
+}
+
+
+drone_policy = {
+	potential = {	
+		has_ethic = ethic_gestalt_consciousness
+	}
+	
+	option = {
+		name = "drone_policy_balanced"
+		
+		modifier = {}
+		
+		AI_weight = {
+			factor = 1
+		}
+	}
+
+	option = {
+		name = "drone_policy_worker"
+		
+		modifier = {
+			planet_jobs_simple_drone_produces_mult = 0.2
+			planet_jobs_complex_drone_produces_mult = -0.2
+		}
+		
+		AI_weight = {
+			factor = 0
+		}
+	}
+
+	option = {
+		name = "drone_policy_thinker"
+		
+		modifier = {
+			planet_jobs_simple_drone_produces_mult = -0.2
+			planet_jobs_complex_drone_produces_mult = 0.2
+		}
+		
+		AI_weight = {
+			factor = 0
+		}
+	}		
 }
 
 artificial_intelligence_policy = {
@@ -910,6 +1071,10 @@ artificial_intelligence_policy = {
 		
 		AI_weight = {
 			modifier = {
+				factor = 0
+				always = yes #TODO [MAW] we should make sure we can afford it here
+			}
+			modifier = {
 				factor = 5
 				has_valid_ai_personality = yes
 				has_ai_personality_behaviour = robot_liberator
@@ -929,7 +1094,6 @@ robot_pop_policy = {
 
 	potential = {	
 		NOT = { has_ethic = ethic_gestalt_consciousness }
-		can_set_robot_policy = yes
 	}
 	
 	option = {
@@ -948,6 +1112,7 @@ robot_pop_policy = {
 		}
 		
 		AI_weight = {
+			factor = 1
 			modifier = {
 				factor = 0
 				OR = {
@@ -956,13 +1121,13 @@ robot_pop_policy = {
 				}
 			}
 			modifier = {
-				factor = 2
+				factor = 10
 				has_valid_ai_personality = yes
 				NOR = {
 					has_ai_personality_behaviour = robot_exploiter
 					has_ai_personality_behaviour = robot_liberator
 				}
-			}
+			}		
 		}
 	}
 	
@@ -974,16 +1139,7 @@ robot_pop_policy = {
 		}
 		
 		AI_weight = {
-			modifier = {
-				factor = 5
-				has_valid_ai_personality = yes
-				has_ai_personality_behaviour = robot_exploiter
-			}	
-			modifier = {
-				factor = 2
-				has_valid_ai_personality = yes
-				has_ai_personality_behaviour = robot_liberator
-			}				
+			factor = 2				
 		}
 	}
 }
@@ -1114,100 +1270,6 @@ pre_sapients = {
 	}
 }
 
-core_worlds = {
-	potential = {
-		has_encountered_other_species = yes
-		NOT = { has_ethic = "ethic_gestalt_consciousness" }
-	}
-	
-	option = {
-		name = "core_worlds_all"
-		
-		policy_flags = {
-			core_worlds_all
-		}
-		
-		valid = {
-			always = yes
-		}
-	}
-	
-	option = {
-		name = "core_worlds_citizens_and_slaves"
-		
-		policy_flags = {
-			core_worlds_citizens_and_slaves
-		}
-		
-		valid = {
-			allows_slavery = yes
-			NOR = {
-				has_ethic = ethic_xenophile
-				has_ethic = ethic_fanatic_xenophile
-			}
-		}
-
-		AI_weight = {
-			factor = 10
-			modifier = {
-				factor = 0
-				is_ai = yes
-				has_civic = civic_syncretic_evolution
-				NOT = { has_ai_personality_behaviour = slaver }
-			}				
-			modifier = {
-				factor = 0
-				NOR = {
-					has_ethic = "ethic_xenophobe"
-					has_ethic = "ethic_fanatic_xenophobe"
-					AND = {
-						NOT = { has_ai_personality_behaviour = multispecies }
-						num_owned_planets > 10
-					}
-				}
-			}
-		}		
-	}	
-	
-	option = {
-		name = "core_worlds_citizens_only"
-		
-		policy_flags = {
-			core_worlds_citizens_only
-		}
-		
-		valid = {
-			NOR = {
-				has_ethic = ethic_xenophile
-				has_ethic = ethic_fanatic_xenophile
-			}	
-		}	
-		
-		AI_weight = {
-			factor = 5
-			modifier = {
-				factor = 0
-				NOR = {
-					has_ethic = "ethic_xenophobe"
-					has_ethic = "ethic_fanatic_xenophobe"
-					AND = {
-						NOT = { has_ai_personality_behaviour = multispecies }
-						num_owned_planets > 10
-					}
-				}
-			}	
-			modifier = {
-				factor = 0
-				allows_slavery = yes
-			}
-			modifier = {
-				factor = 0
-				has_civic = civic_syncretic_evolution
-			}			
-		}			
-	}	
-}
-
 refugees = {
 	potential = {
 		has_encountered_other_species = yes
@@ -1287,6 +1349,50 @@ refugees = {
 	}
 }
 
+population_controls = {
+	potential = {
+		NOT = { has_ethic = "ethic_gestalt_consciousness" }
+	}
+	
+	option = {
+		name = "population_controls_not_allowed"
+		
+		on_enabled = {
+			hidden_effect = { every_owned_planet = { remove_modifier = planet_population_control } }
+		}
+		
+		policy_flags = {
+			population_controls_not_allowed
+		}
+	}
+	
+	option = {
+		name = "population_controls_allowed"
+		
+		on_enabled = {
+			hidden_effect = { every_owned_planet = { remove_modifier = planet_growth_discouraged } }
+		}
+		
+		policy_flags = {
+			population_controls_allowed
+		}
+		modifier = {}
+		
+		AI_weight = {
+			factor = 10
+			modifier = {
+				factor = 0
+				OR = {
+					has_ethic = ethic_egalitarian
+					has_ethic = ethic_fanatic_egalitarian
+					has_ethic = ethic_xenophile
+					has_ethic = ethic_fanatic_xenophile
+				}
+			}			
+		}
+	}
+}
+
 slavery = {
 	potential = {
 		NOT = { has_ethic = "ethic_gestalt_consciousness" }
@@ -1294,9 +1400,24 @@ slavery = {
 	
 	option = {
 		name = "slavery_not_allowed"
+
+		valid = {
+			NOR = {
+				has_valid_civic = civic_slaver_guilds
+				has_valid_civic = civic_indentured_assets
+			}
+		}
 		
 		policy_flags = {
 			slavery_not_allowed
+		}
+		
+		on_enabled = {
+			hidden_effect = { every_owned_planet = { remove_modifier = slave_colony } }
+		}		
+
+		modifier = {
+			slave_market_cost_mult = 1
 		}
 	}
 	
@@ -1323,10 +1444,7 @@ slavery = {
 			modifier = {
 				factor = 0
 				has_valid_ai_personality = yes
-				NOR = { 
-					has_ai_personality_behaviour = slaver 
-					has_ai_personality_behaviour = caste_system
-				}
+				NOT = { has_ai_personality_behaviour = slaver }
 			}
 			modifier = {
 				factor = 0

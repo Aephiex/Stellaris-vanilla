@@ -104,5 +104,15 @@ tributary = {
 			}
 			break = yes
 		}
+		if = {
+			limit = {
+				from = { has_authority = auth_corporate }
+			}
+			set_subject_of = {
+				who = from
+				subject_type = subsidiary
+			}
+			break = yes
+		}		
 	}	
 }

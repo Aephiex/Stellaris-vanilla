@@ -38,6 +38,11 @@
 #	this = event scope (ship or planet)
 #	from = project creation scope (usually equals location)
 #	
+#	on_cancel 
+#	this = country (project owner)
+#	from = event scope (planet or ship, MIGHT NOT EXIST)
+#	fromfrom = project creation scope (usually equals location)
+#
 #	on_fail
 #	this = country (project owner)
 #	from = project creation scope (usually equals location)
@@ -156,7 +161,7 @@ special_project = {
 special_project = {
 	key = "ABANDONED_TERRAFORMING_1_PROJECT"
 	event_chain = "abandoned_terraforming_chain"
-	cost = 200
+	cost = 5000
 	tech_department = society_technology
 	icon = "gfx/interface/icons/situation_log/situation_log_planet.dds"
 	picture = GFX_evt_alien_nature
@@ -208,7 +213,7 @@ special_project = {
 
 special_project = {
 	key = "MUTANT_STALKER_PROJECT"
-	cost = 200
+	cost = 5000
 	tech_department = society_technology
 	timelimit = 730
 	icon = "gfx/interface/icons/situation_log/situation_log_combat.dds"
@@ -267,7 +272,7 @@ special_project = {
 
 special_project = {
 	key = "NUCLEAR_BOMB_PROJECT"
-	cost = 200
+	cost = 2000
 	tech_department = engineering_technology
 	timelimit = 200
 	picture = GFX_evt_colony_settlement
@@ -287,7 +292,7 @@ special_project = {
 special_project = {
 	key = "MIGRATING_FORESTS_1_PROJECT"
 	event_chain = "migrating_forests_chain"
-	cost = 500
+	cost = 10000
 	tech_department = society_technology
 	
 	event_scope = planet_event
@@ -304,7 +309,7 @@ special_project = {
 special_project = {
 	key = "MIGRATING_FORESTS_2_PROJECT"
 	event_chain = "migrating_forests_chain"
-	cost = 500
+	cost = 10000
 	tech_department = engineering_technology
 	
 	same_option_group_as = { MIGRATING_FORESTS_1_PROJECT }
@@ -323,7 +328,7 @@ special_project = {
 special_project = {
 	key = "SEISMIC_DISTURBANCE_1_PROJECT"
 	event_chain = "subterranean_civilization_chain"
-	cost = 100
+	cost = 1000
 	tech_department = society_technology
 	picture = GFX_evt_underground_civilization
 	timelimit = 360
@@ -351,7 +356,7 @@ special_project = {
 special_project = {
 	key = "SEISMIC_DISTURBANCE_2_PROJECT"
 	event_chain = "subterranean_civilization_chain"
-	cost = 100
+	cost = 5000
 	tech_department = engineering_technology
 	picture = GFX_evt_nuclear_explosion
 	timelimit = 360
@@ -371,7 +376,7 @@ special_project = {
 
 special_project = {
 	key = "SEISMIC_DISTURBANCE_3_PROJECT"
-	cost = 200
+	cost = 5000
 	tech_department = engineering_technology
 	picture = GFX_evt_nuclear_explosion
 	
@@ -387,7 +392,7 @@ special_project = {
 
 special_project = {
 	key = "UNDERGROUND_VAULT_PROJECT"
-	cost = 200
+	cost = 5000
 	tech_department = engineering_technology
 	picture = GFX_evt_underground_civilization
 	icon = "gfx/interface/icons/situation_log/situation_log_precursor.dds"
@@ -397,7 +402,7 @@ special_project = {
 	on_success = {
 		if = {
 			limit = {
-				free_pop_tiles > 2
+				free_housing > 50
 			}
 			random_list = {
 				33 = { planet_event = { id = colony.151 } }
@@ -407,7 +412,7 @@ special_project = {
 		}
 		if = {
 			limit = {
-				NOT = { free_pop_tiles > 2 }
+				NOT = { free_housing > 50 }
 			}
 			random_list = {
 				50 = { planet_event = { id = colony.151 } }
@@ -2660,7 +2665,7 @@ special_project = {
 	key = "ESTABLISH_COMMUNICATIONS"
 	picture = GFX_evt_star_chart
 	icon = "gfx/interface/icons/situation_log/situation_log_radar.dds"
-	cost = 60
+	cost = 500
 	sound = no
 	tech_department = society_technology
 	days_to_research = 0
@@ -2764,7 +2769,7 @@ special_project = {
 	key = "INVESTIGATE_SPACE_AMOEBA"
 	picture = GFX_evt_star_chart
 	icon = "gfx/interface/icons/situation_log/situation_log_radar.dds"
-	cost = 60
+	cost = 500
 	sound = no
 	tech_department = society_technology
 	days_to_research = 0
@@ -2800,7 +2805,7 @@ special_project = {
 	key = "INVESTIGATE_CRYSTALS"
 	picture = GFX_evt_star_chart
 	icon = "gfx/interface/icons/situation_log/situation_log_radar.dds"
-	cost = 60
+	cost = 500
 	sound = no
 	tech_department = society_technology
 	days_to_research = 0
@@ -2836,7 +2841,7 @@ special_project = {
 	key = "INVESTIGATE_DRONES"
 	picture = GFX_evt_star_chart
 	icon = "gfx/interface/icons/situation_log/situation_log_radar.dds"
-	cost = 60
+	cost = 500
 	sound = no
 	tech_department = society_technology
 	days_to_research = 0
@@ -2872,7 +2877,7 @@ special_project = {
 	key = "INVESTIGATE_SPACE_CLOUDS"
 	picture = GFX_evt_star_chart
 	icon = "gfx/interface/icons/situation_log/situation_log_radar.dds"
-	cost = 60
+	cost = 500
 	sound = no
 	tech_department = society_technology
 	days_to_research = 0
@@ -2908,7 +2913,7 @@ special_project = {
 	key = "INVESTIGATE_TIYANKI"
 	picture = GFX_evt_star_chart
 	icon = "gfx/interface/icons/situation_log/situation_log_radar.dds"
-	cost = 60
+	cost = 500
 	sound = no
 	tech_department = society_technology
 	days_to_research = 0
@@ -2944,7 +2949,7 @@ special_project = {
 	key = "INVESTIGATE_MARAUDERS"
 	picture = GFX_evt_star_chart
 	icon = "gfx/interface/icons/situation_log/situation_log_radar.dds"
-	cost = 60
+	cost = 500
 	tech_department = society_technology
 	days_to_research = 0
 	location = no
@@ -2977,7 +2982,7 @@ special_project = {
 	key = "INVESTIGATE_PIRATES"
 	picture = GFX_evt_star_chart
 	icon = "gfx/interface/icons/situation_log/situation_log_radar.dds"
-	cost = 60
+	cost = 500
 	sound = no
 	tech_department = society_technology
 	days_to_research = 0
@@ -3109,7 +3114,7 @@ special_project = {
 special_project = {
 	key = "SYNTH_INFILTRATION_PROJECT"
 	cost = {
-		base = 600
+		base = 2000
 		scaled_modifier = {
 			limit = {
 			}
@@ -3329,7 +3334,7 @@ special_project = {
 	key = "AI_CRISIS_PROJECT"
 	event_chain = "ai_crisis_chain"
 	cost = {
-		base = 600
+		base = 2000
 		scaled_modifier = {
 			limit = {
 			}

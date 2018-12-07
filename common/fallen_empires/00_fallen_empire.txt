@@ -1,59 +1,7 @@
-# Materialist (No DLC)
-fallen_empire_1_1 = {
+# Materialist
+fallen_empire_1 = {
 	graphical_culture = "fallen_empire_02"
-	initializer = "fallen_1_1"
-	
-	possible = {
-		NOT = { host_has_dlc = "Synthetic Dawn Story Pack" }
-	}
-	
-	create_country_effect = {
-		create_species = {
-			name = random
-			class = random_non_machine
-			portrait = random
-			traits = random
-			extra_trait_points = 3
-			allow_negative_traits = no
-		}
-		create_country = {
-			name = random
-			type = fallen_empire
-			ignore_initial_colony_error = yes
-			authority = auth_imperial
-			civics = {
-				civic = civic_lethargic_leadership
-				civic = civic_empire_in_decline
-			}
-			species = last_created
-			ethos = {
-				ethic = ethic_fanatic_materialist
-			}
-			flag = random
-			effect = {
-				set_country_flag = fallen_empire_1	
-				add_minerals = 10000
-				add_energy = 10000	
-				add_food = 1000
-				add_influence = 500
-				# must initialize global designs here
-				add_global_ship_design = "NAME_Enforcer"
-				add_global_ship_design = "NAME_Savant"
-				add_global_ship_design = "NAME_Scholar"
-				add_global_ship_design = "NAME_Sage"
-				add_global_ship_design = "NAME_Cloaker"
-				add_global_ship_design = "NAME_Librarian"
-				add_global_ship_design = "NAME_Archivist"
-				add_global_ship_design = "NAME_Seeker"	
-			}
-		}
-	}
-}
-
-# Materialist (DLC)
-fallen_empire_1_2 = {
-	graphical_culture = "fallen_empire_02"
-	initializer = "fallen_1_2"
+	initializer = "fallen_1"
 	
 	possible = {
 		host_has_dlc = "Synthetic Dawn Story Pack"
@@ -83,11 +31,13 @@ fallen_empire_1_2 = {
 			}
 			flag = random
 			effect = {
-				set_country_flag = fallen_empire_1	
-				add_minerals = 10000
-				add_energy = 10000	
-				add_food = 1000
-				add_influence = 500
+				set_country_flag = fallen_empire_1
+				add_resource = {
+					minerals = 10000
+					energy = 10000	
+					food = 1000
+					influence = 500
+				}
 				# must initialize global designs here
 				add_global_ship_design = "NAME_Enforcer"
 				add_global_ship_design = "NAME_Savant"
@@ -130,10 +80,12 @@ fallen_empire_2 = {
 			flag = random
 			effect = {
 				set_country_flag = fallen_empire_2
-				add_minerals = 10000
-				add_energy = 10000	
-				add_food = 1000
-				add_influence = 500							
+				add_resource = {
+					minerals = 10000
+					energy = 10000	
+					food = 1000
+					influence = 500
+				}							
 				# must initialize global designs here
 				add_global_ship_design = "NAME_Cleanser"				
 				add_global_ship_design = "NAME_Eternal"
@@ -176,10 +128,12 @@ fallen_empire_3 = {
 			flag = random
 			effect = {
 				set_country_flag = fallen_empire_3
-				add_minerals = 10000
-				add_energy = 10000	
-				add_food = 1000
-				add_influence = 500								
+				add_resource = {
+					minerals = 10000
+					energy = 10000	
+					food = 1000
+					influence = 500
+				}							
 				# must initialize global designs here
 				add_global_ship_design = "NAME_Adjuster"
 				add_global_ship_design = "NAME_Keeper"
@@ -223,10 +177,12 @@ fallen_empire_4 = {
 			flag = random
 			effect = {
 				set_country_flag = fallen_empire_4
-				add_minerals = 10000
-				add_energy = 10000	
-				add_food = 1000
-				add_influence = 500						
+				add_resource = {
+					minerals = 10000
+					energy = 10000	
+					food = 1000
+					influence = 500
+				}				
 				# must initialize global designs here
 				add_global_ship_design = "NAME_Reaper"
 				add_global_ship_design = "NAME_Imperium"
@@ -253,6 +209,7 @@ fallen_machine_empire = {
 		create_species = {
 			name = random
 			class = MACHINE
+			namelist = MACHINE3
 			portrait = random
 			traits = {
 				trait = trait_machine_unit
@@ -277,10 +234,12 @@ fallen_machine_empire = {
 			flag = random
 			effect = {
 				set_country_flag = fallen_empire_machine
-				add_minerals = 10000
-				add_energy = 10000	
-				add_food = 1000
-				add_influence = 500				
+				add_resource = {
+					minerals = 10000
+					energy = 10000	
+					food = 1000
+					influence = 500
+				}			
 				if = {
 					limit = { host_has_dlc = "Apocalypse" }
 					give_technology = {

@@ -290,41 +290,41 @@ guiTypes = {
 			}
 			
 			buttonType={
-				name = "sort_planets"
+				name = "sort_score"
 				font = "cg_16b"
-				spriteType = "GFX_button_95_24"
-				buttonText = "PLANETS"
-				position = { x = 277 y = @sort_button_height }
+				spriteType = "GFX_button_150_24"
+				buttonText = "SCORE_TITLE"
+				position = { x = 279 y = @sort_button_height }
 				orientation = UPPER_LEFT
-				pdx_tooltip = "SORT_BY_PLANETS"
+				pdx_tooltip = "SORT_BY_SCORE"
 			}
 
 			buttonType={
-				name = "sort_pops"
+				name = "sort_economy"
 				font = "cg_16b"
-				spriteType = "GFX_button_95_24"
-				buttonText = "POPS"
-				position = { x = 376 y = @sort_button_height }
+				spriteType = "GFX_button_150_24"
+				buttonText = "ECONOMY"
+				position = { x = 435 y = @sort_button_height }
 				orientation = UPPER_LEFT
-				pdx_tooltip = "SORT_BY_POP"
+				pdx_tooltip = "SORT_BY_ECONOMY"
 			}
 			
 			buttonType={
-				name = "sort_fleets"
+				name = "sort_fleet_power"
 				font = "cg_16b"
-				spriteType = "GFX_button_116_24"
-				buttonText = "OUTLINER_FLEETS"
-				position = { x = 475 y = @sort_button_height }
+				spriteType = "GFX_button_150_24"
+				buttonText = "FLEET_POWER"
+				position = { x = 590 y = @sort_button_height }
 				orientation = UPPER_LEFT
-				pdx_tooltip = "SORT_BY_MILITARY_FLEETS"
+				pdx_tooltip = "SORT_BY_FLEET_POWER"
 			}
 			
 			buttonType={
 				name = "sort_research"
 				font = "cg_16b"
-				spriteType = "GFX_button_95_24"
+				spriteType = "GFX_button_150_24"
 				buttonText = "RESEARCH"
-				position = { x = 595 y = @sort_button_height }
+				position = { x = 745 y = @sort_button_height }
 				orientation = UPPER_LEFT
 				pdx_tooltip = "SORT_BY_RESEARCH"
 			}	
@@ -398,33 +398,36 @@ guiTypes = {
 		
 		
 		instantTextBoxType = {
-			name = "planets"
+			name = "score"
 			font = "cg_16b"
 			text = "26"
-			position = { x = 220 y = 12 }
-			fixedSize = yes
+			position = { x = 279 y = 12 }
+			maxWidth = 150
+			maxHeight = 10
 			format = center
 			alwaysTransparent = yes
 			#text_color_code = "E"
 		}
 						
 		instantTextBoxType = {
-			name = "pops"
+			name = "economy"
 			font = "cg_16b"
 			text = "86"
-			position = { x = 317 y = 12 }
-			fixedSize = yes
+			position = { x = 435 y = 12 }
+			maxWidth = 150
+			maxHeight = 10
 			format = center
 			alwaysTransparent = yes
 			#text_color_code = "E"
 		}		
 		
 		instantTextBoxType = {
-			name = "ships"
+			name = "fleet_power"
 			font = "cg_16b"
 			text = "182"
-			position = { x = 427 y = 12 }
-			fixedSize = yes
+			position = { x = 590 y = 12 }
+			maxWidth = 150
+			maxHeight = 10
 			format = center
 			alwaysTransparent = yes
 			#text_color_code = "E"
@@ -434,8 +437,9 @@ guiTypes = {
 			name = "research"
 			font = "cg_16b"
 			text = "96"
-			position = { x = 538 y = 12 }
-			fixedSize = yes
+			position = { x = 745 y = 12 }
+			maxWidth = 150
+			maxHeight = 10
 			format = center
 			alwaysTransparent = yes
 			#text_color_code = "E"

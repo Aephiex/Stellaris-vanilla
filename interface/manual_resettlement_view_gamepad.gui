@@ -344,7 +344,7 @@ guiTypes = {
 
 		iconType = {
 			name = "tile_background"
-			spriteType = "GFX_tile_background"
+			spriteType = "GFX_planet_background"
 			position = { x = 1 y = 1 }
 		}
 
@@ -379,14 +379,14 @@ guiTypes = {
 		iconType = {
 			name = "tile_blocker"
 			position = { x = 1 y = 1 }
-			spriteType = "GFX_tile_frame_blocker"
+			spriteType = "GFX_planet_background_frame_blocker"
 			alwaysTransparent = yes
 		}
 		
 		iconType = {
 			name = "tile_blocker_clearable"
 			position = { x = 1 y = 1 }
-			spriteType = "GFX_tile_frame_blocker_clearable"
+			spriteType = "GFX_planet_background_frame_blocker"
 			alwaysTransparent = yes
 		}		
 		
@@ -427,7 +427,7 @@ guiTypes = {
 			#size = { width = 120 height = 120 }
 			background = {
 				name = "selected_bg"
-				spriteType = "GFX_tile_frame_selected"
+				spriteType = "GFX_planet_background_frame_selected"
 				alwaysTransparent = yes
 			}
 		}

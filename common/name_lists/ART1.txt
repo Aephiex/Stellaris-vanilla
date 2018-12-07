@@ -1,5 +1,5 @@
 ﻿### Arthropoid 1
-### Created by Henrik Eklund
+### Created by Henrik Thyrwall
 
 ART1 = {	
 	ship_names = {
@@ -78,14 +78,6 @@ ART1 = {
 		robotic_defense_army = {
 			sequential_name = "%O% Droid Defense Pod"
 		}
-
-		android_army = {
-			sequential_name = "%O% Android Pod"
-		}
-		
-		android_defense_army = {
-			sequential_name = "%O% Android Defense Pod"
-		}
 		
 		psionic_army = {
 			sequential_name = "%O% Psi-Commando Pod"
@@ -107,8 +99,14 @@ ART1 = {
 			sequential_name = "%O% Droid Garrison Pod"
 		}
 
-		android_occupation_army = {
-			sequential_name = "%O% Android Garrison Pod"
+		primitive_army = {
+			sequential_name = "Primitive Army %C%"
+		}
+		industrial_army = {
+			sequential_name = "Industrial Army %C%"
+		}
+		postatomic_army = {
+			sequential_name = "Post-Atomic Army %C%"
 		}
 	}
 	

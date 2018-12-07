@@ -22,7 +22,7 @@ ship_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		from = { orbital_deposit_tile = { clear_deposits = yes } }
+		from = { clear_deposits = yes }
 	}
 
 	option = {
@@ -34,10 +34,8 @@ ship_event = {
 		name = anomaly.75.b
 		#custom_tooltip = anomaly.75.b.tooltip
 		from = {
-			orbital_deposit_tile = {
-				add_deposit = d_vast_physics_deposit
-				add_deposit = d_vast_society_deposit
-			}
+			add_deposit = d_physics_2
+			add_deposit = d_society_2
 		}
 		hidden_effect = {
 			FROM = {
@@ -130,8 +128,6 @@ ship_event = {
 
 	is_triggered_only = yes
 
-	immediate = { from = { orbital_deposit_tile = { clear_deposits = yes } } }
-
 	option = {
 		name = anomaly.90.a
 		from = {
@@ -165,10 +161,8 @@ ship_event = {
 					modifier = "cunning_flora"
 					days = -1
 				}
-				orbital_deposit_tile = {
-					add_deposit = d_vast_society_deposit
-					add_deposit = d_vast_society_deposit 
-				}
+				add_deposit = d_society_3
+				add_deposit = d_society_3
 			}
 		}
 	}
@@ -737,7 +731,7 @@ ship_event = {
 	is_triggered_only = yes
 	auto_opens = yes
 
-	immediate = { from = { orbital_deposit_tile = { clear_deposits = yes } } }
+	immediate = { from = { clear_deposits = yes } }
 
 	option = {
 		name = FASCINATING
@@ -748,10 +742,8 @@ ship_event = {
 					modifier = old_genetic_library
 					days = -1
 				}
-				orbital_deposit_tile = {
-					add_deposit = d_vast_engineering_deposit
-					add_deposit = d_rich_society_deposit
-				}
+				add_deposit = d_engineering_2
+				add_deposit = d_society_2
 			}
 		}
 	}
@@ -815,8 +807,7 @@ ship_event = {
 						limit = {
 							NOR = {
 								pop_has_ethic = ethic_xenophile
-								pop_has_trait = trait_robotic_1
-								pop_has_trait = trait_robotic_2
+								pop_has_trait = trait_mechanical
 							}
 						}
 						if = {
@@ -829,8 +820,7 @@ ship_event = {
 						limit = {
 							NOR = {
 								pop_has_ethic = ethic_xenophile
-								pop_has_trait = trait_robotic_1
-								pop_has_trait = trait_robotic_2
+								pop_has_trait = trait_mechanical
 							}
 						}
 						if = {
@@ -843,8 +833,7 @@ ship_event = {
 						limit = {
 							NOR = {
 								pop_has_ethic = ethic_xenophile
-								pop_has_trait = trait_robotic_1
-								pop_has_trait = trait_robotic_2
+								pop_has_trait = trait_mechanical
 							}
 						}
 						if = {
@@ -857,8 +846,7 @@ ship_event = {
 						limit = {
 							NOR = {
 								pop_has_ethic = ethic_xenophile
-								pop_has_trait = trait_robotic_1
-								pop_has_trait = trait_robotic_2
+								pop_has_trait = trait_mechanical
 							}
 						}
 						if = {
@@ -871,8 +859,7 @@ ship_event = {
 						limit = {
 							NOR = {
 								pop_has_ethic = ethic_xenophile
-								pop_has_trait = trait_robotic_1
-								pop_has_trait = trait_robotic_2
+								pop_has_trait = trait_mechanical
 							}
 						}
 						if = {
@@ -885,8 +872,7 @@ ship_event = {
 						limit = {
 							NOR = {
 								pop_has_ethic = ethic_xenophile
-								pop_has_trait = trait_robotic_1
-								pop_has_trait = trait_robotic_2
+								pop_has_trait = trait_mechanical
 							}
 						}
 						if = {
@@ -911,8 +897,7 @@ ship_event = {
 						limit = {
 							NOR = {
 								pop_has_ethic = ethic_xenophile
-								pop_has_trait = trait_robotic_1
-								pop_has_trait = trait_robotic_2
+								pop_has_trait = trait_mechanical
 							}
 						}
 						if = {
@@ -925,8 +910,7 @@ ship_event = {
 						limit = {
 							NOR = {
 								pop_has_ethic = ethic_xenophile
-								pop_has_trait = trait_robotic_1
-								pop_has_trait = trait_robotic_2
+								pop_has_trait = trait_mechanical
 							}
 						}
 						if = {
@@ -939,8 +923,7 @@ ship_event = {
 						limit = {
 							NOR = {
 								pop_has_ethic = ethic_xenophile
-								pop_has_trait = trait_robotic_1
-								pop_has_trait = trait_robotic_2
+								pop_has_trait = trait_mechanical
 							}
 						}
 						if = {
@@ -1595,17 +1578,17 @@ ship_event = {
 		owner = {
 			if = {
 				limit = {
-					has_tech_option = tech_biolab_2
+					has_tech_option = tech_society_2
 				}
 				add_tech_progress = {
-					tech = tech_biolab_2
+					tech = tech_society_2
 					progress = 0.80
 				}
 			}
 			else = {
-				add_research_option = tech_biolab_2
+				add_research_option = tech_society_2
 				add_tech_progress = {
-					tech = tech_biolab_2
+					tech = tech_society_2
 					progress = 0.5
 				}
 			}
@@ -1628,16 +1611,14 @@ ship_event = {
 
 	is_triggered_only = yes
 
-	immediate = { from = { orbital_deposit_tile = { clear_deposits = yes } } }
+	immediate = { from = { clear_deposits = yes } }
 
 	option = {
 		name = FASCINATING
 		custom_tooltip = "anomaly.150.a.tooltip"
 		FROM = {
 			hidden_effect = {
-				orbital_deposit_tile = {
-					add_zro = yes
-				}
+				add_zro = yes
 			}
 		}
 		hidden_effect = { ship_event = { id = distar.305 days = 1 } }
@@ -1656,7 +1637,7 @@ ship_event = {
 
 	is_triggered_only = yes
 
-	immediate = { from = { orbital_deposit_tile = { clear_deposits = yes } } }
+	immediate = { from = { clear_deposits = yes } }
 
 	option = {
 		name = FASCINATING
@@ -1671,9 +1652,7 @@ ship_event = {
 					modifier = "dark_matter_funnel"
 					days = -1
 				}
-				orbital_deposit_tile = {
-					add_dark_matter = yes
-				}
+				add_dark_matter = yes
 			}
 		}
 	}
@@ -1745,7 +1724,7 @@ ship_event = {
 		hidden_effect = {
 			owner = {
 				create_leader = {
-					type = scientist
+					class = scientist
 					species = owner_main_species
 					name = "NAME_The_Exile"
 					skill = 3
@@ -1839,10 +1818,7 @@ ship_event = {
 		from = {
 			while = {
 				count = 2
-				random_tile = {
-					limit = { has_deposit = no }
-					add_deposit = d_alien_pets_deposit
-				}
+				add_deposit = d_alien_pets_deposit
 			}
 		}
 		hidden_effect = {
@@ -1943,7 +1919,7 @@ ship_event = {
 
 	is_triggered_only = yes
 
-	immediate = { from = { orbital_deposit_tile = { clear_deposits = yes } } }
+	immediate = { from = { clear_deposits = yes } }
 
 	option = {
 		name = OK
@@ -1982,10 +1958,7 @@ planet_event = {
 				modifier = projecting_moon
 				days = -1
 			}
-			orbital_deposit_tile = {
-				add_deposit = d_vast_engineering_deposit
-				add_deposit = d_rich_engineering_deposit
-			}
+			add_deposit = d_engineering_3
 			surveyed = {
 				set_surveyed = yes
 				surveyor = event_target:ship_owner
@@ -2026,7 +1999,7 @@ ship_event = {
 
 	is_triggered_only = yes
 
-	immediate = { from = { orbital_deposit_tile = { clear_deposits = yes } } }
+	immediate = { from = { clear_deposits = yes } }
 
 	option = {
 		name = EXCELLENT
@@ -2041,10 +2014,7 @@ ship_event = {
 		}
 		from = {
 			hidden_effect = {
-				orbital_deposit_tile = {
-					add_deposit = d_vast_engineering_deposit
-					add_deposit = d_rich_engineering_deposit
-				}
+				add_deposit = d_engineering_3
 			}
 		}
 	}
@@ -2063,14 +2033,9 @@ ship_event = {
 
 	immediate = {
 		from = {
-			while = {
-				limit = {
-					any_tile = { has_blocker = yes }
-				}
-				random_tile = {
-					limit = { has_blocker = yes }
-					remove_blocker = yes
-				}
+			every_deposit = {
+				limit = { is_blocker = yes }
+				clear_blocker = yes
 			}
 		}
 	}
@@ -2246,38 +2211,7 @@ ship_event = {
 					modifier = "cornucopia"
 					days = -1
 				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-						has_deposit = no
-					}
-					add_deposit = d_rich_farmland_deposit
-					add_deposit = d_farmland_deposit
-				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-						has_deposit = no
-					}
-					add_deposit = d_rich_farmland_deposit
-					add_deposit = d_farmland_deposit
-				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-						has_deposit = no
-					}
-					add_deposit = d_rich_farmland_deposit
-					add_deposit = d_farmland_deposit
-				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-						has_deposit = no
-					}
-					add_deposit = d_rich_farmland_deposit
-					add_deposit = d_farmland_deposit
-				}
+				add_deposit = d_hyperfertile_valley
 			}
 		}
 	}
@@ -2305,34 +2239,8 @@ ship_event = {
 					modifier = "raw_materials"
 					days = -1
 				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-						has_deposit = no
-					}
-					add_deposit = d_vast_mineral_deposit
-				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-						has_deposit = no
-					}
-					add_deposit = d_vast_mineral_deposit
-				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-						has_deposit = no
-					}
-					add_deposit = d_vast_mineral_deposit
-				}
-				random_tile = {
-					limit = {
-						has_blocker = no
-						has_deposit = no
-					}
-					add_deposit = d_vast_mineral_deposit
-				}
+				add_deposit = d_rich_mountain
+				add_deposit = d_submerged_ore_veins
 			}
 		}
 	}
@@ -2349,7 +2257,7 @@ ship_event = {
 
 	is_triggered_only = yes
 
-	immediate = { from = { orbital_deposit_tile = { clear_deposits = yes } } }
+	immediate = { from = { clear_deposits = yes } }
 
 	option = {
 		name = OK
@@ -2362,10 +2270,7 @@ ship_event = {
 				}
 			}
 			from = {
-				orbital_deposit_tile = {
-					add_deposit = d_vast_society_deposit
-					add_deposit = d_vast_society_deposit
-				}
+				add_deposit = d_society_3
 			}
 		}
 	}
@@ -2389,7 +2294,7 @@ ship_event = {
 
 	is_triggered_only = yes
 
-	immediate = { from = { orbital_deposit_tile = { clear_deposits = yes } } }
+	immediate = { from = { clear_deposits = yes } }
 
 	option = {
 		name = anomaly.230.a
@@ -2400,19 +2305,17 @@ ship_event = {
 					modifier = grimacing
 					days = -1
 				}
-				orbital_deposit_tile = {
-					add_deposit = d_vast_physics_deposit
-					add_deposit = d_vast_physics_deposit
-				}
+				
+				add_deposit = d_physics_4
 			}
 		}
 	}
 
 	option = {
-		allow = { owner = { energy > 199 } }
+		allow = { owner = { resource_stockpile_compare = { resource = energy value >= 200 } } }
 		name = anomaly.230.b
 		custom_tooltip = anomaly.230.b.tooltip
-		owner = { add_energy = -200 }
+		owner = { add_resource = { energy = -200 } }
 		hidden_effect = {
 			random_list = {
 				50 = { ship_event = { id = anomaly.231 days = 5 } }
@@ -2576,22 +2479,9 @@ ship_event = {
 
 	immediate = {
 		from = {
-			random_tile = {
-				limit = { has_blocker = no }
-				set_blocker = tb_dangerous_wildlife
-			}
-			random_tile = {
-				limit = { has_blocker = no }
-				set_blocker = tb_dangerous_wildlife
-			}
-			random_tile = {
-				limit = { has_blocker = no }
-				set_blocker = tb_dangerous_wildlife
-			}
-			random_tile = {
-				limit = { has_blocker = no }
-				set_blocker = tb_dangerous_wildlife
-			}
+			add_deposit = d_dangerous_wildlife_blocker
+			add_deposit = d_dangerous_wildlife_blocker
+			add_deposit = d_dangerous_wildlife_blocker
 		}
 	}
 
@@ -2902,8 +2792,6 @@ ship_event = {
 
 	is_triggered_only = yes
 
-	immediate = { from = { orbital_deposit_tile = { clear_deposits = yes } } }
-
 	option = {
 		name = anomaly.260.a
 		custom_tooltip = anomaly.260.a.tooltip
@@ -2918,13 +2806,7 @@ ship_event = {
 		}
 		hidden_effect = {
 			from = {
-				random_tile = {
-					limit = {
-						has_blocker = no
-						is_orbital_tile = no
-					}
-					set_building = building_ancient_factory
-				}
+				add_deposit = d_ancient_mining_site
 			}
 		}
 	}
@@ -2941,7 +2823,7 @@ ship_event = {
 
 	is_triggered_only = yes
 
-	immediate = { from = { orbital_deposit_tile = { clear_deposits = yes } } }
+	immediate = { from = { clear_deposits = yes } }
 
 	option = {
 		name = anomaly.265.a
@@ -2953,10 +2835,7 @@ ship_event = {
 					modifier = skid_marks
 					days = -1
 				}
-				orbital_deposit_tile = {
-					add_deposit = d_vast_engineering_deposit
-					add_deposit = d_vast_engineering_deposit
-				}
+				add_deposit = d_engineering_3
 			}
 		}
 	}
@@ -2973,7 +2852,7 @@ ship_event = {
 
 	is_triggered_only = yes
 
-	immediate = { from = { orbital_deposit_tile = { clear_deposits = yes } } }
+	immediate = { from = { clear_deposits = yes } }
 
 	option = {
 		name = anomaly.270.a
@@ -2985,11 +2864,7 @@ ship_event = {
 					modifier = dust_circuits
 					days = -1
 				}
-				orbital_deposit_tile = {
-					add_deposit = d_vast_engineering_deposit
-					add_deposit = d_vast_engineering_deposit
-					add_deposit = d_vast_engineering_deposit
-				}
+				add_deposit = d_engineering_3
 			}
 		}
 	}
@@ -3052,7 +2927,7 @@ ship_event = {
 
 	is_triggered_only = yes
 
-	immediate = { from = { orbital_deposit_tile = { clear_deposits = yes } } }
+	immediate = { from = { clear_deposits = yes } }
 
 	option = {
 		name = anomaly.285.a
@@ -3063,11 +2938,8 @@ ship_event = {
 					modifier = unusual_tectonics
 					days = -1
 				}
-				orbital_deposit_tile = {
-					add_deposit = d_vast_engineering_deposit
-					add_deposit = d_vast_physics_deposit
-					add_deposit = d_vast_physics_deposit
-				}
+				add_deposit = d_engineering_2
+				add_deposit = d_physics_2
 			}
 		}
 	}
@@ -3087,9 +2959,7 @@ ship_event = {
 
 	immediate = {
 		from = {
-			orbital_deposit_tile = {
-				clear_deposits = yes
-			}
+			clear_deposits = yes
 		}
 	}
 
@@ -3099,8 +2969,8 @@ ship_event = {
 
 	option = {
 		name = anomaly.290.b
-		trigger = { owner = { energy > 99 } }
-		owner = { add_energy = -100 }
+		trigger = { owner = { resource_stockpile_compare = { resource = energy value >= 100 } } }
+		owner = { add_resource = { energy = -100 } }
 		from = {
 			enable_special_project = {
 				name = "REFINE_ROCK_PROJECT"
@@ -3125,11 +2995,8 @@ ship_event = {
 	option = {
 		name = EXCELLENT
 		fromfrom = {
-			orbital_deposit_tile = {
-				add_deposit = d_vast_mineral_deposit
-				add_deposit = d_vast_mineral_deposit
-				add_deposit = d_vast_mineral_deposit
-			}
+			add_deposit = d_minerals_3
+			add_deposit = d_minerals_3
 		}
 	}
 }

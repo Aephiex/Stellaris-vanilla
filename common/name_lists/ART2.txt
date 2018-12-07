@@ -77,14 +77,6 @@ ART2 = {
 			sequential_name = "%O% Mecha Defenses"
 		}
 		
-		android_army = {
-			sequential_name = "%O% Constructor Group"
-		}
-		
-		android_defense_army = {
-			sequential_name = "%O% Constructor Defenses"
-		}
-		
 		psionic_army = {
 			sequential_name = "The Psi-Lords %R%"
 		}
@@ -105,8 +97,14 @@ ART2 = {
 			sequential_name = "%O% Mecha Garrison Group"
 		}
 
-		android_occupation_army = {
-			sequential_name = "%O% Constructor Garrison Group"
+		primitive_army = {
+			sequential_name = "Primitive Army %C%"
+		}
+		industrial_army = {
+			sequential_name = "Industrial Army %C%"
+		}
+		postatomic_army = {
+			sequential_name = "Post-Atomic Army %C%"
 		}
 	}
 	

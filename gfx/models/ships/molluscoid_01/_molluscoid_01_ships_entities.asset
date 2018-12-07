@@ -1524,6 +1524,8 @@ entity = {
 	}
 }
 
+entity = { name = "molluscoid_01_sponsored_colonizer_entity" clone = "molluscoid_01_colonizer_entity" }
+
 entity = {
 	name = "molluscoid_01_colony_ship_entity"
 	pdxmesh = "molluscoid_01_colony_mesh"

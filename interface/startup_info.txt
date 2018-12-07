@@ -1,13 +1,15 @@
-﻿Stellaris version 2.1 introduces a number of changes and improvements to the overall experience, as well as a number of enhancements to the exploration aspect of the game.
+﻿Greetings!
 
-Anomalies have been overhauled with a back-end improvements to benefit modders, and you will immediately notice a number of changes in the game as well. Anomaly research can no longer fail, and failure risk has been replaced with a modifier to research time: the higher the skill of your scientist and the lower the level of the anomaly, the faster it can be researched, and vice versa. Anomalies are now much less likely to repeat, and you will be seeing more content in each playthrough.
+Stellaris has (once again) undergone bold changes! In 2.2 the focus of the changes has been to rework how you develop planets and to deepen the game's economy. The purpose is to make the management of planets more fun and engaging.
 
-Galaxy generation has been reworked, and the galaxy is now made up of star systems in tightly interconnected clusters linked together along sparse hyperlane "highways." This will create more diverse and tactically interesting terrain, while allowing the game to be more conscious of naturally-occurring choke-points and adjust Space Monster population (and other obstacles) accordingly. Hyperlanes are now uncovered in a Hyperlane Detection Range extending out from conventional Sensors. You need to have seen a hyperlane to use it, but once uncovered it stays visible forever.
+Tiles are gone, and have been replaced with Districts, Buildings, and Jobs. You will now instead construct City Districts, Farming Districts, Mining Districts, and Generator Districts, as well as various Buildings with more specialized roles. Districts and buildings provide Jobs, and a job worked by a Pop will produce resources.
 
-A new Fleet Order for Science Ships has been added, called Experimental Subspace Navigation. Once unlocked by a new technology, this complex maneuver allows a Science Ship to ignore hyperlanes and navigate the treacherous terrain of subspace directly, disappearing from sensors (effectively going MIA) and reappearing at the target destination. This is useful for exploring beyond the territories of unfriendly Empires or getting to those just-out-of-reach Special Projects (though you still cannot move inside closed borders).
+As a planet gains more Pops it will unlock more Building Slots. Buildings work similar to how they did before, but now most of them provide Jobs instead of producing resources directly.
 
-The Distant Stars Story Pack makes use of all these features to bring a boatload of new content to explore, from new Anomalies to Leviathans to a particularly enigmatic cluster of extragalactic stars.
+2.2 also introduces a new Trade Route system. What you essentially want to do is to collect Trade Value (found in space and produced on planets) by upgrading a nearby starbase. You should then set up a Trade Route leading back to your home system. Trade Value is converted into usable resources when it reaches your Trade Capital.
+
+We recommend you to take a look at the updated tutorial!
 
 ---
 
-Due to the size and scope of the changes, saved games from previous versions will not be compatible with version 2.1. If you wish to continue your old save in version 2.0, follow the forum link below and read the thread "How to revert Stellaris to a previous version."
+Due to the size and scope of the changes, saved games from previous versions will not be compatible with version 2.2. If you wish to continue your old save in version 2.2, follow the forum link below and read the thread "How to revert Stellaris to a previous version."

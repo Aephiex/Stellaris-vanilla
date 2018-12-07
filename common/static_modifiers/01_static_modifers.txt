@@ -3,7 +3,7 @@
 ##########################################################################
 
 drone_space_elevator = {
-	tile_resource_minerals_mult = -0.2
+	planet_jobs_minerals_produces_mult = -0.2
 	icon = "gfx/interface/icons/planet_modifiers/pm_unknown.dds"
 	icon_frame = 3
 }
@@ -55,25 +55,25 @@ pheromoned_1 = {
 }
 
 pheromoned_2 = {
-	tile_resource_minerals_mult = -0.15
+	planet_jobs_produces_mult = -0.15
 	icon = "gfx/interface/icons/planet_modifiers/pm_factory.dds"
 	icon_frame = 3
 }
 
 depheromoned_1 = {
-	tile_resource_minerals_mult = +0.10
+	planet_jobs_produces_mult = +0.10
 	icon = "gfx/interface/icons/planet_modifiers/pm_factory.dds"
 	icon_frame = 1
 }
 
 pheromoned_3 = {
-	pop_migration_speed = -0.70
+	planet_migration_all_mult = -0.75
 	icon = "gfx/interface/icons/planet_modifiers/pm_factory.dds"
 	icon_frame = 2
 }
 
 pheromoned_4 = {
-	tile_resource_minerals_mult = +0.05
+	planet_jobs_produces_mult = +0.05
 	pop_happiness = -0.10
 	icon = "gfx/interface/icons/planet_modifiers/pm_factory.dds"
 	icon_frame = 2
@@ -86,11 +86,11 @@ pheromoned_detox = {
 
 pheromoned_grief = {
 	pop_happiness = -0.10
-	country_resource_unity_mult = -0.10
+	country_unity_produces_mult = -0.10
 }
 
 uplift_rocky = {
-	tile_resource_minerals_mult = -0.05
+	planet_jobs_minerals_produces_mult = -0.05
 	icon = "gfx/interface/icons/planet_modifiers/capital.dds"
 	icon_frame = 3
 }
@@ -102,7 +102,7 @@ unhappy_with_experiments = {
 }
 
 unproductive_without_experiments = {
-	tile_resource_society_research_mult = -0.20
+	planet_jobs_society_research_produces_mult = -0.20
 	icon = "gfx/interface/icons/planet_modifiers/pm_unknown.dds"
 	icon_frame = 3
 }
@@ -113,7 +113,7 @@ projecting_moon = {
 }
 
 unbalanced_ecosystem = {
-	tile_resource_food_mult = -0.20
+	planet_jobs_food_produces_mult = -0.20
 	icon = "gfx/interface/icons/planet_modifiers/pm_lush.dds"
 	icon_frame = 3
 }
@@ -190,21 +190,21 @@ ruler_savior = {
 }
 
 missing_scientist = {
-	tile_resource_society_research_mult = -0.10
+	planet_jobs_society_research_produces_mult = -0.10
 }
 
 humiliated = {
-	country_resource_influence_mult = -0.33
+	country_influence_produces_mult = -0.33
 	pop_happiness = -0.1	
 }
 
 raided = {
-	country_resource_energy_mult = -0.20
-	country_resource_minerals_mult = -0.20
+	country_energy_produces_mult = -0.20
+	country_minerals_produces_mult = -0.20
 }
 
 drone_processing = {
-	tile_resource_minerals_mult = 0.10
+	planet_jobs_minerals_produces_mult = 0.10
 }
 
 ##########################################################################
@@ -216,110 +216,110 @@ mandate_fulfilled_mod = {
 }
 
 6_hour_workday = {
-	tile_resource_minerals_mult = -0.15
+	planet_jobs_minerals_produces_mult = -0.15
 }
 
 hunger_strike = {
-	tile_resource_minerals_mult = -0.4
+	planet_jobs_minerals_produces_mult = -0.4
 }
 
 peace_strike = {
-	tile_resource_minerals_mult = -0.2
-	tile_resource_food_mult = -0.2
-	tile_resource_energy_mult = -0.2
-	tile_resource_engineering_research_mult = -0.2
-	tile_resource_physics_research_mult = -0.2
-	tile_resource_society_research_mult = -0.2
+	planet_jobs_minerals_produces_mult = -0.2
+	planet_jobs_food_produces_mult = -0.2
+	planet_jobs_energy_produces_mult = -0.2
+	planet_jobs_engineering_research_produces_mult = -0.2
+	planet_jobs_physics_research_produces_mult = -0.2
+	planet_jobs_society_research_produces_mult = -0.2
 }
 
 culture_shock_stone_age = {
 	pop_happiness = -0.10
-	tile_resource_minerals_mult = -0.75
-	tile_resource_energy_mult = -0.75
-	tile_resource_engineering_research_mult = -1
-	tile_resource_physics_research_mult = -1
-	tile_resource_society_research_mult = -1
+	planet_jobs_minerals_produces_mult = -0.75
+	planet_jobs_energy_produces_mult = -0.75
+	planet_jobs_engineering_research_produces_mult = -1
+	planet_jobs_physics_research_produces_mult = -1
+	planet_jobs_society_research_produces_mult = -1
 }
 
 culture_shock_bronze_age = {
 	pop_happiness = -0.10
-	tile_resource_minerals_mult = -0.50
-	tile_resource_energy_mult = -0.50
-	tile_resource_engineering_research_mult = -1
-	tile_resource_physics_research_mult = -1
-	tile_resource_society_research_mult = -1
+	planet_jobs_minerals_produces_mult = -0.50
+	planet_jobs_energy_produces_mult = -0.50
+	planet_jobs_engineering_research_produces_mult = -1
+	planet_jobs_physics_research_produces_mult = -1
+	planet_jobs_society_research_produces_mult = -1
 }
 
 culture_shock_iron_age = {
 	pop_happiness = -0.10
-	tile_resource_minerals_mult = -0.45
-	tile_resource_energy_mult = -0.45
-	tile_resource_engineering_research_mult = -1
-	tile_resource_physics_research_mult = -1
-	tile_resource_society_research_mult = -1
+	planet_jobs_minerals_produces_mult = -0.45
+	planet_jobs_energy_produces_mult = -0.45
+	planet_jobs_engineering_research_produces_mult = -1
+	planet_jobs_physics_research_produces_mult = -1
+	planet_jobs_society_research_produces_mult = -1
 }
 
 culture_shock_late_medieval_age = {
 	pop_happiness = -0.10
-	tile_resource_minerals_mult = -0.40
-	tile_resource_energy_mult = -0.40
-	tile_resource_engineering_research_mult = -1
-	tile_resource_physics_research_mult = -1
-	tile_resource_society_research_mult = -1
+	planet_jobs_minerals_produces_mult = -0.40
+	planet_jobs_energy_produces_mult = -0.40
+	planet_jobs_engineering_research_produces_mult = -1
+	planet_jobs_physics_research_produces_mult = -1
+	planet_jobs_society_research_produces_mult = -1
 }
 
 culture_shock_renaissance_age = {
 	pop_happiness = -0.10
-	tile_resource_minerals_mult = -0.35
-	tile_resource_energy_mult = -0.35
-	tile_resource_engineering_research_mult = -1
-	tile_resource_physics_research_mult = -1
-	tile_resource_society_research_mult = -1
+	planet_jobs_minerals_produces_mult = -0.35
+	planet_jobs_energy_produces_mult = -0.35
+	planet_jobs_engineering_research_produces_mult = -1
+	planet_jobs_physics_research_produces_mult = -1
+	planet_jobs_society_research_produces_mult = -1
 }
 
 culture_shock_steam_age = {
 	pop_happiness = -0.10
-	tile_resource_minerals_mult = -0.30
-	tile_resource_energy_mult = -0.30
-	tile_resource_engineering_research_mult = -1
-	tile_resource_physics_research_mult = -1
-	tile_resource_society_research_mult = -1
+	planet_jobs_minerals_produces_mult = -0.30
+	planet_jobs_energy_produces_mult = -0.30
+	planet_jobs_engineering_research_produces_mult = -1
+	planet_jobs_physics_research_produces_mult = -1
+	planet_jobs_society_research_produces_mult = -1
 }
 
 culture_shock_industrial_age = {
 	pop_happiness = -0.10
-	tile_resource_minerals_mult = -0.25
-	tile_resource_energy_mult = -0.25
-	tile_resource_engineering_research_mult = -0.80
-	tile_resource_physics_research_mult = -0.80
-	tile_resource_society_research_mult = -0.80
+	planet_jobs_minerals_produces_mult = -0.25
+	planet_jobs_energy_produces_mult = -0.25
+	planet_jobs_engineering_research_produces_mult = -0.80
+	planet_jobs_physics_research_produces_mult = -0.80
+	planet_jobs_society_research_produces_mult = -0.80
 }
 
 culture_shock_machine_age = {
 	pop_happiness = -0.10
-	tile_resource_minerals_mult = -0.20
-	tile_resource_energy_mult = -0.20
-	tile_resource_engineering_research_mult = -0.60
-	tile_resource_physics_research_mult = -0.60
-	tile_resource_society_research_mult = -0.60
+	planet_jobs_minerals_produces_mult = -0.20
+	planet_jobs_energy_produces_mult = -0.20
+	planet_jobs_engineering_research_produces_mult = -0.60
+	planet_jobs_physics_research_produces_mult = -0.60
+	planet_jobs_society_research_produces_mult = -0.60
 }
 
 culture_shock_atomic_age = {
 	pop_happiness = -0.10
-	tile_resource_minerals_mult = -0.15
-	tile_resource_energy_mult = -0.15
-	tile_resource_engineering_research_mult = -0.40
-	tile_resource_physics_research_mult = -0.40
-	tile_resource_society_research_mult = -0.40
+	planet_jobs_minerals_produces_mult = -0.15
+	planet_jobs_energy_produces_mult = -0.15
+	planet_jobs_engineering_research_produces_mult = -0.40
+	planet_jobs_physics_research_produces_mult = -0.40
+	planet_jobs_society_research_produces_mult = -0.40
 }
 
 culture_shock_early_space_age = {
 	pop_happiness = -0.10
-	tile_resource_minerals_mult = -0.10
-	tile_resource_energy_mult = -0.10
-	tile_resource_engineering_research_mult = -0.20
-	tile_resource_physics_research_mult = -0.20
-	tile_resource_society_research_mult = -0.20
+	planet_jobs_minerals_produces_mult = -0.10
+	planet_jobs_energy_produces_mult = -0.10
+	planet_jobs_engineering_research_produces_mult = -0.20
+	planet_jobs_physics_research_produces_mult = -0.20
+	planet_jobs_society_research_produces_mult = -0.20
 }
 
 ##########################################################################
@@ -331,11 +331,11 @@ crystal_hunting_buff = {
 }
 
 crystal_focus = {
-	tile_resource_energy_mult = 0.05
+	planet_jobs_energy_produces_mult = 0.05
 }
 
 pacified_crystals = {
-	
+	icon = "gfx/interface/icons/modifiers/mod_planet_border_mult.dds"
 }
 
 flagellating_movement = {
@@ -347,7 +347,7 @@ amoeba_hunting_buff = {
 }
 
 pacified_amoebas = {
-	
+	icon = "gfx/interface/icons/modifiers/mod_planet_border_mult.dds"
 }
 
 cloud_hunting_buff = {
@@ -355,11 +355,11 @@ cloud_hunting_buff = {
 }
 
 void_loops = {
-	tile_resource_physics_research_mult = 0.10
+	planet_jobs_physics_research_produces_mult = 0.10
 }
 
 cosmic_ray_catalysis = {
-	tile_resource_energy_mult = 0.05
+	station_gatherers_energy_produces_mult = 0.1
 }
 
 drone_hunting_buff = {
@@ -367,7 +367,7 @@ drone_hunting_buff = {
 }
 
 drone_mining_techniques = {
-	tile_resource_minerals_mult = 0.05
+	station_gatherers_minerals_produces_mult = 0.1
 }
 
 grand_design = {
@@ -379,7 +379,7 @@ malefaction = {
 }
 
 prismatic_lenses = {
-	tile_resource_physics_research_mult = 0.10
+	planet_jobs_physics_research_produces_mult = 0.10
 }
 
 amoeba_extirpator = {
@@ -444,84 +444,31 @@ technosphere_power = {
 
 # Planet modifier
 droning_optimizations = {
-	tile_resource_minerals_mult = 0.15
-	tile_resource_energy_mult = -0.10
-}
-
-##########################################################################
-# Pop faction modifiers
-##########################################################################
-
-# Docile Slaves - Unrest
-docile_slaves_unrest_modifier = {
-	tile_resource_minerals_mult = -0.2
-	tile_resource_food_mult = -0.2
+	planet_jobs_minerals_produces_mult = 0.15
+	planet_jobs_energy_produces_mult = -0.10
 }
 
 ##########################################################################
 # Machines
 ##########################################################################
-
-servitor_morale_40 = {
-	country_resource_influence_add = 2
-	pop_robot_production_output = 0.4
-}
-
-servitor_morale_35 = {
-	country_resource_influence_add = 1.75
-	pop_robot_production_output = 0.35
-}
-
-servitor_morale_30 = {
-	country_resource_influence_add = 1.5
-	pop_robot_production_output = 0.3
-}
-
-servitor_morale_25 = {
-	country_resource_influence_add = 1.25
-	pop_robot_production_output = 0.25
-}
-
-servitor_morale_20 = {
-	country_resource_influence_add = 1
-	pop_robot_production_output = 0.2
-}
-
-servitor_morale_15 = {
-	country_resource_influence_add = 0.75
-	pop_robot_production_output = 0.15
-}
-
-servitor_morale_10 = {
-	country_resource_influence_add = 0.5
-	pop_robot_production_output = 0.1
-}
-
-servitor_morale_5 = {
-	country_resource_influence_add = 0.25
-	pop_robot_production_output = 0.05
-}
-
-servitor_morale_0 = {
-	country_resource_influence_add = -1
-	pop_robot_production_output = -0.1
-}
-
 syndaw_congregating_robots = {
 	icon = "gfx/interface/icons/planet_modifiers/pm_robots.dds"
 	icon_frame = 3
-	tile_resource_unity_mult = -0.10
+	planet_jobs_unity_produces_mult = -0.10
 }
 
 uprising_ai_buff = {
-	country_resource_minerals_add = 100
-	country_resource_energy_add = 100
-	#add_minerals = 100
-	#add_energy = 100
+	country_base_minerals_produces_add = 100
+	country_base_energy_produces_add = 100
+	country_naval_cap_mult = 10
 }
 
 syndaw_patched_systems = {
-	tile_resource_physics_research_mult = -0.10
-	tile_resource_society_research_mult = -0.10
-	tile_resource_engineering_research_mult = -0.10
+	planet_jobs_physics_research_produces_mult = -0.10
+	planet_jobs_society_research_produces_mult = -0.10
+	planet_jobs_engineering_research_produces_mult = -0.10
+}
+
+uprising_player_buff = {
+	country_naval_cap_mult = 10
 }

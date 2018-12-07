@@ -27,7 +27,24 @@ objectTypes = {
 		effect = "gfx/FX/arrow.lua"
 		size = 2
 	}
-	
+	arrowType = {
+		name = "system_incoming_trade_arrow"
+		texture = "gfx/arrows/incoming_tradearrow_frame.dds"
+		normal = "gfx/arrows/movearrow_normals.dds"
+		specular = "gfx/arrows/tradearrow_mask.dds"
+		overlay = "gfx/arrows/incoming_tradearrow_texture.dds"
+		effect = "gfx/FX/arrow.lua"
+		size = 2
+	}
+	arrowType = {
+		name = "system_outgoing_trade_arrow"
+		texture = "gfx/arrows/outgoing_tradearrow_frame.dds"
+		normal = "gfx/arrows/movearrow_normals.dds"
+		specular = "gfx/arrows/tradearrow_mask.dds"
+		overlay = "gfx/arrows/outgoing_tradearrow_texture.dds"
+		effect = "gfx/FX/arrow.lua"
+		size = 2
+	}
 	arrowType = {
 		name = "galaxy_move_arrow"
 		texture = "gfx/arrows/movearrow_frame.dds"
@@ -61,6 +78,24 @@ objectTypes = {
 		normal = "gfx/arrows/movearrow_normals.dds"
 		specular = "gfx/arrows/movearrow_mask.dds"
 		overlay = "gfx/arrows/bypassarrow_texture.dds"
+		effect = "gfx/FX/arrow.lua"
+		size = 0.7
+	}
+	arrowType = {
+		name = "galaxy_incoming_trade_arrow"
+		texture = "gfx/arrows/incoming_tradearrow_frame.dds"
+		normal = "gfx/arrows/movearrow_normals.dds"
+		specular = "gfx/arrows/tradearrow_mask.dds"
+		overlay = "gfx/arrows/incoming_tradearrow_texture.dds"
+		effect = "gfx/FX/arrow.lua"
+		size = 0.7
+	}
+	arrowType = {
+		name = "galaxy_outgoing_trade_arrow"
+		texture = "gfx/arrows/outgoing_tradearrow_frame.dds"
+		normal = "gfx/arrows/movearrow_normals.dds"
+		specular = "gfx/arrows/tradearrow_mask.dds"
+		overlay = "gfx/arrows/outgoing_tradearrow_texture.dds"
 		effect = "gfx/FX/arrow.lua"
 		size = 0.7
 	}

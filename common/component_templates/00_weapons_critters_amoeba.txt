@@ -21,7 +21,12 @@ weapon_component_template = {
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_anti_armor }
 	
-	cost = @critter_cost_value
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @critter_cost_value
+		}
+	}
 }
 
 weapon_component_template = {
@@ -36,7 +41,12 @@ weapon_component_template = {
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_anti_armor }
 	
-	cost = @critter_cost_value
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @critter_cost_value
+		}
+	}
 }
 
 ### Strike Craft
@@ -47,7 +57,12 @@ strike_craft_component_template = {
 	size = LARGE
 	entity = "space_amoeba_small_entity"
 	power = -30
-	cost = 60
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = 60
+		}
+	}
 
 	count = 8
 	regeneration_per_day = @regen

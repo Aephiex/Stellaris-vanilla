@@ -2,7 +2,7 @@
 #
 # Precursor Events
 #
-# Written by Henrik Eklund
+# Written by Henrik Thyrwall
 #
 ########################
 
@@ -787,6 +787,7 @@ country_event = {
 			limit = { has_star_flag = vultaumar }
 			save_event_target_as = vultaumar
 		}
+		observer_event = { id = observer.56 }
 	}
 	
 	option = {
@@ -1599,6 +1600,7 @@ country_event = {
 			limit = { has_star_flag = yuhtaan }
 			save_event_target_as = yuhtaan
 		}
+		observer_event = { id = observer.57 }
 	}
 	
 	option = {
@@ -2689,6 +2691,7 @@ country_event = {
 			limit = { has_star_flag = fen_habbanis }
 			save_event_target_as = fen_habbanis
 		}
+		observer_event = { id = observer.58 }
 	}
 	
 	option = {
@@ -3626,6 +3629,7 @@ country_event = {
 			limit = { has_star_flag = irass }
 			save_event_target_as = irass
 		}
+		observer_event = { id = observer.59 }
 	}
 	
 	option = {
@@ -4551,6 +4555,7 @@ country_event = {
 			limit = { has_star_flag = cybrex }
 			save_event_target_as = cybrex
 		}
+		observer_event = { id = observer.60 }
 	}
 	
 	option = {
@@ -5434,16 +5439,16 @@ country_event = {
 	
 	option = {
 		name = precursor.310.a
-		allow = { energy > 499 }
+		allow = { resource_stockpile_compare = { resource = energy value >= 500 } }
 		custom_tooltip = buy_precursor_artifact
-		add_energy = -500
+		add_resource = { energy = -500 }
 		collector_surrenders_artifact = yes
 	}
 	option = {
 		name = precursor.310.b
-		allow = { influence > 99 }
+		allow = { resource_stockpile_compare = { resource = influence value >= 100 } }
 		custom_tooltip = seize_precursor_artifact
-		add_influence = -100
+		add_resource = { influence = -100 }
 		collector_surrenders_artifact = yes
 	}
 	option = {
@@ -5769,23 +5774,23 @@ country_event = {
 	option = {
 		name = "precursor.311.a"
 		response_text = precursor.311.a.reply
-		allow = { energy > 999 }
+		allow = { resource_stockpile_compare = { resource = energy value >= 1000 } }
 		custom_tooltip = purchase_artifact
-		add_energy = -1000
+		add_resource = { energy = -1000 }
 		hidden_effect = {
-			event_target:artifact_seller = { add_energy = 1000 }
+			event_target:artifact_seller = { add_resource = { energy = 1000 } }
 		}
 		collector_surrenders_artifact = yes
 	}
 	option = {
 		name = "precursor.311.b"
 		response_text = precursor.311.b.reply
-		allow = { energy > 499 }
+		allow = { resource_stockpile_compare = { resource = energy value >= 500 } }
 		trigger = { has_valid_civic = civic_corporate_dominion }
 		custom_tooltip = purchase_artifact
-		add_energy = -500
+		add_resource = { energy = -500 }
 		hidden_effect = {
-			event_target:artifact_seller = { add_energy = 500 }
+			event_target:artifact_seller = { add_resource = { energy = 500 } }
 		}
 		collector_surrenders_artifact = yes
 	}

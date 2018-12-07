@@ -1596,7 +1596,9 @@ entity = {
 			emissive_recolor_crunch = 2.0
 		}
 	}
-	
+
+	entity = { name = "reptilian_01_sponsored_colonizer_entity" clone = "reptilian_01_colonizer_entity" }
+
 	entity = {
 		name = "reptilian_01_colony_ship_entity"
 		pdxmesh = "reptilian_01_colony_mesh"

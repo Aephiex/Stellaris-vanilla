@@ -363,6 +363,8 @@ entity = {
 	state = { name = "death"		animation = "death" looping = no }
 }
 
+entity = { name = "extra_dimensional_02_sponsored_colonizer_entity" clone = "extra_dimensional_02_colonizer_entity" }
+
 entity = {
 	name = "extra_dimensional_02_colony_ship_entity"
 	pdxmesh = "extra_dimensional_01_civilian_green_mesh"

@@ -9,6 +9,13 @@ technologist = {
 	unique = yes
 	support_multiplier = 1
 	
+	resources = {
+		category = pop_factions
+		produces = {
+			influence = 2
+		}
+	}
+
 	is_potential = {
 		years_passed > 10
 		has_encountered_other_species = yes
@@ -81,17 +88,11 @@ technologist = {
 		unfulfilled_title = "TECHNOLOGIST_ROBOTS_BANNED"
 		desc = "TECHNOLOGIST_ROBOTS_ALLOWED_DESC"
 
-		fulfilled_effect = 5
-		unfulfilled_effect = -15
+		fulfilled_effect = 10
+		unfulfilled_effect = -30
 
 		potential = {
 			exists = owner
-			owner = {
-				OR = {
-					can_set_robot_policy = yes
-					can_set_ai_policy = yes
-				}			
-			}
 		}
 
 		trigger = {
@@ -109,8 +110,8 @@ technologist = {
 		unfulfilled_title = "TECHNOLOGIST_TECH_LAG"
 		desc = "TECHNOLOGIST_TECH_LEAP_DESC"
 
-		fulfilled_effect = 5
-		unfulfilled_effect = -5
+		fulfilled_effect = 10
+		unfulfilled_effect = -20
 
 		potential = {
 			exists = owner
@@ -148,7 +149,7 @@ technologist = {
 		unfulfilled_title = "TECHNOLOGIST_FEW_RESEARCH_TREATIES"
 		desc = "TECHNOLOGIST_RESEARCH_TREATIES_DESC"
 
-		fulfilled_effect = 5
+		fulfilled_effect = 10
 
 		potential = {
 			exists = owner
@@ -210,33 +211,11 @@ technologist = {
 	}
 
 	demand = {
-		title = "TECHNOLOGIST_DISCOVERY"
-		unfulfilled_title = "TECHNOLOGIST_NO_DISCOVERY"
-		desc = "TECHNOLOGIST_DISCOVERY_DESC"
-
-		fulfilled_effect = 2
-		unfulfilled_effect = -5
-
-		potential = {
-			exists = owner
-			owner = {
-				has_any_tradition_unlocked = yes
-			}
-		}
-
-		trigger = {
-			owner = {
-				has_tradition = "tr_discovery_adopt"
-			}
-		}
-	}
-
-	demand = {
 		title = "TECHNOLOGIST_SECRET_KNOWLEDGE"
 		unfulfilled_title = "TECHNOLOGIST_NO_SECRET_KNOWLEDGE"
 		desc = "TECHNOLOGIST_SECRET_KNOWLEDGE_DESC"
 
-		fulfilled_effect = 5
+		fulfilled_effect = 10
 
 		potential = {
 			exists = owner

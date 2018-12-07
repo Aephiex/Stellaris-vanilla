@@ -105,9 +105,11 @@ country_event = {
 			}
 		}
 		# Changing country type resets resources, so give them full stores
-		add_minerals = 20000
-		add_energy = 5000
-		add_influence = 1000
+		add_resource = {
+			minerals = 20000
+			energy = 5000
+			influence = 1000
+		}
 		# Add some more fleet
 		country_event = { id = fallen_empires.13 }
 		if = {
@@ -135,6 +137,7 @@ country_event = {
 			}
 			country_event = { id = war_in_heaven.2 }
 		}
+		observer_event = { id = observer.75 }
 	}
 }
 
@@ -237,6 +240,7 @@ country_event = {
 			}		
 			country_event = { id = war_in_heaven.4 }
 		}
+		observer_event = { id = observer.76 }
 	}
 }
 
@@ -601,6 +605,15 @@ country_event = {
 		}		
 	}
 	option = {
+		name = war_in_heaven.4.c.2
+		trigger = { 
+			is_subject = no 
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+	option = {
 		name = war_in_heaven.4.d
 		trigger = { 
 			is_subject = yes			
@@ -697,7 +710,8 @@ country_event = {
 		every_country = {
 			limit = { is_ai = no }		
 			country_event = { id = war_in_heaven.11 }
-		}		
+		}
+		observer_event = { id = observer.79 }		
 	}
 }
 
@@ -766,6 +780,84 @@ country_event = {
 
 	immediate = {
 		# Find strongest neutral power and offer them to become league leader
+		random_country = {
+			limit = {	
+				is_subject = no
+				NOT = {
+					any_country = {
+						is_country_type = awakened_fallen_empire
+						is_at_war_with = prev
+					}
+				}
+				is_country_type = default
+				NOR = {
+					has_valid_civic = civic_hive_devouring_swarm
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_machine_terminator
+				}				
+				NOT = { has_global_flag = war_in_heaven_seeking_league_leader }
+				NOT = { has_global_flag = stop_further_leader_seek }
+				NOT = { has_country_flag = war_in_heaven_league_leader_declined }
+				fleet_power > 300000
+			}
+			
+			set_global_flag = war_in_heaven_seeking_league_leader
+			set_global_flag = stop_further_leader_seek
+			country_event = { id = war_in_heaven.13 }
+		}		
+		
+		random_country = {
+			limit = {	
+				is_subject = no
+				NOT = {
+					any_country = {
+						is_country_type = awakened_fallen_empire
+						is_at_war_with = prev
+					}
+				}
+				is_country_type = default
+				NOR = {
+					has_valid_civic = civic_hive_devouring_swarm
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_machine_terminator
+				}				
+				NOT = { has_global_flag = war_in_heaven_seeking_league_leader }
+				NOT = { has_global_flag = stop_further_leader_seek }
+				NOT = { has_country_flag = war_in_heaven_league_leader_declined }
+				fleet_power > 200000
+			}
+			
+			set_global_flag = war_in_heaven_seeking_league_leader
+			set_global_flag = stop_further_leader_seek
+			country_event = { id = war_in_heaven.13 }
+		}		
+		
+		random_country = {
+			limit = {	
+				is_subject = no
+				NOT = {
+					any_country = {
+						is_country_type = awakened_fallen_empire
+						is_at_war_with = prev
+					}
+				}
+				is_country_type = default
+				NOR = {
+					has_valid_civic = civic_hive_devouring_swarm
+					has_valid_civic = civic_fanatic_purifiers
+					has_valid_civic = civic_machine_terminator
+				}				
+				NOT = { has_global_flag = war_in_heaven_seeking_league_leader }
+				NOT = { has_global_flag = stop_further_leader_seek }
+				NOT = { has_country_flag = war_in_heaven_league_leader_declined }
+				fleet_power > 150000
+			}
+			
+			set_global_flag = war_in_heaven_seeking_league_leader
+			set_global_flag = stop_further_leader_seek
+			country_event = { id = war_in_heaven.13 }
+		}	
+		
 		random_country = {
 			limit = {	
 				is_subject = no
@@ -1399,7 +1491,8 @@ country_event = {
 			every_country = {
 				limit = { is_ai = no }		
 				country_event = { id = war_in_heaven.18 }
-			}			
+			}	
+			observer_event = { id = observer.80 }		
 		}	
 	}
 }

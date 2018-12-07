@@ -3,7 +3,8 @@
 # potential = if possible to select in diplomatic interactions
 # become_vassal = trigger when it converts into a vassal
 # tech_cost_mult = tech cost multiplier if overlord has a tech
-# overlord_influence = extra influence given to overlord
+# overlord_resources = resources cost, upkeep and production paid by and to the overlord
+# subject_resources = resources cost, upkeep and production paid by and to the subject
 # joins_overlord_wars = Joins in if overlord goes to war (Defensive or Offensive)
 # calls_overlord_to_war Calls overlord to war (Defensive only)
 # can_do_diplomacy Can do some limited diplomacy
@@ -22,8 +23,8 @@ vassal = {
 	can_expand = no
 	can_be_integrated = yes
 	
-	research_agreement = no
-	research_sharing = yes	# for domination finisher
+	research_agreement = yes
+	research_sharing = yes	# for tech sharing modifier
 
 	joins_overlord_wars = yes
 	calls_overlord_to_war = yes
@@ -142,6 +143,16 @@ vassal = {
 			}
 			break = yes
 		}
+		if = {
+			limit = {
+				from = { has_authority = auth_corporate }
+			}
+			set_subject_of = {
+				who = from
+				subject_type = subsidiary
+			}
+			break = yes
+		}
 	}	
 }
 
@@ -156,7 +167,13 @@ protectorate = {
 	can_do_diplomacy = no
 
 	tech_cost_mult = -0.80
-	overlord_influence = 0.25
+
+	overlord_resources = {
+		category = subjects
+		produces = {
+			influence = 0.25
+		}
+	}
 	
 	diplo_threat = 0.75
 
@@ -265,7 +282,16 @@ protectorate = {
 			}
 			break = yes
 		}
-
+		if = {
+			limit = {
+				from = { has_authority = auth_corporate }
+			}
+			set_subject_of = {
+				who = from
+				subject_type = subsidiary
+			}
+			break = yes
+		}
 	}		
 
 	become_vassal = {

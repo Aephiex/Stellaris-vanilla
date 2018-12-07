@@ -3,6 +3,41 @@ guiTypes = {
 	### RANDOM SPECIES PREVIEW ###
 
 	containerWindowType = {
+		name = "observer_preview"
+		orientation = center
+		origo = center
+		size = { width = 1040 height = 750 }
+		position = { x = 115 y = -20 }
+
+		background = {
+			name = "random"
+			spriteType = "GFX_tile_large_bg_plain"
+		}
+		
+		iconType = {
+			name = "observe_image"
+			spriteType = "GFX_gamesetup_observe_image"
+			position = { x = 6 y = 65 }
+			alwaysTransparent = yes
+		}
+		
+		instantTextBoxType = {
+				name = "text"
+				position = { x = 20 y = 308 }
+				font = "large_title_font"
+				maxWidth = 1000	
+				text = "OBSERVER"
+				format = center
+				orientation = "UPPER_LEFT"
+				alwaysTransparent = yes
+				fixedsize = yes
+			}
+		
+	}
+
+	### RANDOM SPECIES PREVIEW ###
+
+	containerWindowType = {
 		name = "random_species_preview"
 		orientation = center
 		origo = center

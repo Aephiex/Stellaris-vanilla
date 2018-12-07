@@ -96,6 +96,11 @@ spriteTypes = {
 	}
 	
 	spriteType = {
+		name = "GFX_diplomacy_status_is_subsidiary"
+		texturefile = "gfx/interface/icons/diplomacy/diplomacy_issubsidiary.dds"
+	}	
+	
+	spriteType = {
 		name = "GFX_diplomacy_status_is_tributary"
 		texturefile = "gfx/interface/icons/diplomacy/diplomacy_istributary.dds"
 	}
@@ -140,6 +145,16 @@ spriteTypes = {
 		name = "GFX_diplomacy_status_non_aggression_pact"
 		texturefile = "gfx/interface/icons/diplomacy/diplomacy_non_aggression_pact.dds"
 	}
+	
+	spriteType = {
+		name = "GFX_diplomacy_status_commercial_pact"
+		texturefile = "gfx/interface/icons/diplomacy/diplomacy_commercial_pact.dds"
+	}
+
+	spriteType = {
+		name = "GFX_diplomacy_status_research_agreement"
+		texturefile = "gfx/interface/icons/diplomacy/diplomacy_research_agreement.dds"
+	}		
 	
 	spriteType = {
 		name = "GFX_diplomacy_status_guarantee"

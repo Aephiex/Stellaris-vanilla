@@ -4,6 +4,7 @@
 #name_of_country_type = {
 #	can_own_empty_planets					#no by default, decides if empty planets belonging to country are automatically removed from the country.
 #	playable = yes							#if this type is available for players. used when listing countries for hot-joining players
+#	has_pulse_events = no					#if this type gets checked for country-specific pulse events from on_action
 # 	randomize_ethos = no					#does this empire have a randomly generated ethos?
 #	shuffle_pop_ethos = no					#if pops belonging to this country type should mutate their ethos every now and then
 #	sub_title = "EXAMPLE_COUNTRY"			#sub title that will be shown for this empire. Like "Example Federation - Fallen Empire"
@@ -34,6 +35,8 @@
 # 	custom_starbase = x						#if this is set, country will defined ship size for constructed starbases instead of building outposts
 #	destroys_starbases = no					#if this is set to yes, country will destroy starbases instead of disabling them
 #	can_have_their_comms_shared				#if this is set to yes, other countries in contact with this one will be able to share that contact (for countries that use custom_diplomacy)
+#	observable = no 						#Fairly self explanatory. Will not show up in list of observable countries, and cannot be tagged to as observer.
+#	can_use_invalid_technology = yes		#this this is set to no, there will be a hardcoded block on assigning tech whose potential trigger does not evaluate to the country
 #
 #	faction = {							#these values are copied to the country and can be changed during the game
 #		neutral = no						#if yes, fleets will never attack anything and will never be attacked
@@ -74,6 +77,7 @@
 #		standard_leader_module = {}
 #		standard_diplomacy_module = {}
 #		standard_technology_module = {}
+#		standard_trade_routes_module = {}
 #		standard_pop_factions_module = {}
 #		standard_expansion_module = {}
 #	}
@@ -84,6 +88,7 @@ default = {
 	counts_for_victory = yes
 	pop_growth = yes
 	playable = yes
+	has_pulse_events = yes
 	piracy_risk = yes
 	randomize_ethos = yes
 	shuffle_pop_ethos = yes
@@ -92,6 +97,8 @@ default = {
 	ship_disengagement = yes
 	army_disengagement = yes
 	relations = yes
+	observable = yes
+	can_use_invalid_technology = no
 	
 	ai = {
 		enabled = yes
@@ -105,6 +112,7 @@ default = {
 		traditions = yes
 		construction = yes
 		follow = yes
+		can_use_market = yes
 		modules = {
 			military_minister_module
 			foreign_minister_module
@@ -275,24 +283,6 @@ default = {
 				}
 			}
 			
-			android_army = {
-				fraction = {
-					factor = 100
-					modifier = {
-						factor = 0
-						OR = {
-							has_authority = auth_machine_intelligence
-							has_technology = tech_telepathy
-							has_technology = tech_gene_seed_purification	
-							NAND = {
-								has_ai_personality_behaviour = robot_liberator
-								has_technology = tech_synthetic_workers
-							}							
-						}
-					}
-				}
-			}
-			
 			clone_army = {
 				fraction = {
 					factor = 100
@@ -386,15 +376,70 @@ default = {
 		}
 
 	}
+	
+	trade_routes_available = {
+		is_gestalt = no
+	}
+	
 	modules = {
 		standard_event_module = {}
 		standard_economy_module = {}
 		standard_leader_module = {}
 		standard_diplomacy_module = {}
 		standard_technology_module = {}
+		standard_trade_routes_module = {}
 		standard_pop_factions_module = {}
 		standard_expansion_module = {}
 		standard_species_rights_module = {}
+	}
+
+	resources = {
+		category = country_base
+		produces = {
+			energy = 20
+			minerals = 20
+			physics_research = 10
+			society_research = 10
+			engineering_research = 10
+			influence = 3
+			unity = 5
+			alloys = 5		
+		}		
+		produces = {
+			trigger = {
+				is_gestalt = no
+			}
+			consumer_goods = 10
+		}
+		produces = {
+			trigger = {
+				OR = {
+					is_regular_empire = yes
+					is_hive_empire = yes
+				}
+			}
+			food = 10
+		}
+		produces = {
+			trigger = {
+				is_machine_empire = yes
+			}
+			energy = 10
+			minerals = 10
+		}			
+	}
+	
+	# planet scope
+	branch_office_resources = {
+		category = planet_branch_offices
+		cost = {
+			energy = 1000
+			influence = 50
+		}
+		
+		upkeep = {}
+		
+		produces = {}		
 	}
 }
 
@@ -403,6 +448,7 @@ global_event = {
 	share_communications = no
 	default_ships = no
 	government = no
+	observable = no
 	ai = {
 		enabled = no
 	}
@@ -423,6 +469,7 @@ global_event = {
 
 faction = {
 	government = no
+	observable = no
 	ai = {
 		enabled = no
 	}
@@ -441,6 +488,7 @@ faction = {
 adversary = {
 	show_in_contacts_list = no
 	government = no
+	observable = no
 	ai = {
 		enabled = no
 	}
@@ -466,6 +514,7 @@ adversary = {
 neutral_faction = {
 	is_space_critter = yes
 	government = no
+	observable = no
 	ai = {
 		enabled = no
 	}
@@ -483,6 +532,7 @@ neutral_faction = {
 
 nomad = {
 	show_in_contacts_list = yes
+	observable = no
 	ai = {
 		enabled = no
 	}
@@ -505,6 +555,7 @@ nomad = {
 pirate = {
 	attack_unarmed_orbital_stations = yes
 	government = no
+	observable = no
 	ai = {
 		enabled = no
 	}
@@ -534,6 +585,7 @@ dormant_marauders = {
 	has_complete_sensor = yes
 	can_have_their_comms_shared = yes
 	custom_starbase = starbase_marauder
+	observable = no
 	ai = {
 		enabled = no
 	}
@@ -544,6 +596,7 @@ dormant_marauders = {
 		needs_border_access = no
 		generate_borders = yes
 		needs_colony = no
+		auto_delete = no
 	}
 	modules = {
 		exclusive_diplomacy_module = {} # Nothing is allowed, but we need this for relationships.
@@ -557,6 +610,7 @@ dormant_marauders = {
 
 ruined_marauders = { # Diplomacy no longer possible
 	government = no
+	observable = no
 
 	ai = {
 		enabled = no
@@ -584,6 +638,7 @@ awakened_marauders = {
 	scaled_difficulty_bonuses = 1.0	# scales to setting
 	destroys_starbases = yes
 	show_in_contacts_list = yes
+	counts_for_victory = yes
 	share_survey_data = no
 	custom_diplomacy = yes
 	mid_game_crisis = yes
@@ -592,6 +647,7 @@ awakened_marauders = {
 	has_complete_sensor = yes
 	can_have_their_comms_shared = yes
 	custom_starbase = starbase_marauder
+	observable = yes
 	ai = {
 		enabled = yes
 		modules = {
@@ -632,6 +688,7 @@ fallen_empire = {
 	ship_disengagement = yes
 	army_disengagement = yes
 	uses_special_buildables = yes
+	observable = yes
 	
 	faction = {
 		needs_border_access = no
@@ -686,7 +743,7 @@ fallen_empire = {
 				}
 			}
 
-			android_army = {
+			robotic_army = {
 				fraction = {
 					factor = 75
 					modifier = {
@@ -745,6 +802,23 @@ fallen_empire = {
 			}
 		}	
 	}
+
+	resources = {
+		category = country_base
+		produces = {
+			energy = 1000
+			minerals = 250
+			food = 100
+			alloys = 100
+			consumer_goods = 200			
+			rare_crystals = 10
+			exotic_gases = 10
+			volatile_motes = 10
+			sr_dark_matter = 2
+			sr_living_metal = 2			
+			influence = 3
+		}
+	}
 }
 
 awakened_fallen_empire = {
@@ -763,6 +837,7 @@ awakened_fallen_empire = {
 	army_disengagement = yes
 	pop_growth = yes
 	uses_special_buildables = yes
+	observable = yes
 	
 	faction = {
 		needs_border_access = no
@@ -817,7 +892,7 @@ awakened_fallen_empire = {
 				}
 			}
 
-			android_army = {
+			robotic_army = {
 				fraction = {
 					factor = 75
 					modifier = {
@@ -929,11 +1004,29 @@ awakened_fallen_empire = {
 			}
 		}	
 	}
+
+	resources = {
+		category = country_base
+		produces = {
+			energy = 1000
+			minerals = 250
+			food = 100
+			alloys = 100
+			consumer_goods = 100			
+			rare_crystals = 10
+			exotic_gases = 10
+			volatile_motes = 10
+			sr_dark_matter = 2
+			sr_living_metal = 2			
+			influence = 3
+		}
+	}
 }
 
 primitive = {
 	randomize_ethos = yes
 	shuffle_pop_ethos = yes
+	observable = no
 
 	ai = {
 		enabled = no
@@ -959,6 +1052,7 @@ primitive = {
 }
 
 rebel = {
+	observable = no
 	ai = {
 		#enabled = no
 		enabled = yes
@@ -981,6 +1075,7 @@ rebel = {
 		#standard_diplomacy_module = {}
 		exclusive_diplomacy_module = {}
 		standard_technology_module = {}
+		standard_trade_routes_module = {}
 		#standard_species_rights_module = {}
 	}
 }
@@ -989,6 +1084,7 @@ rebel = {
 ambient = {
 	show_in_contacts_list = no
 	government = no
+	observable = no
 	ai = {
 		enabled = no
 	}
@@ -1011,6 +1107,7 @@ enclave = {
 	show_in_contacts_list = yes
 	can_have_their_comms_shared = yes
 	is_enclave = yes
+	observable = no
 	ai = {
 		enabled = no
 	}
@@ -1039,6 +1136,7 @@ shroud = {
 	share_communications = no
 	default_ships = no
 	government = no
+	observable = no
 	ai = {
 		enabled = no
 	}
@@ -1062,6 +1160,7 @@ shroud_spirits = {
 	is_space_critter = yes
 	blocks_piracy = yes
 	government = no
+	observable = no
 	ai = {
 		enabled = no
 	}
@@ -1100,6 +1199,7 @@ swarm = {
 	colonizing_desc = "PLANET_VIEW_UNDER_COLONIZATION_SWARM_DESC"
 	home_system = swarm_invasion_target_1
 	custom_starbase = starbase_swarm
+	observable = yes
 	
 	ai = {
 		enabled = yes
@@ -1140,6 +1240,7 @@ extradimensional = {
 	enforces_borders = no
 	home_system = extradimensional_origin_system
 	custom_starbase = starbase_exd
+	observable = yes
 	targets = { 
 		extradimensional_2
 		extradimensional_3
@@ -1184,6 +1285,7 @@ extradimensional_2 = {
 	enforces_borders = no
 	home_system = extradimensional_second_portal_system
 	custom_starbase = starbase_exd
+	observable = yes
 	targets = { 
 		extradimensional
 		extradimensional_3
@@ -1227,6 +1329,7 @@ extradimensional_3 = {
 	enforces_borders = no
 	home_system = extradimensional_third_portal_system
 	custom_starbase = starbase_exd
+	observable = yes
 	targets = { 
 		extradimensional
 		extradimensional_2
@@ -1275,6 +1378,7 @@ ai_empire = {
 	home_system = AI_lair
 	hub_system = AI_hub
 	custom_starbase = starbase_ai
+	observable = yes
 	ai = {
 		enabled = yes
 		colonizer = yes
@@ -1315,6 +1419,7 @@ cybrex_empire = {
 	enforces_borders = no
 	minimalist_contacts_list_profile = yes
 	home_system = cybrex_beta
+	observable = yes
 	ai = {
 		enabled = yes
 		modules = {
@@ -1347,6 +1452,7 @@ sentinels = {
 	enforces_borders = no
 	needs_survey = no
 	has_complete_sensor = yes
+	observable = yes
 	ai = {
 		enabled = yes
 		modules = {
@@ -1369,6 +1475,77 @@ sentinels = {
 	}
 }
 
+gate_builders = {
+	scaled_difficulty_bonuses = 3.0
+	custom_diplomacy = yes
+	share_survey_data = no
+	enforces_borders = no
+	needs_survey = no
+	has_complete_sensor = yes
+	observable = yes
+	custom_starbase = starbase_gatebuilders
+	ai = {
+		enabled = yes
+		modules = {
+			anti_crisis_military_minister_module
+		}
+	}
+	faction = {
+		hostile = no
+		needs_border_access = no
+		needs_colony = no
+		generate_borders = yes
+	}
+	
+	custom_diplomacy = yes
+	
+	modules = {
+		exclusive_diplomacy_module = {} # Nothing is allowed, but we need this for relationships.
+		all_technology_module = {}
+		standard_event_module = {}
+		standard_economy_module = {}
+	}
+
+	resources = {
+		category = country_base
+		produces = {
+			energy = 10
+			minerals = 10
+			physics_research = 10
+			society_research = 10
+			engineering_research = 10
+			influence = 3
+			unity = 2
+			alloys = 5
+		}
+	}
+}
+
+gray = {
+	show_in_contacts_list = yes
+	minimalist_contacts_list_profile = yes
+	share_communications = no
+	default_ships = no
+	government = no
+	ai = {
+		enabled = no
+	}
+	faction = {
+		hostile = no
+		needs_border_access = no
+		generate_borders = no
+		needs_colony = no
+		auto_delete = no
+	}
+	custom_diplomacy = yes
+	modules = {
+		basic_technology_module = {}
+		exclusive_diplomacy_module = {
+			contact_rule = script_only
+		}
+	}
+}
+
 
 
 #################
@@ -1379,6 +1556,7 @@ tiyanki = {
 	share_communications = no
 	is_space_critter = yes
 	government = no
+	observable = no
 	ai = {
 		enabled = yes
 		modules = {
@@ -1404,6 +1582,7 @@ amoeba = {
 	is_space_critter = yes
 	blocks_piracy = yes
 	government = no
+	observable = no
 	ai = {
 		enabled = yes
 		modules = {
@@ -1430,6 +1609,7 @@ crystal = {
 	is_space_critter = yes
 	blocks_piracy = yes
 	government = no
+	observable = no
 	ai = {
 		enabled = no
 	}
@@ -1451,6 +1631,7 @@ drone = {
 	is_space_critter = yes
 	blocks_piracy = yes
 	government = no
+	observable = no
 	ai = {
 		enabled = no
 	}
@@ -1472,6 +1653,7 @@ cloud = {
 	is_space_critter = yes
 	blocks_piracy = yes
 	government = no
+	observable = no
 	ai = {
 		enabled = no
 	}
@@ -1492,6 +1674,7 @@ portal_holder = {
 	show_in_contacts_list = no
 	is_space_critter = yes
 	government = no
+	observable = no
 	ai = {
 		enabled = no
 	}
@@ -1513,6 +1696,7 @@ feral_prethoryn = {
 	blocks_piracy = yes
 	government = no
 	enforces_borders = no
+	observable = no
 	ai = {
 		enabled = yes
 		modules = {
@@ -1538,6 +1722,7 @@ feral_prethoryn_infighting = {
 	is_space_critter = yes
 	blocks_piracy = yes
 	government = no
+	observable = no
 	ai = {
 		enabled = no
 	}
@@ -1559,6 +1744,7 @@ marauder_raiders = {
 	attack_unarmed_orbital_stations = yes
 	scaled_difficulty_bonuses = 1.0	# scales to setting
 	government = no
+	observable = no
 	ai = {
 		enabled = no
 	}
@@ -1578,6 +1764,7 @@ marauder_raiders = {
 
 vol = {
 	show_in_contacts_list = no
+	observable = no
 	ai = {
 		enabled = no
 	}
@@ -1603,6 +1790,7 @@ vol = {
 
 ratlings = {
 	share_communications = no
+	observable = no
 	ai = {
 		enabled = no
 		construction = no
@@ -1629,6 +1817,7 @@ ratlings = {
 nivlacs = {
 	show_in_contacts_list = yes
 	government = yes
+	observable = no
 	ai = {
 		enabled = yes
 	}
@@ -1655,6 +1844,7 @@ enigmatic_cache = {
 	is_space_critter = yes
 	destroys_starbases = no
 	#blocks_pirate = yes
+	observable = no
 	ai = {
 		enabled = no
 	}
@@ -1684,6 +1874,7 @@ gray_goo = {
 	needs_survey = no
 	has_complete_sensor = yes
 	can_have_their_comms_shared = yes
+	observable = no
 	ai = {
 		enabled = yes
 		modules = {

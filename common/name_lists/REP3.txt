@@ -77,14 +77,6 @@ REP3 = {
 			sequential_name = "%O% Automated Defenses"
 		}
 		
-		android_army = {
-			sequential_name = "%O% Mimic Warriors"
-		}
-
-		android_defense_army = {
-			sequential_name = "%O% Mimic Guardians"
-		}
-		
 		psionic_army = { 
 			sequential_name = "%O% Mind Masters"
 		}
@@ -105,8 +97,14 @@ REP3 = {
 			sequential_name = "%O% Automated Garrison"
 		}
 
-		android_occupation_army = {
-			sequential_name = "%O% Mimic Garrison"
+		primitive_army = {
+			sequential_name = "Primitive Army %C%"
+		}
+		industrial_army = {
+			sequential_name = "Industrial Army %C%"
+		}
+		postatomic_army = {
+			sequential_name = "Post-Atomic Army %C%"
 		}
 	}
 

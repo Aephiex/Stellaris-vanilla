@@ -1,12 +1,12 @@
-@cost0 = 5
-@cost1 = 10
-@cost2 = 15
+@cost0 = 0
+@cost1 = 5
+@cost2 = 10
 @cost3 = 20
 
 @power0 = -5
 @power1 = -10
 @power2 = -15
-@power3 = -20
+@power3 = -25
 
 ####################
 # DEFAULT COMPUTER #
@@ -38,7 +38,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_default"
 	icon_frame = 1
 	power = @power0
-	cost = @cost0
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost0
+		}
+	}
 	ship_behavior = "swarm"
 	
 	class_restriction = { shipclass_military }
@@ -57,7 +62,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_default"
 	icon_frame = 1
 	power = @power0
-	cost = @cost0
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost0
+		}
+	}
 	ship_behavior = "picket"
 
 	class_restriction = { shipclass_military }
@@ -76,7 +86,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_default"
 	icon_frame = 1
 	power = @power0
-	cost = @cost0
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost0
+		}
+	}
 	ship_behavior = "line"
 
 	class_restriction = { shipclass_military }
@@ -95,7 +110,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_default"
 	icon_frame = 1
 	power = @power0
-	cost = @cost0
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost0
+		}
+	}
 	ship_behavior = "artillery"
 
 	class_restriction = { shipclass_military }
@@ -114,7 +134,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_default"
 	icon_frame = 1
 	power = @power0
-	cost = @cost0
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost0
+		}
+	}
 	class_restriction = { shipclass_military_station }
 	component_set = "combat_computers"
 	ship_behavior = "platform"
@@ -139,7 +164,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_swarm_basic"
 	icon_frame = 1
 	power = @power1
-	cost = @cost1
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost1
+		}
+	}
 	class_restriction = { shipclass_military }
 	size_restriction = { corvette }
 	component_set = "combat_computers"
@@ -165,7 +195,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_swarm_advanced"
 	icon_frame = 1
 	power = @power2
-	cost = @cost2
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost2
+		}
+	}
 	class_restriction = { shipclass_military }
 	size_restriction = { corvette }
 	component_set = "combat_computers"
@@ -191,7 +226,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_swarm_sapient"
 	icon_frame = 1
 	power = @power3
-	cost = @cost3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost3
+		}
+	}
 	class_restriction = { shipclass_military }
 	size_restriction = { corvette }
 	component_set = "combat_computers"
@@ -226,7 +266,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_swarm_sapient"
 	icon_frame = 1
 	power = @power3
-	cost = @cost3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost3
+		}
+	}
 	class_restriction = { shipclass_military }
 	size_restriction = { corvette }
 	component_set = "combat_computers"
@@ -251,7 +296,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_swarm_precog"
 	icon_frame = 1
 	power = @power3
-	cost = @cost3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost3
+		}
+	}
 	class_restriction = { shipclass_military }
 	size_restriction = { corvette }
 	component_set = "combat_computers"
@@ -280,7 +330,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_picket_basic"
 	icon_frame = 1
 	power = @power1
-	cost = @cost1
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost1
+		}
+	}
 	class_restriction = { shipclass_military }
 	size_restriction = { corvette destroyer cruiser }
 	component_set = "combat_computers"
@@ -304,7 +359,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_picket_advanced"
 	icon_frame = 1
 	power = @power2
-	cost = @cost2
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost2
+		}
+	}
 	class_restriction = { shipclass_military }
 	size_restriction = { corvette destroyer cruiser }
 	component_set = "combat_computers"
@@ -328,7 +388,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_picket_sapient"
 	icon_frame = 1
 	power = @power3
-	cost = @cost3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost3
+		}
+	}
 	class_restriction = { shipclass_military }
 	size_restriction = { corvette destroyer cruiser }
 	component_set = "combat_computers"
@@ -364,7 +429,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_picket_sapient"
 	icon_frame = 1
 	power = @power3
-	cost = @cost3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost3
+		}
+	}
 	class_restriction = { shipclass_military }
 	size_restriction = { corvette destroyer cruiser }
 	component_set = "combat_computers"
@@ -390,7 +460,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_picket_precog"
 	icon_frame = 1
 	power = @power3
-	cost = @cost3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost3
+		}
+	}
 	class_restriction = { shipclass_military }
 	size_restriction = { corvette destroyer cruiser }
 	component_set = "combat_computers"
@@ -416,7 +491,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_line_basic"
 	icon_frame = 1
 	power = @power1
-	cost = @cost1
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost1
+		}
+	}
 	class_restriction = { shipclass_military }
 	size_restriction = { destroyer cruiser battleship }
 	component_set = "combat_computers"
@@ -440,7 +520,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_line_advanced"
 	icon_frame = 1
 	power = @power2
-	cost = @cost2
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost2
+		}
+	}
 	class_restriction = { shipclass_military }
 	size_restriction = { destroyer cruiser battleship }
 	component_set = "combat_computers"
@@ -464,7 +549,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_line_sapient"
 	icon_frame = 1
 	power = @power3
-	cost = @cost3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost3
+		}
+	}
 	class_restriction = { shipclass_military }
 	size_restriction = { destroyer cruiser battleship }
 	component_set = "combat_computers"
@@ -497,7 +587,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_line_sapient"
 	icon_frame = 1
 	power = @power3
-	cost = @cost3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost3
+		}
+	}
 	class_restriction = { shipclass_military }
 	size_restriction = { destroyer cruiser battleship }
 	component_set = "combat_computers"
@@ -520,7 +615,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_line_precog"
 	icon_frame = 1
 	power = @power3
-	cost = @cost3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost3
+		}
+	}
 	class_restriction = { shipclass_military }
 	size_restriction = { destroyer cruiser battleship }
 	component_set = "combat_computers"
@@ -547,7 +647,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_artillery_basic"
 	icon_frame = 1
 	power = @power1
-	cost = @cost1
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost1
+		}
+	}
 	class_restriction = { shipclass_military }
 	size_restriction = { destroyer cruiser battleship titan }
 	component_set = "combat_computers"
@@ -571,7 +676,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_artillery_advanced"
 	icon_frame = 1
 	power = @power2
-	cost = @cost2
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost2
+		}
+	}
 	class_restriction = { shipclass_military }
 	size_restriction = { destroyer cruiser battleship titan }
 	component_set = "combat_computers"
@@ -595,7 +705,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_artillery_sapient"
 	icon_frame = 1
 	power = @power3
-	cost = @cost3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost3
+		}
+	}
 	class_restriction = { shipclass_military }
 	size_restriction = { destroyer cruiser battleship titan }
 	component_set = "combat_computers"
@@ -629,7 +744,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_artillery_sapient"
 	icon_frame = 1
 	power = @power3
-	cost = @cost3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost3
+		}
+	}
 	class_restriction = { shipclass_military }
 	size_restriction = { destroyer cruiser battleship titan }
 	component_set = "combat_computers"
@@ -652,7 +772,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_artillery_precog"
 	icon_frame = 1
 	power = @power3
-	cost = @cost3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost3
+		}
+	}
 	class_restriction = { shipclass_military }
 	size_restriction = { destroyer cruiser battleship titan }
 	component_set = "combat_computers"
@@ -680,7 +805,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_platform_basic"
 	icon_frame = 1
 	power = @power1
-	cost = @cost1
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost1
+		}
+	}
 	class_restriction = { shipclass_military_station }
 	component_set = "combat_computers"
 	ship_behavior = "platform"
@@ -703,7 +833,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_platform_advanced"
 	icon_frame = 1
 	power = @power2
-	cost = @cost2
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost2
+		}
+	}
 	class_restriction = { shipclass_military_station }
 	component_set = "combat_computers"
 	ship_behavior = "platform"
@@ -726,7 +861,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_platform_sapient"
 	icon_frame = 1
 	power = @power3
-	cost = @cost3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost3
+		}
+	}
 	class_restriction = { shipclass_military_station }
 	component_set = "combat_computers"
 	ship_behavior = "platform"
@@ -759,7 +899,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_platform_sapient"
 	icon_frame = 1
 	power = @power3
-	cost = @cost3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost3
+		}
+	}
 	class_restriction = { shipclass_military_station }
 	component_set = "combat_computers"
 	ship_behavior = "platform"
@@ -782,7 +927,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_platform_precog"
 	icon_frame = 1
 	power = @power3
-	cost = @cost3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost3
+		}
+	}
 	class_restriction = { shipclass_military_station }
 	component_set = "combat_computers"
 	ship_behavior = "platform"
@@ -808,7 +958,6 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_default"
 	icon_frame = 1
 	power = 0
-	power = 0
 	class_restriction = { shipclass_starbase }
 	component_set = "combat_computers"
 	ship_behavior = "platform"
@@ -829,7 +978,6 @@ utility_component_template = {
 	size = small
 	icon = "GFX_ship_part_computer_default"
 	icon_frame = 1
-	power = 0
 	power = 0
 	class_restriction = { shipclass_starbase }
 	component_set = "combat_computers"
@@ -852,7 +1000,6 @@ utility_component_template = {
 	size = small
 	icon = "GFX_ship_part_computer_default"
 	icon_frame = 1
-	power = 0
 	power = 0
 	class_restriction = { shipclass_starbase }
 	component_set = "combat_computers"
@@ -879,7 +1026,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_default"
 	icon_frame = 1
 	power = @power0
-	cost = @cost0
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost0
+		}
+	}
 	ship_behavior = "colossus"
 	
 	class_restriction = { shipclass_military_special }
@@ -897,7 +1049,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_computer_default"
 	icon_frame = 1
 	power = -20
-	cost = 20
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = 20
+		}
+	}
 	class_restriction = { shipclass_military }
 	size_restriction = { stellarite }
 	ship_behavior = "stellarite_default"

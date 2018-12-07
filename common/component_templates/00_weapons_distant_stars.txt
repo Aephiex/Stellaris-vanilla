@@ -89,7 +89,12 @@ strike_craft_component_template = {
 	key = "GG_STRIKE_CRAFT"
 	size = LARGE
 	entity = "gatebuilder_01_strikecraft_entity"
-	cost = 60
+	resources = {
+		cost = {
+			alloys = 60
+		}
+	}
+
 	power = -60
 	hidden = yes
 

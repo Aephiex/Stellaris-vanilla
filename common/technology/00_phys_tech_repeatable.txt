@@ -24,7 +24,7 @@ tech_repeatable_improved_tile_energy_output = {
 	}
 	
 	modifier = {
-		tile_resource_energy_mult = 0.05
+		planet_jobs_energy_produces_mult = 0.05
 	}
 }
 
@@ -128,7 +128,7 @@ tech_repeatable_reduced_building_cost = {
 	tier = @repeatableTechTier
 	category = { computing }
 	levels = 5
-	prerequisites = { "tech_physics_lab_2" }
+	prerequisites = { "tech_physics_2" }
 	weight = @repeatableTechWeight
 	
 	weight_modifier = {
@@ -147,7 +147,7 @@ tech_repeatable_reduced_building_cost = {
 	}
 	
 	modifier = {
-		planet_building_cost_mult = -0.05
+		planet_buildings_cost_mult = -0.05
 	}
 }
 

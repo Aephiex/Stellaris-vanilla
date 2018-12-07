@@ -22,7 +22,7 @@ leader_trait_restrained = {
 	leader_potential_add = {
 		NOT = { from = { has_authority = "auth_machine_intelligence" } }
 	}	
-	leader_trait = yes
+	leader_trait = { general }
 	leader_class = { general }
 	opposites = { "leader_trait_butcher" }
 }
@@ -37,7 +37,7 @@ leader_trait_charismatic = {
 	leader_potential_add = {
 		NOT = { from = { has_authority = "auth_machine_intelligence" } }
 	}
-	leader_trait = yes
+	leader_trait = { general }
 	leader_class = { general }
 }
 
@@ -49,7 +49,7 @@ leader_trait_butcher = {
 		army_damage_mult = 0.1
 		army_collateral_damage_mult = 0.33
 	}
-	leader_trait = yes
+	leader_trait = { general }
 	leader_class = { general }
 	opposites = { "leader_trait_armchair_commander" "leader_trait_restrained" }
 }
@@ -65,7 +65,7 @@ leader_trait_glory_seeker = {
 	leader_potential_add = {
 		NOT = { from = { has_authority = "auth_machine_intelligence" } }
 	}
-	leader_trait = yes
+	leader_trait = { general }
 	leader_class = { general }
 	opposites = { "leader_trait_armchair_commander" }
 }
@@ -82,7 +82,7 @@ leader_trait_armchair_commander = {
 	leader_potential_add = {
 		NOT = { from = { has_authority = "auth_machine_intelligence" } }
 	}
-	leader_trait = yes
+	leader_trait = { general }
 	leader_class = { general }
 	opposites = { "leader_trait_glory_seeker" "leader_trait_butcher" }
 }
@@ -92,12 +92,12 @@ leader_trait_army_logistician = {
 	modification = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_army_logistician.dds"
 	modifier = {
-		army_upkeep_mult = -0.2
+		armies_upkeep_mult = -0.2
 	}
 	leader_potential_add = {
 		NOT = { from = { has_authority = "auth_machine_intelligence" } }
 	}
-	leader_trait = yes
+	leader_trait = { general }
 	leader_class = { general }
 }
 
@@ -109,7 +109,7 @@ leader_trait_general_erudite = {
 		army_damage_mult = 0.05
 		army_disengage_chance_mult = 0.10
 	}
-	leader_trait = yes
+	leader_trait = { general }
 	leader_class = { general }
 	initial = no
 	randomized = no
@@ -122,7 +122,7 @@ leader_trait_general_cyborg = {
 	modifier = {
 		army_damage_mult = 0.05
 	}
-	leader_trait = yes
+	leader_trait = { general }
 	leader_class = { general }
 	initial = no
 	randomized = no
@@ -135,7 +135,7 @@ leader_trait_general_synthetic = {
 	modifier = {
 		army_damage_mult = 0.10
 	}
-	leader_trait = yes
+	leader_trait = { general }
 	leader_class = { general }
 	initial = no
 	randomized = no
@@ -149,7 +149,7 @@ leader_trait_general_psionic = {
 		army_morale = 0.15
 		army_morale_damage_mult = 0.15
 	}
-	leader_trait = yes
+	leader_trait = { general }
 	leader_class = { general }
 	initial = no
 	randomized = no
@@ -165,7 +165,7 @@ leader_trait_general_chosen = {
 		army_morale_damage_mult = 0.3
 		army_damage_mult = 0.2
 	}
-	leader_trait = yes
+	leader_trait = { general }
 	leader_class = { general }
 	initial = no
 	randomized = no
@@ -178,8 +178,8 @@ leader_trait_general_mercenary_warrior = {
 	modifier = {
 		army_damage_mult = 0.10
 	}
-	leader_trait = yes
-	leader_class = { admiral }
+	leader_trait = { general }
+	leader_class = { general }
 	initial = no
 	randomized = no
 }

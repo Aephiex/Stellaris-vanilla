@@ -1615,6 +1615,8 @@ entity = {
 	}
 }
 
+entity = { name = "fungoid_01_sponsored_colonizer_entity" clone = "fungoid_01_colonizer_entity" }
+
 entity = {
 	name = "fungoid_01_colony_ship_entity"
 	pdxmesh = "fungoid_01_colony_mesh"

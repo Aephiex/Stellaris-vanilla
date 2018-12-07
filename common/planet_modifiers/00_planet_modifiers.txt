@@ -327,43 +327,43 @@ pm_unstable_tectonics = {
 pm_tidal_locked = {
 	spawn_chance = {
 		modifier = {
-			add = 5
+			add = 1
 			is_planet_class = "pc_desert"
 		}
 		modifier = {
-			add = 5
+			add = 1
 			is_planet_class = "pc_tropical"
 		}
 		modifier = {
-			add = 5
+			add = 1
 			is_planet_class = "pc_arid"
 		}
 		modifier = {
-			add = 5
+			add = 1
 			is_planet_class = "pc_continental"
 		}
 		modifier = {
-			add = 5
+			add = 1
 			is_planet_class = "pc_ocean"
 		}
 		modifier = {
-			add = 5
+			add = 1
 			is_planet_class = "pc_tundra"
 		}
 		modifier = {
-			add = 5
+			add = 1
 			is_planet_class = "pc_arctic"
 		}
 		modifier = {
-			add = 5
+			add = 1
 			is_planet_class = "pc_alpine"
 		}
 		modifier = {
-			add = 5
+			add = 1
 			is_planet_class = "pc_savannah"
 		}				
 		modifier = {
-			add = 5
+			add = 1
 			is_planet_class = "pc_gaia"
 		}
 		modifier = {
@@ -373,16 +373,6 @@ pm_tidal_locked = {
 		modifier = {
 			factor = 3
 			is_moon = yes
-			OR = {
-				is_planet_class = pc_desert
-				is_planet_class = pc_tropical
-				is_planet_class = pc_continental
-				is_planet_class = pc_ocean
-				is_planet_class = pc_arctic
-				is_planet_class = pc_tundra
-				is_planet_class = pc_arid
-				is_planet_class = pc_gaia
-			}
 		}
 
 		modifier = {
@@ -476,7 +466,7 @@ pm_asteroid_impacts = {
 pm_extensive_moon_system = {
 	spawn_chance = {
 		modifier = {
-			add = 20
+			add = 10
 			is_planet_class = "pc_gas_giant"
 		}
 		modifier = {
@@ -515,11 +505,11 @@ pm_carbon_world = {
 			}
 		}
 		modifier = {
-			add = 20
+			add = 10
 			is_planet_class = "pc_barren"
 		}
 		modifier = {
-			add = 20
+			add = 10
 			is_planet_class = "pc_barren_cold"
 		}
 		modifier = {
@@ -870,7 +860,7 @@ pm_mineral_rich = {
 			is_planet_class = "pc_gaia"
 		}
 		modifier = {
-			add = 5
+			add = 1
 			is_planet_class = "pc_nuked"
 		}
 		modifier = {
@@ -902,47 +892,47 @@ pm_mineral_rich = {
 pm_ultra_rich = {
 	spawn_chance = {
 		modifier = {
-			add = 5
+			add = 1
 			is_planet_class = "pc_desert"
 		}
 		modifier = {
-			add = 5
+			add = 1
 			is_planet_class = "pc_tropical"
 		}
 		modifier = {
-			add = 5
+			add = 1
 			is_planet_class = "pc_arid"
 		}
 		modifier = {
-			add = 5
+			add = 1
 			is_planet_class = "pc_continental"
 		}
 		modifier = {
-			add = 5
+			add = 1
 			is_planet_class = "pc_ocean"
 		}
 		modifier = {
-			add = 5
+			add = 1
 			is_planet_class = "pc_tundra"
 		}
 		modifier = {
-			add = 5
+			add = 1
 			is_planet_class = "pc_arctic"
 		}
 		modifier = {
-			add = 5
+			add = 1
 			is_planet_class = "pc_alpine"
 		}
 		modifier = {
-			add = 5
+			add = 1
 			is_planet_class = "pc_savannah"
 		}				
 		modifier = {
-			add = 5
+			add = 1
 			is_planet_class = "pc_gaia"
 		}
 		modifier = {
-			add = 5
+			add = 1
 			is_planet_class = "pc_nuked"
 		}
 		modifier = {
@@ -1321,7 +1311,7 @@ pm_atmospheric_aphrodisiac = {
 			is_planet_class = "pc_savannah"
 		}				
 		modifier = {
-			add = 20
+			add = 10
 			is_planet_class = "pc_gaia"
 		}
 		modifier = {
@@ -1377,7 +1367,7 @@ pm_atmospheric_hallucinogen = {
 			is_planet_class = "pc_savannah"
 		}				
 		modifier = {
-			add = 20
+			add = 10
 			is_planet_class = "pc_gaia"
 		}
 		modifier = {
@@ -1446,7 +1436,7 @@ pm_bleak = {
 			is_planet_class = "pc_desert"
 		}
 		modifier = {
-			add = 20
+			add = 10
 			is_planet_class = "pc_arid"
 		}
 		modifier = {
@@ -1458,11 +1448,11 @@ pm_bleak = {
 			is_planet_class = "pc_ocean"
 		}
 		modifier = {
-			add = 20
+			add = 10
 			is_planet_class = "pc_tundra"
 		}
 		modifier = {
-			add = 20
+			add = 10
 			is_planet_class = "pc_arctic"
 		}
 		modifier = {

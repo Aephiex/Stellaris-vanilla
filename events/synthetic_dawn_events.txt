@@ -269,7 +269,8 @@ country_event = {
 						any_owned_leader = {
 							leader_class = governor
 							#debug_break = yes
-							exists = sector
+							# TODO: Fix
+							#exists = sector
 							species = {
 								OR = {
 									has_trait = trait_machine_unit
@@ -281,7 +282,8 @@ country_event = {
 					random_owned_leader = {
 						limit = {
 							leader_class = governor
-							exists = sector
+							# TODO: Fix
+							#exists = sector
 							species = {
 								OR = {
 									has_trait = trait_machine_unit
@@ -535,48 +537,6 @@ fleet_event = {
 	}
 }
 
-
-# Servitor 100-199
-# Servitor Morale modifier check
-event = { 
-	id = syndaw.100
-	hide_window = yes
-	is_triggered_only = yes
-
-	trigger = {
-		host_has_dlc = "Synthetic Dawn Story Pack"
-		any_country = { has_civic = civic_machine_servitor }
-	}
-
-	immediate = {
-
-		every_playable_country = {
-			limit = {
-				is_country_type = default
-				has_civic = civic_machine_servitor
-			}
-			calculate_servitor_morale = yes
-		}
-	}
-}
-
-# game start Servitor calc
-country_event = {
-	id = syndaw.101
-	hide_window = yes
-	is_triggered_only = yes
-
-	trigger = {
-		host_has_dlc = "Synthetic Dawn Story Pack"
-		is_country_type = default
-		has_valid_civic = civic_machine_servitor
-	}
-
-	immediate = {
-		calculate_servitor_morale = yes
-	}
-}
-
 # Warning Signs / Uprising
 
 event = { # unscoped gatekeeper
@@ -653,7 +613,7 @@ country_event = { # per-country gatekeeper
 						NOT = {
 							any_owned_planet = {
 								is_occupied_flag = no
-								free_pop_tiles > 1
+								free_housing > 5
 								any_owned_pop = {
 									NOT = {
 										has_trait = trait_mechanical
@@ -681,13 +641,9 @@ country_event = { # per-country gatekeeper
 					OR = {
 						has_country_flag = triggered_syndaw_515
 						NOR = {
-							has_technology = tech_mine_garanthium
-							has_technology = tech_mine_teldar
-							has_technology = tech_mine_yurantic
-							has_technology = tech_mine_aldar
-							has_technology = tech_mine_orillium
-							has_technology = tech_engos_vapor
-							has_technology = tech_mine_neutronium
+							has_technology = tech_rare_crystals
+							has_technology = tech_exotic_gases
+							has_technology = tech_volatile_motes
 							has_technology = tech_mine_living_metal
 							has_technology = tech_mine_zro
 							has_technology = tech_mine_dark_matter
@@ -700,22 +656,12 @@ country_event = { # per-country gatekeeper
 				random_owned_planet = {
 					limit = {
 						is_occupied_flag = no
-						any_tile = {
-							OR = {
-								has_building = building_basic_science_lab_1
-								has_building = building_engineering_facility_1
-								has_building = building_engineering_facility_2
-								has_building = building_engineering_facility_3
-								has_building = building_engineering_facility_4
-								has_building = building_physics_lab_1
-								has_building = building_physics_lab_2
-								has_building = building_physics_lab_3
-								has_building = building_physics_lab_4
-								has_building = building_biolab_1
-								has_building = building_biolab_2
-								has_building = building_biolab_3
-								has_building = building_biolab_4
-							}
+						OR = {
+							has_building = building_research_lab_1
+							has_building = building_research_lab_2
+							has_building = building_research_lab_3
+							has_building = building_institute
+							has_building = building_supercomputer
 						}
 					}
 					planet_event = { id = syndaw.520 } 
@@ -726,23 +672,13 @@ country_event = { # per-country gatekeeper
 						has_country_flag = triggered_syndaw_520
 						NOT = { 
 							any_owned_planet = {
-								any_tile = {
-									OR = {
-										has_building = building_basic_science_lab_1
-										has_building = building_engineering_facility_1
-										has_building = building_engineering_facility_2
-										has_building = building_engineering_facility_3
-										has_building = building_engineering_facility_4
-										has_building = building_physics_lab_1
-										has_building = building_physics_lab_2
-										has_building = building_physics_lab_3
-										has_building = building_physics_lab_4
-										has_building = building_biolab_1
-										has_building = building_biolab_2
-										has_building = building_biolab_3
-										has_building = building_biolab_4
-									}
-								}								
+								OR = {
+									has_building = building_research_lab_1
+									has_building = building_research_lab_2
+									has_building = building_research_lab_3
+									has_building = building_institute
+									has_building = building_supercomputer
+								}						
 							}
 						}
 					}
@@ -811,8 +747,6 @@ country_event = { # per-country gatekeeper
 									OR = {
 										army_type = robotic_army
 										army_type = robotic_defense_army
-										army_type = android_army
-										army_type = android_defense_army
 									}
 								}
 							}
@@ -838,8 +772,6 @@ country_event = { # per-country gatekeeper
 											OR = {
 												army_type = robotic_army
 												army_type = robotic_defense_army
-												army_type = android_army
-												army_type = android_defense_army
 											}
 										}
 									}
@@ -927,13 +859,13 @@ country_event = {
 	option = {
 		name = syndaw.500.b
 		allow = {
-			energy > 500
+			resource_stockpile_compare = { resource = energy value >= 500 }
 		}
 		add_modifier = {
 			modifier = syndaw_research_bonus
 			days = 2520
 		}
-		add_energy = -500
+		add_resource = { energy = -500 }
 		hidden_effect = { country_event = { id = syndaw.501 days = 2520 } }
 	}
 } 
@@ -1007,7 +939,7 @@ country_event = {
 		random_owned_planet = {
 			limit = { 
 				is_occupied_flag = no
-				free_pop_tiles > 1 
+				free_housing > 5 
 				any_owned_pop = {
 					NOT = {
 						has_trait = trait_mechanical
@@ -1027,49 +959,11 @@ country_event = {
 				days = 3600
 			}
 			hidden_effect = {
-				root = {
-					#country_event = { id = syndaw.402 }
-					switch = {
-						trigger = has_technology
-						tech_synthetic_workers  = { 
-							while = {
-								count = 2
-								prev = {
-									best_tile_for_pop = {
-										build_pop = {
-											name = buildable_robot_pop_3
-											grown = yes
-										}
-									}
-								}
-							}
-						}
-						tech_droid_workers  = {
-							while = {
-								count = 2
-								prev = {
-									best_tile_for_pop = {
-										build_pop = {
-											name = buildable_robot_pop_2
-											grown = yes
-										}
-									}
-								}
-							}
-						}
-						tech_robotic_workers = {
-							while = {
-								count = 2
-								prev = {
-									best_tile_for_pop = {
-										build_pop = {
-											name = buildable_robot_pop_1
-											grown = yes
-										}
-									}
-								}
-							}
-						}
+				#country_event = { id = syndaw.402 }
+				while = {
+					count = 2
+					create_pop = {
+						species = root.built_species
 					}
 				}
 			}
@@ -1078,7 +972,7 @@ country_event = {
 	}
 	option = {
 		name = syndaw.505.b
-		add_minerals = 100
+		add_resource = { minerals = 100 }
 		hidden_effect = {
 			#country_event = { id = syndaw.402 }
 			fire_warning_sign = yes
@@ -1120,9 +1014,7 @@ country_event = {
 		name = syndaw.510.b
 		custom_tooltip = syndaw.510.b.tooltip
 		event_target:target_orbital = {
-			orbital_deposit_tile = {
-				add_deposit = d_vast_energy_deposit
-			}
+			add_deposit = d_energy_3
 		}
 		hidden_effect = {
 			#country_event = { id = syndaw.402 }
@@ -1202,100 +1094,30 @@ country_event = {
 					50 = {
 						modifier = {
 							factor = 0
-							NOT = { has_technology = tech_mine_garanthium }
+							NOT = { has_technology = tech_exotic_gases }
 						}
 						event_target:target_planetoid = {		
-							orbital_deposit_tile = {
-								add_garanthium = yes
-							}
+							add_exotic_gases = yes
 						}
 					}
-
-					50 = {
-						event_target:target_planetoid = {		
-							orbital_deposit_tile = {
-								add_lythuric = yes
-							}
-						}
-					}
-
+					
 					50 = {
 						modifier = {
 							factor = 0
-							NOT = { has_technology = tech_mine_teldar }
+							NOT = { has_technology = tech_volatile_motes }
 						}
 						event_target:target_planetoid = {		
-							orbital_deposit_tile = {
-								add_teldar = yes
-							}
+							add_volatile_motes = yes
 						}
 					}
-
+					
 					50 = {
 						modifier = {
 							factor = 0
-							NOT = { has_technology = tech_mine_yurantic }
+							NOT = { has_technology = tech_rare_crystals }
 						}
 						event_target:target_planetoid = {		
-							orbital_deposit_tile = {
-								add_yurantic = yes
-							}
-						}
-					}
-
-					50 = {
-						modifier = {
-							factor = 0
-							NOT = { has_technology = tech_mine_aldar }
-						}
-						event_target:target_planetoid = {		
-							orbital_deposit_tile = {
-								add_aldar = yes
-							}
-						}
-					}
-
-					50 = {
-						modifier = {
-							factor = 0
-							NOT = { has_technology = tech_mine_orillium }
-						}
-						event_target:target_planetoid = {		
-							orbital_deposit_tile = {
-								add_orillium = yes
-							}
-						}
-					}
-
-					50 = {
-						event_target:target_planetoid = {		
-							orbital_deposit_tile = {
-								add_pitharan = yes
-							}
-						}
-					}
-
-					50 = {
-						modifier = {
-							factor = 0
-							NOT = { has_technology = tech_engos_vapor }
-						}
-						event_target:target_planetoid = {		
-							orbital_deposit_tile = {
-								add_engos = yes
-							}
-						}
-					}
-
-					50 = {
-						modifier = {
-							factor = 0
-							NOT = { has_technology = tech_mine_neutronium }
-						}
-						event_target:target_planetoid = {		
-							orbital_deposit_tile = {
-								add_neutronium = yes
-							}
+							add_rare_crystals = yes
 						}
 					}
 
@@ -1305,9 +1127,7 @@ country_event = {
 							NOT = { has_technology = tech_mine_living_metal }
 						}
 						event_target:target_planetoid = {		
-							orbital_deposit_tile = {
-								add_deposit = d_living_metal_deposit
-							}
+							add_deposit = d_living_metal_deposit
 						}
 					}					
 
@@ -1317,9 +1137,7 @@ country_event = {
 							NOT = { has_technology = tech_mine_zro }
 						}
 						event_target:target_planetoid = {		
-							orbital_deposit_tile = {
-								add_zro = yes
-							}
+							add_zro = yes
 						}
 					}
 
@@ -1329,41 +1147,7 @@ country_event = {
 							NOT = { has_technology = tech_mine_dark_matter }
 						}
 						event_target:target_planetoid = {
-							orbital_deposit_tile = {
-								add_dark_matter = yes
-							}
-						}
-					}
-
-					50 = {
-						event_target:target_planetoid = {
-							orbital_deposit_tile = {
-								add_satramene = yes
-							}
-						}
-					}
-
-					50 = {
-						modifier = {
-							factor = 0
-							NOT = { has_technology = tech_terrestrial_sculpting }
-						}
-						event_target:target_planetoid = {
-							orbital_deposit_tile = {
-								add_terraforming_gases = yes
-							}
-						}
-					}
-
-					50 = {
-						modifier = {
-							factor = 0
-							NOT = { has_technology = tech_terrestrial_sculpting }
-						}
-						event_target:target_planetoid = {		
-							orbital_deposit_tile = {
-								add_terraforming_liquids = yes
-							}
+							add_dark_matter = yes
 						}
 					}
 				}
@@ -1706,7 +1490,7 @@ planet_event = {
 				kill_pop = yes
 			}
 			owner = {
-				add_minerals = 100
+				add_resource = { minerals = 100 }
 				#country_event = { id = syndaw.402 }
 				fire_warning_sign = yes
 			}
@@ -1727,8 +1511,6 @@ planet_event = {
 						OR = {
 							army_type = robotic_army
 							army_type = robotic_defense_army
-							army_type = android_army
-							army_type = android_defense_army
 						}
 					}
 				}
@@ -1736,7 +1518,7 @@ planet_event = {
 		}
 		hidden_effect = {
 			owner = {
-				add_minerals = 100
+				add_resource = { minerals = 100 }
 				#country_event = { id = syndaw.402 }
 				fire_warning_sign = yes
 				random_owned_army = {
@@ -1746,8 +1528,6 @@ planet_event = {
 						OR = {
 							army_type = robotic_army
 							army_type = robotic_defense_army
-							army_type = android_army
-							army_type = android_defense_army
 						}
 					}
 					remove_army = yes
@@ -1853,8 +1633,10 @@ country_event = {
 			modifier = syndaw_patched_systems
 			days = 7200 # 20 years
 		}
-		add_energy = -500
-		add_influence = -100
+		add_resource = {
+			energy = -500
+			influence = -100
+		}
 	}
 
 	option = { # don't patch
@@ -1896,34 +1678,37 @@ country_event = {
 
 	immediate = {
 		set_country_flag = no_machine_uprising
-		if = {
-			limit = { # robots in sector
-				any_owned_planet = {
-					any_owned_pop = {
-						has_trait = trait_mechanical
-					}
-					is_capital = no
-					exists = sector
-					sector = {
-						is_core_sector = no
-					}
-				}
-			}
-			random_owned_planet = {
-				limit = {
-					any_owned_pop = {
-						has_trait = trait_mechanical
-					}
-					is_capital = no
-					exists = sector
-					sector = {
-						is_core_sector = no
-					}
-				}
-				planet_event = { id = syndaw.1020 }
-			}
-		}
-		else_if = { # robots in core
+		# TODO: Fix
+		#if = {
+		#	limit = { # robots in sector
+		#		any_owned_planet = {
+		#			any_owned_pop = {
+		#				has_trait = trait_mechanical
+		#			}
+		#			is_capital = no
+		#			exists = sector
+		#			sector = {
+		#				is_core_sector = no
+		#			}
+		#		}
+		#	}
+		#	random_owned_planet = {
+		#		limit = {
+		#			any_owned_pop = {
+		#				has_trait = trait_mechanical
+		#			}
+		#			is_capital = no
+		#			
+		#			exists = sector
+		#			sector = {
+		#				is_core_sector = no
+		#			}
+		#		}
+		#		planet_event = { id = syndaw.1020 }
+		#	}
+		#}
+		#else_if
+		if = { # robots in core
 			limit = {
 				any_owned_planet = {
 					any_owned_pop = {
@@ -1942,27 +1727,28 @@ country_event = {
 				planet_event = { id = syndaw.1020 }
 			}
 		}
-		else_if = { # random sector
-			limit = {
-				any_owned_planet = {
-					is_capital = no
-					exists = sector
-					sector = {
-						is_core_sector = no
-					}
-				}
-			}
-			random_owned_planet = {
-				limit = {
-					is_capital = no
-					exists = sector
-					sector = {
-						is_core_sector = no
-					}
-				}
-				planet_event = { id = syndaw.1020 }
-			}
-		}
+		# TODO: Fix
+		#else_if = { # random sector
+		#	limit = {
+		#		any_owned_planet = {
+		#			is_capital = no
+		#			exists = sector
+		#			sector = {
+		#				is_core_sector = no
+		#			}
+		#		}
+		#	}
+		#	random_owned_planet = {
+		#		limit = {
+		#			is_capital = no
+		#			exists = sector
+		#			sector = {
+		#				is_core_sector = no
+		#			}
+		#		}
+		#		planet_event = { id = syndaw.1020 }
+		#	}
+		#}
 		else = { # random core
 			random_owned_planet = {
 				limit = {
@@ -2098,6 +1884,10 @@ planet_event = { #uprising
 		host_has_dlc = "Synthetic Dawn Story Pack"
 		exists = owner
 	}
+	
+	immediate = {
+		owner = { save_event_target_as = organic_empire }
+	}
 
 	option = {
 		name = syndaw.1020.a
@@ -2108,8 +1898,13 @@ planet_event = { #uprising
 		name = syndaw.1020.b
 		custom_tooltip = syndaw.1020.b.tooltip
 		hidden_effect = {
-			event_target:current_uprising = {
-				set_player = event_target:current_uprising_originator
+			if = {
+				limit = {
+					event_target:organic_empire = { num_owned_planets > 0 }
+				}
+				event_target:current_uprising = {
+					set_player = event_target:current_uprising_originator
+				}				
 			}
 		}
 	}
@@ -2197,9 +1992,7 @@ planet_event = { #uprising
 								species = this
 								add_trait = trait_machine_unit
 								add_traits_at_start_of_list = yes
-								#change_scoped_species = yes # change only this pop's species
 							}
-							species = { apply_robotic_pop_growth_behavior = yes }
 							save_event_target_as = current_uprising
 							country_event = { id = syndaw.1022 } # setup happens here now
 						}
@@ -2226,9 +2019,7 @@ planet_event = { #uprising
 								species = this
 								add_trait = trait_machine_unit
 								add_traits_at_start_of_list = yes
-								#change_scoped_species = yes # change only this pop's species
 							}
-							species = { apply_robotic_pop_growth_behavior = yes }
 							save_event_target_as = current_uprising
 							country_event = { id = syndaw.1022 } # setup happens here now
 						}
@@ -2252,9 +2043,7 @@ planet_event = { #uprising
 								species = this
 								add_trait = trait_machine_unit
 								add_traits_at_start_of_list = yes
-								#change_scoped_species = yes # change only this pop's species
 							}
-							species = { apply_robotic_pop_growth_behavior = yes }
 							save_event_target_as = current_uprising
 							country_event = { id = syndaw.1022 } # setup happens here now
 						}
@@ -2304,9 +2093,11 @@ country_event = {
 		}
 
 		# baseline resource stockpile
-		add_energy = 5000
-		add_minerals = 3000
-		add_influence = 500
+		add_resource = {
+			energy = 5000
+			minerals = 3000
+			influence = 500
+		}
 		add_100_unity_per_year_passed = yes # scripted effect
 
 		# Machine Uprising opinion modifier
@@ -2336,7 +2127,7 @@ country_event = {
 			}
 		}
 
-		# flip capital planet and add at least 5 Machine pops
+		# flip capital planet and add at least 10 Machine pops
 		from = {
 			# flip military stations
 			solar_system = {
@@ -2370,12 +2161,10 @@ country_event = {
 			}
 
 			while = {
-				limit = { free_pop_tiles > 0 }
-				best_tile_for_pop = {
-					create_pop = {
-						species = root
-						#ethos = root
-					}
+				#limit = { free_housing > 0 }
+				count = 10
+				create_pop = {
+					species = root
 				}
 			}
 			
@@ -2395,12 +2184,11 @@ country_event = {
 					}
 					random_owned_pop = {
 						limit = { NOT = { is_exact_same_species = root } }
-						tile = {
-							prev = { kill_pop = yes }
+						kill_pop = yes
+						prev = {
 							create_pop = {
 								species = root
-								#ethos = root
-							}
+							}						
 						}
 					}
 				}
@@ -2478,12 +2266,9 @@ country_event = {
 					set_controller = root
 
 					while = {
-						limit = { free_pop_tiles > 0 }
-						best_tile_for_pop = {
-							create_pop = {
-								species = root
-								#ethos = root
-							}
+						limit = { free_housing > 0 }
+						create_pop = {
+							species = root
 						}
 					}
 
@@ -2503,12 +2288,11 @@ country_event = {
 							}
 							random_owned_pop = {
 								limit = { NOT = { is_exact_same_species = root } }
-								tile = {
-									prev = { kill_pop = yes }
+								kill_pop = yes
+								prev = {
 									create_pop = {
 										species = root
-										#ethos = root
-									}
+									}								
 								}
 							}
 						}
@@ -2549,7 +2333,7 @@ country_event = {
 				tech_droid_workers
 				tech_synthetic_workers
 				# Food
-				tech_hydroponics
+				tech_eco_simulation
 				tech_gene_crops
 				tech_nano_vitality_crops
 				tech_nutrient_replication
@@ -2561,7 +2345,6 @@ country_event = {
 				tech_psi_jump_drive_1
 				tech_galactic_markets
 				tech_subdermal_stimulation
-				tech_galactic_benevolence
 				tech_global_research_initiative
 				tech_neural_implants
 				tech_psionic_theory
@@ -2611,35 +2394,13 @@ country_event = {
 			attacker_war_goal = "wg_machine_uprising"
 		}
 
-		# add modifier for AI
-		if = {
-			limit = { is_ai = yes }
-			add_modifier = {
-				modifier = uprising_ai_buff
-				days = 1800
-			}
-		}
 
 		# create fleets
 		if = {
 			limit = { has_civic = civic_machine_terminator }
 			
-			# exterminator fleets, 100% naval cap
+			# exterminator fleets, 400% naval cap
 			
-			create_fleet_from_naval_cap = 0.1
-			random_owned_planet = {
-				last_created_fleet = {
-					set_location = prev
-				}
-			}
-
-			create_fleet_from_naval_cap = 0.2
-			random_owned_planet = {
-				last_created_fleet = {
-					set_location = prev
-				}
-			}
-
 			create_fleet_from_naval_cap = 0.3
 			random_owned_planet = {
 				last_created_fleet = {
@@ -2647,7 +2408,21 @@ country_event = {
 				}
 			}
 
-			create_fleet_from_naval_cap = 0.4
+			create_fleet_from_naval_cap = 0.8
+			random_owned_planet = {
+				last_created_fleet = {
+					set_location = prev
+				}
+			}
+
+			create_fleet_from_naval_cap = 1.2
+			random_owned_planet = {
+				last_created_fleet = {
+					set_location = prev
+				}
+			}
+
+			create_fleet_from_naval_cap = 1.7
 			#capital_scope = {
 				last_created_fleet = {
 					set_location = root.capital_scope
@@ -2655,20 +2430,20 @@ country_event = {
 			#}
 		}
 		else = {
-			# regular fleets, 60% naval cap
-			create_fleet_from_naval_cap = 0.1
+			# regular fleets, 200% naval cap
+			create_fleet_from_naval_cap = 0.4
 			random_owned_planet = {
 				last_created_fleet = {
 					set_location = prev
 				}
 			}
-			create_fleet_from_naval_cap = 0.2
+			create_fleet_from_naval_cap = 0.6
 			random_owned_planet = {
 				last_created_fleet = {
 					set_location = prev
 				}
 			}
-			create_fleet_from_naval_cap = 0.3
+			create_fleet_from_naval_cap = 1.0
 			random_owned_planet = {
 				last_created_fleet = {
 					set_location = prev
@@ -2676,6 +2451,21 @@ country_event = {
 			}
 		}
 
+		# add modifier for AI, including 10x naval cap
+		if = {
+			limit = { is_ai = yes }
+			add_modifier = {
+				modifier = uprising_ai_buff
+				days = 1800
+			}
+		}
+		# add modifier for player, 10x naval cap
+		else = {
+			add_modifier = {
+				modifier = uprising_player_buff
+				days = 1800
+			}
+		}
 		#science
 		create_fleet = {
 			effect = {
@@ -2691,7 +2481,7 @@ country_event = {
 				
 				owner = {
 					create_leader = {
-						type = scientist
+						class = scientist
 						sub_type = survey
 						name = random
 						species = owner_main_species
@@ -2730,6 +2520,7 @@ country_event = {
 			}
 			country_event = { id = syndaw.1025 days = 5 }
 		}
+		observer_event = { id = observer.81 }
 	}
 }
 
@@ -2887,6 +2678,7 @@ country_event = {
 			limit = { has_communications = root }
 			country_event = { id = syndaw.1030 days = 5 }
 		}
+		observer_event = { id = observer.82 }
 	}
 
 	option = {
@@ -3033,6 +2825,7 @@ country_event = {
 			limit = { has_communications = root }
 			country_event = { id = syndaw.1035 days = 5 }
 		}
+		observer_event = { id = observer.83 }
 	}
 
 	option = {

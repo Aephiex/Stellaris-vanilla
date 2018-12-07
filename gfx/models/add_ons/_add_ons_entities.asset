@@ -433,7 +433,8 @@ entity = {
 	default_state = "start"
 	state = { name = "start" state_time = 5 looping = no next_state = start2
 		event = { time = 0.0 node = "effect_locator" particle = "wormhole_idle_particle"  keep_particle = yes trigger_once = yes }
-		event = { trigger_once = yes sound = { soundeffect = "ftl_wormhole_incoming_ship" } }
+		event = { trigger_once = yes sound = { soundeffect = "amb_natural_wormhole" } }
+		event = { trigger_once = yes sound = { soundeffect = "amb_natural_wormhole_thunder" } }
 	}
 	
 	scale = 12.0

@@ -9,6 +9,13 @@ xenoist = {
 	unique = yes
 	support_multiplier = 1
 	
+	resources = {
+		category = pop_factions
+		produces = {
+			influence = 2
+		}		
+	}
+
 	is_potential = {
 		years_passed > 10
 		has_encountered_other_species = yes
@@ -86,8 +93,8 @@ xenoist = {
 		unfulfilled_title = "XENOIST_NO_PASSIVE_STUDY"
 		desc = "XENOIST_PASSIVE_STUDY_DESC"
 
-		fulfilled_effect = 5
-		unfulfilled_effect = -10
+		fulfilled_effect = 10
+		unfulfilled_effect = -5
 		
 		potential = {
 			exists = owner
@@ -110,7 +117,7 @@ xenoist = {
 		unfulfilled_title = "XENOIST_SLAVES"
 		desc = "XENOIST_NO_SLAVES_DESC"
 
-		unfulfilled_effect = -20
+		unfulfilled_effect = -25
 		
 		potential = {
 			exists = owner
@@ -127,20 +134,8 @@ xenoist = {
 		
 		trigger = {
 			owner = {
-				OR = {
-					has_policy_flag = slavery_not_allowed
-					NOT = {
-						any_owned_pop = {
-							species = {
-								has_citizenship_type = {
-									type = citizenship_slavery
-									country = root.owner
-								}
-							}
-							is_robot_pop = no
-							is_sapient = yes
-						}
-					}
+				NOT = {
+					has_policy_flag = slavery_allowed
 				}
 			}
 		}
@@ -151,7 +146,7 @@ xenoist = {
 		unfulfilled_title = "XENOIST_PURGE"
 		desc = "XENOIST_NO_PURGE_DESC"
 
-		unfulfilled_effect = -10
+		unfulfilled_effect = -25
 
 		potential = {
 			exists = owner
@@ -159,17 +154,9 @@ xenoist = {
 
 		trigger = {
 			owner = {
-				NOT = {
-					any_owned_pop = {
-						is_robot_pop = no
-						NOT = { has_trait = trait_hive_mind }
-						species = {
-							has_citizenship_type = {
-								country = root.owner
-								type = citizenship_purge
-							}
-						}
-					}
+				NOR = {
+					has_policy_flag = purge_displacement_only
+					has_policy_flag = purge_allowed
 				}
 			}
 		}
@@ -180,15 +167,18 @@ xenoist = {
 		unfulfilled_title = "XENOIST_NO_MULTICULTURALISM"
 		desc = "XENOIST_MULTICULTURALISM_DESC"
 
-		fulfilled_effect = 5
+		fulfilled_effect = 10
 
 		potential = {
 			exists = owner
 			owner = {
 				num_communications > 3
 				any_owned_pop = {
-					NOT = {
+					NOR = {
 						is_same_species = root.owner
+						has_trait = trait_mechanical
+						has_trait = trait_machine_unit
+						has_trait = trait_hive_mind
 					}
 				}
 			}
@@ -206,8 +196,8 @@ xenoist = {
 		unfulfilled_title = "XENOIST_REFUGEES_UNWELCOME"
 		desc = "XENOIST_REFUGEES_WELCOME_DESC"
 
-		fulfilled_effect = 3
-		unfulfilled_effect = -5
+		fulfilled_effect = 10
+		unfulfilled_effect = -10
 
 		potential = {
 			exists = owner
@@ -225,55 +215,6 @@ xenoist = {
 			}
 		}
 	}
-
-	#demand = { # "XENOIST_DIPLO_TIES"
-	#	title = "XENOIST_DIPLO_TIES"
-	#	unfulfilled_title = "XENOIST_FEW_DIPLO_TIES"
-	#	desc = "XENOIST_DIPLO_TIES_DESC"
-#
-	#	fulfilled_effect = 2
-#
-	#	potential = {
-	#		exists = owner
-	#		owner = {
-	#			num_communications > 2
-	#		}
-	#	}
-#
-	#	trigger = {
-	#		owner = {
-	#			NOT = {
-	#				any_neighbor_country = {
-	#					is_country_type = default
-	#					has_communications = root.owner
-	#					is_subject = no
-	#					NOR = {
-	#						has_diplo_migration_treaty = root.owner
-	#						has_research_agreement = root.owner
-	#						is_in_federation_with = root.owner
-	#						is_guaranteeing = root.owner
-	#						has_defensive_pact = root.owner
-	#						has_tributary = root.owner
-	#						has_non_aggression_pact = root.owner
-	#						root = {
-	#							owner = {
-	#								OR = {
-	#									has_diplo_migration_treaty = prevprev
-	#									has_research_agreement = prevprev
-	#									is_in_federation_with = prevprev
-	#									is_guaranteeing = prevprev
-	#									has_defensive_pact = prevprev
-	#									has_tributary = prevprev
-	#									has_non_aggression_pact = prevprev
-	#								}
-	#							}
-	#						}
-	#					}
-	#				}
-	#			}
-	#		}
-	#	}
-	#}
 
 	demand = {
 		title = "XENOIST_ENCLAVE_BORDERS"
@@ -351,33 +292,11 @@ xenoist = {
 	}
 
 	demand = {
-		title = "XENOIST_DIPLOMACY_TRADITION"
-		unfulfilled_title = "XENOIST_NO_DIPLOMACY_TRADITION"
-		desc = "XENOIST_DIPLOMACY_TRADITION_DESC"
-
-		fulfilled_effect = 3
-		unfulfilled_effect = 0
-
-		potential = {
-			exists = owner
-			owner = {
-				has_any_tradition_unlocked = yes
-			}
-		}
-
-		trigger = {
-			owner = {
-				has_tradition = "tr_diplomacy_adopt"
-			}
-		}
-	}
-
-	demand = {
 		title = "XENOIST_PRE_SAPIENT_SURVIVAL"
 		unfulfilled_title = "XENOIST_NO_PRE_SAPIENT_SURVIVAL"
 		desc = "XENOIST_PRE_SAPIENT_SURVIVAL_DESC"
 
-		unfulfilled_effect = -5
+		unfulfilled_effect = -10
 
 		potential = {
 			exists = owner
@@ -420,7 +339,7 @@ xenoist = {
 		unfulfilled_title = "XENOIST_NOT_FEDERATED"
 		desc = "XENOIST_FEDERATED_DESC"
 
-		fulfilled_effect = 10
+		fulfilled_effect = 20
 
 		potential = {
 			exists = owner

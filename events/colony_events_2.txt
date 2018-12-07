@@ -5,9 +5,9 @@
 
 namespace = colony
 
-##############################################################################
-# HELPFUL DRONES CHAIN
-##############################################################################
+########################
+# HELPFUL DRONES CHAIN #
+########################
 
 # First event, spawns a special project to awaken/catch the attention of the drones.
 # Checks for uninhabitable moon (where the drones will be in the fiction) before firing
@@ -55,7 +55,7 @@ planet_event = {
 		enable_special_project = {
 			name = "HELPFUL_DRONES_1_PROJECT"
 			location = this
-			owner = root
+			owner = root.owner
 		}
 	}
 }
@@ -79,7 +79,7 @@ planet_event = {
 		name = colony.1501.a
 		hidden_effect = {
 			if = {
-				limit = { any_tile = { has_blocker = yes } }
+				limit = { any_deposit = { is_blocker = yes } }
 				planet_event = { id = colony.1502 days = 360 random = 60 }
 			}
 			else = {
@@ -104,13 +104,13 @@ planet_event = {
 	option = {
 		name = colony.1502.a
 		custom_tooltip = colony.1502.a.tooltip
-		random_tile = {
+		random_deposit = {
 			limit = {
-				has_blocker = yes
+				is_blocker = yes
 			}
-			remove_blocker = yes
+			clear_blocker = yes
 		}
-		planet_event = { id = colony.1503 days = 360 }
+		hidden_effect = { planet_event = { id = colony.1503 days = 360 } }
 	}
 }
 # Fourth event, drones build an old space elevator on the player's planet
@@ -162,10 +162,7 @@ planet_event = {
 			limit = {
 				habitable_planet = no
 			}
-			orbital_deposit_tile = {
-				add_deposit = d_vast_mineral_deposit
-				add_deposit = d_vast_mineral_deposit
-			}
+			set_deposit = d_minerals_4
 			add_modifier = {
 				modifier = "drone_mineral_gift"
 				days = -1
@@ -193,9 +190,7 @@ planet_event = {
 			limit = {
 				habitable_planet = no
 			}
-			orbital_deposit_tile = {
-				add_deposit = d_vast_society_deposit
-			}
+			set_deposit = d_society_3
 			add_modifier = {
 				modifier = "drone_fl_satellite"
 				days = -1
@@ -216,8 +211,6 @@ planet_event = {
 	is_triggered_only = yes
 	
 	trigger = { owner = { has_country_flag = FLDrone_country } }
-	
-	auto_opens = yes
 
 	option = {
 		name = colony.1506.a
@@ -239,7 +232,7 @@ planet_event = {
 
 	option = {
 		name = colony.1507.a
-		planet_event = { id = colony.1508 days = 360 }
+		hidden_effect = { planet_event = { id = colony.1508 days = 360 } }
 	}
 }
 
@@ -257,11 +250,11 @@ planet_event = {
 	
 	option = {
 		name = colony.1508.a
-		planet_event = { id = colony.1509 days = 360 }
+		hidden_effect = { planet_event = { id = colony.1509 days = 360 } }
 	}
 }
 
-# Tenth event, foreign tech identified as comms devices. Enables special project.
+# Tenth event, foreign tech identified as comms devices.
 planet_event = {
 	id = colony.1509
 	title = "colony.1509.name"
@@ -274,12 +267,12 @@ planet_event = {
 	trigger = { owner = { has_country_flag = FLDrone_country } }
 	
 	option = {
-		name = MARVELOUS
-		planet_event = { id = colony.1510 days = 360 }
+		name = colony.1509.a
+		hidden_effect = { planet_event = { id = colony.1510 days = 360 } }
 	}
 }
 
-# Eleventh event, followup to special project. A dastardly plot is uncovered, and the player has to choose how to proceed.
+# Eleventh event. A dastardly plot is uncovered, and the player has to choose how to proceed.
 planet_event = {
 	id = colony.1510
 	title = "colony.1510.name"
@@ -301,12 +294,12 @@ planet_event = {
 				max = @tier2influencemax
 			}
 		}
-		planet_event = { id = colony.1514 days = 730 }
+		hidden_effect = { planet_event = { id = colony.1514 days = 730 } }
 	}
 
 	option = {
 		name = colony.1510.b
-		planet_event = { id = colony.1511 days = 7 }
+		hidden_effect = { planet_event = { id = colony.1511 days = 7 } }
 	}
 
 	option = {
@@ -319,7 +312,7 @@ planet_event = {
 				max = @tier3researchmax
 			}
 		}
-		planet_event = { id = colony.1513 days = 730 }
+		hidden_effect = { planet_event = { id = colony.1513 days = 730 } }
 	}
 }
 
@@ -337,7 +330,7 @@ planet_event = {
 
 	option = {
 		name = colony.1511.a
-		planet_event = { id = colony.1512 days = 700 }
+		hidden_effect = { planet_event = { id = colony.1512 days = 700 } }
 	}
 }
 
@@ -355,32 +348,32 @@ planet_event = {
 	
 	option = {
 		name = BATTLESTATIONS
-		remove_global_flag = FLDrone_doing_global
-		set_global_flag = FLDrone_done_global
 		hidden_effect = {
+			set_global_flag = FLDrone_done_global
+			remove_global_flag = FLDrone_doing_global
 			create_country = {
 				name = "NAME_Wounded_Pirates"
 				type = faction
 				auto_delete = yes
-			}
-			last_created_country = {
-				create_fleet = {
-					name = "NAME_Wounded_Pirates"
-					effect = {
-						set_owner = PREV
-						create_ship = {
-							name = "NAME_Scorched_Ravager"
-							design = "NAME_Dagger"
+				effect = {
+					set_faction_hostility = { set_hostile = yes }
+					establish_communications_no_message = root.owner
+					create_fleet = {
+						name = "NAME_Wounded_Pirates"
+						effect = {
+							set_owner = PREV
+							create_ship = {
+								name = "NAME_Scorched_Ravager"
+								design = "NAME_Dagger"
+							}
+							create_ship = {
+								name = "NAME_Damaged_Pillager"
+								design = "NAME_Dagger"
+							}
+							set_location = ROOT
 						}
-						create_ship = {
-							name = "NAME_Damaged_Pillager"
-							design = "NAME_Dagger"
-						}
-						set_location = ROOT
 					}
 				}
-				set_faction_hostility = { set_hostile = yes }
-				establish_communications_no_message = root.owner
 			}
 		}
 	}
@@ -400,48 +393,48 @@ planet_event = {
 
 	option = {
 		name = colony.1513.a
-		remove_global_flag = FLDrone_doing_global
-		set_global_flag = FLDrone_done_global
 		hidden_effect = {
+			remove_global_flag = FLDrone_doing_global
+			set_global_flag = FLDrone_done_global
 			create_country = {
 				name = "NAME_Wounded_Pirates"
 				type = faction
 				auto_delete = yes
-			}
-			last_created_country = {
-				create_fleet = {
-					name = "NAME_Numerous_Pirates"
-					effect = {
-						set_owner = PREV
-						create_ship = {
-							name = "NAME_First_Ravager"
-							design = "NAME_Dagger"
+				effect = {
+					set_faction_hostility = { set_hostile = yes }
+					establish_communications_no_message = root.owner
+					create_fleet = {
+						name = "NAME_Numerous_Pirates"
+						effect = {
+							set_owner = PREV
+							create_ship = {
+								name = "NAME_First_Ravager"
+								design = "NAME_Dagger"
+							}
+							create_ship = {
+								name = "NAME_First_Pillager"
+								design = "NAME_Dagger"
+							}
+							create_ship = {
+								name = "NAME_Second_Ravager"
+								design = "NAME_Dagger"
+							}
+							create_ship = {
+								name = "NAME_Second_Pillager"
+								design = "NAME_Dagger"
+							}
+							create_ship = {
+								name = "NAME_Third_Ravager"
+								design = "NAME_Dagger"
+							}
+							create_ship = {
+								name = "NAME_Third_Pillager"
+								design = "NAME_Dagger"
+							}
+							set_location = ROOT
 						}
-						create_ship = {
-							name = "NAME_First_Pillager"
-							design = "NAME_Dagger"
-						}
-						create_ship = {
-							name = "NAME_Second_Ravager"
-							design = "NAME_Dagger"
-						}
-						create_ship = {
-							name = "NAME_Second_Pillager"
-							design = "NAME_Dagger"
-						}
-						create_ship = {
-							name = "NAME_Third_Ravager"
-							design = "NAME_Dagger"
-						}
-						create_ship = {
-							name = "NAME_Third_Pillager"
-							design = "NAME_Dagger"
-						}
-						set_location = ROOT
 					}
 				}
-				set_faction_hostility = { set_hostile = yes }
-				establish_communications_no_message = root.owner
 			}
 		}
 	}
@@ -461,32 +454,33 @@ planet_event = {
 
 	option = {
 		name = colony.1514.a
-		remove_global_flag = FLDrone_doing_global
-		set_global_flag = FLDrone_done_global
 		hidden_effect = {
+			remove_global_flag = FLDrone_doing_global
+			set_global_flag = FLDrone_done_global
 			create_country = {
 				name = "NAME_Cunning_Pirates"
 				type = faction
 				auto_delete = yes
-			}
-			last_created_country = {
-				create_fleet = {
-					name = "NAME_Wounded_Pirates"
-					effect = {
-						set_owner = PREV
-						create_ship = {
-							name = "NAME_Ravager"
-							design = "NAME_Dagger"
+				effect = {
+					establish_communications_no_message = root.owner
+					create_fleet = {
+						name = "NAME_Wounded_Pirates"
+						effect = {
+							set_owner = PREV
+							create_ship = {
+								name = "NAME_Ravager"
+								design = "NAME_Dagger"
+							}
+							create_ship = {
+								name = "NAME_Pillager"
+								design = "NAME_Dagger"
+							}
+							create_ship = {
+								name = "NAME_Swashbuckler"
+								design = "NAME_Dagger"
+							}
+							set_location = ROOT
 						}
-						create_ship = {
-							name = "NAME_Pillager"
-							design = "NAME_Dagger"
-						}
-						create_ship = {
-							name = "NAME_Swashbuckler"
-							design = "NAME_Dagger"
-						}
-						set_location = ROOT
 					}
 				}
 			}
@@ -494,9 +488,9 @@ planet_event = {
 	}
 }
 
-##############################################################################
-# POLLEN APHRODISIAC CHAIN
-##############################################################################
+############################
+# POLLEN APHRODISIAC CHAIN #
+############################
 
 # First event, spawns a non-mandatory special project the player can research
 planet_event = {
@@ -588,11 +582,11 @@ planet_event = {
 		name = colony.1521.b
 		allow = {
 			owner = {
-				energy > 399
+				resource_stockpile_compare = { resource = energy value >= 400 }
 			}
 		}
 		owner = {
-			add_energy = -400
+			add_resource = { energy = -400 }
 		}
 	}
 
@@ -600,7 +594,7 @@ planet_event = {
 		name = colony.1521.c
 		trigger = {
 			owner = {
-				energy < 400
+				resource_stockpile_compare = { resource = energy value < 400 }
 			}
 		}
 		add_modifier = {

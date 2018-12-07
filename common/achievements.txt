@@ -50,7 +50,7 @@ achievement_economy_1 = {
 	}
 	
 	happened = {
-		energy > 999
+		resource_stockpile_compare = { resource = energy value >= 1000 }
 	}
 }
 
@@ -62,7 +62,7 @@ achievement_economy_2 = {
 	}
 	
 	happened = {
-		energy > 4999
+		resource_stockpile_compare = { resource = energy value >= 5000 }
 	}
 }
 
@@ -74,7 +74,8 @@ achievement_resourceful = {
 	}
 
 	happened = {
-		num_strategic_resources > 9
+		#TODO [CD]
+		#num_strategic_resources > 9
 	}
 }
 
@@ -99,7 +100,7 @@ achievement_capital = {
 	
 	happened = {
 		capital_scope = {
-			has_building = building_capital_3
+			has_building = building_system_capital
 		}
 	}
 }
@@ -181,7 +182,6 @@ achievement_robots = {
 	happened = {
 		any_owned_pop = {
 			is_species_class = "ROBOT"
-			is_growing = no
 		}
 	}
 }
@@ -353,11 +353,7 @@ achievement_victorious = {
 	}
 
 	happened = {
-		OR = {
-			won_with_condition = domination_victory
-			won_with_condition = conquest_victory
-			won_with_condition = federation_victory
-		}
+		won_the_game = yes
 	}
 }
 
@@ -488,9 +484,9 @@ achievement_the_good_stuff = {
 
 	happened = {
 		OR = {
-			has_modifier = enclave_traders_sr1
-			has_modifier = enclave_traders_sr2
-			has_modifier = enclave_traders_sr3
+			has_active_xuracorp_trade = yes
+			has_active_riggan_trade = yes
+			has_active_muutagan_trade = yes
 		}
 	}
 }
@@ -1264,5 +1260,160 @@ achievement_l-cluster = {
 
 	happened = {
 		has_country_flag = lcluster_opener
+	}
+}
+
+achievement_franchising = {
+	id = 86
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		count_country = {
+			count >= 5
+			limit = {
+				any_owned_planet = {
+					has_branch_office = yes
+					branch_office_owner = { is_same_value = root }
+				}
+			}
+		}
+	}
+}
+
+achievement_galatron = {
+	id = 87
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		has_modifier = galatron_modifier
+	}
+}
+
+achievement_megapolis = {
+	id = 88
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		any_owned_planet = {
+			num_pops >= 100
+		}
+	}
+}
+
+achievement_obscure_tastes = {
+	id = 89
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		any_owned_megastructure = {
+			is_megastructure_type = mega_art_installation_3
+			exists = solar_system
+			solar_system = {
+				is_inside_nebula = yes
+			}
+		}
+	}
+}
+
+achievement_black_hole_mining = {
+	id = 90
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		any_owned_megastructure = {
+			is_megastructure_type = matter_decompressor_4
+		}
+	}
+}
+
+achievement_strategic_initiative = {
+	id = 91
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		any_owned_megastructure = {
+			is_megastructure_type = strategic_coordination_center_3
+		}
+	}
+}
+
+achievement_center_of_trade = {
+	id = 92
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		trade_income >= 1000
+	}
+}
+
+achievement_giga_engineering = {
+	id = 93
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		calc_true_if = {
+			amount >= 4
+			any_owned_megastructure = { is_megastructure_type = interstellar_assembly_4 }
+			any_owned_megastructure = { is_megastructure_type = strategic_coordination_center_3 }
+			any_owned_megastructure = { is_megastructure_type = mega_art_installation_3 }
+			any_owned_megastructure = { is_megastructure_type = matter_decompressor_4 }
+			any_owned_megastructure = { is_megastructure_type = dyson_sphere_5 }
+			any_owned_megastructure = { is_megastructure_type = dyson_sphere_restored }
+			any_owned_megastructure = { is_megastructure_type = spy_orb_4 }
+			any_owned_megastructure = { is_megastructure_type = spy_orb_restored }
+			any_owned_megastructure = { is_megastructure_type = think_tank_4 }
+			any_owned_megastructure = { is_megastructure_type = think_tank_3 }
+			any_owned_megastructure = { is_megastructure_type = think_tank_restored }
+			any_owned_planet = { is_planet_class = pc_ringworld_habitable }
+		}
+	}
+}
+
+achievement_we_are_legion = {
+	id = 94
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		has_authority = auth_hive_mind
+		num_pops >= 1000
+	}
+}
+
+achievement_united_space = {
+	id = 95
+
+	possible = {
+		is_ironman = yes
+	}
+
+	happened = {
+		any_owned_megastructure = { is_megastructure_type = interstellar_assembly_4 }
 	}
 }

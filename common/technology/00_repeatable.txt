@@ -26,7 +26,7 @@
 #	}
 #	
 #	modifier = {
-#		country_resource_minerals_add = 1.0
+#		country_base_minerals_produces_add = 1.0
 #	}
 #	
 #}

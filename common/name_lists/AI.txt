@@ -56,10 +56,10 @@ AI = {
 	}
 
 	army_names = {
-		android_army = {
+		robotic_army = {
 			sequential_name = "%O% Sterilization Cluster"
 		}
-		android_defense_army = {
+		robotic_defense_army = {
 			sequential_name = "%O% Defense Cluster"
 		}
 	}

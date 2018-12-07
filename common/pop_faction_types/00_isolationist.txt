@@ -9,6 +9,13 @@ isolationist = {
 	unique = yes
 	support_multiplier = 1
 	
+	resources = {
+		category = pop_factions
+		produces = {
+			influence = 2
+		}		
+	}
+
 	is_potential = {
 		years_passed > 10
 		has_encountered_other_species = yes
@@ -104,8 +111,7 @@ isolationist = {
 		unfulfilled_title = "ISOLATIONIST_NO_PHILOSOPHY"
 		desc = "ISOLATIONIST_PHILOSOPHY_DESC"
 
-		fulfilled_effect = 5
-		unfulfilled_effect = -15
+		unfulfilled_effect = -25
 
 		potential = {
 			exists = owner
@@ -130,7 +136,7 @@ isolationist = {
 		unfulfilled_title = "ISOLATIONIST_AGGRESSIVE_WAR"
 		desc = "ISOLATIONIST_NO_AGGRESSIVE_WAR_DESC"
 
-		unfulfilled_effect = -10
+		unfulfilled_effect = -25
 
 		potential = {
 			exists = owner
@@ -205,53 +211,29 @@ isolationist = {
 		}
 	}
 
-	#demand = {
-	#	title = "ISOLATIONIST_REFUGEES_RESTRICTED"
-	#	unfulfilled_title = "ISOLATIONIST_REFUGEES_UNRESTRICTED"
-	#	desc = "ISOLATIONIST_REFUGEES_RESTRICTED_DESC"
-#
-	#	unfulfilled_effect = -10
-#
-	#	potential = {
-	#		exists = owner
-	#		owner = {
-	#			any_relation = {
-	#				has_communications = root.owner
-	#				is_country_type = default
-	#			}
-	#		}
-	#	}
-#
-	#	trigger = {
-	#		owner = {
-	#			NOT = { has_policy_flag = refugees_allowed }
-	#		}
-	#	}
-	#}
-
-
 	demand = {
 		title = "ISOLATIONIST_NON_AGGRESSION1"
 		unfulfilled_title = "ISOLATIONIST_FEW_NON_AGGRESSION1"
 		desc = "ISOLATIONIST_NON_AGGRESSION_DESC1"
 		
-		fulfilled_effect = 2
+		fulfilled_effect = 5
 		
 		potential = {
 			exists = owner
 			owner = {
-				num_communications > 2
-				#NOT = {
-				#	any_neighbor_country = {
-				#		has_non_aggression_pact = root.owner
-				#	}
-				#}
+				num_communications > 2				
+				count_country = {
+					limit = {
+						has_non_aggression_pact = root.owner
+					}
+					count < 2
+				}
 			}
 		}
 		
 		trigger = {
 			owner = {
-				any_neighbor_country = {
+				any_country = {
 					has_non_aggression_pact = root.owner
 				}
 			}
@@ -263,28 +245,30 @@ isolationist = {
 		unfulfilled_title = "ISOLATIONIST_FEW_NON_AGGRESSION2"
 		desc = "ISOLATIONIST_NON_AGGRESSION_DESC2"
 		
-		fulfilled_effect = 3
-		#unfulfilled_effect = 5
+		fulfilled_effect = 10
 		
 		potential = {
 			exists = owner
 			owner = {
 				num_communications > 2
-				any_neighbor_country = {
-					has_non_aggression_pact = root.owner
+				count_country = {
+					limit = {
+						has_non_aggression_pact = root.owner
+					}
+					count > 1
+				}				
+				count_country = {
+					limit = {
+						has_non_aggression_pact = root.owner
+					}
+					count < 3
 				}
-				#count_neighbor_country = {
-				#	limit = {
-				#		has_non_aggression_pact = root.owner
-				#	}
-				#	count < 2
-				#}
 			}
 		}
 		
 		trigger = {
 			owner = {
-				count_neighbor_country = {
+				count_country = {
 					limit = {
 						has_non_aggression_pact = root.owner
 					}
@@ -299,25 +283,24 @@ isolationist = {
 		unfulfilled_title = "ISOLATIONIST_FEW_NON_AGGRESSION3"
 		desc = "ISOLATIONIST_NON_AGGRESSION_DESC3"
 		
-		fulfilled_effect = 5
-		#unfulfilled_effect = 10
+		fulfilled_effect = 15
 		
 		potential = {
 			exists = owner
 			owner = {
 				num_communications > 2
-				count_neighbor_country = {
+				count_country = {
 					limit = {
 						has_non_aggression_pact = root.owner
 					}
-					count > 1
-				}
+					count > 2
+				}				
 			}
 		}
 		
 		trigger = {
 			owner = {
-				count_neighbor_country = {
+				count_country = {
 					limit = {
 						has_non_aggression_pact = root.owner
 					}
@@ -332,7 +315,7 @@ isolationist = {
 		unfulfilled_title = "ISOLATIONIST_NO_PEACE1"
 		desc = "ISOLATIONIST_PEACE_DESC1"
 		
-		fulfilled_effect = 2
+		fulfilled_effect = 5
 		
 		potential = {
 			exists = owner
@@ -355,8 +338,7 @@ isolationist = {
 		unfulfilled_title = "ISOLATIONIST_NO_PEACE2"
 		desc = "ISOLATIONIST_PEACE_DESC2"
 		
-		fulfilled_effect = 3
-		#unfulfilled_effect = 5
+		fulfilled_effect = 10
 		
 		potential = {
 			exists = owner
@@ -382,8 +364,7 @@ isolationist = {
 		unfulfilled_title = "ISOLATIONIST_NO_PEACE3"
 		desc = "ISOLATIONIST_PEACE_DESC3"
 		
-		fulfilled_effect = 5
-		#unfulfilled_effect = 10
+		fulfilled_effect = 15
 		
 		potential = {
 			exists = owner

@@ -85,14 +85,6 @@ AVI4 = {
 			sequential_name = "%O% Mechanized Broodwatchers"
 		}
 		
-		android_army = {
-			sequential_name = "%O% Android Advancers"
-		}
-
-		android_defense_army = {
-			sequential_name = "%O% Android Broodwatchers"
-		}
-		
 		psionic_army = {
 			sequential_name = "%O% Winged Psions"
 		}
@@ -113,8 +105,14 @@ AVI4 = {
 			sequential_name = "%O% Mechanized Occupiers"
 		}
 
-		android_occupation_army = {
-			sequential_name = "%O% Android Occupiers"
+		primitive_army = {
+			sequential_name = "Primitive Army %C%"
+		}
+		industrial_army = {
+			sequential_name = "Industrial Army %C%"
+		}
+		postatomic_army = {
+			sequential_name = "Post-Atomic Army %C%"
 		}
 	}
 

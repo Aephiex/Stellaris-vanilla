@@ -269,7 +269,7 @@ wg_plunder = {
 				}
 			}		
 			custom_tooltip = wg_plunder_accept_us_1
-			hidden_effect = { add_energy = 500 add_minerals = 500 } 
+			hidden_effect = { add_resource = { energy = 500 minerals = 500 } }
 		}
 		if = {
 			limit = {
@@ -279,7 +279,7 @@ wg_plunder = {
 				}
 			}
 			custom_tooltip = wg_plunder_accept_us_2
-			hidden_effect = { add_energy = 1000 add_minerals = 1000 } 
+			hidden_effect = { add_resource = { energy = 1000 minerals = 1000 } }
 		}
 		if = {
 			limit = {
@@ -289,7 +289,7 @@ wg_plunder = {
 				}
 			}
 			custom_tooltip = wg_plunder_accept_us_3
-			hidden_effect = { add_energy = 1500 add_minerals = 1500 } 
+			hidden_effect = { add_resource = { energy = 1500 minerals = 1500 } }
 		}	
 		if = {
 			limit = {
@@ -299,7 +299,7 @@ wg_plunder = {
 				}
 			}
 			custom_tooltip = wg_plunder_accept_us_4
-			hidden_effect = { add_energy = 2000 add_minerals = 2000 } 
+			hidden_effect = { add_resource = { energy = 2000 minerals = 2000 } }
 		}			
 		if = {
 			limit = {
@@ -309,7 +309,7 @@ wg_plunder = {
 				}
 			}
 			custom_tooltip = wg_plunder_accept_us_5
-			hidden_effect = { add_energy = 2500 add_minerals = 2500 } 
+			hidden_effect = { add_resource = { energy = 2500 minerals = 2500 } }
 		}	
 		if = {
 			limit = {
@@ -319,7 +319,7 @@ wg_plunder = {
 				}
 			}
 			custom_tooltip = wg_plunder_accept_us_6
-			hidden_effect = { add_energy = 3000 add_minerals = 3000 } 
+			hidden_effect = { add_resource = { energy = 3000 minerals = 3000 } }
 		}	
 		if = {
 			limit = {
@@ -329,7 +329,7 @@ wg_plunder = {
 				}
 			}
 			custom_tooltip = wg_plunder_accept_us_7
-			hidden_effect = { add_energy = 3500 add_minerals = 3500 } 
+			hidden_effect = { add_resource = { energy = 3500 minerals = 3500 } }
 		}
 		if = {
 			limit = {
@@ -339,7 +339,7 @@ wg_plunder = {
 				}
 			}
 			custom_tooltip = wg_plunder_accept_us_8
-			hidden_effect = { add_energy = 4000 add_minerals = 4000 } 
+			hidden_effect = { add_resource = { energy = 4000 minerals = 4000 } }
 		}	
 		if = {
 			limit = {
@@ -349,7 +349,7 @@ wg_plunder = {
 				}
 			}
 			custom_tooltip = wg_plunder_accept_us_9
-			hidden_effect = { add_energy = 4500 add_minerals = 4500 } 
+			hidden_effect = { add_resource = { energy = 4500 minerals = 4500 } }
 		}		
 		if = {
 			limit = {
@@ -359,7 +359,7 @@ wg_plunder = {
 				}
 			}
 			custom_tooltip = wg_plunder_accept_us_10
-			hidden_effect = { add_energy = 5000 add_minerals = 5000 } 
+			hidden_effect = { add_resource = { energy = 5000 minerals = 5000 } }
 		}
 		if = {
 			limit = {
@@ -369,7 +369,7 @@ wg_plunder = {
 				}
 			}
 			custom_tooltip = wg_plunder_accept_us_11
-			hidden_effect = { add_energy = 5500 add_minerals = 5500 } 
+			hidden_effect = { add_resource = { energy = 5500 minerals = 5500 } }
 		}			
 		if = {
 			limit = {
@@ -379,7 +379,7 @@ wg_plunder = {
 				}
 			}
 			custom_tooltip = wg_plunder_accept_us_12
-			hidden_effect = { add_energy = 6000 add_minerals = 6000 } 
+			hidden_effect = { add_resource = { energy = 6000 minerals = 6000 } }
 		}	
 		if = {
 			limit = {
@@ -389,7 +389,7 @@ wg_plunder = {
 				}
 			}
 			custom_tooltip = wg_plunder_accept_us_13
-			hidden_effect = { add_energy = 6500 add_minerals = 6500 } 
+			hidden_effect = { add_resource = { energy = 6500 minerals = 6500 } }
 		}			
 		if = {
 			limit = {
@@ -399,7 +399,7 @@ wg_plunder = {
 				}
 			}
 			custom_tooltip = wg_plunder_accept_us_14
-			hidden_effect = { add_energy = 7000 add_minerals = 7000 } 
+			hidden_effect = { add_resource = { energy = 7000 minerals = 7000 } }
 		}	
 		if = {
 			limit = {
@@ -409,7 +409,7 @@ wg_plunder = {
 				}
 			}
 			custom_tooltip = wg_plunder_accept_us_15
-			hidden_effect = { add_energy = 7500 add_minerals = 7500 } 
+			hidden_effect = { add_resource = { energy = 7500 minerals = 7500 } }
 		}
 		if = {
 			limit = {
@@ -419,7 +419,7 @@ wg_plunder = {
 				}
 			}
 			custom_tooltip = wg_plunder_accept_us_16
-			hidden_effect = { add_energy = 8000 add_minerals = 8000 } 
+			hidden_effect = { add_resource = { energy = 8000 minerals = 8000 } }
 		}	
 		if = {
 			limit = {
@@ -429,7 +429,7 @@ wg_plunder = {
 				}
 			}
 			custom_tooltip = wg_plunder_accept_us_17
-			hidden_effect = { add_energy = 8500 add_minerals = 8500 } 
+			hidden_effect = { add_resource = { energy = 8500 minerals = 8500 } }
 		}
 		if = {
 			limit = {
@@ -439,7 +439,7 @@ wg_plunder = {
 				}
 			}
 			custom_tooltip = wg_plunder_accept_us_18
-			hidden_effect = { add_energy = 9000 add_minerals = 9000 } 
+			hidden_effect = { add_resource = { energy = 9000 minerals = 9000 } }
 		}			
 		if = {
 			limit = {
@@ -449,7 +449,7 @@ wg_plunder = {
 				}
 			}
 			custom_tooltip = wg_plunder_accept_us_19
-			hidden_effect = { add_energy = 9500 add_minerals = 9500 } 
+			hidden_effect = { add_resource = { energy = 9500 minerals = 9500 } }
 		}		
 		if = {
 			limit = {
@@ -458,7 +458,7 @@ wg_plunder = {
 				}
 			}
 			custom_tooltip = wg_plunder_accept_us_21
-			hidden_effect = { add_energy = 10000 add_minerals = 10000 } 
+			hidden_effect = { add_resource = { energy = 10000 minerals = 10000 } }
 		}			
 		hidden_effect = { from = { add_modifier = { modifier = raided days = 3600 } } }
 	}
@@ -520,7 +520,10 @@ wg_subjugation = {
 	
 
 	potential = {
-		NOT = { has_valid_civic = civic_inwards_perfection }
+		NOR = { 
+			has_valid_civic = civic_inwards_perfection
+			has_authority = auth_corporate
+		}
 		has_total_war_cb = no
 	}
 	possible = {
@@ -578,6 +581,7 @@ wg_tribute = {
 	surrender_acceptance = -75
 
 	potential = {
+		NOT = { has_authority = auth_corporate }
 		has_total_war_cb = no
 	}
 	possible = {
@@ -626,6 +630,61 @@ wg_tribute = {
 	}
 }
 
+wg_megacorp_subjugate = {
+	casus_belli = cb_megacorp_subjugate
+	
+	hide_if_no_cb = no
+	release_occupied_systems_on_status_quo = yes
+	
+	surrender_acceptance = -100
+	
+
+	potential = {
+		has_authority = auth_corporate
+		has_total_war_cb = no
+	}
+	possible = {
+		always = yes
+	}
+	on_accept = {
+		hidden_effect = {
+			from = {
+				add_threat = {
+					who = root
+					amount = 0.5
+				}				
+			}	
+		}		
+		from = {
+			set_subject_of = {
+				who = root
+				subject_type = subsidiary
+			}		
+		}	
+	}
+	
+	on_status_quo = {
+		if = {
+			limit = {
+				last_created_country = { 
+					has_country_flag = released_empire 
+				}
+			}
+
+			last_created_country = { 
+				set_subject_of = {
+					who = root
+					subject_type = subsidiary
+				}
+			}
+		}	
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+}
+
 wg_force_ideology = {
 	casus_belli = cb_ideology
 	
@@ -647,6 +706,7 @@ wg_force_ideology = {
 	on_status_quo = {
 		if = {
 			limit = {
+				exists = last_created_country
 				last_created_country = { 
 					has_country_flag = released_empire 
 				}
@@ -785,7 +845,7 @@ wg_humiliation = {
 			else = {			
 				custom_tooltip = wg_humiliation_accept
 				hidden_effect = {	
-					add_influence = 100
+					add_resource = { influence = 100 }
 					from = { add_modifier = { modifier = humiliated days = 3600 } }
 				}			
 			}
@@ -797,3 +857,139 @@ wg_humiliation = {
 	}
 }
 
+wg_take_galatron = {
+	casus_belli = cb_galatron
+	
+	hide_if_no_cb = yes
+	release_occupied_systems_on_status_quo = no
+	
+	surrender_acceptance = -40
+	
+
+	potential = {
+		has_total_war_cb = no
+	}
+	possible = {
+		always = yes
+	}
+	on_accept = {
+		hidden_effect = {
+			from = {
+				add_threat = {
+					who = root
+					amount = 0.5
+				}				
+			}	
+		}		
+		add_modifier = {
+			modifier = galatron_modifier
+			days = -1
+		}
+		from = {
+			remove_modifier = galatron_modifier
+			add_modifier = { modifier = humiliated days = 3600 }
+			set_closed_borders = {
+				who = prev
+				status = no
+			}
+			hidden_effect = { country_event = { id = cara.951 } }
+		}
+		hidden_effect = { country_event = { id = cara.950 } }
+	}
+	
+	on_status_quo = {
+		from = {
+			set_closed_borders = {
+				who = prev
+				status = no
+			}
+		}
+	}
+	
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 0
+			has_ethic = ethic_gestalt_consciousness
+		}
+	}
+}
+
+wg_expel_corp = {
+	casus_belli = cb_expel_corp
+	
+	hide_if_no_cb = yes
+	release_occupied_systems_on_status_quo = no
+	
+	set_defender_wargoal = wg_megacorp_subjugate
+	
+	surrender_acceptance = -50
+
+	potential = {
+		has_total_war_cb = no
+	}
+	possible = {
+		always = yes
+	}
+	on_status_quo = {
+		every_owned_planet = {
+			limit = { has_branch_office = from }
+			hidden_effect = { branch_office_owner = { add_resource = { energy = 1000 } } }
+			close_branch_office = yes
+		}
+		custom_tooltip = wg_expel_corp_status_quo_effects	
+	}
+	on_accept = {	
+		every_owned_planet = {
+			limit = { has_branch_office = from }
+			close_branch_office = yes
+			hidden_effect = { owner = { add_resource = { energy = 1000 } } }
+		}
+		custom_tooltip = wg_expel_corp_effects
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+}
+
+
+wg_hostile_takeover = {
+	casus_belli = cb_hostile_takeover
+	
+	hide_if_no_cb = yes
+	release_occupied_systems_on_status_quo = no
+	
+	surrender_acceptance = -75
+
+	potential = {
+		has_total_war_cb = no
+	}
+	possible = {
+		always = yes
+	}
+	on_accept = {
+		every_country = {
+			limit = {
+				OR = {
+					has_commercial_pact = root 
+					is_in_federation_with = root
+				}			
+			}
+			every_owned_planet = {
+				limit = { 
+					has_branch_office = from
+				}
+				hidden_effect = {
+					close_branch_office = yes
+					establish_branch_office = root	
+					custom_tooltip = wg_seize_branch_office_effects
+				}
+			}			
+		}
+	}
+	
+	ai_weight = {
+		weight = 10
+	}
+}

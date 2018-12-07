@@ -7,9 +7,13 @@ habitat_0 = {
 	place_entity_on_planet_plane = yes
 	entity_offset = { x = -7 y = -7 }
 	build_time = 1800
-	build_cost = {
-		minerals = 10000
-		influence = 200
+
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 5000
+			influence = 200
+		}
 	}
 	construction_blocks_others = no
 
@@ -110,7 +114,7 @@ habitat_0 = {
 			orbit_location = yes
 			orbit_angle_offset = 45
 			orbit_distance_offset = 9.899
-			size = 12
+			size = 6
 			has_ring = no
 			
 			init_effect = {
@@ -124,32 +128,19 @@ habitat_0 = {
 					surveyor = FROM
 				}
 				set_all_comms_surveyed = yes
-				while = {
-					limit = {
-						any_tile = { has_blocker = yes }
-					}
-					random_tile = {
-						limit = { has_blocker = yes }
-						remove_blocker = yes
-					}
-				}
-				if = {
-					limit = {
-						fromfrom.planet = {
-							colonizeable_planet = no
-						}
-					}
-					copy_orbital_tile = fromfrom.planet
-				}
+				clear_blockers = yes
 				if = {
 					limit = {
 						from = { has_ascension_perk = ap_master_builders }
+						NOT = { has_modifier = master_builders_habitats }
 					}
-					set_planet_size = 15
+					add_modifier = {
+						modifier = master_builders_habitats
+						days = -1
+					}
 				}
 				set_planet_flag = megastructure
 				set_planet_flag = habitat
-				remove_orbital_deposit = yes
 			}
 		}
 		fromfrom.planet = {

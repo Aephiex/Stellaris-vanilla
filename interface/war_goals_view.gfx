@@ -102,6 +102,16 @@ spriteTypes = {
 		name = "GFX_wg_subjugation"
 		texturefile = "gfx/interface/icons/diplomacy/diplomacy_isvassal.dds"
 	}
+
+	spriteType = {
+		name = "GFX_wg_hostile_takeover"
+		texturefile = "gfx/interface/icons/diplomacy/diplomacy_commercial_pact.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_wg_megacorp_subjugate"
+		texturefile = "gfx/interface/icons/diplomacy/diplomacy_issubsidiary.dds"
+	}	
 	
 	spriteType = {
 		name = "GFX_wg_ae_domination"
@@ -156,5 +166,14 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_wg_fe_cleanse_border_worlds"
 		texturefile = "gfx/interface/icons/diplomacy/diplomacy_opinion.dds"
-	}	
+	}
+	spriteType = {
+		name = "GFX_wg_take_galatron"
+		texturefile = "gfx/interface/icons/diplomacy/diplomacy_closed_borders.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_wg_expel_corp"
+		texturefile = "gfx/interface/icons/diplomacy/diplomacy_commercial_pact.dds"
+	}
 }

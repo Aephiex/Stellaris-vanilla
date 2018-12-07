@@ -547,6 +547,51 @@ part = {
 	}
 }
 
+# Criminal Syndicate
+part = {
+	location = 1
+	localization = "START_SCREEN_PART_TWO_MONOPOLISTIC_SYNDICATE"
+	
+	trigger = {
+		has_government = gov_criminal_syndicate
+		NOR = { 
+			has_country_flag = custom_start_screen 
+			has_civic = civic_post_apocalyptic 
+			has_civic = civic_life_seeded
+		}
+	}
+}
+
+# Subversive Cult
+part = {
+	location = 1
+	localization = "START_SCREEN_PART_TWO_SUBVERSIVE_CULT"
+	
+	trigger = {
+		has_government = gov_subversive_cult
+		NOR = { 
+			has_country_flag = custom_start_screen 
+			has_civic = civic_post_apocalyptic 
+			has_civic = civic_life_seeded
+		}
+	}
+}
+
+# Communal Parity
+part = {
+	location = 1
+	localization = "START_SCREEN_PART_TWO_COMMUNAL_PARITY"
+	
+	trigger = {
+		has_government = gov_communal_parity
+		NOR = { 
+			has_country_flag = custom_start_screen 
+			has_civic = civic_post_apocalyptic 
+			has_civic = civic_life_seeded
+		}
+	}
+}
+
 # Bandit Kingdom/Commune
 part = {
 	location = 1

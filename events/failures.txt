@@ -109,7 +109,7 @@ country_event = {
 			save_event_target_as = ancient_ship_ai
 			set_faction_hostility = { set_hostile = yes }
 			create_leader = {
-				type = admiral
+				class = admiral
 				species = last_created
 				name = "NAME_01000001_01001001"
 				skill = 2
@@ -313,13 +313,13 @@ country_event = {
 	desc = {
 		text = "anomaly_failure.4157.desc"
 		trigger = {
-			NOT = { has_technology = tech_biolab_3 }
+			NOT = { has_technology = tech_society_3 }
 		}
 	}
 	desc = {
 		text = "anomaly_failure.4157.maxed.desc"
 		trigger = {
-			has_technology = tech_biolab_3
+			has_technology = tech_society_3
 		}
 	}
 	picture = GFX_evt_society_research
@@ -343,22 +343,22 @@ country_event = {
 		name = EXCELLENT
 		trigger = {
 			NOT = {
-				has_technology = tech_biolab_1
+				has_technology = tech_society_1
 			}
 		}
 		if = {
 			limit = {
-				has_tech_option = tech_biolab_1
+				has_tech_option = tech_society_1
 			}
 			add_tech_progress = {
-				tech = tech_biolab_1
+				tech = tech_society_1
 				progress = 0.80
 			}
 		}
 		else = {
-			add_research_option = tech_biolab_1
+			add_research_option = tech_society_1
 			add_tech_progress = {
-				tech = tech_biolab_1
+				tech = tech_society_1
 				progress = 0.5
 			}
 		}
@@ -366,24 +366,24 @@ country_event = {
 	option = {
 		name = EXCELLENT
 		trigger = {
-			has_technology = tech_biolab_1
+			has_technology = tech_society_1
 			NOT = {
-				has_technology = tech_biolab_2
+				has_technology = tech_society_2
 			}
 		}
 		if = {
 			limit = {
-				has_tech_option = tech_biolab_2
+				has_tech_option = tech_society_2
 			}
 			add_tech_progress = {
-				tech = tech_biolab_2
+				tech = tech_society_2
 				progress = 0.80
 			}
 		}
 		else = {
-			add_research_option = tech_biolab_2
+			add_research_option = tech_society_2
 			add_tech_progress = {
-				tech = tech_biolab_2
+				tech = tech_society_2
 				progress = 0.4
 			}
 		}
@@ -391,24 +391,24 @@ country_event = {
 	option = {
 		name = EXCELLENT
 		trigger = {
-			has_technology = tech_biolab_2
+			has_technology = tech_society_2
 			NOT = {
-				has_technology = tech_biolab_3
+				has_technology = tech_society_3
 			}
 		}
 		if = {
 			limit = {
-				has_tech_option = tech_biolab_3
+				has_tech_option = tech_society_3
 			}
 			add_tech_progress = {
-				tech = tech_biolab_3
+				tech = tech_society_3
 				progress = 0.50
 			}
 		}
 		else = {
-			add_research_option = tech_biolab_3
+			add_research_option = tech_society_3
 			add_tech_progress = {
-				tech = tech_biolab_3
+				tech = tech_society_3
 				progress = 0.25
 			}
 		}
@@ -416,7 +416,7 @@ country_event = {
 	option = {
 		name = EXCELLENT
 		trigger = {
-			has_technology = tech_biolab_3
+			has_technology = tech_society_3
 		}
 		add_monthly_resource_mult = {
 			resource = influence

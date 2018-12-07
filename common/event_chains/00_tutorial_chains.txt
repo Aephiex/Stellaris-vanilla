@@ -179,16 +179,7 @@ tutorial_16_chain = {
 	}
 }
 
-tutorial_17_chain = {
-	icon = "gfx/interface/icons/situation_log/situation_log_tutorial.dds"
-	picture = GFX_evt_star_chart
-	counter = {
-		sector_established = {
-			max = 1
-		}
-	}
-}
-
+# TODO: Fix
 tutorial_18_chain = {
 	icon = "gfx/interface/icons/situation_log/situation_log_tutorial.dds"
 	picture = GFX_evt_throne_room

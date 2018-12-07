@@ -24,6 +24,13 @@ prosperity = {
 		}
 	}
 
+	resources = {
+		category = pop_factions
+		produces = {
+			influence = 2
+		}		
+	}
+
 	can_join_faction = {
 		is_enslaved = no
 		is_shackled_robot = no
@@ -91,7 +98,7 @@ prosperity = {
 		unfulfilled_title = "PROSPERITY_NO_LIQUIDITY"
 		desc = "PROSPERITY_LIQUIDITY_DESC"
 
-		fulfilled_effect = 5
+		fulfilled_effect = 10
 
 		potential = { # TODO get a reasonable trigger for counting colonies?
 			exists = owner
@@ -113,80 +120,17 @@ prosperity = {
 		}
 
 		trigger = {
-			owner = { energy > 2999 }
+			owner = { resource_stockpile_compare = { resource = energy value >= 5000 } }
 		}
 	}
 
-	demand = { # "PROSPERITY_WANTS_STRATEGIC_RESOURCE1"
-		title = "PROSPERITY_WANTS_STRATEGIC_RESOURCE1"
-		unfulfilled_title = "PROSPERITY_NO_STRATEGIC_RESOURCE1"
-		desc = "PROSPERITY_WANTS_STRATEGIC_RESOURCE_DESC1"
-		
-		fulfilled_effect = 3
-		
-		potential = {
-			exists = owner
-		}
-		
-		trigger = {
-			owner = {
-				num_strategic_resources > 0
-			}
-		}
-	}
-
-	demand = { # "PROSPERITY_WANTS_STRATEGIC_RESOURCE2"
-		title = "PROSPERITY_WANTS_STRATEGIC_RESOURCE2"
-		unfulfilled_title = "PROSPERITY_NO_STRATEGIC_RESOURCE2"
-		desc = "PROSPERITY_WANTS_STRATEGIC_RESOURCE_DESC2"
-		
-		fulfilled_effect = 4
-		
-		potential = {
-			exists = owner
-			owner = {
-				num_strategic_resources > 0
-			}
-		}
-		
-		trigger = {
-			owner = {
-				num_strategic_resources > 4
-			}
-		}
-	}
-
-	demand = { # "PROSPERITY_WANTS_STRATEGIC_RESOURCE3"
-		title = "PROSPERITY_WANTS_STRATEGIC_RESOURCE3"
-		unfulfilled_title = "PROSPERITY_NO_STRATEGIC_RESOURCE3"
-		desc = "PROSPERITY_WANTS_STRATEGIC_RESOURCE_DESC3"
-		
-		fulfilled_effect = 5
-		
-		potential = {
-			exists = owner
-			owner = {
-				num_strategic_resources > 4
-			}
-		}
-		
-		trigger = {
-			owner = {
-				num_strategic_resources > 9
-			}
-		}
-	}
-	
-	on_create = {
-		pop_faction_event = { id = factions.1 }
-	}
-	
 	demand = { 
 		title = "PROSPERITY_PHILOSOPHY"
 		unfulfilled_title = "PROSPERITY_NO_PHILOSOPHY"
 		desc = "PROSPERITY_PHILOSOPHY_DESC"
 
-		fulfilled_effect = 5
+		fulfilled_effect = 10
+		unfulfilled_effect = -10
 
 		potential = {
 			exists = owner
@@ -224,35 +168,13 @@ prosperity = {
 			}
 		}
 	}
-	
-	demand = {
-		title = "PROSPERITY_TRADITION"
-		unfulfilled_title = "PROSPERITY_NO_TRADITION"
-		desc = "PROSPERITY_TRADITION_DESC"
-
-		fulfilled_effect = 2
-		unfulfilled_effect = -5
-
-		potential = {
-			exists = owner
-			owner = {
-				has_any_tradition_unlocked = yes
-			}
-		}
-
-		trigger = {
-			owner = {
-				has_tradition = "tr_prosperity_adopt"
-			}
-		}
-	}	
 
 	demand = {
 		title = "PROSPERITY_NOT_AGGRESSOR"
 		unfulfilled_title = "PROSPERITY_AGGRESSOR"
 		desc = "PROSPERITY_NOT_AGGRESSOR_DESC"
 
-		unfulfilled_effect = -25
+		unfulfilled_effect = -30
 
 		potential = {
 			exists = owner

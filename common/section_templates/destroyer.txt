@@ -1,3 +1,5 @@
+@section_cost = 30
+
 #BOW
 
 ship_section_template = {
@@ -43,8 +45,13 @@ ship_section_template = {
 	}
 
 	small_utility_slots = 6
-	
-	cost = 60
+
+	resources = {
+		category = ship_sections
+		cost = {
+			alloys = @section_cost
+		}
+	}
 }
 
 ship_section_template = {
@@ -54,8 +61,6 @@ ship_section_template = {
 	should_draw_components = yes
 	entity = "destroyer_bow_S3_entity"
 	icon = "GFX_ship_part_core_bow"
-	
-	prerequisites = { tech_pd_tracking_1 tech_pd_tracking_2 tech_pd_tracking_3 tech_flak_batteries_1 tech_flak_batteries_2 tech_flak_batteries_3 }
 	
 	ai_weight = {
 		modifier = {
@@ -92,8 +97,13 @@ ship_section_template = {
 	}
 	
 	small_utility_slots = 6
-	
-	cost = 60
+
+	resources = {
+		category = ship_sections
+		cost = {
+			alloys = @section_cost
+		}
+	}
 }
 
 ship_section_template = {
@@ -119,7 +129,12 @@ ship_section_template = {
 	
 	small_utility_slots = 6
 	
-	cost = 60
+	resources = {
+		category = ship_sections
+		cost = {
+			alloys = @section_cost
+		}
+	}
 }
 
 #STERN
@@ -131,8 +146,6 @@ ship_section_template = {
 	should_draw_components = yes
 	entity = "destroyer_stern_S2_entity"
 	icon = "GFX_ship_part_core_stern"
-	
-	prerequisites = { tech_pd_tracking_1 tech_pd_tracking_2 tech_pd_tracking_3 tech_flak_batteries_1 tech_flak_batteries_2 tech_flak_batteries_3 }
 	
 	ai_weight = {
 		factor = 100
@@ -154,7 +167,12 @@ ship_section_template = {
 	
 	aux_utility_slots = 1
 	
-	cost = 60
+	resources = {
+		category = ship_sections
+		cost = {
+			alloys = @section_cost
+		}
+	}
 }
 
 ship_section_template = {
@@ -185,7 +203,12 @@ ship_section_template = {
 	
 	aux_utility_slots = 1
 	
-	cost = 60
+	resources = {
+		category = ship_sections
+		cost = {
+			alloys = @section_cost
+		}
+	}
 }
 
 ship_section_template = {
@@ -205,5 +228,10 @@ ship_section_template = {
 	
 	aux_utility_slots = 1
 	
-	cost = 60
+	resources = {
+		category = ship_sections
+		cost = {
+			alloys = @section_cost
+		}
+	}
 }

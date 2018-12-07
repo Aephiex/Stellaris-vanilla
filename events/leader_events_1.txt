@@ -2,7 +2,7 @@
 #
 # Leader Events
 #
-# Written by Henrik Eklund
+# Written by Henrik Thyrwall
 #
 ############################
 
@@ -36,9 +36,7 @@ country_event = {
 	
 	trigger = {
 		is_country_type = default
-		free_leader_slots > 0
 		any_owned_leader = {
-			#count < 3 # doesn't actually work
 			leader_class = admiral
 		}
 	}
@@ -56,7 +54,7 @@ country_event = {
 		random_list = {
 			25 = {
 				create_leader = {
-					type = admiral
+					class = admiral
 					species = owner_main_species
 					name = random
 					skill = 2
@@ -69,7 +67,7 @@ country_event = {
 			}
 			25 = {
 				create_leader = {
-					type = admiral
+					class = admiral
 					species = owner_main_species
 					name = random
 					skill = 2
@@ -82,7 +80,7 @@ country_event = {
 			}
 			25 = {
 				create_leader = {
-					type = admiral
+					class = admiral
 					species = owner_main_species
 					name = random
 					skill = 2
@@ -95,7 +93,7 @@ country_event = {
 			}
 			25 = {
 				create_leader = {
-					type = admiral
+					class = admiral
 					species = owner_main_species
 					name = random
 					skill = 2
@@ -823,71 +821,71 @@ country_event = {
 }
 
 # Logistics gained from Large Fleet
-fleet_event = {
-	id = leader.18
-	title = "admiral_trait_gain"
-	desc = {
-		trigger = { owner = { has_authority = auth_hive_mind } }
-		text = "leader.optimizations.desc.hive"
-	}
-	desc = {
-		trigger = { owner = { has_authority = auth_machine_intelligence } }
-		text = "leader.optimizations.desc.machine"
-	}
-	desc = {
-		trigger = {
-			owner = {
-				NOR = {
-					has_authority = auth_hive_mind
-					has_authority = auth_machine_intelligence
-				}
-			}
-		}
-		text = "leader.18.desc"
-	}
-	picture = GFX_evt_federation_fleet
-	location = ROOT
-	
-	trigger = {
-		owner = {
-			is_country_type = default
-			NOT = { has_ethic = ethic_gestalt_consciousness }
-		}
-		exists = leader
-		num_ships > 1
-		leader = {
-			leader_class = admiral
-			num_traits < 3
-			NOT = { has_trait = leader_trait_fleet_logistician }
-		}
-	}
-	
-	mean_time_to_happen = {
-		months = 240
-	}
-	
-	immediate = {
-		leader = { save_event_target_as = officer }
-	}
-	
-	option = {
-		name = GOOD
-		if = {
-			limit = {
-				owner = { 
-					NOT = { has_authority = "auth_machine_intelligence" }
-				}
-			}
-			leader = { add_trait = leader_trait_fleet_logistician }	
-		}
-		if = {
-			limit = {
-				owner = { has_authority = "auth_machine_intelligence" }
-			}
-			leader = { add_trait = leader_trait_maintenance_loop }	
-		}
-	}
-}
+#fleet_event = {
+#	id = leader.18
+#	title = "admiral_trait_gain"
+#	desc = {
+#		trigger = { owner = { has_authority = auth_hive_mind } }
+#		text = "leader.optimizations.desc.hive"
+#	}
+#	desc = {
+#		trigger = { owner = { has_authority = auth_machine_intelligence } }
+#		text = "leader.optimizations.desc.machine"
+#	}
+#	desc = {
+#		trigger = {
+#			owner = {
+#				NOR = {
+#					has_authority = auth_hive_mind
+#					has_authority = auth_machine_intelligence
+#				}
+#			}
+#		}
+#		text = "leader.18.desc"
+#	}
+#	picture = GFX_evt_federation_fleet
+#	location = ROOT
+#	
+#	trigger = {
+#		owner = {
+#			is_country_type = default
+#			NOT = { has_ethic = ethic_gestalt_consciousness }
+#		}
+#		exists = leader
+#		num_ships > 1
+#		leader = {
+#			leader_class = admiral
+#			num_traits < 3
+#			NOT = { has_trait = leader_trait_fleet_logistician }
+#		}
+#	}
+#	
+#	mean_time_to_happen = {
+#		months = 240
+#	}
+#	
+#	immediate = {
+#		leader = { save_event_target_as = officer }
+#	}
+#	
+#	option = {
+#		name = GOOD
+#		if = {
+#			limit = {
+#				owner = { 
+#					NOT = { has_authority = "auth_machine_intelligence" }
+#				}
+#			}
+#			leader = { add_trait = leader_trait_fleet_logistician }	
+#		}
+#		if = {
+#			limit = {
+#				owner = { has_authority = "auth_machine_intelligence" }
+#			}
+#			leader = { add_trait = leader_trait_maintenance_loop }	
+#		}
+#	}
+#}
 
 # Scout gained from Exploration
 ship_event = {
@@ -1416,6 +1414,8 @@ country_event = {
 					gained_leader_trait_resilient = { text = leader.newtrait }
 					gained_leader_trait_stubborn = { text = leader.stubborn }
 					gained_leader_trait_substance_abuser = { text = leader.substanceabuser }
+					gained_leader_trait_corrupt = { text = leader.corrupt }
+					gained_leader_trait_righteous = { text = leader.righteous }
 					gained_leader_trait_arrested_development = { text = leader.arresteddevelopment }
 					gained_leader_trait_iron_fist = { text = leader.newtrait }
 					gained_leader_trait_architectural_interest = { text = leader.newtrait }
@@ -1451,6 +1451,14 @@ country_event = {
 				if = {
 					limit = { has_leader_flag = gained_leader_trait_substance_abuser }
 					add_trait = leader_trait_substance_abuser
+				}
+				if = {
+					limit = { has_leader_flag = gained_leader_trait_corrupt }
+					add_trait = leader_trait_corrupt
+				}
+				if = {
+					limit = { has_leader_flag = gained_leader_trait_righteous }
+					add_trait = leader_trait_righteous
 				}
 				if = {
 					limit = { has_leader_flag = gained_leader_trait_arrested_development }

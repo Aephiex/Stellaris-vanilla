@@ -28,7 +28,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_sensor_1"
 	icon_frame = 1
 	power = @power1
-	cost = @cost1
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost1
+		}
+	}
 	sensor_range = @sensor1
 	hyperlane_range = @hyperlane1
 	
@@ -46,7 +51,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_sensor_2"
 	icon_frame = 1
 	power = @power2
-	cost = @cost2
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost2
+		}
+	}
 	sensor_range = @sensor2
 	hyperlane_range = @hyperlane2
 	
@@ -69,7 +79,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_sensor_3"
 	icon_frame = 1
 	power = @power3
-	cost = @cost3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost3
+		}
+	}
 	sensor_range = @sensor3
 	hyperlane_range = @hyperlane3
 	
@@ -92,7 +107,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_sensor_4"
 	icon_frame = 1
 	power = @power4
-	cost = @cost4
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost4
+		}
+	}
 	sensor_range = @sensor4
 	hyperlane_range = @hyperlane4
 	

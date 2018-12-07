@@ -23,6 +23,8 @@ mandate_orbital_researcher = {
 
 	on_term_ended = {
 		owner = {
+			if = { limit = { is_ai = no } 	log = "mandate_orbital_researcher end_of_term fired for player" }
+			if = { limit = { is_ai = yes } 	log = "mandate_orbital_researcher end_of_term fired for AI" }
 			country_event = { id = mandate.2 }
 		}
 	}
@@ -53,6 +55,8 @@ mandate_miner = {
 
 	on_term_ended = {
 		owner = {
+			if = { limit = { is_ai = no } 	log = "mandate_miner end_of_term fired for player" }
+			if = { limit = { is_ai = yes } 	log = "mandate_miner end_of_term fired for AI" }
 			country_event = { id = mandate.2 }
 		}
 	}
@@ -87,6 +91,8 @@ mandate_peacemaker = {
 
 	on_term_ended = {
 		owner = {
+			if = { limit = { is_ai = no } 	log = "mandate_peacemaker end_of_term fired for player" }
+			if = { limit = { is_ai = yes } 	log = "mandate_peacemaker end_of_term fired for AI" }
 			country_event = { id = mandate.160 }
 			#country_event = { id = mandate.2 }
 		}
@@ -114,52 +120,10 @@ mandate_shipwright = {
 
 	on_term_ended = {
 		owner = {
+		if = { limit = { is_ai = no } 	log = "mandate_shipwright end_of_term fired for player" }
+			if = { limit = { is_ai = yes } 	log = "mandate_shipwright end_of_term fired for AI" }
 			country_event = { id = mandate.140 }
 			#country_event = { id = mandate.2 }
-		}
-	}
-}
-
-#*** Xeno Purger, purge xenos from planet X. on_purge_complete
-mandate_xenopurger = {
-	valid = {
-		always = no
-		exists = owner
-		owner = {
-			any_owned_pop = {
-				NOT = { is_same_species = owner_main_species }
-			}
-		}
-	}
-
-	parameters = {
-		master = country
-		planet = planet
-	}
-
-	on_term_started = {
-		owner = {
-			random_owned_planet = {
-				limit = {
-					any_pop = {
-						NOT = { is_same_species = owner_main_species }
-					}
-				}
-				save_event_target_as = purge_planet
-				set_planet_flag = purge_planet
-			}
-			begin_event_chain = {
-				event_chain = "mandate_xenopurge_chain"
-				target = this
-			}
-			# Detail event chain reward in comment here:
-			# +300 Influence
-		}
-	}
-
-	on_term_ended = {
-		owner = {
-			country_event = { id = mandate.2 }
 		}
 	}
 }
@@ -174,6 +138,260 @@ mandate_xenopurger = {
 
 # More Jobs, less than 3 pops unemployed by year X
 
-# Fiscal Conservative, X energy in store by year Y
+# Fiscal Conservative
+mandate_monthly_energy = {
+	valid = {
+		exists = owner
+		owner = {
+			has_monthly_income = { resource = energy value < 20 }
+		}
+	}
+	parameters = {}
 
-# Population Grower, 0 free_pop_tiles on planet X by year Y
+	on_term_started = {
+		owner = {
+			begin_event_chain = {
+				event_chain = "mandate_monthly_energy_chain"
+				target = this
+			}
+		}
+	}
+
+	on_term_ended = {
+		owner = {
+			if = { limit = { is_ai = no } 	log = "mandate_monthly_energy end_of_term fired for player" }
+			if = { limit = { is_ai = yes } 	log = "mandate_monthly_energy end_of_term fired for AI" }
+			country_event = { id = mandate.171 }
+		}
+	}
+}
+
+mandate_monthly_minerals = {
+	valid = {
+		exists = owner
+		owner = {
+			has_monthly_income = { resource = minerals value < 30 }
+		}
+	}
+	parameters = {}
+
+	on_term_started = {
+		owner = {
+			begin_event_chain = {
+				event_chain = "mandate_monthly_minerals_chain"
+				target = this
+			}
+		}
+	}
+
+	on_term_ended = {
+		owner = {
+			if = { limit = { is_ai = no } 	log = "mandate_monthly_minerals end_of_term fired for player" }
+			if = { limit = { is_ai = yes } 	log = "mandate_monthly_minerals end_of_term fired for AI" }
+			country_event = { id = mandate.171 }
+		}
+	}
+}
+
+mandate_monthly_food = {
+	valid = {
+		exists = owner
+		owner = {
+			has_monthly_income = { resource = food value < 15 }
+		}
+	}
+	parameters = {}
+
+	on_term_started = {
+		owner = {
+			begin_event_chain = {
+				event_chain = "mandate_monthly_food_chain"
+				target = this
+			}
+		}
+	}
+
+	on_term_ended = {
+		owner = {
+			if = { limit = { is_ai = no } 	log = "mandate_monthly_food end_of_term fired for player" }
+			if = { limit = { is_ai = yes } 	log = "mandate_monthly_food end_of_term fired for AI" }
+			country_event = { id = mandate.171 }
+		}
+	}
+}
+
+mandate_monthly_alloys = {
+	valid = {
+		exists = owner
+		owner = {
+			has_monthly_income = { resource = alloys value < 12 }
+		}
+	}
+	parameters = {}
+
+	on_term_started = {
+		owner = {
+			begin_event_chain = {
+				event_chain = "mandate_monthly_alloys_chain"
+				target = this
+			}
+		}
+	}
+
+	on_term_ended = {
+		owner = {
+			if = { limit = { is_ai = no } 	log = "mandate_monthly_alloys end_of_term fired for player" }
+			if = { limit = { is_ai = yes } 	log = "mandate_monthly_alloys end_of_term fired for AI" }
+			country_event = { id = mandate.171 }
+		}
+	}
+}
+
+mandate_monthly_consumer_goods = {
+	valid = {
+		exists = owner
+		owner = {
+			has_monthly_income = { resource = consumer_goods value < 6 }
+		}
+	}
+	parameters = {}
+
+	on_term_started = {
+		owner = {
+			begin_event_chain = {
+				event_chain = "mandate_monthly_consumer_goods_chain"
+				target = this
+			}
+		}
+	}
+
+	on_term_ended = {
+		owner = {
+			if = { limit = { is_ai = no } 	log = "mandate_monthly_consumer_goods end_of_term fired for player" }
+			if = { limit = { is_ai = yes } 	log = "mandate_monthly_consumer_goods end_of_term fired for AI" }
+			country_event = { id = mandate.171 }
+		}
+	}
+}
+
+# District builders
+mandate_district_city = {
+	valid = {
+		exists = owner
+		owner = {
+			any_owned_planet = {
+				free_district_slots >= 2
+			}
+		}
+	}
+	parameters = {}
+
+	on_term_started = {
+		owner = {
+			begin_event_chain = {
+				event_chain = "mandate_district_city_chain"
+				target = this
+			}
+		}
+	}
+
+	on_term_ended = {
+		owner = {
+			if = { limit = { is_ai = no } 	log = "mandate_districts_city end_of_term fired for player" }
+			if = { limit = { is_ai = yes } 	log = "mandate_districts_city end_of_term fired for AI" }
+			country_event = { id = mandate.185 }
+		}
+	}
+}
+
+mandate_district_generator = {
+	valid = {
+		exists = owner
+		owner = {
+			any_owned_planet = {
+				free_district_slots >= 2
+				# hope they're generator slots!
+			}
+		}
+	}
+	parameters = {}
+
+	on_term_started = {
+		owner = {
+			begin_event_chain = {
+				event_chain = "mandate_district_generator_chain"
+				target = this
+			}
+		}
+	}
+
+	on_term_ended = {
+		owner = {
+			if = { limit = { is_ai = no } 	log = "mandate_districts_generator end_of_term fired for player" }
+			if = { limit = { is_ai = yes } 	log = "mandate_districts_generator end_of_term fired for AI" }
+			country_event = { id = mandate.185 }
+		}
+	}
+}
+
+mandate_district_mining = {
+	valid = {
+		exists = owner
+		owner = {
+			any_owned_planet = {
+				free_district_slots >= 2
+				# hope they're mining slots!
+			}
+		}
+	}
+	parameters = {}
+
+	on_term_started = {
+		owner = {
+			begin_event_chain = {
+				event_chain = "mandate_district_mining_chain"
+				target = this
+			}
+		}
+	}
+
+	on_term_ended = {
+		owner = {
+			if = { limit = { is_ai = no } 	log = "mandate_districts_mining end_of_term fired for player" }
+			if = { limit = { is_ai = yes } 	log = "mandate_districts_mining end_of_term fired for AI" }
+			country_event = { id = mandate.185 }
+		}
+	}
+}
+
+mandate_district_farming = {
+	valid = {
+		exists = owner
+		owner = {
+			any_owned_planet = {
+				free_district_slots >= 2
+				# hope they're farming slots!
+			}
+		}
+	}
+	parameters = {}
+
+	on_term_started = {
+		owner = {
+			begin_event_chain = {
+				event_chain = "mandate_district_farming_chain"
+				target = this
+			}
+		}
+	}
+
+	on_term_ended = {
+		owner = {
+			if = { limit = { is_ai = no } 	log = "mandate_districts_farming end_of_term fired for player" }
+			if = { limit = { is_ai = yes } 	log = "mandate_districts_farming end_of_term fired for AI" }
+			country_event = { id = mandate.185 }
+		}
+	}
+}
+
+# Population Grower, 0 free_housing on planet X by year Y

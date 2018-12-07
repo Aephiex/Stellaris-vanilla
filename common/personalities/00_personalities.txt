@@ -33,6 +33,8 @@
 ##### Diplomacy:
 # federation_acceptance -> Added directly to chance of accepting to form/join a federation
 # nap_acceptance -> Added directly to chance of accepting to form a non-aggression pact
+# commercial_pact_acceptance -> Added directly to chance of accepting to form a commercial pact
+# research_agreement_acceptance -> Added directly to chance of accepting to form a research agreement
 # migration_pact_acceptance -> Added directly to chance of accepting to form a migration pact
 # defensive_pact_acceptance -> Added directly to chance of accepting to form a defensive pact
 
@@ -52,6 +54,8 @@ honorbound_warriors = {
 
 	federation_acceptance = -10
 	nap_acceptance = -100
+	commercial_pact_acceptance = -20
+	research_agreement_acceptance = 0
 	defensive_pact_acceptance = 20
 	migration_pact_acceptance = 0
 
@@ -73,7 +77,6 @@ honorbound_warriors = {
 		liberator = no
 		opportunist = no
 		slaver = no
-		caste_system = no
 		uplifter = no
 		purger = no
 		displacer = no
@@ -121,6 +124,8 @@ evangelising_zealots = {
 
 	federation_acceptance = -20
 	nap_acceptance = 0
+	commercial_pact_acceptance = -20
+	research_agreement_acceptance = -20
 	defensive_pact_acceptance = 0
 	migration_pact_acceptance = 0
 
@@ -142,7 +147,6 @@ evangelising_zealots = {
 		liberator = no
 		opportunist = yes
 		slaver = yes
-		caste_system = yes
 		uplifter = no
 		purger = no
 		displacer = no
@@ -211,6 +215,8 @@ erudite_explorers = {
 
 	federation_acceptance = 0
 	nap_acceptance = 5
+	commercial_pact_acceptance = 10
+	research_agreement_acceptance = 50
 	defensive_pact_acceptance = 5
 	migration_pact_acceptance = 0
 
@@ -232,7 +238,6 @@ erudite_explorers = {
 		liberator = no
 		opportunist = yes
 		slaver = no
-		caste_system = no
 		uplifter = yes
 		purger = no
 		displacer = no
@@ -308,6 +313,8 @@ spiritual_seekers = {
 
 	federation_acceptance = 10
 	nap_acceptance = 20
+	commercial_pact_acceptance = 10
+	research_agreement_acceptance = 10
 	defensive_pact_acceptance = 10
 	migration_pact_acceptance = 20
 
@@ -329,7 +336,6 @@ spiritual_seekers = {
 		liberator = yes
 		opportunist = no
 		slaver = no
-		caste_system = no
 		uplifter = yes
 		purger = no
 		displacer = no
@@ -404,6 +410,8 @@ ruthless_capitalists = {
 
 	federation_acceptance = -10
 	nap_acceptance = -10
+	commercial_pact_acceptance = 20
+	research_agreement_acceptance = 10
 	defensive_pact_acceptance = 0
 	migration_pact_acceptance = 0
 
@@ -425,7 +433,6 @@ ruthless_capitalists = {
 		liberator = no
 		opportunist = yes
 		slaver = yes
-		caste_system = yes
 		uplifter = no
 		purger = no
 		displacer = no
@@ -453,7 +460,10 @@ ruthless_capitalists = {
 				has_ethic = "ethic_fanatic_xenophile"					
 			}		
 		}
-		has_valid_civic = civic_corporate_dominion
+		OR = {
+			has_authority = auth_corporate
+			has_valid_civic = civic_corporate_dominion
+		}
 	}
 
 	weight_modifier = {
@@ -472,6 +482,8 @@ peaceful_traders = {
 
 	federation_acceptance = 10
 	nap_acceptance = 20
+	commercial_pact_acceptance = 20
+	research_agreement_acceptance = 10
 	defensive_pact_acceptance = 0
 	migration_pact_acceptance = 20
 
@@ -493,7 +505,6 @@ peaceful_traders = {
 		liberator = yes
 		opportunist = yes
 		slaver = no
-		caste_system = no
 		uplifter = yes
 		purger = no
 		displacer = no
@@ -523,7 +534,10 @@ peaceful_traders = {
 				}				
 			}
 		}		
-		has_valid_civic = civic_corporate_dominion
+		OR = {
+			has_authority = auth_corporate
+			has_valid_civic = civic_corporate_dominion
+		}
 	}
 
 	weight_modifier = {
@@ -542,6 +556,8 @@ hegemonic_imperialists = {
 
 	federation_acceptance = -20
 	nap_acceptance = -10
+	commercial_pact_acceptance = -10
+	research_agreement_acceptance = -10
 	defensive_pact_acceptance = 10
 	migration_pact_acceptance = -50
 
@@ -563,7 +579,6 @@ hegemonic_imperialists = {
 		liberator = no
 		opportunist = yes
 		slaver = yes
-		caste_system = yes
 		uplifter = no
 		purger = no
 		displacer = no
@@ -613,6 +628,8 @@ slaving_despots = {
 
 	federation_acceptance = -10
 	nap_acceptance = -20
+	commercial_pact_acceptance = 0
+	research_agreement_acceptance = 0
 	defensive_pact_acceptance = 0
 	migration_pact_acceptance = -100
 
@@ -634,7 +651,6 @@ slaving_despots = {
 		liberator = no
 		opportunist = yes
 		slaver = yes
-		caste_system = yes
 		uplifter = no
 		purger = no
 		displacer = no
@@ -645,16 +661,12 @@ slaving_despots = {
 		propagator = no
 		multispecies = no
 		crisis_fighter = yes
-		decadent = yes	# special - resettles slaves to planets lacking them
 	}
 
 
 	allow = {
 		is_country_type = default
-		OR = {
-			has_ethic = "ethic_authoritarian"
-			has_ethic = "ethic_fanatic_authoritarian"
-		}
+		has_valid_civic = civic_slaver_guilds
 		NOR = {
 			has_ethic = "ethic_pacifist"
 			has_ethic = "ethic_fanatic_pacifist"
@@ -664,16 +676,7 @@ slaving_despots = {
 	}
 
 	weight_modifier = {
-		weight = 1
-		modifier = {
-			factor = 100
-			OR = {
-				has_valid_civic = "civic_slaver_guilds"
-				has_trait = "trait_decadent"
-				has_ethic = "ethic_xenophobe"
-				has_ethic = "ethic_fanatic_xenophobe"			
-			}			
-		}
+		weight = 200
 	}
 }
 
@@ -688,6 +691,8 @@ decadent_hierarchy = {
 
 	federation_acceptance = -30
 	nap_acceptance = 20
+	commercial_pact_acceptance = 0
+	research_agreement_acceptance = 0
 	defensive_pact_acceptance = -10
 	migration_pact_acceptance = -100
 
@@ -709,7 +714,6 @@ decadent_hierarchy = {
 		liberator = no
 		opportunist = yes
 		slaver = yes
-		caste_system = yes
 		uplifter = no
 		purger = no
 		displacer = no
@@ -720,28 +724,18 @@ decadent_hierarchy = {
 		propagator = no
 		multispecies = no
 		crisis_fighter = yes
-		decadent = yes	# special - resettles slaves to planets lacking them
 	}
 
 
 	allow = {
 		is_country_type = default
-		OR = {
-			has_ethic = "ethic_authoritarian"
-			has_ethic = "ethic_fanatic_authoritarian"
-		}
+		has_valid_civic = civic_slaver_guilds
 		OR = {
 			has_ethic = "ethic_pacifist"
 			has_ethic = "ethic_fanatic_pacifist"
 			has_ethic = "ethic_xenophile"
 			has_ethic = "ethic_fanatic_xenophile"				
 		}		
-		OR = {
-			has_valid_civic = "civic_slaver_guilds"
-			has_trait = "trait_decadent"
-			has_ethic = "ethic_xenophobe"
-			has_ethic = "ethic_fanatic_xenophobe"			
-		}
 	}
 
 	weight_modifier = {
@@ -760,6 +754,8 @@ democratic_crusaders = {
 
 	federation_acceptance = 10
 	nap_acceptance = 0
+	commercial_pact_acceptance = 0
+	research_agreement_acceptance = 0
 	defensive_pact_acceptance = 20
 	migration_pact_acceptance = 0
 
@@ -780,7 +776,6 @@ democratic_crusaders = {
 		liberator = yes
 		opportunist = no
 		slaver = no
-		caste_system = no
 		uplifter = no
 		purger = no
 		displacer = no
@@ -827,6 +822,8 @@ harmonious_hierarchy = {
 
 	federation_acceptance = 0
 	nap_acceptance = 20
+	commercial_pact_acceptance = 10
+	research_agreement_acceptance = 10
 	defensive_pact_acceptance = 0
 	migration_pact_acceptance = -10
 
@@ -848,7 +845,6 @@ harmonious_hierarchy = {
 		liberator = no
 		opportunist = no
 		slaver = no
-		caste_system = no
 		uplifter = yes
 		purger = no
 		displacer = no
@@ -905,6 +901,8 @@ federation_builders = {
 
 	federation_acceptance = 20
 	nap_acceptance = 25
+	commercial_pact_acceptance = 15
+	research_agreement_acceptance = 15
 	defensive_pact_acceptance = 25
 	migration_pact_acceptance = 10
 
@@ -926,7 +924,6 @@ federation_builders = {
 		liberator = yes
 		opportunist = yes
 		slaver = no
-		caste_system = no
 		uplifter = yes
 		purger = no
 		displacer = no
@@ -1011,6 +1008,8 @@ xenophobic_isolationists = {
 
 	federation_acceptance = -50
 	nap_acceptance = 20
+	commercial_pact_acceptance = -20
+	research_agreement_acceptance = -20
 	defensive_pact_acceptance = -20
 	migration_pact_acceptance = -100
 
@@ -1032,7 +1031,6 @@ xenophobic_isolationists = {
 		liberator = no
 		opportunist = yes
 		slaver = no
-		caste_system = no
 		uplifter = no
 		purger = no
 		displacer = yes
@@ -1128,7 +1126,6 @@ fanatic_purifiers = {
 		liberator = no
 		opportunist = yes
 		slaver = yes
-		caste_system = no
 		uplifter = no
 		purger = yes
 		displacer = no
@@ -1173,6 +1170,8 @@ hive_mind = {
 
 	federation_acceptance = -50
 	nap_acceptance = -10
+	commercial_pact_acceptance = 0
+	research_agreement_acceptance = 0
 	defensive_pact_acceptance = -10
 	migration_pact_acceptance = -100
 
@@ -1194,7 +1193,6 @@ hive_mind = {
 		liberator = no
 		opportunist = yes
 		slaver = yes
-		caste_system = no
 		uplifter = no
 		purger = no
 		displacer = yes
@@ -1229,6 +1227,8 @@ devouring_swarm = {
 
 	federation_acceptance = -1000
 	nap_acceptance = -1000
+	commercial_pact_acceptance = -1000
+	research_agreement_acceptance = -1000
 	defensive_pact_acceptance = -1000
 	migration_pact_acceptance = -1000
 
@@ -1250,7 +1250,6 @@ devouring_swarm = {
 		liberator = no
 		opportunist = yes
 		slaver = no
-		caste_system = no
 		uplifter = no
 		purger = yes
 		displacer = no
@@ -1288,6 +1287,8 @@ migrating_flock = {
 
 	advanced_start_chance = 10
 	nap_acceptance = 20
+	commercial_pact_acceptance = 20
+	research_agreement_acceptance = 20
 	defensive_pact_acceptance = 0
 	migration_pact_acceptance = 100
 
@@ -1307,7 +1308,6 @@ migrating_flock = {
 		liberator = no
 		opportunist = no
 		slaver = no
-		caste_system = no
 		uplifter = no
 		purger = no
 		displacer = no
@@ -1353,6 +1353,8 @@ metalhead = {
 
 	federation_acceptance = -1000
 	nap_acceptance = -1000
+	commercial_pact_acceptance = -1000
+	research_agreement_acceptance = -1000
 	defensive_pact_acceptance = -1000
 	migration_pact_acceptance = -1000
 
@@ -1373,7 +1375,6 @@ metalhead = {
 		subjugator = no
 		liberator = no
 		slaver = no
-		caste_system = no
 		opportunist = yes
 		uplifter = no
 		purger = yes
@@ -1414,6 +1415,8 @@ machine_intelligence = {
 
 	federation_acceptance = -30
 	nap_acceptance = 0
+	commercial_pact_acceptance = 0
+	research_agreement_acceptance = 0
 	defensive_pact_acceptance = 0
 
 	advanced_start_chance = 50
@@ -1434,7 +1437,6 @@ machine_intelligence = {
 		liberator = no
 		opportunist = yes
 		slaver = yes
-		caste_system = no
 		uplifter = no
 		purger = no
 		displacer = yes
@@ -1491,7 +1493,6 @@ assimilators = {
 		liberator = no 
 		opportunist = yes
 		slaver = no
-		caste_system = no
 		uplifter = no
 		purger = no
 		displacer = no
@@ -1544,7 +1545,6 @@ exterminators = {
 		liberator = no
 		opportunist = yes
 		slaver = no
-		caste_system = no
 		uplifter = no
 		purger = yes
 		displacer = no
@@ -1582,6 +1582,8 @@ servitors = {
 
 	federation_acceptance = 0
 	nap_acceptance = 0
+	commercial_pact_acceptance = 0
+	research_agreement_acceptance = 0
 	defensive_pact_acceptance = 0
 
 	advanced_start_chance = 25
@@ -1602,7 +1604,6 @@ servitors = {
 		liberator = no
 		opportunist = yes
 		slaver = no
-		caste_system = no
 		uplifter = yes
 		purger = no
 		displacer = no
@@ -1639,6 +1640,8 @@ fanatic_befrienders = {
 
 	federation_acceptance = 50
 	nap_acceptance = 50
+	commercial_pact_acceptance = 50
+	research_agreement_acceptance = 50
 	defensive_pact_acceptance = 50
 	migration_pact_acceptance = 50
 
@@ -1660,7 +1663,6 @@ fanatic_befrienders = {
 		liberator = no
 		opportunist = yes
 		slaver = no
-		caste_system = no
 		uplifter = yes
 		purger = no
 		displacer = no

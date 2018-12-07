@@ -361,9 +361,11 @@ cybrex_beta = {
 				set_country_flag = cybrex_reborn
 				create_ship_design = { design = "NAME_Cybrex_Transport" }
 				add_ship_design = last_created_design
-				add_minerals = 20000
-				add_energy = 20000
-				add_influence = 1000
+				add_resource = {
+					minerals = 20000
+					energy = 20000
+					influence = 1000
+				}
 				set_graphical_culture = ai_02
 			}
 		}
@@ -376,7 +378,7 @@ cybrex_beta = {
 		name = "NAME_Cybrex_Beta_1"
 		orbit_angle = 30
 		orbit_distance = 0
-		tile_blockers = none
+		deposit_blockers = none
 		modifiers = none
 		
 		init_effect = {
@@ -402,7 +404,7 @@ cybrex_beta = {
 			}
 			event_target:cybrex = {
 				create_leader = {
-					type = admiral
+					class = admiral
 					species = owner_main_species
 					name = random
 					skill = 5
@@ -464,7 +466,7 @@ cybrex_beta = {
 		name = "NAME_Cybrex_Beta_2"
 		orbit_angle = 30
 		orbit_distance = 0
-		tile_blockers = none
+		deposit_blockers = none
 		modifiers = none
 
 		init_effect = {
@@ -489,7 +491,7 @@ cybrex_beta = {
 			}
 			event_target:cybrex = {
 				create_leader = {
-					type = admiral
+					class = admiral
 					species = owner_main_species
 					name = random
 					skill = 5
@@ -548,7 +550,7 @@ cybrex_beta = {
 		name = "NAME_Cybrex_Beta_3"
 		orbit_angle = 30
 		orbit_distance = 0
-		tile_blockers = none
+		deposit_blockers = none
 		modifiers = none
 
 		init_effect = {
@@ -573,7 +575,7 @@ cybrex_beta = {
 			}
 			event_target:cybrex = {
 				create_leader = {
-					type = admiral
+					class = admiral
 					species = owner_main_species
 					name = random
 					skill = 5
@@ -632,7 +634,7 @@ cybrex_beta = {
 		name = "NAME_Cybrex_Beta_4"
 		orbit_angle = 30
 		orbit_distance = 0
-		tile_blockers = none
+		deposit_blockers = none
 		modifiers = none
 
 		init_effect = {
@@ -657,7 +659,7 @@ cybrex_beta = {
 			}
 			event_target:cybrex = {
 				create_leader = {
-					type = admiral
+					class = admiral
 					species = owner_main_species
 					name = random
 					skill = 5
@@ -757,9 +759,11 @@ sentinel_system = {
 				}
 				effect = {
 					save_global_event_target_as = sentinels
-					add_minerals = 5000
-					add_energy = 5000
-					add_influence = 5000
+					add_resource = {
+						minerals = 5000
+						energy = 5000
+						influence = 5000
+					}
 				}
 			}
 			every_country = {
@@ -782,7 +786,7 @@ sentinel_system = {
 			}
 			last_created_country = {
 				create_leader = {
-					type = admiral
+					class = admiral
 					species = owner_main_species
 					name = random
 					skill = 500

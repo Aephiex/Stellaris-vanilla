@@ -23,5 +23,10 @@ weapon_component_template = {
 		
 	component_set = "SPACE_WHALE_WEAPON_1"
 	prerequisites = { "tech_space_whale_weapon_1" }
-	cost = @critter_cost_value
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = 15
+		}
+	}
 }

@@ -429,6 +429,8 @@ entity = {
 			name = "ai_01_colonizer_entity"
 			locator = { name = "part1" 	position = { 0 0 0 } }
 		}
+
+		entity = { name = "ai_01_sponsored_colonizer_entity" clone = "ai_01_colonizer_entity" }
     
 		entity = {
 			name = "ai_01_colony_ship_ai_entity"

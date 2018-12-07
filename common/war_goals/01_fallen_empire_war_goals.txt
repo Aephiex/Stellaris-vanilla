@@ -130,6 +130,7 @@ wg_fe_cleanse_border_worlds = {
 
 wg_ae_domination = {
 	casus_belli = cb_subjugation
+	set_defender_wargoal = wg_end_threat
 	
 	hide_if_no_cb = yes
 	total_war = yes

@@ -53,10 +53,10 @@ Cybrex = {
 	}
 
 	army_names = {
-		android_army = {
+		robotic_army = {
 			sequential_name = "%O% Preservation Legion"
 		}
-		android_defense_army = {
+		robotic_defense_army = {
 			sequential_name = "%O% Bulwark Legion"
 		}
 	}

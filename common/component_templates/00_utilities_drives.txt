@@ -21,7 +21,6 @@ utility_component_template = {
 	icon = "GFX_ship_part_empty_ftl_drive"
 	icon_frame = 1
 	power = 0
-	cost = 0
 	should_ai_use = no
 	
 	class_restriction = { shipclass_military shipclass_constructor shipclass_colonizer shipclass_science_ship shipclass_transport shipclass_military_special }
@@ -35,7 +34,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_hyper_drive_1"
 	icon_frame = 1
 	power = @power1
-	cost = @cost1
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost1
+		}
+	}
 	ftl = yes
 	
 	ai_weight = {
@@ -54,7 +58,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_hyper_drive_2"
 	icon_frame = 1
 	power = @power2
-	cost = @cost2
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost2
+		}
+	}
 	ftl = yes
 	ship_modifier = {
 		ship_windup_mult = -0.25
@@ -76,7 +85,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_hyper_drive_3"
 	icon_frame = 1
 	power = @power3
-	cost = @cost3
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost3
+		}
+	}
 	ftl = yes
 	ship_modifier = {
 		ship_windup_mult = -0.5
@@ -98,7 +112,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_jump_drive_1"
 	icon_frame = 1
 	power = @power4
-	cost = @cost4
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost4
+		}
+	}
 	ftl = yes
 	jumpdrive = yes
 	ship_modifier = {
@@ -122,7 +141,12 @@ utility_component_template = {
 	icon = "GFX_ship_part_psi_jump_drive_1"
 	icon_frame = 1
 	power = @power4
-	cost = @cost4
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @cost4
+		}
+	}
 	ftl = yes
 	jumpdrive = yes
 	ship_modifier = {

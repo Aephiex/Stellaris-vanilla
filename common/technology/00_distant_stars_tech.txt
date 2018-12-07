@@ -12,7 +12,7 @@ tech_gargantuan_evolution = {
 	}
 
 	modifier = {
-		tile_resource_energy_mult = 0.05
+		planet_jobs_energy_produces_mult = 0.05
 	}
 }
 
@@ -107,8 +107,8 @@ tech_neuroregeneration = {
 	area = society
 	tier = 4
 	category = { biology }
-	weight = 0
 	is_rare = yes
+	weight = 0
 
 	modifier = {
 		species_leader_exp_gain = 0.25
@@ -135,7 +135,7 @@ tech_nanite_repair_system = {
 	ai_update_type = military
 	weight = @tier5weight3
 	
-	weight_modifier = { 
+	weight_modifier = {
 		factor = 0 		# Can only be reverse engineered from killing the Scavenger Bot
 	}
 }

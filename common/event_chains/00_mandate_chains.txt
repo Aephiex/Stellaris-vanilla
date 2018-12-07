@@ -115,3 +115,93 @@ mandate_nationalist_chain = {
 		}
 	}
 }
+
+mandate_monthly_energy_chain = {
+	icon = "gfx/interface/icons/situation_log/situation_log_decision.dds"
+	picture = GFX_evt_throne_room
+	counter = {
+		generic_mandate_fulfilled = {
+			max = 1
+		}
+	}
+}
+
+mandate_monthly_minerals_chain = {
+	icon = "gfx/interface/icons/situation_log/situation_log_decision.dds"
+	picture = GFX_evt_throne_room
+	counter = {
+		generic_mandate_fulfilled = {
+			max = 1
+		}
+	}
+}
+
+mandate_monthly_food_chain = {
+	icon = "gfx/interface/icons/situation_log/situation_log_decision.dds"
+	picture = GFX_evt_throne_room
+	counter = {
+		generic_mandate_fulfilled = {
+			max = 1
+		}
+	}
+}
+
+mandate_monthly_alloys_chain = {
+	icon = "gfx/interface/icons/situation_log/situation_log_decision.dds"
+	picture = GFX_evt_throne_room
+	counter = {
+		generic_mandate_fulfilled = {
+			max = 1
+		}
+	}
+}
+
+mandate_monthly_consumer_goods_chain = {
+	icon = "gfx/interface/icons/situation_log/situation_log_decision.dds"
+	picture = GFX_evt_throne_room
+	counter = {
+		generic_mandate_fulfilled = {
+			max = 1
+		}
+	}
+}
+
+mandate_district_city_chain = {
+	icon = "gfx/interface/icons/situation_log/situation_log_decision.dds"
+	picture = GFX_evt_throne_room
+	counter = {
+		built_district = {
+			max = 2
+		}
+	}
+}
+
+mandate_district_generator_chain = {
+	icon = "gfx/interface/icons/situation_log/situation_log_decision.dds"
+	picture = GFX_evt_throne_room
+	counter = {
+		built_district = {
+			max = 2
+		}
+	}
+}
+
+mandate_district_mining_chain = {
+	icon = "gfx/interface/icons/situation_log/situation_log_decision.dds"
+	picture = GFX_evt_throne_room
+	counter = {
+		built_district = {
+			max = 2
+		}
+	}
+}
+
+mandate_district_farming_chain = {
+	icon = "gfx/interface/icons/situation_log/situation_log_decision.dds"
+	picture = GFX_evt_throne_room
+	counter = {
+		built_district = {
+			max = 2
+		}
+	}
+}

@@ -90,14 +90,6 @@ REP4 = {
 			sequential_name = "%O% Bot Defense Force"
 		}
 		
-		android_army = {
-			sequential_name = "%O% Synth Force"
-		}
-
-		android_defense_army = {
-			sequential_name = "%O% Synth Defense Force"
-		}
-		
 		psionic_army = { 
 			sequential_name = "%O% Mind Warriors"
 		}
@@ -118,8 +110,14 @@ REP4 = {
 			sequential_name = "%O% Bot Garrison"
 		}
 
-		android_occupation_army = {
-			sequential_name = "%O% Synth Garrison"
+		primitive_army = {
+			sequential_name = "Primitive Army %C%"
+		}
+		industrial_army = {
+			sequential_name = "Industrial Army %C%"
+		}
+		postatomic_army = {
+			sequential_name = "Post-Atomic Army %C%"
 		}
 	}
 

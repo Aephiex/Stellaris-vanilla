@@ -9,6 +9,13 @@ progressive = {
 	unique = yes
 	support_multiplier = 1
 	
+	resources = {
+		category = pop_factions
+		produces = {
+			influence = 2
+		}		
+	}
+
 	is_potential = {
 		years_passed > 10
 		has_encountered_other_species = yes
@@ -83,7 +90,7 @@ progressive = {
 		unfulfilled_title = "PROGRESSIVE_AUTO"
 		desc = "PROGRESSIVE_DEMOCRATIC_GOVERNMENT_DESC"
 
-		fulfilled_effect = 5
+		fulfilled_effect = 10
 		unfulfilled_effect = -15
 
 		potential = {
@@ -105,7 +112,7 @@ progressive = {
 		unfulfilled_title = "PROGRESSIVE_NO_FREE_MOVEMENT"
 		desc = "PROGRESSIVE_FREE_MOVEMENT_DESC"
 
-		fulfilled_effect = 3
+		fulfilled_effect = 10
 		unfulfilled_effect = -10
 
 		potential = {
@@ -115,13 +122,6 @@ progressive = {
 
 		trigger = {
 			owner = {
-				OR = {
-					AND = {
-						has_encountered_other_species = yes
-						has_policy_flag = core_worlds_all
-					}
-					has_encountered_other_species = no
-				}
 				NOR = {
 					any_owned_pop = {
 						has_migration_control = yes
@@ -141,8 +141,8 @@ progressive = {
 		unfulfilled_title = "PROGRESSIVE_NO_REPRODUCTIVE_FREEDOM"
 		desc = "PROGRESSIVE_REPRODUCTIVE_FREEDOM_DESC"
 
-		fulfilled_effect = 2
-		unfulfilled_effect = -10
+		fulfilled_effect = 5
+		unfulfilled_effect = -20
 
 		potential = {
 			exists = owner
@@ -150,20 +150,17 @@ progressive = {
 
 		trigger = {
 			NOT = {
-				any_owned_pop = {
-					has_population_control = yes
-				}
+				owner = { has_policy_flag = population_controls_allowed }
 			}
 		}
 	}
 
 	demand = {
-		title = "PROGRESSIVE_NO_CASTE"
-		unfulfilled_title = "PROGRESSIVE_CASE"
-		desc = "PROGRESSIVE_NO_CASTE_DESC"
+		title = "PROGRESSIVE_NO_STRATIFIED"
+		unfulfilled_title = "PROGRESSIVE_STRATIFIED"
+		desc = "PROGRESSIVE_NO_STRATIFIED_DESC"
 
-		fulfilled_effect = 5
-		unfulfilled_effect = -15
+		unfulfilled_effect = -25
 
 		potential = {
 			exists = owner
@@ -173,16 +170,7 @@ progressive = {
 			owner = {
 				NOT = {
 					any_owned_pop = {
-						OR = {
-							has_citizenship_type = {
-								type = citizenship_caste_system
-								country = prev
-							}
-							has_citizenship_type = {
-								type = citizenship_caste_system_limited
-								country = prev
-							}							
-						}
+						has_living_standard = { type = living_standard_stratified }
 					}
 				}
 			}
@@ -216,38 +204,6 @@ progressive = {
 			}
 		}
 	}
-
-	#demand = {
-	#	title = "PROGRESSIVE_SOCIAL_EQUALITY"
-	#	unfulfilled_title = "PROGRESSIVE_NO_SOCIAL_EQUALITY"
-	#	desc = "PROGRESSIVE_SOCIAL_EQUALITY_DESC"
-#
-	#	unfulfilled_effect = -10
-#
-	#	potential = {
-	#		exists = owner
-	#		owner = {
-	#			num_species > 1
-	#		}
-	#	}
-#
-	#	trigger = {
-	#		owner = {
-	#			NOT = {
-	#				any_owned_pop = {
-	#					NOR = {
-	#						is_sapient = no
-	#						is_robot_pop = yes
-	#						has_citizenship_type = {
-	#							country = root.owner
-	#							type = citizenship_full
-	#						}
-	#					}
-	#				}
-	#			}
-	#		}
-	#	}
-	#}
 	
 	on_create = {
 		pop_faction_event = { id = factions.1 }

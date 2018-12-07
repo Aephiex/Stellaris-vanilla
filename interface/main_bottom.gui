@@ -221,49 +221,6 @@ guiTypes = {
 			}
 		}
 
-		## Sector Management
-		containerWindowType = {
-			name = "sector_management"
-
-			size = { width = 166 height = 114 }
-			position = { x = -83 y = 0 }
-			hide_position = { x = -83 y = 20 }
-			show_position = { x = -83 y = -97 }
-			animation_type = decelerated
-			animation_time = 500.5
-
-			orientation = center_down
-
-			instantTextBoxType={
-				name = "status"
-				font = "malgun_goth_24"
-				position = { x = -60 y = -10 }
-				maxWidth = 250
-				maxHeight = 16
-				alwaysTransparent = yes
-				format = center
-				text = "SECTOR_MANAGEMENT_MODE"
-			}
-
-			iconType = {
-				name = "system_button_panel"
-				spriteType = "GFX_system_button_panel"
-				position = { x = -130 y = 45 }
-				alwaysTransparent = yes
-			}
-
-			buttonType = {
-				name = "close"
-				quadTextureSprite = "GFX_standard_button_142_34_button"
-				position = { x= -14 y = 42 }
-				text = "CLOSE"
-				buttonFont = "cg_16b"
-				pdx_tooltip = "TOOLTIP_CLOSE_SECTOR_MANAGEMENT"
-				shortcut = "ESCAPE"
-				actionShortcut = "cancel"
-			}
-		}
-
 		## Claims Management
 		containerWindowType = {
 			name = "claims_management"
@@ -302,6 +259,46 @@ guiTypes = {
 				text = "CLOSE"
 				buttonFont = "cg_16b"
 				pdx_tooltip = "TOOLTIP_CLOSE_CLAIMS_MANAGEMENT"
+			}
+		}
+
+		## Trade Routes Management
+		containerWindowType = {
+			name = "trade_routes_management"
+			size = { width = 166 height = 114 }
+			position = { x = -83 y = 0 }
+			hide_position = { x = -83 y = 20 }
+			show_position = { x = -83 y = -97 }
+			animation_type = decelerated
+			animation_time = 500.5
+
+			orientation = center_down
+
+			instantTextBoxType={
+				name = "status"
+				font = "malgun_goth_24"
+				position = { x = -60 y = -10 }
+				maxWidth = 250
+				maxHeight = 16
+				alwaysTransparent = yes
+				format = center
+				text = "TRADE_ROUTES_MANAGEMENT_MODE"
+			}
+
+			iconType = {
+				name = "system_button_panel"
+				spriteType = "GFX_system_button_panel"
+				position = { x = -130 y = 45 }
+				alwaysTransparent = yes
+			}
+
+			buttonType = {
+				name = "close"
+				quadTextureSprite = "GFX_standard_button_142_34_button"
+				position = { x = -14 y = 42 }
+				text = "CLOSE"
+				buttonFont = "cg_16b"
+				pdx_tooltip = "TOOLTIP_CLOSE_TRADE_ROUTES_MANAGEMENT_MODE"
 			}
 		}
 
@@ -490,7 +487,7 @@ guiTypes = {
 				alwaystransparent = yes
 			}
 
- 			buttonType = {
+			buttonType = {
 				name = "toggle_mapmode_hyperlanes"
 				quadTextureSprite = "GFX_button_29_animated"
 				position = { x= -358 y = -82  }
@@ -499,7 +496,25 @@ guiTypes = {
 				pdx_tooltip_anchor_orientation = lower_left
 				orientation = lower_right
 			}
-			
+
+			iconType = {
+				name = "toggle_mapmode_icon_trade_routes"
+				spriteType = "GFX_map_mode_trade_routes"
+				position = { x = -346 y = -103 }
+				orientation = "LOWER_RIGHT"
+				alwaystransparent = yes
+			}
+
+ 			buttonType = {
+				name = "toggle_mapmode_trade_routes"
+				quadTextureSprite = "GFX_button_29_animated"
+				position = { x= -358 y = -115  }
+				pdx_tooltip = "TOGGLE_MAPMODE_TRADE_ROUTES_INFO"
+				pdx_tooltip_anchor_offset = { x= 0 y = @tt_offset_y }
+				pdx_tooltip_anchor_orientation = lower_left
+				orientation = lower_right
+			}
+
 			iconType = {
 				name = "toggle_mapmode_icon_unions"
 				spriteType = "GFX_map_mode_unions"
@@ -513,6 +528,24 @@ guiTypes = {
 				quadTextureSprite = "GFX_button_29_animated"
 				position = { x= -325 y = -82  }
 				pdx_tooltip = "TOGGLE_MAPMODE_UNIONS_INFO"
+				pdx_tooltip_anchor_offset = { x= 0 y = @tt_offset_y }
+				pdx_tooltip_anchor_orientation = lower_left
+				orientation = lower_right
+			}
+
+			iconType = {
+				name = "toggle_mapmode_icon_players"
+				spriteType = "GFX_map_mode_players"
+				position = { x = -379 y = -103 }
+				orientation = "LOWER_RIGHT"
+				alwaystransparent = yes
+			}
+
+			buttonType = {
+				name = "toggle_mapmode_players"
+				quadTextureSprite = "GFX_button_29_animated"
+				position = { x = -391 y = -115 }
+				pdx_tooltip = "TOGGLE_MAPMODE_PLAYERS_INFO"
 				pdx_tooltip_anchor_offset = { x= 0 y = @tt_offset_y }
 				pdx_tooltip_anchor_orientation = lower_left
 				orientation = lower_right

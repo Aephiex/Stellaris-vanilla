@@ -2,7 +2,7 @@
 #
 # Observation Post Events
 #
-# Written by Henrik Eklund
+# Written by Henrik Thyrwall
 #
 ############################
 
@@ -1010,7 +1010,7 @@ country_event = {
 	}
 	
 	option = {
-		name = "observation.41.a"
+		name = CURSES
 		FROM = {
 			observation_outpost = {
 				dismantle = yes
@@ -1044,7 +1044,7 @@ country_event = {
 	}
 	
 	option = {
-		name = "observation.42.a"
+		name = TERRIBLE
 		FROM = {
 			observation_outpost = {
 				dismantle = yes
@@ -1159,9 +1159,9 @@ country_event = {
 		name = "observation.46.a"
 		trigger = {
 			NOT = { has_authority = auth_machine_intelligence }
-			influence > 199.99
+			resource_stockpile_compare = { resource = influence value >= 200 }
 		}
-		add_influence = -150
+		add_resource = { influence = -150 }
 		FROM = {
 			owner = {
 				custom_tooltip = acquired_tech_tooltip
@@ -1173,9 +1173,9 @@ country_event = {
 		name = "observation.46.a"
 		trigger = {
 			NOT = { has_authority = auth_machine_intelligence }
-			NOT = { influence > 199.99 }
+			resource_stockpile_compare = { resource = influence value < 200 }
 		}
-		add_influence = -75
+		add_resource = { influence = -75 }
 		FROM = {
 			owner = {
 				custom_tooltip = acquired_tech_tooltip
@@ -1187,9 +1187,9 @@ country_event = {
 		name = "observation.46.a.mach"
 		trigger = {
 			has_authority = auth_machine_intelligence
-			influence > 199.99
+			resource_stockpile_compare = { resource = influence value >= 200 }
 		}
-		add_influence = -150
+		add_resource = { influence = -150 }
 		FROM = {
 			owner = {
 				custom_tooltip = acquired_tech_tooltip
@@ -1201,9 +1201,9 @@ country_event = {
 		name = "observation.46.a.mach"
 		trigger = {
 			has_authority = auth_machine_intelligence
-			NOT = { influence > 199.99 }
+			resource_stockpile_compare = { resource = influence value < 200 }
 		}
-		add_influence = -75
+		add_resource = { influence = -75 }
 		FROM = {
 			owner = {
 				custom_tooltip = acquired_tech_tooltip
@@ -1245,7 +1245,7 @@ country_event = {
 	}
 	option = {
 		name = "observation.47.a"
-		#add_influence = -100
+		#add_resource = { influence = -100 }
 		tooltip = {
 			add_modifier = {
 			modifier = unity_reduction_observation_47
@@ -1449,7 +1449,7 @@ ship_event = {
 		name = "EXCELLENT"
 		owner = {
 			create_leader = {
-				type = scientist
+				class = scientist
 				species = event_target:primitive_species
 				name = "NAME_Sobak"
 				skill = 6
@@ -2845,26 +2845,7 @@ country_event = {
 	immediate = {
 		FROM = {
 			owner = {
-				if = {
-					limit = { has_ethic = "ethic_xenophobe" }
-					country_remove_ethic = "ethic_xenophobe"
-					FROM = {
-						every_owned_pop = {
-							limit = { has_ethic = "ethic_xenophobe" }
-							pop_remove_ethic = "ethic_xenophobe"
-						}
-					}
-				}
-				if = {
-					limit = { has_ethic = "ethic_fanatic_xenophobe" }
-					country_remove_ethic = "ethic_fanatic_xenophobe"
-					FROM = {
-						every_owned_pop = {
-							limit = { has_ethic = "ethic_fanatic_xenophobe" }
-							pop_remove_ethic = "ethic_fanatic_xenophobe"
-						}
-					}
-				}
+				shift_ethic = "ethic_xenophile"
 			}
 		}
 	}
@@ -2874,8 +2855,7 @@ country_event = {
 		tooltip = {
 			FROM = {
 				owner = {
-					country_remove_ethic = "ethic_xenophobe"
-					country_remove_ethic = "ethic_fanatic_xenophobe"
+					shift_ethic = "ethic_xenophile"
 				}	
 			}
 		}
@@ -2960,19 +2940,10 @@ country_event = {
 		FROM = {
 			owner = {
 				random_list = {
-					75 = { 
-						shift_ethic = "ethic_xenophile"
-						FROM = {
-							every_owned_pop = { pop_change_ethic = "ethic_xenophile" }
-						}
-					}
-					25 = {
-						shift_ethic = "ethic_fanatic_xenophile"
-						FROM = {
-							every_owned_pop = { pop_change_ethic = "ethic_xenophile" }
-						}
-					}
+					75 = { shift_ethic = "ethic_xenophile" }
+					25 = { shift_ethic = "ethic_fanatic_xenophile" }
 				}
+				every_owned_pop = { pop_change_ethic = "ethic_xenophile" }
 			}
 		}
 	}
@@ -2981,16 +2952,7 @@ country_event = {
 		name = "INTERESTING"
 		tooltip = {
 			FROM = {
-				owner = {
-					if = {
-						limit = { has_ethic = "ethic_xenophile" }
-						shift_ethic = "ethic_xenophile"
-					}
-					if = {
-						limit = { has_ethic = "ethic_fanatic_xenophile" }
-						shift_ethic = "ethic_fanatic_xenophile"
-					}
-				}
+				owner = { shift_ethic = "ethic_xenophile" }
 			}
 		}
 	}
@@ -3081,34 +3043,11 @@ country_event = {
 	immediate = {
 		FROM = {
 			owner = {
-				if = {
-					limit = { has_ethic = "ethic_militarist" }
-					country_remove_ethic = "ethic_militarist"
-					FROM = {
-						every_owned_pop = { pop_remove_ethic = "ethic_militarist" }
-					}
-				}
-				if = {
-					limit = { has_ethic = "ethic_fanatic_militarist" }
-					country_remove_ethic = "ethic_fanatic_militarist"
-					FROM = {
-						every_owned_pop = { pop_remove_ethic = "ethic_militarist" }
-					}
-				}
 				random_list = {
-					75 = { 
-						shift_ethic = "ethic_pacifist"
-						FROM = {
-							every_owned_pop = { pop_change_ethic = "ethic_pacifist" }
-						}
-					}
-					25 = {
-						shift_ethic = "ethic_fanatic_pacifist"
-						FROM = {
-							every_owned_pop = { pop_change_ethic = "ethic_pacifist" }
-						}
-					}
+					75 = { shift_ethic = "ethic_pacifist" }
+					25 = { shift_ethic = "ethic_fanatic_pacifist" }
 				}
+				every_owned_pop = { pop_change_ethic = "ethic_pacifist" }
 			}
 		}
 	}
@@ -3117,16 +3056,7 @@ country_event = {
 		name = "INTERESTING"
 		tooltip = {
 			FROM = {
-				owner = {
-					if = {
-						limit = { has_ethic = "ethic_pacifist" }
-						shift_ethic = "ethic_pacifist"
-					}
-					if = {
-						limit = { has_ethic = "ethic_fanatic_pacifist" }
-						shift_ethic = "ethic_fanatic_pacifist"
-					}
-				}
+				owner = { shift_ethic = "ethic_pacifist" }
 			}
 		}
 	}
@@ -3217,34 +3147,11 @@ country_event = {
 	immediate = {
 		FROM = {
 			owner = {
-				if = {
-					limit = { has_ethic = "ethic_pacifist" }
-					country_remove_ethic = "ethic_pacifist"
-					FROM = {
-						every_owned_pop = { pop_remove_ethic = "ethic_pacifist" }
-					}
-				}
-				if = {
-					limit = { has_ethic = "ethic_fanatic_pacifist" }
-					country_remove_ethic = "ethic_fanatic_pacifist"
-					FROM = {
-						every_owned_pop = { pop_remove_ethic = "ethic_pacifist" }
-					}
-				}
 				random_list = {
-					75 = { 
-						shift_ethic = "ethic_militarist"
-						FROM = {
-							every_owned_pop = { pop_change_ethic = "ethic_militarist" }
-						}
-					}
-					25 = {
-						shift_ethic = "ethic_fanatic_militarist"
-						FROM = {
-							every_owned_pop = { pop_change_ethic = "ethic_militarist" }
-						}
-					}
+					75 = { shift_ethic = "ethic_militarist" }
+					25 = { shift_ethic = "ethic_fanatic_militarist" }
 				}
+				every_owned_pop = { pop_change_ethic = "ethic_militarist" }
 			}
 		}
 	}
@@ -3253,16 +3160,7 @@ country_event = {
 		name = "INTERESTING"
 		tooltip = {
 			FROM = {
-				owner = {
-					if = {
-						limit = { has_ethic = "ethic_militarist" }
-						shift_ethic = "ethic_militarist"
-					}
-					if = {
-						limit = { has_ethic = "ethic_fanatic_militarist" }
-						shift_ethic = "ethic_fanatic_militarist"
-					}
-				}
+				owner = { shift_ethic = "ethic_militarist" }
 			}
 		}
 	}
@@ -3353,34 +3251,11 @@ country_event = {
 	immediate = {
 		FROM = {
 			owner = {
-				if = {
-					limit = { has_ethic = "ethic_egalitarian" }
-					country_remove_ethic = "ethic_egalitarian"
-					FROM = {
-						every_owned_pop = { pop_remove_ethic = "ethic_egalitarian" }
-					}
-				}
-				if = {
-					limit = { has_ethic = "ethic_fanatic_egalitarian" }
-					country_remove_ethic = "ethic_fanatic_egalitarian"
-					FROM = {
-						every_owned_pop = { pop_remove_ethic = "ethic_egalitarian" }
-					}
-				}
 				random_list = {
-					75 = { 
-						shift_ethic = "ethic_authoritarian"
-						FROM = {
-							every_owned_pop = { pop_change_ethic = "ethic_authoritarian" }
-						}
-					}
-					25 = {
-						shift_ethic = "ethic_fanatic_authoritarian"
-						FROM = {
-							every_owned_pop = { pop_change_ethic = "ethic_authoritarian" }
-						}
-					}
+					75 = { shift_ethic = "ethic_authoritarian" }
+					25 = { shift_ethic = "ethic_fanatic_authoritarian" }
 				}
+				every_owned_pop = { pop_change_ethic = "ethic_authoritarian" }
 			}
 		}
 	}
@@ -3389,16 +3264,7 @@ country_event = {
 		name = "INTERESTING"
 		tooltip = {
 			FROM = {
-				owner = {
-					if = {
-						limit = { has_ethic = "ethic_authoritarian" }
-						shift_ethic = "ethic_authoritarian"
-					}
-					if = {
-						limit = { has_ethic = "ethic_fanatic_authoritarian" }
-						shift_ethic = "ethic_fanatic_authoritarian"
-					}
-				}
+				owner = { shift_ethic = "ethic_authoritarian" }
 			}
 		}
 	}
@@ -3489,34 +3355,11 @@ country_event = {
 	immediate = {
 		FROM = {
 			owner = {
-				if = {
-					limit = { has_ethic = "ethic_authoritarian" }
-					country_remove_ethic = "ethic_authoritarian"
-					FROM = {
-						every_owned_pop = { pop_remove_ethic = "ethic_authoritarian" }
-					}
-				}
-				if = {
-					limit = { has_ethic = "ethic_fanatic_authoritarian" }
-					country_remove_ethic = "ethic_fanatic_authoritarian"
-					FROM = {
-						every_owned_pop = { pop_remove_ethic = "ethic_authoritarian" }
-					}
-				}
 				random_list = {
-					75 = { 
-						shift_ethic = "ethic_egalitarian"
-						FROM = {
-							every_owned_pop = { pop_change_ethic = "ethic_egalitarian" }
-						}
-					}
-					25 = {
-						shift_ethic = "ethic_fanatic_egalitarian"
-						FROM = {
-							every_owned_pop = { pop_change_ethic = "ethic_egalitarian" }
-						}
-					}
+					75 = { shift_ethic = "ethic_egalitarian" }
+					25 = { shift_ethic = "ethic_fanatic_egalitarian" }
 				}
+				every_owned_pop = { pop_change_ethic = "ethic_egalitarian" }
 			}
 		}
 	}
@@ -3525,16 +3368,7 @@ country_event = {
 		name = "INTERESTING"
 		tooltip = {
 			FROM = {
-				owner = {
-					if = {
-						limit = { has_ethic = "ethic_egalitarian" }
-						shift_ethic = "ethic_egalitarian"
-					}
-					if = {
-						limit = { has_ethic = "ethic_fanatic_egalitarian" }
-						shift_ethic = "ethic_fanatic_egalitarian"
-					}
-				}
+				owner = { shift_ethic = "ethic_egalitarian" }
 			}
 		}
 	}
@@ -3631,34 +3465,11 @@ country_event = {
 	immediate = {
 		FROM = {
 			owner = {
-				if = {
-					limit = { has_ethic = "ethic_spiritualist" }
-					country_remove_ethic = "ethic_spiritualist"
-					FROM = {
-						every_owned_pop = { pop_remove_ethic = "ethic_spiritualist" }
-					}
-				}
-				if = {
-					limit = { has_ethic = "ethic_fanatic_spiritualist" }
-					country_remove_ethic = "ethic_fanatic_spiritualist"
-					FROM = {
-						every_owned_pop = { pop_remove_ethic = "ethic_spiritualist" }
-					}
-				}
 				random_list = {
-					75 = { 
-						shift_ethic = "ethic_materialist"
-						FROM = {
-							every_owned_pop = { pop_change_ethic = "ethic_materialist" }
-						}
-					}
-					25 = {
-						shift_ethic = "ethic_fanatic_materialist"
-						FROM = {
-							every_owned_pop = { pop_change_ethic = "ethic_materialist" }
-						}
-					}
+					75 = { shift_ethic = "ethic_materialist" }
+					25 = { shift_ethic = "ethic_fanatic_materialist" }
 				}
+				every_owned_pop = { pop_change_ethic = "ethic_materialist" }
 			}
 		}
 	}
@@ -3767,34 +3578,11 @@ country_event = {
 	immediate = {
 		FROM = {
 			owner = {
-				if = {
-					limit = { has_ethic = "ethic_materialist" }
-					country_remove_ethic = "ethic_materialist"
-					FROM = {
-						every_owned_pop = { pop_remove_ethic = "ethic_materialist" }
-					}
-				}
-				if = {
-					limit = { has_ethic = "ethic_fanatic_materialist" }
-					country_remove_ethic = "ethic_fanatic_materialist"
-					FROM = {
-						every_owned_pop = { pop_remove_ethic = "ethic_materialist" }
-					}
-				}
 				random_list = {
-					75 = { 
-						shift_ethic = "ethic_spiritualist"
-						FROM = {
-							every_owned_pop = { pop_change_ethic = "ethic_spiritualist" }
-						}
-					}
-					25 = {
-						shift_ethic = "ethic_fanatic_spiritualist"
-						FROM = {
-							every_owned_pop = { pop_change_ethic = "ethic_spiritualist" }
-						}
-					}
+					75 = { shift_ethic = "ethic_spiritualist" }
+					25 = { shift_ethic = "ethic_fanatic_spiritualist" }
 				}
+				every_owned_pop = { pop_change_ethic = "ethic_spiritualist" }
 			}
 		}
 	}
@@ -3803,16 +3591,7 @@ country_event = {
 		name = "INTERESTING"
 		tooltip = {
 			FROM = {
-				owner = {
-					if = {
-						limit = { has_ethic = "ethic_spiritualist" }
-						shift_ethic = "ethic_spiritualist"
-					}
-					if = {
-						limit = { has_ethic = "ethic_fanatic_spiritualist" }
-						shift_ethic = "ethic_fanatic_spiritualist"
-					}
-				}
+				owner = { shift_ethic = "ethic_spiritualist" }
 			}
 		}
 	}
@@ -4720,22 +4499,27 @@ country_event = {
 				species = owner_main_species
 				type = "defense_army"
 			}
-			random_tile = {
-				limit = { has_blocker = no has_building = no }
-				set_building = "building_power_plant_1"
-				random_neighboring_tile = {
-					limit = { has_blocker = no has_building = no }
-					set_building = "building_power_plant_1"
-				}
-			}
-			random_tile = {
-				limit = { has_blocker = no has_building = no }
-				set_building = "building_capital_1"
-				random_neighboring_tile = {
-					limit = { has_blocker = no has_building = no }
-					set_building = "building_hydroponics_farm_1"
-				}
-			}
+			remove_building = building_primitive_dwellings
+			remove_building = building_stone_palace
+			remove_building = building_primitive_farm
+			remove_building = building_primitive_factory
+			remove_building = building_primitive_capital
+			remove_building = building_urban_dwellings
+			add_district = district_city
+			add_district = district_city
+			add_district = district_city
+			add_district = district_city
+			add_district = district_farming
+			add_district = district_farming
+			add_district = district_farming
+			add_district = district_mining
+			add_district = district_mining
+			add_district = district_generator
+			add_district = district_generator
+			add_building = building_capital
+			add_building = building_research_lab_1
+			add_building = building_foundry_1
+			add_building = building_factory_1
 			event_target:primitive_civ = { destroy_country = yes }
 		}
 	}
@@ -5297,14 +5081,8 @@ planet_event = {
 				has_country_flag = renaissance_age
 			}
 		}
-		NOT = {
-			any_tile = {
-				has_building = "building_great_pyramid"
-			}
-		}
-		any_tile = {
-			has_grown_pop = yes
-		}
+		NOT = { has_building = building_great_pyramid }
+		num_pops > 0
 	}
 	
 	mean_time_to_happen = {
@@ -5320,13 +5098,7 @@ planet_event = {
 	}
 	
 	immediate = {
-		random_tile = {
-			limit = {
-				has_grown_pop = yes
-				has_blocker = no
-			}
-			set_building = "building_great_pyramid"
-		}	
+		add_building = building_great_pyramid
 		observation_outpost_owner = {
 			set_country_flag = observation_pyramid
 			country_event = { id = observation.3135 }
@@ -5524,7 +5296,7 @@ country_event = {
 	}
 	option = {
 		name = "observation.3135.c"
-		custom_tooltip = observation.3135.c.tooltip
+		#custom_tooltip = observation.3135.c.tooltip
 		trigger = {
 			OR = {
 				has_policy_flag = first_contact_attack_allowed
@@ -5537,20 +5309,13 @@ country_event = {
 				has_ethic = ethic_pacifist
 			}
 		}
-		hidden_effect = {
-			from = {
-				random_tile = {
-					limit = {
-						has_building = building_great_pyramid
-					}
-					set_ruined = yes
-				}
-				random_pop = {
-					kill_pop = yes
-				}
+		from = {
+			remove_building = building_great_pyramid
+			random_owned_pop = {
+				kill_pop = yes
 			}
 		}
-	}
+	}	
 	option = {
 		name = "observation.3135.d"
 		custom_tooltip = observation.3135.d.tooltip
@@ -5604,20 +5369,14 @@ country_event = {
 				}
 			}
 		}
-		add_influence = -50
+		add_resource = { influence = -50 }
 		hidden_effect = {
 			fromfrom = {
 				add_modifier = {
 					modifier = pyramid_wars
 					days = 720
 				}
-				random_tile = {
-					limit = {
-						has_building = no
-						has_blocker = no
-					}
-					set_building = "building_great_pyramid"
-				}
+				add_building = building_great_pyramid
 				random_pop = {
 					kill_pop = yes
 				}
@@ -5642,20 +5401,14 @@ country_event = {
 				}
 			}
 		}
-		add_influence = -50
+		add_resource = { influence = -50 }
 		hidden_effect = {
 			fromfrom = {
 				add_modifier = {
 					modifier = pyramid_wars
 					days = 720
 				}
-				random_tile = {
-					limit = {
-						has_building = no
-						has_blocker = no
-					}
-					set_building = building_great_pyramid
-				}
+				add_building = building_great_pyramid
 				random_pop = {
 					kill_pop = yes
 				}
@@ -5672,20 +5425,14 @@ country_event = {
 				}
 			}
 		}
-		add_influence = -50
+		add_resource = { influence = -50 }
 		hidden_effect = {
 			fromfrom = {
 				add_modifier = {
 					modifier = pyramid_wars
 					days = 720
 				}
-				random_tile = {
-					limit = {
-						has_building = no
-						has_blocker = no
-					}
-					set_building = building_great_pyramid
-				}
+				add_building = building_great_pyramid
 			}
 		}
 	}

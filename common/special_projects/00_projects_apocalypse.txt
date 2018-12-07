@@ -1,16 +1,7 @@
 # Colossus Project
 special_project = {
 	key = "COLOSSUS_PROJECT"
-	cost = {
-		base = 1000
-		scaled_modifier = {
-			limit = {
-			}
-			scope = this
-			add = 100
-			calc = pop_count
-		}
-	}
+	cost = 50000
 	#cost = 50
 	tech_department = engineering_technology
 	icon = "gfx/interface/icons/situation_log/situation_log_main_quest.dds"

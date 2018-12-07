@@ -2336,6 +2336,7 @@ entity = {
 		default_state = "idle"
 	state = { name = "idle" state_time = 5
 		start_event = { trigger_once = yes sound = { soundeffect = "abandoned_ship_idle_amb" } }
+		start_event = { trigger_once = yes sound = { soundeffect = "amb_abandoned_ship_stinger" } }
 	}
 	scale = 0.4
 }
@@ -3533,6 +3534,12 @@ entity = {
 	scale = 14
 }
 
+entity = {
+	name = "starbase_gatebuilders_entity"
+	clone = "station_generic_01_entity"
+	scale = 14
+}
+
 
 entity = {
 	name = "nomad_cruiser_entity"
@@ -3581,4 +3588,10 @@ entity = {
 	locator = {
 		name = "root"
 	}
+}
+
+entity = {
+	name = "starbase_caravaneer_entity"
+	clone = "station_generic_01_entity"
+	scale = 2
 }

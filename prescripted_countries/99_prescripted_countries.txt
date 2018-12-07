@@ -15,9 +15,9 @@ tzynn = {
 		name_list = "REP1"
 		trait = "trait_strong"
 		trait = "trait_resilient"
-		trait = "trait_talented"
 		trait = "trait_rapid_breeders"
-		trait = "trait_nonadaptive"
+		trait = "trait_decadent"
+		trait = "trait_quarrelsome"
 	}
 	
 	room = "personality_slaving_despots_room"
@@ -59,6 +59,7 @@ tzynn = {
 		portrait = "rep9"
 		texture = 1
 		clothes = 4
+		leader_class = ruler
 	}	
 }
 
@@ -121,6 +122,7 @@ yondar = {
 		portrait = "avi10"
 		texture = 1
 		clothes = 3
+		leader_class = ruler
 	}
 }
 
@@ -129,6 +131,8 @@ iferyx = {
 	name = "iferyx"
 	adjective = "PRESCRIPTED_adjective_iferyx"
 	spawn_enabled = yes # yes / no / always
+	
+	playable = has_not_megacorp
 	
 	species = {
 		class = "MAM"
@@ -184,71 +188,68 @@ iferyx = {
 		portrait = "mam16"
 		texture = 1
 		clothes = 3
+		leader_class = ruler
 	}
 }
 
-# Chinorr
-chinorr = {
-	name = "chinorr"
-	adjective = "PRESCRIPTED_adjective_chinorr"
+# Glebsig Foundation
+glebsig = {
+	name = "glebsig"
+	adjective = "PRESCRIPTED_adjective_glebsig"
 	spawn_enabled = yes # yes / no / always
+	spawn_as_fallen = yes # overrides spawn_enabled for fallen empires
+	
+	ship_prefix = "PRESCRIPTED_ship_prefix_glebsig"
 	
 	species = {
 		class = "MOL"
-		portrait = "mol11"
-		name = "PRESCRIPTED_species_name_chinorr"
-		plural = "PRESCRIPTED_species_plural_chinorr"
-		adjective = "PRESCRIPTED_species_adjective_chinorr"
-		name_list = "MOL1"
-		trait = "trait_industrious"
-		trait = "trait_intelligent"
-		trait = "trait_solitary"
-		trait = "trait_wasteful"
+		portrait = "mol7"
+		name = "PRESCRIPTED_species_name_glebsig"
+		plural = "PRESCRIPTED_species_plural_glebsig"
+		adjective = "PRESCRIPTED_species_adjective_glebsig"
+		name_list = "MOL2"
+		trait = "trait_sedentary"
+		trait = "trait_enduring"
+		trait = "trait_conservational"
+		trait = "trait_resilient"
 	}
 	
-	ship_prefix = "PRESCRIPTED_ship_prefix_chinorr"
-	
-	planet_name = "PRESCRIPTED_planet_name_chinorr"
-	planet_class = "pc_arid"
-	system_name = "PRESCRIPTED_system_name_chinorr"
-	
-	room = "personality_ruthless_capitalists_room"
-	
-	authority = "auth_oligarchic"
-	civics = { "civic_corporate_dominion" "civic_mining_guilds" }
-	government = gov_megacorporation
+	room = "personality_migrating_flock_room"
 
-	ethic = "ethic_militarist"
-	ethic = "ethic_fanatic_materialist"
-	
+	authority = "auth_oligarchic"
+	civics = { "civic_exalted_priesthood" "civic_efficient_bureaucracy" }
+	government = "gov_holy_tribunal"
+	planet_name = "PRESCRIPTED_planet_name_glebsig"
+	planet_class ="pc_alpine"
+	system_name = "PRESCRIPTED_system_name_glebsig"
+	initializer = ""
 	graphical_culture = "molluscoid_01"
 	city_graphical_culture = "molluscoid_01"
-	
 	empire_flag = {
-		icon= {
-			category = "ornate"
-			file = "flag_ornate_4.dds"
+		icon = {
+			category = "pointy"
+			file = "flag_pointy_6.dds"
 		}
-		background= {
+		background = {
 			category = "backgrounds"
-			file = "triangle_split.dds"
+			file = "diagonal.dds"
 		}
-		colors={
-			"red_orange"
-			"black"
+		colors = {
+			"turquoise"
+			"dark_purple"
 			"null"
 			"null"
 		}
 	}
-	
 	ruler = {
-		name = "PRESCRIPTED_ruler_name_chinorr"
 		gender = male
-		portrait = "mol11"
-		texture = 1
-		#hair = 0
-		clothes = 3
+		name = "PRESCRIPTED_ruler_name_glebsig"
+		portrait = "mol7"
+		texture = 0
+		leader_class = ruler
 	}
+	ethic = "ethic_fanatic_xenophile"
+	ethic = "ethic_spiritualist"
 }
 
 # Jehetma
@@ -265,8 +266,9 @@ jehetma = {
 		adjective = "PRESCRIPTED_species_adjective_jehetma"
 		name_list = "FUN1"
 		trait = "trait_slow_breeders"
-		trait = "trait_thrifty"
+		trait = "trait_ingenious"
 		trait = "trait_communal"
+		trait = "trait_strong"
 	}
 	
 	ship_prefix = "PRESCRIPTED_ship_prefix_jehetma"
@@ -311,6 +313,7 @@ jehetma = {
 		texture = -1
 		#hair = 0
 		clothes = 2
+		leader_class = ruler
 	}
 }
 
@@ -328,7 +331,6 @@ scyldari = {
 		adjective = "PRESCRIPTED_species_adjective_scyldari"
 		name_list = "MAM1"
 		trait = "trait_charismatic"
-		trait = "trait_conservational"
 		trait = "trait_natural_sociologists"
 		trait = "trait_weak"
 	}
@@ -376,6 +378,7 @@ scyldari = {
 		texture = 3
 		#hair = 0
 		clothes = 3
+		leader_class = ruler
 	}
 }
 
@@ -393,7 +396,7 @@ kel_azaan = {
 		adjective = "PRESCRIPTED_species_adjective_kel_azaan"
 		name_list = "ART3"
 		trait = "trait_very_strong"
-		trait = "trait_nomadic"
+		trait = "trait_traditional"
 		trait = "trait_deviants"
 		trait = "trait_solitary"
 	}
@@ -440,6 +443,7 @@ kel_azaan = {
 		texture = 1
 		#hair = 0
 		clothes = 2
+		leader_class = ruler
 	}	
 }
 
@@ -462,6 +466,7 @@ blorg={
 		trait = "trait_repugnant"
 		trait = "trait_solitary"
 		trait = "trait_venerable"
+		trait = "trait_nomadic"
 	}
 	
 	room = "personality_fanatic_befrienders_room"
@@ -496,6 +501,7 @@ blorg={
 		name="PRESCRIPTED_ruler_name_blorg"
 		portrait="fun12"
 		texture=0
+		leader_class = ruler
 	}
 	ethic="ethic_fanatic_xenophile"
 	ethic="ethic_militarist"

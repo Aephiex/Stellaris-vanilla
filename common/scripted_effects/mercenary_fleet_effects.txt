@@ -1,7 +1,7 @@
 #	Example:
 #
 #	example_effect = {
-#		add_energy = -100
+#		add_resource = { energy = -100 }
 #	}
 #
 #
@@ -19,7 +19,7 @@
 # Marauder Mercenary Admiral
 create_marauder_merc_admiral = {
 	create_leader = {
-		type = admiral
+		class = admiral
 		species = event_target:marauder_species
 		name = random
 		event_leader = yes

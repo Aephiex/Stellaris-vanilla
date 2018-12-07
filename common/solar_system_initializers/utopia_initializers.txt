@@ -489,16 +489,7 @@ sentry_array_init_01 = {
 		size = 16
 
 		init_effect = {
-			random_tile = {
-				limit = { has_building = no has_blocker = no }
-				set_building = "building_agri_processing_complex"
-				clear_deposits = yes
-			}
-			random_tile = {
-				limit = { has_building = no has_blocker = no }
-				set_building = "building_ancient_factory"
-				set_deposit = d_mineral_deposit					
-			}
+			add_deposit = d_metal_boneyard
 		}
 	}
 

@@ -1,5 +1,3 @@
-# Utopia Initializers
-
 @base_moon_distance = 10
 
 # Abandoned Gateways

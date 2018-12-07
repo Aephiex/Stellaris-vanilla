@@ -4,7 +4,7 @@
 ####### Star Lifting System ######
 star_lifting_system = {
 	class = sc_pulsar
-	
+	prevent_anomalies = yes
 	usage = misc_system_init
 	usage_odds = {
 	    base = 90000
@@ -133,10 +133,6 @@ vechtar_zavonia_system = {
             orbit_angle = { min = 90 max = 270 }
             orbit_distance = 5
         }
-
-        init_effect = {
-			prevent_anomaly = yes
-		}
     }
 }
 
@@ -184,27 +180,14 @@ big_rip_system = {
 		orbit_angle = { min = 90 max = 270 }
 		size = { min = 12 max = 25 }
 		change_orbit = 20
-		tile_blockers = none
+		deposit_blockers = none
 		anomaly = abandoned_outpost_category
 
 		init_effect = {
 			save_global_event_target_as = big_rip_planet
 			set_planet_flag = big_rip_planet
-			while = {
-				count = 2
-				random_tile = {
-					limit = { has_blocker = no }
-					set_blocker = "tb_city_ruins"
-				}
-			}
-			while = {
-				count = 3
-				random_tile = {
-					limit = { has_blocker = no }
-					set_blocker = "tb_city_ruins"
-					set_deposit = d_vast_society_deposit
-				}
-			}
+			add_deposit = d_city_ruins
+			add_deposit = d_metal_boneyard
 			create_ambient_object = {
 				type = abandoned_observation_outpost
 			}
@@ -255,9 +238,6 @@ time_loop_world_system = {
 		orbit_angle = { min = 90 max = 270 }
 		orbit_distance = 35
 		change_orbit = 15
-		init_effect = {
-			prevent_anomaly = yes
-		}
 	}
 
 	planet = {
@@ -266,7 +246,7 @@ time_loop_world_system = {
 		class = pc_desert
 		orbit_angle = { min = 90 max = 270 }
 		size = { min = 10 max = 15 }
-		tile_blockers = none
+		deposit_blockers = none
 		anomaly = time_loop_world
 		init_effect = {
 			set_planet_flag = time_loop_world
@@ -353,20 +333,15 @@ toxic_planet_toxic_moon = {
 			class = pc_toxic
 			init_effect = {
 				prevent_anomaly = yes
-				orbital_deposit_tile = {
-					clear_deposits = yes
-					add_deposit = d_vast_society_deposit
-				}
+				set_deposit = d_society_3
 			}
 		}
 		init_effect = {
 			prevent_anomaly = yes
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_vast_society_deposit
-				add_deposit = d_vast_society_deposit
-				add_deposit = d_vast_society_deposit
-			}
+			clear_deposits = yes
+			add_deposit = d_society_3
+			add_deposit = d_society_3
+			add_deposit = d_society_3
 			add_modifier =  { modifier = building_blocks days = -1 }
 		}
 	}
@@ -421,12 +396,10 @@ shattered_world_system = {
 		
 		init_effect = {
 			prevent_anomaly = yes
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_vast_society_deposit
-				add_deposit = d_vast_society_deposit
-				add_deposit = d_vast_society_deposit
-			}
+			clear_deposits = yes
+			add_deposit = d_society_3
+			add_deposit = d_society_3
+			add_deposit = d_society_3
 		}
 	}
 	planet = {
@@ -438,10 +411,7 @@ shattered_world_system = {
 		has_ring = no
 
 		init_effect = {
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_rich_mineral_deposit
-			}
+			set_deposit = d_minerals_2
 		}
 	}
 }
@@ -496,10 +466,7 @@ asteroid_system = {
 		size = 5
 		has_ring = no
 		init_effect = {
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_immense_mineral_deposit
-			}
+			set_deposit = d_minerals_4
 		}
 	}
 	
@@ -518,10 +485,7 @@ asteroid_system = {
 		size = 5
 		has_ring = no
 		init_effect = {
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_immense_mineral_deposit
-			}
+			set_deposit = d_minerals_4
 		}
 	}
 
@@ -532,10 +496,7 @@ asteroid_system = {
 		size = 5
 		has_ring = no
 		init_effect = {
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_immense_mineral_deposit
-			}
+			set_deposit = d_minerals_4
 		}
 	}
 	
@@ -570,10 +531,7 @@ asteroid_system = {
 			has_ring = no
 		}
 		init_effect = {
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_vast_energy_deposit
-			}
+			set_deposit = d_energy_3
 		}
 	}	
 }
@@ -621,10 +579,7 @@ hostile_init_mining_drones = {
 		orbit_distance = 20
 		orbit_angle = { min = 90 max = 270 }
 		init_effect = {
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_immense_mineral_deposit
-   			}
+			set_deposit = d_minerals_4
 		}
 	}
 	planet = {
@@ -635,14 +590,11 @@ hostile_init_mining_drones = {
 	change_orbit = 25
 	
 	planet = {
-		class = pc_asteroid
+		class = pc_rare_crystal_asteroid
 		orbit_distance = 0
 		orbit_angle = { min = 0 max = 150 }
 		init_effect = {
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_orillium = yes
-   			}
+			set_deposit = d_rare_crystals_3
 		}
 	}
 	planet = {
@@ -650,11 +602,9 @@ hostile_init_mining_drones = {
 		orbit_distance = 0
 		orbit_angle = { min = 160 max = 330 }
 		init_effect = {
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_immense_mineral_deposit
-				add_deposit = d_immense_mineral_deposit
-			}
+			clear_deposits = yes
+			add_deposit = d_minerals_4
+			add_deposit = d_minerals_4
 		}
 	}
 	
@@ -680,10 +630,7 @@ hostile_init_mining_drones = {
 				is_star = no
 				NOT = { is_planet_class = pc_gas_giant }
 			}
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_immense_mineral_deposit
-			}
+			set_deposit = d_minerals_4
 			event_target:drone_country = {
 				save_event_target_as = mining_drones
 				create_fleet = {
@@ -774,10 +721,7 @@ hostile_init_amoeba = {
 		orbit_distance = 40
 		orbit_angle = { min = 160 max = 330 }
 		init_effect = {
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_lythuric = yes
-			}
+			set_deposit = d_exotic_gases_1
 		}
 	}
 	
@@ -965,7 +909,7 @@ hostile_init_void_cloud = {
 			has_ring = no
 		}
 		moon = {
-			class = "pc_nuked"
+			class = "pc_barren_cold"
 			size = { min = 11 max = 16 }
 			orbit_distance = 6
 			orbit_angle = { min = 90 max = 270 }
@@ -991,7 +935,7 @@ hostile_init_void_cloud = {
 	}
 
 	planet = {
-		class = "pc_nuked"
+		class = "pc_barren_cold"
 		orbit_distance = 25
 		orbit_angle = { min = 90 max = 270 }
 		size = { min = 10 max = 20 }
@@ -1018,10 +962,7 @@ hostile_init_void_cloud = {
 		create_cloud_country = yes
 		random_system_planet = {
 			limit = { is_star = yes }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_dark_matter = yes
-			}
+			add_dark_matter = yes
 			event_target:cloud_country = {
 				if = {
 					limit = {
@@ -1204,12 +1145,10 @@ high_energy_system = {
 		class = star
 		orbit_distance = 0
 		init_effect = {
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_immense_energy_deposit
-				add_deposit = d_immense_energy_deposit
-				add_deposit = d_immense_energy_deposit
-			}
+			clear_deposits = yes
+			add_deposit = d_energy_4
+			add_deposit = d_energy_4
+			add_deposit = d_energy_4
 		}
 	}
 	
@@ -1227,10 +1166,7 @@ high_energy_system = {
 			has_ring = no
 		}
 		init_effect = {
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_vast_energy_deposit
-			}
+			set_deposit = d_energy_3
 		}
 	}
 	
@@ -1353,10 +1289,7 @@ great_wound_system = {
 
 		init_effect = {
 			save_event_target_as = patrol_1
-			orbital_deposit_tile = { 
-				clear_deposits = yes
-				add_deposit = d_dark_matter_deposit_3
-			}
+			set_deposit = d_dark_matter_deposit_3
 		}
 	}
 	
@@ -1729,7 +1662,7 @@ primitive_robot_system = {
 		orbit_distance = 0
 		orbit_angle = 1
 		size = { min = 20 max = 30 }
-		tile_blockers = none
+		deposit_blockers = none
 		has_ring = no
 	}
 
@@ -1762,198 +1695,25 @@ primitive_robot_system = {
 				portrait = "default_robot"
 				namelist = "PRT1"
 				traits = {
-					trait = "trait_robotic_1"
 					trait = "trait_mechanical"
 				}
-				pops_can_be_colonizers = no
-				pops_can_migrate = no
-				pops_can_reproduce = no
-				pops_can_join_factions = no
-				pops_can_be_slaves = no
-				can_generate_leaders = no
-				consumer_goods = yes
-				pop_ethics = no
-				#More will not be buildable due to 0 pop growth
 				effect = {
 					set_species_flag = primitive_robots_flag
 					save_global_event_target_as = primitive_robot_species
 				}
 			}
-			every_tile = {
-				limit = { has_blocker = yes	}
-				remove_blocker = yes
+			while = {
+				count = 2
+				create_pop = {
+					species = last_created
+				}					
 			}
-			IF = {
-				limit = { planet_size < 18 }
-				while = {
-					count = 2
-					random_tile = {
-						limit = { has_blocker = no }
-						set_blocker = "tb_city_ruins"
-						random_list = {
-							33 = {
-								set_deposit = d_vast_engineering_deposit
-							}
-							33 = {
-								set_deposit = d_vast_physics_deposit
-							}
-							33 = {
-								set_deposit = d_vast_society_deposit
-							}
-						} 
-					}
-				}
-				while = {
-					count = 2
-					random_tile = {
-						limit = { has_blocker = no }
-						set_blocker = "tb_failing_infrastructure"
-						random_list = {
-							25 = {
-								set_deposit = d_rich_mineral_deposit
-							}
-							25 = {
-								set_deposit = d_rich_energy_deposit
-							}
-							25 = {
-								set_deposit = d_rich_mineral_energy_deposit
-							}
-							25 = {
-								set_deposit = d_rich_food_mineral_deposit
-							}
-						}
-					}
-				}
-				while = {
-					count = 2
-					random_tile = {
-						limit = { has_blocker = no has_building = no }
-						set_building = "building_primitive_factory"
-						random_list = {
-							25 = {
-								set_deposit = d_rich_mineral_deposit
-							}
-							25 = {
-								set_deposit = d_rich_energy_deposit
-							}
-							25 = {
-								set_deposit = d_vast_mineral_deposit
-							}
-							25 = {
-								set_deposit = d_vast_energy_deposit
-							}
-						}
-					}
-				}
-				random_tile = {
-					limit = { has_blocker = no has_building = no }
-					set_building = "building_primitive_farm"
-					random_list = {
-						33 = {
-							set_deposit = d_farmland_deposit
-						}
-						33 = {
-							set_deposit = d_rich_farmland_deposit
-						}
-						33 = {
-							set_deposit = d_vast_farmland_deposit
-						}
-					}
-				}
-				while = {
-					count = 3
-					best_tile_for_pop = {
-						create_pop = {
-							species = event_target:primitive_robot_species
-						}
-					}
-				}
-				else = {
-					while = {
-						count = 3
-						random_tile = {
-							limit = { has_blocker = no }
-							set_blocker = "tb_city_ruins"
-							random_list = {
-								33 = {
-									set_deposit = d_vast_engineering_deposit
-								}
-								33 = {
-									set_deposit = d_vast_physics_deposit
-								}
-								33 = {
-									set_deposit = d_vast_society_deposit
-								}
-							}
-						}
-					}
-					while = {
-						count = 3
-						random_tile = {
-							limit = { has_blocker = no }
-							set_blocker = "tb_failing_infrastructure"
-							random_list = {
-								25 = {
-									set_deposit = d_rich_mineral_deposit
-								}
-								25 = {
-									set_deposit = d_rich_energy_deposit
-								}
-								25 = {
-									set_deposit = d_rich_mineral_energy_deposit
-								}
-								25 = {
-									set_deposit = d_rich_food_mineral_deposit
-								}
-							}				
-						}
-					}
-					while = {
-						count = 3
-						random_tile = {
-							limit = { has_blocker = no has_building = no }
-							set_building = "building_primitive_factory"
-							random_list = {
-								25 = {
-									set_deposit = d_rich_mineral_deposit
-								}
-								25 = {
-									set_deposit = d_rich_energy_deposit
-								}
-								25 = {
-									set_deposit = d_vast_mineral_deposit
-								}
-								25 = {
-									set_deposit = d_vast_energy_deposit
-								}
-							}
-						}
-					}
-					random_tile = {
-						limit = { has_blocker = no has_building = no }
-						set_building = "building_primitive_farm"
-						random_list = {
-							33 = {
-								set_deposit = d_farmland_deposit
-							}
-							33 = {
-								set_deposit = d_rich_farmland_deposit
-							}
-							33 = {
-								set_deposit = d_vast_farmland_deposit
-							}
-						}
-					}
-					while = {
-						count = 4
-						best_tile_for_pop = {
-							create_pop = {
-								species = event_target:primitive_robot_species
-							}
-						}
-					}
-				}
-			}
+			#clear_blockers = yes
+			add_deposit = d_city_ruins
+			add_deposit = d_city_ruins
+			add_deposit = d_failing_infrastructure
+			add_deposit = d_failing_infrastructure
+			add_deposit = d_metal_boneyard
 		}
 	}
 
@@ -2013,10 +1773,7 @@ superflare_system = {
 		orbit_distance = 0
 		init_effect = {
 			add_modifier = { modifier = superflare_star days = -1 }
-			orbital_deposit_tile = {
-				clear_deposits = yes
-   				add_deposit = d_vast_physics_deposit
-   			}
+   			set_deposit = d_physics_3
 		}
 	}
 
@@ -2038,7 +1795,7 @@ superflare_system = {
 		size = { min = 9 max = 24 }
 		anomaly = "DISTAR_FLARE_CAT"
 		init_effect = {
-			orbital_deposit_tile = { clear_deposits = yes }
+			clear_deposits = yes
 			set_planet_flag = frozen_in_time_flag
 		}
 	}
@@ -2066,29 +1823,10 @@ superflare_system = {
 			class = "pc_nuked"
 			init_effect = {
 				add_modifier = { modifier = superflare_planet days = -1 }
-				every_tile = {
-					limit = {
-						OR = {
-							has_blocker = "tb_city_ruins"
-							has_blocker = "tb_bomb_crater"
-						}
-					}
-					remove_blocker = yes
-					set_blocker = "tb_radioactive_wasteland"
-				}
-				while = {
-					limit = {
-						any_tile = { has_deposit = no }
-					}
-					random_tile = {
-						limit = { has_deposit = no }
-						random_list = {
-							1 = { set_deposit = d_energy_deposit }
-							1 = { set_deposit = d_rich_energy_deposit }
-							1 = { set_deposit = d_vast_energy_deposit }
-						}
-					}
-				}
+				clear_blockers = yes
+				add_deposit = d_radioactive_wasteland
+				add_deposit = d_radioactive_wasteland
+				add_deposit = d_irradiated_valley
 			}
 		}
 	}
@@ -2114,6 +1852,7 @@ collapse_system = {
             has_star_flag = empire_cluster
         }
 	}
+	primitive_system = yes
 	scaled_spawn_chance = 8
 	max_instances = 1
 
@@ -2163,7 +1902,6 @@ collapse_system = {
 				}
 				create_species = {
 					name = random
-					plural = random_non_machine
 					class = MOL
 					portrait = mol7
 					homeworld = THIS
@@ -2212,32 +1950,18 @@ collapse_system = {
 				}
 				set_owner = last_created_country
 				set_capital = yes
-				every_tile = {
-					limit = { has_blocker = "tb_dangerous_wildlife"	}
-					remove_blocker = yes
+				every_deposit = {
+					limit = { is_deposit_type = d_dangerous_wildlife_blocker }
+					clear_blocker = yes
 				}
 				while = {
 					count = 4
-					random_tile = {
-						limit = {
-							has_blocker = no
-							has_grown_pop = no
-							has_growing_pop = no
-						}
-						create_pop = {
-							species = last_created
-						}
-					}
+					create_pop = {
+						species = last_created
+					}					
 				}
-				random_tile = {
-					limit = { 
-						has_blocker = no 
-						has_building = no 
-						has_grown_pop = yes
-					}
-					set_building = "building_primitive_farm"
-					set_deposit = d_farmland_deposit	
-				}
+				add_building = building_crude_huts
+				remove_building = building_colony_shelter
 			}
 		}
 	}
@@ -2286,6 +2010,7 @@ old_foes_system = {
             has_star_flag = empire_cluster
         }
 	}
+	primitive_system = yes
 	scaled_spawn_chance = 8
 	max_instances = 1
 
@@ -2365,25 +2090,13 @@ old_foes_system = {
 			set_owner = last_created_country
 			set_capital = yes
 			while = {
-				count = 3
-				best_tile_for_pop = {
-					create_pop = {
-						species = last_created
-					}
-				}
+				count = 8
+				create_pop = {
+					species = last_created
+				}					
 			}
-			while = {
-				count = 2
-				random_tile = {
-					limit = { 
-						has_blocker = no 
-						has_building = no 
-						has_grown_pop = yes
-					}
-					set_building = "building_primitive_farm"
-					set_deposit = d_farmland_deposit	
-				}
-			}
+			add_building = building_primitive_dwellings
+			add_building = building_stone_palace
 		}
 	}
 
@@ -2451,25 +2164,13 @@ old_foes_system = {
 			set_owner = last_created_country
 			set_capital = yes
 			while = {
-				count = 3
-				best_tile_for_pop = {
-					create_pop = {
-						species = last_created
-					}
-				}
+				count = 8
+				create_pop = {
+					species = last_created
+				}					
 			}
-			while = {
-				count = 2
-				random_tile = {
-					limit = { 
-						has_blocker = no 
-						has_building = no 
-						has_grown_pop = yes
-					}
-					set_building = "building_primitive_farm"
-					set_deposit = d_farmland_deposit	
-				}
-			}
+			add_building = building_primitive_dwellings
+			add_building = building_stone_palace
 		}
 	}
 
@@ -2523,7 +2224,7 @@ scavenger_system = {
 	scaled_spawn_chance = 8
 	max_instances = 1
 
-	flags = { scavenger_bot_system }
+	flags = { scavenger_bot_system guardian hostile_system }
 
 	planet = {
 		class = star
@@ -2879,12 +2580,10 @@ scavenger_system = {
 		
 		init_effect = {
 			prevent_anomaly = yes
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_immense_mineral_deposit
-				add_deposit = d_immense_mineral_deposit
-				add_deposit = d_immense_mineral_deposit
-			}
+			clear_deposits = yes
+			add_deposit = d_minerals_4
+			add_deposit = d_minerals_4
+			add_deposit = d_minerals_4
 		}
 	}
 
@@ -2897,11 +2596,9 @@ scavenger_system = {
 		has_ring = no
 		init_effect = {
 			prevent_anomaly = yes
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_immense_mineral_deposit
-				add_deposit = d_immense_mineral_deposit
-			}
+			clear_deposits = yes
+			add_deposit = d_minerals_4
+			add_deposit = d_minerals_4
 		}
 	}
 
@@ -2942,8 +2639,7 @@ scavenger_system = {
 			if = {
 				limit = { NOT = { has_modifier = scavenger_bot_power } }
 				add_modifier = { modifier = scavenger_bot_power	days = -1 }
-			}					
-			guardian_difficulty = yes
+			}			
 			save_global_event_target_as = scavenger_bot_country
 		}
 		event_target:scavenger_bot_country = {
@@ -3107,14 +2803,8 @@ living_planet_system = {
 			set_planet_flag = living_planet
 			add_modifier = { modifier = living_sea years = -1 }
 			prevent_anomaly = yes
-			every_tile = {
-				limit = { has_blocker = "tb_dangerous_wildlife"	}
-				remove_blocker = yes
-			}
-			random_tile = {
-				limit = { has_deposit = no }
-				set_deposit = d_betharian_deposit
-			}
+			clear_blockers = yes
+			add_deposit = d_betharian_deposit
 		}
 	}
 
@@ -3165,7 +2855,7 @@ elderly_tiyanki_system = {
 	scaled_spawn_chance = 8
 	max_instances = 1
 
-	flags = { elderly_tiyanki_system }
+	flags = { elderly_tiyanki_system guardian hostile_system }
 
 	planet = {
 		class = star
@@ -3321,8 +3011,7 @@ elderly_tiyanki_system = {
 			if = {
 				limit = { NOT = { has_modifier = elderly_tiyanki_power } }
 				add_modifier = { modifier = elderly_tiyanki_power days = -1 }
-			}					
-			guardian_difficulty = yes
+			}	
 			save_global_event_target_as = elderly_tiyanki_country
 		}
 		random_system_planet = {
@@ -3392,10 +3081,6 @@ ratling_1_1 = {
 		}
 		modifier = {
 			factor = 0
-			NOT = { host_has_dlc = "Utopia" }
-		}
-		modifier = {
-			factor = 0
 			any_playable_country = {
 				is_ai = no
 				species_portrait = mam_rat
@@ -3419,10 +3104,7 @@ ratling_1_1 = {
 		class = star
 		orbit_distance = 0
 		init_effect = {
-			orbital_deposit_tile = {
-				clear_deposits = yes
-   				add_deposit = d_immense_engineering_deposit
-   			}
+   			set_deposit = d_engineering_4
 			create_ambient_object = {
 				type = "abandoned_starbase_01_object"
 			}
@@ -3490,40 +3172,20 @@ ratling_1_1 = {
 		init_effect = {
 			prevent_anomaly = yes
 			set_planet_flag = ratling_planet
-			orbital_deposit_tile = {
-				clear_deposits = yes
-   				add_deposit = d_vast_engineering_deposit
-   			}
-			every_tile = {
-				limit = {
-					has_blocker = yes
-					NOR = {
-						has_blocker = "tb_radioactive_wasteland"
-						has_blocker = "tb_city_ruins"
-						has_blocker = "tb_crater"
-					}
-				}
-				remove_blocker = yes
-				random_list = {
-					1 = { set_blocker = "tb_radioactive_wasteland" }
-					1 = { set_blocker = "tb_city_ruins" }
-					1 = { set_blocker = "tb_crater" }
-				}
-			}
-			while = {
-				count = 2
-				random_tile = {
-					limit = { has_deposit = no }
-					set_deposit = d_vast_energy_deposit
-				}
-			}
-			every_tile = {
-				limit = { has_building = no has_blocker = no }
-				set_building = "building_junkheap"
-			}
 			set_planet_entity = {
 				picture = pc_junkheap
 			}
+			while = {
+				count = 3
+				random_deposit = {
+					limit = { #none
+					}
+					remove_deposit = yes
+				}
+			}
+			add_deposit = d_junk_wastes
+			add_deposit = d_junk_canals
+			add_deposit = d_junk_hollows
 			save_global_event_target_as = ratling_capital
 			create_ambient_object = {
 				type = "abandoned_starbase_01_object"
@@ -3555,41 +3217,10 @@ ratling_1_1 = {
 			class = "pc_nuked"
 			orbit_angle = { min = 90 max = 270 }
 			orbit_distance = 5
-			size = { min = 9 max = 16 }
+			size = { min = 11 max = 16 }
 			init_effect = {
 				prevent_anomaly = yes
 				set_planet_flag = ratling_planet
-				orbital_deposit_tile = {
-					clear_deposits = yes
-   					add_deposit = d_rich_engineering_deposit
-   				}
-				every_tile = {
-					limit = {
-						has_blocker = yes
-						NOR = {
-							has_blocker = "tb_radioactive_wasteland"
-							has_blocker = "tb_city_ruins"
-							has_blocker = "tb_crater"
-						}
-					}
-					remove_blocker = yes
-					random_list = {
-						1 = { set_blocker = "tb_radioactive_wasteland" }
-						1 = { set_blocker = "tb_city_ruins" }
-						1 = { set_blocker = "tb_crater" }
-					}
-				}
-				while = {
-					count = 2
-					random_tile = {
-						limit = { has_deposit = no }
-						set_deposit = d_vast_energy_deposit
-					}
-				}
-				every_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_junkheap"
-				}
 				create_ambient_object = {
 					type = "large_debris_object"
 				}
@@ -3603,6 +3234,17 @@ ratling_1_1 = {
 				set_planet_entity = {
 					picture = pc_junkheap
 				}
+				while = {
+					count = 3
+					random_deposit = {
+						limit = { #none
+						}
+						remove_deposit = yes
+					}
+				}
+				add_deposit = d_junk_wastes
+				add_deposit = d_junk_canals
+				add_deposit = d_junk_hollows
 				save_global_event_target_as = ratling_planet_2_tar
 			}
 		}
@@ -3730,37 +3372,17 @@ ratling_1_2 = {
 		init_effect = {
 			prevent_anomaly = yes
 			set_planet_flag = ratling_planet
-			orbital_deposit_tile = {
-				clear_deposits = yes
-   				add_deposit = d_vast_engineering_deposit
-   			}
-			every_tile = {
-				limit = {
-					has_blocker = yes
-					NOR = {
-						has_blocker = "tb_radioactive_wasteland"
-						has_blocker = "tb_city_ruins"
-						has_blocker = "tb_crater"
-					}
-				}
-				remove_blocker = yes
-				random_list = {
-					1 = { set_blocker = "tb_radioactive_wasteland" }
-					1 = { set_blocker = "tb_city_ruins" }
-					1 = { set_blocker = "tb_crater" }
-				}
-			}
 			while = {
-				count = 2
-				random_tile = {
-					limit = { has_deposit = no }
-					set_deposit = d_vast_energy_deposit
+				count = 3
+				random_deposit = {
+					limit = { #none
+					}
+					remove_deposit = yes
 				}
 			}
-			every_tile = {
-				limit = { has_building = no has_blocker = no }
-				set_building = "building_junkheap"
-			}
+			add_deposit = d_junk_wastes
+			add_deposit = d_junk_canals
+			add_deposit = d_junk_hollows
 			create_ambient_object = {
 				type = "abandoned_starbase_01_object"
 			}
@@ -3800,37 +3422,17 @@ ratling_1_2 = {
 		init_effect = {
 			prevent_anomaly = yes
 			set_planet_flag = ratling_planet
-			orbital_deposit_tile = {
-				clear_deposits = yes
-   				add_deposit = d_vast_engineering_deposit
-   			}
-			every_tile = {
-				limit = {
-					has_blocker = yes
-					NOR = {
-						has_blocker = "tb_radioactive_wasteland"
-						has_blocker = "tb_city_ruins"
-						has_blocker = "tb_crater"
-					}
-				}
-				remove_blocker = yes
-				random_list = {
-					1 = { set_blocker = "tb_radioactive_wasteland" }
-					1 = { set_blocker = "tb_city_ruins" }
-					1 = { set_blocker = "tb_crater" }
-				}
-			}
 			while = {
-				count = 2
-				random_tile = {
-					limit = { has_deposit = no }
-					set_deposit = d_vast_energy_deposit
+				count = 3
+				random_deposit = {
+					limit = { #none
+					}
+					remove_deposit = yes
 				}
 			}
-			every_tile = {
-				limit = { has_building = no has_blocker = no }
-				set_building = "building_junkheap"
-			}
+			add_deposit = d_junk_wastes
+			add_deposit = d_junk_canals
+			add_deposit = d_junk_hollows
 			create_ambient_object = {
 				type = "abandoned_starbase_01_object"
 			}
@@ -3876,34 +3478,21 @@ ratling_1_2 = {
 			class = "pc_nuked"
 			orbit_angle = { min = 90 max = 270 }
 			orbit_distance = 5
-			size = { min = 9 max = 12 }
+			size = { min = 11 max = 14 }
 			init_effect = {
 				prevent_anomaly = yes
 				set_planet_flag = ratling_planet
-				orbital_deposit_tile = {
-					clear_deposits = yes
-   					add_deposit = d_rich_engineering_deposit
-   				}
-				every_tile = {
-					limit = {
-						has_blocker = yes
-						NOR = {
-							has_blocker = "tb_radioactive_wasteland"
-							has_blocker = "tb_city_ruins"
-							has_blocker = "tb_crater"
+				while = {
+					count = 3
+					random_deposit = {
+						limit = { #none
 						}
-					}
-					remove_blocker = yes
-					random_list = {
-						1 = { set_blocker = "tb_radioactive_wasteland" }
-						1 = { set_blocker = "tb_city_ruins" }
-						1 = { set_blocker = "tb_crater" }
+						remove_deposit = yes
 					}
 				}
-				every_tile = {
-					limit = { has_building = no has_blocker = no }
-					set_building = "building_junkheap"
-				}
+				add_deposit = d_junk_wastes
+				add_deposit = d_junk_canals
+				add_deposit = d_junk_hollows
 				create_ambient_object = {
 					type = "large_debris_object"
 				}
@@ -4011,37 +3600,17 @@ ratling_1_3 = {
 		init_effect = {
 			prevent_anomaly = yes
 			set_planet_flag = ratling_planet
-			orbital_deposit_tile = {
-				clear_deposits = yes
-   				add_deposit = d_vast_engineering_deposit
-   			}
-			every_tile = {
-				limit = {
-					has_blocker = yes
-					NOR = {
-						has_blocker = "tb_radioactive_wasteland"
-						has_blocker = "tb_city_ruins"
-						has_blocker = "tb_crater"
-					}
-				}
-				remove_blocker = yes
-				random_list = {
-					1 = { set_blocker = "tb_radioactive_wasteland" }
-					1 = { set_blocker = "tb_city_ruins" }
-					1 = { set_blocker = "tb_crater" }
-				}
-			}
 			while = {
-				count = 2
-				random_tile = {
-					limit = { has_deposit = no }
-					set_deposit = d_vast_energy_deposit
+				count = 3
+				random_deposit = {
+					limit = { #none
+					}
+					remove_deposit = yes
 				}
 			}
-			every_tile = {
-				limit = { has_building = no has_blocker = no }
-				set_building = "building_junkheap"
-			}
+			add_deposit = d_junk_wastes
+			add_deposit = d_junk_canals
+			add_deposit = d_junk_hollows
 			create_ambient_object = {
 				type = "abandoned_starbase_01_object"
 			}
@@ -4195,13 +3764,7 @@ distar_crystal_system = {
 			orbit_angle = { min = 90 max = 270 }
 			orbit_distance = 5
 			init_effect = {
-				orbital_deposit_tile = {
-					random_list = {
-						1 = { add_teldar = yes }
-						1 = { add_yurantic = yes }
-						1 = { add_aldar = yes }
-					}
-				}
+				set_deposit = d_rare_crystals_1
 			}
 		}
 	}
@@ -4215,13 +3778,7 @@ distar_crystal_system = {
 		orbit_angle = { min = 90 max = 270 }
 		
 		init_effect = {
-			orbital_deposit_tile = {
-				random_list = {
-					1 = { add_teldar = yes }
-					1 = { add_yurantic = yes }
-					1 = { add_aldar = yes }
-				}
-			}
+			set_deposit = d_rare_crystals_1
 		}
 	}
 }
@@ -4316,10 +3873,7 @@ distar_sealed_1_2 = {
 		change_orbit = @base_moon_distance
 
 		init_effect = {
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_immense_physics_deposit
-			}
+			set_deposit = d_physics_4
 		}
 	}
 
@@ -4362,9 +3916,7 @@ distar_sealed_1_2 = {
 		}
 
 		init_effect = {
-			orbital_deposit_tile = {
-				add_pitharan = yes
-			}
+			add_exotic_gases = yes
 		}
 	}
 
@@ -4588,12 +4140,10 @@ distar_phaseshift_system = {
 		class = "pc_shrouded"
 		orbit_angle = { min = 90 max = 270 }
 		init_effect = {
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_immense_physics_deposit
-				add_deposit = d_immense_physics_deposit
-				add_deposit = d_immense_physics_deposit
-			}
+			clear_deposits = yes
+			set_deposit = d_physics_4
+			set_deposit = d_physics_4
+			set_deposit = d_physics_4
 			save_global_event_target_as = phaseshift_planet
 			set_planet_flag = phaseshifting_active
 		}
@@ -4632,8 +4182,67 @@ distantstars_init_00 = {
 		}
 	}
 
-	max_instances = 10
+	max_instances = 9
 	scaled_spawn_chance = 10
+	
+	planet = {
+		class = star
+		orbit_distance = 0
+	}
+	
+	change_orbit = 60
+	
+	planet = {
+		count = { min = 0 max = 1 }
+		class = "pc_broken"
+		size = { min = 10 max = 15 }
+		
+		init_effect = { prevent_anomaly = yes }
+	}
+	
+	change_orbit = 30
+	
+	planet = {
+		count = { min = 0 max = 1 }
+		class = "pc_barren_cold"
+		size = { min = 10 max = 20 }
+	}
+
+	init_effect = {
+		spawn_megastructure = {
+			type = lgate_base
+			orbit_angle = 225
+			orbit_distance = 30
+			location = solar_system
+		}
+	}
+}
+
+# Guaranteed L-Gate spawn
+distantstars_init_06 = {
+	class = sc_black_hole
+
+	flags = { hostile_system lgate lgate_guaranteed }
+	
+	usage = misc_system_init
+	usage_odds = {
+		base = 0
+		modifier = {
+			has_distar = yes
+			add = 99999
+		}
+		modifier = {
+			factor = 0
+			is_fe_cluster = yes
+		}
+		modifier = {
+			factor = 0
+			has_star_flag = empire_cluster
+		}
+	}
+
+	max_instances = 1
+	spawn_chance = 100
 	
 	planet = {
 		class = star
@@ -4720,7 +4329,7 @@ distantstars_init_01 = {
 		size = 16
 		starting_planet = yes
 		has_ring = no
-		tile_blockers = none
+		deposit_blockers = none
 		modifiers = none
 		flags = { planet_earth }
 		
@@ -5184,6 +4793,10 @@ distantstars_init_05 = {
 		orbit_angle = 165
 		size = 18
 		has_ring = no
+	}
+
+	init_effect = {
+		save_global_event_target_as = lcluster_factory_system
 	}
 }
 

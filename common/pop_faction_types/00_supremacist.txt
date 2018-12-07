@@ -9,6 +9,13 @@ supremacist = {
 	unique = yes
 	support_multiplier = 1
 	
+	resources = {
+		category = pop_factions
+		produces = {
+			influence = 2
+		}		
+	}
+
 	is_potential = {
 		years_passed > 10
 		has_encountered_other_species = yes
@@ -80,11 +87,7 @@ supremacist = {
 		modifier = {
 			factor = 0
 			species = {
-				OR = {
-					has_trait = "trait_robotic_1"
-					has_trait = "trait_robotic_2"
-					has_trait = "trait_robotic_3"
-				}			
+				has_trait = "trait_mechanical"			
 			}			
 		}
 		
@@ -99,7 +102,8 @@ supremacist = {
 		unfulfilled_title = "SUPREMACIST_RULER_NOT_SAME_SPECIES"
 		desc = "SUPREMACIST_RULER_NOT_SAME_SPECIES_DESC"
 		
-		unfulfilled_effect = -20
+		fulfilled_effect = 10
+		unfulfilled_effect = -30
 		
 		potential = {
 			exists = owner
@@ -119,7 +123,8 @@ supremacist = {
 		unfulfilled_title = "SUPREMACIST_ISOLATIONIST_FEDERATION"
 		desc = "SUPREMACIST_ISOLATIONIST_NO_FEDERATION_DESC"
 		
-		unfulfilled_effect = -25
+		fulfilled_effect = 10
+		unfulfilled_effect = -20
 		
 		potential = {
 			exists = owner
@@ -167,7 +172,7 @@ supremacist = {
 		desc = "SUPREMACIST_ALIEN_SLAVES_DESC"
 		
 		fulfilled_effect = 5
-		unfulfilled_effect = -15
+		unfulfilled_effect = -10
 		
 		potential = {
 			exists = owner
@@ -203,7 +208,7 @@ supremacist = {
 		unfulfilled_title = "SUPREMACIST_MIGRATION_TREATIES"
 		desc = "SUPREMACIST_NO_MIGRATION_TREATIES_DESC"
 
-		unfulfilled_effect = -15
+		unfulfilled_effect = -10
 
 		potential = {
 			exists = owner
@@ -232,39 +237,7 @@ supremacist = {
 			}
 		}
 	}
-
-	demand = {
-		title = "SUPREMACIST_CORE_WORLD_EXCLUSIVITY"
-		unfulfilled_title = "SUPREMACIST_CORE_WORLD_NONEXCLUSIVITY"
-		desc = "SUPREMACIST_CORE_WORLD_EXCLUSIVITY_DESC"
-
-		fulfilled_effect = 5
-		unfulfilled_effect = -10
-
-		potential = {
-			exists = owner
-			owner = {
-				NOT = { has_valid_civic = civic_fanatic_purifiers }
-				num_species > 1
-				any_owned_pop = {
-					NOR = {
-						is_same_species = root.owner
-						is_robot_pop = yes
-					}
-				}
-			}
-		}
-
-		trigger = {
-			owner = {
-				OR = {
-					has_policy_flag = core_worlds_citizens_and_slaves
-					has_policy_flag = core_worlds_citizens_only
-				}
-			}
-		}
-	}
-
+	
 	demand = {
 		title = "SUPREMACIST_DOMINATION"
 		desc = "SUPREMACIST_DOMINATION_DESC"
@@ -315,36 +288,6 @@ supremacist = {
 	}
 
 	demand = {
-		title = "SUPREMACIST_GENE_MOD"
-		unfulfilled_title = "SUPREMACIST_IMPURE"
-		desc = "SUPREMACIST_GENE_MOD_DESC"
-
-		fulfilled_effect = 5
-		unfulfilled_effect = -5
-		
-		potential = {
-			exists = owner
-			owner = {
-				OR = {
-					has_technology = tech_gene_tailoring
-					has_technology = tech_gene_expressions
-				}
-			}
-		}
-		
-		trigger = {
-			owner = {
-				NOT = {
-					any_owned_pop = {
-						is_same_species = root.owner
-						NOT = { is_exact_same_species = root.owner }
-					}
-				}
-			}
-		}
-	}
-
-	demand = {
 		title = "SUPREMACIST_GIANT_MASSACRE"
 		unfulfilled_title = "SUPREMACIST_NO_GIANT_MASSACRE"
 		desc = "SUPREMACIST_GIANT_MASSACRE_DESC"
@@ -366,6 +309,9 @@ supremacist = {
 						is_country_type = guardian_fortress
 						is_country_type = guardian_dreadnought
 						is_country_type = guardian_sphere
+						is_country_type = guardian_scavenger_bot
+						is_country_type = guardian_elderly_tiyanki
+						is_country_type = guardian_hatchling
 					}
 					has_communications = prev
 				}

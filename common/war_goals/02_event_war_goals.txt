@@ -42,7 +42,8 @@ wg_war_in_heaven = {
 			save_event_target_as = WarInHeavenFEOne
 			every_playable_country = {
 				country_event = { id = war_in_heaven.5 }
-			}			
+			}	
+			observer_event = { id = observer.77 }		
 		}
 	}	
 	
@@ -52,7 +53,8 @@ wg_war_in_heaven = {
 			from = { save_event_target_as = WarInHeavenFETwo }
 			every_playable_country = {
 				country_event = { id = war_in_heaven.6 }
-			}			
+			}
+			observer_event = { id = observer.78 }	
 		}
 	}
 	

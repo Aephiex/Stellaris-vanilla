@@ -20,7 +20,7 @@ leader_trait_trickster = {
 		ship_emergency_ftl_mult = -0.15
 		ship_disengage_chance_mult = 0.25
 	}
-	leader_trait = yes
+	leader_trait = { admiral }
 	leader_class = { admiral }
 	opposites = { "leader_trait_unyielding" }
 }
@@ -30,12 +30,12 @@ leader_trait_fleet_logistician = {
 	modification = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_fleet_logistician.dds"
 	modifier = {
-		ship_upkeep_mult = -0.1
+		ships_upkeep_mult = -0.1
 	}
 	leader_potential_add = {
 		NOT = { from = { has_authority = "auth_machine_intelligence" } }
 	}
-	leader_trait = yes
+	leader_trait = { admiral }
 	leader_class = { admiral }
 }
 
@@ -47,7 +47,7 @@ leader_trait_engineer = {
 		ship_hull_regen_add_perc = 0.5
 		ship_armor_regen_add_perc = 0.5
 	}
-	leader_trait = yes
+	leader_trait = { admiral }
 	leader_class = { admiral }
 	prerequisites = { tech_doctrine_fleet_size_3 }
 }
@@ -60,7 +60,7 @@ leader_trait_aggressive = {
 		ship_fire_rate_mult = 0.05
 		ship_speed_mult = 0.1
 	}
-	leader_trait = yes
+	leader_trait = { admiral }
 	leader_class = { admiral }
 	opposites = { "leader_trait_cautious" }
 }
@@ -72,7 +72,7 @@ leader_trait_cautious = {
 	modifier = {
 		ship_weapon_range_mult = 0.20
 	}
-	leader_trait = yes
+	leader_trait = { admiral }
 	leader_class = { admiral }
 	opposites = { "leader_trait_aggressive" }
 }
@@ -89,7 +89,7 @@ leader_trait_scout = {
 	leader_potential_add = {
 		from = { has_technology = tech_sensors_2 }
 	}
-	leader_trait = yes
+	leader_trait = { admiral }
 	leader_class = { admiral }
 }
 
@@ -102,7 +102,7 @@ leader_trait_unyielding = {
 		ship_weapon_damage = 0.05
 		ship_disengage_chance_mult = -0.33
 	}
-	leader_trait = yes
+	leader_trait = { admiral }
 	leader_class = { admiral }
 	opposites = { "leader_trait_nervous" "leader_trait_trickster" }
 }
@@ -114,7 +114,7 @@ leader_trait_nervous = {
 	modifier = {
 		ship_fire_rate_mult = -0.1
 	}
-	leader_trait = yes
+	leader_trait = { admiral }
 	leader_class = { admiral }
 	opposites = { "leader_trait_unyielding" }
 	initial = no
@@ -129,7 +129,7 @@ leader_trait_gale_speed = {
 		ship_evasion_mult = 0.05
 		ship_speed_mult = 0.2
 	}
-	leader_trait = yes
+	leader_trait = { admiral }
 	leader_class = { admiral }
 	opposites = { "leader_trait_lethargic" }
 }
@@ -147,7 +147,7 @@ leader_trait_lethargic = {
 		ship_speed_mult = -0.1
 
 	}
-	leader_trait = yes
+	leader_trait = { admiral }
 	leader_class = { admiral }
 	opposites = { "leader_trait_gale_speed" }
 	initial = no
@@ -161,7 +161,7 @@ leader_trait_sentinel = {
 	modifier = {
 		damage_vs_country_type_swarm_mult = 0.2
 	}
-	leader_trait = yes
+	leader_trait = { admiral }
 	leader_class = { admiral }
 	initial = no
 	randomized = no
@@ -174,7 +174,7 @@ leader_trait_hive_affinity = {
 	modifier = {
 		ship_fire_rate_mult = 0.2
 	}
-	leader_trait = yes
+	leader_trait = { admiral }
 	leader_class = { admiral }
 	initial = no
 	randomized = no
@@ -187,7 +187,7 @@ leader_trait_void_swimmer = {
 	modifier = {
 		ship_speed_mult = 0.2
 	}
-	leader_trait = yes
+	leader_trait = { admiral }
 	leader_class = { admiral }
 	initial = no
 	randomized = no
@@ -200,7 +200,7 @@ leader_trait_ethereal = {
 	modifier = {
 		ship_evasion_mult = 0.2
 	}
-	leader_trait = yes
+	leader_trait = { admiral }
 	leader_class = { admiral }
 	initial = no
 	randomized = no
@@ -213,7 +213,7 @@ leader_trait_dimensional_stutter = {
 	modifier = {
 		ship_speed_mult = 0.2
 	}
-	leader_trait = yes
+	leader_trait = { admiral }
 	leader_class = { admiral }
 	initial = no
 	randomized = no
@@ -227,7 +227,7 @@ leader_trait_dragonslayer = {
 		ship_speed_mult = 0.1
 		ship_fire_rate_mult = 0.1
 	}
-	leader_trait = yes
+	leader_trait = { admiral }
 	leader_class = { admiral }
 	initial = no
 	randomized = no
@@ -241,7 +241,7 @@ leader_trait_admiral_erudite = {
 		ship_fire_rate_mult = 0.05
 		ship_disengage_chance_mult = 0.10
 	}
-	leader_trait = yes
+	leader_trait = { admiral }
 	leader_class = { admiral }
 	initial = no
 	randomized = no
@@ -254,7 +254,7 @@ leader_trait_admiral_cyborg = {
 	modifier = {
 		ship_fire_rate_mult = 0.05
 	}
-	leader_trait = yes
+	leader_trait = { admiral }
 	leader_class = { admiral }
 	initial = no
 	randomized = no
@@ -268,7 +268,7 @@ leader_trait_admiral_synthetic = {
 		ship_fire_rate_mult = 0.05
 		ship_weapon_range_mult = 0.10
 	}
-	leader_trait = yes
+	leader_trait = { admiral }
 	leader_class = { admiral }
 	initial = no
 	randomized = no
@@ -282,7 +282,7 @@ leader_trait_admiral_psionic = {
 		ship_weapon_damage = 0.1
 		ship_evasion_mult = 0.15
 	}
-	leader_trait = yes
+	leader_trait = { admiral }
 	leader_class = { admiral }
 	initial = no
 	randomized = no
@@ -297,7 +297,7 @@ leader_trait_admiral_chosen = {
 		ship_weapon_damage = 0.2
 		ship_evasion_mult = 0.3
 	}
-	leader_trait = yes
+	leader_trait = { admiral }
 	leader_class = { admiral }
 	initial = no
 	randomized = no
@@ -312,7 +312,7 @@ leader_trait_cybrex = {
 		ship_evasion_mult = 0.1
 		ship_fire_rate_mult = 0.1
 	}
-	leader_trait = yes
+	leader_trait = { admiral }
 	leader_class = { admiral }
 	initial = no
 	randomized = no
@@ -326,7 +326,7 @@ leader_trait_mercenary_warrior = {
 		ship_evasion_mult = 0.1
 		ship_fire_rate_mult = 0.1
 	}
-	leader_trait = yes
+	leader_trait = { admiral }
 	leader_class = { admiral }
 	initial = no
 	randomized = no
@@ -347,7 +347,7 @@ leader_trait_great_khan = {
 		ship_armor_regen_add_perc = 0.5
 		ship_weapon_range_mult = 0.2
 	}
-	leader_trait = yes
+	leader_trait = { admiral }
 	leader_class = { admiral }
 	initial = no
 	randomized = no

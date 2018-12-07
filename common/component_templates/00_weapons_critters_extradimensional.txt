@@ -20,7 +20,25 @@ weapon_component_template = {
 	
 	component_set = "EXTRADIMENSIONAL_1"
 	prerequisites = { "tech_extradimensional_weapon_1" }
-	cost = @critter_cost_value
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @s_t6_cost
+			rare_crystals = @s_t6_rare
+		}		
+		upkeep = {
+			energy = @s_t6_upkeep_energy
+			alloys = @s_t6_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = rare_crystals value <= 0 }
+		}
+	}
 }
 
 weapon_component_template = {
@@ -37,7 +55,25 @@ weapon_component_template = {
 	
 	component_set = "EXTRADIMENSIONAL_1"
 	prerequisites = { "tech_extradimensional_weapon_1" }
-	cost = @critter_cost_value
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @m_t6_cost
+			rare_crystals = @m_t6_rare
+		}		
+		upkeep = {
+			energy = @m_t6_upkeep_energy
+			alloys = @m_t6_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = rare_crystals value <= 0 }
+		}
+	}
 }
 
 weapon_component_template = {
@@ -54,7 +90,25 @@ weapon_component_template = {
 	
 	component_set = "EXTRADIMENSIONAL_1"
 	prerequisites = { "tech_extradimensional_weapon_1" }
-	cost = @critter_cost_value
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @l_t6_cost
+			rare_crystals = @l_t6_rare
+		}		
+		upkeep = {
+			energy = @l_t6_upkeep_energy
+			alloys = @l_t6_upkeep_alloys
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0.0
+			has_monthly_income = { resource = rare_crystals value <= 0 }
+		}
+	}
 }
 
 weapon_component_template = {
@@ -70,5 +124,10 @@ weapon_component_template = {
 	tags = { weapon_type_energy }
 	ai_tags = { weapon_role_anti_hull }
 	
-	cost = @critter_cost_value
+	resources = {
+		category = ship_components
+		cost = {
+			alloys = @critter_cost_value
+		}
+	}
 }

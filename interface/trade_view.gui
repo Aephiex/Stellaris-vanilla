@@ -559,19 +559,24 @@ guiTypes = {
 
 	containerWindowType = {
 		name = "trade_offer_editable_item_entry"
-		size = { width = 200 height = 28 }
+		size = { width = 200 height = 56 }
 		position = { x = 0 y = -5 }
+
+		buttonType = {
+			name = "close_button"
+			spriteType = "GFX_button_close_24"
+			position = { x= 0 y = -10 }
+		}
 
 		iconType = {
 			name = "button"
 			spriteType = "GFX_standard_button_200_24"
 			position = { x= 28 y = -3 }
 		}
-
-		buttonType = {
-			name = "close_button"
-			spriteType = "GFX_button_close_24"
-			position = { x= 0 y = -10 }
+		iconType = {
+			name = "button_monthly"
+			spriteType = "GFX_standard_button_200_24"
+			position = { x= 28 y = 25 }
 		}
 
 		instantTextBoxType = {
@@ -584,15 +589,30 @@ guiTypes = {
 			format = center
 			alwaysTransparent = yes
 		}
+		instantTextBoxType = {
+			name = "item_name_monthly"
+			font = "cg_16b"
+			text = "Monthly Resources to give"
+			position = { x = 38 y = 34 }
+			maxWidth = 200
+			maxHeight = 40
+			format = center
+			alwaysTransparent = yes
+		}
 
 		iconType = {
 			name = "value_bg"
 			spriteType = "GFX_value_bg"
 			position = { x = 245 y = 2 }
 		}
+		iconType = {
+			name = "value_monthly_bg"
+			spriteType = "GFX_value_bg"
+			position = { x = 245 y = 30 }
+		}
 
 		instantTextBoxType = {
-			name = "energy_value"
+			name = "value"
 			font = "cg_16b"
 			text = "200"
 			position = { x = 269 y = 5 }
@@ -600,17 +620,36 @@ guiTypes = {
 			maxHeight = 20
 			format = center
 		}
+		instantTextBoxType = {
+			name = "value_monthly"
+			font = "cg_16b"
+			text = "200"
+			position = { x = 269 y = 33 }
+			maxWidth = 50
+			maxHeight = 20
+			format = center
+		}
 
 		buttonType = {
-			name = "energy_minus"
+			name = "value_minus"
 			quadTextureSprite = "GFX_topbar_date_minus"
 			position = { x= 245 y = 5 }
 		}
-
 		buttonType ={
-			name = "energy_plus"
+			name = "value_plus"
 			quadTextureSprite = "GFX_topbar_date_plus"
 			position = { x= 318 y = 5  }
+		}
+
+		buttonType = {
+			name = "value_monthly_minus"
+			quadTextureSprite = "GFX_topbar_date_minus"
+			position = { x= 245 y = 33 }
+		}
+		buttonType ={
+			name = "value_monthly_plus"
+			quadTextureSprite = "GFX_topbar_date_plus"
+			position = { x= 318 y = 33  }
 		}
 	}
 
@@ -642,4 +681,6 @@ guiTypes = {
 			alwaysTransparent = yes
 		}
 	}
+
+
 }

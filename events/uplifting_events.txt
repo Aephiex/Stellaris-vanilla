@@ -70,11 +70,8 @@ ship_event = {
 						limit = { is_sapient = no }
 						count < 3
 					}
-					free_pop_tiles > 0
 				}
-				best_tile_for_pop = {
-					create_pop = { species = last_created }
-				}
+				create_pop = { species = last_created }
 			}
 		}
 	}
@@ -187,11 +184,8 @@ ship_event = {
 						limit = { is_sapient = no }
 						count < 3
 					}
-					free_pop_tiles > 0
 				}
-				best_tile_for_pop = {
-					create_pop = { species = last_created }
-				}
+				create_pop = { species = last_created }
 			}
 		}
 	}
@@ -275,11 +269,8 @@ ship_event = {
 						limit = { is_sapient = no }
 						count < 3
 					}
-					free_pop_tiles > 0
 				}
-				best_tile_for_pop = {
-					create_pop = { species = last_created }
-				}
+				create_pop = { species = last_created }
 			}
 		}
 	}
@@ -387,11 +378,8 @@ ship_event = {
 						limit = { is_sapient = no }
 						count < 3
 					}
-					free_pop_tiles > 0
 				}
-				best_tile_for_pop = {
-					create_pop = { species = last_created }
-				}
+				create_pop = { species = last_created }
 			}
 		}
 	}
@@ -475,11 +463,8 @@ ship_event = {
 						limit = { is_sapient = no }
 						count < 3
 					}
-					free_pop_tiles > 0
 				}
-				best_tile_for_pop = {
-					create_pop = { species = last_created }
-				}
+				create_pop = { species = last_created }
 			}
 		}
 	}
@@ -586,11 +571,8 @@ ship_event = {
 						limit = { is_sapient = no }
 						count < 3
 					}
-					free_pop_tiles > 0
 				}
-				best_tile_for_pop = {
-					create_pop = { species = last_created }
-				}
+				create_pop = { species = last_created }
 			}
 		}
 	}
@@ -674,11 +656,8 @@ ship_event = {
 						limit = { is_sapient = no }
 						count < 3
 					}
-					free_pop_tiles > 0
 				}
-				best_tile_for_pop = {
-					create_pop = { species = last_created }
-				}
+				create_pop = { species = last_created }
 			}
 		}
 	}
@@ -785,11 +764,8 @@ ship_event = {
 						limit = { is_sapient = no }
 						count < 3
 					}
-					free_pop_tiles > 0
 				}
-				best_tile_for_pop = {
-					create_pop = { species = last_created }
-				}
+				create_pop = { species = last_created }
 			}
 		}
 	}
@@ -873,11 +849,8 @@ ship_event = {
 						limit = { is_sapient = no }
 						count < 3
 					}
-					free_pop_tiles > 0
 				}
-				best_tile_for_pop = {
-					create_pop = { species = last_created }
-				}
+				create_pop = { species = last_created }
 			}
 		}
 	}
@@ -986,11 +959,8 @@ ship_event = {
 						limit = { is_sapient = no }
 						count < 3
 					}
-					free_pop_tiles > 0
 				}
-				best_tile_for_pop = {
-					create_pop = { species = last_created }
-				}
+				create_pop = { species = last_created }
 			}
 		}
 	}
@@ -1074,11 +1044,8 @@ ship_event = {
 						limit = { is_sapient = no }
 						count < 3
 					}
-					free_pop_tiles > 0
 				}
-				best_tile_for_pop = {
-					create_pop = { species = last_created }
-				}
+				create_pop = { species = last_created }
 			}
 		}
 	}
@@ -1185,11 +1152,8 @@ ship_event = {
 						limit = { is_sapient = no }
 						count < 3
 					}
-					free_pop_tiles > 0
 				}
-				best_tile_for_pop = {
-					create_pop = { species = last_created }
-				}
+				create_pop = { species = last_created }
 			}
 		}
 	}
@@ -1273,11 +1237,8 @@ ship_event = {
 						limit = { is_sapient = no }
 						count < 3
 					}
-					free_pop_tiles > 0
 				}
-				best_tile_for_pop = {
-					create_pop = { species = last_created }
-				}
+				create_pop = { species = last_created }
 			}
 		}
 	}
@@ -1384,11 +1345,8 @@ ship_event = {
 						limit = { is_sapient = no }
 						count < 3
 					}
-					free_pop_tiles > 0
 				}
-				best_tile_for_pop = {
-					create_pop = { species = last_created }
-				}
+				create_pop = { species = last_created }
 			}
 		}
 	}
@@ -1472,11 +1430,8 @@ ship_event = {
 						limit = { is_sapient = no }
 						count < 3
 					}
-					free_pop_tiles > 0
 				}
-				best_tile_for_pop = {
-					create_pop = { species = last_created }
-				}
+				create_pop = { species = last_created }
 			}
 		}
 	}
@@ -1648,11 +1603,8 @@ ship_event = {
 						limit = { is_sapient = no }
 						count < 3
 					}
-					free_pop_tiles > 0
 				}
-				best_tile_for_pop = {
-					create_pop = { species = last_created }
-				}
+				create_pop = { species = last_created }
 			}
 		}
 	}
@@ -1762,11 +1714,8 @@ ship_event = {
 						limit = { is_sapient = no }
 						count < 3
 					}
-					free_pop_tiles > 0
 				}
-				best_tile_for_pop = {
-					create_pop = { species = last_created }
-				}
+				create_pop = { species = last_created }
 			}
 			set_planet_flag = roachoid_planet
 		}
@@ -2108,7 +2057,7 @@ planet_event = {
 		any_pop = { is_sapient = no }
 		owner = {
 			is_ai = no
-			energy > 299
+			resource_stockpile_compare = { resource = energy value >= 300 }
 		}
 		NOT = { has_planet_flag = chainblocked }
 	}
@@ -2121,20 +2070,20 @@ planet_event = {
 		name = UNFORTUNATE
 		trigger = {
 			owner = {
-				energy > 299
+				resource_stockpile_compare = { resource = energy value >= 300 }
 			}
 		}
-		owner = { add_energy = -300 }
+		owner = { add_resource = { energy = -300 } }
 	}
 
 	option = {
 		name = UNFORTUNATE
 		trigger = {
 			owner = {
-				energy < 299
+				resource_stockpile_compare = { resource = energy value < 300 }
 			}
 		}
-		owner = { add_energy = -100 }
+		owner = { add_resource = { energy = -100 } }
 	}
 }
 

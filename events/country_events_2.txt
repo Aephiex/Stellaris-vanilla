@@ -14,72 +14,6 @@ country_event = {
 
 	is_triggered_only = yes
 
-	trigger = { is_ai = no }
-
-	immediate = {
-		if = {
-			limit = {
-				capital_scope.solar_system = {
-					NOT = {
-						any_planet = {
-							is_surveyed = {
-								who = ROOT
-								status = no
-							}
-						}
-					}
-				}
-			}
-			country_event = { id = country.902 days = 60 random = 20 }
-		}
-		else = {
-			country_event = { id = country.901 days = 90 }
-		}
-	}
-}
-
-# looping check
-country_event = {
-	id = country.901
-	hide_window = yes
-
-	is_triggered_only = yes
-
-	immediate = {
-		if = {
-			limit = {
-				capital_scope = { colony_age > 24 }
-			}
-			country_event = { id = country.902 days = 60 random = 20 }
-		}
-		else_if = {
-			limit = {
-				capital_scope.solar_system = {
-					NOT = {
-						any_planet = {
-							is_surveyed = {
-								who = ROOT
-								status = no
-							}
-						}
-					}
-				}
-			}
-			country_event = { id = country.902 days = 60 random = 20 }
-		}
-		else = {
-			country_event = { id = country.901 days = 60 }
-		}
-	}
-}
-
-# switch
-country_event = {
-	id = country.902
-	hide_window = yes
-
-	is_triggered_only = yes
-
 	immediate = {
 		random_list = {
 			# Sublight Probes
@@ -1124,7 +1058,7 @@ country_event = {
 	option = {
 		name = country.1040.b
 		trigger = {
-			energy > 149
+			resource_stockpile_compare = { resource = energy value >= 150 }
 			OR = {
 				has_ethic = "ethic_fanatic_pacifist"
 				has_ethic = "ethic_pacifist"
@@ -1132,7 +1066,7 @@ country_event = {
 				has_ethic = "ethic_materialist"
 			}
 		}
-		add_energy = -150
+		add_resource = { energy = -150 }
 		hidden_effect = { country_event = { id = country.1041 } }
 	}
 

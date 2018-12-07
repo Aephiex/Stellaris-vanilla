@@ -111,9 +111,9 @@
 @raidcost = -3000
 
 ### UNREST EVENTS
-@unrestlevel1 = 10
-@unrestlevel2 = 50
-@unrestlevel3 = 80
+@stabilitylevel1 = 10
+@stabilitylevel2 = 25
+@stabilitylevel3 = 40
 
 ### SHROUD EVENTS
 @shroudreq1 = 3000
@@ -143,25 +143,25 @@
 @base_moon_distance = 10
 
 # TECH COSTS
-@tier1cost1 = 500
-@tier1cost2 = 750
-@tier1cost3 = 1000
+@tier1cost1 = 2000
+@tier1cost2 = 2500
+@tier1cost3 = 3000
 
-@tier2cost1 = 1500
-@tier2cost2 = 2000
-@tier2cost3 = 2500
+@tier2cost1 = 4000
+@tier2cost2 = 5000
+@tier2cost3 = 6000
 
-@tier3cost1 = 4000
-@tier3cost2 = 5000
-@tier3cost3 = 6000
+@tier3cost1 = 8000
+@tier3cost2 = 10000
+@tier3cost3 = 12000
 
-@tier4cost1 = 8000
-@tier4cost2 = 10000
-@tier4cost3 = 12000
+@tier4cost1 = 16000
+@tier4cost2 = 20000
+@tier4cost3 = 24000
 
-@tier5cost1 = 15000
-@tier5cost2 = 17500
-@tier5cost3 = 20000
+@tier5cost1 = 32000
+@tier5cost2 = 40000
+@tier5cost3 = 48000
 
 # TECH WEIGHTS
 @tier1weight1 = 100
@@ -185,7 +185,7 @@
 @tier5weight3 = 20
 
 # REPEATABLE TECHS
-@repeatableTechBaseCost = 20000
+@repeatableTechBaseCost = 50000
 @repeatableTechLevelCost = 5000
 @repeatableTechTier = 5
 
@@ -193,15 +193,16 @@
 @repatableTechFactor = 0.5
 
 # FALLEN EMPIRE TECHS
-@fallentechcost = 25000
+@fallentechcost = 50000
 @fallentechtier = 5
 
 # HORIZON SIGNAL
-@horizontechcost = 4000
+@horizontechcost1 = 4000
+@horizontechcost2 = 10000
 @horizontechtier = 3
 
 # LEVIATHANS TECHS
-@guardiantechcost = 15000
+@guardiantechcost = 50000
 @guardiantechtier = 5
 
 # BUILDINGS

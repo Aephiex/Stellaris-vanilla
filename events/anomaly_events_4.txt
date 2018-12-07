@@ -253,14 +253,7 @@ ship_event = {
 		}
 		hidden_effect = {
 			fromfrom = {
-				random_tile = {
-					limit = {
-						has_blocker = no
-						is_orbital_tile = no
-					}
-					clear_deposits = yes
-					set_building = building_ancient_factory
-				}
+				add_deposit = d_ancient_mining_site
 			}
 		}
 	}
@@ -342,10 +335,10 @@ ship_event = {
 		name = anomaly.3035.b
 		trigger = { 
 			leader = { has_trait = leader_trait_carefree }
-			owner = { energy > 74}
+			owner = { resource_stockpile_compare = { resource = energy value >= 75 } }
 		}
 		owner = {
-			add_energy = -75
+			add_resource = { energy = -75 }
 		}
 	}
 
@@ -493,7 +486,7 @@ ship_event = {
 
 	immediate = {
 		owner = { country_event = { id = story.5 days = 30 } }
-		from = { orbital_deposit_tile = { clear_deposits = yes } }
+		from = { clear_deposits = yes }
 	}
 
 	option = {
@@ -502,11 +495,9 @@ ship_event = {
 		trigger = { leader = { has_trait = leader_trait_meticulous } }
 		hidden_effect = {
 			from = {
-				orbital_deposit_tile = {
-					add_deposit = d_vast_society_deposit
-					add_deposit = d_vast_society_deposit
-					add_deposit = d_vast_society_deposit
-				}
+				add_deposit = d_society_3
+				add_deposit = d_society_3
+				add_deposit = d_society_3
 			}
 		}
 	}
@@ -516,10 +507,8 @@ ship_event = {
 		custom_tooltip = anomaly.3050.b.tooltip
 		hidden_effect = {
 			from = {
-				orbital_deposit_tile = {
-					add_deposit = d_vast_mineral_deposit
-					add_deposit = d_vast_mineral_deposit
-				}
+				add_deposit = d_minerals_3
+				add_deposit = d_minerals_3
 			}
 		}
 	}
@@ -588,9 +577,9 @@ ship_event = {
 		leader = { add_experience = 200 }
 		fromfrom = {
 			remove_modifier = "unbalanced_ecosystem"
-			every_tile = {
-				limit = { has_blocker = "tb_dangerous_wildlife" }
-				remove_blocker = yes
+			every_deposit = {
+				limit = { is_deposit_type = d_dangerous_wildlife_blocker }
+				clear_blocker = yes
 			}
 		}
 	}
@@ -613,18 +602,8 @@ ship_event = {
 		hidden_effect = {
 			fromfrom = {
 				remove_modifier = "unbalanced_ecosystem"
-				random_tile = {
-					limit = { has_blocker = no }
-					set_blocker = "tb_dangerous_wildlife"
-				}
-				random_tile = {
-					limit = { has_blocker = no }
-					set_blocker = "tb_dangerous_wildlife"
-				}
-				random_tile = {
-					limit = { has_blocker = no }
-					set_blocker = "tb_dangerous_wildlife"
-				}
+				add_deposit = d_dangerous_wildlife_blocker
+				add_deposit = d_dangerous_wildlife_blocker
 			}
 		}
 	}
@@ -794,7 +773,7 @@ ship_event = {
 
 	is_triggered_only = yes
 
-	immediate = { from = { orbital_deposit_tile = { clear_deposits = yes } } }
+	immediate = { from = { clear_deposits = yes } }
 
 	option = {
 		name = anomaly.3065.a
@@ -808,10 +787,8 @@ ship_event = {
 		leader = { add_trait = leader_trait_expertise_statecraft }
 		hidden_effect = {
 			from = {
-				orbital_deposit_tile = {
-					add_deposit = d_vast_society_deposit
-					add_deposit = d_rich_society_deposit
-				}
+				add_deposit = d_society_3
+				add_deposit = d_society_2
 			}
 		}
 	}
@@ -823,10 +800,8 @@ ship_event = {
 		leader = { add_trait = leader_trait_expertise_biology }
 		hidden_effect = {
 			from = {
-				orbital_deposit_tile = {
-					add_deposit = d_vast_society_deposit
-					add_deposit = d_rich_society_deposit
-				}
+				add_deposit = d_society_3
+				add_deposit = d_society_2
 			}
 		}
 	}
@@ -883,18 +858,16 @@ ship_event = {
 
 	is_triggered_only = yes
 
-	immediate = { from = { orbital_deposit_tile = { clear_deposits = yes } } }
+	immediate = { from = { clear_deposits = yes } }
 
 	option = {
 		name = anomaly.3075.a
 		custom_tooltip = anomaly.3075.a.tooltip
 		hidden_effect = {
 			from = {
-				orbital_deposit_tile = {
-					add_deposit = d_vast_physics_deposit
-					add_deposit = d_vast_physics_deposit
-					add_deposit = d_vast_physics_deposit
-				}
+				add_deposit = d_physics_3
+				add_deposit = d_physics_3
+				add_deposit = d_physics_3
 			}
 		}
 	}
@@ -916,17 +889,8 @@ ship_event = {
 	option = {
 		name = anomaly.3080.a
 		custom_tooltip = anomaly.3080.a.tooltip
-		hidden_effect = {
-			from = {
-				random_tile = {
-					limit = {
-						has_blocker = no
-						is_orbital_tile = no
-					}
-					clear_deposits = yes
-					set_building = building_toy_factory
-				}
-			}
+		from = {
+			add_deposit = d_toy_factory_complex
 		}
 	}
 }
@@ -981,6 +945,7 @@ country_event = {
 				has_communications = root
 				NOT = { is_country = root }
 				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { is_xenophobe = yes }
 			}
 			save_event_target_as = book_writer
 		}
@@ -1184,8 +1149,8 @@ ship_event = {
 
 	option = {
 		name = anomaly.3091.b # cover it up
-		trigger = { owner = { influence > 49 } }
-		owner = { add_influence = -50 }
+		trigger = { owner = { resource_stockpile_compare = { resource = influence value >= 50 } } }
+		owner = { add_resource = { influence = -50 } }
 	}
 }
 
@@ -1338,7 +1303,7 @@ country_event = {
 					}
 				}
 				create_leader = {
-					type = admiral
+					class = admiral
 					species = root.owner_species
 					name = random
 					skill = 2
@@ -1755,8 +1720,6 @@ ship_event = {
 
 	is_triggered_only = yes
 
-	immediate = { from = { orbital_deposit_tile = { clear_deposits = yes } } }
-
 	option = {
 		name = anomaly.3110.a
 		from = {
@@ -1871,9 +1834,7 @@ country_event = {
 	option = {
 		name = anomaly.3113.a
 		fromfrom = {
-			orbital_deposit_tile = {
-				add_deposit = d_enormous2_engineering_deposit
-			}
+			add_deposit = d_engineering_8
 		}
 	}
 
@@ -2000,7 +1961,7 @@ fleet_event = {
 				}
 			}
 			create_leader = {
-				type = admiral
+				class = admiral
 				species = event_target:owner_species
 				name = random
 				skill = 2
@@ -2349,7 +2310,7 @@ ship_event = {
 				}
 			}
 		}
-		owner = { add_influence = 100 }
+		owner = { add_resource = { influence = 100 } }
 	}
 
 	option = {
@@ -2394,10 +2355,8 @@ ship_event = {
 			}
 		}
 		fromfrom = {
-			orbital_deposit_tile = {
-				clear_deposits = yes
-				add_deposit = d_enormous3_mineral_deposit
-			}
+			clear_deposits = yes
+			add_deposit = d_minerals_10
 			create_mining_station = { owner = root }
 		}
 	}
@@ -2477,10 +2436,13 @@ ship_event = {
 	#option = {
 	#	name = anomaly.3127.a.1
 	#	trigger = { owner = { has_country_flag = opt1 } }
+	#
 	#	fromfromfrom = {
-	#		orbital_deposit_tile = { clear_deposits = yes add_deposit = d_betharian_deposit }
+	#		clear_deposits = yes
+	#		add_betharian = yes
 	#		create_mining_station = { owner = event_target:shipowner }
 	#	}
+	#
 	#	hidden_effect = { owner = { remove_country_flag = opt1 } }
 	#}
 
@@ -2495,11 +2457,12 @@ ship_event = {
 			}
 		}
 		owner = { 
-			give_technology = { tech = tech_mine_teldar }
+			give_technology = { tech = tech_rare_crystals }
 		}
 		fromfromfrom = {
 			create_mining_station = { owner = event_target:shipowner }
-			hidden_effect = { orbital_deposit_tile = { clear_deposits = yes add_teldar = yes } }
+			add_rare_crystals = yes
+			hidden_effect = { clear_deposits = yes }
 		}
 		hidden_effect = {
 			owner = { remove_country_flag = opt2 }
@@ -2518,11 +2481,12 @@ ship_event = {
 			}
 		}
 		owner = {
-			give_technology = { tech = tech_mine_teldar }
+			give_technology = { tech = tech_rare_crystals }
 		}
 		fromfromfrom = {
 			create_mining_station = { owner = event_target:shipowner }
-			hidden_effect = { orbital_deposit_tile = { clear_deposits = yes add_teldar = yes } }
+			add_rare_crystals = yes
+			hidden_effect = { clear_deposits = yes }
 		}
 		hidden_effect = {
 			owner = { remove_country_flag = opt3 }

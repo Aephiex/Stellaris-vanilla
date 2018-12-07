@@ -4,9 +4,7 @@ xanid = {
 	adjective = "PRESCRIPTED_adjective_xanid"
 	spawn_enabled = yes # yes / no / always
 	
-	#species_name = "PRESCRIPTED_species_name_xanid"
-	#species_plural = "PRESCRIPTED_species_plural_xanid"	#we should localize the names!
-	#species_adjective = "PRESCRIPTED_species_adjective_xanid"
+	playable = has_utopia # scripted_triggers
 	
 	species = {
 		class = "ART"
@@ -16,7 +14,7 @@ xanid = {
 		adjective = "PRESCRIPTED_species_adjective_xanid"
 		name_list = "ART3"
 		trait = "trait_talented"
-		trait = "trait_thrifty"
+		trait = "trait_intelligent"
 		trait = "trait_enduring"
 		trait = "trait_nonadaptive"
 	}
@@ -78,14 +76,17 @@ xanid = {
 		hair = 0
 		clothes = 4
 		ruler_title = "PRESCRIPTED_ruler_title_xanid"
+		leader_class = ruler
 	}
 }
 
 lokken = {
 	name = "lokken"
-	adjective="PRESCRIPTED_adjective_lokken"
+	adjective = "PRESCRIPTED_adjective_lokken"
 	
 	ship_prefix = "PRESCRIPTED_ship_prefix_lokken"
+	
+	playable = has_utopia # scripted_triggers
 
 	species = {
 		class = "REP"
@@ -97,7 +98,7 @@ lokken = {
 		trait = "trait_natural_engineers"
 		trait = "trait_talented"
 		trait = "trait_quick_learners"
-		trait = "trait_slow_breeders"
+		trait = "trait_sedentary"
 	}
 
 	ethic = "ethic_egalitarian"
@@ -105,7 +106,7 @@ lokken = {
 	civics = { "civic_mechanists" "civic_technocracy" }
 	authority = "auth_democratic"
 	government = "gov_rational_consensus"
-	planet_name=  "PRESCRIPTED_planet_name_lokken"
+	planet_name = "PRESCRIPTED_planet_name_lokken"
 	planet_class = "pc_arid"
 	system_name = "PRESCRIPTED_system_name_lokken"
 	initializer = ""
@@ -133,10 +134,14 @@ lokken = {
 	ruler={
 		gender = female
 		name = "PRESCRIPTED_ruler_name_lokken"
+		ruler_title_female = "PRESCRIPTED_ruler_title_lokken"
 		portrait = "rep4"
 		texture = 3
-		hair=  0
+		hair = 0
 		clothes = 3
+		ruler_title = "PRESCRIPTED_ruler_title_lokken"
+		ruler_title_female = "PRESCRIPTED_ruler_title_lokken"
+		leader_class = ruler
 	}
 }
 
@@ -147,6 +152,8 @@ ixidar = {
 	adjective = "PRESCRIPTED_adjective_ixidar"
 	spawn_enabled = yes # yes / no / always
 	
+	playable = has_utopia # scripted_triggers
+	
 	species = {
 		class = "ART"
 		portrait = "art12"
@@ -156,7 +163,6 @@ ixidar = {
 		name_list = "HIVE"
 		trait = "trait_hive_mind"
 		trait = "trait_rapid_breeders"
-		trait = "trait_quick_learners"
 		trait = "trait_strong"
 		trait = "trait_fleeting"
 	}
@@ -201,5 +207,6 @@ ixidar = {
 		texture = -1
 		clothes = 2
 		ruler_title = "PRESCRIPTED_ruler_title_ixidar"
+		leader_class = ruler
 	}
 }

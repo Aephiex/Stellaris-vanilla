@@ -35,7 +35,7 @@ leviathan_01_scavenger_bot = {
 	rotation_speed = 0.05
 	collision_radius = 7
 	modifier = {
-		ship_upkeep_mult = -1
+		ships_upkeep_mult = -1
 		ship_shield_add = 50000
 		ship_armor_add = 50000
 	}
@@ -89,7 +89,7 @@ leviathan_01_voidspawn = {
 	modifier = {
 		ship_evasion_add = 25
 		ship_armor_add = 100000
-		ship_upkeep_mult = -1
+		ships_upkeep_mult = -1
 	}
 	max_hitpoints = 100000
 	combat_size_multiplier = 50
@@ -145,7 +145,7 @@ nanite_space_dragon_baby = {
 	collision_radius = 7
 	modifier = {
 		ship_evasion_add = 25
-		ship_upkeep_mult = -1
+		ships_upkeep_mult = -1
 	}
 	max_hitpoints = 10000
 	size_multiplier = 16

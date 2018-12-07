@@ -98,4 +98,12 @@ component_set = {
 	icon_frame = 1	
 }
 
+#Null void beam
+component_set = {
+	key = "NULL_VOID"
+	
+	icon = "GFX_ship_part_space_whale_weapon_1"
+	icon_frame = 1	
+}
+
 

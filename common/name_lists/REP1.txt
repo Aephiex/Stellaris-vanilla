@@ -1,5 +1,5 @@
 ﻿### Reptilian 1
-### Created by Henrik Eklund
+### Created by Henrik Thyrwall
 
 REP1 = {
 	ship_names = {
@@ -78,14 +78,6 @@ REP1 = {
 			sequential_name = "%O% Defense Nexus"
 		}
 		
-		android_army = {
-			sequential_name = "%O% Synthetic Warriors"
-		}
-
-		android_defense_army = {
-			sequential_name = "%O% Synthetic Guard"
-		}
-		
 		psionic_army = { 
 			sequential_name = "%O% Thought Watchers"
 		}
@@ -106,8 +98,14 @@ REP1 = {
 			sequential_name = "%O% Occupation Nexus"
 		}
 
-		android_occupation_army = {
-			sequential_name = "%O% Occupation Synths"
+		primitive_army = {
+			sequential_name = "Primitive Army %C%"
+		}
+		industrial_army = {
+			sequential_name = "Industrial Army %C%"
+		}
+		postatomic_army = {
+			sequential_name = "Post-Atomic Army %C%"
 		}
 	}
 

@@ -15,6 +15,7 @@ country_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		has_megacorp = no # nomads can't compete with caravaneers
 		NOT = { exists = event_target:nomad01_country }
 	}
 
@@ -151,7 +152,7 @@ country_event = {
 			}
 			event_target:nomad01_country = {
 				create_leader = {
-					type = admiral
+					class = admiral
 					species = owner_main_species
 					name = random
 					skill = 2
@@ -505,7 +506,7 @@ fleet_event = {
 					event_target:nomad_contact_country = {
 						NOR = {
 							any_owned_planet = {
-								free_pop_tiles > 3
+								#free_housing > 0
 								OR = {
 									is_planet_class = pc_desert
 									is_planet_class = pc_arid
@@ -1780,11 +1781,22 @@ fleet_event = {
 		event_target:nomad_contact_country = {
 			random_owned_planet = {
 				limit = {
-					free_pop_tiles > 2
+					#free_housing > 0
 					OR = {
 						is_planet_class = pc_desert
 						is_planet_class = pc_arid
 						is_planet_class = pc_savannah
+					}
+				}
+				weights = {
+					base = 1
+					modifier = { 
+						add = 5
+						free_housing > 0
+					}
+					modifier = { 
+						add = 10
+						free_housing > 1
 					}
 				}
 				set_planet_flag = nomad_mission_location
@@ -1898,29 +1910,14 @@ country_event = {
 				remove_star_flag = nomad_mission_waypoint
 			}
 			event_target:NomadMissionPlanet = {
-				best_tile_for_pop = {
+				while = {
+					count = 3
 					create_pop = {
 						species = event_target:nomad_fleet_species
 						ethos = {
 							ethic = "ethic_egalitarian"
 						}
-					}
-				}
-				best_tile_for_pop = {
-					create_pop = {
-						species = event_target:nomad_fleet_species
-						ethos = {
-							ethic = "ethic_egalitarian"
-						}
-					}
-				}
-				best_tile_for_pop = {
-					create_pop = {
-						species = event_target:nomad_fleet_species
-						ethos = {
-							ethic = "ethic_egalitarian"
-						}
-					}
+					}					
 				}
 			}
 			event_target:nomad_fleet = {
@@ -1936,7 +1933,7 @@ country_event = {
 		name = nomad.21.b
 		response_text = nomad.21.b.response
 		#is_dialog_only = yes
-		add_influence = -50
+		add_resource = { influence = -50 }
 		hidden_effect = {
 			event_target:nomad_fleet = {
 				remove_fleet_flag = nomad_on_mission
@@ -2222,7 +2219,7 @@ country_event = {
 				has_ethic = ethic_spiritualist
 			}
 		}
-		add_influence = -50
+		add_resource = { influence = -50 }
 		hidden_effect = {
 			event_target:nomad_fleet = {
 				remove_fleet_flag = nomad_on_mission
@@ -2243,7 +2240,7 @@ country_event = {
 				has_ethic = ethic_xenophobe
 			}
 		}
-		add_influence = -50
+		add_resource = { influence = -50 }
 		hidden_effect = {
 			event_target:nomad_fleet = {
 				remove_fleet_flag = nomad_on_mission
@@ -2268,7 +2265,7 @@ country_event = {
 				has_ethic = ethic_xenophobe
 			}
 		}
-		add_influence = -50
+		add_resource = { influence = -50 }
 		hidden_effect = {
 			event_target:nomad_fleet = {
 				remove_fleet_flag = nomad_on_mission
@@ -2326,9 +2323,11 @@ country_event = {
 					establish_communications_no_message = event_target:planet_owners
 					set_graphical_culture = mammalian_01
 					set_country_flag = nomad02_country_flag
-					add_energy = 1000
-					add_minerals = 1000
-					add_influence = 500
+					add_resource = { 
+						energy = 1000
+						minerals = 1000
+						influence = 500
+					}
 					#add_opinion_modifier = {
 					#	who = event_target:planet_owners
 					#	modifier = opinion_liberated_us
@@ -2377,13 +2376,10 @@ country_event = {
 
 				while = {
 					count = 2
-					best_tile_for_pop = {
-						create_pop = {
-							#species = event_target:nomad_fleet_species
-							species = owner_main_species
-							ethos = {
-								ethic = "ethic_egalitarian"
-							}
+					create_pop = {
+						species = owner_main_species
+						ethos = {
+							ethic = "ethic_egalitarian"
 						}
 					}
 				}
@@ -3011,10 +3007,10 @@ country_event = {
 	option = {
 		name = nomad.511.a
 		allow = {
-			energy > 2000
+			resource_stockpile_compare = { resource = energy value >= 2000 }
 		}
 		hidden_effect = {
-			add_energy = -2000
+			add_resource = { energy = -2000 }
 			country_event = { id = nomad.514 }
 		}
 	}
@@ -3022,10 +3018,10 @@ country_event = {
 	option = {
 		name = nomad.511.e
 		allow = {
-			minerals > 2000
+			resource_stockpile_compare = { resource = minerals value >= 2000 }
 		}
 		hidden_effect = {
-			add_minerals = -2000
+			add_resource = { minerals = -2000 }
 			country_event = { id = nomad.514 }
 		}
 	}
@@ -3044,8 +3040,8 @@ country_event = {
 		name = nomad.511.c
 		trigger = {
 			NOR = {
-				energy > 2000
-				minerals > 2000
+				resource_stockpile_compare = { resource = energy value >= 2000 }
+				resource_stockpile_compare = { resource = minerals value >= 2000 }
 			}
 		}
 		hidden_effect = {
@@ -3057,8 +3053,8 @@ country_event = {
 		name = nomad.511.d
 		allow = {
 			OR = {
-				energy > 2000
-				minerals > 2000
+				resource_stockpile_compare = { resource = energy value >= 2000 }
+				resource_stockpile_compare = { resource = minerals value >= 2000 }
 			}
 		}
 		hidden_effect = {
@@ -3088,9 +3084,9 @@ country_event = {
 	option = {
 		name = nomad.511.a
 		allow = {
-			energy > 2000
+			resource_stockpile_compare = { resource = energy value >= 2000 }
 		}
-		add_energy = -2000
+		add_resource = { energy = -2000 }
 		hidden_effect = {
 			country_event = { id = nomad.514 }
 		}
@@ -3099,9 +3095,9 @@ country_event = {
 	option = {
 		name = nomad.511.e
 		allow = {
-			minerals > 2000
+			resource_stockpile_compare = { resource = minerals value >= 2000 }
 		}
-		add_minerals = -2000
+		add_resource = { minerals = -2000 }
 		hidden_effect = {
 			country_event = { id = nomad.514 }
 		}
@@ -3111,8 +3107,8 @@ country_event = {
 		name = nomad.511.c
 		trigger = {
 			NOR = {
-				energy > 2000
-				minerals > 2000
+				resource_stockpile_compare = { resource = energy value >= 2000 }
+				resource_stockpile_compare = { resource = minerals value >= 2000 }
 			}
 		}
 		hidden_effect = {
@@ -3124,8 +3120,8 @@ country_event = {
 		name = nomad.511.d
 		allow = {
 			OR = {
-				energy > 2000
-				minerals > 2000
+				resource_stockpile_compare = { resource = energy value >= 2000 }
+				resource_stockpile_compare = { resource = minerals value >= 2000 }
 			}
 		}
 		hidden_effect = {
@@ -3155,9 +3151,9 @@ country_event = {
 	option = {
 		name = nomad.513.b
 		allow = {
-			energy > 1500
+			resource_stockpile_compare = { resource = energy value >= 1500 }
 		}
-		add_energy = -1500
+		add_resource = { energy = -1500 }
 		hidden_effect = {
 			country_event = { id = nomad.514 }
 		}
@@ -3166,9 +3162,9 @@ country_event = {
 	option = {
 		name = nomad.513.d
 		allow = {
-			minerals > 1500
+			resource_stockpile_compare = { resource = minerals value >= 1500 }
 		}
-		add_minerals = -1500
+		add_resource = { minerals = -1500 }
 		hidden_effect = {
 			country_event = { id = nomad.514 }
 		}
@@ -3178,8 +3174,8 @@ country_event = {
 		name = nomad.513.c
 		trigger = {
 			NOR = {
-				energy > 1500
-				minerals > 1500
+				resource_stockpile_compare = { resource = energy value >= 1500 }
+				resource_stockpile_compare = { resource = minerals value >= 1500 }
 			}
 		}
 		hidden_effect = {
@@ -3191,8 +3187,8 @@ country_event = {
 		name = nomad.511.d
 		trigger = {
 			OR = {
-				energy > 1500
-				minerals > 1500
+				resource_stockpile_compare = { resource = energy value >= 1500 }
+				resource_stockpile_compare = { resource = minerals value >= 1500 }
 			}
 		}
 		hidden_effect = {
@@ -3461,7 +3457,7 @@ country_event = {
 			country_event = { id = nomad.524 }
 		}
 		trigger = {
-			energy > 1000
+			resource_stockpile_compare = { resource = energy value >= 1000 }
 		}
 	}
 
@@ -3478,7 +3474,7 @@ country_event = {
 			country_event = { id = nomad.526 }
 		}
 		trigger = {
-			energy < 1000
+			resource_stockpile_compare = { resource = energy value < 1000 }
 		}
 	}
 }
@@ -3516,8 +3512,8 @@ country_event = {
 		text = nomad.525.desc
 		trigger = {
 			OR = {
-				energy >= 2000
-				minerals >= 2000
+				resource_stockpile_compare = { resource = energy value >= 2000 }
+				resource_stockpile_compare = { resource = minerals value >= 2000 }
 			}
 		}
 	}
@@ -3525,8 +3521,8 @@ country_event = {
 		text = nomad.525.desc.poor
 		trigger = {
 			NOR = {
-				energy >= 2000
-				minerals >= 2000
+				resource_stockpile_compare = { resource = energy value >= 2000 }
+				resource_stockpile_compare = { resource = minerals value >= 2000 }
 			}
 		}
 	}

@@ -3,17 +3,20 @@ crew_quarters = {
 	construction_days = 180
 	
 	initial = yes
-	
-	cost = {
-		minerals = 100
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 50
+		}
+
+		upkeep = {
+			energy = 1
+		}
 	}
-	
+
 	orbit_modifier = {
 		ship_orbit_upkeep_mult = -0.25
-	}
-	
-	upkeep_resources = {
-		energy = 1
 	}
 
 	ai_build_at_chokepoint = yes
@@ -27,22 +30,27 @@ hydroponics_bay = {
 	icon = "GFX_spaceport_module_hydroponic_farms"
 	construction_days = 180
 	
-	cost = {
-		minerals = 100
-	}
-	
 	potential = {
 		exists = owner
-		owner = { NOT = { has_authority = auth_machine_intelligence } }
+		owner = { has_technology = "tech_hydroponics" }
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 50
+		}
+
+		produces = {
+			food = 3
+		}
+
+		upkeep = {
+			energy = 1
+		}
 	}
 	
-	produced_resources = {
-		food = 3
-	}
-	
-	upkeep_resources = {
-		energy = 1
-	}
+	show_in_tech = "tech_hydroponics"
 
 	ai_build_at_chokepoint = no
 	ai_build_outside_chokepoint = yes
@@ -55,14 +63,16 @@ hydroponics_bay = {
 resource_silo = {
 	icon = "GFX_spaceport_module_resource_silo"
 	construction_days = 180
-	
-	cost = {
-		minerals = 100
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 50
+		}
 	}
-	
+
 	country_modifier = {
-		max_minerals = 2500
-		max_energy = 2500
+		country_resource_max_add = 2000
 	}
 
 	ai_build_at_chokepoint = no
@@ -78,7 +88,7 @@ nebula_refinery = {
 	
 	potential = {
 		exists = owner
-		owner = { has_technology = tech_mineral_processing_1 }
+		owner = { has_technology = tech_space_mining_1 }
 	}
 	
 	possible = {
@@ -92,19 +102,22 @@ nebula_refinery = {
 		}
 	}
 
-	cost = {
-		minerals = 200
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 100
+		}
+
+		produces = {
+			minerals = 6
+		}
+
+		upkeep = {
+			energy = 2
+		}
 	}
-	
-	produced_resources = {
-		minerals = 5
-	}
-	
-	upkeep_resources = {
-		energy = 2
-	}
-	
-	show_in_tech = "tech_mineral_processing_1"
+
+	show_in_tech = "tech_space_mining_1"
 	
 	ai_build_at_chokepoint = yes
 	ai_build_outside_chokepoint = yes
@@ -116,11 +129,18 @@ nebula_refinery = {
 listening_post = {
 	icon = "GFX_spaceport_module_navigators_guild"
 	construction_days = 360
-	
-	cost = {
-		minerals = 200
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 100
+		}
+
+		upkeep = {
+			energy = 2
+		}
 	}
-	
+
 	potential = {
 		exists = owner
 		owner = { has_technology = tech_sensors_2 }
@@ -129,10 +149,6 @@ listening_post = {
 	station_modifier = {
 		ship_sensor_range_add = 2
 		ship_hyperlane_range_add = 4
-	}
-	
-	upkeep_resources = {
-		energy = 2
 	}
 	
 	ai_build_at_chokepoint = yes
@@ -153,7 +169,7 @@ offworld_trading_company = {
 		exists = owner
 		owner = {
 			has_technology = tech_space_trading
-			#NOT = { has_ethic = ethic_gestalt_consciousness }
+			is_gestalt = no
 		}
 	}	
 	
@@ -165,8 +181,98 @@ offworld_trading_company = {
 		has_starbase_module = trading_hub
 	}
 
-	cost = {
-		minerals = 200
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 100
+		}
+	}
+	
+	triggered_station_modifier = {
+		potential = {
+			hidden_trigger = { exists = this }
+			count_starbase_modules = {
+				type = trading_hub
+				count >= 1
+			}
+			count_starbase_modules = {
+				type = trading_hub
+				count < 2
+			}			
+		}
+		
+		trade_value_add = 2
+	}
+	triggered_station_modifier = {
+		potential = {
+			hidden_trigger = { exists = this }
+			count_starbase_modules = {
+				type = trading_hub
+				count >= 2
+			}
+			count_starbase_modules = {
+				type = trading_hub
+				count < 3
+			}			
+		}
+		
+		trade_value_add = 4
+	}
+	triggered_station_modifier = {
+		potential = {
+			hidden_trigger = { exists = this }
+			count_starbase_modules = {
+				type = trading_hub
+				count >= 3
+			}
+			count_starbase_modules = {
+				type = trading_hub
+				count < 4
+			}		
+		}
+		
+		trade_value_add = 6
+	}	
+	triggered_station_modifier = {
+		potential = {
+			hidden_trigger = { exists = this }
+			count_starbase_modules = {
+				type = trading_hub
+				count >= 4
+			}
+			count_starbase_modules = {
+				type = trading_hub
+				count < 5
+			}			
+		}
+		
+		trade_value_add = 8
+	}
+	triggered_station_modifier = {
+		potential = {
+			hidden_trigger = { exists = this }
+			count_starbase_modules = {
+				type = trading_hub
+				count >= 5
+			}
+			count_starbase_modules = {
+				type = trading_hub
+				count < 6
+			}			
+		}
+		
+		trade_value_add = 10
+	}
+	triggered_station_modifier = {
+		potential = {
+			hidden_trigger = { exists = this }
+			count_starbase_modules = {
+				type = trading_hub
+				count >= 6
+			}
+		}
+		
+		trade_value_add = 12
 	}
 
 	custom_tooltip = sm_offworld_trading_company_desc_modifier
@@ -203,13 +309,16 @@ fleet_academy = {
 	ship_modifier = {
 		ship_starting_experience_add = 100
 	}
-	
-	cost = {
-		minerals = 200
-	}
-	
-	upkeep_resources = {
-		energy = 2
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 100
+		}
+
+		upkeep = {
+			energy = 2
+		}
 	}
 
 	show_in_tech = "tech_interstellar_fleet_traditions"
@@ -240,13 +349,16 @@ naval_logistics_office = {
 	possible = {
 		has_starbase_module = anchorage
 	}
-	
-	cost = {
-		minerals = 200
-	}
-	
-	upkeep_resources = {
-		energy = 2
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 100
+		}
+
+		upkeep = {
+			energy = 2
+		}
 	}
 
 	custom_tooltip = sm_naval_logistics_office_desc_modifier
@@ -282,15 +394,18 @@ titan_yards = {
 		}
 		has_starbase_module = shipyard
 	}
-	
-	cost = {
-		minerals = 1000
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 500
+		}
+
+		upkeep = {
+			energy = 10
+		}
 	}
-	
-	upkeep_resources = {
-		energy = 10
-	}
-	
+
 	custom_tooltip = sm_titan_yards_desc_modifier
 	
 	ai_build_at_chokepoint = no
@@ -323,15 +438,18 @@ colossus_yards = {
 		}
 		has_starbase_module = shipyard
 	}
-	
-	cost = {
-		minerals = 2000
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 1000
+		}
+
+		upkeep = {
+			energy = 20
+		}
 	}
-	
-	upkeep_resources = {
-		energy = 20
-	}
-	
+
 	custom_tooltip = sm_colossus_yards_desc_modifier
 	show_in_tech = "tech_colossus"
 	
@@ -369,16 +487,19 @@ black_hole_observatory = {
 		}
 	}
 
-	cost = {
-		minerals = 200
-	}
-	
-	produced_resources = {
-		physics_research = 10
-	}
-	
-	upkeep_resources = {
-		energy = 2
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 100
+		}
+
+		produces = {
+			physics_research = 10
+		}
+
+		upkeep = {
+			energy = 2
+		}
 	}
 
 	show_in_tech = "tech_sensors_3"
@@ -404,19 +525,22 @@ target_uplink_computer = {
 			has_starbase_size >= starbase_starport
 		}
 	}
-	
-	cost = {
-		minerals = 200
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 100
+		}
+
+		upkeep = {
+			energy = 2
+		}
 	}
-	
+
 	station_modifier = {
 		ship_weapon_range_mult = 0.50
 	}
-	
-	upkeep_resources = {
-		energy = 2
-	}
-	
+
 	ai_build_at_chokepoint = yes
 	ai_build_outside_chokepoint = no
 	ai_weight = {
@@ -439,17 +563,20 @@ defense_grid = {
 			has_starbase_size >= starbase_starport
 		}
 	}
-	
-	cost = {
-		minerals = 300
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 150
+		}
+
+		upkeep = {
+			energy = 2
+		}
 	}
-	
+
 	station_modifier = {
 		starbase_defense_platform_capacity_add = 8
-	}
-	
-	upkeep_resources = {
-		energy = 2
 	}
 
 	show_in_tech = "tech_synchronized_defences"
@@ -488,21 +615,24 @@ deep_space_black_site = {
 		}
 	}
 
-	cost = {
-		minerals = 200
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 100
+		}
+
+		produces = {
+			unity = 1
+		}
+
+		upkeep = {
+			energy = 2
+		}
 	}
-	
-	produced_resources = {
-		unity = 1
-	}
-	
-	upkeep_resources = {
-		energy = 2
-	}
-	
+
 	system_modifier = {
 		pop_government_ethic_attraction = 0.25
-		planet_unrest_add = -20
+		planet_stability_add = 5
 	}
 	
 	show_in_tech = "tech_living_state"
@@ -565,20 +695,23 @@ curator_think_tank = {
 		}
 	}
 
-	cost = {
-		minerals = 200
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 100
+		}
+
+		produces = {
+			physics_research = 5
+			society_research = 5
+			engineering_research = 5
+		}
+
+		upkeep = {
+			energy = 2
+		}
 	}
-	
-	produced_resources = {
-		physics_research = 5
-		society_research = 5
-		engineering_research = 5
-	}
-	
-	upkeep_resources = {
-		energy = 2
-	}
-	
+
 	ai_build_at_chokepoint = yes
 	ai_build_outside_chokepoint = yes
 	ai_weight = {
@@ -637,18 +770,21 @@ art_college = {
 		}
 	}
 
-	cost = {
-		minerals = 200
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 100
+		}
+
+		produces = {
+			unity = 10
+		}
+
+		upkeep = {
+			energy = 2
+		}
 	}
-	
-	produced_resources = {
-		unity = 10
-	}
-	
-	upkeep_resources = {
-		energy = 2
-	}
-	
+
 	ai_build_at_chokepoint = yes
 	ai_build_outside_chokepoint = yes
 	ai_weight = {
@@ -672,12 +808,15 @@ communications_jammer = {
 		}
 	}
 
-	cost = {
-		minerals = 100
-	}
-	
-	upkeep_resources = {
-		energy = 1
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 50
+		}
+
+		upkeep = {
+			energy = 1
+		}
 	}
 
 	equipped_component = "STARBASE_AURA_COMMUNICATIONS_JAMMER"
@@ -700,12 +839,15 @@ disruption_field = {
 		}
 	}
 
-	cost = {
-		minerals = 200
-	}
-	
-	upkeep_resources = {
-		energy = 2
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 100
+		}
+
+		upkeep = {
+			energy = 2
+		}
 	}
 
 	equipped_component = "STARBASE_AURA_DISRUPTION_FIELD"
@@ -724,7 +866,7 @@ warp_fluctuator = {
 	potential = {
 		exists = owner
 		owner = { has_technology = tech_hyper_drive_2 }
-	}	
+	}
 
 	possible = {
 		custom_tooltip = {
@@ -733,12 +875,15 @@ warp_fluctuator = {
 		}
 	}
 
-	cost = {
-		minerals = 200
-	}
-	
-	upkeep_resources = {
-		energy = 2
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 100
+		}
+
+		upkeep = {
+			energy = 2
+		}
 	}
 
 	equipped_component = "STARBASE_AURA_WARP_FLUCTUATOR"
@@ -767,12 +912,15 @@ command_center = {
 		}
 	}
 
-	cost = {
-		minerals = 500
-	}
-	
-	upkeep_resources = {
-		energy = 5
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 250
+		}
+
+		upkeep = {
+			energy = 5
+		}
 	}
 
 	equipped_component = "STARBASE_AURA_COMMAND_CENTER"
@@ -806,7 +954,7 @@ command_center = {
 #	}
 #
 #	cost = {
-#		minerals = 200
+#		alloys = 100
 #	}
 #
 #	custom_tooltip = sm_offworld_trading_company_gestalt_desc_modifier
@@ -826,3 +974,83 @@ command_center = {
 #		}
 #	}
 #}
+
+trader_proxy_office = {
+	icon = "GFX_starbase_offworld_trading_company"
+	construction_days = 360
+
+	
+	potential = {
+		exists = owner
+		owner = {
+			is_homicidal = no
+			is_gestalt = no
+			has_country_flag = has_market_access
+		}
+		solar_system = {
+			any_ship_in_system = {
+				fleet = { has_fleet_flag = trader_enclave_station }
+			}
+		}
+	}	
+	
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_starport"
+			has_starbase_size >= starbase_starport
+		}
+		NOT = { has_starbase_module = trader_proxy_office }
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 100
+		}
+	}
+	
+	country_modifier = {
+		country_trade_fee = -0.05
+	}
+	
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_trade_enclave"
+			solar_system = {
+				OR = {
+					any_planet = {
+						exists = owner
+						owner = { is_country_type = default }
+					}
+					AND = {
+						has_star_flag = enclave
+						any_ship_in_system = {
+							exists = owner
+							owner = {
+								has_country_flag = trader_enclave_country
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	ai_build_at_chokepoint = no
+	ai_build_outside_chokepoint = yes
+	ai_weight = {
+		weight = 200
+		modifier = {
+			factor = 0
+			OR = {
+				solar_system = { NOT = { has_star_flag = guardians_traders_system } }
+				has_starbase_building = trader_proxy_office
+				solar_system = {
+					any_ship_in_system = {
+						fleet = { has_fleet_flag = trader_enclave_station }
+					}
+				}
+			}
+		}
+	}
+}

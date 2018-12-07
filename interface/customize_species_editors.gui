@@ -518,14 +518,14 @@ guiTypes = {
 
 		containerWindowType = {
 			name = "voice_types"
-			position = { x = 385 y = 37 }
-			size = { width = 504 height = 270 }
+			position = { x = 385 y = 15 }
+			size = { width = 504 height = 350 }
 			clipping = yes
 
 			gridBoxType = {
 				name = "gridbox"
 				position = { x = 2 y = 2 }
-				size = { width = 504 height = 270 }
+				size = { width = 504 height = 350 }
 				slotSize = { width = 250 height = 38 }
 				scrollbarType = "standardlistbox_slider"
 				max_slots_horizontal = 2
@@ -845,7 +845,6 @@ guiTypes = {
 				text =	 ""
 				format = left
 				alwaysTransparent = yes
-				#text_color_code = "E"
 			}
 			
 			instantTextBoxType = {
@@ -855,18 +854,6 @@ guiTypes = {
 				maxWidth = 395
 				text = ""
 				format = left
-				#alwaysTransparent = yes
-				text_color_code = "L"
-			}
-			
-			instantTextBoxType = {
-				name = "trait_modifier"
-				font = "cg_16b"
-				position = { x = 10 y = 100 }
-				maxWidth = 395
-				text =	 ""
-				format = left
-				#alwaysTransparent = yes
 			}
 		}
 		
@@ -2157,7 +2144,7 @@ guiTypes = {
 
 			instantTextBoxType = {
 				name = "ethic_points_left"
-				position = { x = -130 y = 70 }
+				position = { x = -130 y = 95 }
 				font = "malgun_goth_24"
 				maxWidth = 310
 				maxHeight = 20
@@ -2350,10 +2337,10 @@ guiTypes = {
 
 		gridBoxType = {
 			name = "authority_grid"
-			position = { x = 362 y = 70 }
+			position = { x = 362 y = 50 }
 			size = { width = 300 height = 50 }
 			slotSize = { width = 50 height = 50 }
-			max_slots_horizontal = 6
+			max_slots_horizontal = 5
 			format = CENTERED_UP
 			add_horizontal = yes
 		}
@@ -2361,7 +2348,7 @@ guiTypes = {
 		containerWindowType = {
 			name = "authority_description"
 			size = { width = 310 height = 131 }
-			position = { x = 360 y = 140 }
+			position = { x = 360 y = 160 }
 			
 			background = {
 				name = "background"
@@ -2383,7 +2370,7 @@ guiTypes = {
 		instantTextBoxType = {
 			name = "government_type"
 			font = "malgun_goth_24"
-			position = { x = 360 y = 280 }
+			position = { x = 360 y = 300 }
 			maxWidth = 310
 			maxHeight = 20
 			text =	""
@@ -2452,7 +2439,7 @@ guiTypes = {
 
 		instantTextBoxType = {
 			name = "civic_points_left"
-			position = { x = 710 y = 280 }
+			position = { x = 710 y = 300 }
 			font = "malgun_goth_24"
 			maxWidth = 310
 			maxHeight = 20

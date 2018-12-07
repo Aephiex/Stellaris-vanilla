@@ -2,7 +2,7 @@
 #
 # Country Events
 #
-# Written by Henrik Eklund
+# Written by Henrik Thyrwall
 #
 ############################
 
@@ -574,10 +574,10 @@ ship_event = {
 	option = {
 		name = "country.7.b"
 		trigger = {
-			owner = { energy > 99 }
+			owner = { resource_stockpile_compare = { resource = energy value >= 100 } }
 		}
 		response_text = country.7.b.response
-		owner = { add_energy = -100 }
+		owner = { add_resource = { energy = -100 } }
 		hidden_effect = { owner = { country_event = { id = country.8 days = 3 } } }
 	}
 }
@@ -1317,7 +1317,7 @@ country_event = {
 	}
 	option = {
 		name = "country.50.b"
-		add_influence = 20
+		add_resource = { influence = 20 }
 	}
 }
 
@@ -2166,7 +2166,7 @@ country_event = {
 				establish_communications_no_message = root
 				establish_contact = { who = root location = root.capital_scope }
 				create_leader = {
-					type = admiral
+					class = admiral
 					species = owner_main_species
 					name = random
 					skill = 2
@@ -2487,7 +2487,7 @@ fleet_event = {
 				limit = { has_country_flag = cultist_rebels_of@root.owner }
 				save_event_target_as = radical_cult
 				create_leader = {
-					type = admiral
+					class = admiral
 					species = owner_main_species
 					name = random
 					skill = 2
@@ -2671,7 +2671,7 @@ fleet_event = {
 				limit = { has_country_flag = cultist_rebels_of@root.owner }
 				save_event_target_as = radical_cult
 				create_leader = {
-					type = admiral
+					class = admiral
 					species = owner_main_species
 					name = random
 					skill = 2
@@ -2759,7 +2759,7 @@ fleet_event = {
 			limit = { has_country_flag = cultist_rebels_of@root.owner }
 			save_event_target_as = radical_cult
 			create_leader = {
-				type = admiral
+				class = admiral
 				species = owner_main_species
 				name = random
 				skill = 2
@@ -2923,7 +2923,7 @@ country_event = {
 					}
 				}
 				create_leader = {
-					type = admiral
+					class = admiral
 					species = owner_main_species
 					name = random
 					skill = 2

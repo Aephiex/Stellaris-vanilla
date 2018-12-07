@@ -415,11 +415,11 @@ DISTAR_EXO_CAT = {
 	}
 
 	on_spawn = {
-		every_tile = {
-			limit = { has_blocker = yes	}
-			remove_blocker = yes
-			set_blocker = "tb_exofungus"
-		}
+		#TODO [CD] [BLOCKERS]
+		#every_deposit = {
+		#	limit = { has_blocker = yes	}
+		#	set_blocker = "exofungus_blocker"
+		#}
 		add_modifier = { modifier = exofungus days = -1 }
 	}
 	
@@ -626,20 +626,14 @@ DISTAR_BRAINSLUG_CAT = {
 			has_distar = yes
 			habitable_planet = yes
 			OR = {
-				any_tile = { has_blocker = "tb_dangerous_wildlife" }
+				has_deposit = d_dangerous_wildlife_blocker
 				has_planet_modifier = pm_dangerous_wildlife
 			}
 		}
 	}
 
 	on_spawn = {
-		random_tile = {
-			limit = {
-				has_blocker = no
-				has_building = no
-			}
-			set_building = "building_primitive_farm"
-		}
+		add_deposit = d_abandoned_primitive_homesteads
 	}
 
 	max_once_global = yes
@@ -730,10 +724,6 @@ DISTAR_ZONE_CAT = {
 			has_distar = yes
 			habitable_planet = yes
 			NOT = { exists = owner }
-			any_tile = {
-				is_orbital_tile = no
-				has_deposit = no
-			}
 		}
 	}
 
@@ -741,15 +731,7 @@ DISTAR_ZONE_CAT = {
 	max_once = yes
 
 	on_spawn = {
-		random_tile = {
-			limit = { has_deposit = no is_orbital_tile = no }
-			IF = {
-				limit = { has_blocker = yes }
-				remove_blocker = yes
-			}
-			set_deposit = d_vast_unity_deposit
-			set_building = building_the_zone
-		}
+		add_deposit = d_the_zone
 	}
 	
 	on_success = distar.220
@@ -758,7 +740,7 @@ DISTAR_ZONE_CAT = {
 DISTAR_RAT_CAT = {
 	desc = "DISTAR_RAT_CAT_DESC"
 	picture = "GFX_evt_city_ruins"
-	level = 3
+	level = 2
 	
 	spawn_chance = {
 		modifier = {
@@ -811,7 +793,7 @@ DISTAR_POD_CAT = {
 DISTAR_PHASE_CAT = {
 	desc = "DISTAR_PHASE_CAT_DESC"
 	picture = "GFX_evt_ship_in_orbit"
-	level = 3
+	level = 10
 	
 	spawn_chance = {
 		modifier = {
@@ -1065,25 +1047,16 @@ debris_gasgiant_category_temp = {
 
 	max_once_global = yes
 	
+	null_spawn_chance = 0.75  # 25% chance to spawn
+	
 	spawn_chance = {
 		modifier = {
-			add = 3
+			add = 0.25
+			has_distar = yes
 			is_planet_class = pc_gas_giant
-		}
-		modifier = {
-			add = 30
-			is_planet_class = pc_gas_giant
-			years_passed < 20
-		}
-		modifier = {
-			add = 10
-			is_planet_class = pc_gas_giant
-			years_passed > 20
-			years_passed < 50
 		}
 		modifier = {
 			factor = 0
-			has_distar = no
 			from.owner = {
 				OR = {
 					species_portrait = mam5
@@ -1141,6 +1114,7 @@ ast_debris_field_1_cat_2 = {
 	desc = "AST_DEBRIS_FIELD_1_DESC"
 	picture = "GFX_evt_space_debris"
 	level = 3
+	max_once = yes
 	
 	spawn_chance = {
 		modifier = {
@@ -1228,7 +1202,7 @@ irregular_energy_cat = {
 	
 	spawn_chance = {
 		modifier = {
-			add = 3
+			add = 0.1
 			has_distar = yes
 			is_star = yes
 		}
@@ -1255,7 +1229,7 @@ peculiar_patterns_cat = {
 		
 	spawn_chance = {
 		modifier = {
-			add = 3
+			add = 0.1
 			has_distar = yes
 			OR = {
 				is_planet_class = pc_gaia
@@ -1490,7 +1464,7 @@ disco_trojan_asteroid_cat = {
 		# fiction doesn't work for hive minds/robots, so they're blocked
 		modifier = {
 			factor = 0
-			from.owner = { has_ethic = ethic_gestalt_consciousness }
+			from.owner = { has_authority = auth_machine_intelligence }
 		}
 	}
 
@@ -1502,6 +1476,9 @@ disco_impossible_organism_cat = {
 	desc = "disco_impossible_organism_cat_desc"
 	picture = "GFX_evt_toxic"
 	level = 6
+	max_once_global = yes
+	
+	null_spawn_chance = 0.75  # 25% chance to spawn
 
 	spawn_chance = {
 		modifier = {
@@ -1510,14 +1487,12 @@ disco_impossible_organism_cat = {
 		}
 		modifier = {
 			factor = 0
-			OR = {
-				exists = event_target:impossible_organism_species
-				from.owner = {
-					OR = { 
-						has_ethic = ethic_gestalt_consciousness
-						has_ethic = ethic_xenophobe
-						has_ethic = ethic_fanatic_xenophobe
-					}
+			from.owner = {
+				OR = {
+					has_ethic = ethic_xenophobe
+					has_ethic = ethic_fanatic_xenophobe
+					has_civic = civic_machine_terminator
+					has_authority = auth_hive_mind
 				}
 			}
 		}
@@ -1587,18 +1562,14 @@ disco_alien_machine_cat = {
 	desc = "disco_alien_machine_cat_desc"
 	picture = "GFX_evt_asteroid_field"
 	level = 3
+	
+	null_spawn_chance = 0.5  # 50% chance to spawn
 
 	spawn_chance = {
 		modifier = {
 			add = 2
 			is_asteroid = yes
 			has_any_strategic_resource = no
-		}
-		modifier = {
-			factor = 0
-			from.owner = {
-				has_ethic = ethic_gestalt_consciousness
-			}
 		}
 	}
 
@@ -1620,7 +1591,7 @@ disco_speed_demon_cat = {
 		modifier = {
 			factor = 0
 			from.owner = {
-				has_ethic = ethic_gestalt_consciousness
+				has_authority = auth_machine_intelligence
 			}
 		}
 	}
@@ -1644,13 +1615,32 @@ disco_breathing_rift_cat = {
 				is_star_class = sc_pulsar	
 			}
 		}
+	}
+
+	on_success = distar.3060
+}
+
+### Gray ###
+disco_gray_cat = {
+	desc = "disco_gray_cat_desc"
+	picture = "GFX_evt_ship_in_orbit_2"
+	level = 3
+
+	spawn_chance = {
+		modifier = {
+			add = 6
+			is_planet_class = pc_gray_goo
+			solar_system = { has_star_flag = lcluster }
+		}
 		modifier = {
 			factor = 0
-			from.owner = {
-				has_ethic = ethic_gestalt_consciousness
+			OR = {
+				has_global_flag = gray_goo_crisis_set
+				has_global_flag = dragon_season
+				has_global_flag = gray_goo_empire_set
 			}
 		}
 	}
 
-	on_success = distar.3060
+	on_success = graygoo.400
 }

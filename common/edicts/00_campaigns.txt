@@ -11,13 +11,17 @@
 # shorter duration, cost energy
 #################
 
-country_edict = {
-	name = "fear_campaign"
+fear_campaign = {
 	length = @campaignDuration
-	cost = { energy = @campaignCost }
-	
+	resources = {
+		category = campaigns
+		cost = {
+			energy = @campaignCost
+		}
+	}
+
 	modifier = {
-		country_resource_unity_mult = 0.10
+		country_unity_produces_mult = 0.10
 		pop_ethic_xenophobe_attraction_mult = 0.25
 	}
 	
@@ -32,10 +36,14 @@ country_edict = {
 	}	
 }
 
-country_edict = {
-	name = "education_campaign"
+education_campaign = {
 	length = @campaignDuration
-	cost = { energy = @campaignCost }
+	resources = {
+		category = campaigns
+		cost = {
+			energy = @campaignCost
+		}
+	}
 	
 	modifier = {
 		species_leader_exp_gain = 0.25
@@ -51,13 +59,17 @@ country_edict = {
 	}	
 }
 
-country_edict = {
-	name = "recycling_campaign"
+recycling_campaign = {
 	length = @campaignDuration
-	cost = { energy = @campaignCost }
-	
+	resources = {
+		category = campaigns
+		cost = {
+			energy = @campaignCost
+		}
+	}
+
 	modifier = {
-		pop_consumer_goods_mult = -0.15
+		planet_pops_consumer_goods_upkeep_mult = -0.10
 	}
 
 	potential = {
@@ -70,13 +82,17 @@ country_edict = {
 	}	
 }
 
-country_edict = {
-	name = "healthcare_campaign"
+healthcare_campaign = {
 	length = @campaignDuration
-	cost = { energy = @campaignCost }
-	
+	resources = {
+		category = campaigns
+		cost = {
+			energy = @campaignCost
+		}
+	}
+
 	modifier = {
-		pop_growth_speed = 0.20
+		pop_growth_speed = 0.10
 	}
 
 	potential = {
@@ -93,13 +109,17 @@ country_edict = {
 # Machine Empire
 ###########
 
-country_edict = {
-	name = "robot_campaign"
+robot_campaign = {
 	length = @campaignDuration
-	cost = { energy = @campaignCost }
-	
+	resources = {
+		category = campaigns
+		cost = {
+			energy = @campaignCost
+		}
+	}
+
 	modifier = {
-		pop_robot_build_speed_mult = 0.20
+		planet_pop_assembly_mult = 0.20
 	}
 
 	potential = {
@@ -112,11 +132,15 @@ country_edict = {
 	}	
 }
 
-country_edict = {
-	name = "machine_learning_campaign"
+machine_learning_campaign = {
 	length = @campaignDuration
-	cost = { energy = @campaignCost }
-	
+	resources = {
+		category = campaigns
+		cost = {
+			energy = @campaignCost
+		}
+	}
+
 	modifier = {
 		species_leader_exp_gain = 0.25
 	}
@@ -137,11 +161,15 @@ country_edict = {
 
 @hiveFood = 500
 
-country_edict = {
-	name = "drone_campaign"
+drone_campaign = {
 	length = @campaignDuration
-	cost = { food = @hiveFood }
-	
+	resources = {
+		category = campaigns
+		cost = {
+			food = @hiveFood
+		}
+	}
+
 	modifier = {
 		pop_growth_speed = 0.20
 	}
@@ -156,11 +184,15 @@ country_edict = {
 	}	
 }
 
-country_edict = {
-	name = "learning_campaign"
+learning_campaign = {
 	length = @campaignDuration
-	cost = { food = @hiveFood }
-	
+	resources = {
+		category = campaigns
+		cost = {
+			food = @hiveFood
+		}
+	}
+
 	modifier = {
 		species_leader_exp_gain = 0.25
 	}
@@ -175,11 +207,15 @@ country_edict = {
 	}	
 }
 
-country_edict = {
-	name = "war_drone_campaign"
+war_drone_campaign = {
 	length = @campaignDuration
-	cost = { food = @hiveFood }
-	
+	resources = {
+		category = campaigns
+		cost = {
+			food = @hiveFood
+		}
+	}
+
 	modifier = {
 		army_damage_mult = 0.15
 	}

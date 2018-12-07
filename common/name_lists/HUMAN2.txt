@@ -1,5 +1,5 @@
 ﻿### Commonwealth of Man
-### Created by Henrik Eklund
+### Created by Henrik Thyrwall
 
 HUMAN2 = {
 	randomized = no
@@ -92,15 +92,7 @@ HUMAN2 = {
 		robotic_defense_army = {
 			sequential_name = "%O% Unmanned Gendarmerie"
 		}
-		
-		android_army = {
-			sequential_name = "%O% Android Auxiliary"
-		}
 
-		android_defense_army = {
-			sequential_name = "%O% Android Gendarmerie"
-		}
-		
 		psionic_army = { 
 			random_names = { 
 				"Shadow Legion" "Ghost Legion" "Wraith Legion" "Specter Legion" "Phantom Legion" "Widowmaker Legion" "Skull Legion" "Banshee Legion"
@@ -127,10 +119,6 @@ HUMAN2 = {
 
 		robotic_occupation_army = {
 			sequential_name = "%O% Unmanned Garrison"
-		}
-
-		android_occupation_army = {
-			sequential_name = "%O% Android Garrison"
 		}
 	}
 

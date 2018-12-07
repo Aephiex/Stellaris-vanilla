@@ -420,13 +420,13 @@ country_event = {
 		hidden_effect = { set_country_flag = fe_gift_received }
 		if = {
 			limit = { has_country_flag = fe_gift_resources_small }
-			add_minerals = 1500
-			add_energy = 500
+			add_resource = { minerals = 1500 }
+			add_resource = { energy = 500 }
 		}
 		if = {
 			limit = { has_country_flag = fe_gift_resources_large }
-			add_minerals = 3000
-			add_energy = 1000
+			add_resource = { minerals = 3000 }
+			add_resource = { energy = 1000 }
 		}
 		if = {
 			limit = { has_country_flag = fe_gift_databanks }
@@ -750,7 +750,6 @@ country_event = {
 			num_pops > 1
 			any_owned_pop = {
 				is_same_species = root
-				is_growing = no
 			}
 		}	
 		
@@ -764,9 +763,7 @@ country_event = {
 			has_communications = root		
 			any_owned_planet = {
 				has_planet_flag = fe_the_preserve
-				any_tile = {
-					has_blocker = tb_xeno_preserve
-				}
+				free_housing > 0
 			}			
 		}
 	}
@@ -779,7 +776,6 @@ country_event = {
 				num_pops > 1
 				any_owned_pop = {
 					is_same_species = root
-					is_growing = no
 				}
 			}
 			save_event_target_as = FallenEmpireTaskPlanet
@@ -796,9 +792,7 @@ country_event = {
 				has_communications = root		
 				any_owned_planet = {
 					has_planet_flag = fe_the_preserve
-					any_tile = {
-						has_blocker = tb_xeno_preserve
-					}
+					free_housing > 0
 				}
 			}
 			
@@ -896,7 +890,6 @@ country_event = {
 				random_pop = {
 					limit = {
 						is_same_species = root
-						is_growing = no
 					}
 					kill_pop = yes
 				}
@@ -906,18 +899,11 @@ country_event = {
 				random_owned_planet = {
 					limit = {
 						has_planet_flag = fe_the_preserve
-						any_tile = {
-							has_blocker = tb_xeno_preserve
-						}				
+						free_housing > 0			
 					}
-					random_tile = {
-						limit = { has_blocker = yes }
-						remove_blocker = yes
-						create_pop = { 
-							species = root
-						}	
-						set_building = "building_fe_xeno_zoo"
-					}
+					create_pop = { 
+						species = root
+					}	
 				}
 			}
 		}
@@ -982,46 +968,6 @@ country_event = {
 		}		
 		custom_tooltip = fallen_empire_unhappy_tooltip
 		hidden_effect = { event_target:FallenEmpireTaskOrigin = { add_opinion_modifier = { who = root modifier = opinion_refused_fallen_empire_request } } }
-	}
-}
-
-# Clear the xeno preserves if taken by another empire or if we awaken
-country_event = {
-	id = fallen_empires_tasks.5
-	title = OK
-	desc = OK
-	
-	hide_window = yes
-	
-	mean_time_to_happen = {
-		days = 3
-	}
-	
-	trigger = {
-		OR = {	
-			NOT = { is_country_type = fallen_empire }
-			NOT = { has_ethic = ethic_fanatic_xenophile }
-		}
-		any_owned_planet = {
-			has_planet_flag = fe_the_preserve
-			any_tile = {
-				has_blocker = tb_xeno_preserve
-			}
-		}
-	}
-	
-	immediate = {
-		every_owned_planet = {
-			limit = { has_planet_flag = fe_the_preserve }
-			every_tile = {
-				limit = { has_blocker = tb_xeno_preserve }
-				remove_blocker = yes
-			}	
-			every_tile = {
-				limit = { has_building = "building_fe_xeno_zoo" }
-				remove_building = yes
-			}					
-		}
 	}
 }
 
@@ -2165,9 +2111,7 @@ country_event = {
 			has_communications = root		
 			any_owned_planet = {
 				has_planet_flag = fe_the_preserve
-				any_tile = {
-					has_blocker = tb_xeno_preserve
-				}
+				free_housing > 0
 			}			
 		}
 	}
@@ -2203,9 +2147,7 @@ country_event = {
 				has_communications = root		
 				any_owned_planet = {
 					has_planet_flag = fe_the_preserve
-					any_tile = {
-						has_blocker = tb_xeno_preserve
-					}
+					free_housing > 0
 				}
 			}		
 			
@@ -2246,20 +2188,13 @@ country_event = {
 				random_owned_planet = {
 					limit = {
 						has_planet_flag = fe_the_preserve
-						any_tile = {
-							has_blocker = tb_xeno_preserve
-						}				
+						free_housing > 0			
 					}
 					
-					random_tile = {
-						limit = { has_blocker = yes }
-						remove_blocker = yes
-						create_pop = { 
-							species = event_target:FallenEmpireDeadSpecies
-							ethos = random
-						}	
-						set_building = "building_fe_xeno_zoo"
-					}
+					create_pop = { 
+						species = event_target:FallenEmpireDeadSpecies
+						ethos = random
+					}	
 				}
 			}
 			event_target:FallenEmpireDeadSpecies = { destroy_country = yes }
