@@ -884,6 +884,11 @@ spriteTypes = {
 		name = "GFX_message_auto_explore_canceled"
 		texturefile = "gfx/interface/icons/message/message_auto_explore_canceled.dds"
 	}
+
+	spriteType = {
+		name = "GFX_expand_icon"
+		texturefile = "gfx/interface/icons/expand_icon.dds"
+	}
 	
 #	spriteType = {
 #		name = "GFX_"
@@ -1706,6 +1711,11 @@ spriteTypes = {
 		name = "GFX_ship_part_orbital_trash_dispersal"
 		texturefile = "gfx/interface/icons/ship_parts/ship_part_orbital_trash_dispersal.dds"
 	}
+	
+	spriteType = {
+		name = "GFX_ship_part_null_void_weapon"
+		texturefile = "gfx/interface/icons/ship_parts/ship_part_null_void_weapon.dds"
+	}
 
 	## Spaceport Modules ##
 
@@ -2140,6 +2150,11 @@ spriteTypes = {
 
 	### DLCs ###
 
+	spriteType = {
+		name = "GFX_megacorp"
+		texturefile = "gfx/interface/icons/dlc/megacorp.dds"
+	}
+	
 	spriteType = {
 		name = "GFX_apocalypse"
 		texturefile = "gfx/interface/icons/dlc/apocalypse.dds"

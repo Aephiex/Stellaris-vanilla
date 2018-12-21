@@ -36,8 +36,8 @@ DepthStencilState DepthStencilState
 VertexStruct VS_INPUT
 {
 	float3 vPosition  		: POSITION;
-	float4 vPrimaryColor		: COLOR0;
-	float4 vSecondaryColor 	: COLOR1;
+	float4 vPrimaryColor		: TEXCOORD0;
+	float4 vSecondaryColor 	: TEXCOORD1;
 };
 
 VertexStruct VS_OUTPUT

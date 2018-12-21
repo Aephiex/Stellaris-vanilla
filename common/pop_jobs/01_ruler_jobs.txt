@@ -77,6 +77,12 @@ high_priest = {
 		category = planet_priests
 		produces = {
 			unity = 5
+		}
+		produces = {
+			trigger = {
+				owner = { has_valid_civic = civic_exalted_priesthood }
+			}
+			unity = 1
 		}				
 	}
 	
@@ -313,6 +319,16 @@ merchant = {
 		trade_value_add = 8
 	}
 
+	resources = {
+		category = planet_merchants
+		produces = {
+			trigger = { 
+				owner = { has_civic = civic_merchant_guilds	}
+			}
+			unity = 2
+		}
+	}
+
 	triggered_planet_modifier = {
 		potential = {
 			OR = {
@@ -343,7 +359,7 @@ merchant = {
 		modifier = {
 			planet_amenities_add = -1
 		}
-	}	
+	}
 	
 	weight = {
 		weight = @ruler_job_weight

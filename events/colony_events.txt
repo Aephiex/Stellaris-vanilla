@@ -509,6 +509,7 @@ planet_event = {
 			is_planet_class = pc_nuked
 			is_planet_class = pc_ringworld_habitable
 			is_planet_class = pc_habitat
+			is_planet_class = pc_city
 		}
 	}
 	
@@ -1940,6 +1941,7 @@ planet_event = {
 			is_planet_class = pc_gaia
 			is_planet_class = pc_ringworld_habitable
 			is_planet_class = pc_habitat
+			is_planet_class = pc_city
 			owner = { has_country_flag = abandoned_terraforming_country }
 			owner = { has_authority = auth_machine_intelligence }
 			AND = {
@@ -2765,7 +2767,7 @@ planet_event = {
 		NOR = {
 			has_planet_flag = primitives_nuked_themselves
 			solar_system = {
-				any_planet = {
+				any_system_planet = {
 					is_capital = yes
 				}
 			}
@@ -3027,7 +3029,7 @@ planet_event = {
 		NOR = {
 			has_planet_flag = wasteland_nuclear_bomb
 			solar_system = {
-				any_planet = {
+				any_system_planet = {
 					is_capital = yes
 				}
 			}
@@ -3109,7 +3111,7 @@ planet_event = {
 		NOR = {
 			has_planet_flag = wasteland_particle_accelerator
 			solar_system = {
-				any_planet = {
+				any_system_planet = {
 					is_capital = yes
 				}
 			}
@@ -3151,7 +3153,7 @@ planet_event = {
 		NOR = {
 			has_planet_flag = wasteland_infrastructure
 			solar_system = {
-				any_planet = {
+				any_system_planet = {
 					is_capital = yes
 				}
 			}
@@ -3199,7 +3201,7 @@ planet_event = {
 			has_planet_flag = wasteland_space_station
 			has_planet_flag = primitives_nuked_themselves
 			solar_system = {
-				any_planet = {
+				any_system_planet = {
 					is_capital = yes
 				}
 			}
@@ -3250,7 +3252,7 @@ planet_event = {
 		NOR = {
 			has_planet_flag = wasteland_radiation
 			solar_system = {
-				any_planet = {
+				any_system_planet = {
 					is_capital = yes
 				}
 			}
@@ -3298,7 +3300,7 @@ planet_event = {
 		NOR = {
 			has_planet_flag = wasteland_pacifist_movement
 			solar_system = {
-				any_planet = {
+				any_system_planet = {
 					is_capital = yes
 				}
 			}
@@ -3474,7 +3476,7 @@ planet_event = {
 			has_planet_flag = wasteland_orbital_debris
 			has_planet_flag = primitives_nuked_themselves
 			solar_system = {
-				any_planet = {
+				any_system_planet = {
 					is_capital = yes
 				}
 			}
