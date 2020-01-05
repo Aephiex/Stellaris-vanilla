@@ -17,19 +17,22 @@ planet_event = {
 	show_sound = event_alien_nature
 	location = ROOT
 	trackable = yes
-	
-	trigger = {
+
+	pre_triggers = {
 		has_owner = yes
-		original_owner = yes
 		is_homeworld = no
-		owner = { 
-			is_ai = no
+		original_owner = yes
+		is_ai = no
+		has_ground_combat = no
+		is_capital = no
+		is_occupied_flag = no
+	}
+
+	trigger = {
+		owner = {
 			NOT = { has_authority = auth_machine_intelligence }
 		}
-		has_ground_combat = no
-		is_occupied_flag = no
 		num_pops > 0
-		is_capital = no
 		OR = {
 			is_planet_class = pc_continental
 			is_planet_class = pc_tropical
@@ -37,14 +40,14 @@ planet_event = {
 			is_planet_class = pc_tundra
 			is_planet_class = pc_savannah
 		}
-		NOR = { 
+		NOR = {
 			has_global_flag = migrating_forests_global
 			has_planet_flag = colony_event
 		}
 	}
 
 	is_triggered_only = yes
-	
+
 	immediate = {
 		set_global_flag = migrating_forests_global
 		set_planet_flag = colony_event
@@ -54,10 +57,10 @@ planet_event = {
 			days = -1
 		}
 	}
-	
+
 	option = {
 		name = colony.1.a
-		tooltip = { 
+		tooltip = {
 			add_deposit = d_migrating_forests
 		}
 		begin_event_chain = {
@@ -85,9 +88,9 @@ planet_event = {
 	picture = GFX_evt_alien_nature
 	show_sound = event_alien_nature
 	location = ROOT
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EXCELLENT
 		remove_modifier = "migrating_forests"
@@ -111,9 +114,9 @@ planet_event = {
 	picture = GFX_evt_alien_planet
 	show_sound = event_alien_nature
 	location = ROOT
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EXCELLENT
 		set_planet_flag = burned_forests
@@ -132,23 +135,26 @@ planet_event = {
 	picture = GFX_evt_alien_nature
 	show_sound = event_air_raid_siren
 	location = ROOT
-	
+
 	auto_opens = yes
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		has_ground_combat = no
+	}
+
 	trigger = {
 		NOT = { has_planet_flag = burned_forests_rampage }
 		has_planet_flag = burned_forests
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
-		has_ground_combat = no
 		num_pops > 0
 	}
-	
+
 	mean_time_to_happen = {
 		months = 240
 	}
-	
+
 	immediate = {
 		set_planet_flag = burned_forests_rampage
 		set_planet_flag = burned_forests_rampaged_planet
@@ -186,7 +192,7 @@ planet_event = {
 			type = "tree_army"
 		}
 	}
-	
+
 	option = {
 		name = colony.4.a
 		custom_tooltip = tree_armies
@@ -201,19 +207,19 @@ country_event = {
 	picture = GFX_evt_alien_nature
 	show_sound = event_ground_battle
 	location = FROMFROM
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		has_country_flag = burned_forests_rampaged
 		FROMFROM = { has_planet_flag = burned_forests_rampaged_planet }
 	}
-	
+
 	immediate = {
 		remove_country_flag = burned_forests_rampaged_country
 		FROMFROM = { remove_planet_flag = burned_forests_rampaged_planet }
 	}
-	
+
 	option = {
 		name = colony.5.a
 	}
@@ -227,28 +233,31 @@ planet_event = {
 	picture = GFX_evt_alien_nature
 	show_sound = event_scanner
 	location = ROOT
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		has_ground_combat = no
+	}
+
 	trigger = {
 		has_planet_flag = burned_forests
 		NOR = {
 			has_planet_flag = burned_forest_precious
 			has_planet_flag = burned_forest_minerals
 		}
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
-		has_ground_combat = no
 		num_pops > 0
 	}
-	
+
 	mean_time_to_happen = {
 		months = 240
 	}
-	
+
 	immediate = {
 		set_planet_flag = burned_forest_minerals
-	}		
-	
+	}
+
 	option = {
 		name = EXCELLENT
 		owner = {
@@ -270,7 +279,14 @@ planet_event = {
 	picture = GFX_evt_alien_nature
 	show_sound = event_scanner
 	location = ROOT
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		has_ground_combat = no
+	}
+
 	trigger = {
 		has_planet_flag = burned_forests
 		NOR = {
@@ -278,21 +294,17 @@ planet_event = {
 			has_planet_flag = burned_forest_minerals
 		}
 		has_any_strategic_resource = no
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
-		has_ground_combat = no
 		num_pops > 0
 	}
-	
+
 	mean_time_to_happen = {
 		months = 240
 	}
-	
+
 	immediate = {
 		set_planet_flag = burned_forest_precious
-	}		
-	
+	}
+
 	option = {
 		name = EXCELLENT
 		owner = {
@@ -314,25 +326,28 @@ planet_event = {
 	picture = GFX_evt_alien_nature
 	show_sound = event_alien_nature
 	location = ROOT
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		has_ground_combat = no
+	}
+
 	trigger = {
 		has_planet_flag = burned_forests
 		NOT = { has_planet_flag = burned_forest_damage }
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
-		has_ground_combat = no
 		num_pops > 0
 	}
-	
+
 	mean_time_to_happen = {
 		months = 240
 	}
-	
+
 	immediate = {
 		set_planet_flag = burned_forest_damage
 	}
-	
+
 	option = {
 		name = UNFORTUNATE
 		add_modifier = {
@@ -350,25 +365,28 @@ planet_event = {
 	picture = GFX_evt_alien_nature
 	show_sound = event_alien_nature
 	location = ROOT
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		has_ground_combat = no
+	}
+
 	trigger = {
 		has_planet_flag = forest_pheremones
 		NOT = { has_planet_flag = forest_pheremones_adaptation }
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
-		has_ground_combat = no
 		num_pops > 0
 	}
-	
+
 	mean_time_to_happen = {
 		months = 240
 	}
-	
+
 	immediate = {
 		set_planet_flag = forest_pheremones_adaptation
-	}		
-	
+	}
+
 	option = {
 		name = EXCELLENT
 		add_modifier = {
@@ -386,25 +404,28 @@ planet_event = {
 	picture = GFX_evt_alien_nature
 	show_sound = event_alien_nature
 	location = ROOT
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		has_ground_combat = no
+	}
+
 	trigger = {
 		has_planet_flag = forest_pheremones
 		NOT = { has_planet_flag = forest_pheremones_studies }
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
-		has_ground_combat = no
 		num_pops > 0
 	}
-	
+
 	mean_time_to_happen = {
 		months = 240
 	}
-	
+
 	immediate = {
 		set_planet_flag = forest_pheremones_studies
-	}		
-	
+	}
+
 	option = {
 		name = EXCELLENT
 		owner = {
@@ -426,25 +447,28 @@ planet_event = {
 	picture = GFX_evt_alien_nature
 	show_sound = event_air_raid_siren
 	location = ROOT
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		has_ground_combat = no
+	}
+
 	trigger = {
 		has_planet_flag = forest_pheremones
 		NOT = { has_planet_flag = forest_pheremones_fire }
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
-		has_ground_combat = no
 		num_pops > 0
 	}
-	
+
 	mean_time_to_happen = {
 		months = 240
 	}
-	
+
 	immediate = {
 		set_planet_flag = forest_pheremones_fire
-	}		
-	
+	}
+
 	option = {
 		name = UNFORTUNATE
 		add_modifier = {
@@ -462,19 +486,19 @@ planet_event = {
 	picture = GFX_evt_alien_nature
 	show_sound = event_alien_nature
 	location = ROOT
-	
+
 	trigger = {
 		has_modifier = "migrating_forests"
 	}
-	
+
 	mean_time_to_happen = {
 		months = 80
 	}
-	
+
 	immediate = {
 		add_planet_devastation = 10
 	}
-	
+
 	option = {
 		name = PECULIAR
 		tooltip = {
@@ -492,17 +516,19 @@ planet_event = {
 	show_sound = event_air_raid_siren
 	location = ROOT
 	trackable = yes
-	
-	trigger = {
+
+	pre_triggers = {
 		has_owner = yes
-		original_owner = yes
 		is_homeworld = no
-		owner = { is_ai = no }
-		#owner = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+		original_owner = yes
 		has_ground_combat = no
-		is_occupied_flag = no
-		num_pops > 0
 		is_capital = no
+		is_occupied_flag = no
+	}
+
+	trigger = {
+		#owner = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+		num_pops > 0
 		NOR = {
 			has_global_flag = seismic_disturbance_global
 			has_planet_flag = colony_event
@@ -510,11 +536,12 @@ planet_event = {
 			is_planet_class = pc_ringworld_habitable
 			is_planet_class = pc_habitat
 			is_planet_class = pc_city
+			is_planet_class = pc_relic
 		}
 	}
-	
+
 	is_triggered_only = yes
-	
+
 	immediate = {
 		owner = { save_event_target_as = subterranean_planet_owner }
 		set_global_flag = seismic_disturbance_global
@@ -524,7 +551,7 @@ planet_event = {
 		add_deposit = d_underground_mine_blocked
 		add_deposit = d_underground_generator_blocked
 	}
-	
+
 	option = {
 		name = colony.50.a
 		begin_event_chain = {
@@ -541,7 +568,7 @@ planet_event = {
 			location = this
 			owner = root
 		}
-		
+
 	}
 	option = {
 		name = distar.216.a.exter
@@ -555,7 +582,7 @@ planet_event = {
 			location = this
 			owner = root
 		}
-		
+
 	}
 }
 
@@ -567,9 +594,9 @@ planet_event = {
 	picture = GFX_evt_underground_civilization
 	show_sound = event_alien_signal
 	location = ROOT
-	
+
 	is_triggered_only = yes
-	
+
 	immediate = {
 		owner = { save_event_target_as = subterranean_planet_owner }
 		set_planet_flag = seismic_disturbance_friendly
@@ -614,8 +641,8 @@ planet_event = {
 			save_event_target_as = subterranean_nation
 			owner_species = { save_event_target_as = subterranean_species }
 		}
-	}		
-	
+	}
+
 	option = {
 		name = colony.51.a
 		hidden_effect = {
@@ -632,24 +659,24 @@ planet_event = {
 	picture = GFX_evt_underground_civilization
 	show_sound = event_structural_collapse
 	location = ROOT
-	
+
 	is_triggered_only = yes
-	
+
 	immediate = {
 		set_planet_flag = seismic_disturbance_destroyed
 		remove_planet_flag = seismic_disturbance_war
-		
+
 		remove_deposit = d_underground_farm_blocked
 		remove_deposit = d_underground_mine_blocked
 		remove_deposit = d_underground_generator_blocked
-		
+
 		add_deposit = d_underground_farm_dead
 		add_deposit = d_underground_mine_dead
 		add_deposit = d_underground_generator_dead
-		
+
 		remove_deposit = d_underground_contact_zone
-	}		
-	
+	}
+
 	option = {
 		name = colony.52.a
 		custom_tooltip = underground_expansion_tooltip
@@ -661,15 +688,15 @@ country_event = {
 	id = colony.53
 	title = "colony.53.name"
 	desc = "colony.53.desc"
-	
+
 	is_triggered_only = yes
-	
+
 	diplomatic = yes
-	
+
 	picture_event_data = {
 		room = no_video_feed_room
 	}
-	
+
 	option = {
 		name = colony.53.a
 		response_text = colony.53.a.response
@@ -695,7 +722,7 @@ country_event = {
 		name = colony.53.c
 		response_text = colony.53.c.response
 		hidden_effect = {
-			FROM = { 
+			FROM = {
 				planet_event = { id = colony.54 days = 35 random = 40 }
 			}
 		}
@@ -710,9 +737,9 @@ planet_event = {
 	picture = GFX_evt_ground_combat
 	show_sound = event_ground_battle
 	location = ROOT
-	
+
 	is_triggered_only = yes
-	
+
 	immediate = {
 		owner = { set_country_flag = subterranean_invasion_country }
 		set_planet_flag = subterranean_invasion_planet
@@ -730,100 +757,34 @@ planet_event = {
 					NOT = { has_country_flag = tech_request_approved }
 				}
 			}
-			create_army = {
-				name = "NAME_Invading_Horde"
-				owner = event_target:subterranean_nation
-				species = event_target:subterranean_species
-				type = "industrial_army"
-				leader = last_created_leader
+			while = {
+				count = 6
+				create_army = {
+					name = "NAME_Invading_Horde"
+					owner = event_target:subterranean_nation
+					species = event_target:subterranean_species
+					type = "subterranean_industrial_army"
+					leader = last_created_leader
+				}
 			}
-			create_army = {
-				name = "NAME_Invading_Horde"
-				owner = event_target:subterranean_nation
-				species = event_target:subterranean_species
-				type = "industrial_army"
-				leader = last_created_leader
-			}
-			create_army = {
-				name = "NAME_Invading_Horde"
-				owner = event_target:subterranean_nation
-				species = event_target:subterranean_species
-				type = "industrial_army"
-				leader = last_created_leader
-			}
-			create_army = {
-				name = "NAME_Invading_Horde"
-				owner = event_target:subterranean_nation
-				species = event_target:subterranean_species
-				type = "industrial_army"
-				leader = last_created_leader
-			}
-			create_army = {
-				name = "NAME_Invading_Horde"
-				owner = event_target:subterranean_nation
-				species = event_target:subterranean_species
-				type = "industrial_army"
-				leader = last_created_leader
-			}
-			create_army = {
-				name = "NAME_Invading_Horde"
-				owner = event_target:subterranean_nation
-				species = event_target:subterranean_species
-				type = "industrial_army"
-				leader = last_created_leader
-			}
-			break = yes
 		}
 		if = {
 			limit = {
 				event_target:subterranean_nation = { has_country_flag = tech_request_approved }
 			}
-			create_army = {
-				name = "NAME_Invading_Horde"
-				owner = event_target:subterranean_nation
-				species = event_target:subterranean_species
-				type = "postatomic_army"
-				leader = last_created_leader
+			while = {
+				count = 6
+				create_army = {
+					name = "NAME_Invading_Horde"
+					owner = event_target:subterranean_nation
+					species = event_target:subterranean_species
+					type = "subterranean_postatomic_army"
+					leader = last_created_leader
+				}
 			}
-			create_army = {
-				name = "NAME_Invading_Horde"
-				owner = event_target:subterranean_nation
-				species = event_target:subterranean_species
-				type = "postatomic_army"
-				leader = last_created_leader
-			}
-			create_army = {
-				name = "NAME_Invading_Horde"
-				owner = event_target:subterranean_nation
-				species = event_target:subterranean_species
-				type = "postatomic_army"
-				leader = last_created_leader
-			}
-			create_army = {
-				name = "NAME_Invading_Horde"
-				owner = event_target:subterranean_nation
-				species = event_target:subterranean_species
-				type = "postatomic_army"
-				leader = last_created_leader
-			}
-			create_army = {
-				name = "NAME_Invading_Horde"
-				owner = event_target:subterranean_nation
-				species = event_target:subterranean_species
-				type = "postatomic_army"
-				leader = last_created_leader
-			}
-			create_army = {
-				name = "NAME_Invading_Horde"
-				owner = event_target:subterranean_nation
-				species = event_target:subterranean_species
-				type = "postatomic_army"
-				leader = last_created_leader
-			}
-			break = yes
 		}
-	}		
-	
+	}
+
 	option = {
 		name = colony.54.a
 		custom_tooltip = subterranean_invasion
@@ -839,15 +800,15 @@ country_event = {
 	show_sound = event_ground_battle
 	location = FROMFROM
 	trackable = yes
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		has_country_flag = subterranean_invasion_country
 		NOT = { has_country_flag = subterraneans_defeated_once }
 		FROMFROM = { has_planet_flag = subterranean_invasion_planet }
 	}
-	
+
 	immediate = {
 		remove_country_flag = subterranean_invasion_country
 		set_country_flag = subterraneans_defeated_once
@@ -856,7 +817,7 @@ country_event = {
 			remove_planet_flag = subterranean_invasion_planet
 		}
 	}
-	
+
 	option = {
 		name = colony.56.a
 		enable_special_project = {
@@ -875,15 +836,15 @@ country_event = {
 	picture = GFX_evt_burning_settlement
 	show_sound = event_alien_signal
 	location = FROMFROM
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		has_country_flag = subterranean_invasion_country
 		FROMFROM = { has_planet_flag = subterranean_invasion_planet }
 		from = { is_country_type = adversary }
 	}
-	
+
 	immediate = {
 		remove_country_flag = subterranean_invasion_country
 		save_event_target_as = subterranean_former_planet_owner
@@ -961,7 +922,7 @@ country_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = "ONSCREEN"
 		end_event_chain = "subterranean_civilization_chain"
@@ -974,11 +935,11 @@ country_event = {
 	id = colony.58
 	title = TRANSMISSION
 	desc = "colony.58.desc"
-	
+
 	diplomatic = yes
-	
+
 	is_triggered_only = yes
-	
+
 	picture_event_data = {
 		portrait = event_target:subterranean_empire
 		planet_background = event_target:conquered_planet
@@ -986,7 +947,7 @@ country_event = {
 		graphical_culture = event_target:conquered_planet
 		room = event_target:subterranean_empire.ruler
 	}
-	
+
 	option = {
 		name = colony.58.a
 	}
@@ -1000,9 +961,9 @@ planet_event = {
 	picture = GFX_evt_alien_cavemen
 	show_sound = event_primitive_civilization
 	location = ROOT
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = colony.59.a
 		owner = {
@@ -1019,20 +980,23 @@ planet_event = {
 	picture = GFX_evt_ground_combat
 	show_sound = event_ground_battle
 	location = ROOT
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		has_ground_combat = no
+	}
+
 	trigger = {
 		has_planet_flag = seismic_disturbance_war
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
-		has_ground_combat = no
 		num_pops > 0
 	}
-	
+
 	mean_time_to_happen = {
 		months = 240
 	}
-	
+
 	immediate = {
 		owner = { set_country_flag = subterranean_invasion_country }
 		set_planet_flag = subterranean_invasion_planet
@@ -1176,8 +1140,8 @@ planet_event = {
 			}
 			break = yes
 		}
-	}		
-	
+	}
+
 	option = {
 		name = colony.60.a
 		custom_tooltip = subterranean_invasion_2
@@ -1192,26 +1156,29 @@ planet_event = {
 	picture = GFX_evt_underground_civilization
 	show_sound = event_structural_collapse
 	location = ROOT
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		has_ground_combat = no
+	}
+
 	trigger = {
 		has_planet_flag = seismic_disturbance_war
 		NOT = { has_planet_flag = seismic_disturbance_collapse }
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
-		has_ground_combat = no
 		has_army = yes
 		num_pops > 0
 	}
-	
+
 	mean_time_to_happen = {
 		months = 240
 	}
-	
+
 	immediate = {
 		set_planet_flag = seismic_disturbance_collapse
-	}		
-	
+	}
+
 	option = {
 		name = colony.61.a
 		add_deposit = d_sinkhole_subterraneans
@@ -1227,26 +1194,29 @@ planet_event = {
 	picture = GFX_evt_burning_settlement
 	show_sound = event_ground_battle
 	location = ROOT
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		has_ground_combat = no
+	}
+
 	trigger = {
 		has_planet_flag = seismic_disturbance_war
 		NOT = { has_planet_flag = seismic_disturbance_raid }
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
-		has_ground_combat = no
 		num_pops > 0
 	}
-	
+
 	mean_time_to_happen = {
 		months = 240
 	}
-	
+
 	immediate = {
 		set_planet_flag = seismic_disturbance_raid
 		add_planet_devastation = 10
-	}		
-	
+	}
+
 	option = {
 		name = colony.62.a
 		tooltip = {
@@ -1263,25 +1233,28 @@ planet_event = {
 	picture = GFX_evt_burning_settlement
 	show_sound = event_ground_battle
 	location = ROOT
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		has_ground_combat = no
+	}
+
 	trigger = {
 		has_planet_flag = seismic_disturbance_war
 		NOT = { has_planet_flag = seismic_disturbance_attack }
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
-		has_ground_combat = no
 		num_pops > 1
 	}
-	
+
 	mean_time_to_happen = {
 		months = 240
 	}
-	
+
 	immediate = {
 		set_planet_flag = seismic_disturbance_attack
-	}		
-	
+	}
+
 	option = {
 		name = colony.63.a
 		add_planet_devastation = 10
@@ -1298,21 +1271,24 @@ planet_event = {
 	picture = GFX_evt_in_the_dark
 	show_sound = event_scanner
 	location = ROOT
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+	}
+
 	trigger = {
 		has_planet_flag = seismic_disturbance_destroyed
 		NOT = { has_planet_flag = seismic_disturbance_pocket }
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
 		has_ground_combat = no
 		num_pops > 0
 	}
-	
+
 	mean_time_to_happen = {
 		months = 240
 	}
-	
+
 	immediate = {
 		set_planet_flag = seismic_disturbance_pocket
 		create_species = {
@@ -1326,7 +1302,7 @@ planet_event = {
 			save_event_target_as = subterranean_species
 		}
 	}
-	
+
 	option = {
 		name = colony.64.a
 	}
@@ -1340,13 +1316,13 @@ planet_event = {
 			create_pop = {
 				species = event_target:subterranean_species
 				ethos = {
-					ethic = "ethic_spiritualist"			
+					ethic = "ethic_spiritualist"
 				}
 			}
 			create_pop = {
 				species = event_target:subterranean_species
 				ethos = {
-					ethic = "ethic_spiritualist"		
+					ethic = "ethic_spiritualist"
 				}
 			}
 			last_created_pop = { set_citizenship_type = { type = citizenship_slavery cooldown = yes } }
@@ -1362,27 +1338,30 @@ planet_event = {
 	picture = GFX_evt_in_the_dark
 	show_sound = event_construction
 	location = ROOT
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		has_ground_combat = no
+	}
+
 	trigger = {
 		has_planet_flag = seismic_disturbance_destroyed
 		NOT = { has_planet_flag = seismic_disturbance_expansion }
 		#has_any_strategic_resource = no
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
-		has_ground_combat = no
 		num_pops > 0
 		#planet_size < 25
 	}
-	
+
 	mean_time_to_happen = {
 		months = 240
 	}
-	
+
 	immediate = {
 		set_planet_flag = seismic_disturbance_expansion
-	}		
-	
+	}
+
 	option = {
 		name = EXCELLENT
 		add_modifier = {
@@ -1401,27 +1380,30 @@ planet_event = {
 	picture = GFX_evt_in_the_dark
 	show_sound = event_mystic_reveal
 	location = ROOT
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		has_ground_combat = no
+	}
+
 	trigger = {
 		has_planet_flag = seismic_disturbance_destroyed
 		NOT = { has_planet_flag = seismic_disturbance_gold }
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
-		has_ground_combat = no
 		num_pops > 0
 	}
-	
+
 	mean_time_to_happen = {
 		months = 240
 	}
-	
+
 	immediate = {
 		hidden_effect = {
 			set_planet_flag = seismic_disturbance_gold
 		}
-	}		
-	
+	}
+
 	option = {
 		name = EXCELLENT
 		owner = {
@@ -1443,25 +1425,28 @@ planet_event = {
 	picture = GFX_evt_in_the_dark
 	show_sound = event_radio_chatter
 	location = ROOT
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		has_ground_combat = no
+	}
+
 	trigger = {
 		has_planet_flag = seismic_disturbance_destroyed
 		NOT = { has_planet_flag = seismic_disturbance_treasury }
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
-		has_ground_combat = no
 		num_pops > 0
 	}
-	
+
 	mean_time_to_happen = {
 		months = 240
 	}
-	
+
 	immediate = {
 		set_planet_flag = seismic_disturbance_treasury
-	}		
-	
+	}
+
 	option = {
 		name = EXCELLENT
 		owner = {
@@ -1483,27 +1468,30 @@ planet_event = {
 	picture = GFX_evt_burning_settlement
 	show_sound = event_air_raid_siren
 	location = ROOT
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		has_ground_combat = no
+	}
+
 	trigger = {
 		has_planet_flag = seismic_disturbance_destroyed
 		NOT = { has_planet_flag = seismic_disturbance_quake }
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
-		has_ground_combat = no
 		num_pops > 0
 	}
-	
+
 	mean_time_to_happen = {
 		months = 240
 	}
-	
+
 	immediate = {
 		set_planet_flag = seismic_disturbance_quake
 		add_planet_devastation = 10
-		
+
 	}
-	
+
 	option = {
 		name = UNFORTUNATE
 		tooltip = {
@@ -1520,25 +1508,28 @@ planet_event = {
 	picture = GFX_evt_alien_cavemen
 	show_sound = event_primitive_civilization
 	location = ROOT
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		has_ground_combat = no
+	}
+
 	trigger = {
 		has_planet_flag = seismic_disturbance_friendly
 		NOT = { has_planet_flag = seismic_disturbance_famine }
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
-		has_ground_combat = no
 		num_pops > 0
 	}
-	
+
 	mean_time_to_happen = {
 		months = 240
 	}
-	
+
 	immediate = {
 		set_planet_flag = seismic_disturbance_famine
 	}
-	
+
 	option = {
 		name = colony.69.a
 		allow = {
@@ -1550,9 +1541,9 @@ planet_event = {
 			add_resource = { food = -50 }
 		}
 		hidden_effect = {
-			change_variable = { 
-				which = "angry_subterraneans" 
-				value = -1 
+			change_variable = {
+				which = "angry_subterraneans"
+				value = -1
 			}
 		}
 		custom_tooltip = subterraneans_pleased
@@ -1560,9 +1551,9 @@ planet_event = {
 	option = {
 		name = colony.69.b
 		hidden_effect = {
-			change_variable = { 
-				which = "angry_subterraneans" 
-				value = 1 
+			change_variable = {
+				which = "angry_subterraneans"
+				value = 1
 			}
 		}
 		custom_tooltip = subterraneans_displeased
@@ -1577,29 +1568,32 @@ planet_event = {
 	picture = GFX_evt_alien_cavemen
 	show_sound = event_primitive_civilization
 	location = ROOT
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		has_ground_combat = no
+	}
+
 	trigger = {
 		has_planet_flag = seismic_disturbance_friendly
 		NOT = { has_planet_flag = seismic_disturbance_gift }
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
-		has_ground_combat = no
 		num_pops > 0
-		check_variable = { 
-			which = "angry_subterraneans" 
-			value < 1 
+		check_variable = {
+			which = "angry_subterraneans"
+			value < 1
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 240
 	}
-	
+
 	immediate = {
 		set_planet_flag = seismic_disturbance_gift
 	}
-	
+
 	option = {
 		name = colony.70.a
 		owner = {
@@ -1621,22 +1615,25 @@ planet_event = {
 	picture = GFX_evt_alien_cavemen
 	show_sound = event_primitive_civilization
 	location = ROOT
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		has_ground_combat = no
+	}
+
 	trigger = {
 		has_planet_flag = seismic_disturbance_friendly
 		NOT = { has_planet_flag = seismic_disturbance_refugees }
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
-		has_ground_combat = no
 		num_pops > 0
 		#free_housing > 0
 	}
-	
+
 	mean_time_to_happen = {
 		months = 240
 	}
-	
+
 	immediate = {
 		set_planet_flag = seismic_disturbance_refugees
 		random_country = {
@@ -1647,7 +1644,7 @@ planet_event = {
 			owner_species = { save_event_target_as = subterranean_species }
 		}
 	}
-	
+
 	option = {
 		name = colony.71.a
 		trigger = {
@@ -1656,13 +1653,13 @@ planet_event = {
 		create_pop = {
 			species = event_target:subterranean_species
 			ethos = {
-				ethic = "ethic_spiritualist"			
+				ethic = "ethic_spiritualist"
 			}
 		}
 		hidden_effect = {
-			change_variable = { 
-				which = "angry_subterraneans" 
-				value = 1 
+			change_variable = {
+				which = "angry_subterraneans"
+				value = 1
 			}
 		}
 		custom_tooltip = subterraneans_displeased
@@ -1670,9 +1667,9 @@ planet_event = {
 	option = {
 		name = colony.71.b
 		hidden_effect = {
-			change_variable = { 
-				which = "angry_subterraneans" 
-				value = -1 
+			change_variable = {
+				which = "angry_subterraneans"
+				value = -1
 			}
 		}
 		custom_tooltip = subterraneans_pleased
@@ -1687,29 +1684,32 @@ planet_event = {
 	picture = GFX_evt_underground_civilization
 	show_sound = event_primitive_civilization
 	location = ROOT
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		has_ground_combat = no
+	}
+
 	trigger = {
 		has_planet_flag = seismic_disturbance_friendly
 		NOT = { has_planet_flag = seismic_disturbance_anthropologists }
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
-		has_ground_combat = no
 		num_pops > 0
 		check_variable = {
 			which = "angry_subterraneans"
 			value < 1
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 240
 	}
-	
+
 	immediate = {
 		set_planet_flag = seismic_disturbance_anthropologists
 	}
-	
+
 	option = {
 		name = EXCELLENT
 		owner = {
@@ -1731,26 +1731,29 @@ planet_event = {
 	picture = GFX_evt_underground_civilization
 	show_sound = event_air_raid_siren
 	location = ROOT
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		has_ground_combat = no
+	}
+
 	trigger = {
 		has_planet_flag = seismic_disturbance_friendly
 		NOT = { has_planet_flag = seismic_disturbance_quake2 }
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
-		has_ground_combat = no
 		num_pops > 0
 	}
-	
+
 	mean_time_to_happen = {
 		months = 240
 	}
-	
+
 	immediate = {
 		set_planet_flag = seismic_disturbance_quake2
 		add_planet_devastation = 10
 	}
-	
+
 	option = {
 		name = colony.73.a
 		tooltip = {
@@ -1786,30 +1789,33 @@ planet_event = {
 	picture = GFX_evt_alien_cavemen
 	show_sound = event_primitive_civilization
 	location = ROOT
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		has_ground_combat = no
+	}
+
 	trigger = {
 		has_planet_flag = seismic_disturbance_friendly
 		NOT = { has_planet_flag = seismic_disturbance_tech }
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
-		has_ground_combat = no
 		num_pops > 0
 	}
-	
+
 	mean_time_to_happen = {
 		months = 240
 	}
-	
+
 	immediate = {
 		set_planet_flag = seismic_disturbance_tech
 	}
-	
+
 	option = {
 		name = colony.74.a
 		hidden_effect = {
-			change_variable = { 
-				which = "angry_subterraneans" 
+			change_variable = {
+				which = "angry_subterraneans"
 				value = 1
 			}
 		}
@@ -1824,8 +1830,8 @@ planet_event = {
 			}
 		}
 		hidden_effect = {
-			change_variable = { 
-				which = "angry_subterraneans" 
+			change_variable = {
+				which = "angry_subterraneans"
 				value = -1
 			}
 			random_country = {
@@ -1848,28 +1854,31 @@ planet_event = {
 	picture = GFX_evt_alien_cavemen
 	show_sound = event_primitive_civilization
 	location = ROOT
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+	}
+
 	trigger = {
 		has_planet_flag = seismic_disturbance_friendly
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
 		check_variable = {
 			which = "angry_subterraneans"
 			value > 2
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		days = 20
 	}
-	
+
 	immediate = {
 		hidden_effect = {
 			remove_planet_flag = seismic_disturbance_friendly
 		}
 	}
-	
+
 	option = {
 		name = colony.75.a
 		owner = {
@@ -1883,11 +1892,11 @@ country_event = {
 	id = colony.76
 	title = "colony.76.name"
 	desc = "colony.76.desc"
-	
+
 	is_triggered_only = yes
-	
+
 	diplomatic = yes
-	
+
 	picture_event_data = {
 		room = no_video_feed_room
 	}
@@ -1901,7 +1910,7 @@ country_event = {
 			save_event_target_as = subterranean_nation
 		}
 	}
-	
+
 	option = {
 		name = colony.76.a
 		FROM = {
@@ -1924,16 +1933,19 @@ planet_event = {
 	show_sound = event_mystic_reveal
 	location = ROOT
 	trackable = yes
-	
-	trigger = {
+
+	pre_triggers = {
 		has_owner = yes
-		original_owner = yes
 		is_homeworld = no
-		owner = { is_ai = no }
+		original_owner = yes
+		is_ai = no
 		has_ground_combat = no
-		is_occupied_flag = no
-		num_pops > 0
 		is_capital = no
+		is_occupied_flag = no
+	}
+
+	trigger = {
+		num_pops > 0
 		NOR = {
 			has_planet_flag = abandoned_terraforming_planet
 			has_planet_flag = colony_event
@@ -1942,6 +1954,7 @@ planet_event = {
 			is_planet_class = pc_ringworld_habitable
 			is_planet_class = pc_habitat
 			is_planet_class = pc_city
+			is_planet_class = pc_relic
 			owner = { has_country_flag = abandoned_terraforming_country }
 			owner = { has_authority = auth_machine_intelligence }
 			AND = {
@@ -1982,7 +1995,7 @@ planet_event = {
 			}
 		}
 	}
-	
+
 	is_triggered_only = yes
 
 	immediate = {
@@ -1990,7 +2003,7 @@ planet_event = {
 		set_planet_flag = colony_event
 		owner = { set_country_flag = abandoned_terraforming_country }
 	}
-	
+
 	option = {
 		name = colony.100.a
 		hidden_effect = {
@@ -2024,13 +2037,13 @@ planet_event = {
 	picture = GFX_evt_society_research
 	show_sound = event_construction
 	location = ROOT
-	
+
 	is_triggered_only = yes
-	
+
 	immediate = {
 		set_planet_flag = did_not_terraform
 	}
-	
+
 	option = {
 		name = EXCELLENT
 		if = {
@@ -2067,26 +2080,29 @@ planet_event = {
 	picture = GFX_evt_burning_settlement
 	show_sound = event_air_raid_siren
 	location = ROOT
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		has_ground_combat = no
+	}
+
 	trigger = {
 		has_planet_flag = did_not_terraform
 		NOT = { has_planet_flag = terraforming_unstable_weather }
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
-		has_ground_combat = no
 		num_pops > 0
 	}
-	
+
 	mean_time_to_happen = {
 		months = 240
 	}
-	
+
 	immediate = {
 		set_planet_flag = terraforming_unstable_weather
 		add_planet_devastation = 10
 	}
-	
+
 	option = {
 		name = UNFORTUNATE
 		tooltip = {
@@ -2103,25 +2119,28 @@ planet_event = {
 	picture = GFX_evt_colony_settlement
 	show_sound = event_planetary_riot
 	location = ROOT
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		has_ground_combat = no
+	}
+
 	trigger = {
 		has_planet_flag = did_not_terraform
 		NOT = { has_planet_flag = terraforming_drought }
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
-		has_ground_combat = no
 		num_pops > 0
 	}
-	
+
 	mean_time_to_happen = {
 		months = 240
 	}
-	
+
 	immediate = {
 		set_planet_flag = terraforming_drought
 	}
-	
+
 	option = {
 		name = colony.103.a
 		every_owned_pop = {
@@ -2186,9 +2205,9 @@ planet_event = {
 	picture = GFX_evt_alien_nature
 	show_sound = event_activating_unknown_technology
 	location = ROOT
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = colony.104.a
 		custom_tooltip = abandoned_terraforming_completed
@@ -2317,9 +2336,9 @@ planet_event = {
 	picture = GFX_evt_ground_combat
 	show_sound = event_ground_battle
 	location = ROOT
-	
+
 	is_triggered_only = yes
-	
+
 	immediate = {
 		hidden_effect = {
 			switch = {
@@ -2460,7 +2479,7 @@ planet_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = colony.105.a
 		custom_tooltip = terraforming_mutants_attack
@@ -2475,9 +2494,9 @@ planet_event = {
 	picture = GFX_evt_alien_nature
 	show_sound = event_activating_unknown_technology
 	location = ROOT
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = MARVELOUS
 		change_pc = pc_gaia
@@ -2491,26 +2510,85 @@ planet_event = {
 	}
 }
 
-# Special Project Completed 4 (Ammonia)
+# Special Project Completed 4 (Tomb World)
 planet_event = {
 	id = colony.107
 	title = "PROJECT_COMPLETE"
-	desc = "colony.107.desc"
+	desc = {
+		trigger = {
+			NOR = {
+				owner = { has_civic = civic_post_apocalyptic}
+				owner.species = { has_trait = trait_pc_nuked_preference }
+			}
+		}
+		text = "colony.107.desc"
+	}
+	desc = {
+		trigger = {
+			OR = {
+				owner = { has_civic = civic_post_apocalyptic}
+				owner.species = { has_trait = trait_pc_nuked_preference }
+			}
+		}
+		text = "colony.107.desc.nuked_pref"
+	}
 	picture = GFX_evt_dead_city
 	show_sound = event_activating_unknown_technology
 	location = ROOT
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
-		name = colony.107.a
-		change_pc = pc_toxic
-		destroy_colony = yes
-		add_modifier = {
-			modifier = "ammonia_biosphere"
-			days = -1
+		trigger = {
+			NOR = {
+				owner = { has_civic = civic_post_apocalyptic}
+				owner.species = { has_trait = trait_pc_nuked_preference }
+			}
 		}
-		set_deposit = d_society_3
+		name = colony.107.a
+		change_pc = pc_nuked
+		if = { #Destroys colony if no planet pops can live on Tomb Worlds
+			limit = {
+				NOT = {
+					any_owned_pop = {
+						OR = {
+							has_trait = trait_pc_nuked_preference
+							has_trait = trait_mechanical
+							has_trait = trait_machine_unit
+						}
+					}
+				}
+			}
+			destroy_colony = yes
+		}
+		else = { #Kills only planet pops that cannot live on Tomb Worlds
+			hidden_effect = {
+				every_owned_pop = {
+					limit = {
+						NOR = {
+							has_trait = trait_pc_nuked_preference
+							has_trait = trait_mechanical
+							has_trait = trait_machine_unit
+						}
+					}
+					kill_pop = yes
+				}
+			}
+			custom_tooltip = colony.107.a.tooltip
+		}
+		hidden_effect = {
+			remove_modifier = "abandoned_terraforming"
+		}
+	}
+	option = {
+		trigger = {
+			OR = {
+				owner = { has_civic = civic_post_apocalyptic}
+				owner.species = { has_trait = trait_pc_nuked_preference }
+			}
+		}
+		name = EXCELLENT
+		change_pc = pc_nuked
 		hidden_effect = {
 			remove_modifier = "abandoned_terraforming"
 		}
@@ -2525,14 +2603,14 @@ country_event = {
 	picture = GFX_evt_ground_combat
 	show_sound = event_ground_battle
 	location = FROMFROM
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		has_country_flag = terraforming_mutants_invade_country
 		FROMFROM = { has_planet_flag = terraforming_mutants_invade_planet }
 	}
-	
+
 	immediate = {
 		remove_country_flag = terraforming_mutants_invade_country
 		FROMFROM = {
@@ -2540,7 +2618,7 @@ country_event = {
 			remove_planet_flag = terraforming_mutants_invade_planet
 		}
 	}
-	
+
 	option = {
 		name = EXCELLENT
 		FROMFROM = {
@@ -2558,21 +2636,24 @@ planet_event = {
 	show_sound = event_alien_nature
 	location = ROOT
 	trackable = yes
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		has_ground_combat = no
+	}
+
 	trigger = {
 		has_planet_flag = terraforming_mutants_defeated
 		NOT = { has_planet_flag = terraforming_mutant_stalker }
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
-		has_ground_combat = no
 		num_pops > 0
 	}
-	
+
 	mean_time_to_happen = {
 		months = 240
 	}
-	
+
 	immediate = {
 		set_planet_flag = terraforming_mutant_stalker
 		add_modifier = {
@@ -2580,7 +2661,7 @@ planet_event = {
 			days = -1
 		}
 	}
-	
+
 	option = {
 		name = colony.109.a
 		tooltip = {
@@ -2605,9 +2686,9 @@ planet_event = {
 	picture = GFX_evt_alien_nature
 	show_sound = event_radio_chatter
 	location = ROOT
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = MARVELOUS
 		remove_modifier = "mutant_stalker"
@@ -2623,9 +2704,9 @@ planet_event = {
 	picture = GFX_evt_alien_nature
 	show_sound = event_alien_nature
 	location = ROOT
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = colony.111.a
 		remove_modifier = "mutant_stalker"
@@ -2646,9 +2727,9 @@ planet_event = {
 	picture = GFX_evt_burning_settlement
 	show_sound = event_ground_battle
 	location = ROOT
-	
+
 	is_triggered_only = yes
-	
+
 	immediate = {
 		remove_modifier = "mutant_stalker"
 		create_country = {
@@ -2669,7 +2750,7 @@ planet_event = {
 			type = "mutant_army"
 		}
 	}
-	
+
 	option = {
 		name = colony.112.a
 		custom_tooltip = terraforming_mutants_attack
@@ -2684,14 +2765,14 @@ country_event = {
 	picture = GFX_evt_burning_settlement
 	show_sound = event_ghost_town
 	location = FROMFROM
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		has_country_flag = terraforming_mutants_invade_country
 		FROMFROM = { has_planet_flag = terraforming_mutants_invade_planet }
 	}
-	
+
 	immediate = {
 		FROMFROM = {
 			set_planet_flag = terraforming_mutants_won
@@ -2702,7 +2783,7 @@ country_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = colony.113.a
 	}
@@ -2716,14 +2797,14 @@ country_event = {
 	picture = GFX_evt_victorious_army
 	show_sound = event_ground_battle
 	location = FROMFROM
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		has_country_flag = terraforming_mutants_invade_country
 		FROMFROM = { has_planet_flag = terraforming_mutants_won }
 	}
-	
+
 	immediate = {
 		remove_country_flag = terraforming_mutants_invade_country
 		FROMFROM = {
@@ -2744,7 +2825,7 @@ country_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = colony.114.a
 	}
@@ -2759,7 +2840,17 @@ planet_event = {
 	show_sound = event_mystic_reveal
 	location = ROOT
 	trackable = yes
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		is_ai = no
+		has_ground_combat = no
+		is_capital = no
+		is_occupied_flag = no
+	}
+
 	trigger = {
 		NOT = { has_global_flag = underground_vault_global }
 		NOT = { has_planet_flag = armageddon_nuked }
@@ -2772,26 +2863,19 @@ planet_event = {
 				}
 			}
 		}
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
 		owner = {
-			is_ai = no
 			NOT = { has_ethic = ethic_gestalt_consciousness }
 		}
-		has_ground_combat = no
-		is_occupied_flag = no
 		num_pops > 0
-		is_capital = no
 	}
-	
+
 	is_triggered_only = yes
-	
+
 	immediate = {
 		set_planet_flag = underground_vault_planet
 		set_global_flag = underground_vault_global
 	}
-	
+
 	option = {
 		name = colony.150.a
 		enable_special_project = {
@@ -2813,9 +2897,9 @@ planet_event = {
 	picture = GFX_evt_derelict_interior
 	show_sound = event_airlock
 	location = ROOT
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = INTERESTING
 		add_deposit = d_underground_vault
@@ -2830,9 +2914,9 @@ planet_event = {
 	picture = GFX_evt_derelict_interior
 	show_sound = event_airlock
 	location = ROOT
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = colony.152.a
 		add_deposit = d_underground_vault_2
@@ -2901,7 +2985,7 @@ planet_event = {
 	picture = GFX_evt_ground_combat
 	show_sound = event_ground_battle
 	location = ROOT
-	
+
 	is_triggered_only = yes
 
 	immediate = {
@@ -2935,7 +3019,7 @@ planet_event = {
 			type = "mutant_army"
 		}
 	}
-	
+
 	option = {
 		name = colony.153.a
 	}
@@ -2949,14 +3033,14 @@ country_event = {
 	picture = GFX_evt_burning_settlement
 	show_sound = event_ghost_town
 	location = FROMFROM
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		has_country_flag = vault_mutants_invade_country
 		FROMFROM = { has_planet_flag = vault_mutants_invade_planet }
 	}
-	
+
 	immediate = {
 		FROMFROM = {
 			remove_planet_flag = vault_mutants_invade_planet
@@ -2967,7 +3051,7 @@ country_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = colony.113.a
 	}
@@ -2981,14 +3065,14 @@ country_event = {
 	picture = GFX_evt_victorious_army
 	show_sound = event_ground_battle
 	location = FROMFROM
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		has_country_flag = vault_mutants_invade_country
 		FROMFROM = { has_planet_flag = vault_mutants_won }
 	}
-	
+
 	immediate = {
 		remove_country_flag = vault_mutants_invade_country
 		FROMFROM = {
@@ -3007,7 +3091,7 @@ country_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = colony.114.a
 	}
@@ -3022,7 +3106,17 @@ planet_event = {
 	show_sound = event_air_raid_siren
 	location = ROOT
 	trackable = yes
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		is_ai = no
+		has_ground_combat = no
+		is_capital = no
+		is_occupied_flag = no
+	}
+
 	trigger = {
 		NOT = { has_planet_flag = armageddon_nuked }
 		is_planet_class = pc_nuked
@@ -3034,24 +3128,17 @@ planet_event = {
 				}
 			}
 		}
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
-		owner = { is_ai = no }
-		has_ground_combat = no
-		is_occupied_flag = no
 		num_pops > 0
-		is_capital = no
 	}
-	
+
 	is_triggered_only = yes
-	
+
 	immediate = {
 		hidden_effect = {
 			set_planet_flag = wasteland_nuclear_bomb
 		}
 	}
-	
+
 	option = {
 		name = colony.155.a
 		enable_special_project = {
@@ -3070,9 +3157,9 @@ planet_event = {
 	picture = GFX_evt_colony_settlement
 	show_sound = event_activating_unknown_technology
 	location = ROOT
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = colony.156.a
 	}
@@ -3086,9 +3173,9 @@ planet_event = {
 	picture = GFX_evt_nuclear_explosion
 	show_sound = event_super_explosion
 	location = ROOT
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = colony.157.a
 		random_owned_pop = { kill_pop = yes }
@@ -3104,7 +3191,17 @@ planet_event = {
 	picture = GFX_evt_physics_research
 	show_sound = event_laboratory_sound
 	location = ROOT
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		is_ai = no
+		has_ground_combat = no
+		is_capital = no
+		is_occupied_flag = no
+	}
+
 	trigger = {
 		NOT = { has_planet_flag = armageddon_nuked }
 		is_planet_class = pc_nuked
@@ -3116,22 +3213,15 @@ planet_event = {
 				}
 			}
 		}
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
-		owner = { is_ai = no }
-		has_ground_combat = no
-		is_occupied_flag = no
 		num_pops > 0
-		is_capital = no
 	}
-	
+
 	is_triggered_only = yes
-	
+
 	immediate = {
 		set_planet_flag = wasteland_particle_accelerator
 	}
-	
+
 	option = {
 		name = FASCINATING
 		add_deposit = d_ancient_particle_accelerator
@@ -3146,7 +3236,17 @@ planet_event = {
 	picture = GFX_evt_city_ruins
 	show_sound = event_administrative_work
 	location = ROOT
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		is_ai = no
+		has_ground_combat = no
+		is_capital = no
+		is_occupied_flag = no
+	}
+
 	trigger = {
 		NOT = { has_planet_flag = armageddon_nuked }
 		is_planet_class = pc_nuked
@@ -3158,24 +3258,17 @@ planet_event = {
 				}
 			}
 		}
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
-		owner = { is_ai = no }
-		has_ground_combat = no
-		is_occupied_flag = no
 		num_pops > 0
-		is_capital = no
 	}
-	
+
 	is_triggered_only = yes
-	
+
 	immediate = {
 		hidden_effect = {
 			set_planet_flag = wasteland_infrastructure
 		}
 	}
-	
+
 	option = {
 		name = EXCELLENT
 		add_modifier = {
@@ -3193,7 +3286,17 @@ planet_event = {
 	picture = GFX_evt_satellite_in_orbit
 	show_sound = event_ship_bridge
 	location = ROOT
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		is_ai = no
+		has_ground_combat = no
+		is_capital = no
+		is_occupied_flag = no
+	}
+
 	trigger = {
 		NOT = { has_planet_flag = armageddon_nuked }
 		is_planet_class = pc_nuked
@@ -3206,24 +3309,17 @@ planet_event = {
 				}
 			}
 		}
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
-		owner = { is_ai = no }
-		has_ground_combat = no
-		is_occupied_flag = no
 		num_pops > 0
-		is_capital = no
 	}
-	
+
 	is_triggered_only = yes
-	
+
 	immediate = {
 		hidden_effect = {
 			set_planet_flag = wasteland_space_station
 		}
 	}
-	
+
 	option = {
 		name = INTRIGUING
 		owner = {
@@ -3245,7 +3341,17 @@ planet_event = {
 	picture = GFX_evt_colony_settlement
 	show_sound = event_administrative_work
 	location = ROOT
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		is_ai = no
+		has_ground_combat = no
+		is_capital = no
+		is_occupied_flag = no
+	}
+
 	trigger = {
 		NOT = { has_planet_flag = armageddon_nuked }
 		is_planet_class = pc_nuked
@@ -3257,25 +3363,18 @@ planet_event = {
 				}
 			}
 		}
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
-		owner = { is_ai = no }
 		owner = { NOT = { has_ethic = ethic_gestalt_consciousness } }
-		has_ground_combat = no
-		is_occupied_flag = no
 		num_pops > 0
-		is_capital = no
 	}
-	
+
 	is_triggered_only = yes
-	
+
 	immediate = {
 		hidden_effect = {
 			set_planet_flag = wasteland_radiation
 		}
 	}
-	
+
 	option = {
 		name = UNFORTUNATE
 		add_modifier = {
@@ -3293,7 +3392,17 @@ planet_event = {
 	picture = GFX_evt_smugglers_in_bar
 	show_sound = event_administrative_work
 	location = ROOT
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		is_ai = no
+		has_ground_combat = no
+		is_capital = no
+		is_occupied_flag = no
+	}
+
 	trigger = {
 		NOT = { has_planet_flag = armageddon_nuked }
 		is_planet_class = pc_nuked
@@ -3305,17 +3414,10 @@ planet_event = {
 				}
 			}
 		}
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
-		owner = { is_ai = no }
 		owner = { NOT = { has_ethic = ethic_gestalt_consciousness } }
-		has_ground_combat = no
-		is_occupied_flag = no
 		num_pops > 0
-		is_capital = no
 		any_pop = {
-			NOT = {
+			NOR = {
 				pop_has_trait = trait_mechanical
 				OR = {
 					has_ethic = "ethic_pacifist"
@@ -3326,18 +3428,18 @@ planet_event = {
 			is_being_purged = no
 		}
 	}
-	
+
 	is_triggered_only = yes
 	#mean_time_to_happen = {
 	#	months = 240
 	#}
-	
+
 	immediate = {
 		hidden_effect = {
 			set_planet_flag = wasteland_pacifist_movement
 		}
 	}
-	
+
 	option = {
 		name = colony.164.a
 		custom_tooltip = colony.164.a.tooltip
@@ -3468,7 +3570,17 @@ planet_event = {
 	show_sound = event_ship_bridge
 	location = ROOT
 	trackable = yes
-	
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		is_ai = no
+		has_ground_combat = no
+		is_capital = no
+		is_occupied_flag = no
+	}
+
 	trigger = {
 		NOT = { has_planet_flag = armageddon_nuked }
 		is_planet_class = pc_nuked
@@ -3481,24 +3593,17 @@ planet_event = {
 				}
 			}
 		}
-		has_owner = yes
-		original_owner = yes
-		is_homeworld = no
-		owner = { is_ai = no }
-		has_ground_combat = no
-		is_occupied_flag = no
 		num_pops > 0
-		is_capital = no
 	}
-	
+
 	is_triggered_only = yes
-	
+
 	immediate = {
 		hidden_effect = {
 			set_planet_flag = wasteland_orbital_debris
 		}
 	}
-	
+
 	option = {
 		name = colony.170.a
 		add_modifier = {
@@ -3528,21 +3633,21 @@ planet_event = {
 	picture = GFX_evt_atmospheric_entry
 	show_sound = event_ship_explosion
 	location = ROOT
-	
+
 	trigger = {
 		has_planet_flag = wasteland_orbital_debris
 		has_modifier = wasteland_orbital_debris
 		NOT = { has_planet_flag = wasteland_freighter_crash }
 	}
-	
+
 	mean_time_to_happen = {
 		months = 240
 	}
-	
+
 	immediate = {
 		set_planet_flag = wasteland_freighter_crash
 	}
-	
+
 	option = {
 		name = colony.171.a
 		add_deposit = d_crater
@@ -3557,23 +3662,23 @@ planet_event = {
 	picture = GFX_evt_atmospheric_entry
 	show_sound = event_super_explosion
 	location = ROOT
-	
+
 	trigger = {
 		has_modifier = wasteland_orbital_debris
 		has_planet_flag = wasteland_orbital_debris
 		NOT = { has_planet_flag = wasteland_debris_impact }
 	}
-	
+
 	mean_time_to_happen = {
 		months = 240
 	}
-	
+
 	immediate = {
 		hidden_effect = {
 			set_planet_flag = wasteland_debris_impact
 		}
 	}
-	
+
 	option = {
 		name = colony.172.a
 		random_pop = {
@@ -3590,9 +3695,9 @@ ship_event = {
 	picture = GFX_evt_ship_in_orbit
 	show_sound = event_radio_chatter
 	location = ROOT
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EXCELLENT
 		fromfrom = {
@@ -3609,9 +3714,9 @@ ship_event = {
 	picture = GFX_evt_ship_in_orbit
 	show_sound = event_radio_chatter
 	location = ROOT
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = EXCELLENT
 		fromfrom = {
@@ -3636,16 +3741,19 @@ planet_event = {
 	picture = GFX_evt_asteroid_approaching_planet
 	show_sound = event_air_raid_siren
 	location = ROOT
-	
-	trigger = {
+
+	pre_triggers = {
 		has_owner = yes
-		original_owner = yes
 		is_homeworld = no
-		owner = { is_ai = no }
+		original_owner = yes
+		is_ai = no
 		has_ground_combat = no
-		is_occupied_flag = no
-		num_pops > 0
 		is_capital = no
+		is_occupied_flag = no
+	}
+
+	trigger = {
+		num_pops > 0
 		years_passed < 50
 		NOR = {
 			is_planet_class = pc_habitat
@@ -3656,9 +3764,9 @@ planet_event = {
 			owner = { has_country_flag = asteroid_sighted_country }
 		}
 	}
-	
+
 	is_triggered_only = yes
-	
+
 	immediate = {
 		owner = {
 			set_country_flag = asteroid_sighted_country
@@ -3727,7 +3835,7 @@ planet_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		trigger = {
 			owner = { NOT = { has_authority = auth_machine_intelligence } }
@@ -3753,9 +3861,9 @@ planet_event = {
 country_event = {
 	id = colony.181
 	hide_window = yes
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		exists = from
 		from = { has_country_flag = incoming_asteroid }
@@ -3814,9 +3922,9 @@ planet_event = {
 	picture = GFX_evt_atmospheric_entry
 	show_sound = event_ship_explosion
 	location = ROOT
-	
+
 	is_triggered_only = yes
-	
+
 	immediate = {
 		fromfrom = {
 			remove_relation_flag = { who = root.owner flag = asteroid_enemy }
@@ -3833,7 +3941,7 @@ planet_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = EXCELLENT
 		owner = {
@@ -3867,9 +3975,9 @@ planet_event = {
 	picture = GFX_evt_nuclear_explosion
 	show_sound = event_super_explosion
 	location = ROOT
-	
+
 	is_triggered_only = yes
-	
+
 	immediate = {
 		owner = {
 			country_event = { id = colony.184 days = 1 }
@@ -3880,7 +3988,7 @@ planet_event = {
 		add_deposit = d_crater
 		owner = { end_event_chain = "asteroid_sighted_chain" }
 	}
-	
+
 	option = {
 		name = colony.183.a
 		if = {
@@ -3931,6 +4039,37 @@ country_event = {
 				}
 			}
 			destroy_country = yes
+		}
+	}
+}
+
+# Colony Consumed (HIDDEN)
+country_event = {
+	id = colony.185
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		owner = {
+			is_ai = yes
+			is_lithoid_empire = yes
+			has_valid_civic = civic_hive_devouring_swarm
+		}
+
+		from = {
+			num_free_districts = { type = any value <= 0 }
+		}
+	}
+
+	immediate = {
+		from = {
+			every_owned_pop = {
+				resettle_pop = {
+					pop = this
+					planet = owner.capital_scope
+				}
+			}
 		}
 	}
 }

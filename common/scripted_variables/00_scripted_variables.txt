@@ -4,6 +4,11 @@
 
 @discovery_weight = 3
 
+# Edict and Campaign weights
+@EdictHighPrio = 100
+@EdictMedPrio = 10
+@EdictLowPrio = 3
+
 ### EVENT REWARDS
 
 @tier1materialreward = 6
@@ -249,3 +254,7 @@
 @feproduction = 12
 @fecost = 500
 @fetime = 730
+
+@ap_technological_ascendancy_rare_tech = 1.5
+
+@lithoid_trait_resource_production = 0.01

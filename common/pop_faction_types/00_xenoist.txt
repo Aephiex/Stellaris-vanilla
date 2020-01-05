@@ -31,10 +31,13 @@ xenoist = {
 		}
 	}
 	
-	can_join_faction = {
+	can_join_pre_triggers = {
 		is_enslaved = no
-		is_shackled_robot = no
 		is_being_purged = no
+	}
+
+	can_join_faction = {
+		is_shackled_robot = no
 		has_culture_shock = no
 		NOT = { has_trait = trait_nerve_stapled }
 		OR = {
@@ -136,7 +139,10 @@ xenoist = {
 		trigger = {
 			owner = {
 				NOT = {
-					has_policy_flag = slavery_allowed
+					#has_policy_flag = slavery_allowed
+					any_owned_pop = {
+						has_citizenship_type = { country = prev type = citizenship_slavery }
+					}
 				}
 			}
 		}
@@ -312,6 +318,14 @@ xenoist = {
 					has_policy_flag = pre_sapients_allow
 					has_policy_flag = pre_sapients_purge
 				}
+				OR = {
+					has_country_flag = found_presapients
+					any_planet_within_border = {
+						any_pop = {
+							is_sapient = no
+						}
+					}
+				}
 			}
 		}
 
@@ -389,6 +403,50 @@ xenoist = {
 		trigger = {
 			owner = {
 				has_country_flag = recent_comms_timed
+			}
+		}
+	}
+
+	demand = {
+		title = "XENOIST_CELEBRATE_DIVERSITY"
+		unfulfilled_title = "XENOIST_NO_CELEBRATE_DIVERSITY"
+		desc = "XENOIST_CELEBRATE_DIVERSITY_DESC"
+
+		fulfilled_effect = 5
+		unfulfilled_effect = -0.001
+
+		potential = {
+			exists = owner
+			owner = {
+				has_modifier = celebrate_diversity
+			}
+		}
+
+		trigger = {
+			owner = {
+				has_modifier = celebrate_diversity
+			}
+		}
+	}
+
+	demand = {
+		title = "XENOIST_PROCLAIM_SUPREMACY"
+		unfulfilled_title = "XENOIST_NO_PROCLAIM_SUPREMACY"
+		desc = "XENOIST_PROCLAIM_SUPREMACY_DESC"
+
+		unfulfilled_effect = -5
+		fulfilled_effect = 0.001
+
+		potential = {
+			exists = owner
+			owner = {
+				has_modifier = proclaim_superiority
+			}
+		}
+
+		trigger = {
+			owner = {
+				NOT= { has_modifier = proclaim_superiority }
 			}
 		}
 	}

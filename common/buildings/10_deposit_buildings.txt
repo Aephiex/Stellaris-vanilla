@@ -4,7 +4,7 @@
 
 building_mote_harvesters = {
 	base_buildtime = 360
-	icon = building_crystal_mines
+	icon = building_mote_harvesting_traps
 
 	is_capped_by_modifier = yes
 
@@ -49,13 +49,13 @@ building_mote_harvesters = {
 	}
 	
 	ai_weight = {
-		weight = 10	
-	}
+		weight = 1000000
+	}#Always build the pop to work it can come later.
 }
 
 building_gas_extractors = {
 	base_buildtime = 360
-	icon = building_crystal_mines
+	icon = building_gas_extractors
 
 	is_capped_by_modifier = yes
 
@@ -100,8 +100,8 @@ building_gas_extractors = {
 	}
 	
 	ai_weight = {
-		weight = 10	
-	}
+		weight = 1000000
+	}#Always build the pop to work it can come later.
 }
 
 building_crystal_mines = {
@@ -150,8 +150,8 @@ building_crystal_mines = {
 	}
 	
 	ai_weight = {
-		weight = 10	
-	}
+		weight = 1000000
+	}#Always build the pop to work it can come later.
 }
 
 building_betharian_power_plant = {
@@ -215,7 +215,7 @@ building_betharian_power_plant = {
 	}
 	
 	ai_weight = {
-		weight = 10	
+		weight = 1000000
 	}
 }
 
@@ -233,9 +233,29 @@ building_xeno_zoo = {
 		}
 	}
 	
+	destroy_trigger = {
+		exists = owner
+		owner = {
+			is_regular_empire = no
+		}
+	}
+	
 	planet_modifier = {
 		job_entertainer_add = 1
 		job_culture_worker_add = 2
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_valid_civic = civic_warrior_culture
+			}					
+		}
+		modifier = {
+			job_duelist_add = 1
+			job_entertainer_add = -1
+		}
 	}
 	
 	resources = {
@@ -253,6 +273,18 @@ building_xeno_zoo = {
 	}
 	
 	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { has_valid_civic = civic_warrior_culture }
+		}
+		text = job_duelist_effect_desc
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { NOT = { has_valid_civic = civic_warrior_culture } }
+		}
 		text = job_entertainer_effect_desc
 	}
 	
@@ -261,6 +293,6 @@ building_xeno_zoo = {
 	}	
 
 	ai_weight = {
-		factor = 10
+		weight = 1000000
 	}
 }

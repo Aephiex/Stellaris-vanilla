@@ -8,24 +8,24 @@
 @blocker_high = 10
 @blocker_low = 5
 
-d_mountain_range = {	
+d_mountain_range = {
 	time = 270
-	
+
 	is_for_colonizeable = yes
 	category = deposit_cat_blockers
-	
+
 	resources = {
 		category = deposit_blockers
 		cost = {
 			energy = 1000
 		}
 	}
-	
+
 	potential = {
 		planet_size >= 10
 	}
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -2
 	}
 
@@ -38,34 +38,41 @@ d_mountain_range = {
 		modifier = {
 			factor = 0.5
 			planet_size < 15
-		}	
+		}
+		modifier = {
+			factor = 0
+			num_free_districts = {
+				type = district_city
+				value < 2
+			}
+		}
 	}
-	
+
 	ai_weight = {
 		weight = 1
 	}
-	
+
 	prerequisites = { "tech_mountain_range" }
 }
 
 d_active_volcano = {
 	time = 270
-	
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
-	
+	category = deposit_cat_blockers
+
 	resources = {
 		category = deposit_blockers
 		cost = {
 			energy = 1000
 		}
 	}
-	
+
 	potential = {
 		planet_size >= 10
 	}
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -2
 	}
 
@@ -79,86 +86,94 @@ d_active_volcano = {
 			factor = 0.5
 			planet_size < 15
 		}
+		modifier = {
+			factor = 0
+			num_free_districts = {
+				type = district_city
+				value < 2
+			}
+		}
 	}
-	
+
 	prerequisites = { "tech_volcano" }
 }
 
-d_dangerous_wildlife_blocker = {	
+d_dangerous_wildlife_blocker = {
 	time = 270
-	
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
-	
+	category = deposit_cat_blockers
+
 	resources = {
 		category = deposit_blockers
 		cost = {
 			energy = 500
 		}
 	}
-	
+
 	potential = {
 		planet_size >= 10
 	}
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -2
 	}
-	
+
 	on_cleared = {
-		if = {
-			limit = {
-				exists = owner
-				owner = {
-					has_civic = civic_hive_devouring_swarm
+		hidden_effect = {
+			if = {
+				limit = {
+					exists = owner
+					owner = {
+						has_civic = civic_hive_devouring_swarm
+					}
 				}
+				owner = { add_resource = { food = 200 } }
 			}
-			owner = { add_resource = { food = 200 } }
 		}
 	}
 
 	drop_weight = {
 		weight = @blocker_low
 		modifier = {
-			factor = 2
-			has_modifier = "dangerous_wildlife"
-		}
-		modifier = {
-			factor = 10
-			has_modifier = "titanic_life"
-		}
-		modifier = {
 			factor = 0.5
 			planet_size < 15
 		}
+		modifier = {
+			factor = 0
+			num_free_districts = {
+				type = district_city
+				value < 2
+			}
+		}
 	}
-	
+
 	prerequisites = { "tech_dangerous_wildlife" }
 }
 
 d_dense_jungle = {
 	time = 180
-	
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
-	
+	category = deposit_cat_blockers
+
 	resources = {
 		category = deposit_blockers
 		cost = {
 			energy = 500
 		}
 	}
-	
+
 	potential = {
 		is_wet = yes
 	}
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -1
 	}
-	
+
 	all_blocker_swap_types = yes
-	
+
 	drop_weight = {
 		weight = @blocker_high
 		modifier = {
@@ -168,32 +183,39 @@ d_dense_jungle = {
 				is_planet_class = pc_tropical
 			}
 		}
+		modifier = {
+			factor = 0
+			num_free_districts = {
+				type = district_city
+				value < 2
+			}
+		}
 	}
-	
+
 	prerequisites = { "tech_dense_jungle" }
 }
 
-d_toxic_kelp = {	
+d_toxic_kelp = {
 	time = 180
-	
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
-	
+	category = deposit_cat_blockers
+
 	resources = {
 		category = deposit_blockers
 		cost = {
 			energy = 500
 		}
 	}
-	
+
 	potential = {
 		is_wet = yes
 	}
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -1
 	}
-	
+
 	all_blocker_swap_types = yes
 
 	drop_weight = {
@@ -202,17 +224,24 @@ d_toxic_kelp = {
 			factor = 2
 			is_planet_class = pc_ocean
 		}
+		modifier = {
+			factor = 0
+			num_free_districts = {
+				type = district_city
+				value < 2
+			}
+		}
 	}
-	
+
 	prerequisites = { "tech_toxic_kelp" }
 }
 
 d_deep_sinkhole = {
 	time = 180
-	
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
-	
+	category = deposit_cat_blockers
+
 	resources = {
 		category = deposit_blockers
 		cost = {
@@ -223,11 +252,11 @@ d_deep_sinkhole = {
 	potential = {
 		is_dry = yes
 	}
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -1
 	}
-	
+
 	all_blocker_swap_types = yes
 
 	drop_weight = {
@@ -238,34 +267,41 @@ d_deep_sinkhole = {
 				is_planet_class = pc_arid
 				is_planet_class = pc_savannah
 			}
-		}	
+		}
+		modifier = {
+			factor = 0
+			num_free_districts = {
+				type = district_city
+				value < 2
+			}
+		}
 	}
-	
+
 	prerequisites = { "tech_deep_sinkhole" }
 }
 
 
-d_quicksand_basin = {	
+d_quicksand_basin = {
 	time = 180
-	
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
-	
+	category = deposit_cat_blockers
+
 	resources = {
 		category = deposit_blockers
 		cost = {
 			energy = 500
 		}
 	}
-	
+
 	potential = {
 		is_dry = yes
 	}
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -1
 	}
-	
+
 	all_blocker_swap_types = yes
 
 	drop_weight = {
@@ -273,33 +309,40 @@ d_quicksand_basin = {
 		modifier = {
 			factor = 2
 			is_planet_class = pc_desert
-		}		
+		}
+		modifier = {
+			factor = 0
+			num_free_districts = {
+				type = district_city
+				value < 2
+			}
+		}
 	}
-	
+
 	prerequisites = { "tech_quicksand_basin" }
 }
 
 d_noxious_swamp = {
 	time = 180
-	
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
-	
+	category = deposit_cat_blockers
+
 	resources = {
 		category = deposit_blockers
 		cost = {
 			energy = 500
 		}
 	}
-	
+
 	potential = {
-		is_cold = yes	
+		is_cold = yes
 	}
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -1
 	}
-	
+
 	all_blocker_swap_types = yes
 
 	drop_weight = {
@@ -308,32 +351,39 @@ d_noxious_swamp = {
 			factor = 2
 			is_planet_class = pc_tundra
 		}
+		modifier = {
+			factor = 0
+			num_free_districts = {
+				type = district_city
+				value < 2
+			}
+		}
 	}
-	
+
 	prerequisites = { "tech_noxious_swamp" }
 }
 
-d_massive_glacier = {	
+d_massive_glacier = {
 	time = 180
-	
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
-	
+	category = deposit_cat_blockers
+
 	resources = {
 		category = deposit_blockers
 		cost = {
 			energy = 500
 		}
 	}
-	
+
 	potential = {
-		is_cold = yes	
+		is_cold = yes
 	}
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -1
 	}
-	
+
 	all_blocker_swap_types = yes
 
 	drop_weight = {
@@ -344,9 +394,16 @@ d_massive_glacier = {
 				is_planet_class = pc_alpine
 				is_planet_class = pc_arctic
 			}
-		}			
+		}
+		modifier = {
+			factor = 0
+			num_free_districts = {
+				type = district_city
+				value < 2
+			}
+		}
 	}
-	
+
 	prerequisites = { "tech_massive_glacier" }
 }
 
@@ -354,20 +411,20 @@ d_massive_glacier = {
 
 d_radioactive_wasteland = {
 	time = 270
-	
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
-	
+	category = deposit_cat_blockers
+
 	all_blocker_swap_types = yes
-	
+
 	potential = {
 		is_planet_class = pc_nuked
 	}
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -1
 	}
-	
+
 	resources = {
 		category = deposit_blockers
 		cost = {
@@ -377,23 +434,31 @@ d_radioactive_wasteland = {
 
 	drop_weight = {
 		weight = @blocker_high
+		modifier = {
+			factor = 0
+			num_free_districts = {
+				type = district_city
+				value < 2
+			}
+		}
 	}
 }
 
 d_city_ruins = {
 	time = 360
-	
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
-	
+	category = deposit_cat_blockers
+
 	potential = {
 		is_planet_class = pc_nuked
+		is_planet_class = pc_relic
 	}
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -2
 	}
-	
+
 	resources = {
 		category = deposit_blockers
 		cost = {
@@ -403,26 +468,33 @@ d_city_ruins = {
 
 	drop_weight = {
 		weight = @blocker_high
+		modifier = {
+			factor = 0
+			num_free_districts = {
+				type = district_city
+				value < 2
+			}
+		}
 	}
 }
 
 d_bomb_crater = {
 	icon = d_crater
 	time = 270
-	
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
-	
-	all_blocker_swap_types = yes	
-	
+	category = deposit_cat_blockers
+
+	all_blocker_swap_types = yes
+
 	potential = {
 		is_planet_class = pc_nuked
 	}
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -1
 	}
-	
+
 	resources = {
 		category = deposit_blockers
 		cost = {
@@ -432,23 +504,30 @@ d_bomb_crater = {
 
 	drop_weight = {
 		weight = @blocker_low
+		modifier = {
+			factor = 0
+			num_free_districts = {
+				type = district_city
+				value < 2
+			}
+		}
 	}
 }
 
 d_infestation = {
 	time = 100
-	
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
-	
+	category = deposit_cat_blockers
+
 	potential = {
 		always = no
 	}
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -1
 	}
-	
+
 	resources = {
 		category = deposit_blockers
 		cost = {
@@ -459,18 +538,18 @@ d_infestation = {
 
 d_quarantine_zone = {
 	time = 100
-	
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
-	
+	category = deposit_cat_blockers
+
 	potential = {
 		always = no
 	}
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -1
 	}
-	
+
 	resources = {
 		category = deposit_blockers
 		cost = {
@@ -481,18 +560,18 @@ d_quarantine_zone = {
 
 d_slums = {
 	time = 100
-	
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
-	
+	category = deposit_cat_blockers
+
 	potential = {
 		always = no
 	}
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -1
 	}
-	
+
 	resources = {
 		category = deposit_blockers
 		cost = {
@@ -503,18 +582,18 @@ d_slums = {
 
 d_crater = {
 	time = 100
-	
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
-	
+	category = deposit_cat_blockers
+
 	potential = {
 		always = no
 	}
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -1
 	}
-	
+
 	resources = {
 		category = deposit_blockers
 		cost = {
@@ -524,16 +603,16 @@ d_crater = {
 }
 
 d_wandering_forests = {
-	icon = d_dense_jungle 
-	
+	icon = d_dense_jungle
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
-	
+	category = deposit_cat_blockers
+
 	potential = {
 		always = no
 	}
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -1
 	}
 }
@@ -541,18 +620,18 @@ d_wandering_forests = {
 d_sinkhole_subterraneans = {
 	icon = d_deep_sinkhole
 	time = 100
-	
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
-	
+	category = deposit_cat_blockers
+
 	potential = {
 		always = no
 	}
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -1
 	}
-	
+
 	resources = {
 		category = deposit_blockers
 		cost = {
@@ -565,16 +644,16 @@ d_titanic_life_blocker = {	#Added via event
 
 	is_for_colonizeable = yes
 	category = deposit_cat_rare
-	
+
 	potential = { always = no }
-	
+
 	resources = {
 		produces = {
-			society_research = 4
+			society_research = 8
 		}
 	}
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -1
 	}
 }
@@ -583,19 +662,19 @@ d_titanic_life_blocker = {	#Added via event
 d_failing_infrastructure = {
 	icon = d_metal_boneyard
 	time = 120
-	
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
-	
+	category = deposit_cat_blockers
+
 	potential = { always = no }
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -1
 	}
-	
+
 	use_weights_for_blocker_swap_types = yes
 	blocker_swap_types = {
-		d_rushing_waterfalls		
+		d_rushing_waterfalls
 		d_searing_desert
 		d_frozen_gas_lake
 		d_prosperous_mesa
@@ -605,7 +684,7 @@ d_failing_infrastructure = {
 		d_fertile_lands
 		d_great_river
 	}
-	
+
 	resources = {
 		category = deposit_blockers
 		cost = {
@@ -618,22 +697,22 @@ d_failing_infrastructure = {
 d_decrepit_dwellings = {
 	icon = d_slums
 	time = 120
-	
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
-	
+	category = deposit_cat_blockers
+
 	potential = { always = no }
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -1
 	}
-	
+
 	on_cleared = {
 		create_pop = {
 			species = owner
 		}
 	}
-	
+
 	resources = {
 		category = deposit_blockers
 		cost = {
@@ -647,22 +726,22 @@ d_decrepit_dwellings = {
 d_tomb_world_ruins = {
 	icon = d_city_ruins
 	time = 120
-	
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
-	
+	category = deposit_cat_blockers
+
 	potential = { always = no }
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -1
 	}
-	
+
 	on_cleared = {
 		create_pop = {
 			species = owner
 		}
 	}
-	
+
 	resources = {
 		category = deposit_blockers
 		cost = {
@@ -674,22 +753,22 @@ d_tomb_world_ruins = {
 d_tomb_world_wasteland = {
 	icon = d_radioactive_wasteland
 	time = 120
-	
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
-	
+	category = deposit_cat_blockers
+
 	potential = { always = no }
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -1
 	}
-	
+
 	use_weights_for_blocker_swap_types = no
 	blocker_swap_types = {
 		d_underwater_vent
 		d_submerged_ore_veins
 	}
-	
+
 	resources = {
 		category = deposit_blockers
 		cost = {
@@ -701,22 +780,22 @@ d_tomb_world_wasteland = {
 d_machine_empire_ruins = {
 	icon = d_city_ruins
 	time = 120
-	
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
-	
+	category = deposit_cat_blockers
+
 	potential = { always = no }
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -1
 	}
-	
+
 	use_weights_for_blocker_swap_types = no
 	blocker_swap_types = {
 		d_metal_boneyard
 		d_organic_landfill
 	}
-	
+
 	resources = {
 		category = deposit_blockers
 		cost = {
@@ -729,21 +808,21 @@ d_machine_empire_ruins = {
 d_exterminators_ruins = {
 	icon = d_city_ruins
 	time = 120
-	
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
-	
+	category = deposit_cat_blockers
+
 	potential = { always = no }
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -1
 	}
-	
+
 	use_weights_for_blocker_swap_types = no
 	blocker_swap_types = {
 		d_metal_boneyard
 	}
-	
+
 	resources = {
 		category = deposit_blockers
 		cost = {
@@ -755,21 +834,21 @@ d_exterminators_ruins = {
 d_former_battlefield = {
 	icon = d_radioactive_wasteland
 	time = 120
-	
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
-	
+	category = deposit_cat_blockers
+
 	potential = { always = no }
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -1
 	}
-	
+
 	use_weights_for_blocker_swap_types = no
 	blocker_swap_types = {
 		d_organic_landfill
 	}
-	
+
 	resources = {
 		category = deposit_blockers
 		cost = {
@@ -781,25 +860,25 @@ d_former_battlefield = {
 d_strip_mine = {
 	icon = d_crater
 	time = 120
-	
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
-	
+	category = deposit_cat_blockers
+
 	potential = { always = no }
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -1
 	}
-	
+
 	use_weights_for_blocker_swap_types = yes
 	blocker_swap_types = {
-		d_rushing_waterfalls		
+		d_rushing_waterfalls
 		d_searing_desert
 		d_frozen_gas_lake
 		d_prosperous_mesa
 		d_ore_rich_caverns
 	}
-	
+
 	resources = {
 		category = deposit_blockers
 		cost = {
@@ -811,22 +890,22 @@ d_strip_mine = {
 d_unsupervised_settlement = {
 	icon = d_slums
 	time = 120
-	
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
-	
+	category = deposit_cat_blockers
+
 	potential = { always = no }
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -1
 	}
-	
+
 	on_cleared = {
 		create_pop = {
 			species = owner
 		}
 	}
-	
+
 	resources = {
 		category = deposit_blockers
 		cost = {
@@ -838,22 +917,22 @@ d_unsupervised_settlement = {
 d_collapsed_burrows = {
 	icon = d_deep_sinkhole
 	time = 120
-	
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
-	
+	category = deposit_cat_blockers
+
 	potential = { always = no }
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -1
 	}
-	
+
 	on_cleared = {
 		create_pop = {
 			species = owner
 		}
 	}
-	
+
 	resources = {
 		category = deposit_blockers
 		cost = {
@@ -865,22 +944,22 @@ d_collapsed_burrows = {
 d_assimilators_ruins = {
 	icon = d_city_ruins
 	time = 120
-	
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
-	
+	category = deposit_cat_blockers
+
 	potential = { always = no }
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -1
 	}
-	
+
 	use_weights_for_blocker_swap_types = no
 	blocker_swap_types = {
 		d_metal_boneyard
 		d_organic_landfill
 	}
-	
+
 	resources = {
 		category = deposit_blockers
 		cost = {
@@ -892,16 +971,16 @@ d_assimilators_ruins = {
 d_fungoid_extermination = {
 	icon = d_infestation
 	time = 120
-	
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
-	
+	category = deposit_cat_blockers
+
 	potential = { always = no }
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -1
 	}
-	
+
 	resources = {
 		category = deposit_blockers
 		cost = {
@@ -913,16 +992,16 @@ d_fungoid_extermination = {
 d_exofungus_blocker = {
 	icon = d_infestation
 	time = 120
-	
+
 	is_for_colonizeable = yes
 	category = deposit_cat_blockers
 
 	potential = { always = no }
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -1
 	}
-	
+
 	resources = {
 		category = deposit_blockers
 		cost = {
@@ -934,13 +1013,13 @@ d_exofungus_blocker = {
 d_egg_cracking = {
 	icon = d_deep_sinkhole
 	time = 120
-	
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
-	
+	category = deposit_cat_blockers
+
 	potential = { always = no }
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -1
 	}
 
@@ -954,20 +1033,20 @@ d_egg_cracking = {
 
 d_ruined_building_blocker = {	#Added via event
 	icon = d_city_ruins
-	
+
 	potential = { always = no }
 	can_be_cleared = { always = no }
-	
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
+	category = deposit_cat_blockers
 }
 
 d_living_subterraneans = {
 	icon = d_slums
-	
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
-	
+	category = deposit_cat_blockers
+
 	potential = { always = no }
 	can_be_cleared = { always = no }
 }
@@ -975,12 +1054,12 @@ d_living_subterraneans = {
 d_dead_subterraneans = {
 	time = 100
 	icon = d_deep_sinkhole
-	
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
-	
+	category = deposit_cat_blockers
+
 	potential = { always = no }
-	
+
 	resources = {
 		category = deposit_blockers
 		cost = {
@@ -992,21 +1071,173 @@ d_dead_subterraneans = {
 d_ruined_arcology = {
 	time = 365
 	icon = d_city_ruins
-	
+
 	is_for_colonizeable = yes
-	category = deposit_cat_blockers	
-	
+	category = deposit_cat_blockers
+
 	potential = { always = no }
-	
-	planet_modifier = { 
+
+	planet_modifier = {
 		planet_max_districts_add = -1
 	}
-	
+
+	resources = {
+		category = deposit_blockers
+		cost = {
+			energy = 750
+			minerals = 250
+		}
+	}
+
+	on_cleared = {
+		if = {
+			limit = {
+				exists = owner
+				owner = {
+					has_ancrel = yes
+				}
+			}
+
+			custom_tooltip = minor_artifacts_found
+			random_list = {
+				33 = {
+					owner = { add_resource = { minor_artifacts = 1 } }
+				}
+				33 = {
+					owner = { add_resource = { minor_artifacts = 3 } }
+				}
+				33 = {
+					owner = { add_resource = { minor_artifacts = 5 } }
+				}
+			}
+
+			if = {
+				limit = {
+					owner = {
+						NOT = { has_country_flag = league_world_found }
+					}
+					planet = { has_modifier = first_league_homeworld }
+				}
+				hidden_effect = {
+					owner = {
+						set_country_flag = league_world_found
+					}
+				}
+				custom_tooltip = league_artifact_research_unlocked
+			}
+		}
+	}
+}
+
+d_archaeological_site = {	#Added via event
+	icon = d_archaeological_dig
+
+	potential = { always = no }
+	can_be_cleared = { always = no }
+
+	planet_modifier = {
+		planet_max_districts_add = -1
+	}
+
+	is_for_colonizeable = yes
+	category = deposit_cat_rare_blocker
+}
+
+# Hibernating Lithoids are generated on lithoid homeworlds at game-start
+d_hibernating_lithoids = {
+	icon = d_hibernating_lithoids
+	time = 360
+
+	is_for_colonizeable = yes
+	category = deposit_cat_blockers
+
+	potential = { always = no }
+
+	on_cleared = {
+		if = {
+			limit = {
+				is_homeworld = no
+			}
+			owner = { add_resource = { minerals = 300 } }
+		}
+
+		if = {
+			limit = {
+				is_homeworld = yes
+			}
+			create_pop = {
+				species = owner
+			}
+		}
+	}
+
+	resources = {
+		category = deposit_blockers
+		cost = {
+			trigger = {
+				planet = {
+					is_homeworld = no
+				}
+			}
+			energy = 300
+		}
+		cost = {
+			trigger = {
+				planet = {
+					is_homeworld = yes
+				}
+			}
+			minerals = 1000
+		}
+	}
+
+	ai_weight = {
+		weight = 1
+
+		modifier = {
+			factor = 2
+			planet = {
+				is_homeworld = yes
+			}
+		}
+	}
+}
+
+d_lithoid_devastation = {
+	icon = d_gaseous_eruption
+
+	time = 360
+
+	is_for_colonizeable = yes
+	category = deposit_cat_blockers
+
+	potential = { always = no }
+	can_be_cleared = {
+		custom_tooltip = {
+			fail_text = requires_actor_not_devouring_swarm_lithoid
+			exists = owner
+			owner = {
+				OR = {
+					is_lithoid_empire = no
+					NOT = { has_valid_civic = civic_hive_devouring_swarm }
+				}
+			}
+		}
+	}
+
+	planet_modifier = {
+		planet_max_districts_add = -1
+		pop_environment_tolerance = -0.1
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+
 	resources = {
 		category = deposit_blockers
 		cost = {
 			energy = 1000
-			minerals = 1000
 		}
 	}
 }

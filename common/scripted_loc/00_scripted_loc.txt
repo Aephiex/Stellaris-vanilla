@@ -152,21 +152,30 @@ defined_text = {
 defined_text = {
 	name = GetScientistPlural
 	text = {
-		trigger = {
-			has_authority = auth_machine_intelligence
+		weight = {
+			weight = 2
 		}
+		#trigger = {
+		#	has_authority = auth_machine_intelligence
+		#}
 		localization_key = getscientistplural_machine
 	}
 	text = {
-		trigger = {
-			has_authority = auth_hive_mind
+		weight = {
+			weight = 3
 		}
+		#trigger = {
+		#	has_authority = auth_hive_mind
+		#}
 		localization_key = getscientistplural_hive
 	}
 	text = {
-		trigger = {
-			NOT = { has_ethic = ethic_gestalt_consciousness }
+		weight = {
+			weight = 4
 		}
+		#trigger = {
+		#	NOT = { has_ethic = ethic_gestalt_consciousness }
+		#}
 		localization_key = getscientistplural_normal
 	}
 }
@@ -429,5 +438,37 @@ defined_text = {
 			}
 		}
 		localization_key = tech_akx_worm_full_custom
+	}
+}
+
+defined_text = { # only needed for devouring swarm conquering robots
+	name = GetPurgeProcessingResource
+	text = {
+		trigger = {
+			OR = {
+				has_trait = trait_mechanical
+				has_trait = trait_machine_unit
+			}
+			from = {
+				has_valid_civic = civic_hive_devouring_swarm
+			}
+		}
+		localization_key = GetPurgeProcessingResource_minerals
+	}
+	text = {
+		trigger = {
+			OR = {
+				NOR = {
+					has_trait = trait_mechanical
+					has_trait = trait_machine_unit
+				}
+				NOT = {
+					from = {
+						has_valid_civic = civic_hive_devouring_swarm
+					}
+				}
+			}
+		}
+		localization_key = GetPurgeProcessingResource_food
 	}
 }

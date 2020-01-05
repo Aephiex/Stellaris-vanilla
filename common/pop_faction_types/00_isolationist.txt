@@ -31,10 +31,13 @@ isolationist = {
 		}
 	}
 
-	can_join_faction = {
+	can_join_pre_triggers = {
 		is_enslaved = no
-		is_shackled_robot = no
 		is_being_purged = no
+	}
+
+	can_join_faction = {
+		is_shackled_robot = no
 		has_culture_shock = no
 		NOT = { has_trait = trait_nerve_stapled }
 		OR = {
@@ -229,7 +232,10 @@ isolationist = {
 				num_communications > 2				
 				count_country = {
 					limit = {
-						has_non_aggression_pact = root.owner
+						OR = {
+							has_non_aggression_pact = root.owner
+							has_association_status = root.owner
+						}
 					}
 					count < 2
 				}
@@ -239,7 +245,10 @@ isolationist = {
 		trigger = {
 			owner = {
 				any_country = {
-					has_non_aggression_pact = root.owner
+					OR = {
+						has_non_aggression_pact = root.owner
+						has_association_status = root.owner
+					}
 				}
 			}
 		}
@@ -259,13 +268,19 @@ isolationist = {
 				num_communications > 2
 				count_country = {
 					limit = {
-						has_non_aggression_pact = root.owner
+						OR = {
+							has_non_aggression_pact = root.owner						
+							has_association_status = root.owner
+						}
 					}
 					count > 1
 				}				
 				count_country = {
 					limit = {
-						has_non_aggression_pact = root.owner
+						OR = {
+							has_non_aggression_pact = root.owner						
+							has_association_status = root.owner
+						}
 					}
 					count < 3
 				}
@@ -276,7 +291,10 @@ isolationist = {
 			owner = {
 				count_country = {
 					limit = {
-						has_non_aggression_pact = root.owner
+						OR = {
+							has_non_aggression_pact = root.owner						
+							has_association_status = root.owner
+						}
 					}
 					count > 1
 				}
@@ -298,7 +316,10 @@ isolationist = {
 				num_communications > 2
 				count_country = {
 					limit = {
-						has_non_aggression_pact = root.owner
+						OR = {
+							has_non_aggression_pact = root.owner						
+							has_association_status = root.owner
+						}
 					}
 					count > 2
 				}				
@@ -309,7 +330,10 @@ isolationist = {
 			owner = {
 				count_country = {
 					limit = {
-						has_non_aggression_pact = root.owner
+						OR = {
+							has_non_aggression_pact = root.owner						
+							has_association_status = root.owner
+						}
 					}
 					count > 2
 				}

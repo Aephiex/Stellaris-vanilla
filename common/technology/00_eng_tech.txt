@@ -438,6 +438,10 @@ tech_corvette_hull_2 = {
 			}
 		}
 		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		modifier = {
 			factor = 1.25
 			research_leader = {
 				area = engineering
@@ -570,6 +574,10 @@ tech_destroyer_hull_2 = {
 			has_tradition = tr_supremacy_adopt
 		}
 		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		modifier = {
 			factor = 1.25
 			research_leader = {
 				area = engineering
@@ -696,6 +704,10 @@ tech_cruiser_hull_2 = {
 					has_trait = "leader_trait_expertise_voidcraft"
 				}
 			}
+		}
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
 		}
 		modifier = {
 			factor = 1.25
@@ -830,6 +842,10 @@ tech_battleship_hull_2 = {
 			}
 		}
 		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		modifier = {
 			factor = 1.25
 			has_tradition = tr_supremacy_adopt
 		}
@@ -890,6 +906,10 @@ tech_titan_hull_1 = {
 			}
 		}
 		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		modifier = {
 			factor = 1.25
 			has_tradition = tr_supremacy_adopt
 		}
@@ -944,6 +964,10 @@ tech_titan_hull_2 = {
 					has_trait = "leader_trait_expertise_voidcraft"
 				}
 			}
+		}
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
 		}
 		modifier = {
 			factor = 1.25
@@ -1224,6 +1248,85 @@ tech_starbase_5 = {
 	}
 }
 
+tech_habitat_1 = {
+	cost = @tier3cost2
+	area = engineering
+	category = { voidcraft }
+	tier = 3
+	prerequisites = { "tech_starbase_4" }
+	weight = @tier3weight2
+
+	potential = {
+		host_has_dlc = "Utopia"
+	}
+
+	# unlocks Habitats
+	weight_modifier = {
+		modifier = {
+			factor = 0.1
+			NOT = { years_passed > 50 }
+		}	
+		modifier = {
+			factor = 10
+			any_neighbor_country = {
+				has_technology = tech_habitat_1
+			}
+		}
+		modifier = {
+			factor = 2
+			years_passed > 60
+		}
+		modifier = {
+			factor = 3
+			years_passed > 65
+		}
+		modifier = {
+			factor = 4
+			years_passed > 70
+		}
+		modifier = {
+			factor = 5
+			count_starbase_sizes = {
+				starbase_size = starbase_starhold
+				count >= 3
+			}
+		}
+		modifier = {
+			factor = 1.25
+			has_tradition = tr_expansion_adopt
+		}
+		modifier = {
+			factor = 1.25
+			has_tradition = tr_expansion_finish
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_voidcraft"
+			}
+		}
+	}
+	
+	prereqfor_desc = {	
+		ship = {
+			title = "allow_habitats"
+			desc = "habitat_0_MEGASTRUCTURE_DETAILS"
+		}
+	}
+	
+	ai_weight = {
+		factor = 1
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_voidcraft"
+			}
+		}
+	}
+}
+
 # ##################
 # Starbases upgrades
 # ##################
@@ -1257,6 +1360,10 @@ tech_modular_engineering = {
 					has_trait = "leader_trait_curator"
 				}
 			}
+		}
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
 		}
 		modifier = {
 			factor = 1.25
@@ -1308,6 +1415,10 @@ tech_space_defense_station_improvement = {
 					has_trait = "leader_trait_curator"
 				}
 			}
+		}
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
 		}
 		modifier = {
 			factor = 1.25
@@ -1815,6 +1926,21 @@ tech_defense_platform_hull_1 = {
 	prerequisites = { "tech_starbase_3" }
 	is_rare = yes
 	weight = @tier2weight2
+	
+	weight_modifier = {
+		factor = 0.50
+		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}		
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = engineering
+				has_trait = "leader_trait_expertise_voidcraft"
+			}
+		}	
+	}
 		
 	modifier = {
 		shipsize_military_station_small_hull_add = 500
@@ -2061,7 +2187,7 @@ tech_mining_1 = {
 	weight = @tier1weight1
 	
 	modifier = {
-		planet_miners_minerals_produces_mult = 0.10
+		planet_miners_minerals_produces_mult = 0.20
 	}
 	
 	weight_modifier = {
@@ -2087,15 +2213,15 @@ tech_mining_1 = {
 
 #Mining 2
 tech_mining_2 = {
-	cost = @tier2cost3
+	cost = @tier2cost1
 	area = engineering
 	tier = 2
 	category = { industry }
 	prerequisites = { "tech_mining_1" }
-	weight = @tier2weight3
+	weight = @tier2weight1
 	
 	modifier = {
-		planet_miners_minerals_produces_mult = 0.10
+		planet_miners_minerals_produces_mult = 0.20
 	}
 	
 	weight_modifier = {
@@ -2121,15 +2247,15 @@ tech_mining_2 = {
 
 #Mining 3
 tech_mining_3 = {
-	cost = @tier4cost2
+	cost = @tier3cost1
 	area = engineering
-	tier = 4
+	tier = 3
 	category = { industry }
 	prerequisites = { "tech_mining_2" }
-	weight = @tier4weight2
+	weight = @tier3weight1
 	
 	modifier = {
-		planet_miners_minerals_produces_mult = 0.10
+		planet_miners_minerals_produces_mult = 0.20
 	}
 	
 	weight_modifier = {
@@ -2155,22 +2281,14 @@ tech_mining_3 = {
 
 #Mineral Purification
 tech_mineral_purification_1 = {
-	cost = @tier1cost2
+	cost = @tier1cost3
 	area = engineering
 	tier = 1
 	category = { industry }	
 	prerequisites = { "tech_mining_1" }
-	weight = @tier1weight2
+	weight = @tier1weight3
 	
 	weight_modifier = {
-		modifier = {
-			factor = 0
-			NOR = {
-				has_technology = tech_mine_volatile_motes
-				has_technology = tech_volatile_motes
-				has_country_flag = has_market_access
-			}
-		}
 		modifier = {
 			factor = 1.25
 			research_leader = {
@@ -2208,6 +2326,14 @@ tech_mineral_purification_2 = {
 				area = engineering
 				has_trait = "leader_trait_expertise_industry"
 			}			
+		}
+		modifier = {
+			factor = 0
+			NOR = {
+				has_technology = tech_mine_volatile_motes
+				has_technology = tech_volatile_motes
+				has_country_flag = has_market_access
+			}
 		}
 	}
 	
@@ -2738,6 +2864,10 @@ tech_synthetic_workers = {
 			}
 		}
 		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		modifier = {
 			factor = 2
 			has_valid_civic = civic_mechanists
 		}
@@ -3052,6 +3182,10 @@ tech_construction_templates = {
 			}
 		}
 		modifier = {
+			factor = @ap_technological_ascendancy_rare_tech
+			has_ascension_perk = ap_technological_ascendancy
+		}
+		modifier = {
 			factor = 1.25
 			OR = {
 				has_ethic = ethic_militarist
@@ -3126,7 +3260,7 @@ tech_housing_2 = {
 		modifier = {
 			factor = 0
 			has_valid_civic = civic_agrarian_idyll
-		}		
+		}	
 		modifier = {
 			factor = 1.25
 			research_leader = {
@@ -3143,73 +3277,6 @@ tech_housing_2 = {
 			research_leader = {
 				area = engineering
 				has_trait = "leader_trait_expertise_industry"
-			}
-		}
-	}
-}
-
-# ##################
-# Megastructures
-# ##################
-
-tech_mega_engineering = {
-	area = engineering
-	cost = @tier5cost3
-	tier = 5
-	category = { voidcraft }
-	ai_update_type = all
-	prerequisites = { "tech_starbase_5" "tech_battleships" "tech_zero_point_power" }
-	weight = @tier5weight3
-	is_rare = yes
-
-	feature_flags = {
-		megaengineering
-	}
-	
-	modifier = {
-		country_resource_max_add = 20000
-	}
-	
-	weight_modifier = {
-		factor = 0.25
-		modifier = {
-			factor = 0.5
-			NOR = {
-				research_leader = {
-					area = engineering
-					has_trait = "leader_trait_expertise_voidcraft"
-				}
-				research_leader = {
-					area = engineering
-					has_trait = "leader_trait_curator"
-				}
-				research_leader = {
-					area = engineering
-					has_trait = "leader_trait_maniacal"
-				}				
-			}
-		}
-		modifier = {
-			factor = 2
-			has_ascension_perk = ap_voidborn
-		}		
-		modifier = {
-			factor = 2
-			has_ascension_perk = ap_master_builders
-		}
-		modifier = {
-			factor = 20
-			has_any_megastructure_in_empire = yes
-		}
-	}
-	
-	ai_weight = {
-		factor = 1.25 #important component
-		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_expertise_voidcraft"
 			}
 		}
 	}

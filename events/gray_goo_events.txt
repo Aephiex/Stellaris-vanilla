@@ -1287,6 +1287,13 @@ country_event = {
 			modifier = "dessanu_gift"
 			days = -1
 		}
+		IF = {
+			limit = { NOT = { has_technology = tech_mine_living_metal } }
+			 give_technology = { tech = tech_mine_living_metal }
+		}
+		ELSE = {
+			#nothing
+		}
 	}
 }
 
@@ -1925,14 +1932,12 @@ country_event = {
 				set_friendly = no
 			}
 		}
-		owner = {
-			set_country_flag = gate_builder_diplomacy_engaged
-		}
+		set_country_flag = gate_builder_diplomacy_engaged
 	}
 
 	after = {
 		hidden_effect = { 
-			owner = { remove_country_flag = gate_builder_diplomacy_engaged }
+			remove_country_flag = gate_builder_diplomacy_engaged
 		}
 	}
 	
@@ -1965,7 +1970,7 @@ ship_event = {
 		}
 		owner = {
 			has_country_flag = gk_first_entry
-			NOT = { 
+			NOR = { 
 				has_country_flag = gate_builders_hostility
 				has_country_flag = gk_told_to_leave
 				has_country_flag = violating_gatebuilder_space

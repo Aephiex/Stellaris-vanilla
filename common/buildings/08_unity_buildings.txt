@@ -18,6 +18,27 @@ building_autochthon_monument = {
 			is_megacorp = no
 		}					
 	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			has_modifier = slave_colony
+			owner = { 
+				OR = {
+					is_gestalt = yes
+					is_spiritualist = yes
+					is_megacorp = yes
+				}
+			}
+		}
+	}
+	
+	convert_to = {
+		building_temple
+		building_hive_node
+		building_uplink_node
+		building_corporate_monument
+	}
 
 	resources = {
 		category = planet_buildings
@@ -52,7 +73,22 @@ building_autochthon_monument = {
 	}
 
 	ai_weight = {
-		factor = 2
+		weight = 0
+		modifier = {
+			weight = 1
+			OR = {
+				has_building = building_research_lab_1
+				has_building = building_research_lab_2
+				has_building = building_research_lab_3
+				is_planet_class = pc_habitat
+			}
+			owner = {
+				has_monthly_income = {
+					resource = consumer_goods
+					value > 10
+				}
+			}
+		}
 	}
 }
 
@@ -74,6 +110,28 @@ building_heritage_site = {
 	
 	allow = {
 		has_upgraded_capital = yes
+		buildings_upgrade_allow = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			has_modifier = slave_colony
+			owner = { 
+				OR = {
+					is_gestalt = yes
+					is_spiritualist = yes
+					is_megacorp = yes
+				}
+			}
+		}
+	}
+	
+	convert_to = {
+		building_holotemple
+		building_network_junction
+		building_hive_cluster
+		building_corporate_site
 	}
 	
 	resources = {
@@ -109,7 +167,16 @@ building_heritage_site = {
 	}
 
 	ai_weight = {
-		factor = 1
+		weight = 1
+		modifier = {
+			factor = 0
+			owner = {
+				has_monthly_income = {
+					resource = consumer_goods
+					value < 8
+				}
+			}
+		}
 	}	
 }
 
@@ -131,6 +198,29 @@ building_hypercomms_forum = {
 	
 	allow = {
 		has_major_upgraded_capital = yes
+		buildings_upgrade_allow = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			has_modifier = slave_colony
+			buildings_no_crystals = yes
+			owner = { 
+				OR = {
+					is_gestalt = yes
+					is_spiritualist = yes
+					is_megacorp = yes
+				}
+			}
+		}
+	}
+	
+	convert_to = {
+		building_sacred_nexus
+		building_hive_confluence
+		building_system_conflux
+		building_corporate_forum
 	}
 
 	resources = {
@@ -168,8 +258,42 @@ building_hypercomms_forum = {
 	}
 
 	ai_weight = {
-		factor = 1
-	}	
+		weight = 0
+		modifier = {
+			weight = 1
+			buildings_has_crystals = yes
+			owner = {
+				has_monthly_income = {
+					resource = consumer_goods
+					value > 8
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			owner = { has_country_flag = buildings_new_crystal_building }
+		}
+	}
+	
+	on_queued = {
+		IF = {
+			limit = {
+				owner = { has_technology = tech_construction_templates }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 270 } }
+		}
+		ELSE_IF = {
+			limit = {
+				owner = { has_technology = tech_assembly_pattern }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 390 } }
+		}
+		else = {
+			planet = { 
+				owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 510 } }
+			}
+		}
+	}
 }
 
 building_autocurating_vault = {
@@ -190,6 +314,29 @@ building_autocurating_vault = {
 
 	allow = {
 		has_fully_upgraded_capital = yes
+		buildings_upgrade_allow = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			has_modifier = slave_colony
+			buildings_no_crystals = yes
+	 		owner = { 
+				OR = {
+					is_gestalt = yes
+					is_spiritualist = yes
+					is_megacorp = yes
+				}
+			}
+		}
+	}
+	
+	convert_to = {
+		building_citadel_of_faith
+		building_hive_confluence
+		building_alpha_hub
+		building_corporate_vault
 	}
 
 	resources = {
@@ -224,8 +371,42 @@ building_autocurating_vault = {
 	}
 
 	ai_weight = {
-		factor = 1
-	}	
+		weight = 0
+		modifier = {
+			weight = 1
+			buildings_has_crystals = yes
+			owner = {
+				has_monthly_income = {
+					resource = consumer_goods
+					value > 8
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			owner = { has_country_flag = buildings_new_crystal_building }
+		}
+	}
+	
+	on_queued = {
+		IF = {
+			limit = {
+				owner = { has_technology = tech_construction_templates }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 270 } }
+		}
+		ELSE_IF = {
+			limit = {
+				owner = { has_technology = tech_assembly_pattern }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 390 } }
+		}
+		else = {
+			planet = { 
+				owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 510 } }
+			}
+		}
+	}
 }
 
 # Spiritualists
@@ -236,8 +417,28 @@ building_temple = {
 	category = unity
 	
 	potential = {
+		exists = owner
 		owner = { is_spiritualist = yes }
 		NOT = { has_modifier = slave_colony }
+		OR = {
+			owner = { is_ai = no }
+			free_building_slots > 0
+		}
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_spiritualist = no }
+			has_modifier = slave_colony
+		}
+	}
+	
+	convert_to = {
+		building_hive_node
+		building_uplink_node
+		building_autochthon_monument
+		building_corporate_monument
 	}
 	
 	planet_modifier = {
@@ -272,7 +473,16 @@ building_temple = {
 	}
 
 	ai_weight = {
-		weight = 1
+		weight = 35
+		modifier = {
+			factor = 0
+			owner = {
+				has_monthly_income = {
+					resource = consumer_goods
+					value < 8
+				}
+			}
+		}
 	}
 }
 
@@ -283,12 +493,29 @@ building_holotemple = {
 	category = unity
 	
 	potential = {
+		exists = owner
 		owner = { is_spiritualist = yes }
 		NOT = { has_modifier = slave_colony }
 	}
 	
 	allow = {
 		has_upgraded_capital = yes
+		buildings_upgrade_allow = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_spiritualist = no }
+			has_modifier = slave_colony
+		}
+	}
+	
+	convert_to = {
+		building_network_junction
+		building_hive_cluster
+		building_heritage_site
+		building_corporate_site
 	}
 	
 	planet_modifier = {
@@ -320,6 +547,15 @@ building_holotemple = {
 
 	ai_weight = {
 		weight = 1
+		modifier = {
+			factor = 0
+			owner = {
+				has_monthly_income = {
+					resource = consumer_goods
+					value < 8
+				}
+			}
+		}
 	}
 }
 
@@ -331,16 +567,30 @@ building_sacred_nexus = {
 	category = unity
 	
 	potential = {
+		exists = owner
 		owner = { is_spiritualist = yes }
 		NOT = { has_modifier = slave_colony }
 	}
 	
 	allow = {
 		has_major_upgraded_capital = yes
+		buildings_upgrade_allow = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_spiritualist = no }
+			buildings_no_crystals = yes
+			has_modifier = slave_colony
+		}
 	}
 	
 	convert_to = {
+		building_hive_confluence
+		building_autocurating_vault
 		building_hypercomms_forum
+		building_corporate_forum
 	}
 	
 	planet_modifier = {
@@ -373,7 +623,41 @@ building_sacred_nexus = {
 	}
 
 	ai_weight = {
-		weight = 1
+		weight = 0
+		modifier = {
+			weight = 1
+			buildings_has_crystals = yes
+			owner = {
+				has_monthly_income = {
+					resource = consumer_goods
+					value > 8
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			owner = { has_country_flag = buildings_new_crystal_building }
+		}
+	}
+
+	on_queued = {
+		IF = {
+			limit = {
+				owner = { has_technology = tech_construction_templates }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 270 } }
+		}
+		ELSE_IF = {
+			limit = {
+				owner = { has_technology = tech_assembly_pattern }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 390 } }
+		}
+		else = {
+			planet = { 
+				owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 510 } }
+			}
+		}
 	}
 }
 
@@ -384,12 +668,30 @@ building_citadel_of_faith = {
 	category = unity
 	
 	potential = {
+		exists = owner
 		owner = { is_spiritualist = yes }
 		NOT = { has_modifier = slave_colony }
 	}
 
 	allow = {
 		has_fully_upgraded_capital = yes
+		buildings_upgrade_allow = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_spiritualist = no }
+			has_modifier = slave_colony
+			buildings_no_crystals = yes
+		}
+	}
+	
+	convert_to = {
+		building_sacred_nexus
+		building_hive_confluence
+		building_alpha_hub
+		building_corporate_forum
 	}
 	
 	planet_modifier = {
@@ -418,7 +720,41 @@ building_citadel_of_faith = {
 	}
 
 	ai_weight = {
-		weight = 1
+		weight = 0
+		modifier = {
+			weight = 1
+			buildings_has_crystals = yes
+			owner = {
+				has_monthly_income = {
+					resource = consumer_goods
+					value > 8
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			owner = { has_country_flag = buildings_new_crystal_building }
+		}
+	}
+
+	on_queued = {
+		IF = {
+			limit = {
+				owner = { has_technology = tech_construction_templates }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 270 } }
+		}
+		ELSE_IF = {
+			limit = {
+				owner = { has_technology = tech_assembly_pattern }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 390 } }
+		}
+		else = {
+			planet = { 
+				owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 510 } }
+			}
+		}
 	}
 }
 
@@ -434,6 +770,20 @@ building_hive_node = {
 		owner = { 
 			is_hive_empire = yes
 		}					
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_hive_empire = no }
+		}
+	}
+	
+	convert_to = {
+		building_temple
+		building_uplink_node
+		building_autochthon_monument
+		building_corporate_monument
 	}
 
 	resources = {
@@ -475,7 +825,18 @@ building_hive_node = {
 	}
 
 	ai_weight = {
-		factor = 2
+		weight = 2
+		modifier = {
+			factor = 0
+			OR = {
+				owner = {
+					has_monthly_income = {
+						resource = food
+						value < 25
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -494,6 +855,19 @@ building_hive_cluster = {
 	
 	allow = {
 		has_upgraded_capital = yes
+		buildings_upgrade_allow = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		owner = { is_hive_empire = no }
+	}
+	
+	convert_to = {
+		building_holotemple
+		building_network_junction
+		building_heritage_site
+		building_corporate_site
 	}
 
 	resources = {
@@ -535,7 +909,16 @@ building_hive_cluster = {
 	}
 
 	ai_weight = {
-		factor = 2
+		weight = 1
+		modifier = {
+			factor = 0
+			owner = {
+				has_monthly_income = {
+					resource = food
+					value < 25
+				}
+			}
+		}
 	}
 }
 
@@ -554,6 +937,20 @@ building_hive_confluence = {
 	
 	allow = {
 		has_major_upgraded_capital = yes
+		buildings_upgrade_allow = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		owner = { is_hive_empire = no }
+		buildings_no_crystals = yes
+	}
+	
+	convert_to = {
+		building_sacred_nexus
+		building_system_conflux
+		building_hypercomms_forum
+		building_corporate_forum
 	}
 
 	resources = {
@@ -593,7 +990,41 @@ building_hive_confluence = {
 	}
 
 	ai_weight = {
-		factor = 2
+		weight = 0
+		modifier = {
+			weight = 1
+			buildings_has_crystals = yes
+			owner = {
+				has_monthly_income = {
+					resource = food
+					value > 8
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			owner = { has_country_flag = buildings_new_crystal_building }
+		}
+	}
+
+	on_queued = {
+		IF = {
+			limit = {
+				owner = { has_technology = tech_construction_templates }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 270 } }
+		}
+		ELSE_IF = {
+			limit = {
+				owner = { has_technology = tech_assembly_pattern }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 390 } }
+		}
+		else = {
+			planet = { 
+				owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 510 } }
+			}
+		}
 	}
 }
 
@@ -611,6 +1042,23 @@ building_uplink_node = {
 			is_machine_empire = yes
 			NOT = { has_valid_civic = civic_machine_servitor }
 		}					
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		owner = { 
+			OR = {
+				is_machine_empire = no
+				has_valid_civic = civic_machine_servitor
+			}
+		}
+	}
+	
+	convert_to = {
+		building_temple
+		building_hive_node
+		building_autochthon_monument
+		building_corporate_monument
 	}
 
 	resources = {
@@ -632,7 +1080,7 @@ building_uplink_node = {
 	}	
 	
 	show_tech_unlock_if = {
-		is_machine_empire = yes
+		owner = { is_machine_empire = yes }
 		NOT = { has_valid_civic = civic_machine_servitor }
 	}
 	
@@ -645,7 +1093,7 @@ building_uplink_node = {
 	}
 
 	ai_weight = {
-		factor = 2
+		weight = 100
 	}
 }
 
@@ -666,6 +1114,24 @@ building_network_junction = {
 	
 	allow = {
 		has_upgraded_capital = yes
+		buildings_upgrade_allow = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		owner = { 
+			OR = {
+				is_machine_empire = no
+				has_valid_civic = civic_machine_servitor
+			}
+		}
+	}
+	
+	convert_to = {
+		building_holotemple
+		building_hive_cluster
+		building_heritage_site
+		building_corporate_site
 	}
 
 	resources = {
@@ -699,7 +1165,7 @@ building_network_junction = {
 	}
 
 	ai_weight = {
-		factor = 2
+		weight = 100
 	}
 }
 
@@ -720,6 +1186,27 @@ building_system_conflux = {
 	
 	allow = {
 		has_major_upgraded_capital = yes
+		buildings_upgrade_allow = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { 
+				OR = {
+					is_machine_empire = no
+					has_valid_civic = civic_machine_servitor
+				}
+			}
+			buildings_no_crystals = yes
+		}
+	}
+	
+	convert_to = {
+		building_sacred_nexus
+		building_hive_confluence
+		building_hypercomms_forum
+		building_corporate_forum
 	}
 
 	resources = {
@@ -755,7 +1242,35 @@ building_system_conflux = {
 	}
 
 	ai_weight = {
-		factor = 2
+		weight = 0
+		modifier = {
+			weight = 1
+			buildings_has_crystals = yes
+		}
+		modifier = {
+			factor = 0
+			owner = { has_country_flag = buildings_new_crystal_building }
+		}
+	}
+
+	on_queued = {
+		IF = {
+			limit = {
+				owner = { has_technology = tech_construction_templates }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 270 } }
+		}
+		ELSE_IF = {
+			limit = {
+				owner = { has_technology = tech_assembly_pattern }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 390 } }
+		}
+		else = {
+			planet = { 
+				owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 510 } }
+			}
+		}
 	}
 }
 
@@ -775,13 +1290,34 @@ building_alpha_hub = {
 	}
 	
 	potential = {
+		exists = owner
 		owner = { is_machine_empire = yes }
 	}
 	
 	allow = {
 		has_fully_upgraded_capital = yes
+		buildings_upgrade_allow = yes
 	}
 	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			owner = { 
+				OR = {
+					is_machine_empire = no
+					has_valid_civic = civic_machine_servitor
+				}
+			}
+			buildings_no_crystals = yes
+		}
+	}
+	
+	convert_to = {
+		building_autocurating_vault
+		building_hive_confluence
+		building_alpha_hub
+		building_corporate_forum
+	}
 	resources = {
 		category = planet_buildings
 		cost = {
@@ -811,7 +1347,35 @@ building_alpha_hub = {
 	}
 
 	ai_weight = {
-		factor = 2
+		weight = 0
+		modifier = {
+			weight = 1
+			buildings_has_crystals = yes
+		}
+		modifier = {
+			factor = 0
+			owner = { has_country_flag = buildings_new_crystal_building }
+		}
+	}
+
+	on_queued = {
+		IF = {
+			limit = {
+				owner = { has_technology = tech_construction_templates }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 270 } }
+		}
+		ELSE_IF = {
+			limit = {
+				owner = { has_technology = tech_assembly_pattern }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 390 } }
+		}
+		else = {
+			planet = { 
+				owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 510 } }
+			}
+		}
 	}
 }
 
@@ -825,13 +1389,31 @@ building_organic_sanctuary = {
 		owner = { has_valid_civic = civic_machine_servitor }
 	}
 	
+	destroy_trigger = {
+		OR = {
+			owner = { 
+				NOT = { owner = { has_valid_civic = civic_machine_servitor } }
+			}
+			AND = {
+				owner = { is_ai = yes }
+				count_pops = { limit = { has_citizenship_type = { type = citizenship_organic_trophy } } count <= 20 }
+				num_buildings = { type = building_organic_sanctuary value > 2 }
+			}
+			AND = {
+				owner = { is_ai = yes }
+				count_pops = { limit = { has_citizenship_type = { type = citizenship_organic_trophy } } count <= 40 }
+				num_buildings = { type = building_organic_paradise value = 2 }
+			}
+		}
+	}
+
 	convert_to = {
 		building_luxury_residence
 		building_communal_housing
 	}
 		
 	planet_modifier = {
-		planet_housing_add = 10
+		#planet_housing_add = 10
 		job_bio_trophy_add = 10
 		job_maintenance_drone_add = 1
 	}
@@ -851,16 +1433,32 @@ building_organic_sanctuary = {
 	}
 	
 	ai_weight = {
-		weight = 1
+		weight = 0
 		modifier = {
-			factor = 3
-			free_housing < 0
+			weight = 100000
+			any_owned_pop = {
+				is_unemployed = yes 
+				has_citizenship_type = { type = citizenship_organic_trophy }
+			}
 		}
-
-		modifier = 
-		{
-			factor = 3
-			free_amenities < 2
+		modifier = {
+			weight = 100000
+			OR = {
+				has_building = building_factory_1
+				has_building = building_factory_2
+				has_building = building_factory_3
+			}
+			NOR = { 
+				has_building = building_organic_sanctuary
+				has_building = building_organic_paradise
+			}
+			planet = {
+				owner = {
+					any_owned_pop = {
+						prevprev = { habitability = { who = prev value > 0.5 } }
+					}
+				}
+			}			
 		}
 	}
 }
@@ -874,13 +1472,25 @@ building_organic_paradise = {
 		owner = { has_valid_civic = civic_machine_servitor }
 	}
 	
+	destroy_trigger = {
+		OR = {
+			buildings_no_exotic_gases = yes
+			NOT = { owner = { has_valid_civic = civic_machine_servitor } }
+			AND = {
+				owner = { is_ai = yes }
+				count_pops = { limit = { has_citizenship_type = { type = citizenship_organic_trophy } } count = 40 }
+				num_buildings = { type = building_organic_sanctuary value > 2 }
+			}
+		}
+	}
+	
 	convert_to = {
 		building_paradise_dome
 		building_communal_housing_large
 	}
 		
 	planet_modifier = {
-		planet_housing_add = 20
+		#planet_housing_add = 20
 		job_bio_trophy_add = 20
 		job_maintenance_drone_add = 2
 	}
@@ -899,17 +1509,35 @@ building_organic_paradise = {
 	
 	prerequisites = { "tech_paradise_dome" }
 	
-	ai_weight = {
-		weight = 1
-		modifier = {
-			factor = 3
-			free_housing < 0
-		}
+	show_tech_unlock_if = {
+		owner = { has_valid_civic = civic_machine_servitor }
+	}
 
-		modifier = 
-		{
-			factor = 3
-			free_amenities < 2
+	ai_weight = {
+		weight = 0
+		modifier = {
+			weight = 1
+			buildings_has_exotic_gases = yes
+		}
+	}
+
+	on_queued = {
+		IF = {
+			limit = {
+				owner = { has_technology = tech_construction_templates }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_gas_building days = 270 } }
+		}
+		ELSE_IF = {
+			limit = {
+				owner = { has_technology = tech_assembly_pattern }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_gas_building days = 390 } }
+		}
+		else = {
+			planet = { 
+				owner = { set_timed_country_flag = { flag = buildings_new_gas_building days = 510 } }
+			}
 		}
 	}
 }
@@ -928,7 +1556,28 @@ building_corporate_monument = {
 		NOT = { has_modifier = slave_colony }
 		owner = { 
 			is_megacorp = yes
-		}					
+			is_spiritualist = no
+		}
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			has_modifier = slave_colony
+			owner = {
+				OR = {
+					is_megacorp = no
+					is_spiritualist = yes
+				}
+			}
+		}
+	}
+	
+	convert_to = {
+		building_temple
+		building_hive_node
+		building_uplink_node
+		building_autochthon_monument
 	}
 
 	resources = {
@@ -962,7 +1611,16 @@ building_corporate_monument = {
 	}
 
 	ai_weight = {
-		factor = 2
+		weight = 0
+		modifier = {
+			weight = 2
+			owner = {
+				has_monthly_income = {
+					resource = consumer_goods
+					value > 10
+				}
+			}
+		}
 	}
 }
 
@@ -978,11 +1636,34 @@ building_corporate_site = {
 		NOT = { has_modifier = slave_colony }
 		owner = { 
 			is_megacorp = yes
+			is_spiritualist = no
 		}				
 	}
 	
 	allow = {
 		has_upgraded_capital = yes
+		buildings_upgrade_allow = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			has_modifier = slave_colony
+			buildings_no_crystals = yes
+			owner = {
+				OR = {
+					is_megacorp = no
+					is_spiritualist = yes
+				}
+			}
+		}
+	}
+	
+	convert_to = {
+		building_holotemple
+		building_hive_cluster
+		building_heritage_site
+		building_network_junction
 	}
 	
 	resources = {
@@ -1016,7 +1697,17 @@ building_corporate_site = {
 	}
 
 	ai_weight = {
-		factor = 1
+		weight = 0
+		modifier = {
+			weight = 1
+			buildings_has_crystals = yes
+			owner = {
+				has_monthly_income = {
+					resource = consumer_goods
+					value > 8
+				}
+			}
+		}
 	}	
 }
 
@@ -1032,11 +1723,33 @@ building_corporate_forum = {
 		NOT = { has_modifier = slave_colony }
 		owner = { 
 			is_megacorp = yes
+			is_spiritualist = no
 		}					
 	}
 	
 	allow = {
 		has_major_upgraded_capital = yes
+		buildings_upgrade_allow = yes
+	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			has_modifier = slave_colony
+			owner = {
+				OR = {
+					is_megacorp = no
+					is_spiritualist = yes
+				}
+			}
+		}
+	}
+	
+	convert_to = {
+		building_sacred_nexus
+		building_hive_confluence
+		building_hypercomms_forum
+		building_system_conflux
 	}
 
 	resources = {
@@ -1072,8 +1785,8 @@ building_corporate_forum = {
 	}
 
 	ai_weight = {
-		factor = 1
-	}	
+		weight = 1
+	}
 }
 
 building_corporate_vault = {
@@ -1088,12 +1801,35 @@ building_corporate_vault = {
 		NOT = { has_modifier = slave_colony }
 		owner = { 
 			is_megacorp = yes
+			is_spiritualist = no
 		}				
 	}
 
 	allow = {
 		has_fully_upgraded_capital = yes
+		buildings_upgrade_allow = yes
 	}
+	
+	destroy_trigger = {
+		exists = owner
+		OR = {
+			has_modifier = slave_colony
+			buildings_no_crystals = yes
+			owner = {
+				OR = {
+					is_megacorp = no
+					is_spiritualist = yes
+				}
+			}
+		}
+	}
+	
+	convert_to = {
+		building_citadel_of_faith
+		building_hive_confluence
+		building_autocurating_vault
+		building_alpha_hub
+	} 
 
 	resources = {
 		category = planet_buildings 
@@ -1125,6 +1861,40 @@ building_corporate_vault = {
 	}
 
 	ai_weight = {
-		factor = 1
-	}	
+		weight = 0
+		modifier = {
+			weight = 1
+			buildings_has_crystals = yes
+			owner = {
+				has_monthly_income = {
+					resource = consumer_goods
+					value > 8
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			owner = { has_country_flag = buildings_new_crystal_building }
+		}
+	}
+
+	on_queued = {
+		IF = {
+			limit = {
+				owner = { has_technology = tech_construction_templates }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 270 } }
+		}
+		ELSE_IF = {
+			limit = {
+				owner = { has_technology = tech_assembly_pattern }
+			}
+			owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 390 } }
+		}
+		else = {
+			planet = { 
+				owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 510 } }
+			}
+		}
+	}
 }

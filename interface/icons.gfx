@@ -290,6 +290,12 @@ spriteTypes = {
 	}
 
 	spriteType = {
+		name = "GFX_timed_overlay"
+		texturefile = "gfx/interface/icons/traits/leader_traits/trait_timed.dds"
+		noOfFrames = 1
+	}
+
+	spriteType = {
 		name = "GFX_government_civic"
 		texturefile = "gfx/interface/icons/governments/civics/unknown.dds"
 		noOfFrames = 1
@@ -354,7 +360,7 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_ship_class_small"
 		textureFile = "gfx/interface/icons/ship_classes.dds"
-		noOfFrames = 29
+		noOfFrames = 30
 	}
 
 	spriteType = {
@@ -378,7 +384,7 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_ship_class_medium"
 		textureFile = "gfx/interface/icons/ship_classes_medium.dds"
-		noOfFrames = 29
+		noOfFrames = 30
 	}
 
 	spriteType = {
@@ -475,6 +481,21 @@ spriteTypes = {
 		texturefile = "gfx/interface/icons/message/message_event_completion.dds"
 	}
 
+	spriteType = {
+		name = "GFX_message_archeology_complete"
+		texturefile = "gfx/interface/icons/message/message_archeology_complete.dds"
+	}
+
+	spriteType = {
+		name = "GFX_message_archeology_chapter_finished"
+		texturefile = "gfx/interface/icons/message/message_archeology_chapter_finished.dds"
+	}
+
+	spriteType = {
+		name = "GFX_message_archeology_discovered"
+		texturefile = "gfx/interface/icons/message/message_archeology_discovered.dds"
+	}
+
 	#spriteType = {
 	#	name = "GFX_message_diplomatic_war"
 	#	texturefile = "gfx/interface/icons/message/message_diplomatic_war.dds"
@@ -545,6 +566,10 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_message_leader_experience_gain"
 		texturefile = "gfx/interface/icons/message/leader_experience_gain.dds"
+	}
+	spriteType = {
+		name = "GFX_message_colonization"
+		texturefile = "gfx/interface/icons/message/message_colonization.dds"
 	}
 	spriteType = {
 		name = "GFX_message_terraforming"
@@ -1993,6 +2018,30 @@ spriteTypes = {
 	}
 
 	spriteType = {
+		name = "GFX_button_automate"
+		texturefile = "gfx/interface/buttons/button_automate.dds"
+		noOfFrames = 3
+	}
+
+	spriteType = {
+		name = "GFX_button_automate_selected"
+		texturefile = "gfx/interface/buttons/button_automate_selected.dds"
+		noOfFrames = 3
+	}
+
+	spriteType = {
+		name = "GFX_button_manual"
+		texturefile = "gfx/interface/buttons/button_manual.dds"
+		noOfFrames = 3
+	}
+
+	spriteType = {
+		name = "GFX_button_manual_selected"
+		texturefile = "gfx/interface/buttons/button_manual_selected.dds"
+		noOfFrames = 3
+	}
+
+	spriteType = {
 		name = "GFX_sector_focus_type_industrial"
 		texturefile = "gfx/interface/buttons/sector_industrial.dds"
 		noOfFrames = 3
@@ -2013,7 +2062,6 @@ spriteTypes = {
 		name = "GFX_sector_focus_type_research_selected"
 		texturefile = "gfx/interface/buttons/sector_research_selected.dds"
 	}
-
 
 	spriteType = {
 		name = "GFX_sector_focus_type_financial"
@@ -2149,6 +2197,16 @@ spriteTypes = {
 	
 
 	### DLCs ###
+
+	spriteType = {
+		name = "GFX_lithoidsspeciespack"
+		texturefile = "gfx/interface/icons/dlc/lithoids.dds"
+	}
+
+	spriteType = {
+		name = "GFX_ancientrelicsstorypack"
+		texturefile = "gfx/interface/icons/dlc/ancient_relics.dds"
+	}
 
 	spriteType = {
 		name = "GFX_megacorp"

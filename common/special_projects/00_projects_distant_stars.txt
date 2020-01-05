@@ -918,8 +918,8 @@ special_project = {
 ### Breathing Rift ###
 special_project = {
 	key = "breathing_rift_project"
-	#tech_department = physics_technology
-	days_to_research = 180
+	tech_department = physics_technology
+	cost = 1000
 	timelimit = -1
 	location = no
 	picture = GFX_evt_wormhole
@@ -1343,27 +1343,6 @@ special_project = {
 		#skill = 1
 	}
 
-	abort_trigger = {
-		OR = {
-			has_country_flag = aborted_enigmatic_uplift
-			capital_scope = { 
-				NOT = {
-					solar_system = {
-						any_ship_in_system = {
-							fleet = {
-								has_fleet_flag = enigmatic_cache_fleet
-								exists = orbit
-								orbit = { is_same_value = root.capital_scope }
-								exists = owner
-								owner = { is_same_value = event_target:enigmatic_cache_country }
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-
 	on_start = {
 		from.owner = { 
 			country_event = { id = distar.5066 } # triggers uplifting dreams
@@ -1464,7 +1443,6 @@ special_project = {
 	icon = "gfx/interface/icons/situation_log/situation_log_quest.dds"
 	
 	event_scope = ship_event
-	# TODO requirements
 	requirements = {
 		shipclass_science_ship = 1
 		leader = scientist
@@ -1489,7 +1467,6 @@ special_project = {
 	icon = "gfx/interface/icons/situation_log/situation_log_quest.dds"
 	
 	event_scope = ship_event
-	# TODO requirements
 	requirements = {
 		shipclass_science_ship = 1
 		leader = scientist
@@ -1516,7 +1493,6 @@ special_project = {
 	icon = "gfx/interface/icons/situation_log/situation_log_quest.dds"
 	
 	event_scope = ship_event
-	# TODO requirements
 	requirements = {
 		shipclass_science_ship = 1
 		leader = scientist

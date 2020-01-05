@@ -213,6 +213,14 @@ guiTypes = {
 			orientation = upper_left
 			alwaystransparent = yes
 		}
+		
+		iconType = {
+			name = "message_status"
+			position = { x = -30 y = 6 }
+			spriteType = "GFX_message_status"
+			orientation = upper_right
+			frame = 3
+		}
 	}
 	
 	containerWindowType = {

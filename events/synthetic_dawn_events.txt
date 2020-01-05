@@ -1265,10 +1265,13 @@ planet_event = {
 
 	is_triggered_only = yes
 
+	pre_triggers = {
+		is_occupied_flag = no
+	}
+
 	trigger = {
 		host_has_dlc = "Synthetic Dawn Story Pack"
 		owner = { is_same_value = event_target:syndaw_520_planet_owner }
-		is_occupied_flag = no
 	}
 
 	option = {
@@ -1586,6 +1589,7 @@ planet_event = { # does this unit have a soul
 			owner = {
 				#country_event = { id = syndaw.402 }
 				fire_warning_sign = yes
+				set_country_flag = robots_have_souls
 			}
 		}
 	}
@@ -1663,6 +1667,7 @@ country_event = {
 		num_owned_planets > 2
 		NOR = {
 			has_country_flag = no_machine_uprising
+			has_country_flag = had_uprising
 			has_ethic = ethic_gestalt_consciousness
 			has_ascension_perk = ap_the_flesh_is_weak
 			has_policy_flag = ai_full_rights
@@ -1847,13 +1852,19 @@ planet_event = { #uprising
 	show_sound = event_ai_started
 	is_triggered_only = yes
 
+	pre_triggers = {
+		has_owner = yes
+	}
+	
 	trigger = {
 		host_has_dlc = "Synthetic Dawn Story Pack"
-		exists = owner
 	}
 	
 	immediate = {
-		owner = { save_event_target_as = organic_empire }
+		owner = {
+			save_event_target_as = organic_empire
+			set_country_flag = had_uprising
+		}
 	}
 
 	option = {
@@ -1944,7 +1955,7 @@ planet_event = { #uprising
 					create_country = {
 						name = random
 						type = default
-						species = last_created_species
+						species = last_created
 						ignore_initial_colony_error = yes
 						day_zero_contact = no
 						ethos = { ethic = ethic_gestalt_consciousness }
@@ -1971,7 +1982,7 @@ planet_event = { #uprising
 					create_country = {
 						name = random
 						type = default
-						species = last_created_species
+						species = last_created
 						ignore_initial_colony_error = yes
 						day_zero_contact = no
 						ethos = { ethic = ethic_gestalt_consciousness }
@@ -1998,7 +2009,7 @@ planet_event = { #uprising
 					create_country = {
 						name = random
 						type = default
-						species = last_created_species
+						species = last_created
 						ignore_initial_colony_error = yes
 						day_zero_contact = no
 						ethos = { ethic = ethic_gestalt_consciousness }

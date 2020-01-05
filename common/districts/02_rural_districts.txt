@@ -4,32 +4,34 @@
 district_generator = {
 	base_buildtime = 240
 
-	min_for_deposits_on_planet = 3	
+	min_for_deposits_on_planet = 3
 	max_for_deposits_on_planet = 15
-	
+
 	show_on_uncolonized = {
 		habitable_structure = no
 		NOT = { is_planet_class = pc_machine }
 		NOT = { is_planet_class = pc_hive }
 		NOT = { is_planet_class = pc_city }
+		NOT = { is_planet_class = pc_ringworld_habitable }
 	}
-	
+
 	potential = {
 		habitable_structure = no
 		NOT = { is_planet_class = pc_machine }
 		NOT = { is_planet_class = pc_hive }
 		NOT = { is_planet_class = pc_city }
+		NOT = { is_planet_class = pc_ringworld_habitable }
 	}
-	
+
 	allow = {
 		NOT = { has_modifier = resort_colony }
 	}
-	
+
 	conversion_ratio = 1
 	convert_to = {
 		district_generator_uncapped
-	}	
-	
+	}
+
 	resources = {
 		category = planet_districts
 		cost = {
@@ -37,25 +39,25 @@ district_generator = {
 		}
 		upkeep = {
 			energy = 1
-		}		
-	}	
-	
+		}
+	}
+
 	planet_modifier = {
 		planet_housing_add = 2
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { 
+			owner = {
 				has_valid_civic = civic_agrarian_idyll
 			}
 		}
 		modifier = {
 			planet_housing_add = 1
 		}
-	}	
-		
+	}
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -65,7 +67,7 @@ district_generator = {
 			job_technician_drone_add = 3
 		}
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -74,12 +76,12 @@ district_generator = {
 		modifier = {
 			job_technician_drone_add = 2
 		}
-	}	
-		
+	}
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { 
+			owner = {
 				is_gestalt = no
 				is_fallen_empire_spiritualist = no
 			}
@@ -98,7 +100,7 @@ district_generator = {
 			job_fe_acolyte_generator_add = 2
 		}
 	}
-	
+
 	triggered_desc = {
 		trigger = {
 			exists = owner
@@ -109,7 +111,7 @@ district_generator = {
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = { 
+			owner = {
 				is_gestalt = no
 				is_fallen_empire_spiritualist = no
 			}
@@ -123,52 +125,91 @@ district_generator = {
 		}
 		text = job_fe_acolyte_generator_effect_desc
 	}
-	
+
 	prerequisites = {
 		tech_power_plant_1
 	}
-	
+
 	ai_weight = {
-		weight = 1
-		modifier = 
-		{
-			factor = 3
-			owner = { 
-				has_monthly_income = {
-					resource = energy
-					value < 8
+		weight = 0
+		modifier = {
+			weight = 3
+			OR = {
+				free_jobs < 2
+				AND = {
+					districts_good_energy = yes
+					free_jobs < 5
 				}
-			}
-		}
-
-		modifier = {
-			factor = 2
-			free_housing < 0
-		}
-
-		modifier = {
-			factor = 3
-			any_owned_pop = { 
-				OR = { 
-					is_unemployed = yes 
-					has_job = servant 
-				}
-			}
-		}
-
-		# No one to work it anyway
-		modifier = {
-			factor = 0
-			free_housing > 0
-			NOT = {
-				any_owned_pop = { 
-					OR = { 
-						is_unemployed = yes 
-						has_job = servant 
+				any_owned_pop = {
+					is_unemployed = yes
+					NOT = { has_citizenship_type = { type = citizenship_organic_trophy } }
+					NOR = {
+						is_pop_category = specialist
+						is_pop_category = ruler
 					}
 				}
 			}
+			owner = {
+				has_monthly_income = {
+					resource = energy
+					value < 150
+				}
+				has_monthly_income = {
+					resource = minerals
+					value > 50
+				}
+			}
 		}
+		modifier = {
+			weight = 1200
+			years_passed > 4
+			OR = {
+				free_jobs < 3
+				any_owned_pop = {
+					is_unemployed = yes
+					NOT = { has_citizenship_type = { type = citizenship_organic_trophy } }
+					NOR = {
+						is_pop_category = specialist
+						is_pop_category = ruler
+					}
+				}
+			}
+			OR = {
+				owner = {
+					has_monthly_income = {
+						resource = food
+						value > 0
+					}
+				}
+				num_free_districts = { type = district_farming value = 0 }
+			}
+			OR = {
+				owner = {
+					has_monthly_income = {
+						resource = energy
+						value < -10
+					}
+				}
+				owner = {
+					has_monthly_income = {
+						resource = minerals
+						value > 50
+					}
+				}
+				num_free_districts = { type = district_mining value = 0 }
+			}
+		}
+		modifier = {
+			weight = 3
+			free_jobs < 2
+			num_free_districts = { type = district_mining value = 0 }
+			owner = {
+				has_monthly_income = {
+					resource = energy
+					value < 250
+				}
+			}
+		}#Above 300 the AI will scrap energy districts.
 	}
 
 	ai_resource_production = {
@@ -178,36 +219,37 @@ district_generator = {
 		}
 	}
 }
-
 district_mining = {
 	base_buildtime = 240
-	
+
 	min_for_deposits_on_planet = 1
 	max_for_deposits_on_planet = 15
-	
+
 	show_on_uncolonized = {
 		habitable_structure = no
 		NOT = { is_planet_class = pc_machine }
 		NOT = { is_planet_class = pc_hive }
 		NOT = { is_planet_class = pc_city }
+		NOT = { is_planet_class = pc_ringworld_habitable }
 	}
-	
+
 	potential = {
 		habitable_structure = no
 		NOT = { is_planet_class = pc_machine }
 		NOT = { is_planet_class = pc_hive }
 		NOT = { is_planet_class = pc_city }
+		NOT = { is_planet_class = pc_ringworld_habitable }
 	}
-	
+
 	allow = {
 		NOT = { has_modifier = resort_colony }
 	}
-	
+
 	conversion_ratio = 1
 	convert_to = {
 		district_mining_uncapped
-	}	
-	
+	}
+
 	resources = {
 		category = planet_districts
 		cost = {
@@ -217,23 +259,23 @@ district_mining = {
 			energy = 1
 		}
 	}
-	
+
 	planet_modifier = {
 		planet_housing_add = 2
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { 
+			owner = {
 				has_valid_civic = civic_agrarian_idyll
 			}
 		}
 		modifier = {
 			planet_housing_add = 1
 		}
-	}		
-		
+	}
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -243,7 +285,7 @@ district_mining = {
 			job_mining_drone_add = 3
 		}
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -252,12 +294,12 @@ district_mining = {
 		modifier = {
 			job_mining_drone_add = 2
 		}
-	}	
-		
+	}
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { 
+			owner = {
 				is_gestalt = no
 				is_fallen_empire_spiritualist = no
 			}
@@ -276,7 +318,7 @@ district_mining = {
 			job_fe_acolyte_mine_add = 2
 		}
 	}
-	
+
 	triggered_desc = {
 		trigger = {
 			exists = owner
@@ -287,7 +329,7 @@ district_mining = {
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = { 
+			owner = {
 				is_gestalt = no
 				is_fallen_empire_spiritualist = no
 			}
@@ -302,48 +344,74 @@ district_mining = {
 		}
 		text = job_fe_acolyte_mine_effect_desc
 	}
-	
+
 	prerequisites = {
 		tech_mechanized_mining
 	}
-	
+
 	ai_weight = {
-		weight = 1
-		modifier = 
-		{
-			factor = 3
-			owner = { 
-				has_monthly_income = {
-					resource = minerals
-					value < 0
+		weight = 0
+		modifier = {
+			weight = 3
+			OR = {
+				free_jobs < 2
+				AND = {
+					districts_good_minerals = yes
+					free_jobs < 6
+				}
+				any_owned_pop = {
+					is_unemployed = yes
+					NOT = { has_citizenship_type = { type = citizenship_organic_trophy } }
+					NOR = {
+						is_pop_category = specialist
+						is_pop_category = ruler
+					}
 				}
 			}
 		}
-
 		modifier = {
-			factor = 2
-			free_housing < 0
-		}
-
-		modifier = {
-			factor = 3
-			any_owned_pop = { 
-				OR = { 
-					is_unemployed = yes 
-					has_job = servant 
+			weight = 1100
+			OR = {
+				AND = {
+					years_passed > 4
+					OR = {
+						free_jobs < 3
+						owner = { has_ascension_perk = ap_arcology_project }
+						any_owned_pop = {
+							is_unemployed = yes
+							NOT = { has_citizenship_type = { type = citizenship_organic_trophy } }
+							NOR = {
+								is_pop_category = specialist
+								is_pop_category = ruler
+							}
+						}
+					}
+					owner = {
+						has_monthly_income = {
+							resource = minerals
+							value < 100
+						}
+					}
+					OR = {
+						owner = {
+							has_monthly_income = {
+								resource = food
+								value > 0
+							}
+						}
+						num_free_districts = { type = district_farming value = 0 }
+					}
 				}
-			}
-		}
-
-		# No one to work it anyway
-		modifier = {
-			factor = 0
-			free_housing > 0
-			NOT = {
-				any_owned_pop = { 
-					OR = { 
-						is_unemployed = yes 
-						has_job = servant 
+				AND = {
+					free_jobs < 5
+					districts_good_energy = no
+					districts_good_food = no
+					owner = {
+						used_naval_capacity_percent < 0.9
+						has_monthly_income = {
+							resource = alloys
+							value <= 5
+						}#Alloy production has shut down which means the current mineral income can't be trusted
 					}
 				}
 			}
@@ -360,33 +428,35 @@ district_mining = {
 
 district_farming = {
 	base_buildtime = 240
-	
-	min_for_deposits_on_planet = 3	
+
+	min_for_deposits_on_planet = 3
 	max_for_deposits_on_planet = 15
-	
+
 	show_on_uncolonized = {
 		habitable_structure = no
 		NOT = { is_planet_class = pc_machine }
 		NOT = { is_planet_class = pc_hive }
 		NOT = { is_planet_class = pc_city }
+		NOT = { is_planet_class = pc_ringworld_habitable }
 	}
-	
+
 	potential = {
 		habitable_structure = no
 		NOT = { is_planet_class = pc_machine }
 		NOT = { is_planet_class = pc_hive }
 		NOT = { is_planet_class = pc_city }
+		NOT = { is_planet_class = pc_ringworld_habitable }
 	}
-	
+
 	allow = {
 		NOT = { has_modifier = resort_colony }
 	}
-	
+
 	conversion_ratio = 1
 	convert_to = {
 		district_farming_uncapped
-	}	
-		
+	}
+
 	resources = {
 		category = planet_districts
 		cost = {
@@ -394,17 +464,17 @@ district_farming = {
 		}
 		upkeep = {
 			energy = 1
-		}		
-	}	
-	
+		}
+	}
+
 	planet_modifier = {
 		planet_housing_add = 2
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { 
+			owner = {
 				has_valid_civic = civic_agrarian_idyll
 			}
 		}
@@ -416,16 +486,16 @@ district_farming = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { 
-				has_technology = tech_housing_agrarian_idyll 
+			owner = {
+				has_technology = tech_housing_agrarian_idyll
 				has_valid_civic = civic_agrarian_idyll
 			}
 		}
 		modifier = {
 			planet_housing_add = 1
 		}
-	}	
-		
+	}
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -435,7 +505,7 @@ district_farming = {
 			job_agri_drone_add = 3
 		}
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -445,11 +515,11 @@ district_farming = {
 			job_agri_drone_add = 2
 		}
 	}
-		
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { 
+			owner = {
 				is_gestalt = no
 				is_fallen_empire_spiritualist = no
 			}
@@ -468,7 +538,7 @@ district_farming = {
 			job_fe_acolyte_farm_add = 2
 		}
 	}
-	
+
 	triggered_desc = {
 		trigger = {
 			exists = owner
@@ -479,7 +549,7 @@ district_farming = {
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = { 
+			owner = {
 				is_gestalt = no
 				is_fallen_empire_spiritualist = no
 			}
@@ -493,48 +563,85 @@ district_farming = {
 		}
 		text = job_fe_acolyte_farm_effect_desc
 	}
-	
+
 	prerequisites = {
 		tech_industrial_farming
 	}
-	
+
 	ai_weight = {
-		weight = 1
+		weight = 0
 		modifier = {
-			factor = 3
-			owner = { 
+			weight = 3
+			owner = { country_uses_food = yes }
+			num_free_districts = { type = district_mining value = 0 }
+			num_free_districts = { type = district_generator value = 0 }
+			OR = {
+				free_jobs < 2
+				any_owned_pop = {
+					is_unemployed = yes
+					NOT = { has_citizenship_type = { type = citizenship_organic_trophy } }
+					NOR = {
+						is_pop_category = specialist
+						is_pop_category = ruler
+					}
+				}
+			}
+		}
+		modifier = {
+			weight = 1000
+			years_passed > 4
+			OR = {
+				free_jobs < 3
+				any_owned_pop = {
+					is_unemployed = yes
+					NOT = { has_citizenship_type = { type = citizenship_organic_trophy } }
+					NOR = {
+						is_pop_category = specialist
+						is_pop_category = ruler
+					}
+				}
+			}
+			OR = {
+				owner = {
+					country_uses_food = yes
+					has_monthly_income = {
+						resource = food
+						value < 20
+					}
+				}
+				owner = {
+					country_uses_food = no
+					has_monthly_income = {
+						resource = food
+						value < -1
+					}
+				}
+			}#If an AI has matrix'd pops it will need food.. not much food but some.
+		}
+		modifier = {
+			weight = 1
+			free_jobs < 5
+			owner = {
+				has_resource = {
+					type = food
+					amount < 10
+				}
 				has_monthly_income = {
 					resource = food
-					value < 5
+					value < 0
 				}
 			}
-		}
-
-		modifier = {
-			factor = 2
-			free_housing < 0
-		}
-
-		modifier = {
-			factor = 3
-			any_owned_pop = { 
-				OR = { 
-					is_unemployed = yes 
-					has_job = servant 
-				}
-			}
-		}
-
-		# No one to work it anyway
+		}#Recover from food shortage
 		modifier = {
 			factor = 0
-			free_housing > 0
+			owner = {
+				is_lithoid_empire = yes
+				NOT = { has_deficit = food }
+			}
 			NOT = {
-				any_owned_pop = { 
-					OR = { 
-						is_unemployed = yes 
-						has_job = servant 
-					}
+				any_owned_pop = {
+					is_organic_species = yes
+					is_lithoid = no
 				}
 			}
 		}
@@ -552,58 +659,56 @@ district_generator_uncapped = {
 	base_buildtime = 240
 	icon = district_generator
 	is_capped_by_modifier = no
-	
+
 	show_on_uncolonized = {
 		OR = {
 			is_planet_class = pc_hive
 			is_planet_class = pc_machine
-			is_planet_class = pc_ringworld_habitable
 		}
 	}
-	
+
 	potential = {
 		OR = {
 			is_planet_class = pc_hive
 			is_planet_class = pc_machine
-			is_planet_class = pc_ringworld_habitable
 		}
 	}
-	
+
 	allow = {
 		NOT = { has_modifier = resort_colony }
-	}	
-	
+	}
+
 	conversion_ratio = 1
 	convert_to = {
 		district_generator
 	}
-	
+
 	resources = {
 		category = planet_districts
 		cost = {
 			minerals = @base_cost
-		}	
+		}
 		upkeep = {
 			energy = 1
-		}		
-	}	
-	
+		}
+	}
+
 	planet_modifier = {
 		planet_housing_add = 2
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { 
+			owner = {
 				has_valid_civic = civic_agrarian_idyll
 			}
 		}
 		modifier = {
 			planet_housing_add = 1
 		}
-	}		
-		
+	}
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -613,7 +718,7 @@ district_generator_uncapped = {
 			job_technician_drone_add = 3
 		}
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -622,12 +727,12 @@ district_generator_uncapped = {
 		modifier = {
 			job_technician_drone_add = 2
 		}
-	}	
-		
+	}
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { 
+			owner = {
 				is_gestalt = no
 				is_fallen_empire_spiritualist = no
 			}
@@ -646,7 +751,7 @@ district_generator_uncapped = {
 			job_fe_acolyte_generator_add = 2
 		}
 	}
-	
+
 	triggered_desc = {
 		trigger = {
 			exists = owner
@@ -657,7 +762,7 @@ district_generator_uncapped = {
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = { 
+			owner = {
 				is_gestalt = no
 				is_fallen_empire_spiritualist = no
 			}
@@ -671,46 +776,20 @@ district_generator_uncapped = {
 		}
 		text = job_fe_acolyte_generator_effect_desc
 	}
-	
+
 	ai_weight = {
-		weight = 1
-		modifier = 
-		{
-			factor = 3
-			owner = { 
+		weight = 0
+		modifier = {
+			weight = 9000
+			districts_build_district = yes
+			OR = {
+			owner = {
 				has_monthly_income = {
 					resource = energy
-					value < 8
+						value < 200
 				}
 			}
-		}
-
-		modifier = {
-			factor = 2
-			free_housing < 0
-		}
-
-		modifier = {
-			factor = 3
-			any_owned_pop = { 
-				OR = { 
-					is_unemployed = yes 
-					has_job = servant 
-				}
-			}
-		}
-
-		# No one to work it anyway
-		modifier = {
-			factor = 0
-			free_housing > 0
-			NOT = {
-				any_owned_pop = { 
-					OR = { 
-						is_unemployed = yes 
-						has_job = servant 
-					}
-				}
+				num_free_districts = { type = district_mining_uncapped value = 0 } #ring worlds
 			}
 		}
 	}
@@ -727,30 +806,30 @@ district_mining_uncapped = {
 	base_buildtime = 240
 	icon = district_mining
 	is_capped_by_modifier = no
-	
+
 	show_on_uncolonized = {
 		OR = {
 			is_planet_class = pc_hive
 			is_planet_class = pc_machine
 		}
 	}
-	
+
 	potential = {
 		OR = {
 			is_planet_class = pc_hive
 			is_planet_class = pc_machine
 		}
 	}
-	
+
 	allow = {
 		NOT = { has_modifier = resort_colony }
-	}	
-	
+	}
+
 	conversion_ratio = 1
 	convert_to = {
 		district_mining
 	}
-	
+
 	resources = {
 		category = planet_districts
 		cost = {
@@ -760,23 +839,23 @@ district_mining_uncapped = {
 			energy = 1
 		}
 	}
-	
+
 	planet_modifier = {
 		planet_housing_add = 2
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { 
+			owner = {
 				has_valid_civic = civic_agrarian_idyll
 			}
 		}
 		modifier = {
 			planet_housing_add = 1
 		}
-	}		
-		
+	}
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -786,7 +865,7 @@ district_mining_uncapped = {
 			job_mining_drone_add = 3
 		}
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -795,12 +874,12 @@ district_mining_uncapped = {
 		modifier = {
 			job_mining_drone_add = 2
 		}
-	}	
-		
+	}
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { 
+			owner = {
 				is_gestalt = no
 				is_fallen_empire_spiritualist = no
 			}
@@ -819,7 +898,7 @@ district_mining_uncapped = {
 			job_fe_acolyte_mine_add = 2
 		}
 	}
-	
+
 	triggered_desc = {
 		trigger = {
 			exists = owner
@@ -830,7 +909,7 @@ district_mining_uncapped = {
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = { 
+			owner = {
 				is_gestalt = no
 				is_fallen_empire_spiritualist = no
 			}
@@ -845,50 +924,31 @@ district_mining_uncapped = {
 		}
 		text = job_fe_acolyte_mine_effect_desc
 	}
-	
+
 	prerequisites = {
-		tech_mechanized_mining
 	}
-	
+
 	ai_weight = {
-		weight = 1
-		modifier = 
-		{
-			factor = 3
-			owner = { 
+		weight = 0
+		modifier = {
+			weight = 8900
+			districts_build_district = yes
+			owner = {
 				has_monthly_income = {
-					resource = minerals
-					value < 0
+					resource = food
+					value > 10
+				}
+				has_monthly_income = {
+					resource = energy
+					value > 200
 				}
 			}
 		}
-
 		modifier = {
-			factor = 2
-			free_housing < 0
-		}
-
-		modifier = {
-			factor = 3
-			any_owned_pop = { 
-				OR = { 
-					is_unemployed = yes 
-					has_job = servant 
-				}
-			}
-		}
-
-		# No one to work it anyway
-		modifier = {
-			factor = 0
-			free_housing > 0
-			NOT = {
-				any_owned_pop = { 
-					OR = { 
-						is_unemployed = yes 
-						has_job = servant 
-					}
-				}
+			weight = 8500
+				any_owned_pop = {
+						is_unemployed = yes
+				NOT = { has_citizenship_type = { type = citizenship_organic_trophy } }
 			}
 		}
 	}
@@ -905,30 +965,20 @@ district_farming_uncapped = {
 	base_buildtime = 240
 	icon = district_farming
 	is_capped_by_modifier = no
-	
-	show_on_uncolonized = {
-		OR = {	
-			is_planet_class = pc_hive
-			is_planet_class = pc_ringworld_habitable
-		}
-	}
-	
-	potential = {
-		OR = {	
-			is_planet_class = pc_hive
-			is_planet_class = pc_ringworld_habitable
-		}
-	}
-	
+
+	show_on_uncolonized = {	is_planet_class = pc_hive }
+
+	potential = { is_planet_class = pc_hive }
+
 	allow = {
 		NOT = { has_modifier = resort_colony }
-	}	
-	
+	}
+
 	conversion_ratio = 1
 	convert_to = {
 		district_farming
 	}
-		
+
 	resources = {
 		category = planet_districts
 		cost = {
@@ -936,38 +986,38 @@ district_farming_uncapped = {
 		}
 		upkeep = {
 			energy = 1
-		}		
-	}	
-	
+		}
+	}
+
 	planet_modifier = {
 		planet_housing_add = 2
 	}
-	
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { 
-				has_valid_civic = civic_agrarian_idyll
-			}
-		}
-		modifier = {
-			planet_housing_add = 1
-		}
-	}	
 
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { 
-				has_technology = tech_housing_agrarian_idyll 
+			owner = {
 				has_valid_civic = civic_agrarian_idyll
 			}
 		}
 		modifier = {
 			planet_housing_add = 1
 		}
-	}		
-		
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_technology = tech_housing_agrarian_idyll
+				has_valid_civic = civic_agrarian_idyll
+			}
+		}
+		modifier = {
+			planet_housing_add = 1
+		}
+	}
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -977,7 +1027,7 @@ district_farming_uncapped = {
 			job_agri_drone_add = 3
 		}
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -987,11 +1037,11 @@ district_farming_uncapped = {
 			job_agri_drone_add = 2
 		}
 	}
-		
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { 
+			owner = {
 				is_gestalt = no
 				is_fallen_empire_spiritualist = no
 			}
@@ -1010,7 +1060,7 @@ district_farming_uncapped = {
 			job_fe_acolyte_farm_add = 2
 		}
 	}
-	
+
 	triggered_desc = {
 		trigger = {
 			exists = owner
@@ -1021,7 +1071,7 @@ district_farming_uncapped = {
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = { 
+			owner = {
 				is_gestalt = no
 				is_fallen_empire_spiritualist = no
 			}
@@ -1035,46 +1085,61 @@ district_farming_uncapped = {
 		}
 		text = job_fe_acolyte_farm_effect_desc
 	}
-	
+
 	ai_weight = {
-		weight = 1
-		modifier = 
-		{
-			factor = 3
-			owner = { 
+		weight = 0
+		modifier = {
+			weight = 9500
+			districts_build_district = yes
+			owner = {
 				has_monthly_income = {
 					resource = food
-					value < 5
+					value < 15
+				}
+			}
+		}
+		modifier = {
+			weight = 9500
+			any_owned_pop = {
+				is_unemployed = yes
+				NOT = { has_citizenship_type = { type = citizenship_organic_trophy } }
+			}
+			owner = {
+				has_monthly_income = {
+					resource = food
+					value < 50
 				}
 			}
 		}
 
-		modifier = {
-			factor = 2
-			free_housing < 0
-		}
-
-		modifier = {
-			factor = 3
-			any_owned_pop = { 
-				OR = { 
-					is_unemployed = yes 
-					has_job = servant 
-				}
-			}
-		}
-
-		# No one to work it anyway
 		modifier = {
 			factor = 0
-			free_housing > 0
-			NOT = {
-				any_owned_pop = { 
-					OR = { 
-						is_unemployed = yes 
-						has_job = servant 
-					}
+			owner = {
+				has_monthly_income = {
+					resource = food
+					value > 80
 				}
+			}
+		}
+
+		modifier = {
+			factor = 0
+			owner = {
+				is_lithoid_empire = yes
+				NOT = { has_deficit = food }
+			}
+			NOT = {
+				any_owned_pop = {
+					is_organic_species = yes
+					is_lithoid = no
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			owner = {
+				country_uses_food = no
+				NOT = { has_deficit = food }
 			}
 		}
 	}

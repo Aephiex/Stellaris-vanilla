@@ -523,6 +523,13 @@ country_event = {
 			1 = {
 				modifier = {
 					factor = 0
+					has_ancrel = no
+				}
+				set_country_flag = good2c
+			}
+			1 = {
+				modifier = {
+					factor = 0
 					has_modifier = extended_payout_goodest
 				}
 				set_country_flag = good3
@@ -597,6 +604,17 @@ country_event = {
 			country_event = { id = cara.200 }
 		}
 		exclusive_trigger = { has_country_flag = good2b }
+	}
+	
+	option = {
+		custom_gui = "enclave_caravaneer_option"
+		name = KACHING
+		small_artifact_reward = yes
+		hidden_effect = {
+			remove_country_flag = good2c
+			country_event = { id = cara.200 }
+		}
+		exclusive_trigger = { has_country_flag = good2c }
 	}
 
 	option = {
@@ -734,7 +752,10 @@ country_event = {
 		text = openedlootboxdesc1
 	}
 	desc = {
-		trigger = { has_country_flag = recent_galatron }
+		trigger = {
+			has_country_flag = recent_galatron
+			NOT = { has_modifier = galatron_modifier }
+		}
 		text = lootbox_contents_galatron
 	}
 	desc = {
@@ -900,7 +921,11 @@ country_event = {
 				lootbox_contents_p = { remove_country_flag = recent_empty_lootbox }
 			}
 			if = {
-				limit = { has_country_flag = recent_galatron }
+				limit = {
+					has_country_flag = recent_galatron
+					NOT = { has_modifier = galatron_modifier }
+				}
+				remove_country_flag = recent_galatron
 				country_event = { id = cara.320 }
 			}
 			else = {
@@ -919,7 +944,10 @@ country_event = {
 				days = 500
 			}
 			if = {
-				limit = { has_country_flag = recent_galatron }
+				limit = {
+					has_country_flag = recent_galatron
+					NOT = { has_modifier = galatron_modifier }
+				}
 				custom_tooltip = lootbox_contents_galatron
 			}
 			else_if = {
@@ -1104,10 +1132,7 @@ country_event = {
 	option = {
 		custom_gui = "enclave_caravaneer_option"
 		name = cara.320.d
-		add_modifier = {
-			modifier = galatron_modifier
-			days = -1
-		}
+		add_relic = r_galatron
 		default_hide_option = yes
 	}
 }
@@ -1493,7 +1518,7 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		fromfromfrom.space_owner = {
+		from.from.from.space_owner = {
 			country_event = { id = story.7 }
 		}
 	}
@@ -1646,6 +1671,7 @@ fleet_event = {
 	is_triggered_only = yes
 
 	trigger = {
+		exists = event_target:caravaneer_fleet1_fleet
 		owner = { is_country_type = caravaneer_fleet }
 		is_same_value = event_target:caravaneer_fleet1_fleet
 		from = {
@@ -2258,6 +2284,12 @@ country_event = {
 		text = fleet2dealdesc11.c
 		trigger = {
 			has_country_flag = fleet2deal11.c
+		}
+	}
+	desc = {
+		text = fleet2dealdesc12
+		trigger = {
+			has_country_flag = fleet2deal12
 		}
 	}
 	
@@ -3065,6 +3097,7 @@ fleet_event = {
 	hide_window = yes
 
 	trigger = {
+		exists = event_target:caravaneer_fleet3_fleet
 		owner = { is_country_type = caravaneer_fleet }
 		is_same_value = event_target:caravaneer_fleet3_fleet
 		from = {
@@ -3553,6 +3586,16 @@ country_event = {
 	show_sound = event_lootbox_galatron
 	
 	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = { 
+				is_ai = no
+				NOT = { has_country_flag = relic_robbery_achievement }
+			}
+			set_country_flag = relic_robbery_achievement
+		}
+	}
 	
 	option = {
 		name = cara.950.a
@@ -3713,6 +3756,43 @@ event = {
 					}
 				}
 			}
+		}
+	}
+}
+
+# Galatron Relic Activated
+country_event = {
+	id = cara.970
+	title = cara.970.name
+	desc = cara.970.1.desc
+	desc = cara.970.2.desc
+	desc = cara.970.3.desc
+	desc = cara.970.4.desc
+	desc = cara.970.5.desc
+	desc = cara.970.6.desc
+	desc = cara.970.7.desc
+	desc = cara.970.8.desc
+	desc = cara.970.9.desc
+	desc = cara.970.10.desc
+	desc = cara.970.11.desc
+	picture = GFX_evt_caravaneers
+	show_sound = event_mystic_reveal
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = cara.970.a
+		locked_random_list = {
+			10 = { add_resource = { alloys = 5000 } }
+			10 = { add_resource = { energy = 8000 } }
+			10 = { add_resource = { minerals = 8000 } }
+			10 = { add_resource = { food = 8000 } }
+			10 = { add_resource = { alloys = 5000 } }
+			10 = { add_resource = { minor_artifacts = 30 } }
+			10 = { add_resource = { rare_crystals = 500 } }
+			10 = { add_resource = { volatile_motes  = 500 } }
+			10 = { add_resource = { consumer_goods = 5000 } }
+			10 = { add_resource = { exotic_gases = 500 } }
 		}
 	}
 }
@@ -4943,6 +5023,45 @@ planet_event = {
 					progress = 0.75
 				}
 			}
+		}
+	}
+}
+
+# comms on entering caravansary home system
+fleet_event = {
+	id = cara.4170
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_megacorp = yes
+		exists = event_target:caravaneer_home_country
+		owner = {
+			NOT = {
+				has_communications = event_target:caravaneer_home_country
+			}
+		}
+		exists = event_target:caravaneer_home_system
+		from = { is_same_value = event_target:caravaneer_home_system }
+	}
+
+	immediate = {
+		owner = {
+			establish_communications_no_message = event_target:caravaneer_home_country
+			if = {
+				limit = { exists = event_target:caravaneer_fleet1_country }
+				establish_communications_no_message = event_target:caravaneer_fleet1_country
+			}
+			if = {
+				limit = { exists = event_target:caravaneer_fleet2_country }
+				establish_communications_no_message = event_target:caravaneer_fleet2_country
+			}
+			if = {
+				limit = { exists = event_target:caravaneer_fleet3_country }
+				establish_communications_no_message = event_target:caravaneer_fleet3_country
+			}
+			country_event = { id = story.7 days = 5 }
 		}
 	}
 }

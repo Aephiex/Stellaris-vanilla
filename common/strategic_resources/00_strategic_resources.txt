@@ -233,8 +233,17 @@ nanites  = {
 	max = 15000
 
 	visibility_prerequisite = { always = yes }
+	deficit_modifier = nanites_deficit #found in static modifiers
 	
 	ai_weight = {
 		weight = 100
+	}
+}
+
+minor_artifacts = {
+	tradable = no
+	
+	ai_weight = {
+		weight = 1
 	}
 }

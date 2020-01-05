@@ -85,12 +85,12 @@ ship_section_template = {
 	ai_weight = {
 		modifier = {
 			factor = 10.0
-			NOT = { is_preferred_weapons = weapon_type_explosive }
+			is_preferred_weapons = weapon_type_kinetic
 		}
 		modifier = {
 			factor = 0.1
-			is_preferred_weapons = weapon_type_explosive
-		}		
+			NOT = { is_preferred_weapons = weapon_type_kinetic }
+		}	
 	}
 	
 	resources = {
@@ -112,22 +112,12 @@ ship_section_template = {
 	ai_weight = {
 		modifier = {
 			factor = 10.0
-			NOR = {
-				has_ai_personality = peaceful_traders
-				has_ai_personality = slaving_despots
-				has_ai_personality = migrating_flock
-				has_ai_personality = evangelising_zealots
-				has_ai_personality = hive_mind
-			}
-		}
-		modifier = {
-			factor = 10.0
-			NOT = { is_preferred_weapons = weapon_type_explosive }
+			is_preferred_weapons = weapon_type_energy
 		}
 		modifier = {
 			factor = 0.1
-			is_preferred_weapons = weapon_type_explosive
-		}	
+			NOT = { is_preferred_weapons = weapon_type_energy }
+		}
 	}
 	
 	component_slot = {

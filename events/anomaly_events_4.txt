@@ -603,7 +603,6 @@ ship_event = {
 			fromfrom = {
 				remove_modifier = "unbalanced_ecosystem"
 				add_deposit = d_dangerous_wildlife_blocker
-				add_deposit = d_dangerous_wildlife_blocker
 			}
 		}
 	}
@@ -888,7 +887,6 @@ ship_event = {
 
 	option = {
 		name = anomaly.3080.a
-		custom_tooltip = anomaly.3080.a.tooltip
 		from = {
 			add_deposit = d_toy_factory_complex
 		}
@@ -1787,13 +1785,11 @@ ship_event = {
 				}
 				set_country_flag = tech1
 			}
-			else = {
-				if = {
-					limit = {
-						NOT = { has_technology = tech_doctrine_fleet_size_2 }
-					}
-					set_country_flag = tech2
+			else_if = {
+				limit = {
+					NOT = { has_technology = tech_doctrine_fleet_size_2 }
 				}
+				set_country_flag = tech2
 			}
 		}
 	}

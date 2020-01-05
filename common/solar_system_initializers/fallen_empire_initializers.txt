@@ -1463,7 +1463,7 @@ fallen_shielded_1 = {
 	planet = {
 		count = 1
 		orbit_distance = 20
-		class = random_colonizable
+		class = rl_habitable_normal
 		orbit_angle = { min = 90 max = 270 }
 		size = 16
 		modifiers = none
@@ -1548,7 +1548,7 @@ fallen_shielded_2 = {
 	planet = {
 		count = 1
 		orbit_distance = 20
-		class = random_colonizable
+		class = rl_habitable_normal
 		orbit_angle = { min = 90 max = 270 }
 		size = 16
 		modifiers = none
@@ -2117,8 +2117,8 @@ fallen_machine = {
 			add_building = building_ancient_cryo_chamber	
 			
 			while = {
-				count = 50
-				add_district = district_nexus
+				count = 5
+				add_district = district_rw_science
 			}
 			while = {
 				count = 105
@@ -2177,8 +2177,8 @@ fallen_machine = {
 			add_building = building_nano_forge
 			
 			while = {
-				count = 25
-				add_district = district_nexus
+				count = 5
+				add_district = district_rw_nexus
 			}
 			while = {
 				count = 50
@@ -2220,8 +2220,8 @@ fallen_machine = {
 			add_building = building_class_4_singularity
 			
 			while = {
-				count = 25
-				add_district = district_nexus
+				count = 5
+				add_district = district_rw_generator
 			}
 			while = {
 				count = 22

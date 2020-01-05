@@ -13,7 +13,7 @@ is_valid_rival = {
 				prev = { NOT = { is_country_type = default } }
 				AND = {
 					relative_power = { who = prev value >= inferior }
-					relative_power = { who = prev value <= superior }				
+					relative_power = { who = prev value <= superior }
 				}
 			}
 		}
@@ -66,7 +66,17 @@ can_add_claim = {
 	}
 	custom_tooltip = {
 		fail_text = CANNOT_ADD_CLAIM_DEVOURING_SWARM
-		NOT = { root = { has_valid_civic = civic_hive_devouring_swarm } }
+		NAND = {
+			root = { has_valid_civic = civic_hive_devouring_swarm }
+			root = { is_lithoid_empire = no }
+		}
+	}
+	custom_tooltip = {
+		fail_text = CANNOT_ADD_CLAIM_DEVOURING_SWARM_LITHOID
+		NAND = {
+			root = { has_valid_civic = civic_hive_devouring_swarm }
+			root = { is_lithoid_empire = yes }
+		}
 	}
 	custom_tooltip = {
 		fail_text = CANNOT_ADD_CLAIM_ASSIMILATOR
@@ -197,18 +207,18 @@ species_can_live_on_planet = {
 			has_trait = trait_mechanical
 			AND = {
 				has_trait = trait_cybernetic
-				exists = owner
-				owner = {
+				exists = root.owner
+				root.owner = {
 					has_authority = auth_machine_intelligence
 					has_civic = civic_machine_assimilator # Assimilator empire
 				}
-			}			
+			}
 		}
 	}
 	NAND = {
 		root = { is_planet_class = pc_hive }
 		NOT = { has_trait = trait_hive_mind }
-	}	
+	}
 }
 
 #Root = country
@@ -469,6 +479,17 @@ can_declare_war = {
 			always = no
 		}
 	}
+	if = {
+		limit = {
+			exists = root
+			ROOT = {
+				is_ai = yes
+			}
+		}
+		ROOT = {
+			is_at_war = no
+		}
+	}
 }
 
 #Root = country
@@ -489,6 +510,10 @@ can_terraform_planet = {
 	NAND = {
 		root = { has_policy_flag = pre_sapients_protect }
 		any_owned_pop = { is_sapient = no }
+	}
+	custom_tooltip = {
+		fail_text = "requires_actor_not_devouring_swarm_lithoid"
+		root = { is_lithoid_devouring_swarm = no }
 	}
 }
 
@@ -1016,7 +1041,7 @@ can_resettle_planet = {
 }
 
 # This = Planet
-should_spawn_deposits = {	
+should_spawn_deposits = {
 	habitable_structure = no
 }
 
@@ -1029,21 +1054,40 @@ is_new_colony = {
 pop_generates_crime = {
 	is_sapient = yes
 	is_non_sapient_robot = no
+	is_being_assimilated = no
 }
 
 # This = planet
 can_pops_grow_on_planet = {
-	NOR = { 
+	NOR = {
 		has_modifier = planet_population_control
-		has_modifier = planet_population_control_gestalt  
+		has_modifier = planet_population_control_gestalt
+		AND = { # conquered by crisis
+			exists = controller
+			controller = {
+				OR = {
+					is_country_type = ai_empire
+					is_country_type = swarm
+				}
+			}
+		}
 	}
 }
- 
+
 # This = planet
 can_pops_assemble_on_planet = {
-	NOR = { 
+	NOR = {
 		has_modifier = planet_robot_assembly_control
 		has_modifier = planet_population_control_gestalt
+		AND = { # conquered by crisis
+			exists = controller
+			controller = {
+				OR = {
+					is_country_type = ai_empire
+					is_country_type = swarm
+				}
+			}
+		}
 	}
 }
 
@@ -1055,6 +1099,7 @@ can_pops_decline_on_planet = {
 # This = planet
 # Root = country
 can_force_grow_on_planet = {
+	exists = owner
 	owner = { NOT = { has_policy_flag = population_controls_not_allowed } }
 }
 
@@ -1077,8 +1122,8 @@ can_force_decline_on_planet = {
 # Root = country
 can_force_decline_species = {
 	OR = {
-		has_citizenship_type = { type = citizenship_slavery }
-		has_citizenship_type = { type = citizenship_robot_servitude }
+		has_citizenship_type = { country = root type = citizenship_slavery }
+		has_citizenship_type = { country = root type = citizenship_robot_servitude }
 	}
 }
 
@@ -1094,7 +1139,7 @@ can_build_branch_offices = {
 can_support_branch_offices = {
 	is_country_type = default
 	is_regular_empire = yes
-	NOT = { has_authority = auth_corporate }	
+	NOT = { has_authority = auth_corporate }
 }
 
 # This = planet
@@ -1103,13 +1148,13 @@ can_build_branch_office_on_planet = {
 	custom_tooltip = {
 		fail_text = requires_recipient_not_fanatic_purifiers
 		exists = owner
-		owner = { 
+		owner = {
 			OR = {
 				is_same_species = root
 				NOT = { has_civic = civic_fanatic_purifiers }
-			} 
-		}	
-	}	
+			}
+		}
+	}
 	custom_tooltip = {
 		fail_text = BRANCH_OFFICE_NOT_COMMERCIAL_PACT
 		exists = owner
@@ -1129,7 +1174,7 @@ can_build_branch_office_on_planet = {
 				is_subject_type = subsidiary
 				overlord = { is_same_value = root }
 			}
-		}	
+		}
 	}
 	custom_tooltip = {
 		fail_text = BRANCH_OFFICE_CRIMINAL_HERITAGE_HAS_TRUCE
@@ -1142,7 +1187,7 @@ can_build_branch_office_on_planet = {
 					is_at_war_with = root
 				}
 			}
-		}	
+		}
 	}
 	custom_tooltip = {
 		fail_text = BRANCH_OFFICE_CRIMINAL_COOLDOWN
@@ -1169,7 +1214,7 @@ can_crossbreed_species_on_planet = {
 	exists = owner
 	owner = { has_ascension_perk = ap_xeno_compatibility }
 	count_species = {
-		limit = { 
+		limit = {
 			is_crossbreeding_possible = yes
 		}
 		count >= 2
@@ -1187,17 +1232,17 @@ can_crossbreed_species = {
 can_win_timed_victory = {
 	custom_tooltip = {
 		fail_text = VICTORY_CONDITION_CRISIS_IN_PROGRESS
-		NOT = { 
-			any_country = { 
-				is_crisis_faction = yes 
+		NOT = {
+			any_country = {
+				is_crisis_faction = yes
 				NOT = { is_country_type = awakened_marauders }
-			} 
+			}
 		}
 	}
 	custom_tooltip = {
 		fail_text = VICTORY_CONDITION_WAR_IN_HEAVEN_IN_PROGRESS
 		NOT = { has_global_flag = war_in_heaven_ongoing }
-	}	
+	}
 }
 
 # This = country
@@ -1207,7 +1252,7 @@ can_use_galactic_market = {
 		has_civic = civic_fanatic_purifiers
 		has_civic = civic_hive_devouring_swarm
 		has_civic = civic_machine_terminator
-	}	
+	}
 }
 
 # ROOT = country
@@ -1217,5 +1262,18 @@ can_be_sold_on_slave_market = {
 		is_enslaved = yes
 		is_non_sapient_robot = yes
 		is_shackled_robot = yes
+	}
+	OR ={
+		ROOT = { is_ai = no }
+		has_citizenship_rights = no
+		AND = {
+			is_unemployed = yes
+			planet = {
+				count_pops = {
+					count > 3
+					limit = { is_unemployed = yes }
+				}
+			}
+		}
 	}
 }

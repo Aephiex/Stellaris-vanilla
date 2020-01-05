@@ -63,9 +63,9 @@ create_crystal_country = {
 					"null"
 				}
 			}
-		}
-		last_created_country = {
-			save_global_event_target_as = crystal_country
+			effect = {
+				save_global_event_target_as = crystal_country
+			}
 		}
 	}
 }
@@ -94,9 +94,9 @@ create_cloud_country = {
 					"null"
 				}
 			}
-		}
-		last_created_country = {
-			save_global_event_target_as = cloud_country
+			effect = {
+				save_global_event_target_as = cloud_country
+			}
 		}
 	}
 }
@@ -125,9 +125,9 @@ create_amoeba_country = {
 					"null"
 				}
 			}
-		}
-		last_created_country = {
-			save_global_event_target_as = amoeba_country
+			effect = {
+				save_global_event_target_as = amoeba_country
+			}
 		}
 	}
 }
@@ -156,10 +156,10 @@ create_drone_country = {
 					"null"
 				}
 			}
-		}
-		last_created_country = {
-			save_global_event_target_as = drone_country
-			set_graphical_culture = ancient_drone_01
+			effect = {
+				save_global_event_target_as = drone_country
+				set_graphical_culture = ancient_drone_01
+			}
 		}
 	}
 }
@@ -188,9 +188,9 @@ create_tiyanki_country = {
 					"null"
 				}
 			}
-		}
-		last_created_country = {
-			save_global_event_target_as = tiyanki_country
+			effect = {
+				save_global_event_target_as = tiyanki_country
+			}
 		}
 	}
 }
@@ -221,10 +221,10 @@ create_pirate_country = {
 					"null"
 				}
 			}
-		}
-		last_created_country = {
-			save_global_event_target_as = pirate_country
-			randomize_flag_symbol = "pirate"
+			effect = {
+				save_global_event_target_as = pirate_country
+				randomize_flag_symbol = "pirate"
+			}
 		}
 	}
 }
@@ -509,10 +509,26 @@ add_random_leader_trait = {
 				5 = {
 					if = {
 						limit = {
-							NOT = { has_trait = leader_trait_archaeologist }
+							NOR = { 
+								has_trait = leader_trait_archaeologist
+								has_trait = leader_trait_archaeologist_ancrel 
+							}
 						}
-						add_trait = leader_trait_archaeologist
-						set_timed_leader_flag = { flag = gained_leader_trait_archaeologist days = 7 }
+						if = {
+							limit = {
+								owner = { has_ancrel = yes }
+							}
+							add_trait = leader_trait_archaeologist_ancrel 
+							set_timed_leader_flag = { flag = leader_trait_archaeologist_ancrel days = 7 }
+						}
+						if = {
+							limit = {
+								owner = { has_ancrel = no }
+							}
+							add_trait = leader_trait_archaeologist
+							set_timed_leader_flag = { flag = leader_trait_archaeologist days = 7 }
+						}
+
 						set_timed_leader_flag = { flag = has_gained_trait days = 7 }
 					}
 				}
@@ -2434,21 +2450,111 @@ remove_shroud_flags = {
 
 randomize_shroud_flags = {
 	random_list = {
-		25 = { set_country_flag = high.1 }
-		25 = { set_country_flag = high.2 }
-		25 = { set_country_flag = high.3 }
-		25 = { set_country_flag = high.4 }
-		25 = { set_country_flag = high.5 }
-		25 = { set_country_flag = high.6 }
-		25 = { set_country_flag = high.7 }
-		25 = { set_country_flag = high.8 }
-		25 = { set_country_flag = high.9 }
-		25 = { set_country_flag = high.10 }
-		25 = { set_country_flag = high.11 }
-		25 = { set_country_flag = high.12 }
-		25 = { set_country_flag = high.13 }
-		25 = { set_country_flag = high.14 }
-		25 = { set_country_flag = high.15 }
+		25 = { 
+			modifier = {
+					factor = 2
+					has_relic = r_zro_crystal
+			}
+			set_country_flag = high.1
+		}
+		25 = { 
+			modifier = {
+					factor = 2
+					has_relic = r_zro_crystal
+			}
+			set_country_flag = high.2
+		}
+		25 = { 
+			modifier = {
+					factor = 2
+					has_relic = r_zro_crystal
+			}
+			set_country_flag = high.3
+		}
+		25 = { 
+			modifier = {
+					factor = 2
+					has_relic = r_zro_crystal
+			}
+			set_country_flag = high.4
+		}
+		25 = { 
+			modifier = {
+					factor = 2
+					has_relic = r_zro_crystal
+			}
+			set_country_flag = high.5
+		}
+		25 = { 
+			modifier = {
+					factor = 2
+					has_relic = r_zro_crystal
+			}
+			set_country_flag = high.6
+		}
+		25 = { 
+			modifier = {
+					factor = 2
+					has_relic = r_zro_crystal
+			}
+			set_country_flag = high.7
+		}
+		25 = { 
+			modifier = {
+					factor = 2
+					has_relic = r_zro_crystal
+			}
+			set_country_flag = high.8
+		}
+		25 = { 
+			modifier = {
+					factor = 2
+					has_relic = r_zro_crystal
+			}
+			set_country_flag = high.9
+		}
+		25 = { 
+			modifier = {
+					factor = 2
+					has_relic = r_zro_crystal
+			}
+			set_country_flag = high.10
+		}
+		25 = { 
+			modifier = {
+					factor = 2
+					has_relic = r_zro_crystal
+			}
+			set_country_flag = high.11
+		}
+		25 = { 
+			modifier = {
+					factor = 2
+					has_relic = r_zro_crystal
+			}
+			set_country_flag = high.12
+		}
+		25 = { 
+			modifier = {
+					factor = 2
+					has_relic = r_zro_crystal
+			}
+			set_country_flag = high.13
+		}
+		25 = { 
+			modifier = {
+					factor = 2
+					has_relic = r_zro_crystal
+			}
+			set_country_flag = high.14
+		}
+		25 = { 
+			modifier = {
+					factor = 2
+					has_relic = r_zro_crystal
+			}
+			set_country_flag = high.15
+		}
 		25 = { 
 			if = {
 				limit = {
@@ -3519,11 +3625,14 @@ create_ai_planet_defense = {
 	owner = {
 		create_leader = {
 			class = admiral
-			species = owner_main_species
+			species = event_target:contingency_bot
 			name = random
 			skill = 3
+			effect = {
+				set_age = 0
+				save_event_target_as = contingency_fleet_leader
+			}
 		}
-		last_created_leader = { set_age = 0 }
 	}
 	create_fleet = {
 		effect = {
@@ -3536,7 +3645,7 @@ create_ai_planet_defense = {
 					graphical_culture = "ai_01"
 				}
 			}
-			assign_leader = last_created_leader
+			assign_leader = event_target:contingency_fleet_leader
 			while = {
 				count = 50
 				create_ship = {
@@ -3688,11 +3797,14 @@ create_ai_fleet = {
 	owner = {
 		create_leader = {
 			class = admiral
-			species = owner_main_species
+			species = event_target:contingency_bot
 			name = random
 			skill = 3
+			effect = {
+				set_age = 0
+				save_event_target_as = contingency_fleet_leader
+			}
 		}
-		last_created_leader = { set_age = 0 }
 	}
 	create_fleet = {
 		effect = {
@@ -3705,7 +3817,7 @@ create_ai_fleet = {
 					graphical_culture = "ai_01"
 				}
 			}
-			assign_leader = last_created_leader
+			assign_leader = event_target:contingency_fleet_leader
 			while = {
 				count = 20
 				create_ship = {
@@ -6609,23 +6721,23 @@ fallen_empire_humiliate_effect = {
 		add_modifier = { modifier = humiliated days = 3600 }
 		end_rivalry = event_target:fallen_empire_humiliator
 		save_event_target_as = fallen_empire_humiliated
-		event_target:fallen_empire_humiliator = { 
+		event_target:fallen_empire_humiliator = {
 			remove_opinion_modifier = { who = event_target:fallen_empire_humiliated modifier = opinion_insult }
 			remove_opinion_modifier = { who = event_target:fallen_empire_humiliated modifier = opinion_refused_fallen_empire_demand }
 			remove_opinion_modifier = { who = event_target:fallen_empire_humiliated modifier = opinion_refused_fallen_empire_task }
 			remove_opinion_modifier = { who = event_target:fallen_empire_humiliated modifier = opinion_failed_fallen_empire_task }
 			remove_opinion_modifier = { who = event_target:fallen_empire_humiliated modifier = opinion_majorly_failed_fallen_empire_task }
 			remove_opinion_modifier = { who = event_target:fallen_empire_humiliated modifier = opinion_refused_fallen_empire_request }
-			remove_opinion_modifier = { who = event_target:fallen_empire_humiliated modifier = opinion_spurned_fallen_empire_gift } 
+			remove_opinion_modifier = { who = event_target:fallen_empire_humiliated modifier = opinion_spurned_fallen_empire_gift }
 		}
-		event_target:fallen_empire_humiliator = { 
+		event_target:fallen_empire_humiliator = {
 			every_system_within_border = {
 				limit = {
 					event_target:fallen_empire_humiliated = { has_claim = prev }
 				}
 				remove_claims = { who = event_target:fallen_empire_humiliated }
-			}				
-		}				
+			}
+		}			
 	}
 }
 

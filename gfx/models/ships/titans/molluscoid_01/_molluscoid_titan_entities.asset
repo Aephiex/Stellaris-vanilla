@@ -1,3 +1,5 @@
+@titan_scale = 20
+
 entity = {
 	name = "molluscoid_01_titan_entity"
 	pdxmesh = "molluscoid_01_titan_frame_mesh"
@@ -22,6 +24,10 @@ entity = {
 		event = { time = 12.5 node = "ship_main" particle = "dreadnought_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "amb_titan_ship_death" } }
 	}
 	
+	game_data = {
+		size = @titan_scale
+	}
+	
 	#attach = { part1 = "molluscoid_01_titan_bow_entity" }
 	#attach = { part2 = "molluscoid_01_titan_mid_entity" }
 	#attach = { part3 = "molluscoid_01_titan_stern_entity" }
@@ -30,12 +36,14 @@ entity = {
 entity = {
 	name = "molluscoid_01_titan_bow_entity"
 	pdxmesh = "molluscoid_01_titan_bow_mesh"
+	locator = { name = "root"				position = { 0	0  0 } }
 	
 	default_state = "idle"
 	state = { name = "idle" state_time = 5
 		start_event = { node = "light_locator_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		start_event = { node = "light_locator_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
+	attach = { "root" = "molluscoid_01_titan_weapon_effect_entity" }
 	
 	state = { name = "death" state_time = 5 looping = no }
 	
@@ -72,4 +80,17 @@ entity = {
 		start_event = { node = "engine_small_02" particle = "molluscoid_01_2_5_ship_exhaust_moving_particle" keep_particle = yes trigger_once = yes }
 	}
 	state = { name = "death" state_time = 5 looping = no }
+}
+
+entity = {
+	name = "molluscoid_01_titan_weapon_effect_entity"
+	pdxmesh = "molluscoid_01_titan_weapon_effect_mesh"
+		
+		game_data = {
+		uv_animation_speed 		= 0.6
+		uv_animation_direction 	= { 0.20 -1.0 }
+		bloom_factor = 0.9
+	}
+	
+	scale = 1
 }

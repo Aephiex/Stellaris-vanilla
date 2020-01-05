@@ -863,7 +863,7 @@ ship_section_template = {
 		locatorname = "small_gun_10"
 	}
 	
-	large_utility_slots = 20
+	large_utility_slots = 22
 	aux_utility_slots = 5
 }
 
@@ -1589,6 +1589,110 @@ ship_section_template = {
 	#entity = "guardian_01_space_dragon_red_entity"
 	#entity = "empty_section_entity_entity"
 	entity = "space_dragon_baby_section_entity"
+	icon = "GFX_ship_part_core_mid"
+	
+	component_slot = {
+		name = "PRIMARY_GUN_01"
+		slot_size = extra_large
+		slot_type = weapon
+		locatorname = "xl_gun_01"
+	}
+	component_slot = {
+		name = "SECONDARY_GUN_01"
+		slot_size = medium
+		slot_type = weapon
+		locatorname = "wing_1_3"
+		is_side_slot = yes
+	}
+	component_slot = {
+		name = "SECONDARY_GUN_02"
+		slot_size = medium
+		slot_type = weapon
+		locatorname = "wing_2_3"
+		is_side_slot = yes
+	}
+	component_slot = {
+		name = "SECONDARY_GUN_03"
+		slot_size = medium
+		slot_type = weapon
+		locatorname = "wing_3_4"
+		is_side_slot = yes
+	}
+	component_slot = {
+		name = "SECONDARY_GUN_04"
+		slot_size = medium
+		slot_type = weapon
+		locatorname = "wing_4_3"
+		is_side_slot = yes
+	}
+	component_slot = {
+		name = "SECONDARY_GUN_05"
+		slot_size = medium
+		slot_type = weapon
+		locatorname = "wing_1_3"
+		is_side_slot = yes
+	}
+	component_slot = {
+		name = "SECONDARY_GUN_06"
+		slot_size = medium
+		slot_type = weapon
+		locatorname = "wing_2_3"
+		is_side_slot = yes
+	}
+	component_slot = {
+		name = "SECONDARY_GUN_07"
+		slot_size = medium
+		slot_type = weapon
+		locatorname = "wing_3_4"
+		is_side_slot = yes
+	}
+	component_slot = {
+		name = "SECONDARY_GUN_08"
+		slot_size = medium
+		slot_type = weapon
+		locatorname = "wing_4_3"
+		is_side_slot = yes
+	}
+	component_slot = {
+		name = "TERTIARY_GUN_01"
+		slot_size = point_defence
+		slot_type = weapon
+		locatorname = "wing_1_3"
+		is_side_slot = yes
+	}
+	component_slot = {
+		name = "TERTIARY_GUN_02"
+		slot_size = point_defence
+		slot_type = weapon
+		locatorname = "wing_2_3"
+		is_side_slot = yes
+	}	
+	component_slot = {
+		name = "TERTIARY_GUN_03"
+		slot_size = point_defence
+		slot_type = weapon
+		locatorname = "wing_3_4"
+		is_side_slot = yes
+	}
+	component_slot = {
+		name = "TERTIARY_GUN_04"
+		slot_size = point_defence
+		slot_type = weapon
+		locatorname = "wing_4_3"
+		is_side_slot = yes
+	}		
+	
+
+	aux_utility_slots = 2
+	large_utility_slots = 4
+}
+
+# Shard the Dragon
+ship_section_template = {
+	key = "space_dragon_blue_key"
+	ship_size = space_dragon_blue
+	fits_on_slot = mid
+	entity = "space_dragon_blue_section_entity"
 	icon = "GFX_ship_part_core_mid"
 	
 	component_slot = {

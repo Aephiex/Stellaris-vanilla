@@ -14,6 +14,12 @@ spriteTypes = {
 		name = "GFX_new_friend_icon"
 		texturefile = "gfx/interface/social/new_friend_request.dds"
 	}
+
+	spriteType = {
+		name = "GFX_message_status"
+		texturefile = "gfx/interface/social/message_status.dds"
+		noOfFrames = 3
+	}
 	
 	spriteType = {
 		name = "GFX_social_friend_button"

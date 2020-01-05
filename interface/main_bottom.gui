@@ -383,52 +383,52 @@ guiTypes = {
 				alwaystransparent = yes
 			}
 
-			containerWindowType = {
-				name = "social_view_interface_window"
-				position = { x= -221 y = -45 }	
-				size = { width=256 height=256 }
-				orientation = lower_right
+			#containerWindowType = {
+			#	name = "social_view_interface_window"
+			#	position = { x= -221 y = -45 }	
+			#	size = { width=256 height=256 }
+			#	orientation = lower_right
 				
-				buttonType = {
-					name = "toggle_button"
-					quadTextureSprite = "GFX_button_60_29"
-					position = { x= 0 y = 0  }
-					pdx_tooltip_anchor_offset = { x= 0 y = @tt_offset_y }
-					pdx_tooltip_anchor_orientation = lower_left
-				}
+			#	buttonType = {
+			#		name = "toggle_button"
+			#		quadTextureSprite = "GFX_button_60_29"
+			#		position = { x= 0 y = 0  }
+			#		pdx_tooltip_anchor_offset = { x= 0 y = @tt_offset_y }
+			#		pdx_tooltip_anchor_orientation = lower_left
+			#	}
 				
-				iconType = {
-					name = "button_toggle_socialview_icon"
-					spriteType = "GFX_socialview_icon"
-					position = { x= 15 y = 10 }
-					alwaystransparent = yes
-				}
+			#	iconType = {
+			#		name = "button_toggle_socialview_icon"
+			#		spriteType = "GFX_socialview_icon"
+			#		position = { x= 15 y = 10 }
+			#		alwaystransparent = yes
+			#	}
 				
-				instantTextBoxType={
-					name = "friends_online"
-					font = "cg_16b"
-					position = { x= 36 y= 18 }
-					text = "0"
-					maxWidth = 30
-					maxHeight = 16
-					alwaysTransparent = yes
-					format = center
-				}
+			#	instantTextBoxType={
+			#		name = "friends_online"
+			#		font = "cg_16b"
+			#		position = { x= 36 y= 18 }
+			#		text = "0"
+			#		maxWidth = 30
+			#		maxHeight = 16
+			#		alwaysTransparent = yes
+			#		format = center
+			#	}
 				
-				iconType = {
-					name = "new_message"
-					position = { x = 60 y = 8 }
-					spriteType = "GFX_new_message_icon"
-					pdx_tooltip = "SOCIAL_NEW_MESSAGE"
-				}
-				
-				iconType = {
-					name = "new_friend"
-					position = { x = 60 y = 19 }
-					spriteType = "GFX_new_friend_icon"
-					pdx_tooltip = "SOCIAL_NEW_FRIEND"
-				}
-			}
+			#	iconType = {
+			#		name = "new_message"
+			#		position = { x = 60 y = 8 }
+			#		spriteType = "GFX_new_message_icon"
+			#		pdx_tooltip = "SOCIAL_NEW_MESSAGE"
+			#	}
+			#	
+			#	iconType = {
+			#		name = "new_friend"
+			#		position = { x = 60 y = 19 }
+			#		spriteType = "GFX_new_friend_icon"
+			#		pdx_tooltip = "SOCIAL_NEW_FRIEND"
+			#	}
+			#}
 			
 			buttonType = {
 				name = "toggle_gotobox"

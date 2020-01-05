@@ -4,7 +4,6 @@
 #
 # weight_modifier - scope = leader, from = country
 # modifier
-#
 
 
 agenda_defensive_focus = {
@@ -154,6 +153,12 @@ agenda_expansionist_overtures = {
 			factor = 2
 			exists = pop_faction
 			pop_faction = { is_pop_faction_type = imperialist }
+		}
+		modifier = {
+			factor = 0
+			from = {
+				num_communications < 1
+			}
 		}
 	}
 

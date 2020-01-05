@@ -65,6 +65,10 @@ ship_event = {
 				max = @tier1materialmax
 			}
 			pop_lcluster_event = yes
+			if = {
+				limit = { has_ancrel = yes }
+				small_artifact_reward = yes
+			}
 		}
 	}
 }
@@ -1707,6 +1711,11 @@ ship_event = {
 						upgradable = no
 					}
 					set_location = FROMFROM
+				}
+				settings = {
+					can_upgrade = no
+					can_change_composition = no
+					uses_naval_capacity = no
 				}
 			}
 		}

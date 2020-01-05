@@ -9,9 +9,11 @@ DISTAR_WRECK_CAT = {
 			add = 1
 			has_distar = yes
 			from.owner = {
+				is_homicidal = no
 				any_neighbor_country = {
 					is_ai = yes
 					is_country_type = default
+					is_homicidal = no
 					has_communications = from.owner
 					NOR = {
 						is_at_war_with = from.owner
@@ -252,6 +254,7 @@ DISTAR_DEAD_GOD_CAT = {
 					has_moon = yes
 					any_moon = {
 						is_same_value = root
+						habitable_planet = no
 					}
 				}
 			}
@@ -265,7 +268,10 @@ DISTAR_DEAD_GOD_CAT = {
 					exists = owner
 					owner = { is_primitive = yes }
 					has_moon = yes
-					any_moon = { is_same_value = root }
+					any_moon = {
+						is_same_value = root
+						habitable_planet = no
+					}
 				}
 				add_modifier = { modifier = dead_god_planet_hidden days = -1 } 
 			}
@@ -748,12 +754,19 @@ DISTAR_RAT_CAT = {
 		}
 	}
 
+	max_once = yes
 	max_once_global = no
 
 	on_spawn = {
 	}
 	
-	on_success = distar.231
+	on_success = {
+		1 = {
+			max_once = yes
+			max_once_global = no
+			anomaly_event =	distar.231
+		}
+	}
 }
 
 DISTAR_MED_CAT = {
@@ -1142,7 +1155,6 @@ ast_debris_field_1_cat_2 = {
 			}
 			anomaly_event = distar.1080
 		}
-		1 = distar.1045
 		1 = {
 			modifier = {
 				factor = 0
@@ -1159,7 +1171,60 @@ ast_debris_field_1_cat_2 = {
 			}
 			anomaly_event = distar.1050
 		}
-		1 = distar.2000
+		1 = {
+			modifier = {
+				factor = 0
+				from = {
+					OR = {
+						has_deposit_for = shipclass_research_station
+						has_deposit_for = shipclass_mining_station
+					}
+				}
+			}
+			anomaly_event = distar.2000
+		}
+	}
+}
+
+atomic_clock_cat = {
+	desc = "AST_DEBRIS_FIELD_1_DESC"
+	picture = "GFX_evt_space_debris"
+	level = 3
+	max_once = yes
+	
+	spawn_chance = {
+		modifier = {
+			add = 3
+			NOR = {
+				has_deposit_for = shipclass_research_station
+				has_deposit_for = shipclass_mining_station
+			}
+			solar_system = {
+				any_system_planet = {
+					OR = {
+						AND = {
+							exists = owner
+							owner = { is_primitive = yes }
+							NOT = { is_planet_class = pc_ringworld_habitable }
+						}
+						AND = {
+							habitable_planet = yes
+							is_colony = no
+							is_under_colonization = no
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			NOR = {
+				has_distar = yes
+			}
+		}
+	}
+	on_success = {
+		1 = distar.1045
 	}
 }
 
@@ -1189,6 +1254,13 @@ corrupt_data_cat = {
 			add = 3
 			has_distar = yes
 			habitable_planet = yes
+			is_under_colonization = no
+			NOR = {
+				solar_system = { has_star_flag = empire_cluster }
+				is_planet_class = pc_gaia
+				has_deposit = d_betharian_deposit
+				has_deposit = d_alien_pets_deposit
+			}
 		}
 	}
 	
@@ -1322,6 +1394,15 @@ tomb_world_cat = {
 					}
 				}
 			}
+			modifier = {
+				factor = 0
+				from = {
+					OR = {
+						has_deposit_for = shipclass_research_station
+						has_deposit_for = shipclass_mining_station
+					}
+				}
+			}
 			anomaly_event = distar.2015
 		}
 	}
@@ -1337,6 +1418,7 @@ alien_life_cat = {
 			add = 3
 			has_distar = yes
 			habitable_planet = yes
+			NOT = { has_modifier = dangerous_wildlife }
 		}
 	}
 	on_success = distar.2020
@@ -1353,6 +1435,10 @@ moon_cat = {
 			has_distar = yes
 			is_moon = yes
 			habitable_planet = no
+			NOR = {
+				has_deposit_for = shipclass_research_station
+				has_deposit_for = shipclass_mining_station
+			}
 			solar_system = {
 				any_system_planet = {
 					habitable_planet = yes

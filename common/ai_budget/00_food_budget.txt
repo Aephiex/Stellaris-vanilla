@@ -8,36 +8,24 @@ food_expenditure_buffer = { # Buffer, will not be spent
 	resource = food
 	type = expenditure
 	category = buffer
-	
-	potential = {
-		always = yes
-	}
-	
-	fraction = {
-		weight = 0.5
-	}	
-}
 
-food_expenditure_colonies = {
-	resource = food
-	type = expenditure
-	category = colonies
-	
 	potential = {
 		always = yes
 	}
-	
+
 	fraction = {
 		weight = 0.3
-	}	
+	}
 }
 
 food_expenditure_colonies_expand = {
-	resource = food 
+	resource = food
 	type = expenditure
 	category = colonies
-	
+
 	potential = {
+		is_machine_empire = no
+		is_lithoid_empire = no
 		ai_colonize_plans > 0
 		has_resource = { type = food amount > 400 }
 		has_monthly_income = {
@@ -45,22 +33,42 @@ food_expenditure_colonies_expand = {
 			value > 0
 		}
 	}
-	
+
 	fraction = {
-		weight = 1.0
-	}	
+		weight = 2.0
+	}
+
+	static_max = {
+		base = 550
+	}
 }
 
 food_expenditure_decisions = {
 	resource = food
 	type = expenditure
 	category = decisions
-	
+
 	potential = {
-		always = yes
+		is_regular_empire = yes # GC's don't get the food bost decision
+		is_lithoid_empire = no
 	}
-	
+
 	fraction = {
-		weight = 0.2
-	}	
+		weight = 0.7
+	}
+}
+
+food_expenditure_campaigns = {
+	resource = food
+	type = expenditure
+	category = campaigns
+
+	potential = {
+		is_hive_empire = yes
+		is_lithoid_empire = no
+	}
+
+	fraction = {
+		weight = 0.7
+	}
 }

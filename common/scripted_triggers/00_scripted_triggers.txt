@@ -1,5 +1,5 @@
 #	Example:
-# 
+#
 #	example_trigger = {
 #		is_country_type = default
 #		num_communications > 0
@@ -50,9 +50,9 @@ is_free_robot_species_rights = {
 
 species_rights_robot_full_rights_check = {
 	exists = from
-	from = { 
+	from = {
 		OR = {
-			has_policy_flag = ai_full_rights 
+			has_policy_flag = ai_full_rights
 			is_mechanical_empire = yes
 		}
 	}
@@ -61,10 +61,10 @@ species_rights_robot_full_rights_check = {
 is_free_robot = { # The pop is a free robot with citizen rights
 	has_trait = "trait_mechanical"
 	exists = owner
-	owner = { 
+	owner = {
 		has_technology = "tech_synthetic_workers"
 		OR = {
-			has_policy_flag = ai_full_rights 
+			has_policy_flag = ai_full_rights
 			is_mechanical_empire = yes
 		}
 	}
@@ -76,7 +76,13 @@ is_shackled_robot = { # The pop is a non-free robot
 		exists = owner
 		owner = {
 			OR = {
-				has_policy_flag = ai_full_rights 
+				AND = {
+					has_policy_flag = ai_full_rights
+					OR = {
+						has_technology = "tech_synthetic_workers" #Robits don't get rights until they are Synths
+						has_country_flag = robots_have_souls #syndaw.545
+					}
+				}
 				is_mechanical_empire = yes
 			}
 		}
@@ -87,9 +93,9 @@ is_non_sapient_robot = { # The pop is a non-sapient robot
 	has_trait = "trait_mechanical"
 	NAND = {
 		exists = owner
-		owner = { 
+		owner = {
 			has_technology = "tech_synthetic_workers"
-			NOT = { has_policy_flag = ai_outlawed } 
+			NOT = { has_policy_flag = ai_outlawed }
 		}
 	}
 }
@@ -266,6 +272,10 @@ has_humanoids = {
 	host_has_dlc = "Humanoids Species Pack"
 }
 
+has_lithoids = {
+	host_has_dlc = "Lithoids Species Pack"
+}
+
 uninhabitable_regular_planet = {
 	OR = {
 		is_planet_class = pc_molten
@@ -279,6 +289,7 @@ uninhabitable_regular_planet = {
 colonizeable_planet = {
 	OR = {
 		is_planet_class = pc_city
+		is_planet_class = pc_relic
 		is_planet_class = pc_nuked
 		is_planet_class = pc_hive
 		is_planet_class = pc_machine
@@ -299,6 +310,7 @@ habitable_planet = {
 		is_planet_class = pc_alpine
 		is_planet_class = pc_savannah
 		is_planet_class = pc_gaia
+		is_planet_class = pc_relic
 		is_planet_class = pc_city
 	}
 }
@@ -316,6 +328,7 @@ can_have_habitable_deposits = {
 		is_planet_class = pc_alpine
 		is_planet_class = pc_savannah
 		is_planet_class = pc_gaia
+		is_planet_class = pc_relic
 	}
 }
 
@@ -352,11 +365,11 @@ has_encountered_other_species = {
 			NOT = { has_trait = "trait_mechanical" }
 			NOT = { is_same_species = prev }
 		}
-	}	
+	}
 }
 
 has_citizenship_rights = {
-	OR = {	
+	OR = {
 		has_citizenship_type = { type = citizenship_full }
 		has_citizenship_type = { type = citizenship_full_machine }
 	}
@@ -404,7 +417,7 @@ allows_slavery = {
 	OR = {
 		has_policy_flag = slavery_allowed
 		has_ethic = ethic_gestalt_consciousness
-	}	
+	}
 }
 
 allows_purge = {
@@ -413,7 +426,7 @@ allows_purge = {
 		has_valid_civic = civic_fanatic_purifiers
 		has_policy_flag = purge_allowed
 		has_policy_flag = purge_displacement_only
-	}	
+	}
 }
 
 can_build_megastructure_on_planet = {
@@ -497,7 +510,7 @@ has_primitive_government = {
 is_lonely_hive_mind_pop = {
 	has_trait = trait_hive_mind
 	NOT = { from = { has_authority = auth_hive_mind } }
-	from = { 
+	from = {
 		NOR = {
 			is_country_type = fallen_empire
 			is_country_type = awakened_fallen_empire
@@ -520,15 +533,15 @@ is_disconnected_machine_pop = {
 has_culture_shock = {
 	OR = {
 		has_modifier = culture_shock_stone_age
-		has_modifier = culture_shock_bronze_age 
-		has_modifier = culture_shock_iron_age 
-		has_modifier = culture_shock_late_medieval_age 
-		has_modifier = culture_shock_renaissance_age 
-		has_modifier = culture_shock_steam_age 
-		has_modifier = culture_shock_industrial_age 
-		has_modifier = culture_shock_machine_age 
-		has_modifier = culture_shock_atomic_age 
-		has_modifier = culture_shock_early_space_age 
+		has_modifier = culture_shock_bronze_age
+		has_modifier = culture_shock_iron_age
+		has_modifier = culture_shock_late_medieval_age
+		has_modifier = culture_shock_renaissance_age
+		has_modifier = culture_shock_steam_age
+		has_modifier = culture_shock_industrial_age
+		has_modifier = culture_shock_machine_age
+		has_modifier = culture_shock_atomic_age
+		has_modifier = culture_shock_early_space_age
 	}
 }
 
@@ -557,15 +570,25 @@ has_any_megastructure_in_empire = {
 			has_megastructure = think_tank_restored
 			has_megastructure = ring_world_ruined
 			has_megastructure = ring_world_restored
+			has_megastructure = matter_decompressor_1
+			has_megastructure = matter_decompressor_2
+			has_megastructure = matter_decompressor_3
 			has_megastructure = matter_decompressor_4
 			has_megastructure = matter_decompressor_ruined
 			has_megastructure = matter_decompressor_restored
+			has_megastructure = strategic_coordination_center_1
+			has_megastructure = strategic_coordination_center_2
 			has_megastructure = strategic_coordination_center_3
 			has_megastructure = strategic_coordination_center_ruined
 			has_megastructure = strategic_coordination_center_restored
+			has_megastructure = mega_art_installation_1
+			has_megastructure = mega_art_installation_2
 			has_megastructure = mega_art_installation_3
 			has_megastructure = mega_art_installation_ruined
 			has_megastructure = mega_art_installation_restored
+			has_megastructure = interstellar_assembly_1
+			has_megastructure = interstellar_assembly_2
+			has_megastructure = interstellar_assembly_3
 			has_megastructure = interstellar_assembly_4
 			has_megastructure = interstellar_assembly_ruined
 			has_megastructure = interstellar_assembly_restored
@@ -614,13 +637,13 @@ is_binary_star = {
 }
 
 is_under_crisis_bombardment = {
-	has_orbital_bombardment = yes	
+	has_orbital_bombardment = yes
 	any_fleet_in_orbit = {
 		exists = owner
 		owner = {
 			is_crisis_faction = yes
 		}
-	}	
+	}
 }
 
 is_crisis_faction = {
@@ -642,6 +665,13 @@ has_crisis = {
 		has_global_flag = crisis_stage_3
 		has_global_flag = crisis_stage_4
 	}
+}
+
+# Use: has_crisis_stage = { STAGE = 3}
+# Default value 1.
+# Use default value: has_crisis_stage = yes
+has_crisis_stage ={
+	has_global_flag = crisis_stage_$STAGE|1$
 }
 
 has_crisis_stage_1 ={
@@ -698,9 +728,45 @@ is_cyborg_empire = {
 }
 
 is_mechanical_empire = {
-	OR = {	
-		owner_species = { has_trait = trait_mechanical }	
+	OR = {
+		owner_species = { has_trait = trait_mechanical }
 		has_country_flag = synthetic_empire
+	}
+}
+
+is_robot_empire = {
+	OR = {
+		owner_species = { has_trait = trait_mechanical }
+		has_country_flag = synthetic_empire
+		has_authority = auth_machine_intelligence
+	}
+}
+
+is_lithoid_empire = {
+	owner_species = { is_lithoid = yes }
+}
+
+is_lithoid_devouring_swarm = {
+	is_lithoid_empire = yes
+	has_valid_civic = civic_hive_devouring_swarm
+}
+
+is_lithoid_devouring_swarm_consumption_world = { # planet scope
+	exists = owner
+	NOR = {
+		is_ideal_planet_class = {
+			who = owner
+			status = yes
+		}
+		AND = {
+			planet_size > 13
+			owner = {
+				any_owned_pop = {
+					is_being_purged = no
+					prevprev = { habitability = { who = prev value >= 0.9 } }
+				}
+			}
+		}
 	}
 }
 
@@ -732,6 +798,7 @@ is_valid_target_fe_stop_ai = {
 }
 
 is_valid_target_fe_cleanse_holy_worlds = {
+	NOT = { has_relic = r_severed_head }
 	OR = {
 		any_owned_planet = {
 			has_modifier = "holy_planet"
@@ -739,9 +806,9 @@ is_valid_target_fe_cleanse_holy_worlds = {
 		any_subject = {
 			any_owned_planet = {
 				has_modifier = "holy_planet"
-			}					
+			}
 		}
-	}	
+	}
 }
 
 has_sapient_combat_computer = {
@@ -751,6 +818,14 @@ has_sapient_combat_computer = {
 		has_component = COMBAT_COMPUTER_PICKET_SAPIENT
 		has_component = COMBAT_COMPUTER_ARTILLERY_SAPIENT
 		has_component = COMBAT_COMPUTER_PLATFORM_SAPIENT
+	}
+}
+
+# This can replace all the specific ones.
+is_ethics_aligned = {
+	OR = {
+		has_ethic = ethic_$ARG1$
+		has_ethic = ethic_fanatic_$ARG1$
 	}
 }
 
@@ -862,7 +937,7 @@ has_met_primitives = {
 }
 
 has_comms_with_alien_empire = {
-	any_relation = {	
+	any_relation = {
 		has_communications = root
 		OR = {
 			is_country_type = default
@@ -873,7 +948,7 @@ has_comms_with_alien_empire = {
 }
 
 has_comms_with_alien_civilization = {
-	any_relation = {	
+	any_relation = {
 		has_communications = root
 		OR = {
 			is_country_type = default
@@ -899,7 +974,7 @@ has_total_war_cb = {
 			OR = {
 				is_country_type = awakened_fallen_empire
 				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_assimilator	
+				has_valid_civic = civic_machine_assimilator
 				AND = {
 					has_valid_civic = civic_machine_terminator
 					from = {
@@ -907,13 +982,13 @@ has_total_war_cb = {
 							has_country_flag = synthetic_empire
 							has_authority = auth_machine_intelligence
 						}
-					}				
+					}
 				}
 				AND = {
 					has_valid_civic = civic_fanatic_purifiers
 					NOT = { is_same_species = from }
 				}
-			}			
+			}
 		}
 		#end threat checks
 		AND = {
@@ -923,7 +998,7 @@ has_total_war_cb = {
 				has_valid_civic = civic_fanatic_purifiers
 				has_valid_civic = civic_hive_devouring_swarm
 				has_valid_civic = civic_machine_assimilator
-				has_valid_civic = civic_machine_terminator				
+				has_valid_civic = civic_machine_terminator
 			}
 			from = {
 				OR = {
@@ -931,9 +1006,9 @@ has_total_war_cb = {
 					has_valid_civic = civic_fanatic_purifiers
 					has_valid_civic = civic_hive_devouring_swarm
 					has_valid_civic = civic_machine_assimilator
-					has_valid_civic = civic_machine_terminator							
-				}	
-			}		
+					has_valid_civic = civic_machine_terminator
+				}
+			}
 		}
 	}
 }
@@ -941,11 +1016,11 @@ has_total_war_cb = {
 has_isolated_system = {
 	any_system_within_border = {
 		any_neighbor_system = {
-			root = { 
-				intel_level = { 
+			root = {
+				intel_level = {
 					level > none
-					system = prev 
-				} 
+					system = prev
+				}
 			}
 			NOR = {
 				has_star_flag = pirates_spawned
@@ -965,9 +1040,9 @@ has_isolated_system = {
 			}
 			NOT = { exists = space_owner }
 			any_neighbor_system = {
-				exists = space_owner 
+				exists = space_owner
 				NOT = {
-					space_owner = { NOT = { is_same_value = root } } 
+					space_owner = { NOT = { is_same_value = root } }
 				}
 			}
 			NOT = {
@@ -982,11 +1057,11 @@ has_isolated_system = {
 has_bordering_system = {
 	any_system_within_border = {
 		any_neighbor_system = {
-			root = { 
-				intel_level = { 
+			root = {
+				intel_level = {
 					level > none
-					system = prev 
-				} 
+					system = prev
+				}
 			}
 			NOR = {
 				has_star_flag = pirates_spawned
@@ -1024,58 +1099,74 @@ is_potential_diadochi_system = {
 
 has_no_non_gate_megastructure = {
 	OR = {
-		NOT = { has_any_megastructure = yes }
-		any_system_megastructure = { # exclude gateways
-			NOR = {
-				is_megastructure_type = dyson_sphere_0
-				is_megastructure_type = dyson_sphere_1
-				is_megastructure_type = dyson_sphere_2
-				is_megastructure_type = dyson_sphere_3
-				is_megastructure_type = dyson_sphere_4
-				is_megastructure_type = dyson_sphere_5
-				is_megastructure_type = dyson_sphere_ruined
-				is_megastructure_type = dyson_sphere_restored
-	
-				is_megastructure_type = ring_world_1
-				is_megastructure_type = ring_world_2_intermediate
-				is_megastructure_type = ring_world_2
-				is_megastructure_type = ring_world_3_intermediate
-				is_megastructure_type = ring_world_ruined
-				is_megastructure_type = ring_world_restored
-	
-				is_megastructure_type = think_tank_0
-				is_megastructure_type = think_tank_1
-				is_megastructure_type = think_tank_2
-				is_megastructure_type = think_tank_3
-				is_megastructure_type = think_tank_4
-				is_megastructure_type = think_tank_ruined
-				is_megastructure_type = think_tank_restored
-	
-				is_megastructure_type = spy_orb_0
-				is_megastructure_type = spy_orb_1
-				is_megastructure_type = spy_orb_2
-				is_megastructure_type = spy_orb_3
-				is_megastructure_type = spy_orb_4
-				is_megastructure_type = spy_orb_ruined
-				is_megastructure_type = spy_orb_restored
-	
-				is_megastructure_type = habitat_0
+		has_any_megastructure = no
+		NOT = {
+			any_system_megastructure = { # exclude gateways
+				OR = {
+					is_megastructure_type = dyson_sphere_0
+					is_megastructure_type = dyson_sphere_1
+					is_megastructure_type = dyson_sphere_2
+					is_megastructure_type = dyson_sphere_3
+					is_megastructure_type = dyson_sphere_4
+					is_megastructure_type = dyson_sphere_5
+					is_megastructure_type = dyson_sphere_ruined
+					is_megastructure_type = dyson_sphere_restored
 
-				is_megastructure_type = matter_decompressor_0
-				is_megastructure_type = matter_decompressor_1
-				is_megastructure_type = matter_decompressor_2
-				is_megastructure_type = matter_decompressor_3
-				is_megastructure_type = matter_decompressor_4
+					is_megastructure_type = ring_world_1
+					is_megastructure_type = ring_world_2_intermediate
+					is_megastructure_type = ring_world_2
+					is_megastructure_type = ring_world_3_intermediate
+					is_megastructure_type = ring_world_ruined
+					is_megastructure_type = ring_world_restored
 
-				is_megastructure_type = strategic_coordination_center_0
-				is_megastructure_type = strategic_coordination_center_1
-				is_megastructure_type = strategic_coordination_center_2
-				is_megastructure_type = strategic_coordination_center_3
+					is_megastructure_type = think_tank_0
+					is_megastructure_type = think_tank_1
+					is_megastructure_type = think_tank_2
+					is_megastructure_type = think_tank_3
+					is_megastructure_type = think_tank_4
+					is_megastructure_type = think_tank_ruined
+					is_megastructure_type = think_tank_restored
 
-				is_megastructure_type = mega_art_installation_0
-				is_megastructure_type = mega_art_installation_1
-				is_megastructure_type = mega_art_installation_2
-				is_megastructure_type = mega_art_installation_3
+					is_megastructure_type = spy_orb_0
+					is_megastructure_type = spy_orb_1
+					is_megastructure_type = spy_orb_2
+					is_megastructure_type = spy_orb_3
+					is_megastructure_type = spy_orb_4
+					is_megastructure_type = spy_orb_ruined
+					is_megastructure_type = spy_orb_restored
+
+					is_megastructure_type = habitat_0
+
+					is_megastructure_type = matter_decompressor_0
+					is_megastructure_type = matter_decompressor_1
+					is_megastructure_type = matter_decompressor_2
+					is_megastructure_type = matter_decompressor_3
+					is_megastructure_type = matter_decompressor_4
+					is_megastructure_type = matter_decompressor_ruined
+					is_megastructure_type = matter_decompressor_restored
+
+					is_megastructure_type = strategic_coordination_center_0
+					is_megastructure_type = strategic_coordination_center_1
+					is_megastructure_type = strategic_coordination_center_2
+					is_megastructure_type = strategic_coordination_center_3
+					is_megastructure_type = strategic_coordination_center_ruined
+					is_megastructure_type = strategic_coordination_center_restored
+
+					is_megastructure_type = mega_art_installation_0
+					is_megastructure_type = mega_art_installation_1
+					is_megastructure_type = mega_art_installation_2
+					is_megastructure_type = mega_art_installation_3
+					is_megastructure_type = mega_art_installation_ruined
+					is_megastructure_type = mega_art_installation_restored
+
+					is_megastructure_type = interstellar_assembly_0
+					is_megastructure_type = interstellar_assembly_1
+					is_megastructure_type = interstellar_assembly_2
+					is_megastructure_type = interstellar_assembly_3
+					is_megastructure_type = interstellar_assembly_4
+					is_megastructure_type = interstellar_assembly_ruined
+					is_megastructure_type = interstellar_assembly_restored
+				}
 			}
 		}
 	}
@@ -1179,6 +1270,20 @@ has_galactic_wonders = {
 	}
 }
 
+can_build_megastructures = {
+	OR = {
+		has_technology = tech_science_nexus
+		has_technology = tech_sentry_array
+		has_technology = tech_strategic_coordination
+		has_technology = tech_interstellar_assembly
+		has_technology = tech_mega_art
+		has_technology = tech_gateway_construction
+		has_technology = tech_dyson_sphere
+		has_technology = tech_matter_decompressor
+		has_technology = tech_ring_world
+	}
+}
+
 has_gw_ring_world = {
 	OR = {
 		has_ascension_perk = ap_galactic_wonders_utopia
@@ -1194,17 +1299,11 @@ has_gw_dyson_sphere = {
 }
 
 has_gw_think_tank = {
-	OR = {
-		has_ascension_perk = ap_galactic_wonders_utopia
-		has_ascension_perk = ap_galactic_wonders_utopia_and_megacorp
-	}
+	has_technology = tech_science_nexus
 }
 
 has_gw_spy_orb = {
-	OR = {
-		has_ascension_perk = ap_galactic_wonders_utopia
-		has_ascension_perk = ap_galactic_wonders_utopia_and_megacorp
-	}
+	has_technology = tech_sentry_array
 }
 
 has_gw_matter_decompressor = {
@@ -1215,24 +1314,15 @@ has_gw_matter_decompressor = {
 }
 
 has_gw_strategic_coordination_center = {
-	OR = {
-		has_ascension_perk = ap_galactic_wonders_megacorp
-		has_ascension_perk = ap_galactic_wonders_utopia_and_megacorp
-	}
+	has_technology = tech_strategic_coordination
 }
 
 has_gw_mega_art_installation = {
-	OR = {
-		has_ascension_perk = ap_galactic_wonders_megacorp
-		has_ascension_perk = ap_galactic_wonders_utopia_and_megacorp
-	}
+	has_technology = tech_mega_art
 }
 
 has_gw_interstellar_assembly = {
-	OR = {
-		has_ascension_perk = ap_galactic_wonders_megacorp
-		has_ascension_perk = ap_galactic_wonders_utopia_and_megacorp
-	}
+	has_technology = tech_interstellar_assembly
 }
 
 can_generate_trade_value = {
@@ -1247,5 +1337,486 @@ is_crossbreeding_possible = {
 		has_trait = trait_mechanical
 		has_trait = trait_hive_mind
 		has_trait = trait_self_modified
+	}
+}
+
+has_ancrel = {
+	host_has_dlc = "Ancient Relics Story Pack"
+}
+
+factory_1_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 4
+	}
+	OR = {
+		AND = {
+			is_gestalt = yes
+			has_monthly_income = {
+				resource = minerals
+				value > 16
+			}
+		}
+		AND = {
+			is_regular_empire = yes
+			has_monthly_income = {
+				resource = minerals
+				value > 12
+			}
+		}
+	}
+}
+
+research_lab_1_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 4
+	}
+	OR = {
+		AND = {
+			is_hive_empire = yes
+			has_monthly_income = {
+				resource = minerals
+				value > 12
+			}
+		}
+		AND = {
+			is_machine_empire = yes
+			has_monthly_income = {
+				resource = minerals
+				value > 12
+			}
+		}
+		AND = {
+			is_regular_empire = yes
+			has_monthly_income = {
+				resource = consumer_goods
+				value > 4
+			}
+		}
+	}
+}
+
+foundry_1_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 4
+	}
+	OR = {
+		AND = {
+			is_hive_empire = yes
+			has_monthly_income = {
+				resource = minerals
+				value > 12
+			}
+		}
+		AND = {
+			is_machine_empire = yes
+			has_monthly_income = {
+				resource = minerals
+				value > 16
+			}
+		}
+		AND = {
+			is_regular_empire = yes
+			has_monthly_income = {
+				resource = minerals
+				value > 12
+			}
+		}
+	}
+}
+
+autochthon_monument_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 1
+	}
+
+	is_regular_empire = yes
+	has_monthly_income = {
+		resource = consumer_goods
+		value > 4
+	}
+}
+
+organic_sanctuary_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 2
+	}
+}
+
+holo_theatres_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 2
+	}
+	OR = {
+		AND = {
+			has_valid_civic = civic_warrior_culture
+			has_monthly_income = {
+				resource = alloys
+				value > 2
+			}
+		}
+		AND = {
+			NOT = { has_valid_civic = civic_warrior_culture }
+			has_monthly_income = {
+				resource = consumer_goods
+				value > 2
+			}
+		}
+	}
+}
+
+galactic_stock_exchange_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 5
+	}
+}
+
+robot_assembly_plant_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 5
+	}
+	has_monthly_income = {
+		resource = minerals
+		value > 6
+	}
+}
+
+precinct_house_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 2
+	}
+}
+
+clinic_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 2
+	}
+	has_monthly_income = {
+		resource = consumer_goods
+		value > 2
+	}
+}
+
+ministry_production_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 5
+	}
+}
+
+institute_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 5
+	}
+}
+
+machine_assembly_plant_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 2
+	}
+	has_monthly_income = {
+		resource = minerals
+		value > 3
+	}
+}
+
+maintenance_depot_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 1
+	}
+}
+
+sentinel_posts_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 2
+	}
+}
+
+production_center_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 5
+	}
+	OR = {
+		AND = {
+			is_hive_empire = yes
+			has_monthly_income = {
+				resource = food
+				value > 2
+			}
+			has_monthly_income = {
+				resource = energy
+				value > 7	# building upkeep + 2
+			}
+		}
+		AND = {
+			is_machine_empire = yes
+			has_monthly_income = {
+				resource = energy
+				value > 8	# building upkeep + 3
+			}
+		}
+		AND = {
+			is_regular_empire = yes
+			always = yes
+		}
+	}
+}
+
+hive_node_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 5
+	}
+	has_monthly_income = {
+		resource = food
+		value > 4
+	}
+}
+
+uplink_node_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 5
+	}
+	has_monthly_income = {
+		resource = minerals
+		value > 4
+	}
+}
+
+food_processing_facility_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 1
+	}
+}
+
+luxury_residence_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 2
+	}
+}
+
+chemical_plant_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 3
+	}
+	# Both the regular job and gestalt job has the same upkeep
+	has_monthly_income = {
+		resource = minerals
+		value > 10
+	}
+}
+
+refinery_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 3
+	}
+	# Both the regular job and gestalt job has the same upkeep
+	has_monthly_income = {
+		resource = minerals
+		value > 10
+	}
+}
+
+crystal_plant_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 3
+	}
+	# Both the regular job and gestalt job has the same upkeep
+	has_monthly_income = {
+		resource = minerals
+		value > 10
+	}
+}
+
+commercial_zone_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 2
+	}
+}
+
+spawning_pool_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 2
+	}
+	has_monthly_income = {
+		resource = food
+		value > 5
+	}
+}
+
+hive_warren_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 2
+	}
+}
+
+resource_silo_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 1
+	}
+}
+
+energy_grid_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 1
+	}
+}
+
+drone_storage_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 2
+	}
+}
+
+stronghold_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 1
+	}
+}
+
+planetary_shield_generator_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 5
+	}
+}
+
+supercomputer_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 5
+	}
+	has_monthly_income = {
+		resource = minerals
+		value > 6
+	}
+}
+
+mineral_purification_plant_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 1
+	}
+}
+
+overseer_homes_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 1
+	}
+}
+
+slave_huts_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 1
+	}
+}
+
+hydroponics_farm_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 2
+	}
+}
+
+slave_processing_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 2
+	}
+}
+
+temple_upkeep_affordable = {
+	has_monthly_income = {
+		resource = energy
+		value > 2
+	}
+}
+
+enigmatic_modifier_jobs = { # Only pops with jobs affecting resources without modifiers qualify for enigmatic uplifting negative production modifiers.
+	OR = {
+		has_job = unemployed
+		has_job = researcher
+		has_job = foundry
+		has_job = artisan
+		has_job = culture_worker
+		has_job = chemist
+		has_job = translucer
+		has_job = gas_refiner
+		has_job = technician
+		has_job = miner
+		has_job = crystal_miner
+		has_job = gas_extractor
+		has_job = mote_harvester
+		has_job = brain_drone
+		has_job = calculator
+		has_job = artisan_drone
+		has_job = fabricator
+		has_job = alloy_drone
+		has_job = chemist_drone
+		has_job = translucer_drone
+		has_job = gas_refiner_drone
+		has_job = crystal_mining_drone
+		has_job = mote_harvesting_drone
+		has_job = gas_extraction_drone
+		has_job = mining_drone
+		has_job = agri_drone
+		has_job = technician_drone
+	}
+}
+
+is_special_colony_type = {
+	OR = {
+		has_modifier = penal_colony
+		has_modifier = resort_colony
+		has_modifier = slave_colony
+	}
+}
+
+lithoids_portrait = {
+	OR = {
+		species_portrait = lith1
+		species_portrait = lith2
+		species_portrait = lith3
+		species_portrait = lith4
+		species_portrait = lith5
+		species_portrait = lith6
+		species_portrait = lith7
+		species_portrait = lith8
+		species_portrait = lith9
+		species_portrait = lith10
+		species_portrait = lith11
+		species_portrait = lith12
+		species_portrait = lith13
+		species_portrait = lith14
+		species_portrait = lith15
 	}
 }
