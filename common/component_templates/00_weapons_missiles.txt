@@ -17,11 +17,9 @@
 weapon_component_template = {
 	key = "MISSILE_1"
 	size = torpedo
-	entity = "turret_missile_medium_entity"
 	
 	icon = "GFX_ship_part_missile_1"
 	icon_frame = 1
-	static_rotation = no
 	type = missile
 	
 	prerequisites = { "tech_missiles_1" }
@@ -49,11 +47,9 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "MISSILE_2"
 	size = torpedo
-	entity = "turret_missile_medium_entity"
 	
 	icon = "GFX_ship_part_missile_2"
 	icon_frame = 1
-	static_rotation = no
 	type = missile
 	
 	prerequisites = { "tech_missiles_2" }
@@ -79,11 +75,9 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "MISSILE_3"
 	size = torpedo
-	entity = "turret_missile_medium_entity"
 	
 	icon = "GFX_ship_part_missile_3"
 	icon_frame = 1
-	static_rotation = no
 	type = missile
 	
 	prerequisites = { "tech_missiles_3" }
@@ -109,11 +103,9 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "MISSILE_4"
 	size = torpedo
-	entity = "turret_missile_medium_entity"
 	
 	icon = "GFX_ship_part_missile_4"
 	icon_frame = 1
-	static_rotation = no
 	type = missile
 	
 	prerequisites = { "tech_missiles_4" }
@@ -139,6 +131,7 @@ weapon_component_template = {
 		weight = 1
 		modifier = {
 			factor = 0.0
+			is_country_type = default
 			has_monthly_income = { resource = volatile_motes value <= 0 }
 		}
 	}
@@ -148,11 +141,9 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "MISSILE_5"
 	size = torpedo
-	entity = "turret_missile_medium_entity"
 	
 	icon = "GFX_ship_part_missile_5"
 	icon_frame = 1
-	static_rotation = no
 	type = missile
 	
 	prerequisites = { "tech_missiles_5" }
@@ -177,6 +168,7 @@ weapon_component_template = {
 		weight = 1
 		modifier = {
 			factor = 0.0
+			is_country_type = default
 			has_monthly_income = { resource = volatile_motes value <= 0 }
 		}
 	}
@@ -190,11 +182,9 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "SWARMER_MISSILE_1"
 	size = torpedo
-	entity = "turret_missile_medium_entity"
 	
 	icon = "GFX_ship_part_swarmer_missile_1"
 	icon_frame = 1
-	static_rotation = no
 	type = missile
 	
 	prerequisites = { "tech_swarmer_missiles_1" }
@@ -220,11 +210,9 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "SWARMER_MISSILE_2"
 	size = torpedo
-	entity = "turret_missile_medium_entity"
 	
 	icon = "GFX_ship_part_swarmer_missile_2"
 	icon_frame = 1
-	static_rotation = no
 	type = missile
 	
 	prerequisites = { "tech_swarmer_missiles_2" }
@@ -249,6 +237,7 @@ weapon_component_template = {
 		weight = 1
 		modifier = {
 			factor = 0.0
+			is_country_type = default
 			has_monthly_income = { resource = volatile_motes value <= 0 }
 		}
 	}
@@ -318,6 +307,7 @@ weapon_component_template = {
 		weight = 1
 		modifier = {
 			factor = 0.0
+			is_country_type = default
 			has_monthly_income = { resource = volatile_motes value <= 0 }
 		}
 	}
@@ -354,6 +344,7 @@ weapon_component_template = {
 		weight = 1
 		modifier = {
 			factor = 0.0
+			is_country_type = default
 			has_monthly_income = { resource = volatile_motes value <= 0 }
 		}
 	}

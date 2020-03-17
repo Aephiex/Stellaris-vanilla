@@ -17,7 +17,6 @@
 weapon_component_template = {
 	key = "SMALL_RED_LASER"
 	size = small
-	entity = "small_laser_gun_entity"
 	type = instant
 	icon = "GFX_ship_part_laser_1"
 	icon_frame = 1
@@ -43,7 +42,6 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "MEDIUM_RED_LASER"
 	size = medium
-	entity = "medium_laser_gun_entity"
 	type = instant
 	icon = "GFX_ship_part_laser_1"
 	icon_frame = 1
@@ -68,7 +66,6 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "LARGE_RED_LASER"
 	size = large
-	entity = "large_laser_gun_entity"
 	type = instant
 	icon = "GFX_ship_part_laser_1"
 	icon_frame = 1
@@ -95,7 +92,6 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "SMALL_BLUE_LASER"
 	size = small
-	entity = "small_laser_gun_entity"
 	type = instant
 	icon = "GFX_ship_part_laser_2"
 	icon_frame = 1
@@ -120,7 +116,6 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "MEDIUM_BLUE_LASER"
 	size = medium
-	entity = "medium_laser_gun_entity"
 	type = instant
 	icon = "GFX_ship_part_laser_2"
 	icon_frame = 1
@@ -145,7 +140,6 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "LARGE_BLUE_LASER"
 	size = large
-	entity = "large_laser_gun_entity"
 	type = instant
 	icon = "GFX_ship_part_laser_2"
 	icon_frame = 1
@@ -171,7 +165,6 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "SMALL_UV_LASER"
 	size = small
-	entity = "small_laser_gun_entity"
 	type = instant
 	
 	icon = "GFX_ship_part_laser_3"
@@ -199,7 +192,6 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "MEDIUM_UV_LASER"
 	size = medium
-	entity = "medium_laser_gun_entity"
 	type = instant
 	
 	icon = "GFX_ship_part_laser_3"
@@ -227,7 +219,6 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "LARGE_UV_LASER"
 	size = large
-	entity = "large_laser_gun_entity"
 	accuracy = 1
 	type = instant
 	
@@ -257,7 +248,6 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "SMALL_XRAY_LASER"
 	size = small
-	entity = "small_laser_gun_entity"
 	type = instant
 	
 	icon = "GFX_ship_part_laser_4"
@@ -286,6 +276,7 @@ weapon_component_template = {
 		weight = 1
 		modifier = {
 			factor = 0.0
+			is_country_type = default
 			has_monthly_income = { resource = rare_crystals value <= 0 }
 		}
 	}
@@ -294,7 +285,6 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "MEDIUM_XRAY_LASER"
 	size = medium
-	entity = "medium_laser_gun_entity"
 	type = instant
 	
 	icon = "GFX_ship_part_laser_4"
@@ -323,6 +313,7 @@ weapon_component_template = {
 		weight = 1
 		modifier = {
 			factor = 0.0
+			is_country_type = default
 			has_monthly_income = { resource = rare_crystals value <= 0 }
 		}
 	}
@@ -331,7 +322,6 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "LARGE_XRAY_LASER"
 	size = large
-	entity = "large_laser_gun_entity"
 	type = instant
 	
 	icon = "GFX_ship_part_laser_4"
@@ -360,6 +350,7 @@ weapon_component_template = {
 		weight = 1
 		modifier = {
 			factor = 0.0
+			is_country_type = default
 			has_monthly_income = { resource = rare_crystals value <= 0 }
 		}
 	}
@@ -369,7 +360,6 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "SMALL_GAMMA_LASER"
 	size = small
-	entity = "small_laser_gun_entity"
 	type = instant
 	
 	icon = "GFX_ship_part_laser_5"
@@ -397,6 +387,7 @@ weapon_component_template = {
 		weight = 1
 		modifier = {
 			factor = 0.0
+			is_country_type = default
 			has_monthly_income = { resource = rare_crystals value <= 0 }
 		}
 	}
@@ -405,7 +396,6 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "MEDIUM_GAMMA_LASER"
 	size = medium
-	entity = "medium_laser_gun_entity"
 	type = instant
 	
 	icon = "GFX_ship_part_laser_5"
@@ -433,6 +423,7 @@ weapon_component_template = {
 		weight = 1
 		modifier = {
 			factor = 0.0
+			is_country_type = default
 			has_monthly_income = { resource = rare_crystals value <= 0 }
 		}
 	}
@@ -441,7 +432,6 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "LARGE_GAMMA_LASER"
 	size = large
-	entity = "large_laser_gun_entity"
 	type = instant
 	
 	icon = "GFX_ship_part_laser_5"
@@ -469,6 +459,7 @@ weapon_component_template = {
 		weight = 1
 		modifier = {
 			factor = 0.0
+			is_country_type = default
 			has_monthly_income = { resource = rare_crystals value <= 0 }
 		}
 	}
@@ -482,7 +473,6 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "SMALL_PLASMA_1"
 	size = small
-	entity = "small_laser_gun_entity"
 	type = instant
 	
 	icon = "GFX_ship_part_plasma_1"
@@ -511,7 +501,6 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "MEDIUM_PLASMA_1"
 	size = medium
-	entity = "medium_laser_gun_entity"
 	type = instant
 	
 	icon = "GFX_ship_part_plasma_1"
@@ -540,7 +529,6 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "LARGE_PLASMA_1"
 	size = large
-	entity = "large_laser_gun_entity"
 	type = instant
 	
 	icon = "GFX_ship_part_plasma_1"
@@ -570,7 +558,6 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "SMALL_PLASMA_2"
 	size = small
-	entity = "small_laser_gun_entity"
 	accuracy = 1
 	type = instant
 	
@@ -601,6 +588,7 @@ weapon_component_template = {
 		weight = 1
 		modifier = {
 			factor = 0.0
+			is_country_type = default
 			has_monthly_income = { resource = exotic_gases value <= 0 }
 		}
 	}
@@ -609,7 +597,6 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "MEDIUM_PLASMA_2"
 	size = medium
-	entity = "medium_laser_gun_entity"
 	type = instant
 	
 	icon = "GFX_ship_part_plasma_2"
@@ -639,6 +626,7 @@ weapon_component_template = {
 		weight = 1
 		modifier = {
 			factor = 0
+			is_country_type = default
 			has_monthly_income = { resource = exotic_gases value <= 0 }
 		}
 	}
@@ -647,7 +635,6 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "LARGE_PLASMA_2"
 	size = large
-	entity = "large_laser_gun_entity"
 	type = instant
 	
 	icon = "GFX_ship_part_plasma_2"
@@ -677,6 +664,7 @@ weapon_component_template = {
 		weight = 1
 		modifier = {
 			factor = 0.0
+			is_country_type = default
 			has_monthly_income = { resource = exotic_gases value <= 0 }
 		}
 	}
@@ -686,7 +674,6 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "SMALL_PLASMA_3"
 	size = small
-	entity = "small_laser_gun_entity"
 	type = instant
 	
 	icon = "GFX_ship_part_plasma_3"
@@ -715,6 +702,7 @@ weapon_component_template = {
 		weight = 1
 		modifier = {
 			factor = 0.0
+			is_country_type = default
 			has_monthly_income = { resource = exotic_gases value <= 0 }
 		}
 	}
@@ -723,7 +711,6 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "MEDIUM_PLASMA_3"
 	size = medium
-	entity = "medium_laser_gun_entity"
 	type = instant
 	
 	icon = "GFX_ship_part_plasma_3"
@@ -752,6 +739,7 @@ weapon_component_template = {
 		weight = 1
 		modifier = {
 			factor = 0.0
+			is_country_type = default
 			has_monthly_income = { resource = exotic_gases value <= 0 }
 		}
 	}
@@ -760,7 +748,6 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "LARGE_PLASMA_3"
 	size = large
-	entity = "large_laser_gun_entity"
 	type = instant
 	
 	icon = "GFX_ship_part_plasma_3"
@@ -789,6 +776,7 @@ weapon_component_template = {
 		weight = 1
 		modifier = {
 			factor = 0.0
+			is_country_type = default
 			has_monthly_income = { resource = exotic_gases value <= 0 }
 		}
 	}
@@ -802,7 +790,6 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "SMALL_DISRUPTOR_1"
 	size = small
-	entity = "small_laser_gun_entity"
 	type = instant
 	
 	icon = "GFX_ship_part_disruptor_1"
@@ -831,7 +818,6 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "MEDIUM_DISRUPTOR_1"
 	size = medium
-	entity = "medium_laser_gun_entity"
 	type = instant
 	
 	icon = "GFX_ship_part_disruptor_1"
@@ -861,7 +847,6 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "SMALL_DISRUPTOR_2"
 	size = small
-	entity = "small_laser_gun_entity"
 	type = instant
 	
 	icon = "GFX_ship_part_disruptor_2"
@@ -891,6 +876,7 @@ weapon_component_template = {
 		weight = 1
 		modifier = {
 			factor = 0.0
+			is_country_type = default
 			has_monthly_income = { resource = rare_crystals value <= 0 }
 		}
 	}
@@ -899,7 +885,6 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "MEDIUM_DISRUPTOR_2"
 	size = medium
-	entity = "medium_laser_gun_entity"
 	type = instant
 	
 	icon = "GFX_ship_part_disruptor_2"
@@ -929,6 +914,7 @@ weapon_component_template = {
 		weight = 1
 		modifier = {
 			factor = 0.0
+			is_country_type = default
 			has_monthly_income = { resource = rare_crystals value <= 0 }
 		}
 	}
@@ -938,7 +924,6 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "SMALL_DISRUPTOR_3"
 	size = small
-	entity = "small_laser_gun_entity"
 	type = instant
 	
 	icon = "GFX_ship_part_disruptor_3"
@@ -967,6 +952,7 @@ weapon_component_template = {
 		weight = 1
 		modifier = {
 			factor = 0.0
+			is_country_type = default
 			has_monthly_income = { resource = rare_crystals value <= 0 }
 		}
 	}
@@ -975,7 +961,6 @@ weapon_component_template = {
 weapon_component_template = {
 	key = "MEDIUM_DISRUPTOR_3"
 	size = medium
-	entity = "medium_laser_gun_entity"
 	type = instant
 	
 	icon = "GFX_ship_part_disruptor_3"
@@ -1004,6 +989,7 @@ weapon_component_template = {
 		weight = 1
 		modifier = {
 			factor = 0.0
+			is_country_type = default
 			has_monthly_income = { resource = rare_crystals value <= 0 }
 		}
 	}
@@ -1082,6 +1068,7 @@ weapon_component_template = {
 		weight = 1
 		modifier = {
 			factor = 0.0
+			is_country_type = default
 			has_monthly_income = { resource = exotic_gases value <= 0 }
 		}
 	}
@@ -1119,6 +1106,7 @@ weapon_component_template = {
 		weight = 1
 		modifier = {
 			factor = 0.0
+			is_country_type = default
 			has_monthly_income = { resource = exotic_gases value <= 0 }
 		}
 	}
