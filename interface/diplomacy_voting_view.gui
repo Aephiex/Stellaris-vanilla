@@ -3,7 +3,7 @@ guiTypes = {
 		name = "diplomacy_voting_view"
 		position = { x = -200 y = -250 }
 		orientation = center
-		size = { width = 430 height = 520 }
+		size = { width = 430 height = 540 }
 		moveable = yes
 
 		backGround = {
@@ -50,11 +50,36 @@ guiTypes = {
 			name = "timeout"
 			font = "cg_16b"
 			text = "TIMEOUT"
-			position = { x = 20 y = 60 }
-			maxWidth = 400
+			position = { x = -220 y = 60 }
+			maxWidth = 200
 			maxHeight = 40
 			fixedSize = yes
-			format = centre
+			format = right
+			orientation = upper_right
+			alwaysTransparent = no
+		}
+
+		containerWindowType = {
+			name = "vote_text_bg"
+			size = { width = 400 height = 95}
+			position = { x = 15 y = 85 }
+
+			background = {
+				name = "text_bg"
+				spriteType = "GFX_dark_area_cut"
+				alwaysTransparent = no
+			}
+		}
+
+		instantTextBoxType = {
+			name = "vote_type_text"
+			font = "cg_16b"
+			text = "VOTING_STYLE"
+			format = left
+			maxWidth = 200
+			maxHeight = 30
+			position = { x = 18 y = 60 }
+			text_color_code = "H"
 			alwaysTransparent = yes
 		}
 		
@@ -63,8 +88,8 @@ guiTypes = {
 			font = "cg_16b"
 			text = "VOTE"
 			position = { x = 20 y = 100 }
-			maxWidth = 400
-			maxHeight = 40
+			maxWidth = 380
+			maxHeight = 120
 			fixedSize = yes
 			format = centre
 			alwaysTransparent = yes
@@ -73,8 +98,8 @@ guiTypes = {
 		
 		containerWindowType = {
 			name = "allies_window"
-			position = { x = 15 y = 150 }
-			size = { width = 400 height = 310 }
+			position = { x = 15 y = 190 }
+			size = { width = 400 height = 290 }
 			
 			background = {
 				name = "allies_background"
@@ -83,7 +108,7 @@ guiTypes = {
 				
 			smoothListBoxType = {
 				name = "allies"
-				size = { x = 380 y = 290 }
+				size = { x = 380 y = 270 }
 				position = { x = 10 y = 10 }
 				scrollbartype = "standardlistbox_slider"
 			}
@@ -151,6 +176,18 @@ guiTypes = {
 	# For war votes
 	
 	containerWindowType = {
+		name = "potential_ally_entry"
+		position = { x = 0 y = 0 }
+		size = { width = 30 height = 30 }
+
+		buttonType = {
+			name = "flag"
+			quadTextureSprite = "GFX_empire_flag_32"
+			position = { x = 0 y = 0  }
+		}
+	}
+	
+	containerWindowType = {
 		name = "diplomacy_voting_view_action_declare_war"
 		orientation = center
 		origo = center
@@ -195,16 +232,29 @@ guiTypes = {
 			format = left
 			alwaysTransparent = yes
 		}
+
+		### Code hook this in. / Majority, unanimous, etc.
+		instantTextBoxType = {
+			name = "vote_type_text"
+			font = "cg_16b"
+			text = "VOTING_STYLE"
+			format = left
+			maxWidth = 200
+			maxHeight = 30
+			position = { x = 25 y = 70 }
+			text_color_code = "H"
+			alwaysTransparent = yes
+		}
 		
 		instantTextBoxType={
 			name = "timeout"
 			font = "cg_16b"
 			text = "TIMEOUT"
-			position = { x = 20 y = 60 }
+			position = { x = -5 y = 70 }
 			maxWidth = 400
 			maxHeight = 40
 			fixedSize = yes
-			format = centre
+			format = right
 			alwaysTransparent = yes
 		}
 		
@@ -212,7 +262,7 @@ guiTypes = {
 			name = "description"
 			font = "cg_16b"
 			text = "VOTE"
-			position = { x = 20 y = 100 }
+			position = { x = 10 y = 100 }
 			maxWidth = 400
 			maxHeight = 40
 			fixedSize = yes
@@ -259,6 +309,76 @@ guiTypes = {
 			text = "VOTE_YES"
 			format = center
 		}
+
+		containerWindowType = {
+			name = "war_taget_information_window"
+			position = { x = 425 y = 60 }
+			size = { width = 390 height = 80 }
+
+			background = {
+				name = "war_target_background"
+				spriteType = "GFX_tiles_dark_area_cut_8"
+			}
+
+			instantTextBoxType={
+				name = "war_target_text"
+				font = "cg_16b"
+				text = "WAR_GOALS_VIEW_TARGET"
+				position = { x = 10 y = 10 }
+				maxWidth = 400
+				maxHeight = 40
+				fixedSize = yes
+				format = left
+				alwaysTransparent = yes
+			}
+			
+			iconType = {
+				name = "enemy_flag"
+				spriteType = "GFX_empire_flag_32"
+				position = { x = 10 y = 35 }
+			}
+
+			iconType = {
+				name = "icon"
+				spriteType = "GFX_relative_power_icon"
+				position = { x= 45 y = 40  }
+				alwaysTransparent = yes
+				scale = .9
+			}
+
+			instantTextBoxType = {
+				name = "power"
+				font = "cg_16b"
+				maxWidth = 148
+				maxHeight = 20
+				position = { x = 70 y = 43 }
+				format = left
+				alwaysTransparent = no
+				text = "RELATIVE_POWER_TEXT"
+			}
+
+			instantTextBoxType={
+				name = "war_target_allies_text"
+				font = "cg_16b"
+				text = "ALLIES"
+				position = { x = -210 y = 10 }
+				maxWidth = 200
+				maxHeight = 40
+				fixedSize = yes
+				format = right
+				alwaysTransparent = yes
+				orientation = upper_right
+			}
+
+			### Entry For this Below - "war_target_allies_country_entry"
+			overlappingElementsBoxType = {
+				name = "war_target_allies"
+				position = { x = -210 y = 39 }
+				size = { x = 200 y = 35 }
+				format = right
+				orientation = upper_right
+			}
+		}
 		
 		# Duplicated in incoming_diplomacy_view_action_war_peace
 		containerWindowType = {
@@ -298,6 +418,18 @@ guiTypes = {
 				font = "cg_16b"
 				scrollbartype = "standardtext_slider"
 			}
+		}
+	}
+
+	containerWindowType = {
+		name = "war_target_allies_country_entry"
+		position = { x = 0 y = 0 }
+		size = { width = 30 height = 30 }
+
+		buttonType = {
+			name = "flag"
+			quadTextureSprite = "GFX_empire_flag_32"
+			position = { x = 0 y = 0  }
 		}
 	}
 }

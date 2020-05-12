@@ -103,6 +103,20 @@ guiTypes = {
 			orientation = "UPPER_LEFT"
 			cursor = { x=0 y= 4}
 		}
+
+		editBoxType = {
+			position = { x = 14 y = 272 }
+			name = "largefont_lobby_chat_edit"
+			instantTextBoxType = no
+			textureFile = "gfx/interface/tiles/small_tiles_dialog.dds"
+			font = "malgun_goth_24"
+			borderSize = {x =8 y = 0}	
+			size = { x=682 y=32 }
+			text = ""	
+			orientation = "UPPER_LEFT"
+			cursor = { x=0 y= 4}
+		}
+
 		
 		buttonType = {
 			name = "back_button"
@@ -115,6 +129,40 @@ guiTypes = {
 			buttonFont = "cg_16b"
 			orientation = "LOWER_LEFT"
 		}	
+
+		containerWindowType = {
+			name = "stt_toggle_container"
+			position = { x = 270 y = 310 }
+			size = { width = 160 height = 50 }
+
+			buttonType = {
+				name = "stt_toggle"
+				size = { x = 160 y = 50 }
+				position = { x = 0 y = 0 }
+				spriteType = "GFX_button_animated_142"
+				buttonFont = "cg_16b"
+				text = ""
+				font = "cg_16b"
+				oversound = mouse_over
+			}
+
+			iconType = {
+				name = "stt_toggle_icon"
+				spriteType = "GFX_cvaa_mic_icon"
+				position = { x = 62 y = 22 }
+				alwaysTransparent = yes
+			}
+
+			instantTextBoxType = {
+				name = "stt_toggle_text"
+				position = { x = 82 y = 23 }
+				font = "cg_16b"
+				text = "CHAT_CVAA_MIC_NAME"
+				maxWidth = 75
+				maxHeight = 20
+				format = left
+			}		
+		}
 			
 		buttonType = {
 			name = "start_button"
@@ -161,11 +209,140 @@ guiTypes = {
 			pdx_tooltip = "INGAMELOBBY_KICK"
 		}
 	}
+
+	containerWindowType = {
+		name = "largefont_ingame_multiplayer_entry"
+		position = { x=0 y=0 }	
+		size = { width=275 height= 32 }
+
+		iconType = {
+			name ="player_shield"
+			spriteType = "GFX_planet_view_pop"
+			position = { x= 0 y = -11 }
+			Orientation = "UPPER_LEFT"
+			alwaysTransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "name"
+			position = { x = 32 y =-7 }
+			format = left
+			font = "malgun_goth_24"
+			maxWidth = 240
+			maxHeight = 30	
+			Orientation = "UPPER_LEFT"
+			vertical_alignment = center
+		}
+
+		buttonType = {
+			name = "button_kick"	
+			quadTextureSprite = "GFX_button_kick"
+			position = { x=-60 y =-19}
+			orientation = "UPPER_RIGHT"
+			pdx_tooltip = "INGAMELOBBY_KICK"
+		}
+	}
+
+
+	containerWindowType = {
+		name = "largefont_ingame_lobby_chat_text"
+		position = { x=0 y=5 }	
+		size = { width=390 height= 22 }
+
+		buttonType =	{
+			name = "highlight"
+			spriteType = "GFX_cvaa_speak_message_bg"
+			position = { x = -3 y = 5 }
+			size = { x = 380 y = 26 }
+			no_clicksound = yes
+		}
+
+		buttonType =	{
+			name = "select"
+			spriteType = "GFX_invisible"
+			position = { x = 0 y = 3 }
+			size = { x = 390 y = 22 }
+			no_clicksound = yes
+		}
+
+		
+		instantTextBoxType = {
+			name = "messagelogtext"
+			position = { x = 0 y = 3 }
+			textureFile = ""
+			font = "malgun_goth_24"
+			borderSize = {x = 1 y = 1}
+			text = ""	
+			maxWidth = 390
+			maxHeight = 22	
+			Orientation = "UPPER_LEFT"
+		}
+	}
+
+	containerWindowType = {
+		name = "icon_largefont_ingame_lobby_chat_text"
+		position = { x=0 y=5 }	
+		size = { width=390 height= 22 }
+
+		buttonType =	{
+			name = "highlight"
+			spriteType = "GFX_cvaa_speak_message_bg"
+			position = { x = -3 y = 5 }
+			size = { x = 380 y = 26 }
+			no_clicksound = yes
+		}
+
+		buttonType =	{
+			name = "select"
+			spriteType = "GFX_invisible"
+			position = { x = 0 y = 3 }
+			size = { x = 390 y = 22 }
+			no_clicksound = yes
+		}
+
+		
+		instantTextBoxType = {
+			name = "messagelogtext"
+			position = { x = 29 y = 3 }
+			textureFile = ""
+			font = "malgun_goth_24"
+			borderSize = {x = 1 y = 1}
+			text = ""	
+			maxWidth = 360
+			maxHeight = 22	
+			Orientation = "UPPER_LEFT"
+		}
+
+		iconType = {
+			name = "icon"
+			position = { x = -2 y = 6 }
+			spriteType = "GFX_cvaa_speak_icon"
+		}
+
+	}
+
 	
 	containerWindowType = {
 		name = "ingame_lobby_chat_text"
 		position = { x=0 y=5 }	
 		size = { width=390 height= 16 }
+
+		buttonType =	{
+			name = "highlight"
+			spriteType = "GFX_cvaa_speak_message_bg"
+			position = { x = -3 y = 4 }
+			size = { x = 380 y = 20 }
+			no_clicksound = yes
+		}
+
+		buttonType =	{
+			name = "select"
+			spriteType = "GFX_invisible"
+			position = { x = 0 y = 3 }
+			size = { x = 390 y = 16 }
+			no_clicksound = yes
+		}
+
 		
 		instantTextBoxType = {
 			name = "messagelogtext"
@@ -179,6 +356,50 @@ guiTypes = {
 			Orientation = "UPPER_LEFT"
 		}
 	}
+
+	containerWindowType = {
+		name = "icon_ingame_lobby_chat_text"
+		position = { x=0 y=5 }	
+		size = { width=390 height= 16 }
+
+		buttonType =	{
+			name = "highlight"
+			spriteType = "GFX_cvaa_speak_message_bg"
+			position = { x = -3 y = 4 }
+			size = { x = 380 y = 20 }
+			no_clicksound = yes
+		}
+
+		buttonType =	{
+			name = "select"
+			spriteType = "GFX_invisible"
+			position = { x = 0 y = 3 }
+			size = { x = 390 y = 16 }
+			no_clicksound = yes
+		}
+
+		
+		instantTextBoxType = {
+			name = "messagelogtext"
+			position = { x = 18 y = 3 }
+			textureFile = ""
+			font = "cg_16b"
+			borderSize = {x = 1 y = 1}
+			text = ""	
+			maxWidth = 370
+			maxHeight = 16	
+			Orientation = "UPPER_LEFT"
+		}
+
+		iconType = {
+			name = "icon"
+			position = { x = -2 y = 5 }
+			spriteType = "GFX_cvaa_speak_icon"
+			scale = 0.7
+		}
+
+	}
+
 	
 	containerWindowType = {
 		name = "player_lost_window"

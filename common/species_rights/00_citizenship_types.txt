@@ -223,7 +223,7 @@ citizenship_assimilation = {
 					}
 					NOR = {
 						has_trait = trait_mechanical
-						has_trait = trait_mechanical
+						has_trait = trait_machine_unit
 						AND = {
 							has_trait = trait_cybernetic
 							from = { NOT = { has_country_flag = synthetic_empire } }
@@ -262,11 +262,8 @@ citizenship_assimilation = {
 				from = { NOT = { has_ascension_perk = ap_transcendence } }
 				AND = {
 					from = { has_ascension_perk = ap_transcendence }
-					NOR = {
-						has_trait = trait_mechanical
-						has_trait = trait_cybernetic
-						has_trait = trait_machine_unit
-					}
+					is_robotic_species = no
+					NOT = { has_trait = trait_cybernetic }
 				}
 			}
 		}
@@ -382,7 +379,7 @@ citizenship_limited = {
 			fail_text = "HIVE_MIND_MAIN_SPECIES_ALWAYS_CITIZEN"
 			NAND = {
 				from = { has_authority = auth_hive_mind }
-				is_same_species = from
+				has_trait = trait_hive_mind
 			}
 		}
 		custom_tooltip = {
@@ -437,6 +434,15 @@ citizenship_limited = {
 citizenship_slavery = {
 	token = citizenship_slavery
 
+	in_breach_of = {
+		{
+			key = resolution_greatergood_balance_in_the_middle
+		}
+		{
+			key = resolution_greatergood_universal_prosperity_mandate
+		}
+	}
+
 	potential = {
 		NAND = {
 			exists = this
@@ -453,7 +459,7 @@ citizenship_slavery = {
 			fail_text = "HIVE_MIND_MAIN_SPECIES_ALWAYS_CITIZEN"
 			NAND = {
 				from = { has_authority = auth_hive_mind }
-				is_same_species = from
+				has_trait = trait_hive_mind
 			}
 		}
 		custom_tooltip = {
@@ -555,8 +561,14 @@ citizenship_robot_servitude = {
 
 	allow = {
 		hidden_trigger = { exists = from }
-		from = { NOT = { has_policy_flag = ai_full_rights } }
+		from = {
+			NOR = {
+				has_policy_flag = ai_full_rights
+				has_policy_flag = robots_outlawed
+			}
+		}
 	}
+
 	ai_will_do = {
 		factor = 1
 	}
@@ -585,7 +597,7 @@ citizenship_purge = {
 			fail_text = "HIVE_MIND_MAIN_SPECIES_ALWAYS_CITIZEN"
 			NAND = {
 				from = { has_authority = auth_hive_mind }
-				is_same_species = from
+				has_trait = trait_hive_mind
 			}
 		}
 		if = {
@@ -601,24 +613,20 @@ citizenship_purge = {
 			OR = {
 				custom_tooltip = {
 					#fail_text = default
-					AND = {
-						from = { has_authority = auth_hive_mind }
-						NOT = { is_same_species = from }
-					}
+					from = { has_authority = auth_hive_mind }
+					NOT = { is_same_species = from }
 				}
 				custom_tooltip = {
 					#fail_text = default
-					AND = {
-						from = { has_valid_civic = civic_fanatic_purifiers }
-						NOT = { is_same_species = from }
-					}
+					from = { has_valid_civic = civic_fanatic_purifiers }
+					NOT = { is_same_species = from }
 				}
 				AND = {
 					NOT = { is_same_species = from }
 					OR = {
 						from = { allows_purge = yes }
-						root = { has_trait = trait_machine_unit }
-						root = { has_trait = trait_mechanical }
+						has_trait = trait_machine_unit
+						has_trait = trait_mechanical
 					}
 				}
 			}

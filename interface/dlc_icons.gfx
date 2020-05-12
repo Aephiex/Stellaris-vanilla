@@ -215,25 +215,25 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_expansionframe_big"
 		texturefile = "gfx/interface/icons/dlc/expansion_frame_big.dds"
-		noOfFrames = 3
+		noOfFrames = 2
 	}
 	
 	spriteType = {
 		name = "GFX_expansionframe_small"
 		texturefile = "gfx/interface/icons/dlc/expansion_frame_small.dds"
-		noOfFrames = 3
+		noOfFrames = 2
 	}
 	
 	spriteType = {
 		name = "GFX_packframe_big"
 		texturefile = "gfx/interface/icons/dlc/pack_frame_big.dds"
-		noOfFrames = 3
+		noOfFrames = 2
 	}
 
 	spriteType = {
 		name = "GFX_packframe_small"
 		texturefile = "gfx/interface/icons/dlc/pack_frame_small.dds"
-		noOfFrames = 3
+		noOfFrames = 2
 	}
 
 	spriteType = {

@@ -1,0 +1,62 @@
+entity = {
+	name = "consecrated_1_planet_entity"
+#	pdxmesh = "planet_clouded_mesh"
+	default_state = "idle"
+
+	scale = 4
+#	meshsettings = {
+#	name = "planet_geosphereShape"
+#	texture_diffuse = "arctic_01_diffuse.dds"
+#	texture_normal = "arctic_01_normals.dds"
+#	texture_specular = "arctic_01_spec.dds"
+#	}
+	
+		state = { name = "idle" 
+		#animation = "idle" time_offset = { 0 100 }
+		start_event = { trigger_once = yes sound = { soundeffect = "sfx_amb_consecrated_1_planet" } }
+		start_event = {	time = 0 	particle = "consecrated_planet_stage_1_effect"		trigger_once = yes		keep_particle = yes
+		}
+	}
+}
+
+entity = {
+	name = "consecrated_2_planet_entity"
+#	pdxmesh = "planet_clouded_mesh"
+	default_state = "idle"
+
+	scale = 4
+#	meshsettings = {
+#	name = "planet_geosphereShape"
+#	texture_diffuse = "arctic_01_diffuse.dds"
+#	texture_normal = "arctic_01_normals.dds"
+#	texture_specular = "arctic_01_spec.dds"
+#	}
+	
+		state = { name = "idle" 
+		#animation = "idle" time_offset = { 0 100 }
+		start_event = { trigger_once = yes sound = { soundeffect = "sfx_amb_consecrated_2_planet" } }
+		start_event = {	time = 0 	particle = "consecrated_planet_stage_2_effect"		trigger_once = yes		keep_particle = yes
+		}
+	}
+}
+
+entity = {
+	name = "consecrated_3_planet_entity"
+#	pdxmesh = "planet_clouded_mesh"
+	default_state = "idle"
+
+	scale = 4
+#	meshsettings = {
+#	name = "planet_geosphereShape"
+#	texture_diffuse = "arctic_01_diffuse.dds"
+#	texture_normal = "arctic_01_normals.dds"
+#	texture_specular = "arctic_01_spec.dds"
+#	}
+	
+		state = { name = "idle" 
+		#animation = "idle" time_offset = { 0 100 }
+		start_event = { trigger_once = yes sound = { soundeffect = "sfx_amb_consecrated_3_planet" } }
+		start_event = {	time = 0 	particle = "consecrated_planet_stage_3_effect"		trigger_once = yes		keep_particle = yes
+		}
+	}
+}

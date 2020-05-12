@@ -22,6 +22,10 @@ diplomatic_stance = {
 		}
 	}
 
+	allow = {
+		is_at_war = no # Not allowed to change policies in this group while at war
+	}
+
 	option = {
 		name = "diplo_stance_belligerent"
 		icon = "GFX_diplomatic_stance_belligerent"
@@ -55,21 +59,19 @@ diplomatic_stance = {
 			}
 
 			# Pacifists
-			modifier = { # Fanatic Pacifists can *only* go belligerent if they are at war or there's a rival neighbor...
+			modifier = { # Fanatic Pacifists will *only* go belligerent if there's a rival neighbor...
 				factor = 0
 				has_ethic = ethic_fanatic_pacifist
-				NOR = {
-					is_at_war = yes
+				NOT = {
 					any_neighbor_country = {
 						is_rival = root
 					}
 				}
 			}
-			modifier = { # Regular Pacifists have only a small chance to go belligerent if they are not at war or there's a rival neighbor...
+			modifier = { # Regular Pacifists have only a small chance to go belligerent unless there's a rival neighbor...
 				factor = 0.5
 				has_ethic = ethic_pacifist
-				NOR = {
-					is_at_war = yes
+				NOT = {
 					any_neighbor_country = {
 						is_rival = root
 					}
@@ -628,6 +630,12 @@ war_philosophy = {
 			unrestricted_wars
 		}
 
+		in_breach_of = {
+			{
+				key = resolution_rulesofwar_last_resort_doctrine
+			}
+		}
+
 		valid = {
 			NOR = {
 				has_ethic = "ethic_pacifist"
@@ -889,6 +897,12 @@ orbital_bombardment = {
 	option = {
 		name = "orbital_bombardment_indiscriminate"
 
+		in_breach_of = {
+			{
+				key = resolution_rulesofwar_independent_tribunals
+			}
+		}
+
 		policy_flags = {
 			orbital_bombardment_indiscriminate
 		}
@@ -913,6 +927,12 @@ orbital_bombardment = {
 	}
 	option = {
 		name = "orbital_bombardment_armageddon"
+
+		in_breach_of = {
+			{
+				key = resolution_rulesofwar_independent_tribunals
+			}
+		}
 
 		potential = {
 			OR = {
@@ -953,6 +973,12 @@ interference = {
 
 		on_enabled = {
 			hidden_effect = { set_country_flag = encountered_first_primitive }
+		}
+
+		in_breach_of = {
+			{
+				key = resolution_galacticstudies_advanced_xenostudies
+			}
 		}
 
 		valid = {
@@ -1219,6 +1245,18 @@ leader_enhancement = {
 			leader_enhancement_natural_selection
 		}
 
+		in_breach_of = {
+			{
+				key = resolution_galacticstudies_ethical_guideline_refactoring
+				trigger = {
+					OR = {
+						has_technology = tech_selected_lineages
+						has_technology = tech_capacity_boosters
+					}
+				}
+			}
+		}
+
 		on_enabled = {
 			# custom_tooltip = "policy_allow_slavery_effect_disable"
 		}
@@ -1237,6 +1275,15 @@ leader_enhancement = {
 			leader_skill_levels = 1
 			leader_age = 10
 			leaders_cost_mult = 0.5
+		}
+
+		in_breach_of = {
+			{
+				key = resolution_galacticstudies_ethical_guideline_refactoring
+				trigger = {
+					has_technology = tech_capacity_boosters
+				}
+			}
 		}
 
 		valid = {
@@ -1425,10 +1472,7 @@ border_policy = {
 
 food_policy = {
 	potential = {
-		OR = {
-			NOT = { has_ethic = ethic_gestalt_consciousness }
-			has_valid_civic = civic_machine_servitor
-		}
+		always = no
 	}
 
 	option = {
@@ -1477,9 +1521,7 @@ food_policy = {
 
 food_policy_gestalt = {
 	potential = {
-		has_ethic = ethic_gestalt_consciousness
-		NOT = { has_authority = auth_machine_intelligence }
-		is_lithoid_empire = no
+		always = no
 	}
 
 	option = {
@@ -1519,7 +1561,6 @@ food_policy_gestalt = {
 	}
 }
 
-
 economic_policy = {
 	potential = {
 		NOT = { has_ethic = ethic_gestalt_consciousness }
@@ -1558,6 +1599,12 @@ economic_policy = {
 	option = {
 		name = "economic_policy_military"
 
+		in_breach_of = {
+			{
+				key = resolution_rulesofwar_demobilization_initiative
+			}
+		}
+
 		modifier = {
 			planet_jobs_consumer_goods_produces_mult = -0.25
 			planet_jobs_alloys_produces_mult = 0.15
@@ -1584,15 +1631,6 @@ trade_policy = {
 
 	option = {
 		name = "trade_policy_default"
-		potential = {
-			OR = {
-				has_federation = no
-				AND = {
-					has_federation = yes
-					federation = { NOT = { has_federation_perk = trade_federation_passive } }
-				}
-			}
-		}
 
 		AI_weight = {
 			factor = 1
@@ -1661,7 +1699,7 @@ trade_policy = {
 		}
 
 		AI_weight = {
-			factor = 0
+			factor = 10
 		}
 	}
 }
@@ -1729,6 +1767,12 @@ artificial_intelligence_policy = {
 
 		policy_flags = {
 			ai_outlawed
+		}
+
+		in_breach_of = {
+			{
+				key = resolution_galacticstudies_advanced_xenostudies
+			}
 		}
 
 		AI_weight = {
@@ -1859,6 +1903,18 @@ robot_pop_policy = {
 
 		policy_flags = {
 			robots_outlawed
+		}
+
+		on_enabled = {
+			hidden_effect = {
+				every_owned_species = {
+					limit = { is_robotic_species = yes }
+					set_citizenship_type = {
+						type = citizenship_purge
+						country = root
+					}
+				}
+			}
 		}
 
 		AI_weight = {
@@ -2261,10 +2317,6 @@ slavery = {
 }
 
 purge = {
-	potential = {
-		NOT = { has_ethic = "ethic_gestalt_consciousness" }
-	}
-
 	option = {
 		name = "purge_not_allowed"
 
@@ -2289,23 +2341,10 @@ purge = {
 
 		valid = {
 			NOR = {
-				is_subject_type = signatory
-				AND = {
-					has_ethic = ethic_gestalt_consciousness
-					OR = {
-						is_galactic_community_member = no
-						NOR = {
-							is_active_resolution = "resolution_rulesofwar_reverence_for_life"
-							is_active_resolution = "resolution_rulesofwar_independent_tribunals"
-							is_active_resolution = "resolution_rulesofwar_last_resort_doctrine"
-							is_active_resolution = "resolution_rulesofwar_demobilization_initiative"
-						}
-					}
-				}
 				has_ethic = ethic_xenophile
 				has_ethic = ethic_fanatic_xenophile
 			}
-			NOT = { has_valid_civic = "civic_fanatic_purifiers" }
+			is_homicidal = no
 		}
 
 		AI_weight = {
@@ -2320,6 +2359,12 @@ purge = {
 
 	option = {
 		name = "purge_allowed"
+
+		in_breach_of = {
+			{
+				key = resolution_rulesofwar_reverence_for_life
+			}
+		}
 
 		policy_flags = {
 			purge_allowed
@@ -2338,8 +2383,9 @@ purge = {
 		AI_weight = {
 			factor = 10
 			modifier = {
-				factor = 50
+				factor = 40
 				has_ethic = ethic_gestalt_consciousness
+				NOT = { has_valid_civic = civic_hive_empath }
 			}
 			modifier = {
 				factor = 0
@@ -2351,7 +2397,10 @@ purge = {
 			modifier = {
 				factor = 0
 				has_valid_ai_personality = yes
-				NOT = { has_ai_personality_behaviour = purger }
+				NOR = {
+					has_ai_personality_behaviour = purger
+					has_ethic = ethic_gestalt_consciousness
+				}
 			}
 			modifier = {
 				factor = 0.1

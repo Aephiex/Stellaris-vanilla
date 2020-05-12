@@ -1,0 +1,25 @@
+objectTypes = {
+	
+	pdxparticle = {
+		name = "consecrated_planet_stage_1_effect"
+		type = "consecrated_planet_stage_1_file"
+		
+		scale = 1.0
+	}
+
+	pdxparticle = {
+		name = "consecrated_planet_stage_2_effect"
+		type = "consecrated_planet_stage_2_file"
+		
+		scale = 1.0
+	}
+	
+		pdxparticle = {
+		name = "consecrated_planet_stage_3_effect"
+		type = "consecrated_planet_stage_3_file"
+		
+		scale = 1.0
+	}
+}
+
+

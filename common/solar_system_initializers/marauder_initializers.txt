@@ -47,6 +47,7 @@ marauder_1_1 = {
 				}
 				portrait = random
 				traits = {
+					trait = "trait_pc_habitat_preference"
 					trait = "trait_extremely_adaptive"
 					trait = "trait_rapid_breeders"
 					trait = "trait_nomadic"
@@ -59,6 +60,7 @@ marauder_1_1 = {
 				species = last_created
 				type = dormant_marauders
 				civics = { civic = civic_anarcho_tribalism }
+				origin = "origin_default"
 				flag = {
 					background= {
 						category = "backgrounds"
@@ -1107,6 +1109,7 @@ marauder_2_1 = {
 				}
 				portrait = random
 				traits = {
+					trait = "trait_pc_habitat_preference"
 					trait = "trait_extremely_adaptive"
 					trait = "trait_rapid_breeders"
 					trait = "trait_nomadic"
@@ -1119,6 +1122,7 @@ marauder_2_1 = {
 				species = last_created
 				type = dormant_marauders
 				civics = { civic = civic_anarcho_tribalism }
+				origin = "origin_default"
 				flag = {
 					background= {
 						category = "backgrounds"
@@ -2105,6 +2109,7 @@ marauder_3_1 = {
 				}
 				portrait = random
 				traits = {
+					trait = "trait_pc_habitat_preference"
 					trait = "trait_extremely_adaptive"
 					trait = "trait_rapid_breeders"
 					trait = "trait_nomadic"
@@ -2117,6 +2122,7 @@ marauder_3_1 = {
 				species = last_created
 				type = dormant_marauders
 				civics = { civic = civic_anarcho_tribalism }
+				origin = "origin_default"
 				flag = {
 					background= {
 						category = "backgrounds"

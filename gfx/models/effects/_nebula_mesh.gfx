@@ -1,0 +1,365 @@
+objectTypes = {
+	
+	pdxmesh = {
+		name = "nebula_1_mesh"
+		file = "gfx/models/effects/nebula_1.mesh"
+		
+		animation = { id = "idle"    type = "nebula_idle_animation" }
+
+		meshsettings = {
+			index = 0
+			shader = "PdxMeshAlphaAdditiveAnimateUV"
+			texture_diffuse = "nebula_clouds.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"
+		}
+	}
+
+	pdxmesh = {
+		name = "nebula_2_mesh"
+		file = "gfx/models/effects/nebula_2.mesh"
+
+		animation = { id = "idle"    type = "nebula_2_idle_animation" }
+	
+		meshsettings = {
+			index = 0
+			shader = "PdxMeshAlphaAdditiveAnimateUV"
+			texture_diffuse = "nebula_clouds.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"
+		}
+	}
+
+
+	pdxmesh = {
+		name = "nebula_3_mesh"
+		file = "gfx/models/effects/nebula_3.mesh"
+
+		animation = { id = "idle"    type = "nebula_3_idle_animation" }
+	
+		meshsettings = {
+			index = 0
+			shader = "PdxMeshAlphaAdditiveAnimateUV"
+			texture_diffuse = "nebula_clouds_2.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"
+		}
+	}
+	
+	pdxmesh = {
+		name = "nebula_4_mesh"
+		file = "gfx/models/effects/nebula_4.mesh"
+	
+		meshsettings = {
+			index = 0
+			shader = "PdxMeshAlphaAdditiveAnimateUV"
+			texture_diffuse = "nebula_clouds_3.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"
+		}
+	}
+	
+	pdxmesh = {
+		name = "nebula_4_color_mesh"
+		file = "gfx/models/effects/nebula_4.mesh"
+	
+		meshsettings = {
+			index = 0
+			shader = "PdxMeshAlphaAdditiveAnimateUV"
+			texture_diffuse = "nebula_clouds_4.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"
+		}
+	}
+	
+	pdxmesh = {
+		name = "nebula_4_color_2_mesh"
+		file = "gfx/models/effects/nebula_4.mesh"
+	
+		meshsettings = {
+			index = 0
+			shader = "PdxMeshAlphaAdditiveAnimateUV"
+			texture_diffuse = "nebula_clouds_5.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"
+		}
+	}
+############### Circle Nebula ##############	
+	pdxmesh = {
+		name = "nebula_5_color_mesh"
+		file = "gfx/models/effects/nebula_5.mesh"
+	
+		meshsettings = {
+			index = 0
+			shader = "PdxMeshAlphaAdditiveAnimateUV"
+			texture_diffuse = "nebula_lights_1.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"
+		}
+	}
+	
+	pdxmesh = {
+		name = "nebula_5_color_2_mesh"
+		file = "gfx/models/effects/nebula_5.mesh"
+	
+		meshsettings = {
+			index = 0
+			shader = "PdxMeshAlphaAdditiveAnimateUV"
+			texture_diffuse = "nebula_lights_2.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"
+		}
+	}
+
+	pdxmesh = {
+		name = "nebula_5_color_3_mesh"
+		file = "gfx/models/effects/nebula_5.mesh"
+	
+		meshsettings = {
+			index = 0
+			shader = "PdxMeshAlphaAdditiveAnimateUV"
+			texture_diffuse = "nebula_lights_6.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"
+		}
+	}	
+	
+	pdxmesh = {
+		name = "nebula_5_mesh"
+		file = "gfx/models/effects/nebula_5.mesh"
+	
+		meshsettings = {
+			index = 0
+			shader = "PdxMeshAlphaAdditiveAnimateUV"
+			texture_diffuse = "nebula_clouds_6.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"
+		}
+	}
+	
+	pdxmesh = {
+		name = "nebula_5_2_mesh"
+		file = "gfx/models/effects/nebula_5.mesh"
+	
+		meshsettings = {
+			index = 0
+			shader = "PdxMeshAlphaAdditiveAnimateUV"
+			texture_diffuse = "nebula_clouds_7.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"
+		}
+	}
+
+	pdxmesh = {
+		name = "nebula_5_3_mesh"
+		file = "gfx/models/effects/nebula_5.mesh"
+	
+		meshsettings = {
+			index = 0
+			shader = "PdxMeshAlphaAdditiveAnimateUV"
+			texture_diffuse = "nebula_clouds_8.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"
+		}
+	}
+	
+	pdxmesh = {
+		name = "nebula_6_color_mesh"
+		file = "gfx/models/effects/nebula_6.mesh"
+	
+		meshsettings = {
+			index = 0
+			shader = "PdxMeshAlphaAdditiveAnimateUV"
+			texture_diffuse = "nebula_lights_1.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"
+		}
+	}
+
+	pdxmesh = {
+		name = "nebula_6_color_2_mesh"
+		file = "gfx/models/effects/nebula_6.mesh"
+	
+		meshsettings = {
+			index = 0
+			shader = "PdxMeshAlphaAdditiveAnimateUV"
+			texture_diffuse = "nebula_lights_2.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"
+		}
+	}
+	
+	pdxmesh = {
+		name = "nebula_6_mesh"
+		file = "gfx/models/effects/nebula_6.mesh"
+	
+		meshsettings = {
+			index = 0
+			shader = "PdxMeshAlphaAdditiveAnimateUV"
+			texture_diffuse = "nebula_clouds_6.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"
+		}
+	}
+	
+	pdxmesh = {
+		name = "nebula_6_2_mesh"
+		file = "gfx/models/effects/nebula_6.mesh"
+	
+		meshsettings = {
+			index = 0
+			shader = "PdxMeshAlphaAdditiveAnimateUV"
+			texture_diffuse = "nebula_clouds_7.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"
+			shader = "PdxMeshAlphaAdditiveAnimateUV"
+		}
+	}
+	
+	pdxmesh = {
+		name = "nebula_6_3_mesh"
+		file = "gfx/models/effects/nebula_6.mesh"
+	
+		meshsettings = {
+			index = 0
+			shader = "PdxMeshAlphaAdditiveAnimateUV"
+			texture_diffuse = "nebula_clouds_8.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"
+		}
+	}
+############ Sphereplane	
+	pdxmesh = {
+		name = "nebula_7_mesh"
+		file = "gfx/models/effects/nebula_7.mesh"
+
+#		animation = { id = "idle"    type = "nebula_3_idle_animation" }
+	
+		meshsettings = {
+			index = 0
+			shader = "PdxMeshAlphaAdditiveAnimateUV"
+			texture_diffuse = "nebula_lights_3.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"
+		}
+	}
+
+	pdxmesh = {
+		name = "nebula_7_2_mesh"
+		file = "gfx/models/effects/nebula_7.mesh"
+
+#		animation = { id = "idle"    type = "nebula_3_idle_animation" }
+	
+		meshsettings = {
+			index = 0
+			shader = "PdxMeshAlphaAdditiveAnimateUV"
+			texture_diffuse = "nebula_lights_5.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"
+		}
+	}
+
+	pdxmesh = {
+		name = "nebula_7_3_mesh"
+		file = "gfx/models/effects/nebula_7.mesh"
+
+#		animation = { id = "idle"    type = "nebula_3_idle_animation" }
+	
+		meshsettings = {
+			index = 0
+			shader = "PdxMeshAlphaAdditiveAnimateUV"
+			texture_diffuse = "nebula_lights_4.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"
+		}
+	}
+	
+	############ Bowl	
+	pdxmesh = {
+		name = "nebula_8_mesh"
+		file = "gfx/models/effects/nebula_8.mesh"
+	
+		meshsettings = {
+			index = 0
+			shader = "PdxMeshAlphaAdditiveAnimateUV"
+			texture_diffuse = "nebula_lights_4.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"
+		}
+	}
+	
+	pdxmesh = {
+		name = "nebula_8_2_mesh"
+		file = "gfx/models/effects/nebula_8.mesh"
+	
+		meshsettings = {
+			index = 0
+			shader = "PdxMeshAlphaAdditiveAnimateUV"
+			texture_diffuse = "nebula_lights_5.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"
+		}
+	}
+
+	pdxmesh = {
+		name = "nebula_8_3_mesh"
+		file = "gfx/models/effects/nebula_8.mesh"
+	
+		meshsettings = {
+			index = 0
+			shader = "PdxMeshAlphaAdditiveAnimateUV"
+			texture_diffuse = "nebula_lights_3.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"
+		}
+	}
+
+	pdxmesh = {
+		name = "nebula_turbulent_mesh"
+		file = "gfx/models/effects/nebula_8.mesh"
+	
+		meshsettings = {
+			index = 0
+			shader = "PdxMeshAlphaAdditiveAnimateUV"
+			texture_diffuse = "nebula_lights_turbulent_1.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"
+		}
+	}
+	
+	pdxmesh = {
+		name = "nebula_turbulent_2_mesh"
+		file = "gfx/models/effects/nebula_8.mesh"
+	
+		meshsettings = {
+			index = 0
+			shader = "PdxMeshAlphaAdditiveAnimateUV"
+			texture_diffuse = "nebula_lights_turbulent_2.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"
+		}
+	}
+	pdxmesh = {
+		name = "system_lightning_1_mesh"
+		file = "gfx/models/effects/system_lightning_1.mesh"
+
+		meshsettings = {
+			index = 0
+			shader = "PdxMeshAlphaAdditiveAnimateUVErosion"
+			texture_diffuse = "system_lightning_1.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"		}
+	}
+	
+	pdxmesh = {
+		name = "system_lightning_locations_mesh"
+		file = "gfx/models/effects/system_lightning_locations.mesh"
+
+		meshsettings = {
+			index = 0
+			shader = "PdxMeshAlphaAdditive"
+			texture_diffuse = "system_lightning_1.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"		}
+	}
+}

@@ -61,6 +61,17 @@ guiTypes = {
 			text = ""
 			orientation = "UPPER_LEFT"
 		}
+
+		editBoxType = {
+			position = { x = 19 y = 272 }
+			name = "largefont_chat_input"
+			textureFile = ""
+			font = "malgun_goth_24"
+			size = { x=276 y=120 }
+			text = ""
+			orientation = "UPPER_LEFT"
+		}
+
 	}
 
 	windowType = {
@@ -74,6 +85,22 @@ guiTypes = {
 		verticalBorder= ""
 		fullScreen = no
 
+		guiButtonType =	{
+			name = "highlight"
+			spriteType = "GFX_button_light"
+			position = { x = 0 y = 10 }
+			size = { x = 512 y = 18 }
+			no_clicksound = yes
+		}
+
+		guiButtonType =	{
+			name = "select"
+			spriteType = "GFX_invisible"
+			position = { x = 0 y = 10 }
+			size = { x = 512 y = 18 }
+			no_clicksound = yes
+		}
+
 		instantTextBoxType={
 			position = {x = 5 y = 10 }
 			name = "text"
@@ -84,6 +111,45 @@ guiTypes = {
 			text = ""	
 		}
 	}
+
+	windowType = {
+		name = "lartgefont_chat_item"
+		backGround=""
+		position = { x=0 y=0 }	
+		size = { x=512 y= 22 }
+		moveable = 0
+		dontRender = ""
+		horizontalBorder= ""
+		verticalBorder= ""
+		fullScreen = no
+
+		guiButtonType =	{
+			name = "highlight"
+			spriteType = "GFX_button_light"
+			position = { x = 0 y = 10 }
+			size = { x = 512 y = 18 }
+			no_clicksound = yes
+		}
+
+		guiButtonType =	{
+			name = "select"
+			spriteType = "GFX_invisible"
+			position = { x = 0 y = 10 }
+			size = { x = 512 y = 18 }
+			no_clicksound = yes
+		}
+
+		instantTextBoxType={
+			position = {x = 5 y = 10 }
+			name = "text"
+			font = "malgun_goth_24"
+			borderSize = {x = 0 y = 0}	
+			maxWidth = 250
+			maxHeight = 18
+			text = ""	
+		}
+	}
+
 
 
 	windowType = {

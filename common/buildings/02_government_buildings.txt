@@ -183,9 +183,9 @@ building_bureaucratic_2 = {
 		job_bureaucrat_add = 5
 	}
 
-	#upgrades = {
-	#	"building_bureaucratic_3"
-	#}
+# 	upgrades = {
+# 		"building_bureaucratic_3"
+# 	}
 
 	prerequisites = {
 		"tech_colonial_bureaucracy"
@@ -228,13 +228,13 @@ building_bureaucratic_2 = {
 	}
 
 	on_queued = {
-		owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 480 } }
 		planet = {
 			set_timed_planet_flag = { flag = recent_admin_building_built days = 720 }
 		}
 	}
 }
 
+# T3 Admin Cap buildings intentionally removed for regular empires, left in a partial state to not break existing games
 building_bureaucratic_3 = {
 	base_buildtime = @b3_time
 	can_build = no
@@ -242,11 +242,9 @@ building_bureaucratic_3 = {
 	category = government
 
 	potential = {
-		exists = owner
-		OR = {
-			buildings_no_crystals = yes
-			owner = { is_regular_empire = no }
-		}
+		always = no
+#		exists = owner
+#		owner = { is_regular_empire = yes }
 	}
 
 	allow = {
@@ -255,7 +253,10 @@ building_bureaucratic_3 = {
 
 	destroy_trigger = {
 		exists = owner
-		owner = { is_regular_empire = no }
+		OR = {
+			buildings_no_crystals = yes
+			owner = { is_regular_empire = no }
+		}
 	}
 
 	resources = {
@@ -279,7 +280,8 @@ building_bureaucratic_3 = {
 	}
 
 	show_tech_unlock_if = {
-		is_regular_empire = yes
+# 		is_regular_empire = yes
+		always = no
 	}
 
 	triggered_desc = {
@@ -314,7 +316,6 @@ building_bureaucratic_3 = {
 		}
 	}
 	on_queued = {
-		owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 600 } }
 		planet = {
 			set_timed_planet_flag = { flag = recent_admin_building_built days = 720 }
 		}
@@ -481,7 +482,6 @@ building_network_junction = {
 		}
 	}
 	on_queued = {
-		owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 480 } }
 		planet = {
 			set_timed_planet_flag = { flag = recent_admin_building_built days = 720 }
 		}
@@ -564,7 +564,6 @@ building_system_conflux = {
 		}
 	}
 	on_queued = {
-		owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 600 } }
 		planet = {
 			set_timed_planet_flag = { flag = recent_admin_building_built days = 720 }
 		}
@@ -632,6 +631,23 @@ building_precinct_house = {
 	potential = {
 		owner = { is_regular_empire = yes }
 		NOT = { has_modifier = slave_colony }
+	}
+
+	allow = {
+		OR = {
+			owner = { is_ai = no }
+			AND = {
+				planet_crime > 15
+				NOR = {
+					AND = {
+						has_building = building_precinct_house
+						owner = { has_technology = tech_colonial_centralization }
+					}
+					has_building = building_hall_judgment
+					num_buildings = { type = building_precinct_house value = 3 }
+				}
+			}
+		}
 	}
 
 	destroy_trigger = {
@@ -753,6 +769,16 @@ building_sentinel_posts = {
 	potential = {
 		exists = owner
 		owner = { is_gestalt = yes }
+	}
+
+	allow = {
+		OR = {
+			owner = { is_ai = no }
+			AND = {
+				buildings_simple_allow = yes
+				NOT = { has_building = building_sentinel_posts }
+			}
+		}
 	}
 
 	destroy_trigger = {
@@ -1003,10 +1029,6 @@ building_embassy = {
 			}
 		}
 	}
-
-	on_queued = {
-		owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 480 } }
-	}
 }
 
 building_grand_embassy = {
@@ -1090,9 +1112,5 @@ building_grand_embassy = {
 				is_part_of_galactic_council = yes
 			}
 		}
-	}
-
-	on_queued = {
-		owner = { set_timed_country_flag = { flag = buildings_new_crystal_building days = 600 } }
 	}
 }

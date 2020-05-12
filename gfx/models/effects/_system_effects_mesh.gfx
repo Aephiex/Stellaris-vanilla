@@ -1,0 +1,16 @@
+objectTypes = {
+	
+#### Psi Storm
+
+	pdxmesh = {
+		name = "psi_storm_core_mesh"
+		file = "gfx/models/effects/psi_storm_core.mesh"
+
+		meshsettings = {
+			index = 0
+			shader = "PdxMeshAlphaAdditiveAnimateUV"
+			texture_diffuse = "psi_storm_core.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"		}
+	}
+}

@@ -2,6 +2,27 @@ guiTypes = {
 	@SettingEntrySizeX = 434
 	@SettingEntrySizeY = 34
 
+	positionType = {
+		name = "gamesetup_mp_chat_input_stt_off_size"
+		position = { x = 371 y = 20 }
+	}
+
+	positionType = {
+		name = "gamesetup_mp_chat_input_stt_on_size"
+		position = { x = 305 y = 20 }
+	}
+
+	positionType = {
+		name = "gamesetup_mp_chat_input_bkg_stt_off_size"
+		position = { x = 391 y = 34 }
+	}
+
+	positionType = {
+		name = "gamesetup_mp_chat_input_bkg_stt_on_size"
+		position = { x = 315 y = 34 }
+	}
+
+
 	containerWindowType = {
 		name = "mp_game_setup"
 		size = { width = 1260 height = 700 }
@@ -1750,6 +1771,61 @@ guiTypes = {
 						}		
 					}
 				}
+				
+				# Xeno Compatibility
+				containerWindowType = {
+					name = "xeno_compatibility"
+					position = { x = 0 y = 920 }
+					size={ width=@SettingEntrySizeX height=@SettingEntrySizeY }
+
+					instantTextBoxType = {
+						name = "xeno_compatibility_label"
+						position = { x = 10 y = 4 }
+						font = "cg_16b"
+						maxWidth = 204
+						maxHeight = 52	
+						alwaysTransparent = yes
+						orientation = "UPPER_LEFT"
+						text = "XENO_COMPATIBILITY_LABEL"
+						pdx_tooltip = "XENO_COMPATIBILITY_LABEL_TOOLTIP"
+					}
+
+					instantTextBoxType={
+						name = "value"
+						font = "malgun_goth_24"
+						text = "FTL_WARP"
+						position = { x = 195 y = 0 }
+						maxWidth = 204
+						maxHeight = 35
+						fixedSize = yes
+						format = center
+					}
+
+					spinnerType = {
+						id = "galaxy_xeno_compatibility_spinner"
+						name = "galaxy_xeno_compatibility_spinner"	
+						leftbutton = "spinner_upButton"
+						rightbutton = "spinner_downButton"
+						size = { x = 204 y = 30 }
+						position = { x = 195 y = 0 }
+						priority = 100			
+						borderSize = { x = 16 y = 16 }	
+						horizontal = 1
+						maxValue = 100
+						startValue = 0
+							
+						guiButtonType = {
+							name = "spinner_upButton"
+							quadTextureSprite = "scrollbar_leftbutton"
+							position = { x=30 y =0}	
+						}
+						guiButtonType = {
+							name = "spinner_downButton"
+							quadTextureSprite = "scrollbar_rightbutton"
+							position = { x = 30 y = 120 }	
+						}		
+					}
+				}
 			}
 		}
 		
@@ -1786,10 +1862,10 @@ guiTypes = {
 				borderSize = { x = 0 y = 0 }
 				autohide_scrollbar = no
 			}
-	
+
 			containerWindowType = {
 				name = "chat_input_background"
-				size = { width = 391 height = 34 }
+				size = { width = 315 height = 34 }
 				position = { x = 0 y = 539 }
 				
 				background = {
@@ -1797,13 +1873,56 @@ guiTypes = {
 					spriteType = "GFX_tiles_frame_light"
 				}
 			}
+
+			editBoxType = {
+				name = "largefont_chat_input"
+				position = { x = 8 y = 544 }
+				size = { x = 305 y = 22 }
+				font = "malgun_goth_24"
+				cursor = { x=0 y= -1}
+			}
 			
 			editBoxType = {
 				name = "chat_input"
 				position = { x = 10 y = 548 }
-				size = { x = 371 y = 20 }
+				size = { x = 305 y = 20 }
 				font = "cg_16b"
-				cursor = { x=0 y= -3}	
+				cursor = { x=0 y= -3}
+			}
+
+			containerWindowType = {
+				name = "stt_toggle_container"
+				position = { x = 305 y = 532 }
+				size = { width = 75 height = 24 }
+
+				buttonType = {
+					name = "stt_toggle"
+					size = { x = 75 y = 24 }
+					position = { x = 0 y = 0 }
+					spriteType = "GFX_button_75_24"
+					buttonFont = "cg_16b"
+					text = ""
+					font = "cg_16b"
+					oversound = mouse_over
+				}
+
+				iconType = {
+					name = "stt_toggle_icon"
+					spriteType = "GFX_cvaa_mic_icon"
+					position = { x = 27 y = 14 }
+					alwaysTransparent = yes
+				}
+
+				instantTextBoxType = {
+					name = "stt_toggle_text"
+					position = { x = 45 y = 15 }
+					font = "cg_16b"
+					text = "CHAT_CVAA_MIC_NAME"
+					maxWidth = 75
+					maxHeight = 20
+					format = left
+				}		
+
 			}
 			
 			buttonType = {
@@ -2049,16 +2168,26 @@ guiTypes = {
 		}
 	}
 	
-	windowType = {
+	containerWindowType = {
 		name = "mp_gamesetup_chat_entry"
-		backGround=""
 		position = { x=0 y=0 }	
-		size = { x=410 y= 18 }
-		moveable = 0
-		dontRender = ""
-		horizontalBorder= ""
-		verticalBorder= ""
-		fullScreen = no
+		size = { width = 410 height = 18 }
+
+		buttonType =	{
+			name = "highlight"
+			spriteType = "GFX_cvaa_speak_message_bg"
+			position = { x = 0 y = 8 }
+			size = { x = 410 y = 22 }
+			no_clicksound = yes
+		}
+
+		buttonType =	{
+			name = "select"
+			spriteType = "GFX_invisible"
+			position = { x = 0 y = 10 }
+			size = { x = 410 y = 18 }
+			no_clicksound = yes
+		}
 
 		instantTextBoxType={
 			position = {x = 5 y = 10 }
@@ -2069,7 +2198,122 @@ guiTypes = {
 			maxHeight = 18
 			text = ""	
 		}
+
 	}
+
+	containerWindowType = {
+		name = "icon_mp_gamesetup_chat_entry"
+		position = { x=0 y=0 }	
+		size = { width = 410 height = 18 }
+
+		buttonType =	{
+			name = "highlight"
+			spriteType = "GFX_cvaa_speak_message_bg"
+			position = { x = 0 y = 8 }
+			size = { x = 410 y = 22 }
+			no_clicksound = yes
+		}
+
+		buttonType =	{
+			name = "select"
+			spriteType = "GFX_invisible"
+			position = { x = 0 y = 10 }
+			size = { x = 410 y = 18 }
+			no_clicksound = yes
+		}
+
+		instantTextBoxType={
+			position = {x = 25 y = 10 }
+			name = "text"
+			font = "cg_16b"
+			borderSize = {x = 0 y = 0}	
+			maxWidth = 380
+			maxHeight = 18
+			text = ""	
+		}
+
+		iconType = {
+			name = "icon"
+			position = { x = 0 y = 9 }
+			spriteType = "GFX_cvaa_speak_icon"
+			scale = 0.8
+		}
+	}
+
+
+	containerWindowType = {
+		name = "largefont_mp_gamesetup_chat_entry"
+		position = { x=0 y=0 }	
+		size = { width = 410 height = 22 }
+
+		buttonType =	{
+			name = "highlight"
+			spriteType = "GFX_cvaa_speak_message_bg"
+			position = { x = 0 y = 10 }
+			size = { x = 410 y = 26 }
+			no_clicksound = yes
+		}
+
+		buttonType =	{
+			name = "select"
+			spriteType = "GFX_invisible"
+			position = { x = 0 y = 10 }
+			size = { x = 410 y = 22 }
+			no_clicksound = yes
+		}
+
+		instantTextBoxType={
+			position = {x = 5 y = 10 }
+			name = "text"
+			font = "malgun_goth_24"
+			borderSize = {x = 0 y = 0}	
+			maxWidth = 400
+			maxHeight = 22
+			text = ""	
+		}
+
+	}
+
+	containerWindowType = {
+		name = "icon_largefont_mp_gamesetup_chat_entry"
+		position = { x=0 y=0 }	
+		size = { width = 410 height = 22 }
+
+		buttonType =	{
+			name = "highlight"
+			spriteType = "GFX_cvaa_speak_message_bg"
+			position = { x = 0 y = 10 }
+			size = { x = 410 y = 26 }
+			no_clicksound = yes
+		}
+
+		buttonType =	{
+			name = "select"
+			spriteType = "GFX_invisible"
+			position = { x = 0 y = 10 }
+			size = { x = 410 y = 22 }
+			no_clicksound = yes
+		}
+
+		instantTextBoxType={
+			position = {x = 30 y = 10 }
+			name = "text"
+			font = "malgun_goth_24"
+			borderSize = {x = 0 y = 0}	
+			maxWidth = 380
+			maxHeight = 22
+			text = ""	
+		}
+
+		iconType = {
+			name = "icon"
+			position = { x = 0 y = 10 }
+			spriteType = "GFX_cvaa_speak_icon"
+		}
+
+	}
+
+
 
 	containerWindowType = {
 		name = "mp_dlc_expansion_entry"

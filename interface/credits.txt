@@ -1,4 +1,4 @@
-﻿#Stellaris: Federations Game Team
+#Stellaris: Federations Game Team
 --------
 ##EVP Creative Direction
 
@@ -228,19 +228,28 @@ Pontus Rundqvist
 
 ##Performance Marketing Manager
 
-Rania Samara
+Michiel Van Loo
 
 ##Creative Director of Marketing
 
 Steven Wells
 
-##Marketing Automation Specialist
+##Marketing Creative Producer
+
+Marcus Herbertsson
+
+##Marketing Automation Specialists
 
 Alexander Nordkvist
+Johanna Kasurinen
 
 ##Commercial Manager
 
 Viktor Stadler
+
+##Trade Marketing Manager
+
+Jackson Downing
 
 ##Data Scientist
 
@@ -248,21 +257,32 @@ Kayle Sneed
 
 ##User Researchers
 
-Henrik Edlund
 Hanna Löhman
+Yinyi Luo
 
 ##Community Developer
 
 Dale Emasiri
 
+##Community Manager
+
+Ann-Charlotte Mörk
+
 ##Community Ambassador
 
+Graeme Crawford
 Krzysztof "Harlot" Biernat
+Matthew Freake
 
 ##Customer Support
 
 Christian Arvidsson
 Debbie Lane
+
+##Live Content
+
+Jimmy Tisell
+Anders Carlsson
 
 ##Chief Dad Joke Officer
 
@@ -1951,7 +1971,9 @@ Cineast Dub AB
 
 --------
 
-Stellaris uses the Noto Sans CJK font for Asian languages, Copyright © 2014, 2015 Adobe Systems Incorporated (http://www.adobe.com/), with Reserved Font Name "Noto Sans CJK"
+Stellaris uses the Noto Sans CJK font for Asian languages,
+Copyright © 2014, 2015 Adobe Systems Incorporated (http://www.adobe.com/),
+with Reserved Font Name "Noto Sans CJK"
 
 Special thanks to all our forum members,
 partners and supporters,

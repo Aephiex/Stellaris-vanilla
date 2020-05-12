@@ -1,0 +1,102 @@
+entity = {
+	name = "prethoryn_swarm_crisis_system_effect_entity"
+	locator = { name = "core" position = { 0 0 0 } rotation = { 0 0 0} }
+	scale = 1
+
+	erosion_in = 0.5
+	erosion_out = 3
+
+	attach = { core = "prethoryn_swarm_crisis_3_effect_entity" }
+	attach = { core = "prethoryn_swarm_crisis_4_effect_entity" }
+
+
+	cull_radius = 20000
+
+	default_state = "idle"
+    state = { 
+        name = "idle" 
+        start_event = { 
+			trigger_once = yes 
+			sound = { soundeffect = "sfx_amb_crisis_prethoryn_swarm" } 
+            }
+        }
+}
+
+entity = {
+	name = "prethoryn_swarm_crisis_effect_entity"
+	pdxmesh = "prethoryn_swarm_crisis_effect_mesh"
+	scale = 40
+
+	game_data = {
+		bloom_factor			= 1
+		uv_animation_speed 	= 0.01
+		uv_animation_direction 	= { 0.2 1.0 }
+	}
+
+	cull_radius = 20000
+	default_state = "idle"
+    state = { 
+        name = "idle" 
+        start_event = { 
+			trigger_once = yes 
+			sound = { soundeffect = "sfx_amb_crisis_prethoryn_swarm" } 
+            }
+        }
+}
+
+entity = {
+	name = "prethoryn_swarm_crisis_2_effect_entity"
+	pdxmesh = "prethoryn_swarm_crisis_2_effect_mesh"
+	scale = 40
+
+	game_data = {
+		bloom_factor			= 1
+		uv_animation_speed 	= 0.01
+		uv_animation_direction 	= { 0.2 1.0 }
+	}
+
+	cull_radius = 20000
+}
+
+entity = {
+	name = "prethoryn_swarm_crisis_system_2_effect_entity"
+	locator = { name = "core" position = { 0 0 0 } rotation = { 0 0 0} }
+	scale = 1
+
+	erosion_in = 10
+	erosion_out = 10
+
+	attach = { core = "prethoryn_swarm_crisis_effect_entity" }
+	attach = { core = "prethoryn_swarm_crisis_2_effect_entity" }
+
+	cull_radius = 20000
+}
+
+entity = {
+	name = "prethoryn_swarm_crisis_3_effect_entity"
+	pdxmesh = "prethoryn_swarm_crisis_3_effect_mesh"
+	scale = 40
+
+	game_data = {
+		bloom_factor			= 1
+		uv_animation_speed 	= 0.01
+		uv_animation_direction 	= { 0.2 1.0 }
+	}
+
+	cull_radius = 20000
+}
+
+entity = {
+	name = "prethoryn_swarm_crisis_4_effect_entity"
+	pdxmesh = "prethoryn_swarm_crisis_4_effect_mesh"
+	scale = 40
+
+	game_data = {
+		bloom_factor			= 1
+		uv_animation_speed 	= 0.01
+		uv_animation_direction 	= { 0.2 1.0 }
+	}
+
+	cull_radius = 20000
+}
+

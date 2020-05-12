@@ -271,4 +271,22 @@ spriteTypes = {
 		name = "GFX_portrait_character_locked_hidden_overlay"
 		texturefile = "gfx/interface/main/PortraitFade_more_DLC.dds"
 	}					
+	
+	corneredTileSpriteType = {
+		name = "GFX_cvaa_speak_message_bg"
+		size= {x =26 y = 26 }
+		texturefile = "gfx/interface/tiles/text_highlight_bg_tile.dds "
+		borderSize = { x=4 y=4 }
+	}
+
+	spriteType = {
+		name = "GFX_cvaa_mic_icon"
+		texturefile = "gfx/interface/icons/mic.dds"
+	}
+
+	spriteType = {
+		name = "GFX_cvaa_speak_icon"
+		texturefile = "gfx/interface/icons/currently_talking.dds"
+	}
+
 }

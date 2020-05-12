@@ -239,7 +239,9 @@ VertexStruct VS_OUTPUT_PDXMESHSHIELD
 
 ConstantBuffer( ShipConstants, 1, 28 )
 {
-	float4x4 WorldMatrix;
+	float4x4	WorldMatrix;
+	float4	Erosion;
+
 	#SEntityCustomDataInstance
 	float2 vUVAnimationDir;
 	float  vUVAnimationTime;
@@ -270,7 +272,9 @@ ConstantBuffer( ShipConstants, 1, 28 )
 
 ConstantBuffer( SecondKind, 1, 28 )
 {
-	float4x4 WorldMatrix;
+	float4x4 	WorldMatrix;
+	float4	Erosion;
+
 	float Glossiness_;
 	float Specular_;
 	float Metalness_;
@@ -278,7 +282,9 @@ ConstantBuffer( SecondKind, 1, 28 )
 
 ConstantBuffer( ThirdKind, 1, 28 )
 {
-	float4x4 WorldMatrix;
+	float4x4 	WorldMatrix;
+	float4	Erosion;
+
 	#SEntityCustomDataInstance
 	float2 vUVAnimationDir;
 	float  vUVAnimationTime;
@@ -296,7 +302,9 @@ ConstantBuffer( ThirdKind, 1, 28 )
 
 ConstantBuffer( FourthKind, 1, 28 )
 {
-	float4x4 WorldMatrix;
+	float4x4 	WorldMatrix;
+	float4	Erosion;
+
 	#SEntityCustomDataInstance
 	float2 vUVAnimationDir;
 	float  vUVAnimationTime;
@@ -316,14 +324,18 @@ ConstantBuffer( FourthKind, 1, 28 )
 
 ConstantBuffer( FifthKind, 1, 28 )
 {
-	float4x4 WorldMatrix;
+	float4x4 	WorldMatrix;
+	float4	Erosion;
+
 	float4 BARPrimaryColor;
 	float  vProgressBarValue;
 };
 
 ConstantBuffer( SixthKind, 1, 28 )
 {
-	float4x4 WorldMatrix;
+	float4x4 	WorldMatrix;
+	float4	Erosion;
+
 	float4 ProgressBarPrimaryColor;
 	float  vHPBarPadding;
 	float  vHealth;
@@ -331,7 +343,9 @@ ConstantBuffer( SixthKind, 1, 28 )
 
 ConstantBuffer( SeventhKind, 1, 28 )
 {
-	float4x4 WorldMatrix;
+	float4x4 	WorldMatrix;
+	float4	Erosion;
+
 	float	vOverValue;
 	float	vDownValue;
 	float 	vSelectedValue;
@@ -340,7 +354,9 @@ ConstantBuffer( SeventhKind, 1, 28 )
 
 ConstantBuffer( EigthKind, 1, 28 )
 {
-	float4x4 WorldMatrix;
+	float4x4 	WorldMatrix;
+	float4	Erosion;
+
 	float2 vUVAnimationDir;
 	float  vUVAnimationTime;
 	float  vBloomFactor;
@@ -348,7 +364,9 @@ ConstantBuffer( EigthKind, 1, 28 )
 
 ConstantBuffer( NinthKind, 1, 28 )
 {
-	float4x4 WorldMatrix;
+	float4x4 	WorldMatrix;
+	float4	Erosion;
+
 	float3	ObjectPos;
 	float	vNumLoops;
 	float3	ObjectDir;
@@ -359,7 +377,9 @@ ConstantBuffer( NinthKind, 1, 28 )
 
 ConstantBuffer( CommonWithAlphaOverrideMult, 1, 28 )
 {
-	float4x4 WorldMatrix;
+	float4x4 	WorldMatrix;
+	float4	Erosion;
+
 	#SEntityCustomDataInstance
 	float2 vUVAnimationDir;
 	float  vUVAnimationTime;
@@ -371,7 +391,9 @@ ConstantBuffer( CommonWithAlphaOverrideMult, 1, 28 )
 
 ConstantBuffer( ConstructionConstants, 1, 28 )	#construction
 {
-	float4x4 WorldMatrix;
+	float4x4 	WorldMatrix;
+	float4	Erosion;
+
 	float4 ConstructionColor;
 	float4 PrimaryColor_Construction;
 	float vConstructionProgress;
@@ -380,7 +402,9 @@ ConstantBuffer( ConstructionConstants, 1, 28 )	#construction
 
 ConstantBuffer( EleventhKind, 1, 28 )
 {
-	float4x4 WorldMatrix;
+	float4x4 	WorldMatrix;
+	float4	Erosion;
+
 	float4 	vAuraColor;
 	float	vAuraRadius;
 }
@@ -394,12 +418,13 @@ ConstantBuffer( PortraitCommon, 0, 0 )
 
 ConstantBuffer( TwelthKind, 1, 28 )
 {
-	float4x4	WorldMatrix;
+	float4x4 	WorldMatrix;
+	float4	Erosion;
 }
 
-ConstantBuffer( Animation, 2, 41 )
+ConstantBuffer( Animation, 2, 42 )
 {
-	float4x4 matBones[50]; // : Bones :register( c41 ); // 50 * 4 registers 41 - 241
+	float4x4 matBones[50]; // : Bones :register( c42 ); // 50 * 4 registers 42 - 242
 };
 
 Code
@@ -1566,7 +1591,12 @@ PixelShader =
 			#endif
 
 			#ifdef DISSOLVE
-			vDiffuse.rgb = ApplyDissolve( PrimaryColor.rgb, vDamage, vDiffuse.rgb, vDiffuse.rgb, In.vUV0 );
+				vDiffuse.rgb = ApplyDissolve( PrimaryColor.rgb, vDamage, vDiffuse.rgb, vDiffuse.rgb, In.vUV0 );
+			#endif
+
+			#ifdef DISSOLVE_USE_EROSION
+				float vDissolveFactor = ( Erosion[0] ) * ( 1.0 - Erosion[2] );
+				vDiffuse = vDiffuse * vDissolveFactor;
 			#endif
 
 			return vDiffuse;
@@ -2153,6 +2183,15 @@ Effect PdxMeshAlphaAdditiveAnimateUV
 	Defines = { "ANIMATE_UV" "DISSOLVE" }
 }
 
+Effect PdxMeshAlphaAdditiveAnimateUVErosion
+{
+	VertexShader = "VertexPdxMeshStandard"
+	PixelShader = "PixelPdxMeshAdditive"
+	BlendState = "BlendStateAdditiveBlend"
+	DepthStencilState = "DepthStencilNoZWrite"
+	Defines = { "ANIMATE_UV" "DISSOLVE" "DISSOLVE_USE_EROSION" }
+}
+
 Effect PdxMeshColorAlphaAdditiveAnimateUV
 {
     VertexShader = "VertexPdxMeshStandard"
@@ -2230,6 +2269,13 @@ Effect PdxMeshAlphaAdditiveSkinnedShadow
 }
 
 Effect PdxMeshAlphaAdditiveAnimateUVShadow
+{
+	VertexShader = "VertexPdxMeshStandardShadow"
+	PixelShader = "PixelPdxMeshNoShadow"
+	Defines = { "IS_SHADOW" }
+}
+
+Effect PdxMeshAlphaAdditiveAnimateUVErosionShadow
 {
 	VertexShader = "VertexPdxMeshStandardShadow"
 	PixelShader = "PixelPdxMeshNoShadow"

@@ -126,6 +126,11 @@ spriteTypes = {
 	}
 	
 	spriteType = {
+		name = "GFX_situation_log_federation"
+		texturefile = "gfx/interface/icons/situation_log/situation_log_federation.dds"		
+	}
+	
+	spriteType = {
 		name = "GFX_situation_log_precursor"
 		texturefile = "gfx/interface/icons/situation_log/situation_log_precursor.dds"		
 	}

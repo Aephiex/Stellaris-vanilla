@@ -1,6 +1,6 @@
 guiTypes = {
-	@FLEET_MANAGER_AVAILABLE_SHIP_DESIGN_ENTITY_WIDTH = 337
-	@FLEET_MANAGER_AVAILABLE_SHIP_DESIGN_ENTITY_ITEM_WIDTH = 325
+	@FLEET_MANAGER_AVAILABLE_SHIP_DESIGN_ENTITY_WIDTH = 347
+	@FLEET_MANAGER_AVAILABLE_SHIP_DESIGN_ENTITY_ITEM_WIDTH = 335
 	
 	@FLEET_MANAGER_FLEET_COMPOSITION_ENTITY_WIDTH = 83
 	@FLEET_MANAGER_FLEET_COMPOSITION_ENTITY_HEIGHT = 25
@@ -27,7 +27,7 @@ guiTypes = {
 		buttonType = {
 			name = "close"
 			spriteType = "GFX_close_button"
-			position = { x = -44 y = 12 }
+			position = { x = -45 y = 16 }
 			orientation = "UPPER_RIGHT"
 			shortcut = "ESCAPE"
 			pdx_tooltip = "CLOSE_TITLE"
@@ -37,7 +37,7 @@ guiTypes = {
 		iconType = {
 			name = "hex_bg"
 			spriteType = "GFX_hex_bg"
-			position = { x = -10 y = -14 }
+			position = { x = 5 y = -12 }
 			alwaysTransparent = yes
 		}
 
@@ -51,7 +51,7 @@ guiTypes = {
 			name = "title"
 			font = "malgun_goth_24"
 			text = "topbar_button_fleet_manager_name"
-			position = { x = 65 y = 5 }
+			position = { x = 35 y = 5 }
 			maxWidth = 1000
 			maxHeight = 20
 			fixedSize = yes
@@ -66,8 +66,8 @@ guiTypes = {
 		
 		containerWindowType = {
 			name = "box1"
-			size = { width = 300 height = -10 }
-			position = { x = 10 y = 158 }
+			size = { width = 300 height = -11 }
+			position = { x = 11 y = 158 }
 
 			background = {
 				name = "planet_view_bg"
@@ -91,7 +91,7 @@ guiTypes = {
 			instantTextBoxType = {
 				name = "fleet_name"
 				font = "malgun_goth_24"
-				position = { x = 6 y = 14 }
+				position = { x = 6 y = 0 }
 				maxWidth = 180
 				maxHeight = 20
 				text = "fleet_name"
@@ -353,7 +353,7 @@ guiTypes = {
 		containerWindowType = {
 			name = "box2"
 			size = { width = 600 height = -10 }
-			position = { x = 320 y = 50 }
+			position = { x = 319 y = 55 }
 
 			containerWindowType = {
 				name = "reinforcement"
@@ -442,7 +442,7 @@ guiTypes = {
 
 			containerWindowType = {
 				name = "box2_3"
-				size = { width = 600 height = 360 }
+				size = { width = 600 height = 354 }
 				position = { x = 0 y = 175 }
 
 				background = {
@@ -648,7 +648,7 @@ guiTypes = {
 
 				buttonType = {
 					name = "add_ship_design"
-					position = { x = -132 y = -55 }
+					position = { x = -132 y = -56 }
 					size = { x = 264 y = 35 }
 					orientation = center_down
 					spriteType = "GFX_standard_button_230_34_button"
@@ -694,7 +694,7 @@ guiTypes = {
 			buttonType = {
 				name = "close"
 				spriteType = "GFX_close_button"
-				position = { x = -42 y = 2 }
+				position = { x = -45 y = 7 }
 				orientation = "UPPER_RIGHT"
 				shortcut = "ESCAPE"
 				pdx_tooltip = "CLOSE_TITLE"
@@ -703,7 +703,7 @@ guiTypes = {
 
 			containerWindowType = {
 				name = "available_designs"
-				position = { x = 10 y = 50 }
+				position = { x = 11 y = 50 }
 				size = { width = -10 height = -10 }
 				verticalScrollbar = "right_vertical_slider"
 

@@ -86,14 +86,14 @@ guiTypes = {
 			name = "colony_rename_button"
 			quadTextureSprite = "gfx_transparency_button"
 			# Position set by code
-			size = { x = 278 y = 18 }
+			size = { x = 278 y = 28 }
 			oversound = no_sound
 		}
 
 		iconType = {
 			name = "hex_bg"
 			spriteType = "GFX_hex_bg"
-			position = { x = -10 y = -23 }
+			position = { x = -7 y = -13 }
 			alwaysTransparent = yes
 		}
 
@@ -108,7 +108,7 @@ guiTypes = {
 			name = "planet_name"
 			font = "malgun_goth_24"
 			text = ""
-			position = { x = 10 y = 2 }
+			position = { x = 27 y = 6 }
 			maxWidth = 200
 			maxHeight = 40
 			fixedSize = yes
@@ -132,7 +132,7 @@ guiTypes = {
 			buttonType = {
 				name = "previous_planet"
 				quadTextureSprite = "GFX_button_left"
-				position = { x = 0 y = 0 }
+				position = { x = 0 y = 4 }
 				#orientation = upper_left
 				#	shortcut = "SHIFT + TAB"
 				clicksound = "click"
@@ -142,7 +142,7 @@ guiTypes = {
 			buttonType = {
 				name = "next_planet"
 				quadTextureSprite = "GFX_button_right"
-				position = { x = 36 y = 0 }
+				position = { x = 36 y = 4 }
 				#orientation = upper_left
 				#	shortcut = "TAB"
 				clicksound = "click"
@@ -152,13 +152,13 @@ guiTypes = {
 			buttonType = {
 				name = "move_capital"
 				quadTextureSprite = "GFX_fleet_action_button_move_capital"
-				position = { x = 80 y = 0 }
+				position = { x = 80 y = 4 }
 			}
 
 			buttonType = {
 				name = "zoom_to_planet_button"
 				quadTextureSprite = "GFX_fleetview_focus"
-				position = { x = 116 y = 0 }
+				position = { x = 111 y = 4 }
 				pdx_tooltip = "ZOOM_TO_PLANET"
 				shortCut = "q"
 				tooltip_mode_enabled = yes
@@ -167,7 +167,7 @@ guiTypes = {
 			buttonType = {
 				name = "close"
 				quadTextureSprite = "GFX_close"
-				position = { x = -38 y = 0 }
+				position = { x = -43 y = 4 }
 				shortcut = "ESCAPE"
 				clicksound = "back_click"
 				actionShortcut = "cancel"
@@ -374,14 +374,14 @@ guiTypes = {
 
 			containerWindowType = {
 				name = "portrait"
-				size = { width = 250 height = 128 }
-				position = { x = 40 y = 32 }
+				size = { width = 250 height = 188 }
+				position = { x = 40 y = -48 }
 				clipping = yes
 
 				iconType = {
 					name = "portrait"
 					quadTextureSprite = "GFX_portrait_character"
-					position = { x = 25 y = -20 }
+					position = { x = 25 y = 60 }
 					scale = 0.30
 					alwaysTransparent = yes
 				}
@@ -500,7 +500,7 @@ guiTypes = {
 		containerWindowType = {
 			name = "planet_actions_window"
 			position = { x = 570 y = 62 }
-			size = { width = 270 height = 170 }
+			size = { width = 289 height = 170 }
 			
 			iconType = {
 			name = "background"
@@ -896,8 +896,8 @@ guiTypes = {
 					### Districts Container Window
 					containerWindowType = {
 						name = "districts_window"
-						size = { width = 270 height = 240 }
-						position = { x = 10 y = 50 }
+						size = { width = 270 height = 251 }
+						position = { x = 11 y = 50 }
 
 						background = {
 							position = { x = 0 y = 0 }
@@ -1111,7 +1111,7 @@ guiTypes = {
 			containerWindowType = {
 				name = "terraforming_panel"
 				size = { width = 270 height = 40 }
-				position = { x = 10 y = 300 }
+				position = { x = 11 y = 310 }
 
 				background = {
 						name = "terraforming_background"
@@ -1234,8 +1234,8 @@ guiTypes = {
 				# Planetary Resources  
 				containerWindowType = {
 					name = "planetary_resources"
-					size = { width = 550 height = 70 }
-					position = { x = 10 y = 358 }	
+					size = { width = 544 height = 70 }
+					position = { x = 11 y = 359 }	
 
 					background = {
 						name = "output_background"
@@ -1318,7 +1318,7 @@ guiTypes = {
 				containerWindowType = {
 					name = "trade_value_window"
 					size = { width = 78 height = 48 }
-					position = { x = 20 y = 370 }
+					position = { x = 21 y = 370 }
 					
 					background = {
 						name = "background"
@@ -1350,7 +1350,7 @@ guiTypes = {
 				# Buildings				
 				containerWindowType = {
 					name = "title_buildings"
-					size = { width = 270 height = 300 }
+					size = { width = 264 height = 300 }
 					position = { x = 290 y = 50 }
 
 					background = {
@@ -1359,22 +1359,12 @@ guiTypes = {
 							spriteType = "GFX_dark_area_cut"
 					}
 
-					#iconType = {
-					#	name = "title_hex"
-					#	quadTextureSprite = "GFX_small_hex_bg"
-					#	position = { x = -4 y = -7 }
-					#}
 
-					#iconType = {
-					#	name = "title_line"
-					#	quadTextureSprite = "GFX_line_short"
-					#	position = { x = 24 y = 30 }
-					#}
 
 					instantTextBoxType = {
 						name = "title_text"
 						font = "malgun_goth_24"
-						position = { x = 28 y = 12 }
+						position = { x = 22 y = 12 }
 						text = "BUILDINGS_TITLE"
 						maxWidth = 205
 						maxHeight = 20
@@ -1386,7 +1376,7 @@ guiTypes = {
 				
 				gridBoxType = {
 					name = "buildings_box"
-					position = { x = 306 y = 96 }
+					position = { x = 303 y = 96 }
 					size = { width = 205 height = 205 }
 					format = "UPPER_LEFT"
 					slotsize = { width = 60 height = 60 }
@@ -1401,7 +1391,7 @@ guiTypes = {
 				containerWindowType = {
 					name = "designation_info"
 					size = { width = 270 height = 125}
-					position = { x = 570 y = 50 }
+					position = { x = 569 y = 50 }
 
 					background = {
 						name = "designation_info_background"
@@ -1561,7 +1551,7 @@ guiTypes = {
 				containerWindowType = {
 					name = "build_queue"
 					size = { width = 270 height = 245 }
-					position = { x = 570 y = 185 }
+					position = { x = 569 y = 184 }
 
 					background = {
 						name = "build_queue_background"
@@ -1598,12 +1588,12 @@ guiTypes = {
 		containerWindowType = {
 			name = "population_window"
 			size = { width = 500 height = 400 }
-			position = { x = 0 y = 200 }
+			position = { x = 1 y = 200 }
 
 			#Jobs Art BG Box  ------ 5 px all around for art pading
 			containerWindowType = {
 				name = "Jobs_BG"
-				size = {width = 560 height = 390}
+				size = {width = 553 height = 389}
 				position = { x = 5 y = 45 }
 
 				background = {
@@ -1686,27 +1676,26 @@ guiTypes = {
 				size = { width = 270 height = 380 }
 				position = { x = 570 y = 50 }
 
-				#background = {
-				#		name = "build_queue_background"
-				#		spriteType = "GFX_tiles_frame"
-				#}
+
+
+
 
 				iconType = {
 					name = "title_hex"
-					quadTextureSprite = "GFX_small_hex_bg"
-					position = { x = -10 y = -6 }
+					quadTextureSprite = "GFX_hex_bg"
+					position = { x = -20 y = -14 }
 				}
 
-				#iconType = {
-				#	name = "title_line"
-				#	quadTextureSprite = "GFX_line_short"
-				#	position = { x = 14 y = 30 }
-				#}
-
+				iconType = {
+					name = "title_line"
+					quadTextureSprite = "GFX_line_short"
+					position = { x = -7 y = 20 }
+				}
+					
 				instantTextBoxType = {
 					name = "title_text"
 					font = "malgun_goth_24"
-					position = { x = 21 y = 12 }
+					position = { x = 13 y = 4 }
 					text = "DEMOGRAPHICS_TITLE"
 					maxWidth = 205
 					maxHeight = 20
@@ -1720,7 +1709,7 @@ guiTypes = {
 			containerWindowType = {
 				name = "pops_tab_happiness_window"
 				size = { width = 76 height = 34 }
-				position = { x = 750 y = 60 }
+				position = { x = 762 y = 60 }
 
 				background = {
 					name = "background"
@@ -1750,13 +1739,13 @@ guiTypes = {
 			#<--------------------------- Growing Assembling Declining --------------->
 			containerWindowType = {
 				name = "growth_and_decline_window"
-				position = { x = 580 y = 95 }
+				position = { x = 569 y = 95 }
 				size = { width = 250 height = 135}
 
 				containerWindowType = {
 					name = "growing_species_window"
 					position = { x = -1 y = 4 }
-					size = { width = 80 height = 135 }
+					size = { width = 86 height = 135 }
 					
 					background = {
 						name = "background"
@@ -1768,7 +1757,7 @@ guiTypes = {
 						font = "cg_16b"
 						text = "GROWING_SPECIES"
 						position = { x = 0 y = 2 }
-						maxWidth = 80
+						maxWidth = 86
 						maxHeight = 20
 						fixedSize = yes
 						format = center
@@ -1777,14 +1766,16 @@ guiTypes = {
 					containerWindowType = {
 						name = "portrait"
 						size = { width = 64 height = 64 }
-						position = { x = 8 y = 20 }
+						position = { x = 11 y = 20 }
 						clipping = yes
 						
-						backGround = {
-							name = "background"
-							quadTextureSprite ="GFX_button_light" # makes window moveable
-						}
+					backGround = {
+						name = "background"
+						quadTextureSprite ="GFX_button_light" # makes window moveable
+					}
 
+
+						
 						iconType = {
 							name = "growth_background"
 							spriteType = "GFX_planet_background"
@@ -1810,11 +1801,12 @@ guiTypes = {
 						buttonType = {
 							name = "portrait_button"
 							position = { x=-1 y=0 }
-							size = { x=64 y=64 }
+							size = { x=65 y=65 }
 							quadTextureSprite = "GFX_button_light"
 							clicksound = "menu_slide_open"
 							shortcut = "G"
 						}
+	
 					}
 					
 					iconType = {
@@ -1863,8 +1855,8 @@ guiTypes = {
 				# Assembling Panel
 				containerWindowType = {
 					name = "assembling_species_window"
-					position = { x = 84 y = 4 }
-					size = { width = 80 height = 135 }
+					position = { x = 91 y = 4 }
+					size = { width = 86 height = 135 }
 					
 					background = {
 						name = "background"
@@ -1876,7 +1868,7 @@ guiTypes = {
 						font = "cg_16b"
 						text = "ASSEMBLING_SPECIES"
 						position = { x = 0 y = 2 }
-						maxWidth = 80
+						maxWidth = 86
 						maxHeight = 20
 						fixedSize = yes
 						format = center
@@ -1885,7 +1877,7 @@ guiTypes = {
 					containerWindowType = {
 						name = "portrait_assembling"
 						size = { width = 64 height = 64 }
-						position = { x = 8 y = 20 }
+						position = { x = 11 y = 20 }
 						clipping = yes
 
 						iconType = {
@@ -1913,7 +1905,7 @@ guiTypes = {
 						buttonType = {
 							name = "portrait_button"
 							position = { x=-1 y=0 }
-							size = { x=64 y=64 }
+							size = { x=65 y=65 }
 							quadTextureSprite = "GFX_button_light"
 							clicksound = "menu_slide_open"
 							shortcut = "B"
@@ -1966,8 +1958,8 @@ guiTypes = {
 				# Declining Panel
 				containerWindowType = {
 					name = "declining_species_window"
-					position = { x = 170 y = 4 }
-					size = { width = 80 height = 135 }
+					position = { x = 183 y = 4 }
+					size = { width = 86 height = 135 }
 
 					background = {
 						name = "background"
@@ -1979,7 +1971,7 @@ guiTypes = {
 						font = "cg_16b"
 						text = "DECLINING_SPECIES"
 						position = { x = 0 y = 2 }
-						maxWidth = 80
+						maxWidth = 86
 						maxHeight = 20
 						fixedSize = yes
 						format = center
@@ -1988,7 +1980,7 @@ guiTypes = {
 					containerWindowType = {
 						name = "portrait_decline"
 						size = { width = 64 height = 64 }
-						position = { x = 8 y = 20 }
+						position = { x = 11 y = 20 }
 						clipping = yes
 				
 						iconType = {
@@ -2016,7 +2008,7 @@ guiTypes = {
 						buttonType = {
 							name = "portrait_button"
 							position = { x=-1 y=0 }
-							size = { x=64 y=64 }
+							size = { x=65 y=65 }
 							quadTextureSprite = "GFX_button_light"
 							clicksound = "menu_slide_open"
 						}
@@ -2137,8 +2129,8 @@ guiTypes = {
 			
 			containerWindowType = {
 				name = "pops_tab_demographics_window"	
-				position = { x = 580 y = 240 }
-				size = { width = 250 height = 180 }		
+				position = { x = 568 y = 240 }
+				size = { width = 270 height = 189 }		
 				
 				background = {
 					name = "background"
@@ -2501,7 +2493,7 @@ guiTypes = {
 				#Devastation Box
 				containerWindowType = {
 				name = "defenses_window"
-				size = { width = 210 height = 90 } #5 px padding for art
+				size = { width = 204 height = 90 } #5 px padding for art
 				position = {x = 355 y = 45}
 
 					background = {
@@ -2545,7 +2537,7 @@ guiTypes = {
 				iconType = {
 					name = "planet_devastation"
 					spriteType = "GFX_devastation_bar"
-					position = { x = 380 y = 90 }
+					position = { x = 373 y = 90 }
 					frame = 1
 				}				
 		
@@ -2717,25 +2709,25 @@ guiTypes = {
 				containerWindowType = {
 					name = "title_general"
 					size = { width = 180 height = 180 }
-					position = { x = 570 y = 30 }
+					position = { x = 564 y = 30 }
 
 
 					iconType = {
 						name = "title_hex"
 						quadTextureSprite = "GFX_hex_bg"
-						position = { x = -11 y = 14 }
+						position = { x = -13 y = 06 }
 					}
 
 					iconType = {
 						name = "title_line"
 						quadTextureSprite = "GFX_line_short"
-						position = { x = 14 y = 50 }
+						position = { x = 0 y = 40 }
 					}
 
 					instantTextBoxType = {
 						name = "title_text"
 						font = "malgun_goth_24"
-						position = { x = 21 y = 32 }
+						position = { x = 21 y = 24 }
 						text = "GENERAL_TITLE"
 						maxWidth = 168
 						maxHeight = 20
@@ -2747,8 +2739,8 @@ guiTypes = {
 
 				containerWindowType = {
 					name = "no_general_window"
-					size = { width = 250 height = 102 }
-					position = { x = 580 y = 90 }
+					size = { width = 280 height = 102 }
+					position = { x = 564 y = 94 }
 
 					background = {
 						name = "general_background"
@@ -2798,8 +2790,8 @@ guiTypes = {
 
 				containerWindowType = {
 					name = "general_window"
-					size = { width = 250 height = 102 }
-					position = { x = 576 y = 90 }
+					size = { width = 280 height = 102 }
+					position = { x = 564 y = 94 }
 
 					background = {
 						name = "general_background"
@@ -2873,8 +2865,8 @@ guiTypes = {
 				# Army Build Queue
 				containerWindowType = {
 					name = "army_build_queue"
-					size = { width = 270 height = 230 }
-					position = { x = 570 y = 200 }
+					size = { width = 270 height = 229 }
+					position = { x = 569 y = 200 }
 
 					background = {
 						name = "build_queue_background"

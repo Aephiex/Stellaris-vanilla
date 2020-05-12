@@ -465,3 +465,30 @@ entity = {
 	scale = 2.0
 	
 }
+
+#####################
+# LATE-GAME PIRATES
+#####################
+
+# Bemat Corvette
+entity = {
+	name = "pirate_01_bemat_corvette_entity"
+	pdxmesh = "humanoid_01_corvette_S3_mesh"
+	#Weapon locators: "small_gun_01", "small_gun_02", "small_gun_03"
+
+	locator = { #Section slot
+		name = "part1"
+		position = { 0 0 0 }
+	}
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 5
+		event = { time = 0 node = "engine_small_01" particle = "generic_075_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
+		event = { time = 0 node = "light_locator_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
+	}
+	state = { name = "moving" state_time = 5
+		event = { time = 0 node = "engine_small_01" particle = "generic_1_exhaust_circle_moving" trigger_once = yes keep_particle = yes }
+		event = { time = 0 node = "light_locator_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
+	}
+	state = { name = "death" state_time = 5 }
+}

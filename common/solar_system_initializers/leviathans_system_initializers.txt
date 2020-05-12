@@ -63,7 +63,10 @@ guardians_artist_init_01 = {
 				name = random
 				class = random_non_machine
 				portrait = random
-				traits = random
+				traits = {
+					ideal_planet_class = pc_habitat
+					trait = random_traits
+				}
 				homeworld = this
 			}
 			if = {
@@ -79,6 +82,7 @@ guardians_artist_init_01 = {
 					civics = {
 						civic = civic_artist_collective
 					}
+					origin = "origin_default"
 					species = last_created
 					flag = {
 						icon = {
@@ -247,7 +251,10 @@ guardians_artist_init_02 = {
 				name = random
 				class = random_non_machine
 				portrait = random
-				traits = random
+				traits = {
+					ideal_planet_class = pc_habitat
+					trait = random_traits
+				}
 				homeworld = this
 			}
 			if = {
@@ -263,6 +270,7 @@ guardians_artist_init_02 = {
 					civics = {
 						civic = civic_artist_collective
 					}
+					origin = "origin_default"
 					species = last_created
 					flag = {
 						icon = {
@@ -430,7 +438,10 @@ guardians_artist_init_03 = {
 				name = random
 				class = random_non_machine
 				portrait = random
-				traits = random
+				traits = {
+					ideal_planet_class = pc_habitat
+					trait = random_traits
+				}
 				homeworld = this
 			}
 			if = {
@@ -446,6 +457,7 @@ guardians_artist_init_03 = {
 					civics = {
 						civic = civic_artist_collective
 					}
+					origin = "origin_default"
 					species = last_created
 					flag = {
 						icon = {
@@ -601,7 +613,10 @@ guardians_curator_init_01 = {
 					name = random
 					class = random_non_machine
 					portrait = random
-					traits = random
+					traits = {
+						ideal_planet_class = pc_habitat
+						trait = random_traits
+					}
 					#homeworld = this
 				}
 				create_country = {
@@ -611,6 +626,7 @@ guardians_curator_init_01 = {
 					civics = {
 						civic = civic_ancient_preservers
 					}
+					origin = "origin_default"
 					species = last_created
 					flag = {
 						icon = {
@@ -753,7 +769,10 @@ guardians_curator_init_02 = {
 					name = random
 					class = random_non_machine
 					portrait = random
-					traits = random
+					traits = {
+						ideal_planet_class = pc_habitat
+						trait = random_traits
+					}
 					#homeworld = this
 				}
 				create_country = {
@@ -763,6 +782,7 @@ guardians_curator_init_02 = {
 					civics = {
 						civic = civic_ancient_preservers
 					}
+					origin = "origin_default"
 					species = last_created
 					flag = {
 						icon = {
@@ -895,7 +915,10 @@ guardians_curator_init_03 = {
 					name = random
 					class = random_non_machine
 					portrait = random
-					traits = random
+					traits = {
+						ideal_planet_class = pc_habitat
+						trait = random_traits
+					}
 					#homeworld = this
 				}
 				create_country = {
@@ -905,6 +928,7 @@ guardians_curator_init_03 = {
 					civics = {
 						civic = civic_ancient_preservers
 					}
+					origin = "origin_default"
 					species = last_created
 					flag = {
 						icon = {
@@ -1083,6 +1107,7 @@ guardians_trader_init_01 = {
 					class = random_non_machine
 					portrait = random
 					traits = {
+						ideal_planet_class = pc_habitat
 						trait = trait_thrifty
 					}
 					#homeworld = this
@@ -1094,6 +1119,7 @@ guardians_trader_init_01 = {
 					civics = {
 						civic = civic_trading_conglomerate
 					}
+					origin = "origin_default"
 					species = last_created
 					flag = {
 						icon = {
@@ -1221,6 +1247,7 @@ guardians_trader_init_02 = {
 					class = random_non_machine
 					portrait = random
 					traits = {
+						ideal_planet_class = pc_habitat
 						trait = trait_thrifty
 					}
 					#homeworld = this
@@ -1232,6 +1259,7 @@ guardians_trader_init_02 = {
 					civics = {
 						civic = civic_trading_conglomerate
 					}
+					origin = "origin_default"
 					species = last_created
 					flag = {
 						icon = {
@@ -1360,6 +1388,7 @@ guardians_trader_init_03 = {
 					class = random_non_machine
 					portrait = random
 					traits = {
+						ideal_planet_class = pc_habitat
 						trait = trait_thrifty
 					}
 					#homeworld = this
@@ -1371,6 +1400,7 @@ guardians_trader_init_03 = {
 					civics = {
 						civic = civic_trading_conglomerate
 					}
+					origin = "origin_default"
 					species = last_created
 					flag = {
 						icon = {
@@ -1452,10 +1482,6 @@ guardians_init_stellarites = {
 				is_fe_cluster = yes
 				has_star_flag = empire_cluster
 			}
-		}
-		modifier = {
-			factor = 0
-			has_star_flag = empire_cluster
 		}
 		modifier = {
 			factor = 0
@@ -1544,10 +1570,6 @@ guardians_init_dragon = {
 				is_fe_cluster = yes
 				has_star_flag = empire_cluster
 			}
-		}
-		modifier = {
-			factor = 0
-			has_star_flag = empire_cluster
 		}
 		modifier = {
 			factor = 0
@@ -1724,10 +1746,6 @@ guardians_init_horror = {
 		}
 		modifier = {
 			factor = 0
-			has_star_flag = empire_cluster
-		}
-		modifier = {
-			factor = 0
 			is_bottleneck_system = yes
 		}
 	}
@@ -1768,10 +1786,6 @@ guardians_init_dreadnought = {
 				is_fe_cluster = yes
 				has_star_flag = empire_cluster
 			}
-		}
-		modifier = {
-			factor = 0
-			has_star_flag = empire_cluster
 		}
 		modifier = {
 			factor = 0
@@ -2099,10 +2113,6 @@ guardians_init_hive = {
 				has_star_flag = empire_cluster
 			}
 		}
-		modifier = {
-			factor = 0
-			has_star_flag = empire_cluster
-		}
 	}
 
 	max_instances = 1
@@ -2272,10 +2282,6 @@ guardians_init_technosphere = {
 				has_star_flag = empire_cluster
 			}
 		}
-		modifier = {
-			factor = 0
-			has_star_flag = empire_cluster
-		}
 	}
 
 	max_instances = 1
@@ -2387,7 +2393,7 @@ guardians_init_fortress = {
 		}
 		modifier = {
 			factor = 0
-			has_star_flag = empire_cluster
+			is_bottleneck_system = yes
 		}
 	}
 
@@ -2625,10 +2631,6 @@ guardians_init_wraith = {
 				is_fe_cluster = yes
 				has_star_flag = empire_cluster
 			}
-		}
-		modifier = {
-			factor = 0
-			has_star_flag = empire_cluster
 		}
 	}
 

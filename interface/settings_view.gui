@@ -1600,6 +1600,413 @@ guiTypes = {
 				#	navUp = "auto_unpause_spinner"
 				#}				
 			}
+
+			################################# Accessibility (CVAA) settings #################
+			containerWindowType = {
+				name = "settings_ACCESSIBILITY"
+				position = { x= 230 y = 150 }
+				size = { width=240 height = 500 }
+
+				##### backgrounds
+
+				containerWindowType = {
+					name = "settings_accessibility_chat_visual_alerts_bg"
+					size = { width = 795 height = 46 }
+					position = { x = -427 y = -20 }
+
+					background = {
+						name = "setting_bg_frame"
+						spriteType = "GFX_tiles_dark_area_cut_8"
+					}
+				}
+
+				containerWindowType = {
+					name = "settings_accessibility_chat_chat_large_fonts_bg"
+					size = { width = 795 height = 46 }
+					position = { x = -427 y = 28 }
+
+					background = {
+						name = "setting_bg_frame"
+						spriteType = "GFX_tiles_dark_area_cut_8"
+					}
+				}
+
+				containerWindowType = {
+					name = "settings_accessibility_chat_tts_bg"
+					size = { width = 795 height = 46 }
+					position = { x = -427 y = 76 }
+
+					background = {
+						name = "setting_bg_frame"
+						spriteType = "GFX_tiles_dark_area_cut_8"
+					}
+				}
+
+				containerWindowType = {
+					name = "settings_accessibility_chat_use_stt_shortcut_bg"
+					size = { width = 795 height = 46 }
+					position = { x = -427 y = 124 }
+
+					background = {
+						name = "setting_bg_frame"
+						spriteType = "GFX_tiles_dark_area_cut_8"
+					}
+				}
+
+				containerWindowType = {
+					name = "settings_accessibility_chat_stt_bg"
+					size = { width = 795 height = 46 }
+					position = { x = -427 y = 172 }
+
+					background = {
+						name = "setting_bg_frame"
+						spriteType = "GFX_tiles_dark_area_cut_8"
+					}
+				}
+
+				containerWindowType = {
+					name = "settings_accessibility_stt_shortcut_input_bg"
+					size = { width = 795 height = 46 }
+					position = { x = -427 y = 220 }
+
+					background = {
+						name = "setting_bg_frame"
+						spriteType = "GFX_tiles_dark_area_cut_8"
+					}
+				}
+
+				# labels
+
+				instantTextBoxType={
+					position = {x = -410 y = -10 }
+					name = "visual_alerts_label"
+					font = "malgun_goth_24"
+					maxWidth = 400
+					maxHeight = 18
+					text = "SETTINGS_ACCESSIBILITY_VISUAL_ALERTS"
+					tooltip = "SETTINGS_ACCESSIBILITY_CHAT_VISUAL_ALERTS_INFO"
+					tooltip_mode_enabled = yes
+				}
+
+				instantTextBoxType={
+					position = {x = -410 y = 38 }
+					name = "chat_large_fonts_label"
+					font = "malgun_goth_24"
+					maxWidth = 400
+					maxHeight = 18
+					text = "SETTINGS_ACCESSIBILITY_CHAT_LARGE_FONTS"
+					tooltip = "SETTINGS_ACCESSIBILITY_CHAT_LARGE_FONTS_INFO"
+					tooltip_mode_enabled = yes
+				}
+
+				instantTextBoxType={
+					position = {x = -410 y = 86 }
+					name = "tts_label"
+					font = "malgun_goth_24"
+					maxWidth = 400
+					maxHeight = 18
+					text = "SETTINGS_ACCESSIBILITY_TTS"
+					tooltip = "SETTINGS_ACCESSIBILITY_TTS_INFO"		
+					tooltip_mode_enabled = yes
+				}
+
+				instantTextBoxType={
+					position = {x = -410 y = 134 }
+					name = "stt_label"
+					font = "malgun_goth_24"
+					maxWidth = 400
+					maxHeight = 18
+					text = "SETTINGS_ACCESSIBILITY_STT"
+					tooltip = "SETTINGS_ACCESSIBILITY_STT_INFO"
+					tooltip_mode_enabled = yes
+				}
+
+				instantTextBoxType={
+					position = {x = -410 y = 182 }
+					name = "stt_shortcut_label"
+					font = "malgun_goth_24"
+					maxWidth = 400
+					maxHeight = 18
+					text = "SETTINGS_ACCESSIBILITY_USE_STT_SHORTCUT"
+					tooltip = "SETTINGS_ACCESSIBILITY_USE_STT_SHORTCUT_INFO"
+					tooltip_mode_enabled = yes
+				}
+
+				instantTextBoxType={
+					position = {x = -410 y = 230 }
+					name = "stt_shortcut_input_label"
+					font = "malgun_goth_24"
+					maxWidth = 400
+					maxHeight = 18
+					text = "SETTINGS_ACCESSIBILITY_STT_SHORTCUT_INPUT"
+					tooltip = "SETTINGS_ACCESSIBILITY_STT_SHORTCUT_INPUT_INFO"
+					tooltip_mode_enabled = yes
+				}
+
+
+				# values
+
+				instantTextBoxType={
+					position = {x = 30 y = -10 }
+					name = "visual_alerts_value"
+					font = "malgun_goth_24"
+					borderSize = {x = 0 y = 0}	
+					maxWidth = 300
+					maxHeight = 18
+					text = "On"	
+					orientation = "UPPER_LEFT"
+					format = center
+					tooltip = "SETTINGS_ACCESSIBILITY_VISUAL_ALERTS_VALUE_INFO"
+				}
+
+				instantTextBoxType={
+					position = {x = 30 y = 38 }
+					name = "chat_large_fonts_value"
+					font = "malgun_goth_24"
+					borderSize = {x = 0 y = 0}	
+					maxWidth = 300
+					maxHeight = 18
+					text = "On"	
+					orientation = "UPPER_LEFT"
+					format = center
+					tooltip = "SETTINGS_ACCESSIBILITY_CHAT_LARGE_FONTS_VALUE_INFO"
+				}
+
+				instantTextBoxType={
+					position = {x = 30 y = 86 }
+					name = "tts_value"
+					font = "malgun_goth_24"
+					borderSize = {x = 0 y = 0}	
+					maxWidth = 300
+					maxHeight = 18
+					text = "On"	
+					orientation = "UPPER_LEFT"
+					format = center
+					tooltip = "SETTINGS_ACCESSIBILITY_TTS_VALUE_INFO"
+				}	
+
+				instantTextBoxType={
+					position = {x = 30 y = 134 }
+					name = "stt_value"
+					font = "malgun_goth_24"
+					borderSize = {x = 0 y = 0}	
+					maxWidth = 300
+					maxHeight = 18
+					text = "On"	
+					orientation = "UPPER_LEFT"
+					format = center
+					tooltip = "SETTINGS_ACCESSIBILITY_STT_VALUE_INFO"
+				}
+
+				instantTextBoxType={
+					position = {x = 30 y = 182 }
+					name = "use_stt_shortcut_value"
+					font = "malgun_goth_24"
+					borderSize = {x = 0 y = 0}	
+					maxWidth = 300
+					maxHeight = 18
+					text = "On"	
+					orientation = "UPPER_LEFT"
+					format = center
+					tooltip = "SETTINGS_ACCESSIBILITY_USE_STT_SHORTCUT_VALUE_INFO"
+				}
+
+				editBoxType = {
+					position = { x = 130 y = 225  }
+					name = "stt_shortcut_input_value"
+					instantTextBoxType = no
+					textureFile = "gfx/interface/tiles/small_tiles_dialog.dds"
+					font = "malgun_goth_24"
+					borderSize = {x = 8 y = 4}	
+					size = { x=110 y=42 }
+					orientation = "UPPER_LEFT"
+				}
+
+
+				# spinners
+				spinnerType = {
+					id = "visual_alerts_spinner"
+					name = "visual_alerts_spinner"	
+					leftbutton = "spinner_upButton"
+					rightbutton = "spinner_downButton"
+					size = {x = 360 y = 30 }
+					position = {x= 0 y = -10}
+					priority = 100			
+					borderSize = {x =16 y = 16}	
+					horizontal = 1
+					maxValue = 100
+					startValue = 0
+					defaultSelection = yes
+						
+					guiButtonType = {
+						name = "spinner_upButton"
+						quadTextureSprite = "scrollbar_leftbutton"
+						position = { x=30 y =0}	
+					}
+					guiButtonType = {
+						name = "spinner_downButton"
+						quadTextureSprite = "scrollbar_rightbutton"
+						position = { x=30 y =120}	
+					}	
+					
+					overlay = {
+						name = "selected_overlay"
+						spriteType = "GFX_glow_tile_orange_no_padding"
+						overSprite = "GFX_glow_tile_line"
+						position = { x = @spinnerOverlayPosX y = @spinnerOverlayPosY }
+						size = { x = @spinnerOverlaySizeX y = @spinnerOverlaySizeY }
+					}
+					
+					navDown = "chat_large_fonts_spinner"
+				}
+
+				spinnerType = {
+					id = "chat_large_fonts_spinner"
+					name = "chat_large_fonts_spinner"	
+					leftbutton = "spinner_upButton"
+					rightbutton = "spinner_downButton"
+					size = {x = 360 y = 30 }
+					position = {x= 0 y = 38}
+					priority = 100			
+					borderSize = {x =16 y = 16}	
+					horizontal = 1
+					maxValue = 100
+					startValue = 0
+					defaultSelection = yes
+						
+					guiButtonType = {
+						name = "spinner_upButton"
+						quadTextureSprite = "scrollbar_leftbutton"
+						position = { x=30 y =0}	
+					}
+					guiButtonType = {
+						name = "spinner_downButton"
+						quadTextureSprite = "scrollbar_rightbutton"
+						position = { x=30 y =120}	
+					}	
+					
+					overlay = {
+						name = "selected_overlay"
+						spriteType = "GFX_glow_tile_orange_no_padding"
+						overSprite = "GFX_glow_tile_line"
+						position = { x = @spinnerOverlayPosX y = @spinnerOverlayPosY }
+						size = { x = @spinnerOverlaySizeX y = @spinnerOverlaySizeY }
+					}
+					
+					navDown = "tts_spinner"
+					navUp = "visual_alerts_spinner"
+				}
+				spinnerType = {
+					id = "tts_spinner"
+					name = "tts_spinner"	
+					leftbutton = "spinner_upButton"
+					rightbutton = "spinner_downButton"
+					size = {x = 360 y = 30 }
+					position = {x= 0 y = 86}
+					priority = 100			
+					borderSize = {x =16 y = 16}	
+					horizontal = 1
+					maxValue = 100
+					startValue = 0
+					defaultSelection = yes
+						
+					guiButtonType = {
+						name = "spinner_upButton"
+						quadTextureSprite = "scrollbar_leftbutton"
+						position = { x=30 y =0}	
+					}
+					guiButtonType = {
+						name = "spinner_downButton"
+						quadTextureSprite = "scrollbar_rightbutton"
+						position = { x=30 y =120}	
+					}	
+					
+					overlay = {
+						name = "selected_overlay"
+						spriteType = "GFX_glow_tile_orange_no_padding"
+						overSprite = "GFX_glow_tile_line"
+						position = { x = @spinnerOverlayPosX y = @spinnerOverlayPosY }
+						size = { x = @spinnerOverlaySizeX y = @spinnerOverlaySizeY }
+					}
+					
+					navDown = "stt_spinner"
+					navUp="chat_large_fonts_spinner"
+				}
+
+				spinnerType = {
+					id = "stt_spinner"
+					name = "stt_spinner"	
+					leftbutton = "spinner_upButton"
+					rightbutton = "spinner_downButton"
+					size = {x = 360 y = 30 }
+					position = {x= 0 y = 134}
+					priority = 100			
+					borderSize = {x =16 y = 16}	
+					horizontal = 1
+					maxValue = 100
+					startValue = 0
+					defaultSelection = yes
+						
+					guiButtonType = {
+						name = "spinner_upButton"
+						quadTextureSprite = "scrollbar_leftbutton"
+						position = { x=30 y =0}	
+					}
+					guiButtonType = {
+						name = "spinner_downButton"
+						quadTextureSprite = "scrollbar_rightbutton"
+						position = { x=30 y =120}	
+					}	
+					
+					overlay = {
+						name = "selected_overlay"
+						spriteType = "GFX_glow_tile_orange_no_padding"
+						overSprite = "GFX_glow_tile_line"
+						position = { x = @spinnerOverlayPosX y = @spinnerOverlayPosY }
+						size = { x = @spinnerOverlaySizeX y = @spinnerOverlaySizeY }
+					}
+					
+					navDown = "use_stt_shortcut_spinner"
+					navUp = "tts_spinner"	
+				}
+
+				spinnerType = {
+					id = "use_stt_shortcut_spinner"
+					name = "use_stt_shortcut_spinner"	
+					leftbutton = "spinner_upButton"
+					rightbutton = "spinner_downButton"
+					size = {x = 360 y = 30 }
+					position = {x= 0 y = 182}
+					priority = 100			
+					borderSize = {x =16 y = 16}	
+					horizontal = 1
+					maxValue = 100
+					startValue = 0
+					defaultSelection = yes
+						
+					guiButtonType = {
+						name = "spinner_upButton"
+						quadTextureSprite = "scrollbar_leftbutton"
+						position = { x=30 y =0}	
+					}
+					guiButtonType = {
+						name = "spinner_downButton"
+						quadTextureSprite = "scrollbar_rightbutton"
+						position = { x=30 y =120}	
+					}	
+					
+					overlay = {
+						name = "selected_overlay"
+						spriteType = "GFX_glow_tile_orange_no_padding"
+						overSprite = "GFX_glow_tile_line"
+						position = { x = @spinnerOverlayPosX y = @spinnerOverlayPosY }
+						size = { x = @spinnerOverlaySizeX y = @spinnerOverlaySizeY }
+					}
+					
+					navUp = "stt_spinner"
+				}
+
+			}
 			
 			buttonType = {
 				id = "ApplyButton"
@@ -1695,7 +2102,7 @@ guiTypes = {
 			buttonType =	{
 				name = "video_button"
 				quadTextureSprite = "GFX_tab_settings"
-				position = { x = -200 y = 0 }
+				position = { x = -342 y = 0 }
 				frame = 2
 			#	font = "malgun_goth_24"
 			#	buttontext = "SETTINGS_VIDEO"
@@ -1704,7 +2111,7 @@ guiTypes = {
 			buttonType =	{
 				name = "audio_button"
 				quadTextureSprite = "GFX_tab_settings"
-				position = { x = 70 y = 0 }
+				position = { x = -72 y = 0 }
 				frame = 2
 			#	font = "malgun_goth_24"
 			#	buttontext = "SETTINGS_AUDIO"
@@ -1713,11 +2120,19 @@ guiTypes = {
 			buttonType =	{
 				name = "gameplay_button"
 				quadTextureSprite = "GFX_tab_settings"
-				position = { x = 340 y = 0 }
+				position = { x = 198 y = 0 }
 				frame = 1
 			#	font = "malgun_goth_24"
 			#	buttontext = "SETTINGS_GAMEPLAY"
 			}
+
+			buttonType =	{
+				name = "accessibility_button"
+				quadTextureSprite = "GFX_tab_settings"
+				position = { x = 468 y = 0 }
+				frame = 1
+			}
+
 			
 			buttonType =	{
 				name = "controls_button"
@@ -1728,7 +2143,7 @@ guiTypes = {
 			}
 			
 			instantTextBoxType={
-				position = { x = -125 y = -05 }
+				position = { x = -267 y = -5 }
 				name = "videosettings_label"
 				font = "malgun_goth_24"
 				borderSize = {x = -20 y = 16}	
@@ -1740,7 +2155,7 @@ guiTypes = {
 			}
 
 			instantTextBoxType={
-				position = { x = 143 y = 67 }
+				position = { x = -2 y = 67 }
 				name = "audiosettings_label"
 				font = "malgun_goth_24"
 				borderSize = {x = -20 y = -55}	
@@ -1752,13 +2167,25 @@ guiTypes = {
 			}	
 			
 			instantTextBoxType={
-				position = { x = 400 y = -99 }
+				position = { x = 258 y = -99 }
 				name = "gameplaysettings_label"
 				font = "malgun_goth_24"
 				borderSize = {x = -15 y = 110}	
 				maxWidth = 150
 				maxHeight = 18
 				text = "SETTINGS_GAMEPLAY"	
+				orientation = "UPPER_LEFT"
+				format = centre
+			}
+
+			instantTextBoxType={
+				position = { x = 528 y = -99 }
+				name = "accessibilitysettings_label"
+				font = "malgun_goth_24"
+				borderSize = {x = -15 y = 110}	
+				maxWidth = 150
+				maxHeight = 18
+				text = "SETTINGS_ACCESSIBILITY"	
 				orientation = "UPPER_LEFT"
 				format = centre
 			}

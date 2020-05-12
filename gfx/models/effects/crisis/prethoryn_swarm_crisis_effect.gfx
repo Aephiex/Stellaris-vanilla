@@ -1,0 +1,50 @@
+objectTypes = {
+	pdxmesh = {
+		name = "prethoryn_swarm_crisis_effect_mesh"
+		file = "gfx/models/effects/crisis/prethoryn_swarm_crisis_effect.mesh"
+
+		meshsettings = {
+			index = 0
+			shader = "PdxMeshAlphaAdditiveAnimateUVErosion"
+			texture_diffuse = "prethoryn_swarm_crisis_effect.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"		}
+	}
+	
+		pdxmesh = {
+		name = "prethoryn_swarm_crisis_2_effect_mesh"
+		file = "gfx/models/effects/crisis/prethoryn_swarm_crisis_2_effect.mesh"
+
+		meshsettings = {
+			index = 0
+			shader = "PdxMeshAlphaAdditiveAnimateUVErosion"
+			texture_diffuse = "prethoryn_swarm_crisis_2_effect.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"		}
+	}
+
+	pdxmesh = {
+		name = "prethoryn_swarm_crisis_3_effect_mesh"
+		file = "gfx/models/effects/crisis/prethoryn_swarm_crisis_3_effect.mesh"
+
+		meshsettings = {
+			index = 0
+			shader = "PdxMeshAlphaAdditiveAnimateUVErosion"
+			texture_diffuse = "prethoryn_swarm_crisis_3_effect.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"		}
+	}
+	
+		pdxmesh = {
+		name = "prethoryn_swarm_crisis_4_effect_mesh"
+		file = "gfx/models/effects/crisis/prethoryn_swarm_crisis_4_effect.mesh"
+
+		meshsettings = {
+			index = 0
+			shader = "PdxMeshAlphaAdditiveAnimateUVErosion"
+			texture_diffuse = "prethoryn_swarm_crisis_4_effect.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"		}
+	}
+}
+

@@ -326,7 +326,7 @@ spriteTypes = {
 	}
 
 	spriteType = {
-		name = "GFX_text_empire_modifier"
+		name = "GFX_text_empire"
 		texturefile = "gfx/interface/icons/text_icons/empire_modifier.dds"
 	}
 	
@@ -465,5 +465,10 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_text_call_favor"
 		texturefile = "gfx/interface/icons/text_icons/call_in_favor.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_text_community_in_breach"
+		texturefile = "gfx/interface/icons/text_icons/icon_text_community_in_breach.dds"
 	}
 }

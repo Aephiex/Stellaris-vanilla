@@ -98,6 +98,18 @@ guiTypes = {
 				name = "background"
 				quadTextureSprite = "GFX_tile_outliner_bg"
 			}
+			
+			iconType = {
+				name = "title_hex"
+				quadTextureSprite = "GFX_hex_bg"
+				position = { x = -17 y = -14 }
+			}
+			
+			iconType = {
+				name = "title_line"
+				quadTextureSprite = "GFX_line_short"
+				position = { x = 0 y = 21 }
+			}
 
 			instantTextBoxType = {
 				name = "header"
@@ -110,6 +122,7 @@ guiTypes = {
 				orientation = "UPPER_LEFT"
 				format = left	
 			}
+
 			
 			buttonType =
 			{
@@ -1227,6 +1240,19 @@ guiTypes = {
 			quadTextureSprite = "GFX_tile_outliner_bg"
 		}
 
+		iconType = {
+			name = "title_hex"
+			quadTextureSprite = "GFX_hex_bg"
+			position = { x = -17 y = -14 }
+		}
+		
+		iconType = {
+			name = "title_line"
+			quadTextureSprite = "GFX_line_short"
+			position = { x = 0 y = 21 }
+		}
+
+		
 		instantTextBoxType = {
 			name = "header"
 			font = "malgun_goth_24"
@@ -1242,7 +1268,7 @@ guiTypes = {
 		buttonType = {
 			name = "close"
 			quadTextureSprite = "GFX_close"
-			position = { x = -43 y = 14 }
+			position = { x = -45 y = 16 }
 			orientation = upper_right
 			shortcut = "ESCAPE"
 			clicksound = "back_click"

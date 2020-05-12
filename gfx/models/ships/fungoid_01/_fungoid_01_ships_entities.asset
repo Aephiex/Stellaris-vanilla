@@ -1960,9 +1960,88 @@ entity = {
 				emissive_recolor_crunch = 5.0
 			}
 		}
+		
+			
+		entity = {
+			name = "fungoid_01_orbital_station_assemblyyard_section_entity"
+			pdxmesh = "fungoid_01_orbital_station_assemblyyard_section_mesh"
+			scale = 1.0
+			
+			locator = { name = "root" position = { 0 0 0 } }
+			
+			default_state = "idle"
+			state = { name = "idle" animation = "idle"
+			#	event = { time = 0 node = "light_locator_01" particle = "ship_light_green_effect" trigger_once = yes keep_particle = yes }
+			#	event = { time = 0 node = "light_locator_02" particle = "ship_light_green_effect" trigger_once = yes keep_particle = yes }
+			}
+		}
+
+		entity = {
+			name = "fungoid_01_orbital_station_hangarbay_section_entity"
+			pdxmesh = "fungoid_01_orbital_station_hangarbay_section_mesh"
+			
+			default_state = "idle"
+			state = { name = "idle" state_time = 5
+				event = { time = 0 node = "light_locator_01" particle = "ship_light_green_effect" trigger_once = yes keep_particle = yes }
+			}
+			
+			scale = 1.0
+		}
+
+		entity = {
+			name = "fungoid_01_orbital_station_refinery_section_entity"
+			pdxmesh = "fungoid_01_orbital_station_refinery_section_mesh"
+			
+			default_state = "idle"
+			state = { name = "idle" state_time = 5
+				event = { time = 0 node = "light_locator_01" particle = "ship_light_green_effect" trigger_once = yes keep_particle = yes }
+				event = { time = 0 node = "light_locator_02" particle = "ship_light_green_effect" trigger_once = yes keep_particle = yes }
+				event = { time = 0 node = "light_locator_03" particle = "ship_light_green_effect" trigger_once = yes keep_particle = yes }
+				event = { time = 0 node = "light_locator_04" particle = "ship_light_green_effect" trigger_once = yes keep_particle = yes }
+			}
+			
+			scale = 1.0
+		}
+
+		entity = {
+			name = "fungoid_01_orbital_station_science_section_entity"
+			pdxmesh = "fungoid_01_orbital_station_science_section_mesh"
+			
+			default_state = "idle"
+			state = { name = "idle" animation = "idle" time_offset = { 0 100 }
+				event = { time = 0 node = "light_locator_01" particle = "ship_light_green_effect" trigger_once = yes keep_particle = yes }
+				event = { time = 0 node = "light_locator_02" particle = "ship_light_green_effect" trigger_once = yes keep_particle = yes }
+				event = { time = 0 node = "light_locator_03" particle = "ship_light_green_effect" trigger_once = yes keep_particle = yes }
+				event = { time = 0 node = "light_locator_04" particle = "ship_light_green_effect" trigger_once = yes keep_particle = yes }
+			}
+			
+			scale = 1.0
+		}
+
+		entity = {
+			name = "fungoid_01_habitat_phase_01_entity"
+			pdxmesh = "fungoid_01_orbital_station_frame_mesh"
+			
+			attach = { "part1" 		 		= "fungoid_01_habitat_phase_01_core_entity" }
+					
+			scale = 1.5
+	
+			default_state = "habitat_idle"
+			state = { name = "habitat_idle" looping = yes }
+			state = { name = "construction" looping = yes }
+			
+			game_data = {
+				shader_type = ship
+				emissive_recolor_crunch = 5.0
+			}
+			
+			meshsettings = {
+				shader = "PdxMeshTerra"
+			}
+		}
     
 		entity = {
-			name = "fungoid_01_orbital_station_core_entity"
+			name = "fungoid_01_habitat_phase_01_core_entity"
 			pdxmesh = "fungoid_01_orbital_station_mesh"	
 			default_state = "idle" 
 			state = { name = "idle" animation = "idle"
@@ -2031,78 +2110,17 @@ entity = {
 			scale = 1.0
 		}
 		
-			
 		entity = {
-			name = "fungoid_01_orbital_station_assemblyyard_section_entity"
-			pdxmesh = "fungoid_01_orbital_station_assemblyyard_section_mesh"
-			scale = 1.0
-			
-			locator = { name = "root" position = { 0 0 0 } }
-			
-			default_state = "idle"
-			state = { name = "idle" animation = "idle"
-			#	event = { time = 0 node = "light_locator_01" particle = "ship_light_green_effect" trigger_once = yes keep_particle = yes }
-			#	event = { time = 0 node = "light_locator_02" particle = "ship_light_green_effect" trigger_once = yes keep_particle = yes }
-			}
-		}
-
-		entity = {
-			name = "fungoid_01_orbital_station_hangarbay_section_entity"
-			pdxmesh = "fungoid_01_orbital_station_hangarbay_section_mesh"
-			
-			default_state = "idle"
-			state = { name = "idle" state_time = 5
-				event = { time = 0 node = "light_locator_01" particle = "ship_light_green_effect" trigger_once = yes keep_particle = yes }
-			}
-			
-			scale = 1.0
-		}
-
-		entity = {
-			name = "fungoid_01_orbital_station_refinery_section_entity"
-			pdxmesh = "fungoid_01_orbital_station_refinery_section_mesh"
-			
-			default_state = "idle"
-			state = { name = "idle" state_time = 5
-				event = { time = 0 node = "light_locator_01" particle = "ship_light_green_effect" trigger_once = yes keep_particle = yes }
-				event = { time = 0 node = "light_locator_02" particle = "ship_light_green_effect" trigger_once = yes keep_particle = yes }
-				event = { time = 0 node = "light_locator_03" particle = "ship_light_green_effect" trigger_once = yes keep_particle = yes }
-				event = { time = 0 node = "light_locator_04" particle = "ship_light_green_effect" trigger_once = yes keep_particle = yes }
-			}
-			
-			scale = 1.0
-		}
-
-		entity = {
-			name = "fungoid_01_orbital_station_science_section_entity"
-			pdxmesh = "fungoid_01_orbital_station_science_section_mesh"
-			
-			default_state = "idle"
-			state = { name = "idle" animation = "idle" time_offset = { 0 100 }
-				event = { time = 0 node = "light_locator_01" particle = "ship_light_green_effect" trigger_once = yes keep_particle = yes }
-				event = { time = 0 node = "light_locator_02" particle = "ship_light_green_effect" trigger_once = yes keep_particle = yes }
-				event = { time = 0 node = "light_locator_03" particle = "ship_light_green_effect" trigger_once = yes keep_particle = yes }
-				event = { time = 0 node = "light_locator_04" particle = "ship_light_green_effect" trigger_once = yes keep_particle = yes }
-			}
-			
-			scale = 1.0
-		}
-		
-		entity = {
-			name = "fungoid_01_orbital_station_habitat_section_entity"
-			pdxmesh = "fungoid_01_orbital_station_habitat_section_mesh"
-		}
-		entity = {
-			name = "fungoid_01_orbital_habitat_entity"
+			name = "fungoid_01_habitat_phase_02_entity"
 			pdxmesh = "fungoid_01_orbital_station_frame_mesh"
 			
-			attach = { "part1" 		 		= "fungoid_01_orbital_station_core_entity" }
-			attach = { "part2" 		 		= "fungoid_01_orbital_station_habitat_section_entity" }
-			attach = { "part3" 		 		= "fungoid_01_orbital_station_habitat_section_entity" }
-			attach = { "part4" 		 		= "fungoid_01_orbital_station_habitat_section_entity" }
-			attach = { "part5" 		 		= "fungoid_01_orbital_station_habitat_section_entity" }
-			attach = { "part6" 		 		= "fungoid_01_orbital_station_habitat_section_entity" }
-			attach = { "part7" 		 		= "fungoid_01_orbital_station_habitat_section_entity" }
+			attach = { "part1" 		 		= "fungoid_01_habitat_phase_01_core_entity" }
+			attach = { "part2" 		 		= "fungoid_01_habitat_phase_02_section_entity" }
+			attach = { "part3" 		 		= "fungoid_01_habitat_phase_02_section_entity" }
+			attach = { "part4" 		 		= "fungoid_01_habitat_phase_02_section_entity" }
+			attach = { "part5" 		 		= "fungoid_01_habitat_phase_02_section_entity" }
+			attach = { "part6" 		 		= "fungoid_01_habitat_phase_02_section_entity" }
+			attach = { "part7" 		 		= "fungoid_01_habitat_phase_02_section_entity" }
 			
 			scale = 1.5
 			
@@ -2117,9 +2135,15 @@ entity = {
 		}
 		
 		entity = {
-			name = "fungoid_01_upgraded_orbital_station_entity"
+			name = "fungoid_01_habitat_phase_02_section_entity"
+			pdxmesh = "fungoid_01_orbital_station_habitat_section_mesh"
+		}
+		
+		entity = {
+			name = "fungoid_01_habitat_phase_03_entity"
 			locator = { name = part1 }
 			cull_radius = 1.0
+			scale = 1.5
 			
 			default_state = "habitat_idle" 
 			state = { name = "habitat_idle" state_time = 5 }
@@ -2130,15 +2154,16 @@ entity = {
 			}
 			
 			game_data = {
+				shader_type = ship
 				size = @orbital_station
 				emissive_recolor_crunch = 5.0
 			}
 			
-			attach = { name = "station" part1 = "fungoid_01_upgraded_orbital_habitat_section_entity" }
+			attach = { name = "station" part1 = "fungoid_01_habitat_phase_03_section_entity" }
 		}
     
 		entity = {
-			name = "fungoid_01_upgraded_orbital_habitat_section_entity"
+			name = "fungoid_01_habitat_phase_03_section_entity"
 			pdxmesh = "fungoid_01_upgraded_orbital_habitat_mesh"	
 			default_state = "habitat_idle" 
 			state = { name = "habitat_idle" animation = "idle"
@@ -2179,172 +2204,6 @@ entity = {
 			state = { name = "construction" animation = "idle" animation_speed = 0 }
 			scale = 1.0
 		}
-
-		#entity = {
-		#	name = "fungoid_01_orbital_habitat_phase_00_entity"
-		#	pdxmesh = "fungoid_01_orbital_station_frame_mesh"
-		#	
-		#	attach = { "part1" 		 		= "fungoid_01_orbital_station_core_entity" }
-		#			
-		#	scale = 1.0
-		#	
-		#	meshsettings = {
-		#		shader = "PdxMeshTerra"
-		#	}
-		#}
-		#
-		#entity = {
-		#	name = "fungoid_01_orbital_habitat_phase_01_entity"
-		#	pdxmesh = "fungoid_01_orbital_station_frame_mesh"
-		#	
-		#	attach = { "part1" 		 		= "fungoid_01_orbital_station_core_entity" }
-		#	attach = { "part2" 		 		= "fungoid_01_orbital_station_habitat_section_entity" }
-		#	
-		#	scale = 1.0
-		#	
-		#	meshsettings = {
-		#		shader = "PdxMeshTerra"
-		#	}
-		#}
-		#
-		#entity = {
-		#	name = "fungoid_01_orbital_habitat_phase_02_entity"
-		#	pdxmesh = "fungoid_01_orbital_station_frame_mesh"
-		#	
-		#	attach = { "part1" 		 		= "fungoid_01_orbital_station_core_entity" }
-		#	attach = { "part2" 		 		= "fungoid_01_orbital_station_habitat_section_entity" }
-		#	attach = { "part3" 		 		= "fungoid_01_orbital_station_habitat_section_entity" }
-        #
-		#	scale = 1.0
-		#	
-		#	meshsettings = {
-		#		shader = "PdxMeshTerra"
-		#	}
-		#}
-		#
-		#entity = {
-		#	name = "fungoid_01_orbital_habitat_phase_03_entity"
-		#	pdxmesh = "fungoid_01_orbital_station_frame_mesh"
-		#	
-		#	attach = { "part1" 		 		= "fungoid_01_orbital_station_core_entity" }
-		#	attach = { "part2" 		 		= "fungoid_01_orbital_station_habitat_section_entity" }
-		#	attach = { "part3" 		 		= "fungoid_01_orbital_station_habitat_section_entity" }
-		#	attach = { "part4" 		 		= "fungoid_01_orbital_station_habitat_section_entity" }
-		#	
-		#	scale = 1.0
-		#	
-		#	meshsettings = {
-		#		shader = "PdxMeshTerra"
-		#	}
-		#}
-		#
-		#entity = {
-		#	name = "fungoid_01_orbital_habitat_phase_04_entity"
-		#	pdxmesh = "fungoid_01_orbital_station_frame_mesh"
-		#	
-		#	attach = { "part1" 		 		= "fungoid_01_orbital_station_core_entity" }
-		#	attach = { "part2" 		 		= "fungoid_01_orbital_station_habitat_section_entity" }
-		#	attach = { "part3" 		 		= "fungoid_01_orbital_station_habitat_section_entity" }
-		#	attach = { "part4" 		 		= "fungoid_01_orbital_station_habitat_section_entity" }
-		#	attach = { "part5" 		 		= "fungoid_01_orbital_station_habitat_section_entity" }
-		#	
-		#	scale = 1.0
-		#	
-		#	meshsettings = {
-		#		shader = "PdxMeshTerra"
-		#	}
-		#}
-		#
-		#entity = {
-		#	name = "fungoid_01_orbital_habitat_phase_05_entity"
-		#	pdxmesh = "fungoid_01_orbital_station_frame_mesh"
-		#	
-		#	attach = { "part1" 		 		= "fungoid_01_orbital_station_core_entity" }
-		#	attach = { "part2" 		 		= "fungoid_01_orbital_station_habitat_section_entity" }
-		#	attach = { "part3" 		 		= "fungoid_01_orbital_station_habitat_section_entity" }
-		#	attach = { "part4" 		 		= "fungoid_01_orbital_station_habitat_section_entity" }
-		#	attach = { "part5" 		 		= "fungoid_01_orbital_station_habitat_section_entity" }
-		#	attach = { "part6" 		 		= "fungoid_01_orbital_station_habitat_section_entity" }
-		#	
-		#	scale = 1.0
-		#	
-		#	meshsettings = {
-		#		shader = "PdxMeshTerra"
-		#	}
-		#}
-		#
-		#entity = {
-		#	name = "fungoid_01_orbital_habitat_phase_06_entity"
-		#	pdxmesh = "fungoid_01_orbital_station_frame_mesh"
-		#	
-		#	attach = { "part1" 		 		= "fungoid_01_orbital_station_core_entity" }
-		#	attach = { "part2" 		 		= "fungoid_01_orbital_station_habitat_section_entity" }
-		#	attach = { "part3" 		 		= "fungoid_01_orbital_station_habitat_section_entity" }
-		#	attach = { "part4" 		 		= "fungoid_01_orbital_station_habitat_section_entity" }
-		#	attach = { "part5" 		 		= "fungoid_01_orbital_station_habitat_section_entity" }
-		#	attach = { "part6" 		 		= "fungoid_01_orbital_station_habitat_section_entity" }
-		#	attach = { "part7" 		 		= "fungoid_01_orbital_station_habitat_section_entity" }
-		#	
-		#	scale = 1.0
-		#	
-		#	meshsettings = {
-		#		shader = "PdxMeshTerra"
-		#	}
-		#}		
-		#
-		#entity = {
-		#	name = "fungoid_01_orbital_habitat_phase_01_construction_entity"
-		#	pdxmesh = "fungoid_01_orbital_station_frame_mesh"
-		#	
-		#	attach = { "part2" 		 		= "fungoid_01_orbital_station_habitat_section_entity" }
-		#	
-		#	scale = 1.0
-		#}
-		#
-		#entity = {
-		#	name = "fungoid_01_orbital_habitat_phase_02_construction_entity"
-		#	pdxmesh = "fungoid_01_orbital_station_frame_mesh"
-        #
-		#	attach = { "part3" 		 		= "fungoid_01_orbital_station_habitat_section_entity" }
-        #
-		#	scale = 1.0
-		#}
-		#
-		#entity = {
-		#	name = "fungoid_01_orbital_habitat_phase_03_construction_entity"
-		#	pdxmesh = "fungoid_01_orbital_station_frame_mesh"
-        #
-		#	attach = { "part4" 		 		= "fungoid_01_orbital_station_habitat_section_entity" }
-		#	
-		#	scale = 1.0
-		#}
-		#
-		#entity = {
-		#	name = "fungoid_01_orbital_habitat_phase_04_construction_entity"
-		#	pdxmesh = "fungoid_01_orbital_station_frame_mesh"
-        #
-		#	attach = { "part5" 		 		= "fungoid_01_orbital_station_habitat_section_entity" }
-		#	
-		#	scale = 1.0
-		#}
-		#
-		#entity = {
-		#	name = "fungoid_01_orbital_habitat_phase_05_construction_entity"
-		#	pdxmesh = "fungoid_01_orbital_station_frame_mesh"
-        #
-		#	attach = { "part6" 		 		= "fungoid_01_orbital_station_habitat_section_entity" }
-		#	
-		#	scale = 1.0
-		#}
-		#
-		#entity = {
-		#	name = "fungoid_01_orbital_habitat_phase_06_construction_entity"
-		#	pdxmesh = "fungoid_01_orbital_station_frame_mesh"
-        #
-		#	attach = { "part7" 		 		= "fungoid_01_orbital_station_habitat_section_entity" }
-		#	
-		#	scale = 1.0
-		#}
 		
 		
 		entity = {

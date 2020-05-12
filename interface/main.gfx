@@ -1063,4 +1063,21 @@ spriteTypes = {
 		texturefile = "gfx/interface/icons/navbar_icons_technology.dds"
 		noOfFrames = 3
 	}
+
+	spriteType = {
+		name = "GFX_edict_capacity"
+		texturefile = "gfx/interface/icons/edict_capacity.dds"
+	}
+
+	spriteType = {
+		name = "GFX_edict_type_time"
+		textureFile = "gfx/interface/icons/resources/time.dds"
+	}
+
+	spriteType = {
+		name = "GFX_edict_type_policy"
+		textureFile = "gfx/interface/icons/menu_icon_edicts.dds"
+	}
+
+
 }

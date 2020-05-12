@@ -345,7 +345,27 @@ objectTypes = {
 		
 		scale = 1.0
 	}
+
+	pdxparticle = {
+		name = "generic_gas_cloud_01_L_effect"
+		type = "generic_gas_cloud_01_file"
+		
+		scale = 2.0
+	}
 	
+	pdxparticle = {
+		name = "generic_gas_cloud_01_M_effect"
+		type = "generic_gas_cloud_01_file"
+		
+		scale = 1.0
+	}
+
+	pdxparticle = {
+		name = "generic_gas_cloud_01_S_effect"
+		type = "generic_gas_cloud_01_file"
+		
+		scale = 0.5
+	}	
 ######################################################################################################
 #
 #	OLD		OLD		OLD		OLD		OLD		OLD		OLD		OLD		OLD		OLD		OLD		OLD	

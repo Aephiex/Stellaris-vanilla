@@ -2487,6 +2487,16 @@ spriteTypes = {
 	}
 
 	spriteType = {
+		name = "GFX_resolution_galactic_market"
+		texturefile = "gfx/interface/icons/resolutions/resolution_galactic_market.dds"
+	}
+
+	spriteType = {
+		name = "GFX_resolution_relocate_galactic_market"
+		texturefile = "gfx/interface/icons/resolutions/resolution_relocate_galactic_market.dds"
+	}
+
+	spriteType = {
 		name = "GFX_resolution_mutual_defense"
 		texturefile = "gfx/interface/icons/resolutions/resolution_mutual_defense.dds"
 	}
@@ -2509,6 +2519,26 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_resolution_galactic_studies"
 		texturefile = "gfx/interface/icons/resolutions/resolution_galactic_studies.dds"
+	}
+
+	spriteType = {
+		name = "GFX_resolution_tiyanki_hunt"
+		texturefile = "gfx/interface/icons/resolutions/resolution_tiyanki_hunt.dds"
+	}
+
+	spriteType = {
+		name = "GFX_resolution_tiyanki_preservation"
+		texturefile = "gfx/interface/icons/resolutions/resolution_tiyanki_preservation.dds"
+	}
+
+	spriteType = {
+		name = "GFX_resolution_robots_bad"
+		texturefile = "gfx/interface/icons/resolutions/resolution_robots_bad.dds"
+	}
+
+	spriteType = {
+		name = "GFX_resolution_supermajority"
+		texturefile = "gfx/interface/icons/resolutions/resolution_supermajority.dds"
 	}
 
 	### Galactic Focus ###

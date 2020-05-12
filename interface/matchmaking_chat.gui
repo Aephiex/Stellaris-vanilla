@@ -54,6 +54,18 @@ guiTypes = {
 			orientation = "UPPER_LEFT"
 			cursor = { x=-1 y= -4}	
 		}
+
+		editBoxType = {
+			position = { x = 38 y = 599 }
+			name = "largefont_chat_input"
+			textureFile = ""
+			font = "malgun_goth_24"
+			size = { x=820 y=32 }
+			text = ""
+			orientation = "UPPER_LEFT"
+			cursor = { x=-1 y= -4}	
+		}
+
 	}
 
 	containerWindowType = {
@@ -70,5 +82,22 @@ guiTypes = {
 			maxHeight = 18
 			text = ""	
 		}
+	}
+
+	containerWindowType = {
+		name = "largefont_matchmaking_chat_item"
+		position = { x=0 y=0 }	
+		size = { width=736 height= 22 }
+
+		instantTextBoxType={
+			position = {x = 5 y = 0 }
+			name = "text"
+			font = "malgun_goth_24"
+			borderSize = {x = 0 y = 0}	
+			maxWidth = 896
+			maxHeight = 22
+			text = ""	
+		}
 	}	
+
 }

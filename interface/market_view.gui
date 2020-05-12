@@ -27,7 +27,7 @@ guiTypes = {
 		iconType = {
 			name = "hex_bg"
 			spriteType = "GFX_hex_bg"
-			position = { x = 30 y = -12 }
+			position = { x = 5 y = -12 }
 			alwaysTransparent = yes
 		}
 
@@ -40,7 +40,7 @@ guiTypes = {
 		instantTextBoxType={
 			name = "windows_title"
 			font = "malgun_goth_24"
-			position = { x = 65 y = 5 }
+			position = { x = 35 y = 5 }
 			maxWidth = 800
 			maxHeight = 40
 			fixedSize = yes
@@ -50,7 +50,7 @@ guiTypes = {
 		buttonType = {
 			name = "close"
 			quadTextureSprite = "GFX_close"
-			position = { x = -45 y = 11 }
+			position = { x = -45 y = 16 }
 			orientation = upper_right
 			shortcut = "ESCAPE"
 			clicksound = "back_click"
@@ -149,6 +149,17 @@ guiTypes = {
 				size = { width = 240 height = 320 }
 				position = { x = 28 y = 280 }
 				clipping = yes
+				
+				containerWindowType = {
+					name = "empire_list"
+					position = { x=0 y= 50 }
+					size = { width= 300 height= 225 }
+
+					background = {
+						name = "area51"
+						spriteType = "GFX_tiles_dark_area_cut_8"
+					}
+				}
 
 				instantTextBoxType = {
 						name = "buy_header_text"
@@ -205,6 +216,17 @@ guiTypes = {
 				position = { x = 295 y = 280 }
 				clipping = yes
 
+				containerWindowType = {
+					name = "empire_list"
+					position = { x=0 y= 50 }
+					size = { width= 300 height= 225 }
+
+					background = {
+						name = "area51"
+						spriteType = "GFX_tiles_dark_area_cut_8"
+					}
+				}
+				
 				instantTextBoxType = {
 						name = "sell_header_text"
 						font = "malgun_goth_24"

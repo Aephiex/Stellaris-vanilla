@@ -8,8 +8,6 @@ early_default_plan = {
 	income = {
 		energy = 50
 		minerals = 200
-		food = 50
-		consumer_goods = 50 
 		alloys = 100
 		unity = 50
 
@@ -20,110 +18,64 @@ early_default_plan = {
 		exotic_gases = 1
 		volatile_motes = 1
 		rare_crystals = 1
-		sr_living_metal = 1
-		sr_zro = 1
-		sr_dark_matter = 1
 	}
 
 	focus = {
 		energy = 10
 		minerals = 30
 		alloys = 50
-		food = 10
-		consumer_goods = 20
+	}
+
+	subplan = {
+		potential = {
+			country_uses_consumer_goods = yes
+			country_uses_food = yes
+		}
+
+		income = {
+			food = 50
+			consumer_goods = 50
+		}
+
+		focus = {
+			food = 10
+			consumer_goods = 20
+		}
+	}
+
+	subplan = {
+		potential = {
+			country_uses_consumer_goods = yes
+			country_uses_food = no
+		}
+
+		income = {
+			consumer_goods = 50
+		}
+
+		focus = {
+			consumer_goods = 20
+		}
+	}
+
+	# increased food goals for hiveminds
+	subplan = {
+		potential = {
+			country_uses_consumer_goods = no
+			country_uses_food = yes
+		}
+
+		income = {
+			food = 50 
+		}
+
+		focus = {
+			food = 10
+		}
 	}
 
 	pops = 500
 	empire_size = 1.25
-
-	potential = {
-		country_uses_consumer_goods = yes
-		country_uses_food = yes
-	}
-
-	ai_weight = {
-		weight = 1
-	}
-}
-
-early_no_food_plan = {
-	type = early
-
-	income = {
-		energy = 50
-		minerals = 200
-		consumer_goods = 50 
-		alloys = 100
-		unity = 50
-
-		physics_research = 200
-		society_research = 200
-		engineering_research = 200
-
-		exotic_gases = 1
-		volatile_motes = 1
-		rare_crystals = 1
-		sr_living_metal = 1
-		sr_zro = 1
-		sr_dark_matter = 1
-	}
-
-	focus = {
-		energy = 10
-		minerals = 30
-		alloys = 50
-		consumer_goods = 20
-	}
-
-	pops = 500
-	empire_size = 1.25
-
-	potential = {
-		country_uses_consumer_goods = yes
-		country_uses_food = no
-	}
-
-	ai_weight = {
-		weight = 1
-	}
-}
-
-early_no_consumer_goods_plan = {
-	type = early
-
-	income = {
-		energy = 50
-		minerals = 200
-		food = 100
-		alloys = 100
-		unity = 50
-
-		physics_research = 200
-		society_research = 200
-		engineering_research = 200
-
-		exotic_gases = 1
-		volatile_motes = 1
-		rare_crystals = 1
-		sr_living_metal = 1
-		sr_zro = 1
-		sr_dark_matter = 1
-	}
-
-	focus = {
-		energy = 10
-		minerals = 30
-		alloys = 50
-		food = 20
-	}
-
-	pops = 500
-	empire_size = 1.25
-
-	potential = {
-		country_uses_consumer_goods = no
-		country_uses_food = yes
-	}
 
 	ai_weight = {
 		weight = 1
@@ -137,9 +89,7 @@ middle_default_plan = {
 
 	income = {
 		energy = 100
-		minerals = 500
-		food = 100
-		consumer_goods = 50 
+		minerals = 500 
 		alloys = 300
 		unity = 100
 
@@ -150,110 +100,64 @@ middle_default_plan = {
 		exotic_gases = 2
 		volatile_motes = 2
 		rare_crystals = 2
-		sr_living_metal = 2
-		sr_zro = 2
-		sr_dark_matter = 2
 	}
 
 	focus = {
 		energy = 30
 		minerals = 50
 		alloys = 100
-		food = 30
-		consumer_goods = 20
+	}
+
+	subplan = {
+		potential = {
+			country_uses_consumer_goods = yes
+			country_uses_food = yes
+		}
+
+		income = {
+			food = 100
+			consumer_goods = 50
+		}
+
+		focus = {
+			food = 30
+			consumer_goods = 20
+		}
+	}
+
+	subplan = {
+		potential = {
+			country_uses_consumer_goods = yes
+			country_uses_food = no
+		}
+
+		income = {
+			consumer_goods = 50
+		}
+
+		focus = {
+			consumer_goods = 20
+		}
+	}
+
+	# increased food goals for hiveminds
+	subplan = {
+		potential = {
+			country_uses_consumer_goods = no
+			country_uses_food = yes
+		}
+
+		income = {
+			food = 100
+		}
+
+		focus = {
+			food = 30
+		}
 	}
 
 	pops = 1000
 	empire_size = 1
-
-	potential = {
-		country_uses_consumer_goods = yes
-		country_uses_food = yes
-	}
-
-	ai_weight = {
-		weight = 1
-	}
-}
-
-middle_no_food_plan = {
-	type = middle
-
-	income = {
-		energy = 100
-		minerals = 500
-		consumer_goods = 50 
-		alloys = 300
-		unity = 100
-
-		physics_research = 500
-		society_research = 500
-		engineering_research = 500
-
-		exotic_gases = 2
-		volatile_motes = 2
-		rare_crystals = 2
-		sr_living_metal = 2
-		sr_zro = 2
-		sr_dark_matter = 2
-	}
-
-	focus = {
-		energy = 30
-		minerals = 50
-		alloys = 100
-		consumer_goods = 20
-	}
-
-	pops = 1000
-	empire_size = 1
-
-	potential = {
-		country_uses_consumer_goods = yes
-		country_uses_food = no
-	}
-
-	ai_weight = {
-		weight = 1
-	}
-}
-
-middle_no_consumer_goods_plan = {
-	type = middle
-
-	income = {
-		energy = 100
-		minerals = 500
-		food = 100
-		alloys = 300
-		unity = 100
-
-		physics_research = 500
-		society_research = 500
-		engineering_research = 500
-
-		exotic_gases = 2
-		volatile_motes = 2
-		rare_crystals = 2
-		sr_living_metal = 2
-		sr_zro = 2
-		sr_dark_matter = 2
-	}
-
-	focus = {
-		energy = 30
-		minerals = 50
-		alloys = 100
-		food = 50
-	}
-
-	pops = 1000
-	empire_size = 1
-
-	potential = {
-		country_uses_consumer_goods = no
-		country_uses_food = yes
-	}
 
 	ai_weight = {
 		weight = 1
@@ -268,8 +172,6 @@ end_default_plan = {
 	income = {
 		energy = 100
 		minerals = 500
-		food = 100
-		consumer_goods = 50 
 		alloys = 500
 		unity = 300
 
@@ -280,45 +182,85 @@ end_default_plan = {
 		exotic_gases = 3
 		volatile_motes = 3
 		rare_crystals = 3
-		sr_living_metal = 3
-		sr_zro = 3
-		sr_dark_matter = 3
 	}
 
 	focus = {
 		energy = 50
 		minerals = 100
 		alloys = 200
-		food = 50
-		consumer_goods = 20
 	}
 
-	pops = 3000
+	subplan = {
+		potential = {
+			country_uses_consumer_goods = yes
+			country_uses_food = yes
+		}
+
+		income = {
+			food = 100
+			consumer_goods = 50
+		}
+
+		focus = {
+			food = 50
+			consumer_goods = 20
+		}
+	}
+
+	subplan = {
+		potential = {
+			country_uses_consumer_goods = yes
+			country_uses_food = no
+		}
+
+		income = {
+			consumer_goods = 50
+		}
+
+		focus = {
+			consumer_goods = 20
+		}
+	}
+
+	# increased food goals for hiveminds
+	subplan = {
+		potential = {
+			country_uses_consumer_goods = no
+			country_uses_food = yes
+		}
+
+		income = {
+			food = 100
+		}
+
+		focus = {
+			food = 50
+		}
+	}
+
+	pops = 1500
 	empire_size = 1
-
-	potential = {
-		country_uses_consumer_goods = yes
-		country_uses_food = yes
-	}
 
 	ai_weight = {
 		weight = 1
 	}
 }
 
-end_no_food_plan = {
-	type = end
+# Ultimate ---------------------------------------
+# End game plan is fulfilled, let's invest what we can in pop growth and science
+
+ultimate_default_plan = {
+	type = ultimate
 
 	income = {
 		energy = 100
 		minerals = 500
-		consumer_goods = 50 
 		alloys = 500
 		unity = 300
 
-		physics_research = 1500
-		society_research = 1500
-		engineering_research = 1500
+		physics_research = 6000
+		society_research = 6000
+		engineering_research = 6000
 
 		exotic_gases = 3
 		volatile_motes = 3
@@ -332,60 +274,60 @@ end_no_food_plan = {
 		energy = 50
 		minerals = 100
 		alloys = 200
-		consumer_goods = 20
 	}
 
-	pops = 3000
-	empire_size = 1
+	subplan = {
+		potential = {
+			country_uses_consumer_goods = yes
+			country_uses_food = yes
+		}
 
-	potential = {
-		country_uses_consumer_goods = yes
-		country_uses_food = no
+		income = {
+			food = 200
+			consumer_goods = 200
+		}
+
+		focus = {
+			food = 50
+			consumer_goods = 50
+		}
 	}
+
+	subplan = {
+		potential = {
+			country_uses_consumer_goods = yes
+			country_uses_food = no
+		}
+
+		income = {
+			consumer_goods = 200
+		}
+
+		focus = {
+			consumer_goods = 50
+		}
+	}
+
+	# increased food goals for hiveminds
+	subplan = {
+		potential = {
+			country_uses_consumer_goods = no
+			country_uses_food = yes
+		}
+
+		income = {
+			food  = 200
+		}
+
+		focus = {
+			food = 50
+		}
+	}
+
+	pops = 10000
+	empire_size = 1.5
 
 	ai_weight = {
-		weight = 1
-	}
-}
-
-end_no_consumer_goods_plan = {
-	type = end
-
-	income = {
-		energy = 100
-		minerals = 500
-		food = 100
-		alloys = 500
-		unity = 300
-
-		physics_research = 1500
-		society_research = 1500
-		engineering_research = 1500
-
-		exotic_gases = 3
-		volatile_motes = 3
-		rare_crystals = 3
-		sr_living_metal = 3
-		sr_zro = 3
-		sr_dark_matter = 3
-	}
-
-	focus = {
-		energy = 50
-		minerals = 100
-		alloys = 200
-		food = 50
-	}
-
-	pops = 3000
-	empire_size = 1
-
-	potential = {
-		country_uses_consumer_goods = no
-		country_uses_food = yes
-	}
-
-	ai_weight = {
-		weight = 1
+		weight = 0.5
 	}
 }

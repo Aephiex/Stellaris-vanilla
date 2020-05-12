@@ -30,19 +30,19 @@
 entity = {
 	name = "mammalian_01_missle_entity"
 	pdxmesh = "arthropoid_01_missile_mesh"
-	
+
 	default_state = idle
 	state = { name = "idle" animation = "idle" }
 	state = { name = "stop" animation = "miss" looping = no }
-	
-	
+
+
 	scale = 1.25
 }
 
 entity = {
 	name = "mammalian_01_turret_energy_torpedo_entity"
 	pdxmesh = "mammalian_01_turret_projectile_large_mesh"
-	
+
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"
 	}
@@ -52,7 +52,7 @@ entity = {
 entity = {
 	name = "mammalian_01_turret_torpedo_entity"
 	pdxmesh = "mammalian_01_turret_missile_medium_mesh"
-	
+
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"
 	}
@@ -62,7 +62,7 @@ entity = {
 entity = {
 	name = "mammalian_01_turret_missile_large_entity"
 	pdxmesh = "mammalian_01_turret_missile_large_mesh"
-	
+
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"
 	}
@@ -72,7 +72,7 @@ entity = {
 entity = {
 	name = "mammalian_01_turret_missile_medium_entity"
 	pdxmesh = "mammalian_01_turret_missile_medium_mesh"
-	
+
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"
 	}
@@ -82,7 +82,7 @@ entity = {
 entity = {
 	name = "mammalian_01_turret_missile_small_entity"
 	pdxmesh = "mammalian_01_turret_missile_small_mesh"
-	
+
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"
 	}
@@ -92,7 +92,7 @@ entity = {
 entity = {
 	name = "mammalian_01_large_kinetic_gun_entity"
 	pdxmesh = "mammalian_01_turret_projectile_large_mesh"
-	
+
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"
 	}
@@ -102,7 +102,7 @@ entity = {
 entity = {
 	name = "mammalian_01_medium_kinetic_gun_entity"
 	pdxmesh = "mammalian_01_turret_projectile_medium_mesh"
-	
+
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"
 	}
@@ -112,20 +112,20 @@ entity = {
 entity = {
 	name = "mammalian_01_small_kinetic_gun_entity"
 	pdxmesh = "mammalian_01_turret_projectile_small_mesh"
-	
+
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"
 	}
 	scale = 1.0
 }
 
-	
+
 
 
 entity = {
 	name = "mammalian_01_turret_point_defence_entity"
 	pdxmesh = "mammalian_01_turret_point_defence_mesh"
-	
+
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"
 	}
@@ -139,7 +139,7 @@ entity = {
 entity = {
 	name = "mammalian_01_large_laser_gun_entity"
 	pdxmesh = "mammalian_01_turret_projectile_large_mesh"
-	
+
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"
 	}
@@ -149,7 +149,7 @@ entity = {
 entity = {
 	name = "mammalian_01_medium_laser_gun_entity"
 	pdxmesh = "mammalian_01_turret_projectile_medium_mesh"
-	
+
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"
 	}
@@ -159,7 +159,7 @@ entity = {
 entity = {
 	name = "mammalian_01_small_laser_gun_entity"
 	pdxmesh = "mammalian_01_turret_projectile_small_mesh"
-	
+
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"
 	}
@@ -169,12 +169,12 @@ entity = {
 entity = {
 	name = "mammalian_01_turret_xl_entity"
 	pdxmesh = "mammalian_01_turret_xl_mesh"
-	
+
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"
 	}
 	scale = 1
-	
+
 	game_data = {
 		emissive_recolor_crunch = 2.0
 	}
@@ -194,7 +194,7 @@ entity = {
 entity = {
 	name = "mammalian_01_small_space_amoeba_weapon_entity"
 	pdxmesh = "mammalian_01_turret_projectile_small_mesh"
-	
+
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"
 	}
@@ -204,7 +204,7 @@ entity = {
 entity = {
 	name = "mammalian_01_medium_space_amoeba_weapon_entity"
 	pdxmesh = "mammalian_01_turret_projectile_medium_mesh"
-	
+
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"
 	}
@@ -214,7 +214,7 @@ entity = {
 entity = {
 	name = "mammalian_01_large_space_amoeba_weapon_entity"
 	pdxmesh = "mammalian_01_turret_projectile_large_mesh"
-	
+
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"
 	}
@@ -226,7 +226,7 @@ entity = {
 entity = {
 	name = "mammalian_01_small_space_cloud_weapon_entity"
 	pdxmesh = "mammalian_01_turret_projectile_small_mesh"
-	
+
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"
 	}
@@ -236,7 +236,7 @@ entity = {
 entity = {
 	name = "mammalian_01_large_space_cloud_weapon_entity"
 	pdxmesh = "mammalian_01_turret_projectile_large_mesh"
-	
+
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"
 	}
@@ -248,7 +248,7 @@ entity = {
 entity = {
 	name = "mammalian_01_small_crystal_ship_weapon_entity"
 	pdxmesh = "mammalian_01_turret_projectile_small_mesh"
-	
+
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"
 	}
@@ -258,7 +258,7 @@ entity = {
 entity = {
 	name = "mammalian_01_medium_crystal_ship_weapon_entity"
 	pdxmesh = "mammalian_01_turret_projectile_medium_mesh"
-	
+
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"
 	}
@@ -268,7 +268,7 @@ entity = {
 entity = {
 	name = "mammalian_01_large_crystal_ship_weapon_entity"
 	pdxmesh = "mammalian_01_turret_projectile_large_mesh"
-	
+
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"
 	}
@@ -280,7 +280,7 @@ entity = {
 entity = {
 	name = "mammalian_01_small_mining_drone_weapon_entity"
 	pdxmesh = "mammalian_01_turret_projectile_small_mesh"
-	
+
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"
 	}
@@ -290,7 +290,7 @@ entity = {
 entity = {
 	name = "mammalian_01_medium_mining_drone_weapon_entity"
 	pdxmesh = "mammalian_01_turret_projectile_medium_mesh"
-	
+
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"
 	}
@@ -302,7 +302,7 @@ entity = {
 entity = {
 	name = "mammalian_01_small_space_whale_weapon_entity"
 	pdxmesh = "mammalian_01_turret_projectile_small_mesh"
-	
+
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"
 	}
@@ -312,7 +312,7 @@ entity = {
 entity = {
 	name = "mammalian_01_medium_space_whale_weapon_entity"
 	pdxmesh = "mammalian_01_turret_projectile_medium_mesh"
-	
+
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"
 	}
@@ -322,7 +322,7 @@ entity = {
 entity = {
 	name = "mammalian_01_large_space_whale_weapon_entity"
 	pdxmesh = "mammalian_01_turret_projectile_large_mesh"
-	
+
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"
 	}
@@ -334,7 +334,7 @@ entity = {
 entity = {
 	name = "mammalian_01_small_scourge_projectile_weapon_entity"
 	pdxmesh = "mammalian_01_turret_projectile_small_mesh"
-	
+
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"
 	}
@@ -344,7 +344,7 @@ entity = {
 entity = {
 	name = "mammalian_01_medium_scourge_projectile_weapon_entity"
 	pdxmesh = "mammalian_01_turret_projectile_medium_mesh"
-	
+
 	state = { name = "idle"	}
 	state = { name = "attack" looping = no next_state = "idle"
 	}
@@ -366,7 +366,7 @@ entity = {
 entity = {
 	name = "mammalian_01_corvette_entity"
 	pdxmesh = "molluscoid_01_corvette_frame_mesh"
- 
+
 	default_state = "idle"
 	state = { name = "idle"	 animation = "idle" animation_blend_time = 0.25
 		start_event = { trigger_once = yes sound = { soundeffect = "amb_corvette_hum" } }
@@ -377,23 +377,23 @@ entity = {
 	state = { name = "death" animation = "death2" animation_blend_time = 0.0 chance = 1 looping = no
 		event = { time = 3.46 node = "part1_locator" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 		event = { time = 6.79 node = "part1_locator" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
-		
+
 		event = { time = 0.5 node = "part1" particle = "ship_burn_particle" }
 		event = { time = 0.5 node = "part1" particle = "ship_explosion_air_vent_particle" }
-	
+
 		event = { time = 8.9 node = "ship_main" particle = "large_ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 	}
 	state = { name = "death" animation = "death" animation_blend_time = 0.0 chance = 1 looping = no
 		event = { time = 4.46 node = "part1_locator" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
-		
+
 		event = { time = 0.5 node = "part1" particle = "ship_burn_particle" }
 		event = { time = 0.5 node = "part1" particle = "ship_explosion_air_vent_particle" }
-	
+
 		event = { time = 10.83 node = "part1" particle = "large_ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 	}
 	state = { name = "death" animation = "death3" animation_blend_time = 0.0 chance = 1 looping = no
 		event = { time = 4.63 node = "ship_main" particle = "large_ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
-	
+
 		event = { time = 0.0 node = "ship_main" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 		event = { time = 1.6 node = "ship_main" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 		event = { time = 2.83 node = "ship_main" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
@@ -401,7 +401,7 @@ entity = {
 		event = { time = 3.9 node = "ship_main" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 		event = { time = 4.1 node = "ship_main" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 	}
- 
+
     scale = 1.0
 	game_data = {
 		size = @corvette_scale
@@ -414,7 +414,7 @@ entity = {
 entity = {
 	name = "mammalian_01_corvette_M1S1_entity"
 	pdxmesh = "mammalian_01_corvette_M1S1_mesh"
-	
+
 	default_state = "idle"
 	state = { name = "idle" state_time = 5
 		event = { time = 0 node = "engine_medium_01" particle = "generic_035_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
@@ -431,7 +431,7 @@ entity = {
 		event = { time = 0 node = "light_locator_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
 	state = { name = "death" state_time = 5 }
-	
+
 	game_data = {
 		trail_locators = {
 			"exhaust_01" = 		{ width = @medium_trail_W 	lenght = @medium_trail_L   	}
@@ -444,7 +444,7 @@ entity = {
 entity = {
 	name = "mammalian_01_corvette_S3_entity"
 	pdxmesh = "mammalian_01_corvette_S3_mesh"
-	
+
 	default_state = "idle"
 	state = { name = "idle" state_time = 5
 		event = { time = 0 node = "engine_medium_01" particle = "generic_035_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
@@ -468,7 +468,7 @@ entity = {
 entity = {
 	name = "mammalian_01_corvette_S1_entity"
 	pdxmesh = "mammalian_01_corvette_S1_mesh"
-	
+
 	default_state = "idle"
 	state = { name = "idle" state_time = 5
 		event = { time = 0 node = "engine_medium_01" particle = "generic_035_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
@@ -495,23 +495,23 @@ entity = {
 entity = {
 	name = "mammalian_01_destroyer_entity"
 	pdxmesh = "molluscoid_01_destroyer_frame_mesh"
-	
+
 	default_state = "idle"
 	state = { name = "idle"		animation = "idle" animation_blend_time = 0.25
 		start_event = { trigger_once = yes sound = { soundeffect = "amb_destroyer_hum" } }
 	}
-	state = { name = "moving"	animation = "idle" animation_blend_time = 0.25 
+	state = { name = "moving"	animation = "idle" animation_blend_time = 0.25
 		event = { trigger_once = yes sound = { soundeffect = "moving_out_destroyer" } }
 	}
 	state = { name = "death" animation = "death" animation_blend_time = 0.0 chance = 1 looping = no
 		event = { time = 8.15 node = "part1_locator" particle = "ship_explosion_air_vent_particle" }
 		event = { time = 8.15 node = "part1_locator" particle = "ship_burn_particle" }
-		
+
 		event = { time = 8.15 node = "part2_locator" particle = "ship_burn_particle" }
 		event = { time = 8.15 node = "part2_locator" particle = "ship_explosion_air_vent_particle" }
-		
+
 		event = { time = 8.3 node = "ship_main" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
-		
+
 		event = { time = 18.56 node = "part1" particle = "large_ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 		event = { time = 18.56 node = "part2" particle = "large_ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 	}
@@ -519,11 +519,11 @@ entity = {
 		event = { time = 3.05 node = "part1_locator" particle = "ship_explosion_air_vent_particle" }
 		event = { time = 3.05 node = "part2_locator" particle = "ship_explosion_air_vent_particle" }
 		event = { time = 3.05 node = "ship_main" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
-		
+
 		event = { time = 4.6 node = "ship_main" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 		event = { time = 4.6 node = "part1_locator" particle = "ship_burn_particle" }
 		event = { time = 4.6 node = "part2_locator" particle = "ship_burn_particle" }
-		
+
 		event = { time = 18.56 node = "part1" particle = "large_ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 		event = { time = 18.56 node = "part2" particle = "large_ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 	}
@@ -535,17 +535,17 @@ entity = {
 		event = { time = 6.83 node = "part2_local_explosion_locator4" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 		event = { time = 7.1 node = "part2_local_explosion_locator5" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 		event = { time = 7.5 node = "part2_local_explosion_locator6" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
-		
+
 		event = { time = 7.93 node = "part2_explosion_locator" particle = "large_ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 		event = { time = 7.93 node = "part1_locator" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 		event = { time = 7.93 node = "part1_locator" particle = "ship_burn_particle" }
 		event = { time = 7.93 node = "part1_locator" particle = "ship_explosion_air_vent_particle" }
-	
+
 		event = { time = 12.83 node = "part1" particle = "large_ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 	}
-	
+
     scale = 1.0
-	
+
 	game_data = {
 		size = @destroyer_scale
 		emissive_recolor_crunch = 5.0
@@ -564,7 +564,7 @@ entity = {
 entity = {
 	name = "mammalian_01_destroyer_bow_M1S2_entity"
 	pdxmesh = "mammalian_01_destroyer_bow_M1S2_mesh"
-	
+
 	default_state = "idle"
 	state = { name = "idle" state_time = 5
 		event = { time = 0 node = "light_locator_01" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
@@ -580,7 +580,7 @@ entity = {
 entity = {
 	name = "mammalian_01_destroyer_bow_S3_entity"
 	pdxmesh = "mammalian_01_destroyer_bow_S3_mesh"
-	
+
 	default_state = "idle"
 	state = { name = "idle" state_time = 5
 		event = { time = 0 node = "light_locator_01" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
@@ -598,7 +598,7 @@ entity = {
 entity = {
 	name = "mammalian_01_destroyer_stern_S2_entity"
 	pdxmesh = "mammalian_01_destroyer_stern_S2_mesh"
-	
+
 	default_state = "idle"
 	state = { name = "idle" state_time = 5
 		event = { time = 0 node = "engine_large_01" particle = "generic_05_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
@@ -620,7 +620,7 @@ entity = {
 entity = {
 	name = "mammalian_01_destroyer_stern_M1_entity"
 	pdxmesh = "mammalian_01_destroyer_stern_M1_mesh"
-	
+
 	default_state = "idle"
 	state = { name = "idle" state_time = 5
 		event = { time = 0 node = "engine_large_01" particle = "generic_05_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
@@ -637,7 +637,7 @@ entity = {
 		event = { time = 0 node = "light_locator_02" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 	}
 	state = { name = "death" state_time = 5 }
-	
+
 	game_data = {
 		trail_locators = {
 			"exhaust_01" = 		{ width = @medium_trail_W 	lenght = @medium_trail_L   	}
@@ -652,7 +652,7 @@ entity = {
 entity = {
 	name = "mammalian_01_cruiser_entity"
 	pdxmesh = "mammalian_01_cruiser_frame_mesh"
-	
+
 	default_state = "idle"
 	state = { name = "idle" animation = "idle" animation_blend_time = 4
 		start_event = { trigger_once = yes sound = { soundeffect = "amb_cruiser_hum" } }
@@ -664,18 +664,18 @@ entity = {
 		event = { time = 3.4 node = "part1_locator" particle = "ship_explosion_particle" sound = { soundeffect = "ship_explosion"} }
 		event = { time = 3.4 node = "part1_locator" particle = "ship_explosion_air_vent_particle" }
 		event = { time = 3.4 node = "part1_locator" particle = "ship_burn_particle" }
-		
+
 		event = { time = 8.0 node = "part2_back_locator" particle = "ship_explosion_air_vent_particle" sound = { soundeffect = "ship_explosion"} }
 		event = { time = 3.4 node = "part2_front_locator" particle = "ship_explosion_air_vent_particle" }
 		event = { time = 8.0 node = "part2_back_locator" particle = "ship_burn_particle" }
 		event = { time = 3.4 node = "part2_front_locator" particle = "ship_burn_particle" }
-		
+
 		event = { time = 8.0 node = "part3_locator" particle = "ship_burn_particle" }
 		event = { time = 8.0 node = "part3_locator" particle = "ship_explosion_particle" sound = { soundeffect = "ship_explosion"} }
 		event = { time = 8.0 node = "part3_locator" particle = "ship_explosion_air_vent_particle" }
-	
+
 		event = { time = 10.3 node = "explosion_locator6" particle = "small_player_ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
-		
+
 		event = { time = 19.73 node = "part2" particle = "small_player_ship_explosion_particle" sound = { soundeffect = ship_explosion_large } }
 		event = { time = 19.73 node = "explosion_locator3" particle = "small_player_ship_explosion_particle" }
 	}
@@ -683,41 +683,41 @@ entity = {
 		event = { time = 5.16 node = "part1_locator" particle = "ship_explosion_particle" sound = { soundeffect = "ship_explosion"} }
 		event = { time = 5.16 node = "part1_locator" particle = "ship_explosion_air_vent_particle" }
 		event = { time = 5.16 node = "part1_locator" particle = "ship_burn_particle" }
-		
+
 		event = { time = 5.16 node = "part2_front_locator" particle = "ship_explosion_air_vent_particle" }
 		event = { time = 5.16 node = "part2_front_locator" particle = "ship_burn_particle" }
-		
+
 		event = { time = 11.9 node = "part2_back_locator" particle = "ship_explosion_air_vent_particle" }
 		event = { time = 11.9 node = "part2_back_locator" particle = "ship_burn_particle" }
 		event = { time = 11.9 node = "part2_back_locator" particle = "ship_explosion_particle" }
-	
+
 		event = { time = 11.9 node = "part3_explosion_locator" particle = "small_player_ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
-		
+
 		event = { time = 18.0 node = "part2" particle = "small_player_ship_explosion_particle" sound = { soundeffect = ship_explosion_large } }
 		event = { time = 18.0 node = "part1" particle = "small_player_ship_explosion_particle" }
 	}
-	
+
 	state = { name = "death" animation = "death3" animation_blend_time = 0.0 chance = 1 looping = no
 		event = { time = 1.7 node = "explosion_locator1" particle = "ship_burn_particle" }
 		event = { time = 1.7 node = "explosion_locator1" particle = "ship_explosion_particle" sound = { soundeffect = "ship_explosion"} }
-	
+
 		event = { time = 2.16 node = "explosion_locator2" particle = "ship_burn_particle" }
 		event = { time = 2.16 node = "explosion_locator2" particle = "ship_explosion_particle" sound = { soundeffect = "ship_explosion"} }
-	
+
 		event = { time = 3.9 node = "explosion_locator3" particle = "ship_burn_particle" }
 		event = { time = 3.9 node = "explosion_locator3" particle = "ship_explosion_particle" sound = { soundeffect = "ship_explosion"} }
-		
+
 		event = { time = 7.5 node = "explosion_locator4" particle = "ship_burn_particle" }
 		event = { time = 7.5 node = "explosion_locator4" particle = "ship_explosion_particle" sound = { soundeffect = "ship_explosion"} }
-	
+
 		event = { time = 4.9 node = "explosion_locator5" particle = "ship_burn_particle" }
 		event = { time = 4.9 node = "explosion_locator5" particle = "ship_explosion_particle" sound = { soundeffect = "ship_explosion"} }
-	
+
 		event = { time = 17.5 node = "part2" particle = "small_player_ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 	}
-	
+
 	scale = 1.0
-	
+
 	game_data = {
 		size = @cruiser_scale
 		emissive_recolor_crunch = 3.0
@@ -730,7 +730,7 @@ entity = {
 entity = {
 	name = "mammalian_01_cruiser_bow_L1_entity"
 	pdxmesh = "mammalian_01_cruiser_bow_L1_mesh"
-	
+
 	default_state = "idle"
 	state = { name = "idle" state_time = 5
 		event = { time = 0 node = "light_locator_01" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
@@ -746,7 +746,7 @@ entity = {
 entity = {
 	name = "mammalian_01_cruiser_bow_M1S2_entity"
 	pdxmesh = "mammalian_01_cruiser_bow_M1S2_mesh"
-	
+
 	default_state = "idle"
 	state = { name = "idle" state_time = 5
 		event = { time = 0 node = "light_locator_01" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
@@ -760,7 +760,7 @@ entity = {
 entity = {
 	name = "mammalian_01_cruiser_bow_M2_entity"
 	pdxmesh = "mammalian_01_cruiser_bow_M2_mesh"
-	
+
 	default_state = "idle"
 	state = { name = "idle" state_time = 5
 		event = { time = 0 node = "light_locator_01" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
@@ -778,7 +778,7 @@ entity = {
 entity = {
 	name = "mammalian_01_cruiser_mid_S2HB_entity"
 	pdxmesh = "mammalian_01_cruiser_mid_S2HB_mesh"
-	
+
 	default_state = "idle"
 	state = { name = "idle" state_time = 5
 		event = { time = 0 node = "light_locator_01" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
@@ -787,7 +787,7 @@ entity = {
 		event = { time = 0 node = "light_locator_01" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 	}
 	state = { name = "death" state_time = 5 }
-	
+
 	#TEMP LOCATOR REPLACE IN SCENE
 	#locator = {
 	#	name = "strike_craft_locator_01"
@@ -798,7 +798,7 @@ entity = {
 entity = {
 	name = "mammalian_01_cruiser_mid_L1M1_entity"
 	pdxmesh = "mammalian_01_cruiser_mid_L1M1_mesh"
-	
+
 	default_state = "idle"
 	state = { name = "idle" state_time = 5
 		event = { time = 0 node = "light_locator_01" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
@@ -814,7 +814,7 @@ entity = {
 entity = {
 	name = "mammalian_01_cruiser_mid_M3_entity"
 	pdxmesh = "mammalian_01_cruiser_mid_M3_mesh"
-	
+
 	default_state = "idle"
 	state = { name = "idle" state_time = 5
 		event = { time = 0 node = "light_locator_01" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
@@ -830,7 +830,7 @@ entity = {
 entity = {
 	name = "mammalian_01_cruiser_mid_M2S2_entity"
 	pdxmesh = "mammalian_01_cruiser_mid_M2S2_mesh"
-	
+
 	default_state = "idle"
 	state = { name = "idle" state_time = 5
 		event = { time = 0 node = "light_locator_01" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
@@ -847,7 +847,7 @@ entity = {
 entity = {
 	name = "mammalian_01_cruiser_stern_M1_entity"
 	pdxmesh = "mammalian_01_cruiser_stern_M1_mesh"
-	
+
 	default_state = "idle"
 	state = { name = "idle" state_time = 5
 		event = { time = 0 node = "engine_small_01" particle = "generic_035_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
@@ -855,7 +855,7 @@ entity = {
 		event = { time = 0 node = "engine_small_03" particle = "generic_035_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_small_04" particle = "generic_035_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_medium_01" particle = "generic_05_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
-	
+
 		event = { time = 0 node = "light_locator_01" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "light_locator_02" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 	}
@@ -865,12 +865,12 @@ entity = {
 		event = { time = 0 node = "engine_small_03" particle = "generic_05_exhaust_circle_moving" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_small_04" particle = "generic_05_exhaust_circle_moving" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_medium_01" particle = "generic_075_exhaust_circle_moving" trigger_once = yes keep_particle = yes }
-	
+
 		event = { time = 0 node = "light_locator_01" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "light_locator_02" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 	}
 	state = { name = "death" state_time = 5 }
-	
+
 	game_data = {
 		trail_locators = {
 			"engine_medium_01" = 		{ width = @medium_trail_W 	lenght = @medium_trail_L   	}
@@ -885,7 +885,7 @@ entity = {
 entity = {
 	name = "mammalian_01_cruiser_stern_S2_entity"
 	pdxmesh = "mammalian_01_cruiser_stern_S2_mesh"
-	
+
 	default_state = "idle"
 	state = { name = "idle" state_time = 5
 		event = { time = 0 node = "engine_small_01" particle = "generic_035_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
@@ -893,7 +893,7 @@ entity = {
 		event = { time = 0 node = "engine_small_03" particle = "generic_035_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_small_04" particle = "generic_035_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_medium_01" particle = "generic_05_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
-	
+
 		event = { time = 0 node = "light_locator_01" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "light_locator_02" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 	}
@@ -903,12 +903,12 @@ entity = {
 		event = { time = 0 node = "engine_small_03" particle = "generic_05_exhaust_circle_moving" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_small_04" particle = "generic_05_exhaust_circle_moving" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_medium_01" particle = "generic_075_exhaust_circle_moving" trigger_once = yes keep_particle = yes }
-	
+
 		event = { time = 0 node = "light_locator_01" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "light_locator_02" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 	}
 	state = { name = "death" state_time = 5 }
-	
+
 	game_data = {
 		trail_locators = {
 			"engine_medium_01" = 		{ width = @medium_trail_W 	lenght = @medium_trail_L   	}
@@ -926,13 +926,13 @@ entity = {
 entity = {
 	name = "mammalian_01_battleship_entity"
 	pdxmesh = "mammalian_01_battleship_frame_mesh"
-	
+
 	default_state = "idle"
-	state = { name = "idle"	animation = "idle" animation_blend_time = 4.0 
+	state = { name = "idle"	animation = "idle" animation_blend_time = 4.0
 		start_event = { trigger_once = yes sound = { soundeffect = "amb_battleship_hum" } }
 		start_event = { trigger_once = yes sound = { soundeffect = "amb_battleship_bass" } }
 	}
-	state = { name = "moving"	animation = "idle" animation_blend_time = 4.0 
+	state = { name = "moving"	animation = "idle" animation_blend_time = 4.0
 		event = { trigger_once = yes sound = { soundeffect = "moving_out_battleship" } }
 	}
 	state = { name = "death" animation = "death" animation_blend_time = 0.0 chance = 1 looping = no
@@ -940,13 +940,13 @@ entity = {
 		event = { time = 9.26 node = "part1_locator" particle = "ship_burn_particle" }
 		event = { time = 9.26 node = "part1_locator" particle = "large_ship_explosion_particle" }
 		event = { time = 7.63 node = "part1_locator" particle = "ship_explosion_particle" sound = { soundeffect = "ship_explosion"} }
-		
+
 		event = { time = 10.26 node = "part2_back_locator" particle = "ship_explosion_air_vent_particle" }
 		event = { time = 10.26 node = "part2_back_locator" particle = "ship_burn_particle" }
-		
+
 		event = { time = 10.26 node = "part3_locator" particle = "ship_burn_particle" }
 		event = { time = 10.26 node = "part3_locator" particle = "large_ship_explosion_particle" sound = { soundeffect = "ship_explosion"} }
-		
+
 		event = { time = 14.5 node = "part2" particle = "large_player_ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 	}
 	state = { name = "death" animation = "death2" animation_blend_time = 0.0 chance = 1 looping = no
@@ -954,16 +954,16 @@ entity = {
 		event = { time = 9.56 node = "part1_locator" particle = "ship_burn_particle" }
 		event = { time = 9.56 node = "part1_locator" particle = "large_ship_explosion_particle" sound = { soundeffect = "ship_explosion"} }
 		event = { time = 9.0 node = "part1_locator" particle = "ship_explosion_particle" }
-		
+
 		event = { time = 9.56 node = "part2_front_locator" particle = "ship_explosion_air_vent_particle" sound = { soundeffect = "ship_explosion"} }
 		event = { time = 9.56 node = "part2_front_locator" particle = "ship_burn_particle" }
 		event = { time = 14.7 node = "part2_back_locator" particle = "ship_explosion_air_vent_particle" sound = { soundeffect = "ship_explosion"} }
 		event = { time = 14.7 node = "part2_back_locator" particle = "ship_burn_particle" }
-		
+
 		event = { time = 14.7 node = "part3_locator" particle = "ship_explosion_air_vent_particle" sound = { soundeffect = "ship_explosion"} }
 		event = { time = 14.7 node = "part3_locator" particle = "ship_burn_particle" }
 		event = { time = 14.7 node = "part3_locator" particle = "large_ship_explosion_particle" }
-		
+
 		event = { time = 22.5 node = "part1" particle = "small_player_ship_explosion_particle" sound = { soundeffect = "ship_explosion"} }
 		event = { time = 22.5 node = "part2" particle = "small_player_ship_explosion_particle" sound = { soundeffect = ship_explosion_large } }
 		event = { time = 22.5 node = "part3" particle = "small_player_ship_explosion_particle" }
@@ -971,24 +971,24 @@ entity = {
 	state = { name = "death" animation = "death3" animation_blend_time = 0.0 chance = 1 looping = no
 		event = { time = 1.0 node = "explosion_locator1" particle = "ship_burn_particle" }
 		event = { time = 1.0 node = "explosion_locator1" particle = "ship_explosion_particle" sound = { soundeffect = "ship_explosion"} }
-		
+
 		event = { time = 1.7 node = "explosion_locator2" particle = "ship_burn_particle" }
 		event = { time = 1.7 node = "explosion_locator2" particle = "ship_explosion_particle" sound = { soundeffect = "ship_explosion"} }
-		
+
 		event = { time = 3.7 node = "explosion_locator3" particle = "ship_burn_particle" }
 		event = { time = 3.7 node = "explosion_locator3" particle = "ship_explosion_particle" sound = { soundeffect = "ship_explosion"} }
-		
+
 		event = { time = 6.0 node = "explosion_locator4" particle = "ship_burn_particle" }
 		event = { time = 6.0 node = "explosion_locator4" particle = "ship_explosion_particle" sound = { soundeffect = "ship_explosion"} }
-		
+
 		event = { time = 7.3 node = "explosion_locator5" particle = "ship_burn_particle" }
 		event = { time = 7.3 node = "explosion_locator5" particle = "ship_explosion_particle" sound = { soundeffect = "ship_explosion"} }
-		
+
 		event = { time = 15.9 node = "part2" particle = "large_player_ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 	}
-	
+
 	scale = 1.0
-	
+
 	game_data = {
 		size = @battleship_scale
 		emissive_recolor_crunch = 5.0
@@ -1001,74 +1001,74 @@ entity = {
 entity = {
 	name = "mammalian_01_battleship_bow_L1M1S2_entity"
 	pdxmesh = "mammalian_01_battleship_bow_L1M1S2_mesh"
-	
+
 	default_state = "idle"
 	state = { name = idle	state_time = 5
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
-	
+
 	state = { name = moving	state_time = 5
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
-	
+
 	state = { name = "death" state_time = 5 }
 }
 
 entity = {
 	name = "mammalian_01_battleship_bow_L1S4_entity"
 	pdxmesh = "mammalian_01_battleship_bow_L1S4_mesh"
-	
+
 	default_state = "idle"
 	state = { name = idle	state_time = 5
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
-	
+
 	state = { name = moving	state_time = 5
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
-	
+
 	state = { name = "death" state_time = 5 }
 }
 
 entity = {
 	name = "mammalian_01_battleship_bow_L2_entity"
 	pdxmesh = "mammalian_01_battleship_bow_L2_mesh"
-	
+
 	default_state = "idle"
 	state = { name = idle	state_time = 5
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
-	
+
 	state = { name = moving	state_time = 5
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
 
-	state = { name = "death" state_time = 5 }	
+	state = { name = "death" state_time = 5 }
 }
 
 entity = {
 	name = "mammalian_01_battleship_bow_M1S2SHB_entity"
 	pdxmesh = "mammalian_01_battleship_bow_M1S2SHB_mesh"
-	
+
 	default_state = "idle"
 	state = { name = idle	state_time = 5
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
-	
+
 	state = { name = moving	state_time = 5
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
-	
+
 	state = { name = "death" state_time = 5 }
-	
+
 	#TEMP LOCATOR REPLACE IN SCENE
 	locator = {
 		name = "strike_craft_locator_01"
@@ -1079,58 +1079,58 @@ entity = {
 entity = {
 	name = "mammalian_01_battleship_bow_M2S4_entity"
 	pdxmesh = "mammalian_01_battleship_bow_M2S4_mesh"
-	
+
 	default_state = "idle"
 	state = { name = idle	state_time = 5
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
-	
+
 	state = { name = moving	state_time = 5
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
-	
+
 	state = { name = "death" state_time = 5 }
 }
 
 entity = {
 	name = "mammalian_01_battleship_bow_M3S2_entity"
 	pdxmesh = "mammalian_01_battleship_bow_M3S2_mesh"
-	
+
 	default_state = "idle"
 	state = { name = idle	state_time = 5
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0 node = "light_03" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
-	
+
 	state = { name = moving	state_time = 5
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0 node = "light_03" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
-	
+
 	state = { name = "death" state_time = 5 }
 }
 
 entity = {
 	name = "mammalian_01_battleship_bow_XL1_entity"
 	pdxmesh = "mammalian_01_battleship_bow_XL1_mesh"
-	
+
 	default_state = "idle"
 	state = { name = idle	state_time = 5
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
-	
+
 	state = { name = moving	state_time = 5
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
-	
+
 	state = { name = "death" state_time = 5 }
-	
+
 	# XL weapon windup locator names: xl_windup_1-10
 }
 
@@ -1140,92 +1140,92 @@ entity = {
 entity = {
 	name = "mammalian_01_battleship_mid_L2S4_entity"
 	pdxmesh = "mammalian_01_battleship_mid_L2S4_mesh"
-	
+
 	default_state = "idle"
 	state = { name = idle	state_time = 5
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
-	
+
 	state = { name = moving	state_time = 5
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
-	
+
 	state = { name = "death" state_time = 5 }
 }
 
 entity = {
 	name = "mammalian_01_battleship_mid_L1M4_entity"
 	pdxmesh = "mammalian_01_battleship_mid_L1M4_mesh"
-	
+
 	default_state = "idle"
 	state = { name = idle	state_time = 5
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
-	
+
 	state = { name = moving	state_time = 5
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
-	
+
 	state = { name = "death" state_time = 5 }
 }
 
 entity = {
 	name = "mammalian_01_battleship_mid_L2M2_entity"
 	pdxmesh = "mammalian_01_battleship_mid_L2M2_mesh"
-	
+
 	default_state = "idle"
 	state = { name = idle	state_time = 5
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
-	
+
 	state = { name = moving	state_time = 5
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
-	
+
 	state = { name = "death" state_time = 5 }
 }
 
 entity = {
 	name = "mammalian_01_battleship_mid_L3_entity"
 	pdxmesh = "mammalian_01_battleship_mid_L3_mesh"
-	
+
 	default_state = "idle"
 	state = { name = idle	state_time = 5
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
-	
+
 	state = { name = moving	state_time = 5
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
-	
+
 	state = { name = "death" state_time = 5 }
 }
 
 entity = {
 	name = "mammalian_01_battleship_mid_M4SHB_entity"
 	pdxmesh = "mammalian_01_battleship_mid_M4SHB_mesh"
-	
+
 	default_state = "idle"
 	state = { name = idle	state_time = 5
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
-	
+
 	state = { name = moving	state_time = 5
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
-	
+
 	state = { name = "death" state_time = 5 }
-	
+
 	#TEMP LOCATOR REPLACE IN SCENE
 	locator = {
 		name = "strike_craft_locator_01"
@@ -1236,20 +1236,20 @@ entity = {
 entity = {
 	name = "mammalian_01_battleship_mid_S4LHB_entity"
 	pdxmesh = "mammalian_01_battleship_mid_S4LHB_mesh"
-	
+
 	default_state = "idle"
 	state = { name = idle	state_time = 5
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
-	
+
 	state = { name = moving	state_time = 5
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
-	
+
 	state = { name = "death" state_time = 5 }
-	
+
 	#TEMP LOCATOR REPLACE IN SCENE
 	locator = {
 		name = "strike_craft_locator_01"
@@ -1269,14 +1269,14 @@ entity = {
 entity = {
 	name = "mammalian_01_battleship_stern_L1_entity"
 	pdxmesh = "mammalian_01_battleship_stern_L1_mesh"
-	
+
 	default_state = idle
 	state = { name = "idle" state_time = 5
 		event = { time = 0 node = "engine_medium_01" particle = "generic_075_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_medium_02" particle = "generic_075_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_medium_03" particle = "generic_075_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_medium_04" particle = "generic_075_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
-		
+
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 	}
@@ -1285,12 +1285,12 @@ entity = {
 		event = { time = 0 node = "engine_medium_02" particle = "generic_1_exhaust_circle_moving" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_medium_03" particle = "generic_1_exhaust_circle_moving" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_medium_04" particle = "generic_1_exhaust_circle_moving" trigger_once = yes keep_particle = yes }
-	
+
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 	}
 	state = { name = "death" state_time = 5 }
-	
+
 	game_data = {
 		trail_locators = {
 			"engine_medium_01" = 		{ width = @medium_trail_W 	lenght = @medium_trail_L   	}
@@ -1304,14 +1304,14 @@ entity = {
 entity = {
 	name = "mammalian_01_battleship_stern_M1S2_entity"
 	pdxmesh = "mammalian_01_battleship_stern_M1S2_mesh"
-	
+
 	default_state = idle
 	state = { name = "idle" state_time = 5
 		event = { time = 0 node = "engine_medium_01" particle = "generic_075_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_medium_02" particle = "generic_075_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_medium_03" particle = "generic_035_exhaust_line_idle" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_medium_04" particle = "generic_035_exhaust_line_idle" trigger_once = yes keep_particle = yes }
-	
+
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 	}
@@ -1320,7 +1320,7 @@ entity = {
 		event = { time = 0 node = "engine_medium_02" particle = "generic_1_exhaust_line_moving" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_medium_03" particle = "generic_05_exhaust_line_moving" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_medium_04" particle = "generic_05_exhaust_line_moving" trigger_once = yes keep_particle = yes }
-	
+
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 	}
@@ -1330,14 +1330,14 @@ entity = {
 entity = {
 	name = "mammalian_01_battleship_stern_M2_entity"
 	pdxmesh = "mammalian_01_battleship_stern_M2_mesh"
-	
+
 	default_state = idle
 	state = { name = "idle" state_time = 5
 		event = { time = 0 node = "engine_medium_01" particle = "generic_075_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_medium_02" particle = "generic_075_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_medium_03" particle = "generic_075_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_medium_04" particle = "generic_075_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
-	
+
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 	}
@@ -1346,12 +1346,12 @@ entity = {
 		event = { time = 0 node = "engine_medium_02" particle = "generic_1_exhaust_circle_moving" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_medium_03" particle = "generic_1_exhaust_circle_moving" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_medium_04" particle = "generic_1_exhaust_circle_moving" trigger_once = yes keep_particle = yes }
-		
+
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 	}
 	state = { name = "death" state_time = 5 }
-	
+
 	game_data = {
 		trail_locators = {
 			"engine_medium_01" = 		{ width = @medium_trail_W 	lenght = @medium_trail_L   	}
@@ -1365,14 +1365,14 @@ entity = {
 entity = {
 	name = "mammalian_01_battleship_stern_S4_entity"
 	pdxmesh = "mammalian_01_battleship_stern_S4_mesh"
-	
+
 	default_state = idle
 	state = { name = "idle" state_time = 5
 		event = { time = 0 node = "engine_medium_01" particle = "generic_075_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_medium_02" particle = "generic_075_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_medium_03" particle = "generic_035_exhaust_line_idle" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_medium_04" particle = "generic_035_exhaust_line_idle" trigger_once = yes keep_particle = yes }
-	
+
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 	}
@@ -1381,7 +1381,7 @@ entity = {
 		event = { time = 0 node = "engine_medium_02" particle = "generic_1_exhaust_line_moving" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_medium_03" particle = "generic_05_exhaust_line_moving" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_medium_04" particle = "generic_05_exhaust_line_moving" trigger_once = yes keep_particle = yes }
-	
+
 		event = { time = 0 node = "light_01" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "light_02" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 	}
@@ -1395,30 +1395,30 @@ entity = {
 ###################################################################################
 
 entity = {
-	name = "mammalian_01_bomber_entity"	
+	name = "mammalian_01_bomber_entity"
 	pdxmesh = "mammalian_01_bomber_mesh"
 	scale = 0.6
-	
+
 	game_data = {
 		emissive_recolor_crunch = 3.0
 	}
 }
 
 entity = {
-	name = "mammalian_01_droppod_entity"	
+	name = "mammalian_01_droppod_entity"
 	pdxmesh = "mammalian_01_launcher_mesh"
 	scale = 0.85
-	
+
 	game_data = {
 		emissive_recolor_crunch = 3.0
 	}
 }
 
 entity = {
-	name = "mammalian_01_fighter_entity"	
+	name = "mammalian_01_fighter_entity"
 	pdxmesh = "mammalian_01_fighter_mesh"
 	scale = 0.6
-	
+
 	game_data = {
 		emissive_recolor_crunch = 3.0
 	}
@@ -1433,18 +1433,18 @@ entity = {
 entity = {
  name = "mammalian_01_constructor_entity"
 	pdxmesh = "molluscoid_01_corvette_frame_mesh"
-	
+
 	default_state = "idle"
 	state = { name = "idle"	 						animation = "idle" animation_blend_time = 0 }
 	state = { name = "moving"						animation = "idle" animation_blend_time = 2 }
 	state = { name = "working" 						animation = "idle" looping = no next_state = working_looping }
 	state = { name = "working_looping"				animation = "idle" }
-	state = { name = "death" animation = "death3" 	animation_blend_time = 0.0 chance = 1 looping = no 
+	state = { name = "death" animation = "death3" 	animation_blend_time = 0.0 chance = 1 looping = no
 		event = { time = 4.63 node = "ship_main" particle = "large_ship_explosion_particle" }
 	}
-	
+
 	scale = 1.0
-	
+
 	game_data = {
 		size = @constructor_scale
 		emissive_recolor_crunch = 5.0
@@ -1455,7 +1455,7 @@ entity = {
 entity = {
  name = "mammalian_01_construction_ship_entity"
 	pdxmesh = "mammalian_01_construction_mesh"
-		
+
 	default_state = "idle"
 	state = { name = "idle" 						animation = "idle"
 		event = { time = 0 node = "engine_small_01" particle = "generic_075_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
@@ -1465,7 +1465,7 @@ entity = {
 		event = { time = 0 node = "engine_small_04" particle = "generic_06_exhaust_line_idle" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_small_05" particle = "generic_06_exhaust_line_idle" trigger_once = yes keep_particle = yes }
 		start_event = { trigger_once = yes sound = { soundeffect = "amb_construction_ship_hum" } }
-	
+
 		event = { time = 0 node = "light_locator_01" particle = "ship_light_blue_regular_effect" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "light_locator_02" particle = "ship_light_blue_regular_effect" trigger_once = yes keep_particle = yes }
 		event = { time = 0.05 node = "light_locator_03" particle = "ship_light_blue_regular_effect" trigger_once = yes keep_particle = yes }
@@ -1482,34 +1482,34 @@ entity = {
 		event = { time = 0 node = "engine_small_05" particle = "generic_06_exhaust_line_wide_moving" trigger_once = yes keep_particle = yes }
 		event = { trigger_once = yes sound = { soundeffect = moving_out_construction } }
 	}
-	state = { name = "working"						animation = "working"		looping = no	next_state = working_looping 
+	state = { name = "working"						animation = "working"		looping = no	next_state = working_looping
 		event = { time = 0 node = "engine_small_01" particle = "generic_075_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_medium_01" particle = "generic_06_exhaust_line_idle" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_small_02" particle = "generic_075_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_small_03" particle = "generic_06_exhaust_line_idle" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_small_04" particle = "generic_06_exhaust_line_idle" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_small_05" particle = "generic_06_exhaust_line_idle" trigger_once = yes keep_particle = yes }
-		
+
 		event = { time = 0.4 node = "bot_1_exhaust" particle = "generic_025_exhaust_circle_long_moving" trigger_once = yes keep_particle = yes sound = { soundeffect = construction_progress_loop }  }
 		event = { time = 0.53 node = "bot_2_exhaust" particle = "generic_025_exhaust_circle_long_moving" trigger_once = yes keep_particle = yes }
 		event = { time = 0.3 node = "bot_3_exhaust" particle = "generic_025_exhaust_circle_long_moving" trigger_once = yes keep_particle = yes }
 		event = { time = 0.46 node = "bot_4_exhaust" particle = "generic_025_exhaust_circle_long_moving" trigger_once = yes keep_particle = yes }
-	
+
 		event = { time = 4 node = "bot_1_welding" particle = "construction_bot_welding_effect" trigger_once = yes keep_particle = yes }
-		
+
 		event = { time = 4.16 node = "bot_3_welding" particle = "construction_bot_welding_effect" trigger_once = yes keep_particle = yes }
 	}
-	state = { name = "working_looping"				animation = "working_looping" 
+	state = { name = "working_looping"				animation = "working_looping"
 		#event = { time = 0 node = "bot_1"	entity = scan_detail_entity life = 2 }
 		#event = { time = 20 node = "bot_1"	entity = scan_detail_entity life = 2 }
-		
+
 		event = { time = 0 node = "engine_small_01" particle = "generic_075_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_medium_01" particle = "generic_06_exhaust_line_idle" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_small_02" particle = "generic_075_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_small_03" particle = "generic_06_exhaust_line_idle" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_small_04" particle = "generic_06_exhaust_line_idle" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_small_05" particle = "generic_06_exhaust_line_idle" trigger_once = yes keep_particle = yes }
-		
+
 		# Bot 1 welding
 		#event = { time = 0 node = "bot_1_welding" particle = "construction_bot_welding_effect" trigger_once = yes keep_particle = yes }
 		event = { time = 5.83 node = "bot_1_welding" particle = "construction_bot_welding_effect" trigger_once = yes keep_particle = yes sound = { soundeffect = "welding_bot" } }
@@ -1518,7 +1518,7 @@ entity = {
 		event = { time = 23.93 node = "bot_1_welding" particle = "construction_bot_welding_effect" trigger_once = yes keep_particle = yes sound = { soundeffect = "welding_bot" } }
 		event = { time = 30.06 node = "bot_1_welding" particle = "construction_bot_welding_effect" trigger_once = yes keep_particle = yes sound = { soundeffect = "welding_bot" } }
 		event = { time = 35.8 node = "bot_1_welding" particle = "construction_bot_welding_effect" trigger_once = yes keep_particle = yes sound = { soundeffect = "welding_bot" } }
-		
+
 		# Bot 2 welding
 		event = { time = 0 node = "bot_2_welding" particle = "construction_bot_welding_effect" trigger_once = yes keep_particle = yes sound = { soundeffect = "welding_bot" } }
 		event = { time = 1.5 node = "bot_2_welding" particle = "construction_bot_welding_effect" trigger_once = yes keep_particle = yes sound = { soundeffect = "welding_bot" } }
@@ -1527,7 +1527,7 @@ entity = {
 		event = { time = 20.06 node = "bot_2_welding" particle = "construction_bot_welding_effect" trigger_once = yes keep_particle = yes sound = { soundeffect = "welding_bot" } }
 		event = { time = 25.96 node = "bot_2_welding" particle = "construction_bot_welding_effect" trigger_once = yes keep_particle = yes sound = { soundeffect = "welding_bot" } }
 		event = { time = 32.0 node = "bot_2_welding" particle = "construction_bot_welding_effect" trigger_once = yes keep_particle = yes sound = { soundeffect = "welding_bot" } }
-		
+
 		# Bot 3 welding
 		#event = { time = 0 node = "bot_3_welding" particle = "construction_bot_welding_effect" trigger_once = yes keep_particle = yes sound = { soundeffect = "welding_bot" } }
 		event = { time = 4.7 node = "bot_3_welding" particle = "construction_bot_welding_effect" trigger_once = yes keep_particle = yes sound = { soundeffect = "welding_bot" } }
@@ -1536,7 +1536,7 @@ entity = {
 		event = { time = 23.03 node = "bot_3_welding" particle = "construction_bot_welding_effect" trigger_once = yes keep_particle = yes sound = { soundeffect = "welding_bot" } }
 		event = { time = 29.66 node = "bot_3_welding" particle = "construction_bot_welding_effect" trigger_once = yes keep_particle = yes sound = { soundeffect = "welding_bot" } }
 		event = { time = 35.06 node = "bot_3_welding" particle = "construction_bot_welding_effect" trigger_once = yes keep_particle = yes sound = { soundeffect = "welding_bot" } }
-		
+
 		# Bot 4 welding
 		event = { time = 0 node = "bot_4_welding" particle = "construction_bot_welding_effect" trigger_once = yes keep_particle = yes sound = { soundeffect = "welding_bot" } }
 		event = { time = 3.5 node = "bot_4_welding" particle = "construction_bot_welding_effect" trigger_once = yes keep_particle = yes sound = { soundeffect = "welding_bot" } }
@@ -1546,7 +1546,7 @@ entity = {
 		event = { time = 25.76 node = "bot_4_welding" particle = "construction_bot_welding_effect" trigger_once = yes keep_particle = yes sound = { soundeffect = "welding_bot" } }
 		event = { time = 31.3 node = "bot_4_welding" particle = "construction_bot_welding_effect" trigger_once = yes keep_particle = yes sound = { soundeffect = "welding_bot" } }
 		event = { time = 37.36 node = "bot_4_welding" particle = "construction_bot_welding_effect" trigger_once = yes keep_particle = yes sound = { soundeffect = "welding_bot" } }
-		
+
 		event = { time = 0 node = "bot_1_exhaust" particle = "generic_025_exhaust_circle_long_moving" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "bot_2_exhaust" particle = "generic_025_exhaust_circle_long_moving" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "bot_3_exhaust" particle = "generic_025_exhaust_circle_long_moving" trigger_once = yes keep_particle = yes }
@@ -1564,21 +1564,21 @@ entity = {
 		event = { time = 3.9 node = "construction_explosion_locator8" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 		event = { time = 4.1 node = "construction_explosion_locator10" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 	}
-	
+
 	attach = { root = "mammalian_01_construction_window_entity" }
-	
+
 	game_data = {
 		trail_locators = {
 			"engine_medium_01" = 		{ width = 15 	lenght = @large_trail_L   height = 40 	}
 			"engine_small_01" = 		{ width = @medium_trail_W 	lenght = @medium_trail_L   	}
 			"engine_small_02" = 		{ width = @medium_trail_W 	lenght = @medium_trail_L   	}
-			
+
 			"engine_small_03" = 		{ width = @medium_trail_W 	lenght = @medium_trail_L  height = 15 	}
 			"engine_small_04" = 		{ width = @medium_trail_W 	lenght = @medium_trail_L  height = 15 	}
 			"engine_small_05" = 		{ width = @medium_trail_W 	lenght = @medium_trail_L  height = 15  	}
 		}
 	}
-	
+
 }
 
 
@@ -1586,10 +1586,10 @@ entity = {
 	#	 name = "mammalian_01_construction_entity"
 	#		pdxmesh = "molluscoid_01_corvette_frame_mesh"
 	#		scale = @constructor_scale
-	#		
+	#
 	#		default_state = idle
 	#		state = { name = "idle"	 animation = "idle" animation_blend_time = 4 }
-	#		state = { name = "moving"	animation = "idle" animation_blend_time = 2 
+	#		state = { name = "moving"	animation = "idle" animation_blend_time = 2
 	#		event = { trigger_once = yes sound = { soundeffect = moving_out_construction } }
 	#		}
 	#		state = { name = "working"	animation = "idle"
@@ -1600,7 +1600,7 @@ entity = {
 entity = {
  name = "mammalian_01_construction_window_entity"
 	pdxmesh = "mammalian_01_construction_window_mesh"
-	
+
 	game_data = {
 		uv_animation_speed   = -0.05
 		uv_animation_direction  = { 1.0 0.0 }
@@ -1615,11 +1615,11 @@ entity = {
 	name = "mammalian_01_colonizer_entity"
 	pdxmesh = "molluscoid_01_corvette_frame_mesh"
 	#locator = { name = "part1" 		position = { 0  0  0 } }
-	
+
 	default_state = "idle"
 	state = { name = "idle"	 animation = "idle" animation_blend_time = 4 }
 	state = { name = "moving"	animation = "idle" animation_blend_time = 2 }
-	state = { name = "death" animation = "death3" animation_blend_time = 0.0 chance = 1 looping = no 
+	state = { name = "death" animation = "death3" animation_blend_time = 0.0 chance = 1 looping = no
 		event = { time = 4.63 node = "ship_main" particle = "large_ship_explosion_particle" }
 	}
    	game_data = {
@@ -1631,9 +1631,9 @@ entity = {
 entity = { name = "mammalian_01_sponsored_colonizer_entity" clone = "mammalian_01_colonizer_entity" }
 
 		entity = {
-			name = "mammalian_01_colony_ship_entity"	
+			name = "mammalian_01_colony_ship_entity"
 			pdxmesh = "mammalian_01_colony_mesh"
-			
+
 			state = { name = "idle" state_time = 5
 				event = { time = 0 node = "engine_large_01" particle = "generic_1_5_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
 	#			event = { time = 0 node = "engine_medium_01" particle = "mammalian_01_1_5_exhaust_oblong_idle_particle" trigger_once = yes keep_particle = yes }
@@ -1642,7 +1642,7 @@ entity = { name = "mammalian_01_sponsored_colonizer_entity" clone = "mammalian_0
 	#			event = { time = 0 node = "engine_medium_04" particle = "mammalian_01_1_45_exhaust_idle_particle" trigger_once = yes keep_particle = yes }
 				event = { time = 0 node = "engine_large_02" particle = "generic_06_exhaust_line_idle" trigger_once = yes keep_particle = yes }
 				start_event = { trigger_once = yes sound = { soundeffect = "amb_colony_ship_hum" } }
-			
+
 				event = { time = 0 node = "light_locator_01" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 				event = { time = 0 node = "light_locator_02" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 				event = { time = 0 node = "light_locator_03" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
@@ -1656,14 +1656,14 @@ entity = { name = "mammalian_01_sponsored_colonizer_entity" clone = "mammalian_0
 		#		event = { time = 0 node = "engine_medium_04" particle = "mammalian_01_1_45_ship_exhaust_moving_particle" trigger_once = yes keep_particle = yes }
 				event = { time = 0 node = "engine_large_02" particle = "generic_1_25_exhaust_line_wide_moving" trigger_once = yes keep_particle = yes }
 				event = { trigger_once = yes sound = { soundeffect = moving_out_colony_ship } }
-			
+
 				event = { time = 0 node = "light_locator_01" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 				event = { time = 0 node = "light_locator_02" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 				event = { time = 0 node = "light_locator_03" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 				event = { time = 0 node = "light_locator_04" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 			}
 			state = { name = "death" chance = 1 looping = no state_time = 10
-			
+
 				event = { time = 0.0 node = "colony_explosion_locator1" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 				event = { time = 1.4 node = "colony_explosion_locator7" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 				event = { time = 1.0 node = "colony_explosion_locator10" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
@@ -1676,7 +1676,7 @@ entity = { name = "mammalian_01_sponsored_colonizer_entity" clone = "mammalian_0
 				event = { time = 4.1 node = "colony_explosion_locator6" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 			}
 			scale = 1.25
-			
+
 			game_data = {
 				trail_locators = {
 					"engine_large_02" = 		{ width = @large_trail_W 	lenght = @large_trail_L   	}
@@ -1690,31 +1690,31 @@ entity = { name = "mammalian_01_sponsored_colonizer_entity" clone = "mammalian_0
 	#entity = {
 	# name = "mammalian_01_colony_entity"
 	#	pdxmesh = "mammalian_01_colony_mesh"
-	#	
+	#
 	#	state = { name = "idle"
 			#event = { time = 0 node = "exhaust" particle = "ship_exhaust_idle_small_particle" trigger_once = yes keep_particle = yes }
 	#	}
 	#	state = { name = "moving"
 			#event = { time = 0 node = "exhaust" particle = "ship_exhaust_small_particle" trigger_once = yes keep_particle = yes }
 			#event = { time = 0.1 node = "root" particle = "ship_trail_particle" trigger_once = yes keep_particle = yes }
-	#	
+	#
 	#	}
 	#	state = { name = "warp_out"
 	#		event = { time = 0 node = "root" particle = "warp_out_particle" trigger_once = yes keep_particle = yes }
-	#	}	
+	#	}
 	#}
 
 entity = {
- name = "mammalian_01_science_entity"	
+ name = "mammalian_01_science_entity"
 	pdxmesh = "molluscoid_01_corvette_frame_mesh"
-	
+
 	default_state = "idle"
 	state = { name = "idle"	 animation = "idle" animation_blend_time = 4 }
 	state = { name = "moving"	animation = "idle" animation_blend_time = 2 }
-	state = { name = "death" animation = "death3" animation_blend_time = 0.0 chance = 1 looping = no 
+	state = { name = "death" animation = "death3" animation_blend_time = 0.0 chance = 1 looping = no
 		event = { time = 4.63 node = "ship_main" particle = "avian_01_large_ship_explosion_particle" }
 	}
-	
+
 	game_data = {
 		emissive_recolor_crunch = 5.0
 	}
@@ -1724,13 +1724,13 @@ entity = {
 entity = {
  name = "mammalian_01_science_ship_entity"
 	pdxmesh = "mammalian_01_science_mesh"
-	
+
 	default_state = "idle"
 	state = { name = "idle" state_time = 5
 		event = { time = 0.0 node = "engine_small_01" particle = "generic_05_exhaust_line_idle" keep_particle = yes trigger_once = yes }
 		event = { time = 0.0 node = "engine_small_02" particle = "generic_05_exhaust_line_idle" keep_particle = yes trigger_once = yes }
 		start_event = { trigger_once = yes sound = { soundeffect = "amb_science_ship_hum" } }
-	
+
 		event = { time = 0 node = "light_locator_01" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "light_locator_02" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 	}
@@ -1738,12 +1738,12 @@ entity = {
 		event = { time = 0.0 node = "engine_small_01" particle = "generic_075_exhaust_circle_moving" keep_particle = yes trigger_once = yes  }
 		event = { time = 0.0 node = "engine_small_02" particle = "generic_075_exhaust_circle_moving" keep_particle = yes trigger_once = yes  }
 		event = { trigger_once = yes sound = { soundeffect = moving_out_science } }
-		
+
 		event = { time = 0 node = "light_locator_01" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "light_locator_02" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 	}
 	state = { name = "death" chance = 1 looping = no state_time = 10
-	
+
 		event = { time = 0.0 node = "science_explosion_locator1" particle = "avian_tiny_ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 		event = { time = 1.4 node = "science_explosion_locator7" particle = "avian_tiny_ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 		event = { time = 1.6 node = "science_explosion_locator2" particle = "avian_tiny_ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
@@ -1755,7 +1755,7 @@ entity = {
 
 	}
 	scale = 1.0
-	
+
 	game_data = {
 		trail_locators = {
 			"engine_small_01" = 		{ width = @small_trail_W 	lenght = @small_trail_L   	}
@@ -1769,16 +1769,16 @@ entity = {
 entity = {
  name = "mammalian_01_transport_entity"
 	pdxmesh = "molluscoid_01_corvette_frame_mesh"
-	
+
 	default_state = "idle"
-	state = { name = "idle"	 animation = "idle" animation_blend_time = 4 
+	state = { name = "idle"	 animation = "idle" animation_blend_time = 4
 	}
 	state = { name = "moving"	animation = "idle" animation_blend_time = 2
 	}
-	state = { name = "death" animation = "death3" animation_blend_time = 0.0 chance = 1 looping = no 
+	state = { name = "death" animation = "death3" animation_blend_time = 0.0 chance = 1 looping = no
 		event = { time = 4.63 node = "ship_main" particle = "large_ship_explosion_particle" }
 	}
- 
+
 	scale = 1.0
 	game_data = {
 		size = @transport_scale
@@ -1789,7 +1789,7 @@ entity = {
 entity = {
  name = "mammalian_01_transport_ship_entity"
 	pdxmesh = "mammalian_01_transport_mesh"
-	
+
 	default_state = "idle"
 	state = { name = "idle" state_time = 5
 		event = { time = 0 node = "engine_small_01" particle = "generic_05_exhaust_circle_idle" trigger_once = yes keep_particle = yes }
@@ -1800,7 +1800,7 @@ entity = {
 		event = { time = 0 node = "engine_large_01_2" particle = "generic_035_exhaust_line_idle" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_large_02_1" particle = "generic_035_exhaust_line_idle" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_large_02_2" particle = "generic_035_exhaust_line_idle" trigger_once = yes keep_particle = yes }
-	
+
 		event = { time = 0 node = "light_locator_01" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "light_locator_02" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 		start_event = { trigger_once = yes sound = { soundeffect = "amb_transport_ship_hum" } }
@@ -1814,14 +1814,14 @@ entity = {
 		event = { time = 0 node = "engine_large_01_2" particle = "generic_06_exhaust_line_moving" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_large_02_1" particle = "generic_06_exhaust_line_moving" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "engine_large_02_2" particle = "generic_06_exhaust_line_moving" trigger_once = yes keep_particle = yes }
-	
+
 		event = { time = 0 node = "light_locator_01" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
 		event = { time = 0 node = "light_locator_02" particle = "ship_light_blue_effect" trigger_once = yes keep_particle = yes }
-		
+
 		event = { trigger_once = yes sound = { soundeffect = "moving_out_transport" } }
 	}
 	state = { name = "death" chance = 1 looping = no state_time = 10
-	
+
 		event = { time = 0.0 node = "transport_explosion_locator1" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 		event = { time = 1.4 node = "transport_explosion_locator7" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 		event = { time = 1.0 node = "transport_explosion_locator10" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
@@ -1833,7 +1833,7 @@ entity = {
 		event = { time = 3.9 node = "transport_explosion_locator5" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 		event = { time = 4.1 node = "transport_explosion_locator6" particle = "ship_explosion_particle" sound = { soundeffect = ship_destroyed } }
 	}
-	
+
 	game_data = {
 		trail_locators = {
 			"engine_large_01_1" = 		{ width = @small_trail_W 	lenght = @medium_trail_L   	}
@@ -1861,60 +1861,25 @@ entity = {
 	name = "mammalian_01_orbital_station_entity"
 	pdxmesh = "mammalian_01_orbital_station_frame_mesh"
 	cull_radius = 1.0
-	
+
 	state = { name = "idle" state_time = 5 }
-	
-	state = { name = "death" state_time = 5 looping = no	
+
+	state = { name = "death" state_time = 5 looping = no
 		event = { time = 4.9 particle = "large_player_ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_large" } }
 	}
-	
+
 	game_data = {
 		size = @orbital_station
 		emissive_recolor_crunch = 5.0
 	}
 }
 
-
-entity = {
-	name = "mammalian_01_orbital_station_core_entity"
-	pdxmesh = "mammalian_01_orbital_station_mesh"	
-		default_state = "idle" 
-		state = { name = "idle" animation = "idle"
-			start_event = { trigger_once = yes sound = { soundeffect = "spaceport_hum_idle" stop_on_state_change = yes } }
-			event = { time = 0.0 node = "light_locator_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
-			event = { time = 0.0 node = "light_locator_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
-			event = { time = 0.0 node = "light_locator_03" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
-			event = { time = 0.0 node = "light_locator_04" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
-			event = { time = 0.0 node = "light_locator_05" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
-		}
-		state = { name = "death" animation = "death" looping = no	
-			event = { time = 0.0 node = "explosion_1" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
-			event = { time = 0.5 node = "explosion_2" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
-			event = { time = 1.5 node = "explosion_3" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
-			event = { time = 2.0 node = "explosion_4" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
-			event = { time = 3.0 node = "explosion_5" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
-			event = { time = 4.0 node = "explosion_2" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
-		}
-		state = { name = "construction" animation = "idle" }
-		state = { name = "habitat_idle" animation = "idle" 
-			start_event = { trigger_once = yes sound = { soundeffect = "habitat_station_hum" } }
-			event = { time = 0.0 node = "light_locator_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
-			event = { time = 0.0 node = "light_locator_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
-			event = { time = 0.0 node = "light_locator_03" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
-			event = { time = 0.0 node = "light_locator_04" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
-			event = { time = 0.0 node = "light_locator_05" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
-		}
-	locator = { name = "large_gun_01" position = { 0 0 0 } }
-	scale = 1.0
-
-}
-
 entity = {
 	name = "mammalian_01_orbital_station_assemblyyard_section_entity"
 	pdxmesh = "mammalian_01_orbital_station_assemblyyard_section_mesh"
-	
+
 	locator = { name = "root" position = { 0 0 0 } }
-	
+
 	default_state = "idle"
 	state = { name = "idle" state_time = 5
 		event = { time = 0.0 node = "light_locator_01" particle = "ship_light_blue_regular_effect" keep_particle = yes trigger_once = yes }
@@ -1930,7 +1895,7 @@ entity = {
 entity = {
 	name = "mammalian_01_orbital_station_hangarbay_section_entity"
 	pdxmesh = "mammalian_01_orbital_station_hangarbay_section_mesh"
-	
+
 	default_state = "idle"
 	state = { name = "idle" state_time = 5
 		event = { time = 0.0 node = "light_locator_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
@@ -1941,7 +1906,7 @@ entity = {
 entity = {
 	name = "mammalian_01_orbital_station_refinery_section_entity"
 	pdxmesh = "mammalian_01_orbital_station_refinery_section_mesh"
-	
+
 	default_state = "idle"
 	state = { name = "idle" state_time = 5
 		event = { time = 0.0 node = "light_locator_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
@@ -1952,7 +1917,7 @@ entity = {
 entity = {
 	name = "mammalian_01_orbital_station_science_section_entity"
 	pdxmesh = "mammalian_01_orbital_station_science_section_mesh"
-	
+
 	default_state = "idle"
 	state = { name = "idle" state_time = 5
 		event = { time = 0.0 node = "light_locator_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
@@ -1962,64 +1927,122 @@ entity = {
 }
 
 entity = {
-	name = "mammalian_01_orbital_station_habitat_section_entity"
-	pdxmesh = "mammalian_01_orbital_station_habitat_section_mesh"
-}
-entity = {
-	name = "mammalian_01_orbital_habitat_entity"
+	name = "mammalian_01_habitat_phase_01_entity"
 	pdxmesh = "mammalian_01_orbital_station_frame_mesh"
-	
-	attach = { "part1" 		 		= "mammalian_01_orbital_station_core_entity" }
-	attach = { "part2" 		 		= "mammalian_01_orbital_station_habitat_section_entity" }
-	attach = { "part3" 		 		= "mammalian_01_orbital_station_habitat_section_entity" }
-	attach = { "part4" 		 		= "mammalian_01_orbital_station_habitat_section_entity" }
-	attach = { "part5" 		 		= "mammalian_01_orbital_station_habitat_section_entity" }
-	attach = { "part6" 		 		= "mammalian_01_orbital_station_habitat_section_entity" }
-	attach = { "part7" 		 		= "mammalian_01_orbital_station_habitat_section_entity" }
-	
+
+	attach = { "part1" 		 		= "mammalian_01_habitat_phase_01_core_entity" }
+
 	scale = 1.5
-	
+
 	default_state = "habitat_idle"
 	state = { name = "habitat_idle" looping = yes }
 	state = { name = "construction" looping = yes }
-	
+
 	game_data = {
 		shader_type = ship
 		emissive_recolor_crunch = 5.0
 	}
-}	
-entity = {
-	name = "orbital_habitat_01_entity" #Dummy entity to remove error logs from planet class
-	clone = "mammalian_01_orbital_habitat_entity"
+
+	meshsettings = {
+		shader = "PdxMeshTerra"
+	}
 }
 
 entity = {
-	name = "mammalian_01_upgraded_orbital_habitat_entity"
+	name = "mammalian_01_habitat_phase_01_core_entity"
+	pdxmesh = "mammalian_01_orbital_station_mesh"
+		default_state = "idle"
+		state = { name = "idle" animation = "idle"
+			start_event = { trigger_once = yes sound = { soundeffect = "spaceport_hum_idle" stop_on_state_change = yes } }
+			event = { time = 0.0 node = "light_locator_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
+			event = { time = 0.0 node = "light_locator_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
+			event = { time = 0.0 node = "light_locator_03" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
+			event = { time = 0.0 node = "light_locator_04" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
+			event = { time = 0.0 node = "light_locator_05" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
+		}
+		state = { name = "death" animation = "death" looping = no
+			event = { time = 0.0 node = "explosion_1" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
+			event = { time = 0.5 node = "explosion_2" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
+			event = { time = 1.5 node = "explosion_3" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
+			event = { time = 2.0 node = "explosion_4" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
+			event = { time = 3.0 node = "explosion_5" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
+			event = { time = 4.0 node = "explosion_2" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
+		}
+		state = { name = "construction" animation = "idle" }
+		state = { name = "habitat_idle" animation = "idle"
+			start_event = { trigger_once = yes sound = { soundeffect = "habitat_station_hum" } }
+			event = { time = 0.0 node = "light_locator_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
+			event = { time = 0.0 node = "light_locator_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
+			event = { time = 0.0 node = "light_locator_03" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
+			event = { time = 0.0 node = "light_locator_04" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
+			event = { time = 0.0 node = "light_locator_05" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
+		}
+	locator = { name = "large_gun_01" position = { 0 0 0 } }
+	scale = 1.0
+
+}
+
+entity = {
+	name = "orbital_habitat_01_entity" #Dummy entity to remove error logs from planet class
+	clone = "mammalian_01_habitat_phase_01_core_entity"
+}
+
+entity = {
+	name = "mammalian_01_habitat_phase_02_entity"
+	pdxmesh = "mammalian_01_orbital_station_frame_mesh"
+
+	attach = { "part1" 		 		= "mammalian_01_habitat_phase_01_core_entity" }
+	attach = { "part2" 		 		= "mammalian_01_habitat_phase_02_section_entity" }
+	attach = { "part3" 		 		= "mammalian_01_habitat_phase_02_section_entity" }
+	attach = { "part4" 		 		= "mammalian_01_habitat_phase_02_section_entity" }
+	attach = { "part5" 		 		= "mammalian_01_habitat_phase_02_section_entity" }
+	attach = { "part6" 		 		= "mammalian_01_habitat_phase_02_section_entity" }
+	attach = { "part7" 		 		= "mammalian_01_habitat_phase_02_section_entity" }
+
+	scale = 1.5
+
+	default_state = "habitat_idle"
+	state = { name = "habitat_idle" looping = yes }
+	state = { name = "construction" looping = yes }
+
+	game_data = {
+		shader_type = ship
+		emissive_recolor_crunch = 5.0
+	}
+}
+
+entity = {
+	name = "mammalian_01_habitat_phase_02_section_entity"
+	pdxmesh = "mammalian_01_orbital_station_habitat_section_mesh"
+}
+
+entity = {
+	name = "mammalian_01_habitat_phase_03_entity"
 	locator = { name = part1 }
 	locator = { name = explosion_effect position = { 0 3 0 } }
-	
+
 	scale = 1.5
-	
+
 	default_state = "habitat_idle"
 	state = { name = "habitat_idle" state_time = 5 }
 	state = { name = "construction" state_time = 5 }
-	
+
 	state = { name = "death" state_time = 5 looping = no
 		event = { time = 4.9 node = "explosion_effect" particle = "large_player_ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_large" } }
 	}
-	
+
 	game_data = {
 		shader_type = ship
 		emissive_recolor_crunch = 5.0
 	}
-	
-	attach = { name = "station" part1 = "mammalian_01_upgraded_orbital_habitat_section_entity" }
+
+	attach = { name = "station" part1 = "mammalian_01_habitat_phase_03_section_entity" }
 }
 
 entity = {
-	name = "mammalian_01_upgraded_orbital_habitat_section_entity"
-	pdxmesh = "mammalian_01_upgraded_orbital_habitat_mesh"	
-	
+	name = "mammalian_01_habitat_phase_03_section_entity"
+	pdxmesh = "mammalian_01_upgraded_orbital_habitat_mesh"
+
 	default_state = "habitat_idle"
 	state = { name = "habitat_idle" animation = "idle" animation_speed = 0.3
 		start_event = { trigger_once = yes sound = { soundeffect = "habitat_station_hum" } }
@@ -2028,9 +2051,9 @@ entity = {
 		event = { time = 0.0 node = "light_locator_03" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0.0 node = "light_locator_04" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
-	
+
 	state = { name = "construction" animation = "idle" animation_speed = 0.0 }
-	
+
 	state = { name = "death" animation = "death" looping = no
 		event = { time = 0.0 node = "explosion_locator_01" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
 		event = { time = 1.2 node = "explosion_locator_02" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
@@ -2038,187 +2061,19 @@ entity = {
 		event = { time = 3.5 node = "explosion_locator_04" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
 		event = { time = 4.2 node = "explosion_locator_05" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
 	}
-	
+
 	locator = { name = "medium_gun_01"	position = { 0 0 0 } }
 	locator = { name = "medium_gun_02"	position = { 0 0 0 } }
 	locator = { name = "small_gun_01"	position = { 0 0 0 } }
 	locator = { name = "small_gun_02"	position = { 0 0 0 } }
 	locator = { name = "small_gun_03"	position = { 0 0 0 } }
 	locator = { name = "small_gun_04"	position = { 0 0 0 } }
-}	
-#entity = {
-#	name = "mammalian_01_orbital_habitat_phase_00_entity"
-#	pdxmesh = "mammalian_01_orbital_station_frame_mesh"
-#	
-#	attach = { "part1" 		 		= "mammalian_01_orbital_station_core_entity" }
-#			
-#	scale = 1.0
-#	
-#	meshsettings = {
-#		shader = "PdxMeshTerra"
-#	}
-#}
-#
-#entity = {
-#	name = "mammalian_01_orbital_habitat_phase_01_entity"
-#	pdxmesh = "mammalian_01_orbital_station_frame_mesh"
-#	
-#	attach = { "part1" 		 		= "mammalian_01_orbital_station_core_entity" }
-#	attach = { "part2" 		 		= "mammalian_01_orbital_station_habitat_section_entity" }
-#	
-#	scale = 1.0
-#	
-#	meshsettings = {
-#		shader = "PdxMeshTerra"
-#	}
-#}
-#
-#entity = {
-#	name = "mammalian_01_orbital_habitat_phase_02_entity"
-#	pdxmesh = "mammalian_01_orbital_station_frame_mesh"
-#	
-#	attach = { "part1" 		 		= "mammalian_01_orbital_station_core_entity" }
-#	attach = { "part2" 		 		= "mammalian_01_orbital_station_habitat_section_entity" }
-#	attach = { "part3" 		 		= "mammalian_01_orbital_station_habitat_section_entity" }
-#
-#	scale = 1.0
-#	
-#	meshsettings = {
-#		shader = "PdxMeshTerra"
-#	}
-#}
-#
-#entity = {
-#	name = "mammalian_01_orbital_habitat_phase_03_entity"
-#	pdxmesh = "mammalian_01_orbital_station_frame_mesh"
-#	
-#	attach = { "part1" 		 		= "mammalian_01_orbital_station_core_entity" }
-#	attach = { "part2" 		 		= "mammalian_01_orbital_station_habitat_section_entity" }
-#	attach = { "part3" 		 		= "mammalian_01_orbital_station_habitat_section_entity" }
-#	attach = { "part4" 		 		= "mammalian_01_orbital_station_habitat_section_entity" }
-#	
-#	scale = 1.0
-#	
-#	meshsettings = {
-#		shader = "PdxMeshTerra"
-#	}
-#}
-#
-#entity = {
-#	name = "mammalian_01_orbital_habitat_phase_04_entity"
-#	pdxmesh = "mammalian_01_orbital_station_frame_mesh"
-#	
-#	attach = { "part1" 		 		= "mammalian_01_orbital_station_core_entity" }
-#	attach = { "part2" 		 		= "mammalian_01_orbital_station_habitat_section_entity" }
-#	attach = { "part3" 		 		= "mammalian_01_orbital_station_habitat_section_entity" }
-#	attach = { "part4" 		 		= "mammalian_01_orbital_station_habitat_section_entity" }
-#	attach = { "part5" 		 		= "mammalian_01_orbital_station_habitat_section_entity" }
-#	
-#	scale = 1.0
-#	
-#	meshsettings = {
-#		shader = "PdxMeshTerra"
-#	}
-#}
-#
-#entity = {
-#	name = "mammalian_01_orbital_habitat_phase_05_entity"
-#	pdxmesh = "mammalian_01_orbital_station_frame_mesh"
-#	
-#	attach = { "part1" 		 		= "mammalian_01_orbital_station_core_entity" }
-#	attach = { "part2" 		 		= "mammalian_01_orbital_station_habitat_section_entity" }
-#	attach = { "part3" 		 		= "mammalian_01_orbital_station_habitat_section_entity" }
-#	attach = { "part4" 		 		= "mammalian_01_orbital_station_habitat_section_entity" }
-#	attach = { "part5" 		 		= "mammalian_01_orbital_station_habitat_section_entity" }
-#	attach = { "part6" 		 		= "mammalian_01_orbital_station_habitat_section_entity" }
-#	
-#	scale = 1.0
-#	
-#	meshsettings = {
-#		shader = "PdxMeshTerra"
-#	}
-#}
-#
-#entity = {
-#	name = "mammalian_01_orbital_habitat_phase_06_entity"
-#	pdxmesh = "mammalian_01_orbital_station_frame_mesh"
-#	
-#	attach = { "part1" 		 		= "mammalian_01_orbital_station_core_entity" }
-#	attach = { "part2" 		 		= "mammalian_01_orbital_station_habitat_section_entity" }
-#	attach = { "part3" 		 		= "mammalian_01_orbital_station_habitat_section_entity" }
-#	attach = { "part4" 		 		= "mammalian_01_orbital_station_habitat_section_entity" }
-#	attach = { "part5" 		 		= "mammalian_01_orbital_station_habitat_section_entity" }
-#	attach = { "part6" 		 		= "mammalian_01_orbital_station_habitat_section_entity" }
-#	attach = { "part7" 		 		= "mammalian_01_orbital_station_habitat_section_entity" }
-#	
-#	scale = 1.0
-#	
-#	meshsettings = {
-#		shader = "PdxMeshTerra"
-#	}
-#}		
-#
-#entity = {
-#	name = "mammalian_01_orbital_habitat_phase_01_construction_entity"
-#	pdxmesh = "mammalian_01_orbital_station_frame_mesh"
-#	
-#	attach = { "part2" 		 		= "mammalian_01_orbital_station_habitat_section_entity" }
-#	
-#	scale = 1.0
-#}
-#
-#entity = {
-#	name = "mammalian_01_orbital_habitat_phase_02_construction_entity"
-#	pdxmesh = "mammalian_01_orbital_station_frame_mesh"
-#
-#	attach = { "part3" 		 		= "mammalian_01_orbital_station_habitat_section_entity" }
-#
-#	scale = 1.0
-#}
-#
-#entity = {
-#	name = "mammalian_01_orbital_habitat_phase_03_construction_entity"
-#	pdxmesh = "mammalian_01_orbital_station_frame_mesh"
-#
-#	attach = { "part4" 		 		= "mammalian_01_orbital_station_habitat_section_entity" }
-#	
-#	scale = 1.0
-#}
-#
-#entity = {
-#	name = "mammalian_01_orbital_habitat_phase_04_construction_entity"
-#	pdxmesh = "mammalian_01_orbital_station_frame_mesh"
-#
-#	attach = { "part5" 		 		= "mammalian_01_orbital_station_habitat_section_entity" }
-#	
-#	scale = 1.0
-#}
-#
-#entity = {
-#	name = "mammalian_01_orbital_habitat_phase_05_construction_entity"
-#	pdxmesh = "mammalian_01_orbital_station_frame_mesh"
-#
-#	attach = { "part6" 		 		= "mammalian_01_orbital_station_habitat_section_entity" }
-#	
-#	scale = 1.0
-#}
-#
-#entity = {
-#	name = "mammalian_01_orbital_habitat_phase_06_construction_entity"
-#	pdxmesh = "mammalian_01_orbital_station_frame_mesh"
-#
-#	attach = { "part7" 		 		= "mammalian_01_orbital_station_habitat_section_entity" }
-#	
-#	scale = 1.0
-#}
-
-
-
+}
 
 entity = {
 	name = "mammalian_01_mining_station_entity"
 	pdxmesh = "mammalian_01_mining_station_mesh"
-	
+
 	locator = { name = "part1" 			position = { 0 	0 	0 } }
 
 	default_state = "idle"
@@ -2233,9 +2088,9 @@ entity = {
 		event = { time = 0.0 node = "light_locator_06" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0.0 node = "light_locator_07" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0.0 node = "light_locator_08" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
-		event = { time = 0.0 node = "light_locator_09" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }		
+		event = { time = 0.0 node = "light_locator_09" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
-	
+
 	state = { name = "death" state_time = 5 looping = no
 		event = { time = 0.0 node = "light_locator_01" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
 		event = { time = 0.5 node = "light_locator_02" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
@@ -2243,10 +2098,10 @@ entity = {
 		event = { time = 2.0 node = "light_locator_04" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
 		event = { time = 3.0 node = "light_locator_05" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
 		event = { time = 4.0 node = "light_locator_06" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
-		
+
 		event = { time = 4.9 particle = "medium_station_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_large" } }
 	}
-	
+
 	scale = 1.5
 	game_data = {
 		size = @mining_station
@@ -2257,7 +2112,7 @@ entity = {
 entity = {
 	name = "mammalian_01_terraform_station_entity"
 	pdxmesh = "mammalian_01_terraforming_station_mesh"
-	
+
 	default_state = "idle"
 	state = { name = "idle" state_time = 5
 		start_event = { trigger_once = yes sound = { soundeffect = "amb_terraforming_station_idle_hum" } }
@@ -2267,9 +2122,9 @@ entity = {
 		event = { time = 0.0 node = "light_locator_04" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0.0 node = "light_locator_05" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0.0 node = "light_locator_06" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
-		
+
 	}
-	
+
 	state = { name = "death" state_time = 5 looping = no
 		event = { time = 0.0 node = "light_locator_01" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
 		event = { time = 0.5 node = "light_locator_02" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
@@ -2277,17 +2132,17 @@ entity = {
 		event = { time = 2.0 node = "light_locator_04" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
 		event = { time = 3.0 node = "light_locator_05" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
 		event = { time = 4.0 node = "light_locator_06" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
-		
+
 		event = { time = 4.9 particle = "medium_station_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_large" } }
 	}
-	
-	scale = 1.5 
-	
+
+	scale = 1.5
+
 	game_data = {
 		size = @terraforming_station
 		emissive_recolor_crunch = 5.0
 	}
-	
+
 	attach = { root = "terraforming_effect_entity" }
 }
 
@@ -2300,22 +2155,22 @@ entity = {
 	default_state = "idle"
 	state = { name = "idle" animation = "idle"
 		start_event = { trigger_once = yes sound = { soundeffect = "amb_research_station_signals" } }
-		
+
 		event = { time = 0.0 node = "light_locator_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0.0 node = "light_locator_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0.0 node = "light_locator_03" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0.0 node = "light_locator_04" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0.0 node = "light_locator_05" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
-	
+
 	state = { name = "death" animation = "death" looping = no
 		event = { time = 0.0 node = "light_locator_01" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
 		event = { time = 0.5 node = "light_locator_02" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
-		
+
 		event = { time = 0.9 particle = "medium_station_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_large" } }
 	}
 	scale = 1.4
-	
+
 	game_data = {
 		size = @research_station
 		emissive_recolor_crunch = 5.0
@@ -2328,21 +2183,21 @@ entity = {
 	default_state = "idle"
 	state = { name = "idle" animation = "idle"
 		start_event = { trigger_once = yes sound = { soundeffect = "amb_wormhole_station_idle" } }
-		
+
 		event = { time = 0.0 node = "light_locator_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0.0 node = "light_locator_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0.0 node = "light_locator_03" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0.0 node = "light_locator_04" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0.0 node = "light_locator_05" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
-	
+
 	state = { name = "death" animation = "death" looping = no
 		event = { time = 0.0 node = "light_locator_01" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
 		event = { time = 0.5 node = "light_locator_02" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
-		
+
 		event = { time = 0.9 particle = "medium_station_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_large" } }
 	}
-	
+
 	scale = 1.4
 	game_data = {
 		size = @research_station
@@ -2356,21 +2211,21 @@ entity = {
 	default_state = "idle"
 	state = { name = "idle" animation = "idle"
 		start_event = { trigger_once = yes sound = { soundeffect = "amb_research_station_signals" } }
-		
+
 		event = { time = 0.0 node = "light_locator_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0.0 node = "light_locator_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0.0 node = "light_locator_03" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0.0 node = "light_locator_04" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0.0 node = "light_locator_05" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
-	
+
 	state = { name = "death" animation = "death" looping = no
 		event = { time = 0.0 node = "light_locator_01" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
 		event = { time = 0.5 node = "light_locator_02" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
-		
+
 		event = { time = 0.9 particle = "medium_station_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_large" } }
 	}
-	
+
 	scale = 1.4
 	game_data = {
 		size = @research_station
@@ -2401,15 +2256,15 @@ entity = {
 	default_state = "idle"
 	state = { name = "idle" state_time = 5
 		start_event = { trigger_once = yes sound = { soundeffect = "defense_station_idle_hum" } }
-	
+
 		event = { time = 0.0 node = "light_locator_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0.0 node = "light_locator_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0.0 node = "light_locator_03" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0.0 node = "light_locator_04" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0.0 node = "light_locator_05" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
-		
+
 	}
-	
+
 	state = { name = "death" state_time = 5 looping = no
 		event = { time = 0.0 node = "light_locator_01" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
 		event = { time = 0.5 node = "part3" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
@@ -2417,10 +2272,10 @@ entity = {
 		event = { time = 2.0 node = "part1" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
 		event = { time = 3.0 node = "part3" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
 		event = { time = 4.0 node = "part7" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
-		
+
 		event = { time = 4.9 particle = "medium_station_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_large" } }
 	}
-	
+
 	scale = 1.2
 	game_data = {
 		size = @military_station_large
@@ -2430,20 +2285,20 @@ entity = {
 
 entity = {
 	name = "mammalian_01_military_station_medium_entity"
-	pdxmesh = "mammalian_01_military_station_medium_mesh"	
-	
+	pdxmesh = "mammalian_01_military_station_medium_mesh"
+
 	default_state = "idle"
 	state = { name = "idle" state_time = 5
 		start_event = { trigger_once = yes sound = { soundeffect = "defense_station_idle_hum" } }
-		
+
 		event = { time = 0.0 node = "light_locator_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0.0 node = "light_locator_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0.0 node = "light_locator_03" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0.0 node = "light_locator_04" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0.0 node = "light_locator_05" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
-		
+
 	}
-	
+
 	state = { name = "death" state_time = 5 looping = no
 		event = { time = 0.0 node = "light_locator_01" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
 		event = { time = 0.5 node = "light_locator_02" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
@@ -2451,12 +2306,12 @@ entity = {
 		event = { time = 2.0 node = "light_locator_04" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
 		event = { time = 3.0 node = "light_locator_05" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
 		event = { time = 4.0 node = "light_locator_04" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
-		
+
 		event = { time = 4.9 particle = "medium_station_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_large" } }
 	}
-	
+
 	scale = 1.2
-	
+
 	game_data = {
 		emissive_recolor_crunch = 5.0
 	}
@@ -2465,28 +2320,28 @@ entity = {
 entity = {
 	name = "mammalian_01_military_station_small_entity"
 	pdxmesh = "mammalian_01_military_station_small_mesh"
-	
+
 	default_state = "idle"
 	state = { name = "idle" state_time = 5
 		start_event = { trigger_once = yes sound = { soundeffect = "defense_station_idle_hum" } }
-		
+
 		event = { time = 0.0 node = "light_locator_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 		event = { time = 0.0 node = "light_locator_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 #		event = { time = 0.0 node = "light_locator_03" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 #		event = { time = 0.0 node = "light_locator_04" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 #		event = { time = 0.0 node = "light_locator_05" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
-		
+
 	}
-	
+
 	state = { name = "death" state_time = 2 looping = no
 		event = { time = 0.0 node = "light_locator_01" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
 		event = { time = 0.5 node = "light_locator_02" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
-		
+
 		event = { time = 1.9 particle = "medium_station_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_large" } }
 	}
-	
+
 	scale = 1.2
-	
+
 	game_data = {
 		emissive_recolor_crunch = 5.0
 	}
@@ -2494,19 +2349,19 @@ entity = {
 
 entity = {
 	name = "mammalian_01_military_station_section_heavy_entity"
-	pdxmesh = "mammalian_01_military_station_section_heavy_mesh"	
+	pdxmesh = "mammalian_01_military_station_section_heavy_mesh"
 	scale = 1.0
 }
 
 entity = {
 	name = "mammalian_01_military_station_section_medium_entity"
-	pdxmesh = "mammalian_01_military_station_section_medium_mesh"	
+	pdxmesh = "mammalian_01_military_station_section_medium_mesh"
 	scale = 1.0
 }
 
 entity = {
 	name = "mammalian_01_military_station_section_light_entity"
-	pdxmesh = "mammalian_01_military_station_section_light_mesh"	
+	pdxmesh = "mammalian_01_military_station_section_light_mesh"
 	scale = 1.0
 }
 
@@ -2524,13 +2379,13 @@ entity = {
 	state = { name = "idle" state_time = 5
 		#start_event = { trigger_once = yes sound = { soundeffect = "defense_station_idle_hum" } }
 	}
-	
+
 	state = { name = "death" state_time = 2 looping = no
 		event = { time = 1.9 particle = "medium_station_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_large" } }
 	}
 
 	scale = 1.0
-	
+
 	game_data = {
 		emissive_recolor_crunch = 5.0
 	}
@@ -2539,21 +2394,21 @@ entity = {
 entity = {
 	name = "mammalian_01_outpost_station_section_entity"
 	pdxmesh = "mammalian_01_military_station_small_mesh"
-	
+
 	default_state = "idle"
 	state = { name = "idle" state_time = 5
 		start_event = { trigger_once = yes sound = { soundeffect = "amb_outpost_station_idle" } }
 		event = { time = 0.0 node = "light_locator_01" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
-		event = { time = 0.0 node = "light_locator_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }		
+		event = { time = 0.0 node = "light_locator_02" particle = "ship_light_blue_effect" keep_particle = yes trigger_once = yes }
 	}
-	
+
 	state = { name = "death" state_time = 2 looping = no
 		event = { time = 0.0 node = "light_locator_01" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
 		event = { time = 0.5 node = "light_locator_02" particle = "ship_explosion_particle" keep_particle = yes trigger_once = yes sound = { soundeffect = "station_explosion_small" } }
 	}
-	
+
 	scale = 1.2
-	
+
 	game_data = {
 		emissive_recolor_crunch = 5.0
 	}
@@ -2563,38 +2418,38 @@ entity = {
 
 entity = {
 	name = "mammalian_01_outpost_station_construction_entity"
-	pdxmesh = "mammalian_01_military_station_small_mesh"	
+	pdxmesh = "mammalian_01_military_station_small_mesh"
 		default_state = "idle"
 		state = { name = "idle" state_time = 5
 			event = { trigger_once = yes sound = { soundeffect = "place_construction" } }
 		}
-	
+
 	scale = 1.2
-	
+
 }
 
 entity = {
 	name = "mammalian_01_military_station_small_construction_entity"
-	pdxmesh = "mammalian_01_military_station_small_mesh"	
+	pdxmesh = "mammalian_01_military_station_small_mesh"
 		default_state = "idle"
 		state = { name = "idle" state_time = 5
 			event = { trigger_once = yes sound = { soundeffect = "place_construction" } }
 		}
-	
+
 	attach = { part1	= "mammalian_01_military_station_section_heavy_entity" }
 	attach = { part2	= "mammalian_01_military_station_section_heavy_entity" }
-	
+
 	scale = 1.2
-	
+
 }
 entity = {
 	name = "mammalian_01_military_station_medium_construction_entity"
-	pdxmesh = "mammalian_01_military_station_medium_mesh"	
+	pdxmesh = "mammalian_01_military_station_medium_mesh"
 		default_state = "idle"
 		state = { name = "idle" state_time = 5
 			event = { trigger_once = yes sound = { soundeffect = "place_construction" } }
 		}
-	
+
 	attach = { part1	= "mammalian_01_military_station_section_heavy_entity" }
 	attach = { part2	= "mammalian_01_military_station_section_heavy_entity" }
 	attach = { part3	= "mammalian_01_military_station_section_heavy_entity" }
@@ -2603,12 +2458,12 @@ entity = {
 }
 entity = {
 	name = "mammalian_01_military_station_large_construction_entity"
-	pdxmesh = "mammalian_01_military_station_large_mesh"	
+	pdxmesh = "mammalian_01_military_station_large_mesh"
 		default_state = "idle"
 		state = { name = "idle" state_time = 5
 			event = { trigger_once = yes sound = { soundeffect = "place_construction" } }
 		}
-	
+
 	attach = { part1	= "mammalian_01_military_station_section_heavy_entity" }
 	attach = { part2	= "mammalian_01_military_station_section_heavy_entity" }
 	attach = { part3	= "mammalian_01_military_station_section_heavy_entity" }
@@ -2621,7 +2476,7 @@ entity = {
 }
 entity = {
 	name = "mammalian_01_orbital_station_construction_entity"
-	pdxmesh = "mammalian_01_orbital_station_mesh"	
+	pdxmesh = "mammalian_01_orbital_station_mesh"
 		default_state = "idle"
 		state = { name = "idle" animation = "idle" animation_speed = 0
 			event = { trigger_once = yes sound = { soundeffect = "place_construction" } }
@@ -2661,7 +2516,7 @@ entity = {
 		state = { name = "idle" state_time = 5
 			event = { trigger_once = yes sound = { soundeffect = "place_construction" } }
 		}
-	scale = 1.5 
+	scale = 1.5
 }
 entity = {
 	name = "mammalian_01_observation_station_construction_entity"
