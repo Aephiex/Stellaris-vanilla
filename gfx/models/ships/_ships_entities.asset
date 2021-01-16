@@ -46,42 +46,7 @@ entity = {
 
 #entity = { name = "extra_dimensional_01_empty_section_entity" clone = "empty_section_entity" }
 
-#### All juggernauts
 
-entity = {
-	name = "juggernauts_all_species"
-
-	locator = { name = "one" 	position = {0 0 0	}}
-	locator = { name = "two" 	position = {150 0 0	}}
-	locator = { name = "three" 	position = {300 0 0	}}
-	locator = { name = "four" 	position = {150 0 100	}}
-	locator = { name = "five" 	position = {300 0 100	}}
-	locator = { name = "six" 	position = {-150 0 0}}
-	locator = { name = "seven" 	position = {-150 0 100}}
-	locator = { name = "eight" 	position = { 0 0 100}}
-	locator = { name = "nine" 	position = {-300 0 100}}
-
-	default_state = "moving"
-	state = { name = "idle" state_time = 5 next_state = "idle"
-		propagate_state = { "move" = "idle" }
-	}
-
-	state = { name = "moving" state_time = 5 next_state = "moving"
-		propagate_state = { "move" = "moving" }
-	}
-
-		attach = { name = "move" one = "fungoid_01_juggernaut_core_section_entity" }
-		attach = { name = "move" two = "reptilian_01_juggernaut_core_section_entity" }
-		attach = { name = "move" three = "molluscoid_01_juggernaut_core_section_entity" }
-		attach = { name = "move" four = "humanoid_01_juggernaut_core_section_entity" }
-		attach = { name = "move" five = "plantoid_01_juggernaut_core_section_entity" }
-		attach = { name = "move" six = "arthropoid_01_juggernaut_core_section_entity" }
-		attach = { name = "move" seven = "avian_01_juggernaut_core_section_entity" }
-		attach = { name = "move" eight = "lithoid_01_juggernaut_core_section_entity" }
-		attach = { name = "move" nine = "mammalian_01_juggernaut_core_section_entity" }
-	cull_radius = 10000
-
-}
 
 entity = {
 	name = "juggernauts_all_species_idle"
@@ -2355,31 +2320,254 @@ entity = {
 }
 
 
+#Lithoid#
+entity = {
+	name = "test_lithoid_01_battleship_01_entity"
+	pdxmesh = "lithoid_01_battleship_frame_mesh"
+
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" animation_blend_time = 0.25 }
+
+	attach = { part1 = "lithoid_01_battleship_bow_L1M1S2_entity" }
+	attach = { part2 = "lithoid_01_battleship_mid_L2M2_entity" }
+	attach = { part3 = "lithoid_01_battleship_stern_L1_entity" }
+
+	scale = @funscale
+}
+
+entity = {
+	name = "test_lithoid_01_battleship_02_entity"
+	pdxmesh = "lithoid_01_battleship_frame_mesh"
+
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" animation_blend_time = 0.25 }
+
+	attach = { part1 = "lithoid_01_battleship_bow_L2_entity" }
+	attach = { part2 = "lithoid_01_battleship_mid_L3_entity" }
+	attach = { part3 = "lithoid_01_battleship_stern_M2_entity" }
+
+	scale = @funscale
+}
+
+entity = {
+	name = "test_lithoid_01_battleship_03_entity"
+	pdxmesh = "lithoid_01_battleship_frame_mesh"
+
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" animation_blend_time = 0.25 }
+
+	attach = { part1 = "lithoid_01_battleship_bow_M1S2SHB_entity" }
+	attach = { part2 = "lithoid_01_battleship_mid_M4SHB_entity" }
+	attach = { part3 = "lithoid_01_battleship_stern_L1_entity" }
+
+	scale = @funscale
+}
+
+entity = {
+	name = "test_lithoid_01_battleship_04_entity"
+	pdxmesh = "lithoid_01_battleship_frame_mesh"
+
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" animation_blend_time = 0.25 }
+
+	attach = { part1 = "lithoid_01_battleship_bow_XL1_entity" }
+	attach = { part2 = "lithoid_01_battleship_mid_S4LHB_entity" }
+	attach = { part3 = "lithoid_01_battleship_stern_M2_entity" }
+
+	scale = @funscale
+}
+
+entity = {
+	name = "test_lithoid_01_cruiser_entity"
+	pdxmesh = "lithoid_01_cruiser_frame_mesh"
+
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" animation_blend_time = 0.25 }
+
+	attach = { part1 = "lithoid_01_cruiser_bow_L1_entity" }
+	attach = { part2 = "lithoid_01_cruiser_mid_S2HB_entity" }
+	attach = { part3 = "lithoid_01_cruiser_stern_M1_entity" }
+
+	#scale = 1
+	scale = @funcruiser_scale
+}
+
+entity = {
+	name = "test_lithoid_02_cruiser_entity"
+	pdxmesh = "lithoid_01_cruiser_frame_mesh"
+
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" animation_blend_time = 0.25 }
+
+	attach = { part1 = "lithoid_01_cruiser_bow_M1S2_entity" }
+	attach = { part2 = "lithoid_01_cruiser_mid_L1M1_entity" }
+	attach = { part3 = "lithoid_01_cruiser_stern_M1_entity" }
+
+	#scale = 1
+	scale = @funcruiser_scale
+}
+
+entity = {
+	name = "test_lithoid_03_cruiser_entity"
+	pdxmesh = "lithoid_01_cruiser_frame_mesh"
+
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" animation_blend_time = 0.25 }
+
+	attach = { part1 = "lithoid_01_cruiser_bow_M2_entity" }
+	attach = { part2 = "lithoid_01_cruiser_mid_M3_entity" }
+	attach = { part3 = "lithoid_01_cruiser_stern_S2_entity" }
+
+	#scale = 1
+	scale = @funcruiser_scale
+}
+
+entity = {
+	name = "test_lithoid_04_cruiser_entity"
+	pdxmesh = "lithoid_01_cruiser_frame_mesh"
+
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" animation_blend_time = 0.25 }
+
+	attach = { part1 = "lithoid_01_cruiser_bow_M1S2_entity" }
+	attach = { part2 = "lithoid_01_cruiser_mid_M2S2_entity" }
+	attach = { part3 = "lithoid_01_cruiser_stern_S2_entity" }
+
+	#scale = 1
+	scale = @funcruiser_scale
+}
+
+
+
+entity = {
+	name = "test_lithoid_01_destroyer_entity"
+	pdxmesh = "molluscoid_01_destroyer_frame_mesh"
+
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" animation_blend_time = 0.25 }
+
+	attach = { part1 = "lithoid_01_destroyer_bow_L1_entity" }
+	attach = { part2 = "lithoid_01_destroyer_stern_M1_entity" }
+
+	#scale = 0.5
+	scale = @fungdestroyer_scale
+}
+
+
+entity = {
+	name = "test_lithoid_02_destroyer_entity"
+	pdxmesh = "molluscoid_01_destroyer_frame_mesh"
+
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" animation_blend_time = 0.25 }
+
+	attach = { part1 = "lithoid_01_destroyer_bow_M1S2_entity" }
+	attach = { part2 = "lithoid_01_destroyer_stern_M1_entity" }
+
+	#scale = 0.5
+	scale = @fungdestroyer_scale
+}
+
+
+entity = {
+	name = "test_lithoid_03_destroyer_entity"
+	pdxmesh = "molluscoid_01_destroyer_frame_mesh"
+
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" animation_blend_time = 0.25 }
+
+	attach = { part1 = "lithoid_01_destroyer_bow_L1_entity" }
+	attach = { part2 = "lithoid_01_destroyer_stern_S2_entity" }
+
+	#scale = 0.5
+	scale = @fungdestroyer_scale
+}
+
+
+entity = {
+	name = "test_lithoid_04_destroyer_entity"
+	pdxmesh = "molluscoid_01_destroyer_frame_mesh"
+
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" animation_blend_time = 0.25 }
+
+	attach = { part1 = "lithoid_01_destroyer_bow_S3_entity" }
+	attach = { part2 = "lithoid_01_destroyer_stern_S2_entity" }
+
+	#scale = 0.5
+	scale = @fungdestroyer_scale
+}
+
+
+entity = {
+	name = "test_lithoid_01_corvette_entity"
+	pdxmesh = "molluscoid_01_corvette_frame_mesh"
+
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" animation_blend_time = 0.25 }
+
+	attach = { part1 = "lithoid_01_corvette_S3_entity" }
+
+	#scale = 1
+	scale = @corvette_scale
+}
+
+entity = {
+	name = "test_lithoid_02_corvette_entity"
+	pdxmesh = "molluscoid_01_corvette_frame_mesh"
+
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" animation_blend_time = 0.25 }
+
+	attach = { part1 = "lithoid_01_corvette_M1S1_entity" }
+
+	#scale = 1
+	scale = @corvette_scale
+}
+
+entity = {
+	name = "lithoid_01_military_station_small_test_entity"
+	pdxmesh = "lithoid_01_military_station_small_mesh"
+
+	attach = { part1	= "lithoid_01_military_station_section_heavy_entity" }
+	attach = { part2	= "lithoid_01_military_station_section_heavy_entity" }
+
+	cull_radius = 1000
+	scale = 1.2
+}
 
 entity = {
 	name = "test_s1_ships_entity"
 
-		locator = { name = "s1_01_Battleship" 		position = { 235  	0 	0 	} }
-		locator = { name = "s1_02_Battleship" 		position = { 215  	0 	0 	} }
-		locator = { name = "s1_03_Battleship" 		position = { 195  	0 	0 	} }
-		locator = { name = "s1_04_Battleship" 		position = { 175 	0 	0 	} }
-		locator = { name = "s1_05_Battleship" 		position = { 155 	0 	0 	} }
-		locator = { name = "s1_06_Battleship" 		position = { 135  	0 	0 	} }
-		locator = { name = "s1_01_Cruiser" 			position = { 115 	0 	-3 	} }
-		locator = { name = "s1_02_Cruiser" 			position = { 100 	0 	-3 	} }
-		locator = { name = "s1_03_Cruiser" 			position = { 85	 	0 	-3 	} }
-		locator = { name = "s1_04_Cruiser" 			position = { 70 	0 	-3 	} }
-		locator = { name = "s1_01_Destroyer" 		position = { 57 	0 	-7 	} }
-		locator = { name = "s1_02_Destroyer" 		position = { 45 	0 	-5 	} }
-		locator = { name = "s1_03_Destroyer" 		position = { 33 	0 	-8 	} }
-		locator = { name = "s1_04_Destroyer" 		position = { 21 	0 	-6 	} }
-		locator = { name = "s1_01_Corvette" 		position = { 10 	0 	-8 	} }
-		locator = { name = "s1_02_Corvette" 		position = { 2 		0 	-8 	} }
-		locator = { name = "s1_civ_colonization" 	position = { 7 		0 	20	} }
-		locator = { name = "s1_civ_construction" 	position = { 28 	0 	23	} }
-		locator = { name = "s1_civ_transport"	 	position = { 48 	0 	21	} }
-		locator = { name = "s1_civ_science" 		position = { 64 	0 	23	} }
+		locator = { name = "s1_01_ion_cannon" 		position = { -85  	0 	31 	} }
+		locator = { name = "s1_01_colossus" 		position = { -320  	0 	15 	} }
+		locator = { name = "s1_01_Juggernaught" 	position = { -185  	0 	50 	} }
+		locator = { name = "s1_01_Titan" 			position = { -270  	0 	20 	} }
+		locator = { name = "s1_01_Battleship" 		position = { -235  	0 	0 	} }
+		locator = { name = "s1_02_Battleship" 		position = { -215  	0 	0 	} }
+		locator = { name = "s1_03_Battleship" 		position = { -195  	0 	0 	} }
+		locator = { name = "s1_04_Battleship" 		position = { -175 	0 	0 	} }
+		locator = { name = "s1_05_Battleship" 		position = { -155 	0 	0 	} }
+		locator = { name = "s1_06_Battleship" 		position = { -135  	0 	0 	} }
+		locator = { name = "s1_01_Cruiser" 			position = { -115 	0 	-3 	} }
+		locator = { name = "s1_02_Cruiser" 			position = { -100 	0 	-3 	} }
+		locator = { name = "s1_03_Cruiser" 			position = { -85	0 	-3 	} }
+		locator = { name = "s1_04_Cruiser" 			position = { -70 	0 	-3 	} }
+		locator = { name = "s1_01_Destroyer" 		position = { -57 	0 	-7 	} }
+		locator = { name = "s1_02_Destroyer" 		position = { -45 	0 	-5 	} }
+		locator = { name = "s1_03_Destroyer" 		position = { -33 	0 	-8 	} }
+		locator = { name = "s1_04_Destroyer" 		position = { -21 	0 	-6 	} }
+		locator = { name = "s1_01_Corvette" 		position = { -10 	0 	-8 	} }
+		locator = { name = "s1_02_Corvette" 		position = { -2 	0 	-8 	} }
+		locator = { name = "s1_civ_colonization" 	position = { -7 	0 	30	} }
+		locator = { name = "s1_civ_construction" 	position = { -28 	0 	33	} }
+		locator = { name = "s1_civ_transport"	 	position = { -48 	0 	31	} }
+		locator = { name = "s1_civ_science" 		position = { -64 	0 	33	} }
 
+		attach = { s1_01_ion_cannon 	= "arthropoid_01_ion_cannon_section_entity" }
+		attach = { s1_01_colossus 		= "arthropoid_01_colossus_ship_entity" }
+		attach = { s1_01_Juggernaught 	= "arthropoid_01_juggernaut_core_section_entity" }
+		attach = { s1_01_Titan 			= "test_arthropoid_01_titan_ship_entity" }
 		attach = { s1_01_Battleship 	= "test_arthropoid_01_battleship_01_entity" }
 		attach = { s1_02_Battleship 	= "test_arthropoid_01_battleship_02_entity" }
 		attach = { s1_03_Battleship 	= "test_arthropoid_01_battleship_03_entity" }
@@ -2410,6 +2598,10 @@ entity = {
 	name = "test_s2_ships_entity"
 	#pdxmesh = "avian_01_missile_mesh"
 
+		locator = { name = "s2_01_ion_cannon" 		position = { -85  	0 	31 	} }
+		locator = { name = "s2_01_colossus" 		position = { -320  	0 	15 	} }
+		locator = { name = "s2_01_Juggernaught" 	position = { -185  	0 	50 	} }
+		locator = { name = "s2_01_Titan" 			position = { -270  	0 	20 	} }
 		locator = { name = "s2_01_Battleship" 		position = { -235  	0 	4 	} }
 		locator = { name = "s2_02_Battleship" 		position = { -215  	0 	4	} }
 		locator = { name = "s2_03_Battleship" 		position = { -195  	0 	4 	} }
@@ -2431,6 +2623,10 @@ entity = {
 		locator = { name = "s2_civ_transport"	 	position = { -48 	0 	21	} }
 		locator = { name = "s2_civ_science" 		position = { -64 	0 	23	} }
 
+		attach = { s2_01_ion_cannon 	= "molluscoid_01_ion_cannon_section_entity" }
+		attach = { s2_01_colossus 		= "molluscoid_01_colossus_ship_entity" }
+		attach = { s2_01_Juggernaught 	= "molluscoid_01_juggernaut_core_section_entity" }
+		attach = { s2_01_Titan 			= "test_molluscoid_01_titan_ship_entity" }
 		attach = { s2_01_Battleship 	= "test_molluscoid_01_battleship_01_entity" }
 		attach = { s2_02_Battleship 	= "test_molluscoid_01_battleship_02_entity" }
 		attach = { s2_03_Battleship 	= "test_molluscoid_01_battleship_03_entity" }
@@ -2461,28 +2657,36 @@ entity = {
 	name = "test_s3_ships_entity"
 	#pdxmesh = "avian_01_missile_mesh"
 
-		locator = { name = "s3_01_Battleship" 		position = { 235  	0 	-5 	} }
-		locator = { name = "s3_02_Battleship" 		position = { 215  	0 	-5 	} }
-		locator = { name = "s3_03_Battleship" 		position = { 195  	0 	-5 	} }
-		locator = { name = "s3_04_Battleship" 		position = { 175 	0 	-5 	} }
-		locator = { name = "s3_05_Battleship" 		position = { 155 	0 	-5 	} }
-		locator = { name = "s3_06_Battleship" 		position = { 135  	0 	-5 	} }
-		locator = { name = "s3_01_Cruiser" 			position = { 115 	0 	4 	} }
-		locator = { name = "s3_02_Cruiser" 			position = { 100 	0 	4 	} }
-		locator = { name = "s3_03_Cruiser" 			position = { 85	 	0 	4 	} }
-		locator = { name = "s3_04_Cruiser" 			position = { 70 	0 	4 	} }
-		locator = { name = "s3_01_Destroyer" 		position = { 57 	0 	7 	} }
-		locator = { name = "s3_02_Destroyer" 		position = { 45 	0 	7 	} }
-		locator = { name = "s3_03_Destroyer" 		position = { 33 	0 	7 	} }
-		locator = { name = "s3_04_Destroyer" 		position = { 21 	0 	7 	} }
-		locator = { name = "s3_01_Corvette" 		position = { 10 	0 	11 	} }
-		locator = { name = "s3_02_Corvette" 		position = { 2 		0 	11 	} }
+		locator = { name = "s3_01_ion_cannon" 		position = { -85  	0 	31 	} }
+		locator = { name = "s3_01_colossus" 		position = { -320  	0 	15 	} }
+		locator = { name = "s3_01_Juggernaught" 	position = { -185  	0 	50 	} }
+		locator = { name = "s3_01_Titan" 			position = { -270  	0 	20 	} }
+		locator = { name = "s3_01_Battleship" 		position = { -235  	0 	-5 	} }
+		locator = { name = "s3_02_Battleship" 		position = { -215  	0 	-5 	} }
+		locator = { name = "s3_03_Battleship" 		position = { -195  	0 	-5 	} }
+		locator = { name = "s3_04_Battleship" 		position = { -175 	0 	-5 	} }
+		locator = { name = "s3_05_Battleship" 		position = { -155 	0 	-5 	} }
+		locator = { name = "s3_06_Battleship" 		position = { -135  	0 	-5 	} }
+		locator = { name = "s3_01_Cruiser" 			position = { -115 	0 	4 	} }
+		locator = { name = "s3_02_Cruiser" 			position = { -100 	0 	4 	} }
+		locator = { name = "s3_03_Cruiser" 			position = { -85	0 	4 	} }
+		locator = { name = "s3_04_Cruiser" 			position = { -70 	0 	4 	} }
+		locator = { name = "s3_01_Destroyer" 		position = { -57 	0 	7 	} }
+		locator = { name = "s3_02_Destroyer" 		position = { -45 	0 	7 	} }
+		locator = { name = "s3_03_Destroyer" 		position = { -33 	0 	7 	} }
+		locator = { name = "s3_04_Destroyer" 		position = { -21 	0 	7 	} }
+		locator = { name = "s3_01_Corvette" 		position = { -10 	0 	11 	} }
+		locator = { name = "s3_02_Corvette" 		position = { -2 	0 	11 	} }
 		locator = { name = "s1_03_Corvette" 		position = { -8 	0 	11 	} }
-		locator = { name = "s3_civ_colonization" 	position = { 7 		0 	-20	} }
-		locator = { name = "s3_civ_construction" 	position = { 28 	0 	-23	} }
-		locator = { name = "s3_civ_transport"	 	position = { 48 	0 	-21	} }
-		locator = { name = "s3_civ_science" 		position = { 64 	0 	-23	} }
+		locator = { name = "s3_civ_colonization" 	position = { -7 	0 	-20	} }
+		locator = { name = "s3_civ_construction" 	position = { -28 	0 	-23	} }
+		locator = { name = "s3_civ_transport"	 	position = { -48 	0 	-21	} }
+		locator = { name = "s3_civ_science" 		position = { -64 	0 	-23	} }
 
+		attach = { s3_01_ion_cannon 	= "avian_01_ion_cannon_section_entity" }
+		attach = { s3_01_colossus 		= "avian_01_colossus_ship_entity" }
+		attach = { s3_01_Juggernaught 	= "avian_01_juggernaut_core_section_entity" }
+		attach = { s3_01_Titan 			= "test_avian_01_titan_ship_entity" }
 		attach = { s3_01_Battleship 	= "test_avian_01_battleship_01_entity" }
 		attach = { s3_02_Battleship 	= "test_avian_01_battleship_02_entity" }
 		attach = { s3_03_Battleship 	= "test_avian_01_battleship_03_entity" }
@@ -2514,6 +2718,10 @@ entity = {
 	name = "test_s4_ships_entity"
 	#pdxmesh = "mammalian_01_missile_mesh"
 
+		locator = { name = "s4_01_ion_cannon" 		position = { -85  	0 	31 	} }
+		locator = { name = "s4_01_colossus" 		position = { -330  	0 	10 	} }
+		locator = { name = "s4_01_Juggernaught" 	position = { -185  	0 	45 	} }
+		locator = { name = "s4_01_Titan" 			position = { -270  	0 	20 	} }
 		locator = { name = "s4_01_Battleship" 		position = { -235  	0 	-5 	} }
 		locator = { name = "s4_02_Battleship" 		position = { -215  	0 	-5 	} }
 		locator = { name = "s4_03_Battleship" 		position = { -195  	0 	-5 	} }
@@ -2534,7 +2742,11 @@ entity = {
 		locator = { name = "s4_civ_construction" 	position = { -28 	0 	-23	} }
 		locator = { name = "s4_civ_transport"	 	position = { -48 	0 	-21	} }
 		locator = { name = "s4_civ_science" 		position = { -64 	0 	-23	} }
-
+		
+		attach = { s4_01_ion_cannon 	= "mammalian_01_ion_cannon_section_entity" }
+		attach = { s4_01_colossus 		= "mammalian_01_colossus_ship_entity" }
+		attach = { s4_01_Juggernaught 	= "mammalian_01_juggernaut_core_section_entity" }
+		attach = { s4_01_Titan 			= "test_mammalian_01_titan_ship_entity" }
 		attach = { s4_01_Battleship 	= "test_mammalian_01_battleship_01_entity" }
 		attach = { s4_02_Battleship 	= "test_mammalian_01_battleship_02_entity" }
 		attach = { s4_03_Battleship 	= "test_mammalian_01_battleship_03_entity" }
@@ -2559,33 +2771,98 @@ entity = {
 	cull_radius = 1000
 	scale = 1.0
 }
+entity = {
+	name = "mammalian_ship_examples"
+	#pdxmesh = "mammalian_01_missile_mesh"
+
+		locator = { name = "s4_01_ion_cannon" 		position = { 18  	0 	0 	} }
+		locator = { name = "s4_01_colossus" 		position = { 60  	0 	20 	} }
+		locator = { name = "s4_01_Juggernaught" 	position = { -40  	0 	45 	} }
+		locator = { name = "s4_01_Titan" 			position = { -80  	0 	-10 	} }
+	#	locator = { name = "s4_01_Battleship" 		position = { -235  	0 	-5 	} }
+	#	locator = { name = "s4_02_Battleship" 		position = { -215  	0 	-5 	} }
+	#	locator = { name = "s4_03_Battleship" 		position = { -195  	0 	-5 	} }
+	#	locator = { name = "s4_04_Battleship" 		position = { -175 	0 	-5 	} }
+	#	locator = { name = "s4_05_Battleship" 		position = { -50 	0 	-5 	} }
+		locator = { name = "s4_06_Battleship" 		position = { -50  	0 	-5 	} }
+	#	locator = { name = "s4_01_Cruiser" 			position = { -115 	0 	3 	} }
+	#	locator = { name = "s4_02_Cruiser" 			position = { -100 	0 	3 	} }
+	#	locator = { name = "s4_03_Cruiser" 			position = { -85	0 	3 	} }
+		locator = { name = "s4_04_Cruiser" 			position = { -30 	0 	3 	} }
+	#	locator = { name = "s4_01_Destroyer" 		position = { -57 	0 	5 	} }
+		locator = { name = "s4_02_Destroyer" 		position = { -15 	0 	7 	} }
+	#	locator = { name = "s4_03_Destroyer" 		position = { -33 	0 	5 	} }
+	#	locator = { name = "s4_04_Destroyer" 		position = { -21 	0 	5 	} }
+		locator = { name = "s4_01_Corvette" 		position = { -2 	0 	10 	} }
+	#	locator = { name = "s4_02_Corvette" 		position = { -2 	0 	8 	} }
+		locator = { name = "s4_civ_colonization" 	position = { 33 	0 	-33	} }
+		locator = { name = "s4_civ_construction" 	position = { 12 	0 	-33	} }
+		locator = { name = "s4_civ_transport"	 	position = { -8 	0 	-31	} }
+		locator = { name = "s4_civ_science" 		position = { -24 	0 	-30	} }
+		
+		attach = { s4_01_ion_cannon 	= "mammalian_01_ion_cannon_section_entity" }
+		attach = { s4_01_colossus 		= "mammalian_01_colossus_ship_entity" }
+		attach = { s4_01_Juggernaught 	= "mammalian_01_juggernaut_core_section_entity" }
+		attach = { s4_01_Titan 			= "test_mammalian_01_titan_ship_entity" }
+	#	attach = { s4_01_Battleship 	= "test_mammalian_01_battleship_01_entity" }
+	#	attach = { s4_02_Battleship 	= "test_mammalian_01_battleship_02_entity" }
+	#	attach = { s4_03_Battleship 	= "test_mammalian_01_battleship_03_entity" }
+	#	attach = { s4_04_Battleship 	= "test_mammalian_01_battleship_04_entity" }
+	#	attach = { s4_05_Battleship 	= "test_mammalian_01_battleship_05_entity" }
+		attach = { s4_06_Battleship 	= "test_mammalian_01_battleship_06_entity" }
+	#	attach = { s4_01_Cruiser 		= "test_mammalian_01_cruiser_entity" }
+	#	attach = { s4_02_Cruiser 		= "test_mammalian_02_cruiser_entity" }
+	#	attach = { s4_03_Cruiser 		= "test_mammalian_03_cruiser_entity" }
+		attach = { s4_04_Cruiser 		= "test_mammalian_04_cruiser_entity" }
+	#	attach = { s4_01_Destroyer 		= "test_mammalian_01_destroyer_entity" }
+	#	attach = { s4_02_Destroyer 		= "test_mammalian_02_destroyer_entity" }
+		attach = { s4_02_Destroyer 		= "test_mammalian_02_destroyer_entity" }
+	#	attach = { s4_04_Destroyer 		= "test_mammalian_04_destroyer_entity" }
+	#	attach = { s4_01_Corvette 		= "test_mammalian_01_corvette_entity" }
+		attach = { s4_01_Corvette 		= "test_mammalian_02_corvette_entity" }
+		attach = { s4_civ_science 		= "mammalian_01_science_ship_entity" }
+		attach = { s4_civ_transport 	= "mammalian_01_transport_ship_entity" }
+		attach = { s4_civ_construction 	= "mammalian_01_construction_ship_entity" }
+		attach = { s4_civ_colonization 	= "mammalian_01_colony_ship_entity" }
+
+	cull_radius = 1000
+	scale = 1.0
+}
 
 
 entity = {
 	name = "test_s5_ships_entity"
 
-		locator = { name = "s5_01_Battleship" 		position = { 235  	0 	3 	} }
-		locator = { name = "s5_02_Battleship" 		position = { 215  	0 	3 	} }
-		locator = { name = "s5_03_Battleship" 		position = { 195  	0 	3 	} }
-		locator = { name = "s5_04_Battleship" 		position = { 175 	0 	3 	} }
-		locator = { name = "s5_05_Battleship" 		position = { 155 	0 	3 	} }
-		locator = { name = "s5_06_Battleship" 		position = { 135  	0 	3 	} }
-		locator = { name = "s5_01_Cruiser" 			position = { 115 	0 	3 	} }
-		locator = { name = "s5_02_Cruiser" 			position = { 100 	0 	3 	} }
-		locator = { name = "s5_03_Cruiser" 			position = { 85	 	0 	3 	} }
-		locator = { name = "s5_04_Cruiser" 			position = { 70 	0 	3 	} }
-		locator = { name = "s5_01_Destroyer" 		position = { 57 	0 	5 	} }
-		locator = { name = "s5_02_Destroyer" 		position = { 45 	0 	5 	} }
-		locator = { name = "s5_03_Destroyer" 		position = { 33 	0 	5 	} }
-		locator = { name = "s5_04_Destroyer" 		position = { 21 	0 	5 	} }
+		locator = { name = "s5_01_ion_cannon" 		position = { -85  	0 	31 	} }
+		locator = { name = "s5_01_colossus" 		position = { -320  	0 	15 	} }
+		locator = { name = "s5_01_Juggernaught" 	position = { -185  	0 	47 	} }
+		locator = { name = "s5_01_Titan" 			position = { -270  	0 	20 	} }
+		locator = { name = "s5_01_Battleship" 		position = { -235  	0 	3 	} }
+		locator = { name = "s5_02_Battleship" 		position = { -215  	0 	3 	} }
+		locator = { name = "s5_03_Battleship" 		position = { -195  	0 	3 	} }
+		locator = { name = "s5_04_Battleship" 		position = { -175 	0 	3 	} }
+		locator = { name = "s5_05_Battleship" 		position = { -155 	0 	3 	} }
+		locator = { name = "s5_06_Battleship" 		position = { -135  	0 	3 	} }
+		locator = { name = "s5_01_Cruiser" 			position = { -115 	0 	3 	} }
+		locator = { name = "s5_02_Cruiser" 			position = { -100 	0 	3 	} }
+		locator = { name = "s5_03_Cruiser" 			position = { -85	0 	3 	} }
+		locator = { name = "s5_04_Cruiser" 			position = { -70 	0 	3 	} }
+		locator = { name = "s5_01_Destroyer" 		position = { -57 	0 	5 	} }
+		locator = { name = "s5_02_Destroyer" 		position = { -45 	0 	5 	} }
+		locator = { name = "s5_03_Destroyer" 		position = { -33 	0 	5 	} }
+		locator = { name = "s5_04_Destroyer" 		position = { -21 	0 	5 	} }
 		locator = { name = "s5_01_Corvette" 		position = { -8 	0 	8 	} }
-		locator = { name = "s5_02_Corvette" 		position = { 0 		0 	8 	} }
-		locator = { name = "s5_03_Corvette" 		position = {  8		0 	8 	} }
-		locator = { name = "s5_civ_transport"	 	position = { 48 	0 	-21	} }
-		locator = { name = "s5_civ_construction" 	position = { 28 	0 	-23	} }
-		locator = { name = "s5_civ_colonization" 	position = { 0 		0 	-23 	} }
-		locator = { name = "s5_civ_science" 		position = { 64 	0 	-23	} }
-
+		locator = { name = "s5_02_Corvette" 		position = { -0 	0 	8 	} }
+		locator = { name = "s5_03_Corvette" 		position = { -8		0 	8 	} }
+		locator = { name = "s5_civ_transport"	 	position = { -48 	0 	-21	} }
+		locator = { name = "s5_civ_construction" 	position = { -28 	0 	-23	} }
+		locator = { name = "s5_civ_colonization" 	position = { -0 	0 	-23 } }
+		locator = { name = "s5_civ_science" 		position = { -64 	0 	-23	} }
+		
+		attach = { s5_01_ion_cannon 	= "fungoid_01_ion_cannon_section_entity" }
+		attach = { s5_01_colossus 		= "fungoid_01_colossus_ship_entity" }
+		attach = { s5_01_Juggernaught 	= "fungoid_01_juggernaut_core_section_entity" }
+		attach = { s5_01_Titan 			= "test_fungoid_01_titan_ship_entity" }
 		attach = { s5_01_Battleship 	= "test_fungoid_01_battleship_01_entity" }
 		attach = { s5_02_Battleship 	= "test_fungoid_01_battleship_02_entity" }
 		attach = { s5_03_Battleship 	= "test_fungoid_01_battleship_03_entity" }
@@ -2617,6 +2894,10 @@ entity = {
 	name = "test_s6_ships_entity"
 	#pdxmesh = "reptilian_01_missile_mesh"
 
+		locator = { name = "s6_01_ion_cannon" 		position = { -85  	0 	31 	} }
+		locator = { name = "s6_01_colossus" 		position = { -320  	0 	15 	} }
+		locator = { name = "s6_01_Juggernaught" 	position = { -185  	0 	50 	} }
+		locator = { name = "s6_01_Titan" 			position = { -270  	0 	20 	} }
 		locator = { name = "s6_01_Battleship" 		position = { -235  	0 	3 	} }
 		locator = { name = "s6_02_Battleship" 		position = { -215  	0 	3 	} }
 		locator = { name = "s6_03_Battleship" 		position = { -195  	0 	3 	} }
@@ -2638,6 +2919,10 @@ entity = {
 		locator = { name = "s6_civ_colonization" 	position = { -8		0 	-20 	} }
 		locator = { name = "s6_civ_science" 		position = { -75 	0 	-20 	} }
 
+		attach = { s6_01_ion_cannon 	= "reptilian_01_ion_cannon_section_entity" }
+		attach = { s6_01_colossus 		= "reptilian_01_colossus_ship_entity" }
+		attach = { s6_01_Juggernaught 	= "reptilian_01_juggernaut_core_section_entity" }
+		attach = { s6_01_Titan 			= "test_reptilian_01_titan_ship_entity" }
 		attach = { s6_01_Battleship 	= "test_reptilian_01_battleship_01_entity" }
 		attach = { s6_02_Battleship 	= "test_reptilian_01_battleship_02_entity" }
 		attach = { s6_03_Battleship 	= "test_reptilian_01_battleship_03_entity" }
@@ -2667,49 +2952,57 @@ entity = {
 entity = {
 	name = "test_s7_ships_entity"
 
-		locator = { name = "s5_01_Battleship" 		position = { 235  	0 	3 	} }
-		locator = { name = "s5_02_Battleship" 		position = { 215  	0 	3 	} }
-		locator = { name = "s5_03_Battleship" 		position = { 195  	0 	3 	} }
-		locator = { name = "s5_04_Battleship" 		position = { 175 	0 	3 	} }
-		locator = { name = "s5_05_Battleship" 		position = { 155 	0 	3 	} }
-		locator = { name = "s5_06_Battleship" 		position = { 135  	0 	3 	} }
-		locator = { name = "s5_01_Cruiser" 			position = { 115 	0 	3 	} }
-		locator = { name = "s5_02_Cruiser" 			position = { 100 	0 	3 	} }
-		locator = { name = "s5_03_Cruiser" 			position = { 85	 	0 	3 	} }
-		locator = { name = "s5_04_Cruiser" 			position = { 70 	0 	3 	} }
-		locator = { name = "s5_01_Destroyer" 		position = { 57 	0 	5 	} }
-		locator = { name = "s5_02_Destroyer" 		position = { 45 	0 	5 	} }
-		locator = { name = "s5_03_Destroyer" 		position = { 33 	0 	5 	} }
-		locator = { name = "s5_04_Destroyer" 		position = { 21 	0 	5 	} }
-		locator = { name = "s5_01_Corvette" 		position = { -8 	0 	8 	} }
-		locator = { name = "s5_02_Corvette" 		position = { 0 		0 	8 	} }
-		locator = { name = "s5_03_Corvette" 		position = {  8		0 	8 	} }
-		locator = { name = "s5_civ_transport"	 	position = { 48 	0 	-21	} }
-		locator = { name = "s5_civ_construction" 	position = { 28 	0 	-23	} }
-		locator = { name = "s5_civ_colonization" 	position = { 0 		0 	-23 	} }
-		locator = { name = "s5_civ_science" 		position = { 64 	0 	-23	} }
+		locator = { name = "s7_01_ion_cannon" 		position = { -85  	0 	31 	} }
+		locator = { name = "s7_01_colossus" 		position = { -320  	0 	15 	} }
+		locator = { name = "s7_01_Juggernaught" 	position = { -185  	0 	50 	} }
+		locator = { name = "s7_01_Titan" 			position = { -270  	0 	20 	} }
+		locator = { name = "s7_01_Battleship" 		position = { -235  	0 	3 	} }
+		locator = { name = "s7_02_Battleship" 		position = { -215  	0 	3 	} }
+		locator = { name = "s7_03_Battleship" 		position = { -195  	0 	3 	} }
+		locator = { name = "s7_04_Battleship" 		position = { -175 	0 	3 	} }
+		locator = { name = "s7_05_Battleship" 		position = { -155 	0 	3 	} }
+		locator = { name = "s7_06_Battleship" 		position = { -135  	0 	3 	} }
+		locator = { name = "s7_01_Cruiser" 			position = { -115 	0 	3 	} }
+		locator = { name = "s7_02_Cruiser" 			position = { -100 	0 	3 	} }
+		locator = { name = "s7_03_Cruiser" 			position = { -85	0 	3 	} }
+		locator = { name = "s7_04_Cruiser" 			position = { -70 	0 	3 	} }
+		locator = { name = "s7_01_Destroyer" 		position = { -57 	0 	5 	} }
+		locator = { name = "s7_02_Destroyer" 		position = { -45 	0 	5 	} }
+		locator = { name = "s7_03_Destroyer" 		position = { -33 	0 	5 	} }
+		locator = { name = "s7_04_Destroyer" 		position = { -21 	0 	5 	} }
+		locator = { name = "s7_01_Corvette" 		position = { -8 	0 	8 	} }
+		locator = { name = "s7_02_Corvette" 		position = { -0 	0 	8 	} }
+		locator = { name = "s7_03_Corvette" 		position = { -8		0 	8 	} }
+		locator = { name = "s7_civ_transport"	 	position = { -48 	0 	-21	} }
+		locator = { name = "s7_civ_construction" 	position = { -28 	0 	-23	} }
+		locator = { name = "s7_civ_colonization" 	position = { -0 	0 	-23 	} }
+		locator = { name = "s7_civ_science" 		position = { -64 	0 	-23	} }
 
-		attach = { s5_01_Battleship 	= "test_plantoid_01_battleship_01_entity" }
-		attach = { s5_02_Battleship 	= "test_plantoid_01_battleship_02_entity" }
-		attach = { s5_03_Battleship 	= "test_plantoid_01_battleship_03_entity" }
-		attach = { s5_04_Battleship 	= "test_plantoid_01_battleship_04_entity" }
-		attach = { s5_05_Battleship 	= "test_plantoid_01_battleship_05_entity" }
-		attach = { s5_06_Battleship 	= "test_plantoid_01_battleship_06_entity" }
-		attach = { s5_01_Cruiser 		= "test_plantoid_01_cruiser_entity" }
-		attach = { s5_02_Cruiser 		= "test_plantoid_02_cruiser_entity" }
-		attach = { s5_03_Cruiser 		= "test_plantoid_03_cruiser_entity" }
-		attach = { s5_04_Cruiser 		= "test_plantoid_04_cruiser_entity" }
-		attach = { s5_01_Destroyer 		= "test_plantoid_01_destroyer_entity" }
-		attach = { s5_02_Destroyer 		= "test_plantoid_02_destroyer_entity" }
-		attach = { s5_03_Destroyer 		= "test_plantoid_03_destroyer_entity" }
-		attach = { s5_04_Destroyer 		= "test_plantoid_04_destroyer_entity" }
-		attach = { s5_01_Corvette 		= "test_plantoid_01_corvette_entity" }
-		attach = { s5_02_Corvette 		= "test_plantoid_02_corvette_entity" }
-		attach = { s5_03_Corvette 		= "test_plantoid_03_corvette_entity" }
-		attach = { s5_civ_science 		= "plantoid_01_science_ship_entity" }
-		attach = { s5_civ_transport 	= "plantoid_01_transport_ship_entity" }
-		attach = { s5_civ_construction 	= "plantoid_01_construction_ship_entity" }
-		attach = { s5_civ_colonization 	= "plantoid_01_colony_ship_entity" }
+		attach = { s7_01_ion_cannon 	= "plantoid_01_ion_cannon_section_entity" }
+		attach = { s7_01_colossus 		= "plantoid_01_colossus_ship_entity" }
+		attach = { s7_01_Juggernaught 	= "plantoid_01_juggernaut_core_section_entity" }
+		attach = { s7_01_Titan 			= "test_plantoid_01_titan_ship_entity" }
+		attach = { s7_01_Battleship 	= "test_plantoid_01_battleship_01_entity" }
+		attach = { s7_02_Battleship 	= "test_plantoid_01_battleship_02_entity" }
+		attach = { s7_03_Battleship 	= "test_plantoid_01_battleship_03_entity" }
+		attach = { s7_04_Battleship 	= "test_plantoid_01_battleship_04_entity" }
+		attach = { s7_05_Battleship 	= "test_plantoid_01_battleship_05_entity" }
+		attach = { s7_06_Battleship 	= "test_plantoid_01_battleship_06_entity" }
+		attach = { s7_01_Cruiser 		= "test_plantoid_01_cruiser_entity" }
+		attach = { s7_02_Cruiser 		= "test_plantoid_02_cruiser_entity" }
+		attach = { s7_03_Cruiser 		= "test_plantoid_03_cruiser_entity" }
+		attach = { s7_04_Cruiser 		= "test_plantoid_04_cruiser_entity" }
+		attach = { s7_01_Destroyer 		= "test_plantoid_01_destroyer_entity" }
+		attach = { s7_02_Destroyer 		= "test_plantoid_02_destroyer_entity" }
+		attach = { s7_03_Destroyer 		= "test_plantoid_03_destroyer_entity" }
+		attach = { s7_04_Destroyer 		= "test_plantoid_04_destroyer_entity" }
+		attach = { s7_01_Corvette 		= "test_plantoid_01_corvette_entity" }
+		attach = { s7_02_Corvette 		= "test_plantoid_02_corvette_entity" }
+		attach = { s7_03_Corvette 		= "test_plantoid_03_corvette_entity" }
+		attach = { s7_civ_science 		= "plantoid_01_science_ship_entity" }
+		attach = { s7_civ_transport 	= "plantoid_01_transport_ship_entity" }
+		attach = { s7_civ_construction 	= "plantoid_01_construction_ship_entity" }
+		attach = { s7_civ_colonization 	= "plantoid_01_colony_ship_entity" }
 
 	cull_radius = 1000
 	scale = 1.0
@@ -2719,28 +3012,36 @@ entity = {
 entity = {
 	name = "test_s8_ships_entity"
 
-		locator = { name = "s8_01_Battleship" 		position = { 235  	0 	3 	} }
-		locator = { name = "s8_02_Battleship" 		position = { 215  	0 	3 	} }
-		locator = { name = "s8_03_Battleship" 		position = { 195  	0 	3 	} }
-		locator = { name = "s8_04_Battleship" 		position = { 175 	0 	3 	} }
-		locator = { name = "s8_05_Battleship" 		position = { 155 	0 	3 	} }
-		locator = { name = "s8_06_Battleship" 		position = { 135  	0 	3 	} }
-		locator = { name = "s8_01_Cruiser" 			position = { 115 	0 	3 	} }
-		locator = { name = "s8_02_Cruiser" 			position = { 100 	0 	3 	} }
-		locator = { name = "s8_03_Cruiser" 			position = { 85	 	0 	3 	} }
-		locator = { name = "s8_04_Cruiser" 			position = { 70 	0 	3 	} }
-		locator = { name = "s8_01_Destroyer" 		position = { 57 	0 	5 	} }
-		locator = { name = "s8_02_Destroyer" 		position = { 45 	0 	5 	} }
-		locator = { name = "s8_03_Destroyer" 		position = { 33 	0 	5 	} }
-		locator = { name = "s8_04_Destroyer" 		position = { 21 	0 	5 	} }
+		locator = { name = "s8_01_ion_cannon" 		position = { -85  	0 	31 	} }
+		locator = { name = "s8_01_colossus" 		position = { -320  	0 	15 	} }
+		locator = { name = "s8_01_Juggernaught" 	position = { -185  	0 	50 	} }
+		locator = { name = "s8_01_Titan" 			position = { -270  	0 	20 	} }
+		locator = { name = "s8_01_Battleship" 		position = { -235  	0 	3 	} }
+		locator = { name = "s8_02_Battleship" 		position = { -215  	0 	3 	} }
+		locator = { name = "s8_03_Battleship" 		position = { -195  	0 	3 	} }
+		locator = { name = "s8_04_Battleship" 		position = { -175 	0 	3 	} }
+		locator = { name = "s8_05_Battleship" 		position = { -155 	0 	3 	} }
+		locator = { name = "s8_06_Battleship" 		position = { -135  	0 	3 	} }
+		locator = { name = "s8_01_Cruiser" 			position = { -115 	0 	3 	} }
+		locator = { name = "s8_02_Cruiser" 			position = { -100 	0 	3 	} }
+		locator = { name = "s8_03_Cruiser" 			position = { -85	0 	3 	} }
+		locator = { name = "s8_04_Cruiser" 			position = { -70 	0 	3 	} }
+		locator = { name = "s8_01_Destroyer" 		position = { -57 	0 	5 	} }
+		locator = { name = "s8_02_Destroyer" 		position = { -45 	0 	5 	} }
+		locator = { name = "s8_03_Destroyer" 		position = { -33 	0 	5 	} }
+		locator = { name = "s8_04_Destroyer" 		position = { -21 	0 	5 	} }
 		locator = { name = "s8_01_Corvette" 		position = { -8 	0 	8 	} }
-		locator = { name = "s8_02_Corvette" 		position = { 0 		0 	8 	} }
-		locator = { name = "s8_03_Corvette" 		position = {  8		0 	8 	} }
-		locator = { name = "s8_civ_transport"	 	position = { 48 	0 	-21	} }
-		locator = { name = "s8_civ_construction" 	position = { 28 	0 	-23	} }
-		locator = { name = "s8_civ_colonization" 	position = { 0 		0 	-23 } }
-		locator = { name = "s8_civ_science" 		position = { 64 	0 	-23	} }
+		locator = { name = "s8_02_Corvette" 		position = { -0 	0 	8 	} }
+		locator = { name = "s8_03_Corvette" 		position = { -8		0 	8 	} }
+		locator = { name = "s8_civ_transport"	 	position = { -48 	0 	-21	} }
+		locator = { name = "s8_civ_construction" 	position = { -28 	0 	-23	} }
+		locator = { name = "s8_civ_colonization" 	position = { -0 	0 	-23 } }
+		locator = { name = "s8_civ_science" 		position = { -64 	0 	-23	} }
 
+		attach = { s8_01_ion_cannon 	= "humanoid_01_ion_cannon_section_entity" }
+		attach = { s8_01_colossus 		= "humanoid_01_colossus_ship_entity" }
+		attach = { s8_01_Juggernaught 	= "humanoid_01_juggernaut_core_section_entity" }
+		attach = { s8_01_Titan 			= "test_humanoid_01_titan_ship_entity" }
 		attach = { s8_01_Battleship 	= "test_humanoid_01_battleship_01_entity" }
 		attach = { s8_02_Battleship 	= "test_humanoid_01_battleship_02_entity" }
 		attach = { s8_03_Battleship 	= "test_humanoid_01_battleship_03_entity" }
@@ -2759,6 +3060,63 @@ entity = {
 		attach = { s8_civ_transport 	= "humanoid_01_transport_ship_entity" }
 		attach = { s8_civ_construction 	= "humanoid_01_construction_ship_entity" }
 		attach = { s8_civ_colonization 	= "humanoid_01_colony_ship_entity" }
+
+	cull_radius = 1000
+	scale = 1.0
+}
+
+#lithoid#
+entity = {
+	name = "test_s9_ships_entity"
+
+		locator = { name = "s9_01_ion_cannon" 		position = { -85  	0 	31 	} }
+		locator = { name = "s9_01_colossus" 		position = { -320  	0 	15 	} }
+		locator = { name = "s9_01_Juggernaught" 	position = { -185  	0 	50 	} }
+		locator = { name = "s9_01_Titan" 			position = { -270  	0 	20 	} }
+		locator = { name = "s9_01_Battleship" 		position = { -235  	0 	3 	} }
+		locator = { name = "s9_02_Battleship" 		position = { -215  	0 	3 	} }
+		locator = { name = "s9_03_Battleship" 		position = { -195  	0 	3 	} }
+		locator = { name = "s9_04_Battleship" 		position = { -175 	0 	3 	} }
+		locator = { name = "s9_05_Battleship" 		position = { -155 	0 	3 	} }
+		locator = { name = "s9_06_Battleship" 		position = { -135  	0 	3 	} }
+		locator = { name = "s9_01_Cruiser" 			position = { -115 	0 	3 	} }
+		locator = { name = "s9_02_Cruiser" 			position = { -100 	0 	3 	} }
+		locator = { name = "s9_03_Cruiser" 			position = { -85	0 	3 	} }
+		locator = { name = "s9_04_Cruiser" 			position = { -70 	0 	3 	} }
+		locator = { name = "s9_01_Destroyer" 		position = { -57 	0 	5 	} }
+		locator = { name = "s9_02_Destroyer" 		position = { -45 	0 	5 	} }
+		locator = { name = "s9_03_Destroyer" 		position = { -33 	0 	5 	} }
+		locator = { name = "s9_04_Destroyer" 		position = { -21 	0 	5 	} }
+		locator = { name = "s9_01_Corvette" 		position = { -8 	0 	8 	} }
+		locator = { name = "s9_02_Corvette" 		position = { -0 	0 	8 	} }
+		locator = { name = "s9_03_Corvette" 		position = { -8		0 	8 	} }
+		locator = { name = "s9_civ_transport"	 	position = { -48 	0 	-21	} }
+		locator = { name = "s9_civ_construction" 	position = { -28 	0 	-23	} }
+		locator = { name = "s9_civ_colonization" 	position = { -0 	0 	-23 } }
+		locator = { name = "s9_civ_science" 		position = { -64 	0 	-23	} }
+
+		attach = { s9_01_ion_cannon 	= "lithoid_01_ion_cannon_section_entity" }
+		attach = { s9_01_colossus 		= "lithoid_01_colossus_ship_entity" }
+		attach = { s9_01_Juggernaught 	= "lithoid_01_juggernaut_core_section_entity" }
+		attach = { s9_01_Titan 			= "test_lithoid_01_titan_ship_entity" }
+		attach = { s9_01_Battleship 	= "test_lithoid_01_battleship_01_entity" }
+		attach = { s9_02_Battleship 	= "test_lithoid_01_battleship_02_entity" }
+		attach = { s9_03_Battleship 	= "test_lithoid_01_battleship_03_entity" }
+		attach = { s9_04_Battleship 	= "test_lithoid_01_battleship_04_entity" }
+		attach = { s9_01_Cruiser 		= "test_lithoid_01_cruiser_entity" }
+		attach = { s9_02_Cruiser 		= "test_lithoid_02_cruiser_entity" }
+		attach = { s9_03_Cruiser 		= "test_lithoid_03_cruiser_entity" }
+		attach = { s9_04_Cruiser 		= "test_lithoid_04_cruiser_entity" }
+		attach = { s9_01_Destroyer 		= "test_lithoid_01_destroyer_entity" }
+		attach = { s9_02_Destroyer 		= "test_lithoid_02_destroyer_entity" }
+		attach = { s9_03_Destroyer 		= "test_lithoid_03_destroyer_entity" }
+		attach = { s9_04_Destroyer 		= "test_lithoid_04_destroyer_entity" }
+		attach = { s9_01_Corvette 		= "test_lithoid_01_corvette_entity" }
+		attach = { s9_02_Corvette 		= "test_lithoid_02_corvette_entity" }
+		attach = { s9_civ_science 		= "lithoid_01_science_ship_entity" }
+		attach = { s9_civ_transport 	= "lithoid_01_transport_ship_entity" }
+		attach = { s9_civ_construction 	= "lithoid_01_construction_ship_entity" }
+		attach = { s9_civ_colonization 	= "lithoid_01_colony_ship_entity" }
 
 	cull_radius = 1000
 	scale = 1.0
@@ -3242,31 +3600,29 @@ entity = {
 	scale = 1.0
 }
 
+entity = {
+	name = "caravaneer_test_entity"
 
-	#	entity = {
-	#		name = "all_ai_entity"
-	#		#pdxmesh = "reptilian_01_missile_mesh"
-	#
-	#			locator = { name = "pos1_s1_transport" 		position = { 5 		0 	0 	} }
-	#			locator = { name = "pos1_s2_transport" 		position = { 20		0 	0 	} }
-	#			locator = { name = "pos1_s3_transport" 		position = { 35		0 	0 	} }
-	#			locator = { name = "pos1_s4_transport" 		position = { 50		0 	0 	} }
-	#			locator = { name = "pos2_s5_transport" 		position = { 65		0 	0 	} }
-	#			locator = { name = "pos2_s6_transport" 		position = { 80 	0 	0 	} }
-    #
-    #
-	#			attach = { pos1_s1_transport 		= "avian_01_transport_ship_entity" }
-	#			attach = { pos1_s2_transport 		= "mammalian_01_transport_ship_entity" }
-	#			attach = { pos1_s3_transport 		= "arthropoid_01_transport_ship_entity" }
-	#			attach = { pos1_s4_transport 		= "molluscoid_01_transport_ship_entity" }
-	#			attach = { pos2_s5_transport 		= "fungoid_01_transport_ship_entity" }
-	#			attach = { pos2_s6_transport 		= "reptilian_01_transport_entity" }
-    #
-    #
-    #
-	#		cull_radius = 1000
-	#		scale = 1.0
-	#	}
+		locator = { name = "pos1_misc_00" 		position = { 0		0 	0 	} }
+		locator = { name = "pos1_misc_01" 		position = { 50		0 	0 	} }
+		locator = { name = "pos1_misc_02" 		position = { 80		0 	0 	} }
+		locator = { name = "pos1_misc_03" 		position = { 100	0 	0 	} }
+		locator = { name = "pos1_misc_04" 		position = { 115	0 	0 	} }
+		locator = { name = "pos1_misc_05" 		position = { 125	0 	0 	} }
+		locator = { name = "pos1_misc_06" 		position = { 135	0 	0 	} }
+
+		attach = { pos1_misc_00				= "caravaneer_station_01_section_entity" }
+		attach = { pos1_misc_01				= "caravaneer_cargoship_01_section_entity" }
+		attach = { pos1_misc_02				= "caravaneer_cruiser_01_section_entity" }
+		attach = { pos1_misc_03				= "caravaneer_destroyer_01_section_entity" }
+		attach = { pos1_misc_04				= "caravaneer_billboard_asteroid_01_entity" }
+		attach = { pos1_misc_05				= "caravaneer_billboard_asteroid_02_entity" }
+		attach = { pos1_misc_06				= "caravaneer_billboard_asteroid_03_entity" }
+
+	cull_radius = 1000
+	scale = 1.0
+}
+
 
 
 entity = {
@@ -3289,35 +3645,49 @@ entity = {
 entity = {
 	name = "arthropoid_stations_test_entity"
 
-		locator = { name = "pos1_s1_orbital_station" 			position = { -20 	0 	10 	} }
-		locator = { name = "pos1_s1_terraforming_station" 		position = { 20		0 	0 	} }
-		locator = { name = "pos1_s1_mining_station" 			position = { 50		0 	0 	} }
-		locator = { name = "pos1_s1_science_station" 			position = { 80 	0 	0 	} }
-		locator = { name = "pos1_s1_military_station_large" 	position = { 30		0 	30 	} }
-		locator = { name = "pos1_s1_military_station_medium" 	position = { 70		0 	30	} }
-		locator = { name = "pos1_s1_military_station_small" 	position = { 95		0 	30	} }
+		locator = { name = "pos_s1_ships" 						position = { -80 	0 	-20	} }
+		locator = { name = "pos_s1_orbital_habitat" 			position = { -30 	0 	5 	} }
+		locator = { name = "pos_s1_terraforming_station" 		position = { 20		0 	0 	} }
+		locator = { name = "pos_s1_mining_station" 				position = { 50		0 	0 	} }
+		locator = { name = "pos_s1_science_station" 			position = { 80 	0 	0 	} }
+		locator = { name = "pos_s1_military_station_large" 		position = { 30		0 	30 	} }
+		locator = { name = "pos_s1_military_station_medium" 	position = { 70		0 	30	} }
+		locator = { name = "pos_s1_military_station_small" 		position = { 95		0 	30	} }
 
-		locator = { name = "pos1_s1_orbital_station_assemblyyard_section_entity" 		position = { -48	0 	-10	} }
-		locator = { name = "pos1_s1_orbital_station_hangarbay_section_entity" 			position = { -32 	0 	-10	} }
-		locator = { name = "pos1_s1_orbital_station_refinery_section_entity" 			position = { -16 	0 	-10	} }
-		locator = { name = "pos1_s1_orbital_station_science_section_entity" 			position = { 2 		0 	-10	} }
+		locator = { name = "pos_s1_orbital_station_assemblyyard_section_entity" 		position = { 20		0 	-20	} } 
+		locator = { name = "pos_s1_orbital_station_hangarbay_section_entity" 			position = { 36 	0 	-20	} }
+		locator = { name = "pos_s1_orbital_station_refinery_section_entity" 			position = { 52 	0 	-20	} }
+		locator = { name = "pos_s1_orbital_station_science_section_entity" 				position = { 68 	0 	-20	} }
 
-		locator = { name = "pos1_s1_orbital_habitat" 			position = { -50 	0 	30 	} }
+		locator = { name = "pos_starbase_level_1" 			position = { 130 	0 	10 	} }
+		locator = { name = "pos_starbase_level_2" 			position = { 170 	0 	10 	} }
+		locator = { name = "pos_starbase_level_3" 			position = { 220 	0 	10 	} }
+		locator = { name = "pos_starbase_level_4" 			position = { 295 	0 	10 	} }
+		locator = { name = "pos_starbase_level_5" 			position = { 385 	0 	10 	} }
+		locator = { name = "pos_habitat_full" 				position = { 500 	0 	10 	} }
+		
+		attach = { "pos_s1_ships" 		 					= "test_s1_ships_entity" }
+		attach = { "pos_s1_orbital_habitat" 		 		= "arthropoid_01_orbital_habitat_full_entity" }
+		attach = { "pos_s1_terraforming_station" 			= "arthropoid_01_terraform_station_entity" }
+		attach = { "pos_s1_mining_station" 		 			= "arthropoid_01_mining_station_entity" }
+		attach = { "pos_s1_science_station" 		 		= "arthropoid_01_observation_station_entity" }
+		attach = { "pos_s1_military_station_large" 			= "arthropoid_01_military_station_large_test_entity" }
+		attach = { "pos_s1_military_station_medium" 		= "arthropoid_01_military_station_medium_test_entity" }
+		attach = { "pos_s1_military_station_small"  		= "arthropoid_01_military_station_small_test_entity" }
 
-		attach = { "pos1_s1_orbital_habitat" 		 		= "arthropoid_01_orbital_habitat_full_entity" }
-		attach = { "pos1_s1_orbital_station" 		 		= "arthropoid_01_habitat_phase_01_core_entity" }
-		attach = { "pos1_s1_terraforming_station" 			= "arthropoid_01_terraform_station_entity" }
-		attach = { "pos1_s1_mining_station" 		 		= "arthropoid_01_mining_station_entity" }
-		attach = { "pos1_s1_science_station" 		 		= "arthropoid_01_observation_station_entity" }
-		attach = { "pos1_s1_military_station_large" 		= "arthropoid_01_military_station_large_test_entity" }
-		attach = { "pos1_s1_military_station_medium" 		= "arthropoid_01_military_station_medium_test_entity" }
-		attach = { "pos1_s1_military_station_small"  		= "arthropoid_01_military_station_small_test_entity" }
-
-		attach = { "pos1_s1_orbital_station_assemblyyard_section_entity"  	= "arthropoid_01_orbital_station_assemblyyard_section_entity" }
-		attach = { "pos1_s1_orbital_station_hangarbay_section_entity"  		= "arthropoid_01_orbital_station_hangarbay_section_entity" }
-		attach = { "pos1_s1_orbital_station_refinery_section_entity"  		= "arthropoid_01_orbital_station_refinery_section_entity" }
-		attach = { "pos1_s1_orbital_station_science_section_entity"  		= "arthropoid_01_orbital_station_science_section_entity" }
-
+		attach = { "pos_s1_orbital_station_assemblyyard_section_entity"  	= "arthropoid_01_orbital_station_assemblyyard_section_entity" }
+		attach = { "pos_s1_orbital_station_hangarbay_section_entity"  		= "arthropoid_01_orbital_station_hangarbay_section_entity" }
+		attach = { "pos_s1_orbital_station_refinery_section_entity"  		= "arthropoid_01_orbital_station_refinery_section_entity" }
+		attach = { "pos_s1_orbital_station_science_section_entity"  		= "arthropoid_01_orbital_station_science_section_entity" }
+		
+		attach = { "pos_starbase_level_1"  	= "arthropoid_01_starbase_outpost_section_entity" }
+		attach = { "pos_starbase_level_2"  	= "arthropoid_01_starbase_starport_section_entity" }
+		attach = { "pos_starbase_level_3"  	= "arthropoid_01_starbase_starhold_section_entity" }
+		attach = { "pos_starbase_level_4"  	= "arthropoid_01_starbase_starfortress_section_entity" }
+		attach = { "pos_starbase_level_5"  	= "arthropoid_01_starbase_citadel_section_entity" }
+		
+		attach = { "pos_habitat_full"  	= "arthropoid_01_habitat_phase_03_section_entity" }
+		
 	cull_radius = 1000
 	scale = 1.0
 }
@@ -3341,35 +3711,50 @@ entity = {
 entity = {
 	name = "molluscoid_stations_test_entity"
 
-		locator = { name = "pos1_s2_orbital_station" 			position = { -20 	0 	10 	} }
-		locator = { name = "pos1_s2_terraforming_station" 		position = { 20		0 	0 	} }
-		locator = { name = "pos1_s2_mining_station" 			position = { 50		0 	0 	} }
-		locator = { name = "pos1_s2_science_station" 			position = { 80 	0 	0 	} }
-		locator = { name = "pos1_s2_military_station_large" 	position = { 30		0 	30 	} }
-		locator = { name = "pos1_s2_military_station_medium" 	position = { 70		0 	30	} }
-		locator = { name = "pos1_s2_military_station_small" 	position = { 95		0 	30	} }
+		locator = { name = "pos_s2_ships" 						position = { -80 	0 	-20 } }
+		locator = { name = "pos_s2_orbital_habitat" 			position = { -30 	0 	5 	} }
+		locator = { name = "pos_s2_terraforming_station" 		position = { 20		0 	0 	} }
+		locator = { name = "pos_s2_mining_station" 				position = { 50		0 	0 	} }
+		locator = { name = "pos_s2_science_station" 			position = { 80 	0 	0 	} }
+		locator = { name = "pos_s2_military_station_large" 		position = { 30		0 	30 	} }
+		locator = { name = "pos_s2_military_station_medium" 	position = { 70		0 	30	} }
+		locator = { name = "pos_s2_military_station_small" 		position = { 95		0 	30	} }
 
-		locator = { name = "pos1_s2_orbital_station_assemblyyard_section_entity" 		position = { -48	0 	-10	} }
-		locator = { name = "pos1_s2_orbital_station_hangarbay_section_entity" 			position = { -32 	0 	-10	} }
-		locator = { name = "pos1_s2_orbital_station_refinery_section_entity" 			position = { -16 	0 	-10	} }
-		locator = { name = "pos1_s2_orbital_station_science_section_entity" 			position = { 2 		0 	-10	} }
+		locator = { name = "pos_s2_orbital_station_assemblyyard_section_entity" 		position = { 20		0 	-20	} }
+		locator = { name = "pos_s2_orbital_station_hangarbay_section_entity" 			position = { 36 	0 	-20	} }
+		locator = { name = "pos_s2_orbital_station_refinery_section_entity" 			position = { 52 	0 	-20	} }
+		locator = { name = "pos_s2_orbital_station_science_section_entity" 				position = { 68 	0 	-20	} }
 
-		locator = { name = "pos1_s1_orbital_habitat" 			position = { -50 	0 	40 	} }
+		locator = { name = "pos_starbase_level_1" 			position = { 130 	0 	10 	} }
+		locator = { name = "pos_starbase_level_2" 			position = { 170 	0 	10 	} 	rotation = { 90 	0 	0 	}}
+		locator = { name = "pos_starbase_level_3" 			position = { 230 	0 	10 	} }
+		locator = { name = "pos_starbase_level_4" 			position = { 315 	0 	10 	} }
+		locator = { name = "pos_starbase_level_5" 			position = { 410 	0 	10 	} }
+		locator = { name = "pos_habitat_full" 				position = { 500 	0 	10 	} }
+		
+		attach = { "pos_s2_ships" 		 					= "test_s2_ships_entity" }
+		attach = { "pos_s2_orbital_habitat" 		 		= "molluscoid_01_orbital_habitat_full_entity" }
+		attach = { "pos_s2_terraforming_station" 			= "molluscoid_01_terraform_station_entity" }
+		attach = { "pos_s2_mining_station" 		 			= "molluscoid_01_mining_station_entity" }
+		attach = { "pos_s2_science_station" 		 		= "molluscoid_01_observation_station_entity" }
+		attach = { "pos_s2_military_station_large" 			= "molluscoid_01_military_station_large_test_entity" }
+		attach = { "pos_s2_military_station_medium" 		= "molluscoid_01_military_station_medium_test_entity" }
+		attach = { "pos_s2_military_station_small"  		= "molluscoid_01_military_station_small_test_entity" }
 
-		attach = { "pos1_s1_orbital_habitat" 		 		= "molluscoid_01_orbital_habitat_full_entity" }
-		attach = { "pos1_s2_orbital_station" 		 		= "molluscoid_01_habitat_phase_02_entity" }
-		attach = { "pos1_s2_terraforming_station" 			= "molluscoid_01_terraform_station_entity" }
-		attach = { "pos1_s2_mining_station" 		 		= "molluscoid_01_mining_station_entity" }
-		attach = { "pos1_s2_science_station" 		 		= "molluscoid_01_observation_station_entity" }
-		attach = { "pos1_s2_military_station_large" 		= "molluscoid_01_military_station_large_test_entity" }
-		attach = { "pos1_s2_military_station_medium" 		= "molluscoid_01_military_station_medium_test_entity" }
-		attach = { "pos1_s2_military_station_small"  		= "molluscoid_01_military_station_small_test_entity" }
+		attach = { "pos_s2_orbital_station_assemblyyard_section_entity"  	= "molluscoid_01_orbital_station_assemblyyard_section_entity" }
+		attach = { "pos_s2_orbital_station_hangarbay_section_entity"  		= "molluscoid_01_orbital_station_hangarbay_section_entity" }
+		attach = { "pos_s2_orbital_station_refinery_section_entity"  		= "molluscoid_01_orbital_station_refinery_section_entity" }
+		attach = { "pos_s2_orbital_station_science_section_entity"  		= "molluscoid_01_orbital_station_science_section_entity" }
 
-		attach = { "pos1_s2_orbital_station_assemblyyard_section_entity"  	= "molluscoid_01_orbital_station_assemblyyard_section_entity" }
-		attach = { "pos1_s2_orbital_station_hangarbay_section_entity"  		= "molluscoid_01_orbital_station_hangarbay_section_entity" }
-		attach = { "pos1_s2_orbital_station_refinery_section_entity"  		= "molluscoid_01_orbital_station_refinery_section_entity" }
-		attach = { "pos1_s2_orbital_station_science_section_entity"  		= "molluscoid_01_orbital_station_science_section_entity" }
-
+		attach = { "pos_starbase_level_1"  		= "molluscoid_01_starbase_outpost_section_entity" }
+		attach = { "pos_starbase_level_2"  		= "molluscoid_01_starbase_starport_section_entity" }
+		attach = { "pos_starbase_level_3"  		= "molluscoid_01_starbase_starhold_section_entity" }
+		attach = { "pos_starbase_level_4"  		= "molluscoid_01_starbase_starfortress_section_entity" }
+		attach = { "pos_starbase_level_5"  		= "molluscoid_01_starbase_citadel_section_entity" }
+		
+		
+		attach = { "pos_habitat_full"  	= "molluscoid_01_habitat_phase_03_section_entity" }
+		
 	cull_radius = 1000
 	scale = 1.0
 }
@@ -3402,35 +3787,49 @@ entity = {
 entity = {
 	name = "avian_stations_test_entity"
 
-		locator = { name = "pos1_s3_orbital_station" 			position = { -20 	0 	10 	} }
-		locator = { name = "pos1_s3_terraforming_station" 		position = { 20		0 	0 	} }
-		locator = { name = "pos1_s3_mining_station" 			position = { 50		0 	0 	} }
-		locator = { name = "pos1_s3_science_station" 			position = { 80 	0 	0 	} }
-		locator = { name = "pos1_s3_military_station_large" 	position = { 30		0 	30 	} }
-		locator = { name = "pos1_s3_military_station_medium" 	position = { 70		0 	30	} }
-		locator = { name = "pos1_s3_military_station_small" 	position = { 95		0 	30	} }
+		locator = { name = "pos_s3_ships" 						position = { -80 	0 	-20	} }
+		locator = { name = "pos_s3_orbital_habitat" 			position = { -30 	0 	5 	} }
+		locator = { name = "pos_s3_terraforming_station" 		position = { 20		0 	0 	} }
+		locator = { name = "pos_s3_mining_station" 				position = { 50		0 	0 	} }
+		locator = { name = "pos_s3_science_station" 			position = { 80 	0 	0 	} }
+		locator = { name = "pos_s3_military_station_large" 		position = { 30		0 	30 	} }
+		locator = { name = "pos_s3_military_station_medium" 	position = { 70		0 	30	} }
+		locator = { name = "pos_s3_military_station_small" 		position = { 95		0 	30	} }
 
-		locator = { name = "pos1_s3_orbital_station_assemblyyard_section_entity" 		position = { -48	0 	-10	} }
-		locator = { name = "pos1_s3_orbital_station_hangarbay_section_entity" 			position = { -32 	0 	-10	} }
-		locator = { name = "pos1_s3_orbital_station_refinery_section_entity" 			position = { -16 	0 	-10	} }
-		locator = { name = "pos1_s3_orbital_station_science_section_entity" 			position = { 2 	0 	-10	} }
+		locator = { name = "pos_s3_orbital_station_assemblyyard_section_entity" 		position = { 20		0 	-20	} }
+		locator = { name = "pos_s3_orbital_station_hangarbay_section_entity" 			position = { 36 	0 	-20	} }
+		locator = { name = "pos_s3_orbital_station_refinery_section_entity" 			position = { 52 	0 	-20	} }
+		locator = { name = "pos_s3_orbital_station_science_section_entity" 				position = { 68 	0 	-20	} }
 
-		locator = { name = "pos1_s1_orbital_habitat" 			position = { -60 	0 	25 	} }
+		locator = { name = "pos_starbase_level_1" 			position = { 130 	0 	10 	} }
+		locator = { name = "pos_starbase_level_2" 			position = { 170 	0 	10 	} }
+		locator = { name = "pos_starbase_level_3" 			position = { 220 	0 	10 	} }
+		locator = { name = "pos_starbase_level_4" 			position = { 295 	0 	10 	} }
+		locator = { name = "pos_starbase_level_5" 			position = { 385 	0 	10 	} }
+		locator = { name = "pos_habitat_full" 				position = { 500 	0 	10 	} }
+		
+		attach = { "pos_s3_ships" 		 					= "test_s3_ships_entity" }
+		attach = { "pos_s3_orbital_habitat" 		 		= "avian_01_orbital_habitat_full_entity" }
+		attach = { "pos_s3_terraforming_station" 			= "avian_01_terraform_station_entity" }
+		attach = { "pos_s3_mining_station" 		 			= "avian_01_mining_station_entity" }
+		attach = { "pos_s3_science_station" 		 		= "avian_01_observation_station_entity" }
+		attach = { "pos_s3_military_station_large" 			= "avian_01_military_station_large_test_entity" }
+		attach = { "pos_s3_military_station_medium" 		= "avian_01_military_station_medium_test_entity" }
+		attach = { "pos_s3_military_station_small"  		= "avian_01_military_station_small_test_entity" }
 
-		attach = { "pos1_s1_orbital_habitat" 		 		= "avian_01_orbital_habitat_full_entity" }
-		attach = { "pos1_s3_orbital_station" 		 		= "avian_01_habitat_phase_02_entity" }
-		attach = { "pos1_s3_terraforming_station" 			= "avian_01_terraform_station_entity" }
-		attach = { "pos1_s3_mining_station" 		 		= "avian_01_mining_station_entity" }
-		attach = { "pos1_s3_science_station" 		 		= "avian_01_observation_station_entity" }
-		attach = { "pos1_s3_military_station_large" 		= "avian_01_military_station_large_test_entity" }
-		attach = { "pos1_s3_military_station_medium" 		= "avian_01_military_station_medium_test_entity" }
-		attach = { "pos1_s3_military_station_small"  		= "avian_01_military_station_small_test_entity" }
+		attach = { "pos_s3_orbital_station_assemblyyard_section_entity"  	= "avian_01_orbital_station_assemblyyard_section_entity" }
+		attach = { "pos_s3_orbital_station_hangarbay_section_entity"  		= "avian_01_orbital_station_hangarbay_section_entity" }
+		attach = { "pos_s3_orbital_station_refinery_section_entity"  		= "avian_01_orbital_station_refinery_section_entity" }
+		attach = { "pos_s3_orbital_station_science_section_entity"  		= "avian_01_orbital_station_science_section_entity" }
 
-		attach = { "pos1_s3_orbital_station_assemblyyard_section_entity"  	= "avian_01_orbital_station_assemblyyard_section_entity" }
-		attach = { "pos1_s3_orbital_station_hangarbay_section_entity"  		= "avian_01_orbital_station_hangarbay_section_entity" }
-		attach = { "pos1_s3_orbital_station_refinery_section_entity"  		= "avian_01_orbital_station_refinery_section_entity" }
-		attach = { "pos1_s3_orbital_station_science_section_entity"  		= "avian_01_orbital_station_science_section_entity" }
-
+		attach = { "pos_starbase_level_1"  		= "avian_01_starbase_outpost_section_entity" }
+		attach = { "pos_starbase_level_2"  		= "avian_01_starbase_starport_section_entity" }
+		attach = { "pos_starbase_level_3"  		= "avian_01_starbase_starhold_section_entity" }
+		attach = { "pos_starbase_level_4"  		= "avian_01_starbase_starfortress_section_entity" }
+		attach = { "pos_starbase_level_5"  		= "avian_01_starbase_citadel_section_entity" }
+		
+		attach = { "pos_habitat_full"  	= "avian_01_habitat_phase_03_section_entity" }
+		
 	cull_radius = 1000
 	scale = 1.0
 }
@@ -3470,35 +3869,49 @@ entity = {
 entity = {
 	name = "mammalian_stations_test_entity"
 
-		locator = { name = "pos1_s4_orbital_station" 			position = { -20 	0 	10 	} }
-		locator = { name = "pos1_s4_terraforming_station" 		position = { 20		0 	0 	} }
-		locator = { name = "pos1_s4_mining_station" 			position = { 50		0 	0 	} }
-		locator = { name = "pos1_s4_science_station" 			position = { 80 	0 	0 	} }
-		locator = { name = "pos1_s4_military_station_large" 	position = { 30		0 	30 	} }
-		locator = { name = "pos1_s4_military_station_medium" 	position = { 70		0 	30	} }
-		locator = { name = "pos1_s4_military_station_small" 	position = { 95		0 	30	} }
+		locator = { name = "pos_s4_ships" 						position = { -80 	0 	-20	} }
+		locator = { name = "pos_s4_orbital_habitat" 			position = { -30 	0 	5 	} }
+		locator = { name = "pos_s4_terraforming_station" 		position = { 20		0 	0 	} }
+		locator = { name = "pos_s4_mining_station" 			position = { 50		0 	0 	} }
+		locator = { name = "pos_s4_science_station" 			position = { 80 	0 	0 	} }
+		locator = { name = "pos_s4_military_station_large" 	position = { 30		0 	30 	} }
+		locator = { name = "pos_s4_military_station_medium" 	position = { 70		0 	30	} }
+		locator = { name = "pos_s4_military_station_small" 	position = { 95		0 	30	} }
 
-		locator = { name = "pos1_s4_orbital_station_assemblyyard_section_entity" 		position = { -45 	0 	-10	} }
-		locator = { name = "pos1_s4_orbital_station_hangarbay_section_entity" 			position = { -30 	0 	-10	} }
-		locator = { name = "pos1_s4_orbital_station_refinery_section_entity" 			position = { -15 	0 	-10	} }
-		locator = { name = "pos1_s4_orbital_station_science_section_entity" 			position = { -0 	0 	-10	} }
+		locator = { name = "pos_s4_orbital_station_assemblyyard_section_entity" 		position = { 20		0 	-20	} }
+		locator = { name = "pos_s4_orbital_station_hangarbay_section_entity" 			position = { 36 	0 	-20	} }
+		locator = { name = "pos_s4_orbital_station_refinery_section_entity" 			position = { 52 	0 	-20	} }
+		locator = { name = "pos_s4_orbital_station_science_section_entity" 			position = { 68 	0 	-20	} }
 
-		locator = { name = "pos1_s1_orbital_habitat" 			position = { -60 	0 	20 	} }
+		locator = { name = "pos_starbase_level_1" 			position = { 130 	0 	10 	} }
+		locator = { name = "pos_starbase_level_2" 			position = { 170 	0 	10 	} }
+		locator = { name = "pos_starbase_level_3" 			position = { 220 	0 	10 	} }
+		locator = { name = "pos_starbase_level_4" 			position = { 295 	0 	10 	} }
+		locator = { name = "pos_starbase_level_5" 			position = { 385 	0 	10 	} }
+		locator = { name = "pos_habitat_full" 				position = { 500 	0 	10 	} }
+		
+		attach = { "pos_s4_ships" 		 					= "test_s4_ships_entity" }
+		attach = { "pos_s4_orbital_habitat" 		 		= "mammalian_01_orbital_habitat_full_entity" }
+		attach = { "pos_s4_terraforming_station" 			= "mammalian_01_terraform_station_entity" }
+		attach = { "pos_s4_mining_station" 		 			= "mammalian_01_mining_station_entity" }
+		attach = { "pos_s4_science_station" 		 		= "mammalian_01_observation_station_entity" }
+		attach = { "pos_s4_military_station_large" 			= "mammalian_01_military_station_large_test_entity" }
+		attach = { "pos_s4_military_station_medium" 		= "mammalian_01_military_station_medium_test_entity" }
+		attach = { "pos_s4_military_station_small"  		= "mammalian_01_military_station_small_test_entity" }
+                       
+		attach = { "pos_s4_orbital_station_assemblyyard_section_entity"  	= "mammalian_01_orbital_station_assemblyyard_section_entity" }
+		attach = { "pos_s4_orbital_station_hangarbay_section_entity"  		= "mammalian_01_orbital_station_hangarbay_section_entity" }
+		attach = { "pos_s4_orbital_station_refinery_section_entity"  		= "mammalian_01_orbital_station_refinery_section_entity" }
+		attach = { "pos_s4_orbital_station_science_section_entity"  		= "mammalian_01_orbital_station_science_section_entity" }
 
-		attach = { "pos1_s1_orbital_habitat" 		 		= "mammalian_01_orbital_habitat_full_entity" }
-		attach = { "pos1_s4_orbital_station" 		 		= "mammalian_01_habitat_phase_02_entity" }
-		attach = { "pos1_s4_terraforming_station" 			= "mammalian_01_terraform_station_entity" }
-		attach = { "pos1_s4_mining_station" 		 		= "mammalian_01_mining_station_entity" }
-		attach = { "pos1_s4_science_station" 		 		= "mammalian_01_observation_station_entity" }
-		attach = { "pos1_s4_military_station_large" 		= "mammalian_01_military_station_large_test_entity" }
-		attach = { "pos1_s4_military_station_medium" 		= "mammalian_01_military_station_medium_test_entity" }
-		attach = { "pos1_s4_military_station_small"  		= "mammalian_01_military_station_small_test_entity" }
+		attach = { "pos_starbase_level_1"  		= "mammalian_01_starbase_outpost_section_entity" }
+		attach = { "pos_starbase_level_2"  		= "mammalian_01_starbase_starport_section_entity" }
+		attach = { "pos_starbase_level_3"  		= "mammalian_01_starbase_starhold_section_entity" }
+		attach = { "pos_starbase_level_4"  		= "mammalian_01_starbase_starfortress_section_entity" }
+		attach = { "pos_starbase_level_5"  		= "mammalian_01_starbase_citadel_section_entity" }
 
-		attach = { "pos1_s4_orbital_station_assemblyyard_section_entity"  	= "mammalian_01_orbital_station_assemblyyard_section_entity" }
-		attach = { "pos1_s4_orbital_station_hangarbay_section_entity"  		= "mammalian_01_orbital_station_hangarbay_section_entity" }
-		attach = { "pos1_s4_orbital_station_refinery_section_entity"  		= "mammalian_01_orbital_station_refinery_section_entity" }
-		attach = { "pos1_s4_orbital_station_science_section_entity"  		= "mammalian_01_orbital_station_science_section_entity" }
-
+		attach = { "pos_habitat_full"  	= "mammalian_01_habitat_phase_03_section_entity" }
+		
 	cull_radius = 1000
 	scale = 1.0
 
@@ -3537,35 +3950,49 @@ entity = {
 entity = {
 	name = "fungoid_stations_test_entity"
 
-		locator = { name = "pos1_s5_orbital_station" 			position = { -20 	0 	10 	} }
-		locator = { name = "pos1_s5_terraforming_station" 		position = { 20		0 	0 	} }
-		locator = { name = "pos1_s5_mining_station" 			position = { 50		0 	0 	} }
-		locator = { name = "pos1_s5_science_station" 			position = { 80 	0 	0 	} }
-		locator = { name = "pos1_s5_military_station_large" 	position = { 30		0 	30 	} }
-		locator = { name = "pos1_s5_military_station_medium" 	position = { 70		0 	30	} }
-		locator = { name = "pos1_s5_military_station_small" 	position = { 95		0 	30	} }
+		locator = { name = "pos_s5_ships" 						position = { -80 	0 	-20	} }
+		locator = { name = "pos_s5_orbital_station" 			position = { -30 	0 	5 	} }
+		locator = { name = "pos_s5_terraforming_station" 		position = { 20		0 	0 	} }
+		locator = { name = "pos_s5_mining_station" 				position = { 50		0 	0 	} }
+		locator = { name = "pos_s5_science_station" 			position = { 80 	0 	0 	} }
+		locator = { name = "pos_s5_military_station_large" 		position = { 30		0 	30 	} }
+		locator = { name = "pos_s5_military_station_medium" 	position = { 70		0 	30	} }
+		locator = { name = "pos_s5_military_station_small" 		position = { 95		0 	30	} }
 
-		locator = { name = "pos1_s5_orbital_station_assemblyyard_section_entity" 		position = { -40 	0 	-10	} }
-		locator = { name = "pos1_s5_orbital_station_hangarbay_section_entity" 			position = { -30 	0 	-10	} }
-		locator = { name = "pos1_s5_orbital_station_refinery_section_entity" 			position = { -20 	0 	-10	} }
-		locator = { name = "pos1_s5_orbital_station_science_section_entity" 			position = { -10 	0 	-10	} }
+		locator = { name = "pos_s5_orbital_station_assemblyyard_section_entity" 	position = { 20		0 	-20	} }
+		locator = { name = "pos_s5_orbital_station_hangarbay_section_entity" 		position = { 36 	0 	-20	} }
+		locator = { name = "pos_s5_orbital_station_refinery_section_entity" 		position = { 52 	0 	-20	} }
+		locator = { name = "pos_s5_orbital_station_science_section_entity" 			position = { 68 	0 	-20	} }
 
-		locator = { name = "pos1_s1_orbital_habitat" 			position = { -60 	0 	20 	} }
+		locator = { name = "pos_starbase_level_1" 			position = { 130 	0 	10 	} }
+		locator = { name = "pos_starbase_level_2" 			position = { 170 	0 	10 	} }
+		locator = { name = "pos_starbase_level_3" 			position = { 220 	0 	10 	} }
+		locator = { name = "pos_starbase_level_4" 			position = { 295 	0 	10 	} }
+		locator = { name = "pos_starbase_level_5" 			position = { 385 	0 	10 	} }
+		locator = { name = "pos_habitat_full" 				position = { 500 	0 	10 	} }
+		
+		attach = { "pos_s5_ships" 		 					= "test_s5_ships_entity" }
+		attach = { "pos_s5_orbital_station" 		 		= "fungoid_01_orbital_habitat_full_entity" }
+		attach = { "pos_s5_terraforming_station" 			= "fungoid_01_terraform_station_entity" }
+		attach = { "pos_s5_mining_station" 		 		= "fungoid_01_mining_station_entity" }
+		attach = { "pos_s5_science_station" 		 		= "fungoid_01_observation_station_entity" }
+		attach = { "pos_s5_military_station_large" 		= "fungoid_01_military_station_large_test_entity" }
+		attach = { "pos_s5_military_station_medium" 		= "fungoid_01_military_station_medium_test_entity" }
+		attach = { "pos_s5_military_station_small"  		= "fungoid_01_military_station_small_test_entity" }
 
-		attach = { "pos1_s1_orbital_habitat" 		 		= "fungoid_01_orbital_habitat_full_entity" }
-		attach = { "pos1_s5_orbital_station" 		 		= "fungoid_01_habitat_phase_02_entity" }
-		attach = { "pos1_s5_terraforming_station" 			= "fungoid_01_terraform_station_entity" }
-		attach = { "pos1_s5_mining_station" 		 		= "fungoid_01_mining_station_entity" }
-		attach = { "pos1_s5_science_station" 		 		= "fungoid_01_observation_station_entity" }
-		attach = { "pos1_s5_military_station_large" 		= "fungoid_01_military_station_large_test_entity" }
-		attach = { "pos1_s5_military_station_medium" 		= "fungoid_01_military_station_medium_test_entity" }
-		attach = { "pos1_s5_military_station_small"  		= "fungoid_01_military_station_small_test_entity" }
+		attach = { "pos_s5_orbital_station_assemblyyard_section_entity"  	= "fungoid_01_orbital_station_assemblyyard_section_entity" }
+		attach = { "pos_s5_orbital_station_hangarbay_section_entity"  		= "fungoid_01_orbital_station_hangarbay_section_entity" }
+		attach = { "pos_s5_orbital_station_refinery_section_entity"  		= "fungoid_01_orbital_station_refinery_section_entity" }
+		attach = { "pos_s5_orbital_station_science_section_entity"  		= "fungoid_01_orbital_station_science_section_entity" }
 
-		attach = { "pos1_s5_orbital_station_assemblyyard_section_entity"  	= "fungoid_01_orbital_station_assemblyyard_section_entity" }
-		attach = { "pos1_s5_orbital_station_hangarbay_section_entity"  		= "fungoid_01_orbital_station_hangarbay_section_entity" }
-		attach = { "pos1_s5_orbital_station_refinery_section_entity"  		= "fungoid_01_orbital_station_refinery_section_entity" }
-		attach = { "pos1_s5_orbital_station_science_section_entity"  		= "fungoid_01_orbital_station_science_section_entity" }
-
+		attach = { "pos_starbase_level_1"  		= "fungoid_01_starbase_outpost_section_entity" }
+		attach = { "pos_starbase_level_2"  		= "fungoid_01_starbase_starport_section_entity" }
+		attach = { "pos_starbase_level_3"  		= "fungoid_01_starbase_starhold_section_entity" }
+		attach = { "pos_starbase_level_4"  		= "fungoid_01_starbase_starfortress_section_entity" }
+		attach = { "pos_starbase_level_5"  		= "fungoid_01_starbase_citadel_section_entity" }
+		
+		attach = { "pos_habitat_full"  	= "fungoid_01_habitat_phase_03_section_entity" }
+		
 	cull_radius = 1000
 	scale = 1.0
 
@@ -3591,39 +4018,51 @@ entity = {
 entity = {
 	name = "reptilian_stations_test_entity"
 
-		locator = { name = "pos1_s6_orbital_station" 			position = { -20 	0 	10 	} }
-		locator = { name = "pos1_s6_terraforming_station" 		position = { 20		0 	0 	} }
-		locator = { name = "pos1_s6_mining_station" 			position = { 50		0 	0 	} }
-		locator = { name = "pos1_s6_science_station" 			position = { 80 	0 	0 	} }
-		locator = { name = "pos1_s6_military_station_large" 	position = { 30		0 	30 	} }
-		locator = { name = "pos1_s6_military_station_medium" 	position = { 70		0 	30	} }
-		locator = { name = "pos1_s6_military_station_small" 	position = { 95		0 	30	} }
+		locator = { name = "pos_s6_ships" 						position = { -80 	0 	-20	} }
+		locator = { name = "pos_s6_orbital_habitat" 			position = { -30 	0 	5 	} }
+		locator = { name = "pos_s6_terraforming_station" 		position = { 20		0 	0 	} }
+		locator = { name = "pos_s6_mining_station" 				position = { 50		0 	0 	} }
+		locator = { name = "pos_s6_science_station" 			position = { 80 	0 	0 	} }
+		locator = { name = "pos_s6_military_station_large" 		position = { 30		0 	30 	} }
+		locator = { name = "pos_s6_military_station_medium" 	position = { 70		0 	30	} }
+		locator = { name = "pos_s6_military_station_small" 		position = { 95		0 	30	} }
 
-		locator = { name = "pos1_s6_orbital_station_assemblyyard_section_entity" 		position = { -40 	0 	-10	} }
-		locator = { name = "pos1_s6_orbital_station_hangar_section_entity" 				position = { -30 	0 	-10	} }
-		locator = { name = "pos1_s6_orbital_station_refinery_section_entity" 			position = { -20 	0 	-10	} }
-		locator = { name = "pos1_s6_orbital_station_science_section_entity" 			position = { -10 	0 	-10	} }
-		locator = { name = "pos1_s1_orbital_habitat" 			position = { -60 	0 	30 	} }
+		locator = { name = "pos_s6_orbital_station_assemblyyard_section_entity" 	position = { 20		0 	-20	} }
+		locator = { name = "pos_s6_orbital_station_hangar_section_entity" 			position = { 36 	0 	-20	} }
+		locator = { name = "pos_s6_orbital_station_refinery_section_entity" 		position = { 52 	0 	-20	} }
+		locator = { name = "pos_s6_orbital_station_science_section_entity" 			position = { 68 	0 	-20	} }
+		
+		locator = { name = "pos_starbase_level_1" 			position = { 130 	0 	10 	} }
+		locator = { name = "pos_starbase_level_2" 			position = { 170 	0 	10 	} }
+		locator = { name = "pos_starbase_level_3" 			position = { 220 	0 	10 	} }
+		locator = { name = "pos_starbase_level_4" 			position = { 295 	0 	10 	} }
+		locator = { name = "pos_starbase_level_5" 			position = { 385 	0 	10 	} }
+		locator = { name = "pos_habitat_full" 				position = { 500 	0 	10 	} }
+		
+		attach = { "pos_s6_ships" 		 					= "test_s6_ships_entity" }
+		attach = { "pos_s6_orbital_habitat" 		 		= "reptilian_01_orbital_habitat_full_entity" }
+		attach = { "pos_s6_terraforming_station" 			= "reptilian_01_terraform_station_entity" }
+		attach = { "pos_s6_mining_station" 		 			= "reptilian_01_mining_station_entity" }
+		attach = { "pos_s6_science_station" 		 		= "reptilian_01_observation_station_entity" }
+		attach = { "pos_s6_military_station_large" 			= "reptilian_01_military_station_large_construction_entity" }
+		attach = { "pos_s6_military_station_medium" 		= "reptilian_01_military_station_medium_construction_entity" }
+		attach = { "pos_s6_military_station_small"  		= "reptilian_01_military_station_small_construction_entity" }
 
-		attach = { "pos1_s1_orbital_habitat" 		 		= "reptilian_01_orbital_habitat_full_entity" }
+		attach = { "pos_s6_orbital_station_assemblyyard_section_entity"  	= "reptilian_01_orbital_station_assemblyyard_section_entity" }
+		attach = { "pos_s6_orbital_station_hangar_section_entity"  			= "reptilian_01_orbital_station_hangarbay_section_entity" }
+		attach = { "pos_s6_orbital_station_refinery_section_entity"  		= "reptilian_01_orbital_station_refinery_section_entity" }
+		attach = { "pos_s6_orbital_station_science_section_entity"  		= "reptilian_01_orbital_station_science_section_entity" }
 
-		attach = { "pos1_s6_orbital_station" 		 		= "reptilian_01_habitat_phase_02_entity" }
-		attach = { "pos1_s6_terraforming_station" 			= "reptilian_01_terraform_station_entity" }
-		attach = { "pos1_s6_mining_station" 		 		= "reptilian_01_mining_station_entity" }
-		attach = { "pos1_s6_science_station" 		 		= "reptilian_01_observation_station_entity" }
-		attach = { "pos1_s6_military_station_large" 		= "reptilian_01_military_station_large_construction_entity" }
-		attach = { "pos1_s6_military_station_medium" 		= "reptilian_01_military_station_medium_construction_entity" }
-		attach = { "pos1_s6_military_station_small"  		= "reptilian_01_military_station_small_construction_entity" }
-
-		attach = { "pos1_s6_orbital_station_assemblyyard_section_entity"  	= "reptilian_01_orbital_station_assemblyyard_section_entity" }
-		attach = { "pos1_s6_orbital_station_hangar_section_entity"  		= "reptilian_01_orbital_station_hangarbay_section_entity" }
-		attach = { "pos1_s6_orbital_station_refinery_section_entity"  		= "reptilian_01_orbital_station_refinery_section_entity" }
-		attach = { "pos1_s6_orbital_station_science_section_entity"  		= "reptilian_01_orbital_station_science_section_entity" }
-
+		attach = { "pos_starbase_level_1"  		= "reptilian_01_starbase_outpost_section_entity" }
+		attach = { "pos_starbase_level_2"  		= "reptilian_01_starbase_starport_section_entity" }
+		attach = { "pos_starbase_level_3"  		= "reptilian_01_starbase_starhold_section_entity" }
+		attach = { "pos_starbase_level_4"  		= "reptilian_01_starbase_starfortress_section_entity" }
+		attach = { "pos_starbase_level_5"  		= "reptilian_01_starbase_citadel_section_entity" }
+		
+		attach = { "pos_habitat_full"  	= "reptilian_01_habitat_phase_03_section_entity" }
+		
 	cull_radius = 1000
 	scale = 1.0
-
-
 }
 
 entity = {
@@ -3646,35 +4085,49 @@ entity = {
 entity = {
 	name = "plantoid_stations_test_entity"
 
-		locator = { name = "pos1_s7_orbital_station" 			position = { -20 	0 	10 	} }
-		locator = { name = "pos1_s7_terraforming_station" 		position = { 20		0 	0 	} }
-		locator = { name = "pos1_s7_mining_station" 			position = { 50		0 	0 	} }
-		locator = { name = "pos1_s7_science_station" 			position = { 80 	0 	0 	} }
-		locator = { name = "pos1_s7_military_station_large" 	position = { 30		0 	30 	} }
-		locator = { name = "pos1_s7_military_station_medium" 	position = { 70		0 	30	} }
-		locator = { name = "pos1_s7_military_station_small" 	position = { 95		0 	30	} }
+		locator = { name = "pos_s7_ships" 						position = { -80 	0 	-20	} }
+		locator = { name = "pos_s7_orbital_habitat" 			position = { -30 	0 	5 	} }
+		locator = { name = "pos_s7_terraforming_station" 		position = { 20		0 	0 	} }
+		locator = { name = "pos_s7_mining_station" 				position = { 50		0 	0 	} }
+		locator = { name = "pos_s7_science_station" 			position = { 80 	0 	0 	} }
+		locator = { name = "pos_s7_military_station_large" 		position = { 30		0 	30 	} }
+		locator = { name = "pos_s7_military_station_medium" 	position = { 70		0 	30	} }
+		locator = { name = "pos_s7_military_station_small" 		position = { 95		0 	30	} }
 
-		locator = { name = "pos1_s7_orbital_station_assemblyyard_section_entity" 		position = { -40 	0 	-10	} }
-		locator = { name = "pos1_s7_orbital_station_hangar_section_entity" 				position = { -30 	0 	-10	} }
-		locator = { name = "pos1_s7_orbital_station_refinery_section_entity" 			position = { -20 	0 	-10	} }
-		locator = { name = "pos1_s7_orbital_station_science_section_entity" 			position = { -10 	0 	-10	} }
-		locator = { name = "pos1_s1_orbital_habitat" 			position = { -60 	0 	30 	} }
+		locator = { name = "pos_s7_orbital_station_assemblyyard_section_entity" 	position = { 20		0 	-20	} }
+		locator = { name = "pos_s7_orbital_station_hangar_section_entity" 			position = { 36 	0 	-20	} }
+		locator = { name = "pos_s7_orbital_station_refinery_section_entity" 		position = { 52 	0 	-20	} }
+		locator = { name = "pos_s7_orbital_station_science_section_entity" 			position = { 68 	0 	-20	} }
 
-		attach = { "pos1_s1_orbital_habitat" 		 		= "plantoid_01_orbital_habitat_full_entity" }
+		locator = { name = "pos_starbase_level_1" 			position = { 130 	0 	10 	} }
+		locator = { name = "pos_starbase_level_2" 			position = { 170 	0 	10 	} }
+		locator = { name = "pos_starbase_level_3" 			position = { 220 	0 	10 	} }
+		locator = { name = "pos_starbase_level_4" 			position = { 295 	0 	10 	} }
+		locator = { name = "pos_starbase_level_5" 			position = { 385 	0 	10 	} }
+		locator = { name = "pos_habitat_full" 				position = { 500 	0 	10 	} }
+		
+		attach = { "pos_s7_ships" 		 					= "test_s7_ships_entity" }
+		attach = { "pos_s7_orbital_habitat" 		 		= "plantoid_01_orbital_habitat_full_entity" }
+		attach = { "pos_s7_terraforming_station" 			= "plantoid_01_terraform_station_entity" }
+		attach = { "pos_s7_mining_station" 		 			= "plantoid_01_mining_station_entity" }
+		attach = { "pos_s7_science_station" 		 		= "plantoid_01_research_station_entity" }
+		attach = { "pos_s7_military_station_large" 			= "plantoid_01_military_station_large_test_entity" }
+		attach = { "pos_s7_military_station_medium" 		= "plantoid_01_military_station_medium_test_entity" }
+		attach = { "pos_s7_military_station_small"  		= "plantoid_01_military_station_small_test_entity" }
 
-		attach = { "pos1_s7_orbital_station" 		 		= "plantoid_01_habitat_phase_02_entity" }
-		attach = { "pos1_s7_terraforming_station" 			= "plantoid_01_terraform_station_entity" }
-		attach = { "pos1_s7_mining_station" 		 		= "plantoid_01_mining_station_entity" }
-		attach = { "pos1_s7_science_station" 		 		= "plantoid_01_research_station_entity" }
-		attach = { "pos1_s7_military_station_large" 		= "plantoid_01_military_station_large_test_entity" }
-		attach = { "pos1_s7_military_station_medium" 		= "plantoid_01_military_station_medium_test_entity" }
-		attach = { "pos1_s7_military_station_small"  		= "plantoid_01_military_station_small_test_entity" }
+		attach = { "pos_s7_orbital_station_assemblyyard_section_entity"  	= "plantoid_01_orbital_station_assemblyyard_section_entity" }
+		attach = { "pos_s7_orbital_station_hangar_section_entity"  			= "plantoid_01_orbital_station_hangarbay_section_entity" }
+		attach = { "pos_s7_orbital_station_refinery_section_entity"  		= "plantoid_01_orbital_station_refinery_section_entity" }
+		attach = { "pos_s7_orbital_station_science_section_entity"  		= "plantoid_01_orbital_station_science_section_entity" }
 
-		attach = { "pos1_s7_orbital_station_assemblyyard_section_entity"  	= "plantoid_01_orbital_station_assemblyyard_section_entity" }
-		attach = { "pos1_s7_orbital_station_hangar_section_entity"  		= "plantoid_01_orbital_station_hangarbay_section_entity" }
-		attach = { "pos1_s7_orbital_station_refinery_section_entity"  		= "plantoid_01_orbital_station_refinery_section_entity" }
-		attach = { "pos1_s7_orbital_station_science_section_entity"  		= "plantoid_01_orbital_station_science_section_entity" }
+		attach = { "pos_starbase_level_1"  	= "plantoid_01_starbase_outpost_section_entity" }
+		attach = { "pos_starbase_level_2"  	= "plantoid_01_starbase_starport_section_entity" }
+		attach = { "pos_starbase_level_3"  	= "plantoid_01_starbase_starhold_section_entity" }
+		attach = { "pos_starbase_level_4"  	= "plantoid_01_starbase_starfortress_section_entity" }
+		attach = { "pos_starbase_level_5"  	= "plantoid_01_starbase_citadel_section_entity" }
 
+		attach = { "pos_habitat_full"  	= "plantoid_01_habitat_phase_03_section_entity" }
+		
 	cull_radius = 1000
 	scale = 1.0
 
@@ -3701,35 +4154,49 @@ entity = {
 entity = {
 	name = "humanoid_stations_test_entity"
 
-		locator = { name = "pos1_s8_orbital_station" 			position = { -20 	0 	10 	} }
-		locator = { name = "pos1_s8_terraforming_station" 		position = { 20		0 	0 	} }
-		locator = { name = "pos1_s8_mining_station" 			position = { 50		0 	0 	} }
-		locator = { name = "pos1_s8_science_station" 			position = { 80 	0 	0 	} }
-		locator = { name = "pos1_s8_military_station_large" 	position = { 30		0 	30 	} }
-		locator = { name = "pos1_s8_military_station_medium" 	position = { 70		0 	30	} }
-		locator = { name = "pos1_s8_military_station_small" 	position = { 95		0 	30	} }
+		locator = { name = "pos_s8_ships" 						position = { -80 	0 	-20	} }
+		locator = { name = "pos_s8_orbital_habitat" 			position = { -30 	0 	5 	} }
+		locator = { name = "pos_s8_terraforming_station" 		position = { 20		0 	0 	} }
+		locator = { name = "pos_s8_mining_station" 				position = { 50		0 	0 	} }
+		locator = { name = "pos_s8_science_station" 			position = { 80 	0 	0 	} }
+		locator = { name = "pos_s8_military_station_large" 		position = { 30		0 	30 	} }
+		locator = { name = "pos_s8_military_station_medium" 	position = { 70		0 	30	} }
+		locator = { name = "pos_s8_military_station_small" 		position = { 95		0 	30	} }
 
-		locator = { name = "pos1_s8_orbital_station_assemblyyard_section_entity" 		position = { -40 	0 	-10	} }
-		locator = { name = "pos1_s8_orbital_station_hangar_section_entity" 				position = { -30 	0 	-10	} }
-		locator = { name = "pos1_s8_orbital_station_refinery_section_entity" 			position = { -20 	0 	-10	} }
-		locator = { name = "pos1_s8_orbital_station_science_section_entity" 			position = { -10 	0 	-10	} }
-		locator = { name = "pos1_s1_orbital_habitat" 			position = { -60 	0 	30 	} }
+		locator = { name = "pos_s8_orbital_station_assemblyyard_section_entity" position = { 20		0 	-20	} }
+		locator = { name = "pos_s8_orbital_station_hangar_section_entity" 		position = { 36 	0 	-20	} }
+		locator = { name = "pos_s8_orbital_station_refinery_section_entity" 	position = { 52 	0 	-20	} }
+		locator = { name = "pos_s8_orbital_station_science_section_entity" 		position = { 68 	0 	-20	} }
+		
+		locator = { name = "pos_starbase_level_1" 			position = { 130 	0 	10 	} }
+		locator = { name = "pos_starbase_level_2" 			position = { 170 	0 	10 	} }
+		locator = { name = "pos_starbase_level_3" 			position = { 220 	0 	10 	} }
+		locator = { name = "pos_starbase_level_4" 			position = { 295 	0 	10 	} }
+		locator = { name = "pos_starbase_level_5" 			position = { 385 	0 	10 	} }
+		locator = { name = "pos_habitat_full" 				position = { 500 	0 	10 	} }
+		
+		attach = { "pos_s8_ships" 		 					= "test_s8_ships_entity" }
+		attach = { "pos_s8_orbital_habitat" 		 		= "humanoid_01_orbital_habitat_full_entity" }
+		attach = { "pos_s8_terraforming_station" 			= "humanoid_01_terraform_station_entity" }
+		attach = { "pos_s8_mining_station" 		 			= "humanoid_01_mining_station_entity" }
+		attach = { "pos_s8_science_station" 		 		= "humanoid_01_research_station_entity" }
+		attach = { "pos_s8_military_station_large" 			= "humanoid_01_military_station_large_test_entity" }
+		attach = { "pos_s8_military_station_medium" 		= "humanoid_01_military_station_medium_test_entity" }
+		attach = { "pos_s8_military_station_small"  		= "humanoid_01_military_station_small_test_entity" }
 
-		attach = { "pos1_s1_orbital_habitat" 		 		= "humanoid_01_orbital_habitat_full_entity" }
+		attach = { "pos_s8_orbital_station_assemblyyard_section_entity"  	= "humanoid_01_orbital_station_assemblyyard_section_entity" }
+		attach = { "pos_s8_orbital_station_hangar_section_entity"  			= "humanoid_01_orbital_station_hangarbay_section_entity" }
+		attach = { "pos_s8_orbital_station_refinery_section_entity"  		= "humanoid_01_orbital_station_refinery_section_entity" }
+		attach = { "pos_s8_orbital_station_science_section_entity"  		= "humanoid_01_orbital_station_science_section_entity" }
 
-		attach = { "pos1_s8_orbital_station" 		 		= "humanoid_01_habitat_phase_02_entity" }
-		attach = { "pos1_s8_terraforming_station" 			= "humanoid_01_terraform_station_entity" }
-		attach = { "pos1_s8_mining_station" 		 		= "humanoid_01_mining_station_entity" }
-		attach = { "pos1_s8_science_station" 		 		= "humanoid_01_research_station_entity" }
-		attach = { "pos1_s8_military_station_large" 		= "humanoid_01_military_station_large_test_entity" }
-		attach = { "pos1_s8_military_station_medium" 		= "humanoid_01_military_station_medium_test_entity" }
-		attach = { "pos1_s8_military_station_small"  		= "humanoid_01_military_station_small_test_entity" }
-
-		attach = { "pos1_s8_orbital_station_assemblyyard_section_entity"  	= "humanoid_01_orbital_station_assemblyyard_section_entity" }
-		attach = { "pos1_s8_orbital_station_hangar_section_entity"  		= "humanoid_01_orbital_station_hangarbay_section_entity" }
-		attach = { "pos1_s8_orbital_station_refinery_section_entity"  		= "humanoid_01_orbital_station_refinery_section_entity" }
-		attach = { "pos1_s8_orbital_station_science_section_entity"  		= "humanoid_01_orbital_station_science_section_entity" }
-
+		attach = { "pos_starbase_level_1"  	= "humanoid_01_starbase_outpost_section_entity" }
+		attach = { "pos_starbase_level_2"  	= "humanoid_01_starbase_starport_section_entity" }
+		attach = { "pos_starbase_level_3"  	= "humanoid_01_starbase_starhold_section_entity" }
+		attach = { "pos_starbase_level_4"  	= "humanoid_01_starbase_starfortress_section_entity" }
+		attach = { "pos_starbase_level_5"  	= "humanoid_01_starbase_citadel_section_entity" }
+		
+		attach = { "pos_habitat_full"  	= "humanoid_01_habitat_phase_03_section_entity" }
+		
 	cull_radius = 1000
 	scale = 1.0
 
@@ -3737,71 +4204,55 @@ entity = {
 }
 
 entity = {
-	name = "science_stations_test_entity"
+	name = "lithoid_stations_test_entity"
 
-		locator = { name = "pos1_science_station_01" 	position = { 0 		0 	0 	} }
-		locator = { name = "pos1_science_station_02" 	position = { 20		0 	0 	} }
-		locator = { name = "pos1_science_station_03" 	position = { 40		0 	0 	} }
-		locator = { name = "pos1_science_station_04" 	position = { 60 	0 	0 	} }
-		locator = { name = "pos1_science_station_05" 	position = { 80		0 	0 	} }
-		locator = { name = "pos1_science_station_06" 	position = { 100	0 	0	} }
+		locator = { name = "pos_s9_ships" 						position = { -80 	0 	-20	} }
+		locator = { name = "pos_s9_orbital_habitat" 			position = { -30 	0 	5 	} }
+		locator = { name = "pos_s9_terraforming_station" 		position = { 20		0 	0 	} }
+		locator = { name = "pos_s9_mining_station" 				position = { 50		0 	0 	} }
+		locator = { name = "pos_s9_science_station" 			position = { 80 	0 	0 	} }
+		locator = { name = "pos_s9_military_station_large" 		position = { 30		0 	30 	} }
+		locator = { name = "pos_s9_military_station_medium" 	position = { 70		0 	30	} }
+		locator = { name = "pos_s9_military_station_small" 		position = { 95		0 	30	} }
 
+		locator = { name = "pos_s9_orbital_station_assemblyyard_section_entity" position = { 20		0 	-20	} }
+		locator = { name = "pos_s9_orbital_station_hangar_section_entity" 		position = { 36 	0 	-20	} }
+		locator = { name = "pos_s9_orbital_station_refinery_section_entity" 	position = { 52 	0 	-20	} }
+		locator = { name = "pos_s9_orbital_station_science_section_entity" 		position = { 68 	0 	-20	} }
+		
+		locator = { name = "pos_starbase_level_1" 			position = { 130 	0 	10 	} }
+		locator = { name = "pos_starbase_level_2" 			position = { 170 	0 	10 	} }
+		locator = { name = "pos_starbase_level_3" 			position = { 220 	0 	10 	} }
+		locator = { name = "pos_starbase_level_4" 			position = { 295 	0 	10 	} }
+		locator = { name = "pos_starbase_level_5" 			position = { 385 	0 	10 	} }
+		locator = { name = "pos_habitat_full" 				position = { 500 	0 	10 	} }
+		
+		attach = { "pos_s9_ships" 		 					= "test_s9_ships_entity" }
+		attach = { "pos_s9_orbital_habitat" 		 		= "lithoid_01_habitat_phase_02_section_entity" }
 
-		attach = { "pos1_science_station_01" 		= "arthropoid_01_observation_station_entity" }
-		attach = { "pos1_science_station_02" 		= "molluscoid_01_observation_station_entity" }
-		attach = { "pos1_science_station_03" 		= "avian_01_observation_station_entity" }
-		attach = { "pos1_science_station_04" 		= "mammalian_01_observation_station_entity" }
-	#	attach = { "pos1_science_station_05" 		= "mammalian_01_military_station_large_test_entity" }
-	#	attach = { "pos1_science_station_06" 		= "mammalian_01_military_station_medium_test_entity" }
+		attach = { "pos_s9_mining_station" 		 			= "lithoid_01_mining_station_entity" }
+		attach = { "pos_s9_science_station" 		 		= "lithoid_01_research_station_entity" }
+		attach = { "pos_s9_military_station_small"  		= "lithoid_01_military_station_small_test_entity" }
 
+		attach = { "pos_s9_orbital_station_assemblyyard_section_entity"  	= "lithoid_01_orbital_station_assemblyyard_section_entity" }
+		attach = { "pos_s9_orbital_station_hangar_section_entity"  			= "lithoid_01_orbital_station_hangarbay_section_entity" }
+		attach = { "pos_s9_orbital_station_refinery_section_entity"  		= "lithoid_01_orbital_station_refinery_section_entity" }
+		attach = { "pos_s9_orbital_station_science_section_entity"  		= "lithoid_01_orbital_station_science_section_entity" }
 
+		attach = { "pos_starbase_level_1"  	= "lithoid_01_starbase_outpost_section_entity" }
+		attach = { "pos_starbase_level_2"  	= "lithoid_01_starbase_starport_section_entity" }
+		attach = { "pos_starbase_level_3"  	= "lithoid_01_starbase_starhold_section_entity" }
+		attach = { "pos_starbase_level_4"  	= "lithoid_01_starbase_starfortress_section_entity" }
+		attach = { "pos_starbase_level_5"  	= "lithoid_01_starbase_citadel_section_entity" }
+		
+		attach = { "pos_habitat_full"  	= "lithoid_01_habitat_phase_03_section_entity" }
+		
 	cull_radius = 1000
 	scale = 1.0
+
+
 }
 
-entity = {
-	name = "mining_station_test_entity"
-
-		locator = { name = "pos1_mining_station_01" 	position = { 0 		0 	0 	} }
-		locator = { name = "pos1_mining_station_02" 	position = { 20		0 	0 	} }
-		locator = { name = "pos1_mining_station_03" 	position = { 40		0 	0 	} }
-		locator = { name = "pos1_mining_station_04" 	position = { 60 	0 	0 	} }
-		locator = { name = "pos1_mining_station_05" 	position = { 80		0 	0 	} }
-		locator = { name = "pos1_mining_station_06" 	position = { 100	0 	0	} }
-
-
-		attach = { "pos1_mining_station_01" 		= "arthropoid_01_mining_station_entity" }
-		attach = { "pos1_mining_station_02" 		= "molluscoid_01_mining_station_entity" }
-		attach = { "pos1_mining_station_03" 		= "avian_01_mining_station_entity" }
-		attach = { "pos1_mining_station_04" 		= "mammalian_01_mining_station_entity" }
-	#	attach = { "pos1_mining_station_05" 		= "mammalian_01_military_station_large_test_entity" }
-	#	attach = { "pos1_mining_station_06" 		= "mammalian_01_military_station_medium_test_entity" }
-
-	cull_radius = 1000
-	scale = 1.0
-}
-
-entity = {
-	name = "terraforming_station_test_entity"
-
-		locator = { name = "pos1_mining_station_01" 	position = { 0 		0 	0 	} }
-		locator = { name = "pos1_mining_station_02" 	position = { 20		0 	0 	} }
-		locator = { name = "pos1_mining_station_03" 	position = { 40		0 	0 	} }
-		locator = { name = "pos1_mining_station_04" 	position = { 60 	0 	0 	} }
-		locator = { name = "pos1_mining_station_05" 	position = { 80		0 	0 	} }
-		locator = { name = "pos1_mining_station_06" 	position = { 100	0 	0	} }
-
-
-		attach = { "pos1_mining_station_01" 		= "arthropoid_01_terraform_station_entity" }
-		attach = { "pos1_mining_station_02" 		= "molluscoid_01_terraform_station_entity" }
-		attach = { "pos1_mining_station_03" 		= "avian_01_terraform_station_entity" }
-		attach = { "pos1_mining_station_04" 		= "mammalian_01_terraform_station_entity" }
-	#	attach = { "pos1_mining_station_05" 		= "mammalian_01_military_station_large_test_entity" }
-	#	attach = { "pos1_mining_station_06" 		= "mammalian_01_military_station_medium_test_entity" }
-
-	cull_radius = 1000
-	scale = 1.0
-}
 
 
 entity = {
@@ -4059,25 +4510,17 @@ entity = {
 entity = {
 	name = "all_ships"
 
-		locator = { name = "s1_ships" 						position = { 5  	0 	50 		} }
-		locator = { name = "s2_ships" 						position = { -15 	0 	50		} }
-		locator = { name = "s3_ships" 						position = { 5 		0 	0 		} }
-		locator = { name = "s4_ships" 						position = { -15  	0 	0 		} }
-		locator = { name = "s5_ships" 						position = { 5  	0 	-60 	} }
-		locator = { name = "s6_ships" 						position = { -15  	0 	-60 	} }
-		locator = { name = "s7_ships" 						position = { 5  	0 	-120 	} }
-		locator = { name = "s8_ships" 						position = { 5  	0 	-180 	} }
+		locator = { name = "all_figher_and_bombers" 		position = { 180  	0 	60 		} }
 
-		locator = { name = "all_figher_and_bombers" 		position = { 10  	0 	100 		} }
-
-		locator = { name = "s1_stations" 					position = { 330  	0 	0 	} }
-		locator = { name = "s2_stations" 					position = { 330  	0 	-80 	} }
-		locator = { name = "s3_stations" 					position = { 330  	0 	-160 	} }
-		locator = { name = "s4_stations" 					position = { 330  	0 	-240 	} }
-		locator = { name = "s5_stations" 					position = { 330  	0 	-320 	} }
-		locator = { name = "s6_stations" 					position = { 330  	0 	-400 	} }
-		locator = { name = "s7_stations" 					position = { 330  	0 	-480 	} }
-		locator = { name = "s8_stations" 					position = { 330  	0 	-560 	} }
+		locator = { name = "s1_stations" 					position = { 0  	0 	0 		} }
+		locator = { name = "s2_stations" 					position = { 0  	0 	-120 	} }
+		locator = { name = "s3_stations" 					position = { 0  	0 	-240 	} }
+		locator = { name = "s4_stations" 					position = { 0  	0 	-360 	} }
+		locator = { name = "s5_stations" 					position = { 0  	0 	-480 	} }
+		locator = { name = "s6_stations" 					position = { 0  	0 	-600 	} }
+		locator = { name = "s7_stations" 					position = { 0  	0 	-720 	} }
+		locator = { name = "s8_stations" 					position = { 0  	0 	-840 	} }
+		locator = { name = "s9_stations" 					position = { 0  	0 	-960 	} }
 
 	#	locator = { name = "science_stations" 				position = { 500  	0 	-0 		} }
 	#	locator = { name = "mining_stations" 				position = { 500  	0 	-50 	} }
@@ -4088,6 +4531,7 @@ entity = {
 		locator = { name = "event_ships_loc_01"			position = { -150  	0 	150 	} }
 		locator = { name = "event_ships_loc_02"			position = { -450  	0 	280 	} }
 		locator = { name = "more_misc_loc"				position = { -150  	0 	330 	} }
+		locator = { name = "caravaneers"				position = { -330  	0 	220 	} }
 
 		locator = { name = "colony_ships"				position = { 200  	0 	90 	} }
 		locator = { name = "transport_ships"			position = { 200  	0 	120 } }
@@ -4096,28 +4540,29 @@ entity = {
 		locator = { name = "fallen_empire_all"			position = { 200  	0 	220	} }
 		locator = { name = "swarm_empire_all"			position = { 200  	0 	260	} }
 		locator = { name = "ai_empire_all"				position = { 200  	0 	300	} }
-		locator = { name = "exd_empire_all"				position = { 200  	0 	340	} }
+		locator = { name = "exd_empire_all"				position = { 200  	0 	350	} }
 
-		locator = { name = "guardians"			position = { 400  	0 	20 } }
-
-
+		locator = { name = "guardians"			position = { 160  	0 	700 } }
 
 
 
 
-		attach = { s1_ships 	= "test_s1_ships_entity" }
-		attach = { s2_ships 	= "test_s2_ships_entity" }
-		attach = { s3_ships 	= "test_s3_ships_entity" }
-		attach = { s4_ships 	= "test_s4_ships_entity" }
-		attach = { s5_ships 	= "test_s5_ships_entity" }
-		attach = { s6_ships 	= "test_s6_ships_entity" }
-		attach = { s7_ships 	= "test_s7_ships_entity" }
-		attach = { s8_ships 	= "test_s8_ships_entity" }
+
+
+	#	attach = { s1_ships 	= "test_s1_ships_entity" }
+	#	attach = { s2_ships 	= "test_s2_ships_entity" }
+	#	attach = { s3_ships 	= "test_s3_ships_entity" }
+	#	attach = { s4_ships 	= "test_s4_ships_entity" }
+	#	attach = { s5_ships 	= "test_s5_ships_entity" }
+	#	attach = { s6_ships 	= "test_s6_ships_entity" }
+	#	attach = { s7_ships 	= "test_s7_ships_entity" }
+	#	attach = { s8_ships 	= "test_s8_ships_entity" }
 
 		attach = { all_figher_and_bombers 	= "test_fighters_and_bombers_compare_entity" }
 		attach = { event_ships_loc_01 		= "event_assets_01_entity" }
 		attach = { event_ships_loc_02 		= "event_assets_02_entity" }
 		attach = { more_misc_loc 			= "more_misc_entity" }
+		attach = { caravaneers 				= "caravaneer_test_entity" }
 
 
 		attach = { s1_stations 	= "arthropoid_stations_test_entity" }
@@ -4128,6 +4573,7 @@ entity = {
 		attach = { s6_stations 	= "reptilian_stations_test_entity" }
 		attach = { s7_stations 	= "plantoid_stations_test_entity" }
 		attach = { s8_stations 	= "humanoid_stations_test_entity" }
+		attach = { s9_stations 	= "lithoid_stations_test_entity" }
 
 		attach = { guardians 	= "test_guardians_compare_entity" }
 
@@ -4291,5 +4737,74 @@ entity = {
 	scale = 1
 
 }
+
+entity = {
+	name = "test_humanoid_01_titan_ship_entity"
+	pdxmesh = "humanoid_01_titan_frame_mesh"
+
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" animation_blend_time = 0.25 }
+
+	attach = { part1 = "humanoid_01_titan_bow_entity" }
+	attach = { part2 = "humanoid_01_titan_mid_entity" }
+	attach = { part3 = "humanoid_01_titan_stern_entity" }
+
+	scale = 1	
+}
+
+entity = {
+	name = "test_lithoid_01_titan_ship_entity"
+	pdxmesh = "lithoid_01_titan_frame_mesh"
+
+	default_state = "idle"
+	state = { name = "idle" animation = "idle" animation_blend_time = 0.25 }
+
+	attach = { part1 = "lithoid_01_titan_bow_entity" }
+	attach = { part2 = "lithoid_01_titan_mid_entity" }
+	attach = { part3 = "lithoid_01_titan_stern_entity" }
+
+	scale = 1
+
+}
+
+
+#### All juggernauts
+
+entity = {
+	name = "juggernauts_all_species"
+
+	locator = { name = "one" 	position = {0 0 0	}}
+	locator = { name = "two" 	position = {150 0 0	}}
+	locator = { name = "three" 	position = {300 0 0	}}
+	locator = { name = "four" 	position = {150 0 100	}}
+	locator = { name = "five" 	position = {300 0 100	}}
+	locator = { name = "six" 	position = {-150 0 0}}
+	locator = { name = "seven" 	position = {-150 0 100}}
+	locator = { name = "eight" 	position = { 0 0 100}}
+	locator = { name = "nine" 	position = {-300 0 100}}
+
+	default_state = "moving"
+	state = { name = "idle" state_time = 5 next_state = "idle"
+		propagate_state = { "move" = "idle" }
+	}
+
+	state = { name = "moving" state_time = 5 next_state = "moving"
+		propagate_state = { "move" = "moving" }
+	}
+
+		attach = { name = "move" one = "fungoid_01_juggernaut_core_section_entity" }
+		attach = { name = "move" two = "reptilian_01_juggernaut_core_section_entity" }
+		attach = { name = "move" three = "molluscoid_01_juggernaut_core_section_entity" }
+		attach = { name = "move" four = "humanoid_01_juggernaut_core_section_entity" }
+		attach = { name = "move" five = "plantoid_01_juggernaut_core_section_entity" }
+		attach = { name = "move" six = "arthropoid_01_juggernaut_core_section_entity" }
+		attach = { name = "move" seven = "avian_01_juggernaut_core_section_entity" }
+		attach = { name = "move" eight = "lithoid_01_juggernaut_core_section_entity" }
+		attach = { name = "move" nine = "mammalian_01_juggernaut_core_section_entity" }
+	cull_radius = 10000
+
+}
+
+
 
 

@@ -265,12 +265,32 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_portrait_character_locked_overlay"
 		texturefile = "gfx/interface/main/PortraitFade_DLC.dds"
-	}					
+	}
 
 	spriteType = {
 		name = "GFX_portrait_character_locked_hidden_overlay"
 		texturefile = "gfx/interface/main/PortraitFade_more_DLC.dds"
-	}					
+	}
+	
+	spriteType = {
+		name = "GFX_ship_culture_locked_overlay"
+		texturefile = "gfx/interface/main/ShipFade_DLC.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_city_culture_locked_overlay"
+		texturefile = "gfx/interface/main/CityscapeFade_DLC .dds"
+	}
+	
+	spriteType = {
+		name = "GFX_origin_locked_overlay"
+		texturefile = "gfx/interface/main/OriginFade_DLC.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_government_locked_overlay"
+		texturefile = "gfx/interface/main/GovernmentFade_DLC.dds"
+	}
 	
 	corneredTileSpriteType = {
 		name = "GFX_cvaa_speak_message_bg"

@@ -1,0 +1,180 @@
+objectTypes = {
+	
+	# necroid 01
+	pdxmesh = {
+		name = "portrait_necroid_01_mesh"
+		file = "gfx/models/portraits/necroid/necroid_01_portrait.mesh"
+		animation = { id = "idle1"	type = "necroid_01_portrait_idle_animation" }
+		animation = { id = "idle2"	type = "necroid_01_portrait_idle2_animation" }
+		animation = { id = "idle3"	type = "necroid_01_portrait_idle3_animation" }
+		animation = { id = "idle4"	type = "necroid_01_portrait_idle4_animation" }
+		scale = 1.0
+	}
+	
+	# necroid 02
+	pdxmesh = {
+		name = "portrait_necroid_02_mesh"
+		file = "gfx/models/portraits/necroid/necroid_02_portrait.mesh"
+		animation = { id = "idle1"	type = "necroid_02_portrait_idle1_animation" }
+		animation = { id = "idle2"	type = "necroid_02_portrait_idle2_animation" }
+		animation = { id = "idle3"	type = "necroid_02_portrait_idle3_animation" }
+		animation = { id = "idle4"	type = "necroid_02_portrait_idle4_animation" }
+		scale = 1.0
+	}
+
+	# necroid 03
+	pdxmesh = {
+		name = "portrait_necroid_03_mesh"
+		file = "gfx/models/portraits/necroid/necroid_03_portrait.mesh"
+		animation = { id = "idle1"	type = "necroid_03_portrait_idle_animation" }
+		animation = { id = "idle2"	type = "necroid_03_portrait_idle2_animation" }
+		animation = { id = "idle3"	type = "necroid_03_portrait_idle3_animation" }
+		animation = { id = "idle4"	type = "necroid_03_portrait_idle4_animation" }
+		scale = 1.0
+	}
+
+	# necroid 04
+	pdxmesh = {
+		name = "portrait_necroid_04_mesh"
+		file = "gfx/models/portraits/necroid/necroid_04_portrait.mesh"
+		animation = { id = "idle1"	type = "necroid_04_portrait_idle1_animation" }
+		animation = { id = "idle2"	type = "necroid_04_portrait_idle2_animation" }
+		animation = { id = "idle3"	type = "necroid_04_portrait_idle3_animation" }
+		animation = { id = "idle4"	type = "necroid_04_portrait_idle4_animation" }
+		scale = 1.0
+	}
+	
+	# necroid 05
+	pdxmesh = {
+		name = "portrait_necroid_05_mesh"
+		file = "gfx/models/portraits/necroid/necroid_05_portrait.mesh"
+		animation = { id = "idle1"	type = "necroid_05_portrait_idle1_animation" }
+		animation = { id = "idle2"	type = "necroid_05_portrait_idle2_animation" }
+		animation = { id = "idle3"	type = "necroid_05_portrait_idle3_animation" }
+		animation = { id = "idle4"	type = "necroid_05_portrait_idle4_animation" }
+		scale = 1.0
+	}
+	
+	# necroid 05
+	pdxmesh = {
+		name = "portrait_necroid_06_mesh"
+		file = "gfx/models/portraits/necroid/necroid_06_portrait.mesh"
+		animation = { id = "idle1"	type = "necroid_06_portrait_idle1_animation" }
+		animation = { id = "idle2"	type = "necroid_06_portrait_idle2_animation" }
+		animation = { id = "idle3"	type = "necroid_06_portrait_idle3_animation" }
+		animation = { id = "idle4"	type = "necroid_06_portrait_idle4_animation" }
+		scale = 1.0
+	}
+
+	# necroid 07
+	pdxmesh = {
+		name = "portrait_necroid_07_mesh"
+		file = "gfx/models/portraits/necroid/necroid_07_portrait.mesh"
+		animation = { id = "idle1"	type = "necroid_07_portrait_idle1_animation" }
+		animation = { id = "idle2"	type = "necroid_07_portrait_idle2_animation" }
+		animation = { id = "idle3"	type = "necroid_07_portrait_idle3_animation" }
+		animation = { id = "idle4"	type = "necroid_07_portrait_idle4_animation" }
+		scale = 1.0
+	}
+
+	# necroid 08
+	pdxmesh = {
+		name = "portrait_necroid_08_mesh"
+		file = "gfx/models/portraits/necroid/necroid_08_portrait.mesh"
+		animation = { id = "idle1"	type = "necroid_08_portrait_idle1_animation" }
+		animation = { id = "idle2"	type = "necroid_08_portrait_idle2_animation" }
+		animation = { id = "idle3"	type = "necroid_08_portrait_idle3_animation" }
+		animation = { id = "idle4"	type = "necroid_08_portrait_idle4_animation" }
+		scale = 1.0
+	}
+
+	# necroid 09
+	pdxmesh = {
+		name = "portrait_necroid_09_mesh"
+		file = "gfx/models/portraits/necroid/necroid_09_portrait.mesh"
+		animation = { id = "idle1"	type = "necroid_09_portrait_idle1_animation" }
+		animation = { id = "idle2"	type = "necroid_09_portrait_idle2_animation" }
+		animation = { id = "idle3"	type = "necroid_09_portrait_idle3_animation" }
+		animation = { id = "idle4"	type = "necroid_09_portrait_idle4_animation" }
+		scale = 1.0
+	}
+
+	# necroid 10
+	pdxmesh = {
+		name = "portrait_necroid_10_mesh"
+		file = "gfx/models/portraits/necroid/necroid_10_portrait.mesh"
+		animation = { id = "idle1"	type = "necroid_10_portrait_idle1_animation" }
+		animation = { id = "idle2"	type = "necroid_10_portrait_idle2_animation" }
+		animation = { id = "idle3"	type = "necroid_10_portrait_idle3_animation" }
+		animation = { id = "idle4"	type = "necroid_10_portrait_idle4_animation" }
+		scale = 1.0
+	}
+
+ 	# necroid 11
+ 	pdxmesh = {
+ 		name = "portrait_necroid_11_mesh"
+ 		file = "gfx/models/portraits/necroid/necroid_11_portrait.mesh"
+ 		animation = { id = "idle1"	type = "necroid_11_portrait_idle1_animation" }
+ 		animation = { id = "idle2"	type = "necroid_11_portrait_idle2_animation" }
+ 		animation = { id = "idle3"	type = "necroid_11_portrait_idle3_animation" }
+ 		animation = { id = "idle4"	type = "necroid_11_portrait_idle4_animation" }
+ 		scale = 1.0
+ 	}
+
+ 	# necroid 12
+ 	pdxmesh = {
+ 		name = "portrait_necroid_12_mesh"
+ 		file = "gfx/models/portraits/necroid/necroid_12_portrait.mesh"
+ 		animation = { id = "idle1"	type = "necroid_12_portrait_idle1_animation" }
+ 		animation = { id = "idle2"	type = "necroid_12_portrait_idle2_animation" }
+ 		animation = { id = "idle3"	type = "necroid_12_portrait_idle3_animation" }
+ 		animation = { id = "idle4"	type = "necroid_12_portrait_idle4_animation" }
+ 		scale = 1.0
+ 	}
+
+ 	# necroid 13
+ 	pdxmesh = {
+ 		name = "portrait_necroid_13_mesh"
+ 		file = "gfx/models/portraits/necroid/necroid_13_portrait.mesh"
+ 		animation = { id = "idle1"	type = "necroid_13_portrait_idle1_animation" }
+ 		animation = { id = "idle2"	type = "necroid_13_portrait_idle2_animation" }
+ 		animation = { id = "idle3"	type = "necroid_13_portrait_idle3_animation" }
+ 		animation = { id = "idle4"	type = "necroid_13_portrait_idle4_animation" }
+ 		scale = 1.0
+ 	}
+
+ 	# necroid 14
+ 	pdxmesh = {
+ 		name = "portrait_necroid_14_mesh"
+ 		file = "gfx/models/portraits/necroid/necroid_14_portrait.mesh"
+ 		animation = { id = "idle1"	type = "necroid_14_portrait_idle1_animation" }
+ 		animation = { id = "idle2"	type = "necroid_14_portrait_idle2_animation" }
+ 		animation = { id = "idle3"	type = "necroid_14_portrait_idle3_animation" }
+ 		animation = { id = "idle4"	type = "necroid_14_portrait_idle4_animation" }
+ 		scale = 1.0
+ 	}
+
+ 	# necroid 15
+ 	pdxmesh = {
+ 		name = "portrait_necroid_15_mesh"
+ 		file = "gfx/models/portraits/necroid/necroid_15_portrait.mesh"
+ 		animation = { id = "idle1"	type = "necroid_15_portrait_idle1_animation" }
+ 		animation = { id = "idle2"	type = "necroid_15_portrait_idle2_animation" }
+ 		animation = { id = "idle3"	type = "necroid_15_portrait_idle3_animation" }
+ 		animation = { id = "idle4"	type = "necroid_15_portrait_idle4_animation" }
+ 		scale = 1.0
+ 	}
+
+	# necroid machine
+	pdxmesh = {
+		name = "portrait_necroid_machine_mesh"
+		file = "gfx/models/portraits/necroid/necroid_machine_portrait.mesh"
+		animation = { id = "idle1"	type = "necroid_machine_portrait_idle1_animation" }
+		animation = { id = "idle2"	type = "necroid_machine_portrait_idle2_animation" }
+		animation = { id = "idle3"	type = "necroid_machine_portrait_idle3_animation" }
+		animation = { id = "idle4"	type = "necroid_machine_portrait_idle4_animation" }
+		scale = 1.0
+	}
+
+
+}

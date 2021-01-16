@@ -1,0 +1,12 @@
+objectTypes = {
+	
+	pdxparticle = {
+		name = "necroid_portrait_glitch_effect"
+		type = "necroid_portrait_glitch_effect"
+		
+		scale = 1.0
+	}
+
+
+
+

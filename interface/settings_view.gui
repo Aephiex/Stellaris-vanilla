@@ -1736,7 +1736,7 @@ guiTypes = {
 					position = {x = -410 y = 230 }
 					name = "stt_shortcut_input_label"
 					font = "malgun_goth_24"
-					maxWidth = 400
+					maxWidth = 500
 					maxHeight = 18
 					text = "SETTINGS_ACCESSIBILITY_STT_SHORTCUT_INPUT"
 					tooltip = "SETTINGS_ACCESSIBILITY_STT_SHORTCUT_INPUT_INFO"
@@ -2179,11 +2179,11 @@ guiTypes = {
 			}
 
 			instantTextBoxType={
-				position = { x = 528 y = -99 }
+				position = { x = 510 y = -99 }
 				name = "accessibilitysettings_label"
 				font = "malgun_goth_24"
 				borderSize = {x = -15 y = 110}	
-				maxWidth = 150
+				maxWidth = 200
 				maxHeight = 18
 				text = "SETTINGS_ACCESSIBILITY"	
 				orientation = "UPPER_LEFT"

@@ -6,7 +6,7 @@ guiTypes = {
 
 		containerWindowType = {
 			name = "dlc_list"
-			position = { x = -40 y = 13 }	
+			position = { x = -40 y = -15 }	
 			orientation = UPPER_RIGHT
 
 			gridBoxType = {

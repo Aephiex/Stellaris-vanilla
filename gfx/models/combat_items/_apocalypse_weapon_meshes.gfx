@@ -52,4 +52,17 @@ objectTypes = {
 		
 		animation = { id = "idle"	type = "assimilate_hit_effect_idle_animation" }
 	}
+	
+	pdxmesh = {
+		name = "necroid_01_ion_cannon_windup_effect_mesh"
+		file = "gfx/models/combat_items/necroid_01_ion_cannon_windup_effect.mesh"
+
+		meshsettings = {
+			index = 0
+			texture_diffuse = "necroid_01_titan_windup_effect.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"
+			shader = "PdxMeshAlphaAdditiveAnimateUVErosion"
+		}
+	}
 }

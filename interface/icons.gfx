@@ -81,7 +81,7 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_army_icons"
 		textureFile = "gfx/interface/planetview/army_icon.dds"
-		noOfFrames = 12
+		noOfFrames = 13
 	}
 
 	spriteType = {
@@ -2172,13 +2172,13 @@ spriteTypes = {
 	}
 
 	spriteType = {
-		name = "GFX_sector_focus_type_financial"
+		name = "GFX_sector_focus_type_production"
 		texturefile = "gfx/interface/buttons/sector_financial.dds"
 		noOfFrames = 3
 	}
 
 	spriteType = {
-		name = "GFX_sector_focus_type_financial_selected"
+		name = "GFX_sector_focus_type_production_selected"
 		texturefile = "gfx/interface/buttons/sector_financial_selected.dds"
 	}
 

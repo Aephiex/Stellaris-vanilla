@@ -3,7 +3,7 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_alerticons"
 		texturefile = "gfx/interface/icons/alerticons.dds"
-		noOfFrames = 43
+		noOfFrames = 44
 		alwaystransparent = yes
 	}
 

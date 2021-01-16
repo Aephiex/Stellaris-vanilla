@@ -5,6 +5,24 @@
 #						  #
 ###########################
 
+#	SCOPES
+#	abort_trigger
+#	this = country (project owner)
+#	from = event scope (planet or ship, MIGHT NOT EXIST)
+#	fromfrom = project creation scope (usually equals location)
+#	
+#	on_success / on_start / on_progress_25/50/75
+#	this = event scope (ship or planet)
+#	from = project creation scope (usually equals location)
+#	
+#	on_fail - this fires if it times out
+#	this = country (project owner)
+#	from = project creation scope (usually equals location)
+#	
+#	on_cancel - this fires if the abort trigger returns true
+#	this = country (project owner)
+#	from = project creation scope (usually equals location)
+
 special_project = {
 	key = "INVESTIGATE_CAVE_SHROOM_PROJECT"
 	event_chain = "feral_overload_chain"
@@ -228,7 +246,7 @@ special_project = {
 			owner = {
 				country_event = { id = origin.1359 days = 1 }
 			}
-			clear_global_event_target = primitive_benefactor_species
+#			clear_global_event_target = primitive_benefactor_species
 		}
 	}
 
@@ -485,36 +503,49 @@ special_project = {
 	}
 	on_cancel = {
 		if = {
-			limit = { has_country_flag = hegemony_joint_project_leader_first_done }
-			remove_country_flag = hegemony_joint_project_leader_first_done
-		}
-		if = {
-			limit = { #no longer federation leader
-				is_federation_leader = no
-				has_federation = yes
-				exists = federation
-			}
-			federation = {
-				set_variable = {
-					which = hegemony_joint_operation_fail
-					value = 0
-				}
-				set_variable = {
-					which = hegemony_joint_operation_succeed
-					value = 0
-				}
-				every_member = {
-					country_event = { id = federations2.70 }
+			limit = {
+				OR = {
+					is_federation_leader = no
+					fromfrom.owner = {
+						OR = {
+							has_federation = no
+							NOT = { is_in_federation_with = prev }
+						}
+					}
 				}
 			}
-		}
-		else_if = {
-			limit = { #left federation or federation disbanded
-				has_federation = no
+			if = {
+				limit = { has_country_flag = hegemony_joint_project_leader_first_done }
+				remove_country_flag = hegemony_joint_project_leader_first_done
 			}
-			country_event = { id = federations2.71 }
+			if = {
+				limit = { #no longer federation leader
+					is_federation_leader = no
+					has_federation = yes
+					exists = federation
+				}
+				federation = {
+					set_variable = {
+						which = hegemony_joint_operation_fail
+						value = 0
+					}
+					set_variable = {
+						which = hegemony_joint_operation_succeed
+						value = 0
+					}
+					every_member = {
+						country_event = { id = federations2.70 }
+					}
+				}
+			}
+			else_if = {
+				limit = { #left federation or federation disbanded
+					has_federation = no
+				}
+				country_event = { id = federations2.71 }
+			}
+			#else: the other country left or destroyed, no event needed
 		}
-		#else: the other country left or destroyed, no event needed
 	}
 }
 
@@ -547,9 +578,14 @@ special_project = {
 	}
 
 	on_start = {
-		owner = {
-			add_modifier = {
-				modifier = hegemony_joint_operation_project_in_progress
+		if = {
+			limit = {
+				exists = owner
+			}
+			owner = {
+				add_modifier = {
+					modifier = hegemony_joint_operation_project_in_progress
+				}
 			}
 		}
 	}
@@ -778,24 +814,37 @@ special_project = {
 			limit = { has_modifier = hegemony_joint_operation_project_in_progress }
 			remove_modifier = hegemony_joint_operation_project_in_progress
 		}
-		if = { #Left federation
+		if = {
 			limit = {
-				has_federation = no
-			}
-			country_event = { id = federations2.71 }
-		}
-		else_if = { #Probably federation leader left or is destroyed
-			limit = { from.owner = { NOT = { is_in_federation_with = prev } } }
-			country_event = { id = federations2.72 }
-			if = { #Federation leader lost capital but remains leader
-				limit = {
-					any_federation_ally = {
-						has_special_project = hegemony_joint_project_leader
+				OR = {
+					has_federation = no
+					fromfrom.owner = {
+						OR = {
+							is_federation_leader = no
+							NOT = { is_in_federation_with = prev }
+						}
 					}
 				}
-				random_federation_ally = {
-					limit = { has_special_project = hegemony_joint_project_leader }
-					country_event = { id = federations2.72 }
+			}
+			if = { #Left federation
+				limit = {
+					has_federation = no
+				}
+				country_event = { id = federations2.71 }
+			}
+			else_if = { #Probably federation leader left or is destroyed
+				limit = { from.owner = { NOT = { is_in_federation_with = prev } } }
+				country_event = { id = federations2.72 }
+				if = { #Federation leader lost capital but remains leader
+					limit = {
+						any_federation_ally = {
+							has_special_project = hegemony_joint_project_leader
+						}
+					}
+					random_federation_ally = {
+						limit = { has_special_project = hegemony_joint_project_leader }
+						country_event = { id = federations2.72 }
+					}
 				}
 			}
 		}
@@ -829,26 +878,44 @@ special_project = {
 	}
 
 	on_start = {
-		owner = { #as soon as everyone has their fleets in position, the project will "complete" and start the actual challenge
-			if = {
-				limit = {
-					NOT = {
-						any_federation_ally = {
-							has_special_project = military_joint_project
-							NOT = { is_researching_special_project = military_joint_project }
+		if = {
+			limit = {
+				exists = owner
+			}
+			owner = { save_event_target_as = military_exercises_country }
+		}
+		else_if = {
+			limit = { #for some reason, "owner" sometimes fails here, but "fromfrom" should be the right empire
+				exists = fromfrom
+				fromfrom = { is_scope_type = country }
+			}
+			fromfrom = {
+				save_event_target_as = military_exercises_country
+			}
+		}
+		if = {
+			limit = { exists = event_target:military_exercises_country }
+			event_target:military_exercises_country = { #as soon as everyone has their fleets in position, the project will "complete" and start the actual challenge
+				if = {
+					limit = {
+						NOT = {
+							any_federation_ally = {
+								has_special_project = military_joint_project
+								NOT = { is_researching_special_project = military_joint_project }
+							}
 						}
 					}
+					set_timed_country_flag = {
+						flag = military_stop_infinite_loop
+						days = 10
+					}
+					complete_special_project = {  
+						type = military_joint_project
+					}
 				}
-				set_timed_country_flag = {
-					flag = military_stop_infinite_loop
-					days = 10
+				else = { #notify that you are waiting for others
+					country_event = { id = federations2.108 }
 				}
-				complete_special_project = {  
-					type = military_joint_project
-				}
-			}
-			else = { #notify that you are waiting for others
-				country_event = { id = federations2.108 }
 			}
 		}
 	}
@@ -911,14 +978,25 @@ special_project = {
 		}
 	}
 	on_cancel = {
-		if = { #Left federation
+		if = {
 			limit = {
-				has_federation = no
+				OR = {
+					has_federation = no
+					is_at_war = yes
+					any_country = {
+						is_crisis_faction = yes
+					}
+				}
 			}
-			country_event = { id = federations2.120 }
-		}
-		else = { #War or crisis
-			country_event = { id = federations2.121 }
+			if = { #Left federation
+				limit = {
+					has_federation = no
+				}
+				country_event = { id = federations2.120 }
+			}
+			else = { #War or crisis
+				country_event = { id = federations2.121 }
+			}
 		}
 	}
 }
@@ -992,12 +1070,70 @@ special_project = {
     }
     
     on_success = {
-        from = {
-            owner = {
-                country_event = { id = fedev.625 }
-            }
-        }
-    }
+		owner = {
+			country_event = { id = fedev.625 }
+
+			if = {
+				limit = {
+					exists = federation
+					count_federation_ally = {
+						count = 0
+						limit = {
+							NOT = { is_same_value = root.owner }
+							OR = {
+								AND = {
+									has_special_project = LOGISTIC_REMODEL_OFFWORLD
+									NOT = { has_completed_special_project = LOGISTIC_REMODEL_OFFWORLD }
+									NOT = { has_failed_special_project = LOGISTIC_REMODEL_OFFWORLD }
+								}
+								AND = {
+									has_special_project = LOGISTIC_REMODEL
+									NOT = { has_completed_special_project = LOGISTIC_REMODEL }
+									NOT = { has_failed_special_project = LOGISTIC_REMODEL }
+								}
+							}
+						}
+					}
+				}
+				federation = {
+					every_member = {
+						country_event = { id = fedev.630 days = 30 }
+					}
+				}
+			}
+		}
+	}
+	
+	on_fail = { #times out
+		if = {
+			limit = {
+				exists = federation
+				count_federation_ally = {
+					count = 0
+					limit = {
+						NOT = { is_same_value = root.owner }
+						OR = {
+							AND = {
+								has_special_project = LOGISTIC_REMODEL_OFFWORLD
+								NOT = { has_completed_special_project = LOGISTIC_REMODEL_OFFWORLD }
+								NOT = { has_failed_special_project = LOGISTIC_REMODEL_OFFWORLD }
+							}
+							AND = {
+								has_special_project = LOGISTIC_REMODEL
+								NOT = { has_completed_special_project = LOGISTIC_REMODEL }
+								NOT = { has_failed_special_project = LOGISTIC_REMODEL }
+							}
+						}
+					}
+				}
+			}
+			federation = {
+				every_member = {
+					country_event = { id = fedev.630 }
+				}
+			}
+		}
+	}
 }
 
 ### BARELY CONTAINED EFFICIENCY (JOINT OPERATION - TRADE LEAGUE) - Different version if User has an Offworld Trading Company
@@ -1009,7 +1145,7 @@ special_project = {
     sound = no
     tech_department = engineering_technology
     location = yes
-    timelimit = -1
+    timelimit = 3600
 
     event_scope = ship_event
 
@@ -1018,10 +1154,68 @@ special_project = {
     }
 
     on_success = {
-        from = {
-            owner = {
-                country_event = { id = fedev.625 }
-            }
-        }
-    }
+		owner = {
+			country_event = { id = fedev.625 }
+			
+			if = {
+				limit = {
+					exists = federation
+					count_federation_ally = {
+						count = 0
+						limit = {
+							NOT = { is_same_value = root.owner }
+							OR = {
+								AND = {
+									has_special_project = LOGISTIC_REMODEL_OFFWORLD
+									NOT = { has_completed_special_project = LOGISTIC_REMODEL_OFFWORLD }
+									NOT = { has_failed_special_project = LOGISTIC_REMODEL_OFFWORLD }
+								}
+								AND = {
+									has_special_project = LOGISTIC_REMODEL
+									NOT = { has_completed_special_project = LOGISTIC_REMODEL }
+									NOT = { has_failed_special_project = LOGISTIC_REMODEL }
+								}
+							}
+						}
+					}
+				}
+				federation = {
+					every_member = {
+						country_event = { id = fedev.630 days = 30 }
+					}
+				}
+			}
+		}
+	}
+	
+	on_fail = { #times out
+		if = {
+			limit = {
+				exists = federation
+				count_federation_ally = {
+					count = 0
+					limit = {
+						NOT = { is_same_value = root.owner }
+						OR = {
+							AND = {
+								has_special_project = LOGISTIC_REMODEL_OFFWORLD
+								NOT = { has_completed_special_project = LOGISTIC_REMODEL_OFFWORLD }
+								NOT = { has_failed_special_project = LOGISTIC_REMODEL_OFFWORLD }
+							}
+							AND = {
+								has_special_project = LOGISTIC_REMODEL
+								NOT = { has_completed_special_project = LOGISTIC_REMODEL }
+								NOT = { has_failed_special_project = LOGISTIC_REMODEL }
+							}
+						}
+					}
+				}
+			}
+			federation = {
+				every_member = {
+					country_event = { id = fedev.630 }
+				}
+			}
+		}
+	}
 }

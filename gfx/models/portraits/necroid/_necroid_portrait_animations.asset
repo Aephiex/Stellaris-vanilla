@@ -1,0 +1,300 @@
+# necroid 01
+animation = {
+	name = "necroid_01_portrait_idle_animation"
+	file = "necroid_01_portrait_idle.anim"
+}
+animation = {
+	name = "necroid_01_portrait_idle2_animation"
+	file = "necroid_01_portrait_idle2.anim"
+}
+animation = {
+	name = "necroid_01_portrait_idle3_animation"
+	file = "necroid_01_portrait_idle3.anim"
+}
+animation = {
+	name = "necroid_01_portrait_idle4_animation"
+	file = "necroid_01_portrait_idle4.anim"
+}
+
+
+# necroid 02
+animation = {
+	name = "necroid_02_portrait_idle1_animation"
+	file = "necroid_02_portrait_idle.anim"
+}
+animation = {
+	name = "necroid_02_portrait_idle2_animation"
+	file = "necroid_02_portrait_idle2.anim"
+}
+animation = {
+	name = "necroid_02_portrait_idle3_animation"
+	file = "necroid_02_portrait_idle3.anim"
+}
+animation = {
+	name = "necroid_02_portrait_idle4_animation"
+	file = "necroid_02_portrait_idle4.anim"
+}
+
+# necroid 03
+animation = {
+	name = "necroid_03_portrait_idle_animation"
+	file = "necroid_03_portrait_idle.anim"
+}
+animation = {
+	name = "necroid_03_portrait_idle2_animation"
+	file = "necroid_03_portrait_idle2.anim"
+}
+animation = {
+	name = "necroid_03_portrait_idle3_animation"
+	file = "necroid_03_portrait_idle3.anim"
+}
+animation = {
+	name = "necroid_03_portrait_idle4_animation"
+	file = "necroid_03_portrait_idle4.anim"
+}
+
+# necroid 04
+animation = {
+	name = "necroid_04_portrait_idle1_animation"
+	file = "necroid_04_portrait_idle.anim"
+}
+animation = {
+	name = "necroid_04_portrait_idle2_animation"
+	file = "necroid_04_portrait_idle2.anim"
+}
+animation = {
+	name = "necroid_04_portrait_idle3_animation"
+	file = "necroid_04_portrait_idle3.anim"
+}
+animation = {
+	name = "necroid_04_portrait_idle4_animation"
+	file = "necroid_04_portrait_idle4.anim"
+}
+
+# necroid 05
+animation = {
+	name = "necroid_05_portrait_idle1_animation"
+	file = "necroid_05_portrait_idle.anim"
+}
+animation = {
+	name = "necroid_05_portrait_idle2_animation"
+	file = "necroid_05_portrait_idle2.anim"
+}
+animation = {
+	name = "necroid_05_portrait_idle3_animation"
+	file = "necroid_05_portrait_idle3.anim"
+}
+animation = {
+	name = "necroid_05_portrait_idle4_animation"
+	file = "necroid_05_portrait_idle4.anim"
+}
+
+# necroid 06
+animation = {
+	name = "necroid_06_portrait_idle1_animation"
+	file = "necroid_06_portrait_idle.anim"
+}
+animation = {
+	name = "necroid_06_portrait_idle2_animation"
+	file = "necroid_06_portrait_idle2.anim"
+}
+animation = {
+	name = "necroid_06_portrait_idle3_animation"
+	file = "necroid_06_portrait_idle3.anim"
+}
+animation = {
+	name = "necroid_06_portrait_idle4_animation"
+	file = "necroid_06_portrait_idle4.anim"
+}
+
+
+# necroid 07
+animation = {
+	name = "necroid_07_portrait_idle1_animation"
+	file = "necroid_07_portrait_idle.anim"
+}
+animation = {
+	name = "necroid_07_portrait_idle2_animation"
+	file = "necroid_07_portrait_idle2.anim"
+}
+animation = {
+	name = "necroid_07_portrait_idle3_animation"
+	file = "necroid_07_portrait_idle3.anim"
+}
+animation = {
+	name = "necroid_07_portrait_idle4_animation"
+	file = "necroid_07_portrait_idle4.anim"
+}
+
+
+# necroid 08
+animation = {
+	name = "necroid_08_portrait_idle1_animation"
+	file = "necroid_08_portrait_idle.anim"
+}
+animation = {
+	name = "necroid_08_portrait_idle2_animation"
+	file = "necroid_08_portrait_idle2.anim"
+}
+animation = {
+	name = "necroid_08_portrait_idle3_animation"
+	file = "necroid_08_portrait_idle3.anim"
+}
+animation = {
+	name = "necroid_08_portrait_idle4_animation"
+	file = "necroid_08_portrait_idle4.anim"
+}
+
+# necroid 09
+animation = {
+	name = "necroid_09_portrait_idle1_animation"
+	file = "necroid_09_portrait_idle.anim"
+}
+animation = {
+	name = "necroid_09_portrait_idle2_animation"
+	file = "necroid_09_portrait_idle2.anim"
+}
+animation = {
+	name = "necroid_09_portrait_idle3_animation"
+	file = "necroid_09_portrait_idle3.anim"
+}
+animation = {
+	name = "necroid_09_portrait_idle4_animation"
+	file = "necroid_09_portrait_idle4.anim"
+}
+
+# necroid 10
+animation = {
+	name = "necroid_10_portrait_idle1_animation"
+	file = "necroid_10_portrait_idle.anim"
+}
+animation = {
+	name = "necroid_10_portrait_idle2_animation"
+	file = "necroid_10_portrait_idle2.anim"
+}
+animation = {
+	name = "necroid_10_portrait_idle3_animation"
+	file = "necroid_10_portrait_idle3.anim"
+}
+animation = {
+	name = "necroid_10_portrait_idle4_animation"
+	file = "necroid_10_portrait_idle4.anim"
+}
+
+# necroid 11
+animation = {
+	name = "necroid_11_portrait_idle1_animation"
+	file = "necroid_11_portrait_idle1.anim"
+}
+animation = {
+	name = "necroid_11_portrait_idle2_animation"
+	file = "necroid_11_portrait_idle2.anim"
+}
+animation = {
+	name = "necroid_11_portrait_idle3_animation"
+	file = "necroid_11_portrait_idle3.anim"
+}
+animation = {
+	name = "necroid_11_portrait_idle4_animation"
+	file = "necroid_11_portrait_idle4.anim"
+}
+animation = {
+	name = "necroid_11_portrait_idle4_animation"
+	file = "necroid_11_portrait_idle4.anim"
+}
+
+# necroid 12
+animation = {
+	name = "necroid_12_portrait_idle1_animation"
+	file = "necroid_12_portrait_idle1.anim"
+}
+animation = {
+	name = "necroid_12_portrait_idle2_animation"
+	file = "necroid_12_portrait_idle2.anim"
+}
+animation = {
+	name = "necroid_12_portrait_idle3_animation"
+	file = "necroid_12_portrait_idle3.anim"
+}
+animation = {
+	name = "necroid_12_portrait_idle4_animation"
+	file = "necroid_12_portrait_idle4.anim"
+}
+
+# necroid 13
+animation = {
+	name = "necroid_13_portrait_idle1_animation"
+	file = "necroid_13_portrait_idle1.anim"
+}
+animation = {
+	name = "necroid_13_portrait_idle2_animation"
+	file = "necroid_13_portrait_idle2.anim"
+}
+animation = {
+	name = "necroid_13_portrait_idle3_animation"
+	file = "necroid_13_portrait_idle3.anim"
+}
+animation = {
+	name = "necroid_13_portrait_idle4_animation"
+	file = "necroid_13_portrait_idle4.anim"
+}
+animation = {
+	name = "necroid_13_portrait_idle4_animation"
+	file = "necroid_13_portrait_idle4.anim"
+}
+
+# necroid 14
+animation = {
+	name = "necroid_14_portrait_idle1_animation"
+	file = "necroid_14_portrait_idle1.anim"
+}
+animation = {
+	name = "necroid_14_portrait_idle2_animation"
+	file = "necroid_14_portrait_idle2.anim"
+}
+animation = {
+	name = "necroid_14_portrait_idle3_animation"
+	file = "necroid_14_portrait_idle3.anim"
+}
+animation = {
+	name = "necroid_14_portrait_idle4_animation"
+	file = "necroid_14_portrait_idle4.anim"
+}
+
+# necroid 15
+animation = {
+	name = "necroid_15_portrait_idle1_animation"
+	file = "necroid_15_portrait_idle1.anim"
+}
+animation = {
+	name = "necroid_15_portrait_idle2_animation"
+	file = "necroid_15_portrait_idle2.anim"
+}
+animation = {
+	name = "necroid_15_portrait_idle3_animation"
+	file = "necroid_15_portrait_idle3.anim"
+}
+animation = {
+	name = "necroid_15_portrait_idle4_animation"
+	file = "necroid_15_portrait_idle4.anim"
+}
+
+# necroid machine
+animation = {
+	name = "necroid_machine_portrait_idle1_animation"
+	file = "necroid_machine_portrait_idle.anim"
+}
+animation = {
+	name = "necroid_machine_portrait_idle2_animation"
+	file = "necroid_machine_portrait_idle2.anim"
+}
+animation = {
+	name = "necroid_machine_portrait_idle3_animation"
+	file = "necroid_machine_portrait_idle3.anim"
+}
+animation = {
+	name = "necroid_machine_portrait_idle4_animation"
+	file = "necroid_machine_portrait_idle4.anim"
+}
+
+

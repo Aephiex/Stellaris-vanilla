@@ -1653,7 +1653,7 @@ fleet_event = {
 	}
 
 	after = { 
-		from = { expire_site_event = origin.1297 } 
+		from = { expire_site_event = origin.1297 }
 	}
 }
 
@@ -1725,7 +1725,9 @@ fleet_event = {
 
 	after = { 
 		fromfrom = { set_site_progress_locked = no }
-		owner = { remove_country_flag = dark_secret_tyrant }
+		owner = { 
+			remove_country_flag = dark_secret_tyrant
+		}
 	}
 	
 	option = {
@@ -1892,7 +1894,7 @@ fleet_event = {
 	}
 }
 
-# Stage 2 - Phase 1 went smoothly
+# Stage 2 - Step 1 went smoothly
 fleet_event = {
 	id = origin.1370
 	title = "origin.1370.name"
@@ -1948,6 +1950,9 @@ country_event = {
 				}
 				random_moon = {
 					create_archaeological_site = site_ex_gravitas
+					root = {
+						set_country_flag = shoulders_origin_@prev
+					}
 				}
 				root = {
 					set_country_flag = arc_site_moon
@@ -1964,6 +1969,9 @@ country_event = {
 							NOT = { is_planet_class = pc_gas_giant }
 						}
 						create_archaeological_site = site_ex_gravitas
+						root = {
+							set_country_flag = shoulders_origin_@prev
+						}
 					}
 					root = {
 						set_country_flag = arc_site_planet
@@ -2138,6 +2146,9 @@ country_event = {
 						NOT = { exists = archaeological_site }
 					}
 					create_archaeological_site = site_something_waiting
+					root = {
+						set_country_flag = shoulders_origin_@prev
+					}
 				}
 			}
 		}
@@ -2168,6 +2179,9 @@ country_event = {
 						NOT = { exists = archaeological_site }
 					}
 					create_archaeological_site = site_buried_deep
+					root = {
+						set_country_flag = shoulders_origin_@prev
+					}
 				}
 			}
 		}
@@ -2198,6 +2212,9 @@ country_event = {
 						NOT = { exists = archaeological_site }
 					}
 					create_archaeological_site = site_in_memoriam
+					root = {
+						set_country_flag = shoulders_origin_@prev
+					}
 				}
 			}
 		}
@@ -2228,6 +2245,9 @@ country_event = {
 						NOT = { exists = archaeological_site }
 					}
 					create_archaeological_site = site_the_last_stand
+					root = {
+						set_country_flag = shoulders_origin_@prev
+					}
 				}
 			}
 		}
@@ -2258,6 +2278,9 @@ country_event = {
 						NOT = { exists = archaeological_site }
 					}
 					create_archaeological_site = site_dark_secret
+					root = {
+						set_country_flag = shoulders_origin_@prev
+					}
 				}
 			}
 		}
@@ -2391,6 +2414,7 @@ country_event = {
 						max_jumps = 0
 						initializer = "intercepting_history_system_initializer_01"
 					}
+					add_extra_hyperlane_to_spawned_system_effect = yes
 				}
 			}
 		}
@@ -2484,6 +2508,7 @@ country_event = {
 						max_jumps = 1
 						initializer = "intercepting_history_system_initializer_02"
 					}
+					add_extra_hyperlane_to_spawned_system_effect = yes
 				}
 			}
 		}
@@ -2606,6 +2631,9 @@ country_event = {
 			random_system_planet = {
 				limit = { uninhabitable_regular_planet = yes }
 				create_archaeological_site = site_benign_cover_up
+				root = {
+					set_country_flag = shoulders_origin_@prev
+				}
 			}
 		}
 	}
@@ -2701,6 +2729,7 @@ country_event = {
 						max_jumps = 0
 						initializer = "relentless_pursuit_system_initializer_01"
 					}
+					add_extra_hyperlane_to_spawned_system_effect = yes
 				}
 			}
 		}
@@ -2794,6 +2823,7 @@ country_event = {
 						max_jumps = 1
 						initializer = "relentless_pursuit_system_initializer_02"
 					}
+					add_extra_hyperlane_to_spawned_system_effect = yes
 				}
 			}
 		}
@@ -2881,6 +2911,9 @@ country_event = {
 			random_system_planet = {
 				limit = { uninhabitable_regular_planet = yes }
 				create_archaeological_site = site_bury_the_hatchet
+				root = {
+					set_country_flag = shoulders_origin_@prev
+				}
 			}
 		}
 	}

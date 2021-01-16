@@ -1,0 +1,144 @@
+##############################################################
+###	PORTRAITS SETTINGS
+###
+### Which portraits are used is set in
+### common\species_classes\00_species_classes.txt
+###
+###	This file configures how portraits and planet backgrounds are built.
+###	Default position orientation is lower left.
+##############################################################
+
+############################
+portraits = {
+
+	# necroid
+	nec1 = {	entity = "portrait_necroid_01_entity" clothes_selector = "no_texture" hair_selector = "no_texture"	greeting_sound = "necroid_portrait_02_mummalien"
+		character_textures = {
+			"gfx/models/portraits/necroid/necroids_01_portrait_blue.dds"
+			"gfx/models/portraits/necroid/necroids_01_portrait_orange.dds"
+			"gfx/models/portraits/necroid/necroids_01_portrait_purple.dds"
+			"gfx/models/portraits/necroid/necroids_01_portrait_red.dds"
+		}
+	}
+	nec2 = {	entity = "portrait_necroid_02_entity" clothes_selector = "no_texture" hair_selector = "no_texture"	greeting_sound = "necroid_portrait_03_suited_corpse"
+		character_textures = {
+			"gfx/models/portraits/necroid/necroids_02_portrait_brass.dds"
+			"gfx/models/portraits/necroid/necroids_02_portrait_green.dds"
+			"gfx/models/portraits/necroid/necroids_02_portrait_purple.dds"
+			"gfx/models/portraits/necroid/necroids_02_portrait_red.dds"
+		}
+	}
+	nec3 = {	entity = "portrait_necroid_03_entity" clothes_selector = "no_texture" hair_selector = "no_texture"	greeting_sound = "necroid_portrait_04_overgrown"
+		character_textures = {
+			"gfx/models/portraits/necroid/necroids_03_portrait_blue.dds"
+			"gfx/models/portraits/necroid/necroids_03_portrait_green.dds"
+			"gfx/models/portraits/necroid/necroids_03_portrait_grey.dds"
+			"gfx/models/portraits/necroid/necroids_03_portrait_orange.dds"
+		}
+	}
+	nec4 = {	entity = "portrait_necroid_04_entity" clothes_selector = "no_texture" hair_selector = "no_texture"	greeting_sound = "necroid_portrait_05_hologram"
+		character_textures = {
+			"gfx/models/portraits/necroid/necroids_04_portrait_yellow.dds"
+			"gfx/models/portraits/necroid/necroids_04_portrait_purple.dds"
+			"gfx/models/portraits/necroid/necroids_04_portrait_green.dds"
+			"gfx/models/portraits/necroid/necroids_04_portrait_blue.dds"
+		}
+	}
+	nec5 = {	entity = "portrait_necroid_05_entity" clothes_selector = "no_texture" hair_selector = "no_texture"	greeting_sound = "necroid_portrait_06_ascended"
+		character_textures = {
+			"gfx/models/portraits/necroid/necroids_05_portrait_purple.dds"
+			"gfx/models/portraits/necroid/necroids_05_portrait_green.dds"
+			"gfx/models/portraits/necroid/necroids_05_portrait_blue.dds"
+			"gfx/models/portraits/necroid/necroids_05_portrait_red.dds"
+		}
+	}
+	nec6 = {	entity = "portrait_necroid_06_entity" clothes_selector = "no_texture" hair_selector = "no_texture"	greeting_sound = "necroid_portrait_07_exoskeletoid"
+		character_textures = {
+			"gfx/models/portraits/necroid/necroids_06_portrait_red.dds"
+			"gfx/models/portraits/necroid/necroids_06_portrait_green.dds"
+			"gfx/models/portraits/necroid/necroids_06_portrait_orange.dds"
+			"gfx/models/portraits/necroid/necroids_06_portrait_blue.dds"
+		}
+	}
+	nec7 = {	entity = "portrait_necroid_07_entity" clothes_selector = "no_texture" hair_selector = "no_texture"	greeting_sound = "necroid_portrait_08_masked"
+		character_textures = {
+			"gfx/models/portraits/necroid/necroids_07_portrait_black.dds"
+			"gfx/models/portraits/necroid/necroids_07_portrait_blue.dds"
+			"gfx/models/portraits/necroid/necroids_07_portrait_green.dds"
+			"gfx/models/portraits/necroid/necroids_07_portrait_grey.dds"
+		}
+	}
+	nec8 = {	entity = "portrait_necroid_08_entity" clothes_selector = "no_texture" hair_selector = "no_texture"	greeting_sound = "necroid_portrait_09_connectoid"
+		character_textures = {
+			"gfx/models/portraits/necroid/necroids_08_portrait_yellow.dds"
+			"gfx/models/portraits/necroid/necroids_08_portrait_purple.dds"
+			"gfx/models/portraits/necroid/necroids_08_portrait_orange.dds"
+			"gfx/models/portraits/necroid/necroids_08_portrait_green.dds"
+		}
+	}
+	nec9 = {	entity = "portrait_necroid_09_entity" clothes_selector = "no_texture" hair_selector = "no_texture"	greeting_sound = "necroid_portrait_10_stasis_being"
+		character_textures = {
+			"gfx/models/portraits/necroid/necroids_09_portrait_teal.dds"
+			"gfx/models/portraits/necroid/necroids_09_portrait_green.dds"
+			"gfx/models/portraits/necroid/necroids_09_portrait_yellow.dds"
+			"gfx/models/portraits/necroid/necroids_09_portrait_blue.dds"
+		}
+	}
+	nec10 = {	entity = "portrait_necroid_10_entity" clothes_selector = "no_texture" hair_selector = "no_texture"	greeting_sound = "necroid_portrait_01_boneworshipper"
+		character_textures = {
+			"gfx/models/portraits/necroid/necroids_10_portrait_blue.dds"
+			"gfx/models/portraits/necroid/necroids_10_portrait_green.dds"
+			"gfx/models/portraits/necroid/necroids_10_portrait_white.dds"
+			"gfx/models/portraits/necroid/necroids_10_portrait_yellow.dds"
+		}
+	}
+ 	nec11 = {	entity = "portrait_necroid_11_entity" clothes_selector = "necroid_clothes_01" hair_selector = "no_texture"	greeting_sound = "necroid_portrait_16_death_worshipper"
+ 		character_textures = {
+ 			"gfx/models/portraits/necroid/necroids_11_portrait_v1.dds"
+ 			"gfx/models/portraits/necroid/necroids_11_portrait_v2.dds"
+ 			"gfx/models/portraits/necroid/necroids_11_portrait_v3.dds"
+ 			"gfx/models/portraits/necroid/necroids_11_portrait_v4.dds"
+ 		}
+ 	}
+	nec12 = {	entity = "portrait_necroid_12_entity" clothes_selector = "necroid_clothes_01" hair_selector = "no_texture"	greeting_sound = "necroid_portrait_13_palien"
+ 		character_textures = {
+ 			"gfx/models/portraits/necroid/necroids_12_portrait_blue.dds"
+ 			"gfx/models/portraits/necroid/necroids_12_portrait_green.dds"
+ 			"gfx/models/portraits/necroid/necroids_12_portrait_purple.dds"
+ 			"gfx/models/portraits/necroid/necroids_12_portrait_red.dds"
+ 		}
+ 	}
+ 	nec13 = {	entity = "portrait_necroid_13_entity" clothes_selector = "necroid_clothes_02" hair_selector = "no_texture"	greeting_sound = "necroid_portrait_15_feral_zombie"
+ 		character_textures = {
+ 			"gfx/models/portraits/necroid/necroids_13_portrait_turquoise.dds"
+ 			"gfx/models/portraits/necroid/necroids_13_portrait_green.dds"
+ 			"gfx/models/portraits/necroid/necroids_13_portrait_blue.dds"
+ 			"gfx/models/portraits/necroid/necroids_13_portrait_orange.dds"
+ 		}
+ 	}
+ 	nec14 = {	entity = "portrait_necroid_14_entity" clothes_selector = "necroid_clothes_01" hair_selector = "no_texture"	greeting_sound = "necroid_portrait_14_energy_being"
+ 		character_textures = {
+ 			"gfx/models/portraits/necroid/necroids_14_portrait_blue.dds"
+ 			"gfx/models/portraits/necroid/necroids_14_portrait_green.dds"
+ 			"gfx/models/portraits/necroid/necroids_14_portrait_palegreen.dds"
+ 			"gfx/models/portraits/necroid/necroids_14_portrait_palepurple.dds"
+ 		}
+ 	}
+ 	nec15 = {	entity = "portrait_necroid_15_entity" clothes_selector = "necroid_clothes_02" hair_selector = "no_texture"	greeting_sound = "necroid_portrait_12_skeletoid"
+ 		character_textures = {
+ 			"gfx/models/portraits/necroid/necroids_15_portrait_blue.dds"
+ 			"gfx/models/portraits/necroid/necroids_15_portrait_green.dds"
+ 			"gfx/models/portraits/necroid/necroids_15_portrait_red.dds"
+ 			"gfx/models/portraits/necroid/necroids_15_portrait_grey.dds"
+ 		}
+ 	}
+	nec_machine = { entity = "portrait_necroid_machine_entity" clothes_selector = "no_texture" hair_selector = "no_texture"	greeting_sound = "necroid_portrait_11_reaper"
+		character_textures = {
+			"gfx/models/portraits/necroid/necroids_machine_portrait_blue.dds"
+			"gfx/models/portraits/necroid/necroids_machine_portrait_green.dds"
+			"gfx/models/portraits/necroid/necroids_machine_portrait_turqoise.dds"
+			"gfx/models/portraits/necroid/necroids_machine_portrait_red.dds"
+		}
+	}
+}
+

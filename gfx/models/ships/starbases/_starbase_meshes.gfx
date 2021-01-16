@@ -1201,4 +1201,123 @@ objectTypes = {
 		#	shader = "PdxMeshTerra"
 		#}
 	}
+
+
+	
+	
+	#############################
+	#			Necroid			#
+	#############################
+	
+	pdxmesh = {
+		name = "necroid_01_outpost_frame_mesh"
+		file = "gfx/models/ships/starbases/necroid_01_outpost_frame.mesh"
+		scale = 1.0
+
+	}
+		
+	pdxmesh = {
+		name = "necroid_01_starport_frame_mesh"
+		file = "gfx/models/ships/starbases/necroid_01_starport_frame.mesh"
+		scale = 1.0
+
+	}
+	
+	pdxmesh = {
+		name = "necroid_01_starhold_frame_mesh"
+		file = "gfx/models/ships/starbases/necroid_01_starhold_frame.mesh"
+		scale = 1.0
+
+	}
+	
+	pdxmesh = {
+		name = "necroid_01_starfort_frame_mesh"
+		file = "gfx/models/ships/starbases/necroid_01_starfort_frame.mesh"
+		scale = 1.0
+
+	}
+	
+	pdxmesh = {
+		name = "necroid_01_citadel_frame_mesh"
+		file = "gfx/models/ships/starbases/necroid_01_citadel_frame.mesh"
+		scale = 1.0
+
+	}
+	
+	pdxmesh = {
+		name = "necroid_01_outpost_mesh"
+		file = "gfx/models/ships/starbases/necroid_01_outpost.mesh"
+		scale = 1.0
+
+	}
+		
+	pdxmesh = {
+		name = "necroid_01_starport_mesh"
+		file = "gfx/models/ships/starbases/necroid_01_starport.mesh"
+		scale = 1.0
+
+	}
+	
+	pdxmesh = {
+		name = "necroid_01_starhold_mesh"
+		file = "gfx/models/ships/starbases/necroid_01_starhold.mesh"
+		scale = 1.0
+
+	}
+	
+	pdxmesh = {
+		name = "necroid_01_starfort_mesh"
+		file = "gfx/models/ships/starbases/necroid_01_starfort.mesh"
+		scale = 1.0
+
+	}
+	
+	pdxmesh = {
+		name = "necroid_01_citadel_mesh"
+		file = "gfx/models/ships/starbases/necroid_01_citadel.mesh"
+		scale = 1.0
+
+	}
+	
+	pdxmesh = {
+		name = "necroid_01_starbase_turret_section_mesh"
+		file = "gfx/models/ships/starbases/necroid_01_starbase_turret_section.mesh"
+
+		meshsettings = {
+			name = "g_bodyShape"
+			index = 0
+			texture_diffuse = "necroid_01_turret_section_diffuse.dds"
+			texture_normal = "necroid_01_turret_section_normal.dds"
+			texture_specular = "necroid_01_turret_section_specular.dds"
+			shader = "PdxMeshShip"
+		}
+	}
+	
+		####### Ion Cannon  #######	
+	
+	pdxmesh = {
+		name = "necroid_01_ion_cannon_mesh"
+		file = "gfx/models/ships/starbases/necroid_01_ion_cannon.mesh"
+		scale = 1.0
+	}
+	
+	pdxmesh = {
+		name = "necroid_01_ion_cannon_core_mesh"
+		file = "gfx/models/ships/starbases/mammalian_01_ion_cannon_core.mesh"
+		scale = 1.0
+	}
+
+	pdxmesh = {
+		name = "necroid_01_ion_cannon_core_effect_mesh"
+		file = "gfx/models/ships/starbases/necroid_01_ion_cannon_core_effect.mesh"
+
+		meshsettings = {
+			index = 0
+			texture_diffuse = "necroid_01_titan_windup_effect.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"
+			shader = "PdxMeshAlphaAdditiveAnimateUVErosion"
+		}
+	}
+	
 }

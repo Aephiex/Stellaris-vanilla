@@ -255,9 +255,9 @@ guiTypes = {
 
 			instantTextBoxType = {
 				name = "instructions"
-				position = { x = 20 y = 15 }
-				maxWidth = 280
-				maxHeight = 90
+				position = { x = 15 y = 15 }
+				maxWidth = 300
+				maxHeight = 120
 				font = "cg_16b"
 				fixedSize = yes
 				alwaysTransparent = yes
@@ -265,14 +265,14 @@ guiTypes = {
 
 			iconType = {
 				name = "war_goal_icon"
-				position = { x = 30 y = 116 }
+				position = { x = 30 y = 136 }
 				centerPosition = yes
 				spriteType = "GFX_alliance_vote_status" # Changed in code
 				alwaysTransparent = yes
 			}
 			instantTextBoxType = {
 				name = "war_goal_header"
-				position = { x = 50 y = 105 }
+				position = { x = 50 y = 125 }
 				maxWidth = 260
 				maxHeight = 20
 				font = "cg_16b"
@@ -283,7 +283,7 @@ guiTypes = {
 			}
 			instantTextBoxType = {
 				name = "war_goal_text"
-				position = { x = 50 y = 125 }
+				position = { x = 50 y = 145 }
 				maxWidth = 255
 				maxHeight = 175
 				font = "cg_16b"

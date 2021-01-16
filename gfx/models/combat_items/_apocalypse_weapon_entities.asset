@@ -33,6 +33,23 @@ entity = {
 	}
 }
 
+entity = {
+	name = "necroid_01_ion_cannon_windup_entity"
+	locator = { name = "root" position = { 0 0 0 } }
+
+	default_state = "attack"
+	get_state_from_parent = no
+	state = {
+		name = "attack" looping = yes state_time = 5
+		event = { trigger_once = yes sound = { soundeffect = "titan_laser_windup_01" } }
+		
+		event = {	time = 0 	node = "root"	entity = "necroid_01_ion_cannon_windup_effect_entity"	
+		erosion_in = 1		life = 2.2 	erosion_out = 2.2	}
+
+		event = { time = 0.0  node = "root" particle = "necroid_01_ion_cannon_muzzle_windup_effect" trigger_once = yes keep_particle = yes }
+
+	}
+}
 # MUZZLE FLASH
 
 entity = {
@@ -42,6 +59,19 @@ entity = {
 	default_state = "idle"
 	state = { name = "idle" state_time = 7.0 looping = no
 		event = { time = 0 particle = "ion_cannon_muzzle_particle" keep_particle = yes }
+		
+		event = { trigger_once = yes sound = { soundeffect = "ion_cannon_fire" } }
+		event = { trigger_once = yes sound = { soundeffect = "distance_ion_cannon_fire" } }
+	}
+}
+
+entity = {
+	name = "necroid_01_ion_cannon_muzzle_entity"
+	cull_radius = 1.0
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 7.0 looping = no
+		event = { time = 0 particle = "necroid_01_ion_cannon_muzzle_particle" keep_particle = yes }
 		
 		event = { trigger_once = yes sound = { soundeffect = "ion_cannon_fire" } }
 		event = { trigger_once = yes sound = { soundeffect = "distance_ion_cannon_fire" } }
@@ -62,7 +92,21 @@ entity = {
 	state = { name = "stop" state_time = 0.5 looping = no }
 }
 
+entity = {
+	name = "necroid_01_ion_cannon_hit_entity"
+	cull_radius = 1.0
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 2 looping = no
+		start_event = { particle = "necroid_01_ion_cannon_hit_effect" keep_particle = yes sound = { soundeffect = "ion_cannon_hit" } }
+		event = { trigger_once = yes sound = { soundeffect = "distance_ion_cannon_hit" } }
+	}
+	state = { name = "stop" state_time = 0.5 looping = no }
+}
+
 # SHIELD HIT ENTITIES
+
+
 
 entity = {
 	name = "ion_cannon_shield_hit_entity"
@@ -76,6 +120,17 @@ entity = {
 	state = { name = "stop" state_time = 0.5 looping = no }
 }
 
+entity = {
+	name = "necroid_01_ion_cannon_shield_hit_entity"
+	cull_radius = 1.0
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 2 looping = no
+		start_event = { particle = "necroid_01_ion_cannon_hit_effect" keep_particle = yes sound = { soundeffect = "shield_hit" } }
+		event = { trigger_once = yes sound = { soundeffect = "distance_shield_hit" } }
+	}
+	state = { name = "stop" state_time = 0.5 looping = no }
+}
 
 ###########
 # PERDITION BEAM
@@ -369,6 +424,28 @@ entity = {
 	attach = { root = "perdition_beam_muzzle_windup_entity" }
 }
 
+entity = {
+	name = "necroid_01_perdition_beam_windup_entity"
+	locator = { name = "root" position = { 0 0 0 } }
+	scale = 1
+	default_state = "attack"
+	get_state_from_parent = no
+	state = {
+		name = "attack" looping = yes state_time = 5
+		event = { trigger_once = yes sound = { soundeffect = "perdition_beam_windup_layer_01" } }
+		event = { trigger_once = yes sound = { soundeffect = "perdition_beam_windup_layer_02" } }
+#		
+		event = {	time = 0 	node = "root"	entity = "necroid_01_perdition_windup_effect_entity"	
+		erosion_in = 1		life = 2.2 	erosion_out = 2.2	}
+		
+		event = { time = 0 node = "root" particle = "necroid_01_perdition_windup_effect" trigger_once = yes keep_particle = yes }
+	}
+	
+#	attach = { root = "perdition_beam_muzzle_windup_entity" }
+}
+
+
+
 # MUZZLE FLASH
 
 entity = {
@@ -390,6 +467,28 @@ entity = {
 	}
 }
 
+entity = {
+	name = "necroid_01_perdition_beam_muzzle_entity"
+	cull_radius = 1.0
+	locator = { name = "root" position = { 0 0 0 } }
+	scale = 1
+	default_state = "idle"
+	state = { name = "idle" state_time = 7.0 looping = no
+		event = { time = 0 particle = "necroid_01_perdition_beam_muzzle_effect" keep_particle = yes }
+		
+		event = { trigger_once = yes sound = { soundeffect = "perdition_beam_fire_layer_01" } }
+		event = { trigger_once = yes sound = { soundeffect = "distance_perdition_beam_fire_layer_01" } }
+		
+		event = { trigger_once = yes sound = { soundeffect = "perdition_beam_fire_layer_02" } }
+		event = { trigger_once = yes sound = { soundeffect = "distance_perdition_beam_fire_layer_02" } }
+		
+		event = { trigger_once = yes sound = { soundeffect = "perdition_beam_fire_layer_03" } }
+		event = { trigger_once = yes sound = { soundeffect = "distance_perdition_beam_fire_layer_03" } }
+
+		event = { time = 0 node = "root" particle = "necroid_01_perdition_muzzle_smoke_effect" trigger_once = yes keep_particle = yes }
+
+	}
+}
 # HIT ENTITIES
 
 entity = {
@@ -404,6 +503,18 @@ entity = {
 	state = { name = "stop" state_time = 0.5 looping = no }
 }
 
+entity = {
+	name = "necroid_01_perdition_beam_hit_entity"
+	cull_radius = 1.0
+	
+	default_state = "idle"
+	state = { name = "idle" state_time = 2 looping = no
+		start_event = { particle = "necroid_01_perdition_beam_hit_effect" keep_particle = yes sound = { soundeffect = "perdition_beam_hit" } }
+		start_event = { trigger_once = yes sound = { soundeffect = "distance_perdition_beam_hit" } }
+	}
+	state = { name = "stop" state_time = 0.5 looping = no }
+}
+
 # SHIELD HIT ENTITIES
 
 entity = {
@@ -413,6 +524,19 @@ entity = {
 	default_state = "idle"
 	state = { name = "idle" 
 		start_event = { particle = "perdition_beam_hit_effect" sound = { soundeffect = "shield_hit" } }
+		start_event = { particle = "titan_laser_shield_hit_effect" }
+		start_event = { trigger_once = yes sound = { soundeffect = "distance_shield_hit" } } 
+	}
+	state = { name = "stop" state_time = 0.5 looping = no }
+}
+
+entity = {
+	name = "necroid_01_perdition_beam_shield_hit_entity"
+	cull_radius = 1.0
+	
+	default_state = "idle"
+	state = { name = "idle" 
+		start_event = { particle = "necroid_01_perdition_beam_hit_effect" sound = { soundeffect = "shield_hit" } }
 		start_event = { particle = "titan_laser_shield_hit_effect" }
 		start_event = { trigger_once = yes sound = { soundeffect = "distance_shield_hit" } } 
 	}

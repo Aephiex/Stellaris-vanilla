@@ -452,4 +452,9 @@ spriteTypes = {
 		name = "GFX_tr_adaptability_appropriation"
 		textureFile = "gfx/interface/icons/traditions/tradition_adaptability_appropriation.dds"
 	}
+
+	spriteType = {
+		name = "GFX_tr_harmony_unity_of_self"
+		textureFile = "gfx/interface/icons/traditions/tr_harmony_unity_of_self.dds"
+	}
 }

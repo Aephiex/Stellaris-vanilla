@@ -1,0 +1,65 @@
+objectTypes = {
+	pdxmesh = {
+		name = "necroid_01_titan_frame_mesh"
+		file = "gfx/models/ships/titans/necroid_01/necroid_01_titan_frame.mesh"
+		
+		animation = { id = "idle"						type = "arthropoid_01_titan_frame_idle_animation" }
+		animation = { id = "death"						type = "arthropoid_01_titan_frame_death_animation" }
+		
+	}
+
+	pdxmesh = {
+		name = "necroid_01_titan_bow_mesh"
+		file = "gfx/models/ships/titans/necroid_01/necroid_01_titan_bow_XL.mesh"
+
+		meshsettings = {
+			name = "necroid_01_titan_bow_XLShape"
+			index = 0
+			texture_diffuse = "necroid_01_titan_diffuse.dds"
+			texture_normal = "necroid_01_titan_normal.dds"
+			texture_specular = "necroid_01_titan_specular.dds"
+			shader = "PdxMeshShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "necroid_01_titan_mid_mesh"
+		file = "gfx/models/ships/titans/necroid_01/necroid_01_titan_mid_L4.mesh"
+
+		meshsettings = {
+			name = "necroid_01_titan_mid_L4Shape"
+			index = 0
+			texture_diffuse = "necroid_01_titan_diffuse.dds"
+			texture_normal = "necroid_01_titan_normal.dds"
+			texture_specular = "necroid_01_titan_specular.dds"
+			shader = "PdxMeshShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "necroid_01_titan_stern_mesh"
+		file = "gfx/models/ships/titans/necroid_01/necroid_01_titan_stern_L2.mesh"
+
+		meshsettings = {
+			name = "necroid_01_titan_stern_L2Shape"
+			index = 0
+			texture_diffuse = "necroid_01_titan_diffuse.dds"
+			texture_normal = "necroid_01_titan_normal.dds"
+			texture_specular = "necroid_01_titan_specular.dds"
+			shader = "PdxMeshShip"
+		}
+	}
+	
+	pdxmesh = {
+		name = "necroid_01_titan_glow_effect_mesh"
+		file = "gfx/models/ships/titans/necroid_01/necroid_01_titan_glow_effect.mesh"
+
+		meshsettings = {
+
+			texture_diffuse = "mammalian_01_titan_effect.dds"
+			texture_normal = "nonormal.dds"
+			texture_specular = "nospec.dds"
+			shader = "PdxMeshAlphaAdditiveAnimateUV"
+		}
+	}
+}

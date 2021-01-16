@@ -70,20 +70,36 @@ guiTypes = {
 				quadTextureSprite = "GFX_plain_green_frame_tile"
 				position = { x = 0 y = 0 }
 			}
-			
-			instantTextBoxType = {
-				name = "summary"
-				font = "cg_16b"
-				text = "2 Players, 15 Ready"
+
+			containerWindowType = {
+				name = "summary_window"
 				position = { x = 5 y = 8 }
-				maxWidth = 317
-				maxHeight = 20
-				fixedSize = yes
-				format = center
-				orientation = "UPPER_LEFT"
-				#text_color_code = "E"
+				instantTextBoxType = {
+					name = "summary_desc"
+					font = "cg_16b"
+					text = "Players Ready"
+					position = { x = 0 y = 0 }
+					maxWidth = 317
+					maxHeight = 20
+					fixedSize = yes
+					format = left
+					orientation = "UPPER_LEFT"
+				}
+
+				instantTextBoxType = {
+					name = "summary_count"
+					font = "cg_16b"
+					text = "2/15"
+					position = { x = 0 y = 0 }
+					maxWidth = 317
+					maxHeight = 20
+					fixedSize = yes
+					format = RIGHT
+					orientation = "UPPER_RIGHT"
+				}
+
 			}
-			
+						
 			smoothListboxType = {
 				name = "entries"
 				position = { x = 10 y = 30 }
@@ -130,7 +146,7 @@ guiTypes = {
 
 			OverlappingElementsBoxType = {
 				name = "dlc_expansion_box"	
-				position = { x = 43 y = 3 }
+				position = { x = 60 y = 10 }
 				size = { x = 405 y = 37 }
 				spacing = -1
 				format = left
@@ -138,7 +154,7 @@ guiTypes = {
 			
 			OverlappingElementsBoxType = {
 				name = "dlc_pack_box"	
-				position = { x = -1 y = 3 } # X Position is set by code
+				position = { x = -1 y = 10 } # X Position is set by code
 				size = { x = 405 y = 37 }
 				spacing = 5
 				format = left
@@ -1835,7 +1851,7 @@ guiTypes = {
 			size = { width = 427 height = 600 }
 			orientation = center
 			origo = center
-			
+
 			containerWindowType = {
 				name = "chat_background_window"
 				size = { width = 477 height = 538 }
@@ -1988,6 +2004,13 @@ guiTypes = {
 			size = { x = 300 y = 20 }
 			position = { x= -125 y = -20  }
 			orientation = "CENTER_DOWN"
+		}
+
+		checkboxType = {
+			name = "ready_checkbox"
+			position = { x = -49 y = -49 }
+			orientation = "LOWER_RIGHT"
+			spriteType = "GFX_checkbox_20_20_01"
 		}
 
 		buttonType = {
@@ -2318,36 +2341,40 @@ guiTypes = {
 	containerWindowType = {
 		name = "mp_dlc_expansion_entry"
 		position = { x=0 y=0 }
-		size = { width=50 height=50 }
+		size = { width=40 height=40 }
 
 		iconType = {
 			name = "icon"
 			position = { x = 0 y = 0 }
 			spriteType = "GFX_utopia"
+			scale = 0.75
 		}
 		
 		iconType = {
 			name = "icon_frame"
 			position = { x = 0 y = 0 }
 			spriteType = "GFX_expansionframe_big"
+			scale = 0.75
 		}
 	}
 	
 	containerWindowType = {
 		name = "mp_dlc_pack_entry"
 		position = { x=0 y=0 }
-		size = { width=32 height=32 }
+		size = { width=24 height=24 }
 
 		iconType = {
 			name = "icon"
 			position = { x = 0 y = 0 }
 			spriteType = "GFX_leviathansstorypack"
+			scale = 0.75
 		}
 		
 		iconType = {
 			name = "icon_frame"
 			position = { x = 0 y = 0 }
 			spriteType = "GFX_packframe_big"
+			scale = 0.75
 		}
 	}
 }

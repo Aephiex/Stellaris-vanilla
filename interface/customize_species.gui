@@ -1,6 +1,11 @@
 guiTypes = {
 	@menu_width = 220
 
+	positionType = {
+		name = "locked_content_checkbox_position"
+		position = { x = 1 y = -192 }
+	}
+
 	containerWindowType = {
 		name = "customize_species_view"
 		size = { width = 230 height = 100% }
@@ -22,6 +27,28 @@ guiTypes = {
 				size = { x = 213 y = 570 }
 				scrollbarType = "standardlistbox_slider"
 				borderSize = { x = 0 y = 0 }
+			}
+			
+			# This checkbox creates graphicla artefact where it is created.
+			# Position is offset to be outside of the screen.
+			# The positionType "locked_content_checkbox_position" has the actual position.
+			checkboxType = {
+				position = { x = -10000 y = -10000 }
+				name = "locked_content_checkbox"
+				spriteType = "GFX_checkbox_20_20_01"
+				orientation = LOWER_LEFT
+			}
+
+			instantTextBoxType = {
+				name = "locked_content_label"
+				font = "cg_16b"
+				position = { x = 35 y = -185 }
+				maxWidth = 180
+				maxHeight = 80
+				text = "HIDE_UNOWNED_CONTENT"
+				format = left
+				orientation = LOWER_LEFT
+				alwaysTransparent = yes
 			}
 
 			buttonType = {

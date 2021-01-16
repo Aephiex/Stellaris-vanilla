@@ -1,0 +1,251 @@
+objectTypes = {
+### Engines
+
+	pdxparticle = {
+		name = "necroid_01_025_ship_exhaust"
+		type = "necroid_01_ship_exhaust_file"
+	
+		scale = 0.25
+	}
+	
+	pdxparticle = {
+		name = "necroid_01_035_ship_exhaust"
+		type = "necroid_01_ship_exhaust_file"
+	
+		scale = 0.35
+	}
+	
+	pdxparticle = {
+		name = "necroid_01_050_ship_exhaust"
+		type = "necroid_01_ship_exhaust_file"
+	
+		scale = 0.5
+	}
+	
+	pdxparticle = {
+		name = "necroid_01_075_ship_exhaust"
+		type = "necroid_01_ship_exhaust_file"
+	
+		scale = 0.75
+	}
+
+	pdxparticle = {
+		name = "necroid_01_100_ship_exhaust"
+		type = "necroid_01_ship_exhaust_file"
+	
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "necroid_01_150_ship_exhaust"
+		type = "necroid_01_ship_exhaust_file"
+	
+		scale = 1.5
+	}
+	
+	pdxparticle = {
+		name = "necroid_01_250_ship_exhaust"
+		type = "necroid_01_ship_exhaust_file"
+	
+		scale = 2.5
+	}
+
+	pdxparticle = {
+		name = "necroid_01_350_ship_exhaust"
+		type = "necroid_01_ship_exhaust_file"
+	
+		scale = 3.5
+	}
+	
+	pdxparticle = {
+		name = "necroid_01_500_ship_exhaust"
+		type = "necroid_01_ship_exhaust_file"
+	
+		scale = 5
+	}
+	
+	pdxparticle = {
+		name = "necroid_01_700_ship_exhaust"
+		type = "necroid_01_ship_exhaust_file"
+	
+		scale = 7
+	}
+##### Ship effects
+
+	pdxparticle = {
+		name = "necroid_01_ship_core_effect"
+		type = "necroid_01_ship_core_effect_file"
+	
+		scale = 6
+	}
+
+	pdxparticle = {
+		name = "necroid_01_ion_core_effect"
+		type = "necroid_01_ion_core_effect_file"
+	
+		scale = 6
+	}
+
+	pdxparticle = {
+		name = "necroid_01_colossus_core_effect"
+		type = "necroid_01_ion_core_effect_file"
+	
+		scale = 18
+	}
+	
+	pdxparticle = {
+		name = "necroid_01_ship_light_effect"
+		type = "necroid_01_ship_light_effect"
+	
+		scale = 1
+	}
+	
+	pdxparticle = {
+		name = "necroid_01_large_station_explosion_file"
+		type = "necroid_01_station_explosion_file"
+		
+		scale = 1.5
+	}
+	
+	pdxparticle = {
+		name = "necroid_01_medium_station_explosion_file"
+		type = "necroid_01_station_explosion_file"
+		
+		scale = 1
+	}
+####### Explosions
+##################
+	
+	pdxparticle = {
+		name = "necroid_ship_explosion_dreadnought"
+		type = "necroid_ship_explosion_dreadnought_file"
+		
+		scale = 50.0
+	}
+	pdxparticle = {
+		name = "necroid_ship_explosion_dreadnought_s"
+		type = "necroid_ship_explosion_dreadnought_file"
+		
+		scale = 1.0
+	}
+	
+	pdxparticle = {
+		name = "necroid_01_massive_ship_explosion_file"
+		type = "necroid_01_large_ship_explosion_file"
+		
+		scale = 2.9
+	}
+	
+	pdxparticle = {
+		name = "necroid_01_large_ship_explosion"
+		type = "necroid_01_large_ship_explosion_file"
+	
+		scale = 1.9
+	}
+
+
+	pdxparticle = {
+		name = "necroid_01_3_ship_explosion_effect"
+		type = "necroid_ship_explosion_file"
+	
+		scale = 3
+	}
+	pdxparticle = {
+		name = "necroid_01_2_ship_explosion_effect"
+		type = "necroid_ship_explosion_file"
+	
+		scale = 2
+	}
+	
+	pdxparticle = {
+		name = "necroid_01_ship_explosion_effect"
+		type = "necroid_ship_explosion_file"
+	
+		scale = 1
+	}
+	
+	pdxparticle = {
+		name = "necroid_01_26_large_player_ship_explosion_particle"
+		type = "necroid_player_ship_explosion_effect"
+		scale = 2.6
+	}
+	
+	pdxparticle = {
+		name = "necroid_01_large_player_ship_explosion_particle"
+		type = "necroid_player_ship_explosion_effect"
+		scale = 2.1
+	}
+
+	pdxparticle = {
+		name = "necroid_01_medium_player_ship_explosion_particle"
+		type = "necroid_player_ship_explosion_effect"
+		scale = 1.6
+	}
+	
+	pdxparticle = {
+		name = "necroid_01_small_player_ship_explosion_particle"
+		type = "necroid_player_ship_explosion_effect"
+		scale = 1.1
+	}
+	
+	pdxparticle = {
+		name = "necroid_01_small_2_player_ship_explosion_particle"
+		type = "necroid_player_ship_explosion_effect"
+		scale = 0.9
+	}
+### Weapons
+
+	pdxparticle = {
+		name = "necroid_01_perdition_muzzle_smoke_effect"
+		type = "necroid_01_perdition_muzzle_smoke_effect_file"
+	
+		scale = 1
+	}
+
+	pdxparticle = {
+		name = "necroid_01_perdition_windup_effect"
+		type = "necroid_01_perdition_windup_effect_file"
+	
+		scale = 1
+	}
+	
+	pdxparticle = {
+		name = "necroid_01_perdition_beam_muzzle_effect"
+		type = "necroid_01_perdition_beam_muzzle"
+	
+		scale = 1
+	}
+	
+	pdxparticle = {
+		name = "necroid_01_perdition_beam_hit_effect"
+		type = "necroid_01_perdition_beam_hit_effect"
+	
+		scale = 1
+	}
+
+	pdxparticle = {
+		name = "necroid_01_ion_cannon_windup_effect"
+		type = "necroid_01_ion_cannon_windup_effect"
+		
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "necroid_01_ion_cannon_muzzle_windup_effect"
+		type = "necroid_01_ion_cannon_muzzle_windup_effect"
+		
+		scale = 0.9
+	}
+	pdxparticle = {
+		name = "necroid_01_ion_cannon_muzzle_particle"
+		type = "necroid_01_ion_cannon_muzzle_effect"
+		
+		scale = 1.0
+	}
+	pdxparticle = {
+		name = "necroid_01_ion_cannon_hit_effect"
+		type = "necroid_01_ion_cannon_hit_effect"
+		
+		scale = 3.0
+	}
+	
+}
